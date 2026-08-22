@@ -1,0 +1,7 @@
+{
+  "name": "MATH AI VIDEO STUDIO",
+  "description": "AI-powered high-school mathematics teaching assistant with structured problem parsing, 3-step pedagogical solutions, math verification, visual planning, Manim video generation, and multi-format exports.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
