@@ -1,0 +1,127 @@
+﻿{
+    "success":  true,
+    "report":  {
+                   "sessionId":  "repair_session_1787414304486",
+                   "sceneName":  "RepairSmokeTest",
+                   "repairBackend":  "LOCAL_CLI_INFERENCE",
+                   "initialStatus":  "FAIL",
+                   "finalStatus":  "AUTO_REPAIR_EXHAUSTED",
+                   "totalAttempts":  3,
+                   "attempts":  [
+                                    {
+                                        "attempt":  1,
+                                        "issueIds":  [
+                                                         "LAYOUT_ERROR"
+                                                     ],
+                                        "filesRead":  [
+                                                          "main.py"
+                                                      ],
+                                        "proposedChanges":  [
+                                                                {
+                                                                    "file":  "main.py",
+                                                                    "operation":  "replace_range",
+                                                                    "oldText":  "        formula.move_to(title.get_center())",
+                                                                    "newText":  "        formula.next_to(title, DOWN, buff=0.5)",
+                                                                    "category":  "LAYOUT_ERROR"
+                                                                }
+                                                            ],
+                                        "validationStatus":  "PATCH_REJECTED",
+                                        "validationErrors":  [
+                                                                 "Protected mathematical formula \"x=2\" was deleted or mutated.",
+                                                                 "Protected mathematical formula \"x=3\" was deleted or mutated."
+                                                             ],
+                                        "snapshotId":  "snapshot_attempt_1_1787414304594",
+                                        "timestamp":  "2026-08-22T15:58:24.594Z"
+                                    },
+                                    {
+                                        "attempt":  2,
+                                        "issueIds":  [
+                                                         "LAYOUT_ERROR"
+                                                     ],
+                                        "filesRead":  [
+                                                          "main.py"
+                                                      ],
+                                        "proposedChanges":  [
+                                                                {
+                                                                    "file":  "main.py",
+                                                                    "operation":  "replace_range",
+                                                                    "oldText":  "        formula.move_to(title.get_center())",
+                                                                    "newText":  "        formula.next_to(title, DOWN, buff=0.5)",
+                                                                    "category":  "LAYOUT_ERROR"
+                                                                }
+                                                            ],
+                                        "validationStatus":  "PATCH_REJECTED",
+                                        "validationErrors":  [
+                                                                 "Protected mathematical formula \"x=2\" was deleted or mutated.",
+                                                                 "Protected mathematical formula \"x=3\" was deleted or mutated."
+                                                             ],
+                                        "snapshotId":  "snapshot_attempt_2_1787414319838",
+                                        "timestamp":  "2026-08-22T15:58:39.838Z"
+                                    },
+                                    {
+                                        "attempt":  3,
+                                        "issueIds":  [
+                                                         "LAYOUT_ERROR"
+                                                     ],
+                                        "filesRead":  [
+                                                          "main.py"
+                                                      ],
+                                        "proposedChanges":  [
+                                                                {
+                                                                    "file":  "main.py",
+                                                                    "operation":  "replace_range",
+                                                                    "oldText":  "        formula.move_to(title.get_center())",
+                                                                    "newText":  "        formula.next_to(title, DOWN, buff=0.5)",
+                                                                    "category":  "LAYOUT_ERROR"
+                                                                }
+                                                            ],
+                                        "validationStatus":  "PATCH_REJECTED",
+                                        "validationErrors":  [
+                                                                 "Protected mathematical formula \"x=2\" was deleted or mutated.",
+                                                                 "Protected mathematical formula \"x=3\" was deleted or mutated."
+                                                             ],
+                                        "snapshotId":  "snapshot_attempt_3_1787414335066",
+                                        "timestamp":  "2026-08-22T15:58:55.066Z"
+                                    }
+                                ],
+                   "protectedFingerprints":  {
+                                                 "mathHash":  "7b40270033857051977331adfd21e5920ae4ec5cafb5f2006c3c82ed60453229",
+                                                 "geometryHash":  "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+                                                 "graphHash":  "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+                                                 "problemTextHash":  "cf911ddac04bb973ec2a38e9a97620a1812f545addbf8292e87e76f1986b0efa",
+                                                 "formulaFingerprints":  [
+                                                                             "x=2",
+                                                                             "x=3",
+                                                                             "x^2-5x+6=0"
+                                                                         ]
+                                             },
+                   "qaSummary":  {
+                                     "openClawRepairBackend":  "LOCAL_CLI_INFERENCE",
+                                     "openClawLocalInferenceQa":  "PASS",
+                                     "openClawGatewayInferenceQa":  "NOT_REQUIRED",
+                                     "openClawRepairEngine":  "ACTIVE",
+                                     "repairIssueClassifierQa":  "PASS",
+                                     "safeRepairGateQa":  "PASS",
+                                     "reviewRequiredGateQa":  "PASS",
+                                     "patchSchemaQa":  "PASS",
+                                     "patchPathSecurityQa":  "PASS",
+                                     "patchCodeSecurityQa":  "PASS",
+                                     "patchSafetyQa":  "PASS",
+                                     "backupRollbackQa":  "PASS",
+                                     "protectedDataMutationQa":  "FAIL",
+                                     "maxAttemptGateQa":  "PASS",
+                                     "realOpenclawPatchQa":  "PASS",
+                                     "rerenderQa":  "PASS",
+                                     "postRepairFrameQa":  "PASS",
+                                     "mathRegressionQa":  "PASS",
+                                     "graphRegressionQa":  "PASS",
+                                     "geometryLockQa":  "PASS",
+                                     "localBridgeRegressionQa":  "PASS",
+                                     "buildQa":  "PASS"
+                                 },
+                   "currentFiles":  {
+                                        "main.py":  "from manim import *\n\nclass RepairSmokeTest(Scene):\n    def construct(self):\n        title = Text(\"MATH AI VIDEO STUDIO\")\n        formula = MathTex(r\"x^2-5x+6=0\")\n\n        formula.move_to(title.get_center())\n\n        self.play(Write(title))\n        self.play(Write(formula))\n        self.wait(1)\n"
+                                    },
+                   "timestamp":  "2026-08-22T15:59:11.136Z"
+               }
+}
