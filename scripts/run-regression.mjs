@@ -1,5 +1,9 @@
 import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
 import process from "node:process";
+
+const require = createRequire(import.meta.url);
+const tsxCli = require.resolve("tsx/cli");
 
 const suites = [
   "tests/math-regression.ts",
@@ -14,7 +18,6 @@ const suites = [
   "tests/test-step8b-source-aware-invariants.ts",
 ];
 
-const npx = process.platform === "win32" ? "npx.cmd" : "npx";
 let failed = 0;
 
 for (const suite of suites) {
@@ -22,7 +25,7 @@ for (const suite of suites) {
   console.log(` REGRESSION: ${suite}`);
   console.log(`============================================================`);
 
-  const result = spawnSync(npx, ["tsx", suite], {
+  const result = spawnSync(process.execPath, [tsxCli, suite], {
     cwd: process.cwd(),
     stdio: "inherit",
     shell: false,
