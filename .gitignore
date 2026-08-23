@@ -12,3 +12,5 @@ repair-smoke-result.json
 
 local_bridge/runs/
 local_bridge/tmp/
+media/
+render_output/

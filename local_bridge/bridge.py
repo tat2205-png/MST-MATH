@@ -5,6 +5,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import threading
 import uuid
@@ -19,6 +20,26 @@ ROOT.mkdir(parents=True, exist_ok=True)
 JOBS: dict[str, dict] = {}
 LOCK = threading.Lock()
 SCENE_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+
+
+def detect_capabilities() -> dict:
+    manim = subprocess.run(
+        [sys.executable, "-c", "import manim"],
+        capture_output=True,
+        text=True,
+        shell=False,
+        timeout=15,
+    )
+    return {
+        "python": {"installed": bool(sys.executable), "executable": sys.executable},
+        "manim": {"installed": manim.returncode == 0},
+        "ffmpeg": {"installed": shutil.which("ffmpeg") is not None},
+        "ffprobe": {"installed": shutil.which("ffprobe") is not None},
+        "openclaw": {"available": shutil.which("openclaw") is not None},
+    }
+
+
+CAPABILITIES = detect_capabilities()
 
 
 def json_response(handler: BaseHTTPRequestHandler, status: int, body: dict):
@@ -46,7 +67,7 @@ def run_job(job_id: str, payload: dict, workspace: Path):
         script.parent.mkdir(parents=True, exist_ok=True)
         script.write_text(source, encoding="utf-8")
         media = workspace / "media"
-        command = ["python", "-m", "manim", "-ql", "--disable_caching", "--media_dir", str(media), str(script), scene]
+        command = [sys.executable, "-m", "manim", "-ql", "--disable_caching", "--media_dir", str(media), str(script), scene]
         process = subprocess.run(command, cwd=workspace, capture_output=True, text=True, shell=False, timeout=180)
         output = (process.stdout + "\n" + process.stderr)[-12000:]
         videos = sorted(path for path in media.glob("videos/**/*.mp4") if "partial_movie_files" not in path.parts)
@@ -94,7 +115,8 @@ class BridgeHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         path = unquote(urlparse(self.path).path)
         if path == "/health":
-            return json_response(self, 200, {"status": "READY", "bridgeVersion": "golden-path-v1.2", "capabilities": {"python": {"installed": True}, "manim": {"installed": shutil.which("python") is not None}, "ffmpeg": {"installed": shutil.which("ffmpeg") is not None}, "openclaw": {"available": False}}})
+            runtime_ready = all(CAPABILITIES[name]["installed"] for name in ("python", "manim", "ffmpeg", "ffprobe"))
+            return json_response(self, 200, {"status": "READY" if runtime_ready else "DEGRADED", "bridgeVersion": "golden-path-v1.3", "capabilities": CAPABILITIES})
         match = re.fullmatch(r"/api/jobs/([A-Za-z0-9_-]+)", path)
         if match:
             with LOCK:

@@ -7,6 +7,7 @@
     "dev": "tsx -r dotenv/config server.ts",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
+    "studio": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\start-studio.ps1",
     "clean": "node -e \"const fs=require('fs');for(const p of ['dist','server.js'])fs.rmSync(p,{recursive:true,force:true})\"",
     "lint": "tsc --noEmit",
     "qa:quick": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Quick",

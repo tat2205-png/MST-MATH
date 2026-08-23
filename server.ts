@@ -21,6 +21,7 @@ import { REPAIR_SMOKE_TEST_MANIFEST, REPAIR_SMOKE_TEST_SCENE_CODE } from "./src/
 async function startServer() {
   const app = express();
   const PORT = 3000;
+  const HOST = process.env.APP_HOST || "127.0.0.1";
 
   // Support JSON and large base64 image/document uploads (up to 50MB)
   app.use(express.json({ limit: "50mb" }));
@@ -499,8 +500,8 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`MATH AI VIDEO STUDIO Server running on http://0.0.0.0:${PORT}`);
+  app.listen(PORT, HOST, () => {
+    console.log(`MATH AI VIDEO STUDIO Server running on http://${HOST}:${PORT}`);
   });
 }
 

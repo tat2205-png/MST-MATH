@@ -17,6 +17,7 @@ const suites = [
   "tests/test-step6e-auto-repair.ts",
   "tests/test-step8a-master-canvas.ts",
   "tests/test-step8b-source-aware-invariants.ts",
+  "tests/test-production-ui-workflow.ts",
 ];
 
 let failed = 0;

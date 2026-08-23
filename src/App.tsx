@@ -181,34 +181,42 @@ export function App() {
       const currentSol = solveData.solution as MathSolution;
       setSolution(currentSol);
 
-      // 3. Verification and Visuals in Parallel
-      setPipelineProgressText("Bước 3-4/5: Đang kiểm định 6 chiều toán học & lên bản vẽ minh họa (VisualPlanner)...");
-      const [verifyRes, visualRes] = await Promise.all([
-        fetch("/api/pipeline/verify", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            problemIR: currentIR,
-            solution: currentSol,
-            providerId: selectedProvider,
-          }),
+      // 3. Deterministic Math Verification Gate must complete before visual planning.
+      setPipelineProgressText("Bước 3/5: Đang kiểm định 6 chiều toán học...");
+      const verifyRes = await fetch("/api/pipeline/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          problemIR: currentIR,
+          solution: currentSol,
+          providerId: selectedProvider,
         }),
-        fetch("/api/pipeline/visuals", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            problemIR: currentIR,
-            solution: currentSol,
-            providerId: selectedProvider,
-          }),
-        }),
-      ]);
-
+      });
       const verifyData = await verifyRes.json();
-      const visualData = await visualRes.json();
+      if (!verifyRes.ok || !verifyData.success || !verifyData.verification) {
+        throw new Error(verifyData.error || "Không thể kiểm định lời giải toán học.");
+      }
+      const currentVerification = verifyData.verification as VerificationReport;
+      setVerification(currentVerification);
 
-      if (verifyData.success) setVerification(verifyData.verification);
-      if (visualData.success) setVisualSpec(visualData.visualSpec);
+      // 4. Visual planning may only consume the verified artifact.
+      setPipelineProgressText("Bước 4/5: Đang lên bản vẽ minh họa (VisualPlanner)...");
+      const visualRes = await fetch("/api/pipeline/visuals", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          problemIR: currentIR,
+          solution: currentSol,
+          verification: currentVerification,
+          providerId: selectedProvider,
+        }),
+      });
+      const visualData = await visualRes.json();
+      if (!visualRes.ok || !visualData.success || !visualData.visualSpec) {
+        const reason = visualData.mathGate?.reasons?.join(" ");
+        throw new Error(reason || visualData.error || "Math verification failure: cần kiểm tra thủ công trước khi tạo hình.");
+      }
+      setVisualSpec(visualData.visualSpec);
 
       // 5. Video Planning with Skill & Style Integration
       setPipelineProgressText("Bước 5/5: Đang thiết kế phân cảnh Manim & kịch bản giọng đọc (VideoPlanner)...");
@@ -218,6 +226,7 @@ export function App() {
         body: JSON.stringify({
           problemIR: currentIR,
           solution: currentSol,
+          verification: currentVerification,
           visualSpec: visualData.visualSpec || null,
           providerId: selectedProvider,
           videoStyle,
@@ -228,7 +237,11 @@ export function App() {
       });
 
       const videoData = await videoRes.json();
-      if (videoData.success) setVideoSpec(videoData.videoSpec);
+      if (!videoRes.ok || !videoData.success || !videoData.videoSpec) {
+        const reason = videoData.mathGate?.reasons?.join(" ");
+        throw new Error(reason || videoData.error || "Không thể tạo kế hoạch video từ lời giải đã kiểm định.");
+      }
+      setVideoSpec(videoData.videoSpec);
 
       // Switch to solution tab automatically
       setCurrentTab("solution");
