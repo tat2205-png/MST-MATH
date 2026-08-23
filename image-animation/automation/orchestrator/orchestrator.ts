@@ -4,7 +4,7 @@ import { evaluateRepositoryGuard, type RepositoryGuardResult } from "../gates/re
 
 export type OrchestratorState = "PENDING" | "PREFLIGHT" | "RUNNING" | "QA_RUNNING" | "REPAIR_PENDING" | "REPAIR_RUNNING" | "REPAIR_VALIDATING" | "PASS" | "FAIL" | "BLOCKED" | "REPAIR_EXHAUSTED";
 export type GateStatus = "PASS" | "FAIL" | "NOT_AVAILABLE";
-export interface TaskSpec { id: string; title: string; phase: string; goal: string; allowedPaths: string[]; forbiddenPaths: string[]; requirements: string[]; requiredTests: string[]; requiredGates?: string[]; protectedPaths?: string[]; architectureProtectedPaths?: string[]; maxRepairAttempts: number; architectureChangeAllowed: boolean; expectedBranch: string; }
+export interface TaskSpec { id: string; title: string; phase: string; goal: string; allowedPaths: string[]; forbiddenPaths: string[]; requirements: string[]; requiredTests: string[]; requiredGates?: string[]; protectedPaths?: string[]; architectureProtectedPaths?: string[]; agentAllowedPaths?: string[]; taskQa?: string[]; passCriteria?: string[]; maxRepairAttempts: number; architectureChangeAllowed: boolean; expectedBranch: string; }
 export interface FailureEvidence { gateId: string; command: string; exitCode: number | null; stdoutSummary: string; stderrSummary: string; failedTests: string[]; changedFiles: string[]; timestamp: string; }
 export interface RepairRequest { taskId: string; attempt: number; failureEvidence: FailureEvidence[]; allowedPaths: string[]; forbiddenPaths: string[]; architectureLocked: boolean; }
 export interface RepairResult { status: "CHANGED" | "NO_CHANGE" | "FAILED"; changedFiles: string[]; summary: string; }

@@ -12,7 +12,9 @@ export function runNpm(args: string[], inherit = false) {
 }
 
 export function readTaskSpec() {
-  return JSON.parse(readFileSync(path.join(root, "image-animation/automation/specs/IA-0A.1.json"), "utf8"));
+  const taskId = process.env.IA_TASK_ID ?? "IA-0A.1";
+  if (!/^IA-[A-Za-z0-9.-]+$/.test(taskId)) throw new Error("Invalid IA_TASK_ID");
+  return JSON.parse(readFileSync(path.join(root, "image-animation", "automation", "specs", `${taskId}.json`), "utf8"));
 }
 
 export function getChangedFiles(): string[] {

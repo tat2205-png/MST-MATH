@@ -2,6 +2,7 @@ import process from "node:process";
 import { selectAgent } from "../agents/providerSelection.ts";
 
 const taskId = process.argv[2];
+const repairMode = process.argv.includes("--repair");
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -26,7 +27,8 @@ const selected = selectAgent("codex");
 if (!(selected instanceof CodexCodingAgentAdapter)) { console.log(JSON.stringify({ TASK: taskId, PROVIDER: provider, AGENT_EXECUTION: "NOT_AVAILABLE", FINAL: "BLOCKED" })); process.exit(1); }
 const sandbox = new TaskExecutionSandbox(root, spec.expectedBranch, spec);
 const mutationMode = "HOST_APPLIED_PATCH";
-const evidence = await sandbox.executeAsync(selected, taskId, 1, [], "IMPLEMENT", mutationMode);
+const attemptValue = repairMode ? Number(process.argv[process.argv.indexOf("--repair") + 1] ?? "1") : 1;
+const evidence = await sandbox.executeAsync(selected, taskId, attemptValue, [], repairMode ? "REPAIR" : "IMPLEMENT", mutationMode);
 const proposal = validatePatch(root, spec, evidence.result.fileEdits);
 const patchApplication = proposal.status === "PASS" ? applyPatchTransaction(root, proposal.edits) : { status: "FAIL" as const, changedFiles: [], error: proposal.violations.join("; ") };
 const appliedAfter = captureGitSnapshot(root);

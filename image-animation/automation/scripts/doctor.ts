@@ -7,7 +7,7 @@ import { parseGitPorcelain } from "../gates/gitStatusParser.ts";
 
 const root = process.cwd();
 const scripts = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8")).scripts as Record<string, string>;
-const requiredScripts = ["ia:status", "ia:qa", "ia:regression", "ia:auto", "ia:agent-status", "ia:build", "ia:doctor", "ia:resume"];
+const requiredScripts = ["ia:status", "ia:qa", "ia:regression", "ia:auto", "ia:agent-status", "ia:build", "ia:doctor", "ia:resume", "ia:task-test"];
 const requiredFiles = [
   "image-animation/AGENTS.md", "image-animation/automation/specs/task-spec.schema.json", "image-animation/automation/gates/repositoryGuard.ts",
   "image-animation/automation/gates/gitStatusParser.ts", "image-animation/automation/orchestrator/orchestrator.ts", "image-animation/automation/orchestrator/repairExecutor.ts",
@@ -25,6 +25,8 @@ checks.gitParser = parseGitPorcelain(" M image-animation/a.ts\n?? image-animatio
 checks.providerDiscovery = discoverProviders(["codex"])[0].status === "AVAILABLE" ? "PASS" : "NOT_AVAILABLE";
 checks.canary = readFileSync(path.join(root, "image-animation/fixtures/agent-canary/canary.txt"), "utf8").trim() === "AFTER" ? "PASS" : "BLOCKED";
 checks.hostPatchMode = existsSync(path.join(root, "image-animation/automation/gates/patchTransaction.ts")) ? "PASS" : "FAIL";
+const resumeSource = readFileSync(path.join(root, "image-animation/automation/scripts/resume.ts"), "utf8");
+checks.autopilotRuntime = resumeSource.includes("while (true)") && resumeSource.includes("LOCKED_ROADMAP") && resumeSource.includes("AUTO_REPAIR_EXHAUSTED") && !resumeSource.includes("shell: true") ? "PASS" : "FAIL";
 const status = Object.values(checks).every((value) => value === "PASS") ? "PASS" : "FAIL";
 console.log(JSON.stringify({ IA_DOCTOR: status, checks, provider: discoverProviders(["codex"])[0] }, null, 2));
 process.exit(status === "PASS" ? 0 : 1);

@@ -30,7 +30,7 @@ export class CodexCodingAgentAdapter implements CodingAgent {
 
   constructor(options: CodexAdapterOptions = {}) {
     this.executable = options.executable ?? CODEX_EXECUTABLE;
-    this.timeoutMs = options.timeoutMs ?? 120000;
+    this.timeoutMs = options.timeoutMs ?? 600000;
     this.automationRoot = options.automationRoot ?? path.join(APPROVED_WORKSPACE, "image-animation", "automation", "temp");
   }
 

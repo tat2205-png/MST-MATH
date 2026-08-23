@@ -22,6 +22,7 @@
     "ia:build": "tsx image-animation/automation/scripts/build.ts",
     "ia:doctor": "tsx image-animation/automation/scripts/doctor.ts",
     "ia:resume": "tsx image-animation/automation/scripts/resume.ts",
+    "ia:task-test": "tsx image-animation/automation/scripts/task-test.ts",
     "ia:self-build": "tsx image-animation/automation/scripts/self-build.ts",
     "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
     "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
