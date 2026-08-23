@@ -14,6 +14,7 @@ const suites = [
   "tests/test-step6b-local-bridge.ts",
   "tests/test-step6c-smoke-test.ts",
   "tests/test-step6d-frame-input.ts",
+  "tests/test-step6e-auto-repair.ts",
   "tests/test-step8a-master-canvas.ts",
   "tests/test-step8b-source-aware-invariants.ts",
 ];

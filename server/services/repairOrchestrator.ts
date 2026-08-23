@@ -326,7 +326,7 @@ export class RepairOrchestrator {
         const renderRes = await fetch(`${bridgeUrl}/api/jobs`, {
           method: "POST",
           headers,
-          body: JSON.stringify(renderPayload),
+          body: JSON.stringify({ manifest: renderPayload }),
         }).catch(() => null);
 
         if (renderRes && renderRes.ok) {
@@ -338,6 +338,23 @@ export class RepairOrchestrator {
         // Handled gracefully for unit/mock environments
       }
       rerenderQa = rerenderSuccess ? "PASS" : "FAIL";
+
+      if (!rerenderSuccess) {
+        attempts.push({
+          attempt: currentAttemptNum,
+          issueIds: safeRepairIssues.map((i) => i.category),
+          filesRead: Object.keys(currentFiles),
+          proposedChanges: proposal.changes,
+          validationStatus: "PASS",
+          renderJobId,
+          frameQaStatus: "FAIL",
+          runtimeStatus: "FAIL",
+          snapshotId: snapshot.snapshotId,
+          timestamp: attemptTimestamp,
+        });
+        currentAttemptNum++;
+        continue;
+      }
 
       // Step G: Run Post-Repair Frame QA (Section 14, 15)
       let postQaReport: JobVisualFrameQAReport;
