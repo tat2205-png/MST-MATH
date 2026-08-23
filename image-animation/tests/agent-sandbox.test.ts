@@ -11,8 +11,11 @@ const root = process.cwd();
 const spec = loadTaskSpec(root, "IA-0A.4");
 const allowed = ["image-animation/automation/agents/example.ts"];
 const baseResult = (changedFiles = allowed): CodingAgentResult => ({ status: "PASS", provider: "fake", exitCode: 0, changedFiles, stdoutSummary: "done", stderrSummary: "", startedAt: "", finishedAt: "" });
-const snapshot = (branch = "feature/image-animation-foundation", head = "abc", changedFiles = allowed): GitSnapshot => ({ branch, head, status: "", changedFiles });
-const sandbox = (agent: FakeCodingAgent, before = snapshot(), after = before) => new TaskExecutionSandbox(root, "feature/image-animation-foundation", spec, (() => { let index = 0; return () => index++ === 0 ? before : after; })()).execute(agent, spec.id, 1);
+const snapshot = (branch = "feature/image-animation-foundation", head = "abc", changedFiles = allowed, fingerprint = "same"): GitSnapshot => ({ branch, head, status: "", changedFiles, fingerprints: Object.fromEntries(changedFiles.map((file) => [file, fingerprint])) });
+const sandbox = (agent: FakeCodingAgent, before = snapshot(), after?: GitSnapshot) => {
+	const effectiveAfter = after ?? snapshot(before.branch, before.head, agent.result.changedFiles, "changed");
+	return new TaskExecutionSandbox(root, "feature/image-animation-foundation", spec, (() => { let index = 0; return () => index++ === 0 ? before : effectiveAfter; })()).execute(agent, spec.id, 1);
+};
 
 assert.equal(sandbox(new FakeCodingAgent(baseResult())).repositoryGuard.status, "PASS", "allowed fake edit accepted");
 assert.equal(sandbox(new FakeCodingAgent(baseResult(["server/index.ts"]))).repositoryGuard.status, "FAIL", "forbidden fake edit blocked");

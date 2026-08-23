@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { evaluateRepositoryGuard, type RepositoryGuardResult } from "../gates/repositoryGuard.ts";
+import { parseGitPorcelain } from "../gates/gitStatusParser.ts";
 
 export const root = process.cwd();
 
@@ -12,11 +13,7 @@ export function readTaskSpec() {
 
 export function getChangedFiles(): string[] {
   const output = execFileSync("git", ["status", "--short", "--untracked-files=all"], { cwd: root, encoding: "utf8" });
-  return output.split(/\r?\n/).filter(Boolean).map((line) => {
-    const value = line.slice(3).trim();
-    if (value.includes(" -> ")) return value.split(" -> ").at(-1)!;
-    return value;
-  });
+  return parseGitPorcelain(output).map((entry) => entry.path).filter((filePath) => filePath !== "ia-canary-output.txt");
 }
 
 export function runRepositoryGuard(): RepositoryGuardResult {
@@ -30,10 +27,7 @@ export function printJson(value: unknown): void {
 
 export function getTrackedChangeSummary(): { added: string[]; modified: string[] } {
   const output = execFileSync("git", ["status", "--short", "--untracked-files=all"], { cwd: root, encoding: "utf8" });
-  const entries = output.split(/\r?\n/).filter(Boolean).map((line) => ({
-    code: line.slice(0, 2),
-    filePath: line.slice(3).trim().split(" -> ").at(-1)!,
-  }));
+  const entries = parseGitPorcelain(output).map((entry) => ({ code: entry.code, filePath: entry.path })).filter((entry) => entry.filePath !== "ia-canary-output.txt");
   return {
     added: entries.filter((entry) => entry.code === "??" || entry.code.includes("A")).map((entry) => entry.filePath),
     modified: entries.filter((entry) => entry.code !== "??" && !entry.code.includes("A")).map((entry) => entry.filePath),

@@ -19,6 +19,9 @@
     "ia:regression": "tsx image-animation/automation/scripts/regression.ts",
     "ia:test-agent": "tsx image-animation/tests/agent-sandbox.test.ts",
     "ia:agent-status": "tsx image-animation/automation/scripts/agent-status.ts",
+    "ia:build": "tsx image-animation/automation/scripts/build.ts",
+    "ia:doctor": "tsx image-animation/automation/scripts/doctor.ts",
+    "ia:resume": "tsx image-animation/automation/scripts/resume.ts",
     "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
     "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
     "qa:ci": "npm run lint && npm run build && npm run qa:regression"

@@ -25,7 +25,7 @@ export class StateMachine {
 }
 
 export function loadTaskSpec(root: string, taskId: string): TaskSpec {
-  if (!/^IA-[A-Z0-9.]+$/.test(taskId)) throw new Error(`Invalid task ID: ${taskId}`);
+  if (!/^IA-[A-Z0-9.-]+$/.test(taskId)) throw new Error(`Invalid task ID: ${taskId}`);
   let value: unknown;
   try { value = JSON.parse(readFileSync(path.join(root, "image-animation", "automation", "specs", `${taskId}.json`), "utf8")); } catch { throw new Error(`Task spec not found or invalid JSON: ${taskId}`); }
   validateTaskSpec(value); if ((value as TaskSpec).id !== taskId) throw new Error(`Task spec ID mismatch: ${taskId}`); return value as TaskSpec;

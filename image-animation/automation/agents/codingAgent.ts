@@ -2,8 +2,9 @@ import { spawnSync } from "node:child_process";
 import type { FailureEvidence, TaskSpec } from "../orchestrator/orchestrator.ts";
 
 export type CodingAgentMode = "IMPLEMENT" | "REPAIR" | "REVIEW";
-export interface CodingAgentRequest { taskId: string; taskSpec: TaskSpec; goal: string; workspace: string; allowedPaths: string[]; forbiddenPaths: string[]; architectureLocked: boolean; attempt: number; failureEvidence: FailureEvidence[]; instructions: string; mode: CodingAgentMode; }
-export interface CodingAgentResult { status: "PASS" | "FAIL" | "NOT_AVAILABLE"; provider: string; exitCode: number | null; changedFiles: string[]; stdoutSummary: string; stderrSummary: string; startedAt: string; finishedAt: string; }
+export interface FileEdit { path: string; operation: "CREATE" | "UPDATE" | "DELETE"; beforeSha256: string | null; content?: string; }
+export interface CodingAgentRequest { taskId: string; taskSpec: TaskSpec; goal: string; workspace: string; allowedPaths: string[]; forbiddenPaths: string[]; architectureLocked: boolean; attempt: number; failureEvidence: FailureEvidence[]; instructions: string; mode: CodingAgentMode; mutationMode?: "DIRECT_WRITE" | "HOST_APPLIED_PATCH" | "AUTO"; }
+export interface CodingAgentResult { status: "DISABLED" | "NOT_AVAILABLE" | "STARTING" | "RUNNING" | "COMPLETED" | "PASS" | "FAIL" | "TIMEOUT" | "BLOCKED"; provider: string; exitCode: number | null; changedFiles: string[]; stdoutSummary: string; stderrSummary: string; startedAt: string; finishedAt: string; fileEdits?: FileEdit[]; executionEvidence?: Record<string, unknown>; }
 export interface CodingAgent { execute(request: CodingAgentRequest): CodingAgentResult; }
 
 export class LocalProcessAgentAdapter implements CodingAgent {
@@ -18,6 +19,6 @@ export class LocalProcessAgentAdapter implements CodingAgent {
 
 export class FakeCodingAgent implements CodingAgent {
   public calls = 0;
-  constructor(private readonly result: CodingAgentResult) {}
+  constructor(public readonly result: CodingAgentResult) {}
   execute(): CodingAgentResult { this.calls += 1; return { ...this.result, startedAt: new Date().toISOString(), finishedAt: new Date().toISOString() }; }
 }
