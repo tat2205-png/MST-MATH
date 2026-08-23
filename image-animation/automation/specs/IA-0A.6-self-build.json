@@ -1,0 +1,17 @@
+{
+  "id": "IA-0A.6-self-build",
+  "title": "Self Build Disposable Fixture",
+  "phase": "IA-0A",
+  "goal": "Use real Codex host-applied proposals to make target.txt BROKEN, then repair it to FIXED.",
+  "allowedPaths": ["image-animation/fixtures/self-build-canary/target.txt"],
+  "forbiddenPaths": ["server/**", "src/**", "tests/**", "image-animation/automation/**", "openclaw-extension-windows-fix/**"],
+  "protectedPaths": [],
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/fixtures/self-build-canary/target.txt"],
+  "requirements": ["Create exactly the requested fixture content; no Git history mutation."],
+  "requiredTests": ["image-animation/tests/self-build.test.ts"],
+  "requiredGates": ["IA-G0"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

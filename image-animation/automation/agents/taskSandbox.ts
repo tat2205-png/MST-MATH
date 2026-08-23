@@ -23,6 +23,8 @@ export function captureGitSnapshot(root: string): GitSnapshot {
 }
 
 export class TaskExecutionSandbox {
+  get rootPath(): string { return this.root; }
+  get taskSpec(): TaskSpec { return this.spec; }
   constructor(private readonly root: string, private readonly expectedBranch: string, private readonly spec: TaskSpec, private readonly snapshot = captureGitSnapshot) {}
   execute(agent: CodingAgent, taskId: string, attempt: number, evidence: CodingAgentRequest["failureEvidence"] = [], mode: CodingAgentMode = "REPAIR"): SandboxEvidence {
     if (path.resolve(this.root).toLowerCase() !== path.resolve("D:\\math-ai-image-animation").toLowerCase()) throw new Error("Workspace is outside the project root");
