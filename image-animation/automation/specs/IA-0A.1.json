@@ -1,0 +1,28 @@
+{
+  "id": "IA-0A.1",
+  "title": "Automation Foundation",
+  "phase": "IA-0A",
+  "goal": "Establish isolated, deterministic automation policy and repository QA gates.",
+  "allowedPaths": [
+    "image-animation/**",
+    "package.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "requirements": [
+    "Create the image-animation automation foundation.",
+    "Repository Guard must fail closed for forbidden and out-of-scope paths.",
+    "Do not implement runtime image-animation features or change locked architecture."
+  ],
+  "requiredTests": [
+    "image-animation/tests/repository-guard.test.ts",
+    "npm run lint",
+    "npm run ia:regression"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false
+}

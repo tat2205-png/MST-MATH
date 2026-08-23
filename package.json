@@ -14,6 +14,9 @@
     "qa:repair": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode RepairSmoke",
     "qa:math": "npx tsx tests/math-regression.ts",
     "qa:regression": "node scripts/run-regression.mjs",
+    "ia:status": "tsx image-animation/automation/scripts/status.ts",
+    "ia:qa": "tsx image-animation/automation/scripts/qa.ts",
+    "ia:regression": "tsx image-animation/automation/scripts/regression.ts",
     "qa:ci": "npm run lint && npm run build && npm run qa:regression"
   },
   "dependencies": {
