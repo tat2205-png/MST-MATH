@@ -14,7 +14,10 @@
     "requirements",
     "requiredTests",
     "maxRepairAttempts",
-    "architectureChangeAllowed"
+    "architectureChangeAllowed",
+    "expectedBranch",
+    "protectedPaths",
+    "architectureProtectedPaths"
   ],
   "properties": {
     "id": { "type": "string", "pattern": "^IA-[A-Z0-9.]+$" },
@@ -26,6 +29,10 @@
     "requirements": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "requiredTests": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "maxRepairAttempts": { "type": "integer", "minimum": 0 },
-    "architectureChangeAllowed": { "type": "boolean" }
+    "architectureChangeAllowed": { "type": "boolean" },
+    "expectedBranch": { "type": "string", "minLength": 1 },
+    "protectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "architectureProtectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "requiredGates": { "type": "array", "items": { "type": "string", "minLength": 1 } }
   }
 }

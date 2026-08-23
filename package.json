@@ -17,6 +17,8 @@
     "ia:status": "tsx image-animation/automation/scripts/status.ts",
     "ia:qa": "tsx image-animation/automation/scripts/qa.ts",
     "ia:regression": "tsx image-animation/automation/scripts/regression.ts",
+    "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
+    "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
     "qa:ci": "npm run lint && npm run build && npm run qa:regression"
   },
   "dependencies": {

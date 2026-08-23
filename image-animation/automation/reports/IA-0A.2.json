@@ -1,0 +1,27 @@
+{
+  "TASK": "IA-0A.2",
+  "STATUS": "PASS",
+  "FILES_ADDED": [
+    "image-animation/automation/specs/IA-0A.1.json",
+    "image-animation/automation/specs/task-spec.schema.json",
+    "package.json",
+    "image-animation/automation/orchestrator/orchestrator.ts",
+    "image-animation/automation/scripts/auto.ts",
+    "image-animation/automation/specs/IA-0A.2.json",
+    "image-animation/tests/orchestrator.test.ts"
+  ],
+  "FILES_MODIFIED": [],
+  "GATES": {
+    "IA-G0": "PASS",
+    "IA-G1": "PASS",
+    "IA-G2": "PASS",
+    "IA-G9": "PASS"
+  },
+  "REPAIR_COUNT": 0,
+  "MAX_AUTO_REPAIR": 3,
+  "LAST_FAILURE": null,
+  "REPAIR_ALLOWED": false,
+  "BLOCKERS": [],
+  "FINAL": "PASS",
+  "DRY_RUN": false
+}
