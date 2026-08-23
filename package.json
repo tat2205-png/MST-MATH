@@ -15,6 +15,7 @@
     "qa:math": "npx tsx tests/math-regression.ts",
     "bridge:start": "python local_bridge/bridge.py",
     "qa:regression": "node scripts/run-regression.mjs",
+    "release:gate": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
     "qa:ci": "npm run lint && npm run build && npm run qa:regression"
   },
   "dependencies": {
