@@ -7,6 +7,7 @@
   "forbiddenPaths": ["server/**", "src/**", "tests/**", "openclaw-extension-windows-fix/**"],
   "protectedPaths": ["image-animation/tests/**"],
   "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/automation/**"],
   "requirements": ["Run repository guard after every repair.", "Rerun deterministic QA after every repair.", "Never permit a fourth attempt or AI-declared PASS."],
   "requiredTests": ["image-animation/tests/repair-loop.test.ts", "npm run ia:qa", "npm run ia:regression"],
   "requiredGates": ["IA-G0", "IA-G1", "IA-G2", "IA-G9"],

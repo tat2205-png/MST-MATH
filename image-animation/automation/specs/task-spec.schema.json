@@ -17,7 +17,8 @@
     "architectureChangeAllowed",
     "expectedBranch",
     "protectedPaths",
-    "architectureProtectedPaths"
+    "architectureProtectedPaths",
+    "agentAllowedPaths"
   ],
   "properties": {
     "id": { "type": "string", "pattern": "^IA-[A-Z0-9.]+$" },
@@ -33,6 +34,7 @@
     "expectedBranch": { "type": "string", "minLength": 1 },
     "protectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "architectureProtectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "agentAllowedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "requiredGates": { "type": "array", "items": { "type": "string", "minLength": 1 } }
   }
 }

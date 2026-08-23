@@ -27,5 +27,6 @@
   "architectureChangeAllowed": false,
   "expectedBranch": "feature/image-animation-foundation",
   "protectedPaths": ["image-animation/tests/**"],
-  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"]
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/automation/**"]
 }
