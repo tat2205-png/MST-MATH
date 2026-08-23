@@ -20,11 +20,12 @@ if (guard.violations.length > 0) console.error(guard.violations.join("\n"));
 
 const typeScript = commandGate("IA-G1 TYPESCRIPT_QA", "npm", ["run", "lint"]);
 const unit = commandGate("IA-G2 UNIT_QA", "tsx", ["image-animation/tests/repository-guard.test.ts"]);
+const build = commandGate("IA-G3 BUILD_QA", "npm", ["run", "build"]);
 const regression = commandGate("IA-G9 REGRESSION_QA", "npm", ["run", "ia:regression"]);
-const finalStatus = guard.status === "PASS" && typeScript === "PASS" && unit === "PASS" && regression === "PASS" ? "PASS" : "FAIL";
+const finalStatus = guard.status === "PASS" && typeScript === "PASS" && unit === "PASS" && build === "PASS" && regression === "PASS" ? "PASS" : "FAIL";
 console.log(`IA_FINAL_QA=${finalStatus}`);
 console.log(JSON.stringify({
-  TASK: "IA-0A.1",
+  TASK: process.env.IA_TASK_ID ?? "IA-0A.1",
   STATUS: finalStatus,
   FILES_ADDED: changeSummary.added,
   FILES_MODIFIED: changeSummary.modified,
@@ -32,6 +33,7 @@ console.log(JSON.stringify({
     "IA-G0": guard.status,
     "IA-G1": typeScript,
     "IA-G2": unit,
+    "IA-G3": build,
     "IA-G9": regression,
   },
   REPAIR_COUNT: 0,
