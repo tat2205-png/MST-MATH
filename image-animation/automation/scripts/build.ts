@@ -12,6 +12,7 @@ import { loadTaskSpec } from "../orchestrator/orchestrator.ts";
 import { applyPatchTransaction, validatePatch } from "../gates/patchTransaction.ts";
 import { captureGitSnapshot } from "../agents/taskSandbox.ts";
 import { evaluateRepositoryGuard } from "../gates/repositoryGuard.ts";
+import type { FailureEvidence } from "../orchestrator/orchestrator.ts";
 
 const root = process.cwd();
 const provider = process.env.IA_AGENT_PROVIDER ?? "none";
@@ -28,7 +29,9 @@ if (!(selected instanceof CodexCodingAgentAdapter)) { console.log(JSON.stringify
 const sandbox = new TaskExecutionSandbox(root, spec.expectedBranch, spec);
 const mutationMode = "HOST_APPLIED_PATCH";
 const attemptValue = repairMode ? Number(process.argv[process.argv.indexOf("--repair") + 1] ?? "1") : 1;
-const evidence = await sandbox.executeAsync(selected, taskId, attemptValue, [], repairMode ? "REPAIR" : "IMPLEMENT", mutationMode);
+const failureText = (process.env.IA_FAILURE_EVIDENCE ?? "").slice(-6000);
+const failures: FailureEvidence[] = failureText ? [{ gateId: "TASK_QA", command: `npm run ia:task-test -- ${taskId}`, exitCode: 1, stdoutSummary: failureText, stderrSummary: "", failedTests: [taskId], changedFiles: [], timestamp: new Date().toISOString() }] : [];
+const evidence = await sandbox.executeAsync(selected, taskId, attemptValue, failures, repairMode ? "REPAIR" : "IMPLEMENT", mutationMode);
 const proposal = validatePatch(root, spec, evidence.result.fileEdits);
 const patchApplication = proposal.status === "PASS" ? applyPatchTransaction(root, proposal.edits) : { status: "FAIL" as const, changedFiles: [], error: proposal.violations.join("; ") };
 const appliedAfter = captureGitSnapshot(root);

@@ -29,6 +29,13 @@ function run(executable: string, args: string[], env: NodeJS.ProcessEnv = proces
   const npmCli = path.join(path.dirname(process.execPath), "node_modules", "npm", "bin", "npm-cli.js");
   return spawnSync(executable === "npm" ? process.execPath : executable, executable === "npm" ? [npmCli, ...args] : args, { cwd: root, stdio: "inherit", encoding: "utf8", shell: false, env });
 }
+function runCaptured(executable: string, args: string[], env: NodeJS.ProcessEnv = process.env) {
+  const npmCli = path.join(path.dirname(process.execPath), "node_modules", "npm", "bin", "npm-cli.js");
+  const result = spawnSync(executable === "npm" ? process.execPath : executable, executable === "npm" ? [npmCli, ...args] : args, { cwd: root, stdio: "pipe", encoding: "utf8", shell: false, env });
+  if (result.stdout) process.stdout.write(result.stdout);
+  if (result.stderr) process.stderr.write(result.stderr);
+  return result;
+}
 function writeAtomic(filePath: string, value: unknown): void {
   const temporary = `${filePath}.ia-tmp-${process.pid}`;
   writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`, "utf8");
@@ -74,14 +81,23 @@ while (true) {
 
   let repairs = 0;
   let passed = false;
+  let failureEvidence = "";
+  const existingQa = runCaptured("npm", ["run", "ia:task-test", "--", taskId], { ...process.env, IA_TASK_ID: taskId });
+  if (existingQa.status === 0) {
+    const env = { ...process.env, IA_TASK_ID: taskId };
+    passed = run("npm", ["run", "ia:qa"], env).status === 0 && run("npm", ["run", "ia:regression"], env).status === 0;
+  }
+  else failureEvidence = `${existingQa.stdout ?? ""}\n${existingQa.stderr ?? ""}`.slice(-6000);
   while (!passed && repairs <= 3) {
-    const build = run("npm", ["run", "ia:build", "--", taskId, ...(repairs > 0 ? ["--repair", String(repairs)] : [])]);
+    const buildEnv = { ...process.env, IA_FAILURE_EVIDENCE: failureEvidence };
+    const build = run("npm", ["run", "ia:build", "--", taskId, "--repair", String(repairs + 1)], buildEnv);
     if (build.status === 0) {
       const env = { ...process.env, IA_TASK_ID: taskId };
-      const taskQa = run("npm", ["run", "ia:task-test", "--", taskId], env);
+      const taskQa = runCaptured("npm", ["run", "ia:task-test", "--", taskId], env);
       const qa = taskQa.status === 0 ? run("npm", ["run", "ia:qa"], env) : taskQa;
       const regression = qa.status === 0 ? run("npm", ["run", "ia:regression"], env) : qa;
       passed = taskQa.status === 0 && qa.status === 0 && regression.status === 0;
+      if (!passed) failureEvidence = `${taskQa.stdout ?? ""}\n${taskQa.stderr ?? ""}`.slice(-6000);
     }
     if (!passed && ++repairs > 3) stop("AUTO_REPAIR_EXHAUSTED", taskId, 3);
   }
