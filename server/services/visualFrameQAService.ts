@@ -155,6 +155,8 @@ export class VisualFrameQAService {
 
     // 4. Multimodal Analysis for each frame
     let geminiVisionOk = true;
+    const frameStructuralQa = [startSource, keySource, endSource].every((source) => this.hasFrameStructure(source));
+    const mathProvenanceQa = Boolean(problemIR?.originalText && solution);
     const startResult = await this.evaluateSingleFrame("START", startSource, {
       problemIR,
       solution,
@@ -265,15 +267,18 @@ export class VisualFrameQAService {
         startFrameFetchQa: startFetchOk ? "PASS" : "FAIL",
         keyFrameFetchQa: keyFetchOk ? "PASS" : "FAIL",
         endFrameFetchQa: endFetchOk ? "PASS" : "FAIL",
-        geminiVisionQa: geminiVisionOk ? "PASS" : "FAIL",
-        startVisualQa: startResult.status === "PASS" ? "PASS" : "FAIL",
-        keyVisualQa: keyResult.status === "PASS" ? "PASS" : "FAIL",
-        endVisualQa: endResult.status === "PASS" ? "PASS" : "FAIL",
+        geminiVisionQa: !geminiVisionOk ? "SKIPPED" : [startResult, keyResult, endResult].every((frame) => frame.status === "PASS") ? "PASS" : "FAIL",
+        optionalAiVisualQa: !geminiVisionOk ? "SKIPPED" : [startResult, keyResult, endResult].every((frame) => frame.status === "PASS") ? "PASS" : "FAIL",
+        startVisualQa: geminiVisionOk ? (startResult.status === "PASS" ? "PASS" : "FAIL") : "SKIPPED",
+        keyVisualQa: geminiVisionOk ? (keyResult.status === "PASS" ? "PASS" : "FAIL") : "SKIPPED",
+        endVisualQa: geminiVisionOk ? (endResult.status === "PASS" ? "PASS" : "FAIL") : "SKIPPED",
         mathFrameQa: mathErrors > 0 ? "FAIL" : overallStatus === "NEED_SOURCE_VERIFICATION" ? "NEED_SOURCE_VERIFICATION" : "PASS",
         geometryFrameQa: visualSpec?.type === "geometry_3d" || visualSpec?.type === "geometry_2d" ? (geometryErrors > 0 ? "FAIL" : "PASS") : "NOT_APPLICABLE",
         graphFrameQa: visualSpec?.type === "function_graph" ? (graphErrors > 0 ? "FAIL" : "PASS") : "NOT_APPLICABLE",
         layoutFrameQa: layoutErrors > 0 ? "FAIL" : "PASS",
         cameraFrameQa: cameraErrors > 0 ? "FAIL" : "PASS",
+        frameStructuralQa: frameStructuralQa ? "PASS" : "FAIL",
+        mathProvenanceQa: mathProvenanceQa ? "PASS" : "FAIL",
         frameQa: overallStatus,
       },
       finalStatus,
@@ -603,9 +608,18 @@ Hãy trả về JSON theo schema:
       overallStatus: "FAIL",
       frames: { start, key, end },
       summary: { totalIssues: issues.length, lowCount: 0, mediumCount: 0, highCount: 0, criticalCount: issues.length, mathErrors: 0, geometryErrors: 0, graphErrors: 0, layoutErrors: 0, cameraErrors: 0, textErrors: 0, assetErrors: 0 },
-      qaMetrics: { frameInputQa: "FAIL", startFrameFetchQa: start.inputStatus === "PASS" ? "PASS" : "FAIL", keyFrameFetchQa: key.inputStatus === "PASS" ? "PASS" : "FAIL", endFrameFetchQa: end.inputStatus === "PASS" ? "PASS" : "FAIL", geminiVisionQa: "NOT_RUN", startVisualQa: "FAIL", keyVisualQa: "FAIL", endVisualQa: "FAIL", mathFrameQa: "PASS", geometryFrameQa: "NOT_APPLICABLE", graphFrameQa: "NOT_APPLICABLE", layoutFrameQa: "PASS", cameraFrameQa: "PASS", frameQa: "FAIL" },
+      qaMetrics: { frameInputQa: "FAIL", startFrameFetchQa: start.inputStatus === "PASS" ? "PASS" : "FAIL", keyFrameFetchQa: key.inputStatus === "PASS" ? "PASS" : "FAIL", endFrameFetchQa: end.inputStatus === "PASS" ? "PASS" : "FAIL", geminiVisionQa: "NOT_RUN", optionalAiVisualQa: "SKIPPED", startVisualQa: "FAIL", keyVisualQa: "FAIL", endVisualQa: "FAIL", mathFrameQa: "PASS", geometryFrameQa: "NOT_APPLICABLE", graphFrameQa: "NOT_APPLICABLE", layoutFrameQa: "PASS", cameraFrameQa: "PASS", frameStructuralQa: "FAIL", mathProvenanceQa: "FAIL", frameQa: "FAIL" },
       finalStatus: "QA_FAILED",
       timestamp,
     };
+  }
+
+  private hasFrameStructure(source?: FrameImageSource): boolean {
+    if (!source?.base64 || !source.mimeType?.startsWith("image/")) return false;
+    if (source.mimeType === "image/png") {
+      const bytes = Buffer.from(source.base64, "base64");
+      return bytes.length >= 24 && bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+    }
+    return source.base64.length > 0;
   }
 }

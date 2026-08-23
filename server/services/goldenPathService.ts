@@ -75,6 +75,29 @@ export interface GoldenFrameQaInput {
   sourceFingerprint?: string;
 }
 
+export type GoldenGateStatus = "PASS" | "FAIL" | "SKIPPED";
+
+export interface GoldenRuntimeGateInput {
+  mathGate: GoldenGateStatus;
+  sceneContract: GoldenGateStatus;
+  renderTask: GoldenGateStatus;
+  localBridge: GoldenGateStatus;
+  actualManim: GoldenGateStatus;
+  mp4Artifact: GoldenGateStatus;
+  frameArtifact: GoldenGateStatus;
+  frameStructural: GoldenGateStatus;
+  mathProvenance: GoldenGateStatus;
+  optionalAiVisualQa: GoldenGateStatus;
+}
+
+export function evaluateGoldenRuntimeGate(input: GoldenRuntimeGateInput) {
+  const required = ["mathGate", "sceneContract", "renderTask", "localBridge", "actualManim", "mp4Artifact", "frameArtifact", "frameStructural", "mathProvenance"] as const;
+  return {
+    optionalAiVisualQa: input.optionalAiVisualQa,
+    finalGate: required.every((key) => input[key] === "PASS") ? "PASS" as const : "FAIL" as const,
+  };
+}
+
 export interface GoldenRenderResult {
   status: "NOT_DISPATCHED" | "COMPLETED" | "FAILED";
   jobId?: string;

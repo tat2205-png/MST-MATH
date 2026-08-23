@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { deterministicLinearSystemVerifier } from "../server/services/deterministicLinearSystemVerifier.js";
-import { buildGoldenPath, finalizeGoldenPath } from "../server/services/goldenPathService.js";
+import { buildGoldenPath, evaluateGoldenRuntimeGate, finalizeGoldenPath } from "../server/services/goldenPathService.js";
 
 const problem = (latex: string, status = "PASS") => ({
   status,
@@ -67,6 +67,11 @@ const failedFrameQa = finalizeGoldenPath(golden, { status: "COMPLETED", jobId: "
 assert.equal(failedFrameQa.finalStatus, "FRAME_QA_PENDING");
 const finalPass = finalizeGoldenPath(golden, { status: "COMPLETED", jobId: "job", mp4Path: "out.mp4" }, { status: "PASS" });
 assert.equal(finalPass.finalStatus, "FINAL_PASS");
+assert.deepEqual(evaluateGoldenRuntimeGate({ mathGate: "PASS", sceneContract: "PASS", renderTask: "PASS", localBridge: "PASS", actualManim: "PASS", mp4Artifact: "PASS", frameArtifact: "PASS", frameStructural: "PASS", mathProvenance: "PASS", optionalAiVisualQa: "SKIPPED" }), { optionalAiVisualQa: "SKIPPED", finalGate: "PASS" });
+assert.equal(evaluateGoldenRuntimeGate({ mathGate: "PASS", sceneContract: "PASS", renderTask: "PASS", localBridge: "PASS", actualManim: "PASS", mp4Artifact: "PASS", frameArtifact: "PASS", frameStructural: "FAIL", mathProvenance: "PASS", optionalAiVisualQa: "PASS" }).finalGate, "FAIL");
+assert.equal(evaluateGoldenRuntimeGate({ mathGate: "FAIL", sceneContract: "PASS", renderTask: "PASS", localBridge: "PASS", actualManim: "PASS", mp4Artifact: "PASS", frameArtifact: "PASS", frameStructural: "PASS", mathProvenance: "PASS", optionalAiVisualQa: "PASS" }).finalGate, "FAIL");
+assert.equal(evaluateGoldenRuntimeGate({ mathGate: "PASS", sceneContract: "PASS", renderTask: "PASS", localBridge: "PASS", actualManim: "PASS", mp4Artifact: "FAIL", frameArtifact: "PASS", frameStructural: "PASS", mathProvenance: "PASS", optionalAiVisualQa: "SKIPPED" }).finalGate, "FAIL");
+assert.equal(evaluateGoldenRuntimeGate({ mathGate: "PASS", sceneContract: "PASS", renderTask: "PASS", localBridge: "PASS", actualManim: "PASS", mp4Artifact: "PASS", frameArtifact: "PASS", frameStructural: "PASS", mathProvenance: "FAIL", optionalAiVisualQa: "SKIPPED" }).finalGate, "FAIL");
 const blockedFinal = finalizeGoldenPath({ ...golden, mathGate: { allowed: false, status: "BLOCKED", reasons: ["blocked"] } }, { status: "COMPLETED", jobId: "job", mp4Path: "out.mp4" }, { status: "PASS" });
 assert.equal(blockedFinal.finalStatus, "MATH_REVIEW_REQUIRED");
 

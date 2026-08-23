@@ -1,6 +1,6 @@
 import { LocalBridgeClient } from "../src/services/localBridgeClient.js";
 import { deterministicLinearSystemVerifier } from "../server/services/deterministicLinearSystemVerifier.js";
-import { buildGoldenPath, finalizeGoldenPath } from "../server/services/goldenPathService.js";
+import { buildGoldenPath, evaluateGoldenRuntimeGate, finalizeGoldenPath } from "../server/services/goldenPathService.js";
 import { VisualFrameQAService } from "../server/services/visualFrameQAService.js";
 
 const problem: any = {
@@ -34,8 +34,8 @@ const downloaded = await Promise.all(["start_frame", "key_frame", "end_frame"].m
 }));
 if (downloaded.some(({ bytes, mime }) => bytes.length === 0 || mime !== "image/png" || bytes[0] !== 0x89 || bytes[1] !== 0x50)) process.exit(3);
 const frameQa = await new VisualFrameQAService().runJobFrameQA({ jobId: job.jobId, bridgeUrl: "http://127.0.0.1:8765", problemIR: problem, solution, videoSpec: task.videoSpec, rawFrames: Object.fromEntries(downloaded.map(({ type, bytes, mime }) => [type.replace("_frame", ""), { base64: Buffer.from(bytes).toString("base64"), mimeType: mime || "image/png" }])) as any });
-const frameQaNotVerified = [frameQa.frames.start, frameQa.frames.key, frameQa.frames.end].some((frame) => frame.notes?.includes("GEMINI_ERROR"));
-console.log(JSON.stringify({ event: "FRAME_QA", overallStatus: frameQaNotVerified ? "NOT_VERIFIED" : frameQa.overallStatus, finalStatus: frameQaNotVerified ? "QA_FAILED" : frameQa.finalStatus, frameStatuses: { start: frameQa.frames.start.status, key: frameQa.frames.key.status, end: frameQa.frames.end.status }, notes: [frameQa.frames.start.notes, frameQa.frames.key.notes, frameQa.frames.end.notes] }, null, 2));
-const finalized = finalizeGoldenPath(golden, { status: "COMPLETED", jobId: job.jobId, mp4Path: video.pathOrUrl }, { status: frameQaNotVerified ? "FAIL" : frameQa.overallStatus === "PASS" ? "PASS" : "FAIL" });
+const gate = evaluateGoldenRuntimeGate({ mathGate: golden.mathGate.allowed ? "PASS" : "FAIL", sceneContract: golden.scenePlan.status === "PASS" ? "PASS" : "FAIL", renderTask: golden.renderTask.status === "PASS" ? "PASS" : "FAIL", localBridge: "PASS", actualManim: current.status === "COMPLETED" && current.exitCode === 0 ? "PASS" : "FAIL", mp4Artifact: video?.sizeBytes ? "PASS" : "FAIL", frameArtifact: downloaded.every(({ bytes }) => bytes.length > 0) ? "PASS" : "FAIL", frameStructural: frameQa.qaMetrics.frameStructuralQa, mathProvenance: frameQa.qaMetrics.mathProvenanceQa, optionalAiVisualQa: frameQa.qaMetrics.optionalAiVisualQa });
+console.log(JSON.stringify({ event: "FRAME_QA", overallStatus: frameQa.overallStatus, finalStatus: frameQa.finalStatus, optionalAiVisualQa: gate.optionalAiVisualQa, frameStructuralQa: frameQa.qaMetrics.frameStructuralQa, mathProvenanceQa: frameQa.qaMetrics.mathProvenanceQa, frameStatuses: { start: frameQa.frames.start.status, key: frameQa.frames.key.status, end: frameQa.frames.end.status }, notes: [frameQa.frames.start.notes, frameQa.frames.key.notes, frameQa.frames.end.notes] }, null, 2));
+const finalized = finalizeGoldenPath(golden, { status: "COMPLETED", jobId: job.jobId, mp4Path: video.pathOrUrl }, { status: gate.finalGate === "PASS" ? "PASS" : "FAIL" });
 console.log(JSON.stringify({ event: "FINAL_STATUS", finalStatus: finalized.finalStatus }, null, 2));
-if (finalized.finalStatus !== "FINAL_PASS") process.exit(4);
+if (gate.finalGate !== "PASS" || finalized.finalStatus !== "FINAL_PASS") process.exit(4);

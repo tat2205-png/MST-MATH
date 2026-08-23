@@ -44,6 +44,30 @@ async function run() {
   assert(serviceSource.includes("imagePart") && serviceSource.includes("data: frameSource.base64"), "Gemini request does not include image content.");
   assert(serviceSource.includes("frameInputQa") && serviceSource.includes("downloadImage"), "Frame input normalization/gate is missing.");
   console.log("TEST_REAL_FRAME_QA_REQUEST_SHAPE: PASS");
+
+  const validPng = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10, ...new Array(16).fill(0)]).toString("base64");
+  const provider = (await import("../server/providers/index.js")).geminiProvider;
+  provider.generateStructuredJSON = (async () => {
+    throw new Error("GEMINI_CONNECTION_ERROR: GEMINI_API_KEY is missing");
+  }) as typeof originalVision;
+  try {
+    const offlineReport = await new VisualFrameQAService().runJobFrameQA({
+      jobId: "offline-frame-test",
+      problemIR: { originalText: "x+y=5;x-y=1" },
+      solution: { finalAnswer: "x=3,y=2" },
+      rawFrames: {
+        start: { base64: validPng, mimeType: "image/png" },
+        key: { base64: validPng, mimeType: "image/png" },
+        end: { base64: validPng, mimeType: "image/png" },
+      },
+    });
+    assert(offlineReport.qaMetrics.optionalAiVisualQa === "SKIPPED", "Missing Gemini did not become optional SKIPPED.");
+    assert(offlineReport.qaMetrics.frameStructuralQa === "PASS", "Valid frame bytes failed structural QA.");
+    assert(offlineReport.qaMetrics.mathProvenanceQa === "PASS", "Valid source and solution failed provenance QA.");
+    console.log("TEST_OFFLINE_OPTIONAL_AI_QA: PASS");
+  } finally {
+    provider.generateStructuredJSON = originalVision;
+  }
 }
 
 run().catch((error) => {
