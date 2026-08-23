@@ -85,22 +85,25 @@ while (true) {
   const existingQa = runCaptured("npm", ["run", "ia:task-test", "--", taskId], { ...process.env, IA_TASK_ID: taskId });
   if (existingQa.status === 0) {
     const env = { ...process.env, IA_TASK_ID: taskId };
-    passed = run("npm", ["run", "ia:qa"], env).status === 0 && run("npm", ["run", "ia:regression"], env).status === 0;
+    const qa = runCaptured("npm", ["run", "ia:qa"], env);
+    passed = qa.status === 0 && run("npm", ["run", "ia:regression"], env).status === 0;
+    if (!passed) failureEvidence = `${qa.stdout ?? ""}\n${qa.stderr ?? ""}`.slice(-6000);
   }
   else failureEvidence = `${existingQa.stdout ?? ""}\n${existingQa.stderr ?? ""}`.slice(-6000);
-  while (!passed && repairs <= 3) {
+  while (!passed && repairs < 3) {
     const buildEnv = { ...process.env, IA_FAILURE_EVIDENCE: failureEvidence };
     const build = run("npm", ["run", "ia:build", "--", taskId, "--repair", String(repairs + 1)], buildEnv);
     if (build.status === 0) {
       const env = { ...process.env, IA_TASK_ID: taskId };
       const taskQa = runCaptured("npm", ["run", "ia:task-test", "--", taskId], env);
-      const qa = taskQa.status === 0 ? run("npm", ["run", "ia:qa"], env) : taskQa;
+      const qa = taskQa.status === 0 ? runCaptured("npm", ["run", "ia:qa"], env) : taskQa;
       const regression = qa.status === 0 ? run("npm", ["run", "ia:regression"], env) : qa;
       passed = taskQa.status === 0 && qa.status === 0 && regression.status === 0;
-      if (!passed) failureEvidence = `${taskQa.stdout ?? ""}\n${taskQa.stderr ?? ""}`.slice(-6000);
+      if (!passed) failureEvidence = `${qa.stdout ?? ""}\n${qa.stderr ?? ""}`.slice(-6000);
     }
-    if (!passed && ++repairs > 3) stop("AUTO_REPAIR_EXHAUSTED", taskId, 3);
+    if (!passed) repairs += 1;
   }
+  if (!passed) stop("AUTO_REPAIR_EXHAUSTED", taskId, 3);
 
   const following = nextTask(taskId);
   const completed = following === "ROADMAP_COMPLETE";
