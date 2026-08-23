@@ -321,34 +321,8 @@ export const VideoTab: React.FC<VideoTabProps> = ({
     URL.revokeObjectURL(url);
   };
 
-  const handleRequestRender = async () => {
-    setIsDispatching(true);
-    try {
-      const res = await fetch("/api/video/render", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          videoSpec,
-          resolution: "1080p",
-          fps: 30,
-        }),
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        if (data.jobStatus) {
-          setRenderJobId(data.jobStatus.jobId);
-          setRenderStatus(data.jobStatus.status);
-          setRenderProgress(data.jobStatus.progress);
-          setRenderLogs(data.jobStatus.logs || []);
-          setActiveView("render");
-        }
-      }
-    } catch (err: any) {
-      alert("Lỗi gửi yêu cầu render: " + err.message);
-    } finally {
-      setIsDispatching(false);
-    }
+  const handleRequestRender = () => {
+    setActiveView("render");
   };
 
   return (
