@@ -13,6 +13,7 @@
     "qa:full": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Full",
     "qa:repair": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode RepairSmoke",
     "qa:math": "npx tsx tests/math-regression.ts",
+    "bridge:start": "python local_bridge/bridge.py",
     "qa:regression": "node scripts/run-regression.mjs",
     "qa:ci": "npm run lint && npm run build && npm run qa:regression"
   },

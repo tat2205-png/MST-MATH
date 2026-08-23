@@ -9,3 +9,6 @@ coverage/
 __pycache__/
 *.py[cod]
 repair-smoke-result.json
+
+local_bridge/runs/
+local_bridge/tmp/

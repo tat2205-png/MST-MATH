@@ -15,6 +15,7 @@ import { repairOrchestrator } from "./server/services/repairOrchestrator.js";
 import { openClawRepairClient } from "./server/services/openclawRepairClient.js";
 import { buildMasterCanvas } from "./server/services/masterCanvasPlanner.js";
 import { evaluateMathGate } from "./server/services/mathVerificationGate.js";
+import { buildGoldenPath } from "./server/services/goldenPathService.js";
 import { REPAIR_SMOKE_TEST_MANIFEST, REPAIR_SMOKE_TEST_SCENE_CODE } from "./src/types/localRender.js";
 
 async function startServer() {
@@ -164,6 +165,18 @@ async function startServer() {
       res.json({ success: true, videoSpec });
     } catch (err: any) {
       console.error("API /api/pipeline/video error:", err);
+      res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  // Golden Path V1: deterministic contract after parse/solve/verify.
+  app.post("/api/pipeline/golden-path", (req, res) => {
+    try {
+      const { problemIR, solution, verification } = req.body || {};
+      const result = buildGoldenPath(problemIR, solution, verification);
+      res.status(result.mathGate.allowed ? 200 : 409).json({ success: result.mathGate.allowed, ...result });
+    } catch (err: any) {
+      console.error("API /api/pipeline/golden-path error:", err);
       res.status(500).json({ success: false, error: err.message });
     }
   });
