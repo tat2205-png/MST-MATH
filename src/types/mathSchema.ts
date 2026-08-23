@@ -143,9 +143,10 @@ export type DeterministicVerificationStatus =
   | "DETERMINISTIC_PASS"
   | "DETERMINISTIC_FAIL"
   | "UNSUPPORTED"
+  | "INVALID_INPUT"
   | "HUMAN_REVIEW_REQUIRED";
 
-export type DeterministicProblemType = "LINEAR_EQUATION" | "QUADRATIC_EQUATION" | "LINEAR_INEQUALITY" | "QUADRATIC_INEQUALITY" | "RATIONAL_INEQUALITY" | "UNSUPPORTED";
+export type DeterministicProblemType = "LINEAR_EQUATION" | "QUADRATIC_EQUATION" | "LINEAR_SYSTEM_2X2" | "LINEAR_INEQUALITY" | "QUADRATIC_INEQUALITY" | "RATIONAL_INEQUALITY" | "UNSUPPORTED";
 
 export interface InequalityInterval {
   left: string;
@@ -207,6 +208,14 @@ export interface DeterministicVerificationResult {
   provenance?: ProvenanceRecord[];
   sourceHash?: string;
   normalizedSourceHash?: string;
+  sourceFingerprint?: string;
+  derivationTrace?: Array<{ type: string; derivedFrom: string[] }>;
+  classification?: "UNIQUE_SOLUTION" | "NO_SOLUTION" | "INFINITE_SOLUTIONS";
+  systemSolution?: {
+    type: "POINT" | "NO_SOLUTION" | "INFINITE_SOLUTIONS";
+    x?: string;
+    y?: string;
+  };
 }
 
 export type VerificationResult = VerificationReport;

@@ -2,6 +2,7 @@ import "./test-step4b1-math-gate.js";
 import "./test-step4b2-deterministic-math.js";
 import "./test-step4b3-domain-extraneous.js";
 import "./test-step4c1-inequalities.js";
+import "./test-step4c2-linear-system.js";
 
 import assert from "node:assert/strict";
 import {

@@ -39,15 +39,21 @@ export function validateVerificationReport(value: unknown): RuntimeValidationRes
 export function validateDeterministicVerification(value: unknown): RuntimeValidationResult {
   const errors: string[] = [];
   if (!record(value)) return { valid: false, errors: ["DeterministicVerification must be an object."] };
-  if (!["DETERMINISTIC_PASS", "DETERMINISTIC_FAIL", "UNSUPPORTED", "HUMAN_REVIEW_REQUIRED"].includes(String(value.status))) errors.push("DeterministicVerification.status is missing or unknown.");
+  if (!["DETERMINISTIC_PASS", "DETERMINISTIC_FAIL", "UNSUPPORTED", "INVALID_INPUT", "HUMAN_REVIEW_REQUIRED"].includes(String(value.status))) errors.push("DeterministicVerification.status is missing or unknown.");
   if (value.engine !== "DETERMINISTIC_V1") errors.push("DeterministicVerification.engine is invalid.");
-  if (!["LINEAR_EQUATION", "QUADRATIC_EQUATION", "LINEAR_INEQUALITY", "QUADRATIC_INEQUALITY", "RATIONAL_INEQUALITY", "UNSUPPORTED"].includes(String(value.problemType))) errors.push("DeterministicVerification.problemType is invalid.");
+  if (!["LINEAR_EQUATION", "QUADRATIC_EQUATION", "LINEAR_SYSTEM_2X2", "LINEAR_INEQUALITY", "QUADRATIC_INEQUALITY", "RATIONAL_INEQUALITY", "UNSUPPORTED"].includes(String(value.problemType))) errors.push("DeterministicVerification.problemType is invalid.");
   if (!Array.isArray(value.checks) || !Array.isArray(value.reasons)) errors.push("DeterministicVerification checks/reasons are malformed.");
   if (value.verifiedSolutions !== undefined && !arrayOfStrings(value.verifiedSolutions)) errors.push("DeterministicVerification.verifiedSolutions must be an array of strings.");
   if (value.extraneousSolutions !== undefined && !arrayOfStrings(value.extraneousSolutions)) errors.push("DeterministicVerification.extraneousSolutions must be an array of strings.");
   if (String(value.problemType).includes("INEQUALITY")) {
     if (!Array.isArray(value.criticalPoints) || !Array.isArray(value.signAnalysis)) errors.push("DeterministicInequalityResult critical points/sign analysis are malformed.");
     for (const setName of ["expectedSolutionSet", "candidateSolutionSet"]) if (value[setName] !== undefined && (!record(value[setName]) || !Array.isArray(value[setName].intervals))) errors.push(`DeterministicInequalityResult.${setName} is malformed.`);
+  }
+  if (value.problemType === "LINEAR_SYSTEM_2X2") {
+    if (!["UNIQUE_SOLUTION", "NO_SOLUTION", "INFINITE_SOLUTIONS"].includes(String(value.classification))) errors.push("Deterministic linear system classification is invalid.");
+    if (!record(value.systemSolution)) errors.push("Deterministic linear system solution is missing or malformed.");
+    if (!Array.isArray(value.derivationTrace) || value.derivationTrace.length < 4) errors.push("Deterministic linear system derivation trace is incomplete.");
+    if (typeof value.sourceFingerprint !== "string" || !value.sourceFingerprint) errors.push("Deterministic linear system source fingerprint is missing.");
   }
   return { valid: errors.length === 0, errors };
 }

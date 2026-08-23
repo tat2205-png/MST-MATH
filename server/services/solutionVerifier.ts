@@ -4,6 +4,7 @@ import { buildSystemSkillInstruction } from "./skillContextBuilder.js";
 import { deterministicMathVerifier } from "./deterministicMathVerifier.js";
 import { assertRuntimeValid, validateVerificationReport } from "./mathRuntimeSchema.js";
 import { deterministicInequalityVerifier } from "./deterministicInequalityVerifier.js";
+import { deterministicLinearSystemVerifier } from "./deterministicLinearSystemVerifier.js";
 
 export class SolutionVerifierService {
   async verifySolution(
@@ -173,9 +174,11 @@ KẾT LUẬN: ${solution.final_answer?.value || "N/A"}`;
       ];
     }
 
-    const deterministicVerification = /(?:<=|>=|<|>|≤|≥)/.test(problemIR.latex || "")
-      ? deterministicInequalityVerifier.verify(problemIR, solution)
-      : deterministicMathVerifier.verify(problemIR, solution);
+    const deterministicVerification = /;/.test(problemIR.latex || "")
+      ? deterministicLinearSystemVerifier.verify(problemIR, solution)
+      : /(?:<=|>=|<|>|≤|≥)/.test(problemIR.latex || "")
+        ? deterministicInequalityVerifier.verify(problemIR, solution)
+        : deterministicMathVerifier.verify(problemIR, solution);
     report.deterministicVerification = deterministicVerification;
     if (report.status === "PASS" && deterministicVerification.status !== "DETERMINISTIC_PASS") {
       report.discrepancies = [

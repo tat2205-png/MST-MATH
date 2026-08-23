@@ -1,5 +1,7 @@
 import { MathProblemIR, MathSolution, MathVerification } from "../../src/types/mathSchema.js";
+import { createHash } from "node:crypto";
 import { validateDeterministicVerification, validateMathGateResult } from "./mathRuntimeSchema.js";
+import { normalizeLinearSystemSource } from "./deterministicLinearSystemVerifier.js";
 
 export type MathGateStatus = "VERIFIED_PASS" | "BLOCKED" | "HUMAN_REVIEW_REQUIRED";
 
@@ -61,12 +63,22 @@ export function evaluateMathGate(
       if (!Array.isArray(deterministicVerification.reasons)) {
         reasons.push("Deterministic verification reasons are missing or malformed.");
       }
-      if (!["LINEAR_EQUATION", "QUADRATIC_EQUATION", "LINEAR_INEQUALITY", "QUADRATIC_INEQUALITY", "RATIONAL_INEQUALITY", "UNSUPPORTED"].includes(String(deterministicVerification.problemType))) {
+      if (!["LINEAR_EQUATION", "QUADRATIC_EQUATION", "LINEAR_SYSTEM_2X2", "LINEAR_INEQUALITY", "QUADRATIC_INEQUALITY", "RATIONAL_INEQUALITY", "UNSUPPORTED"].includes(String(deterministicVerification.problemType))) {
         reasons.push("Deterministic verification problem type is missing or invalid.");
       }
       const provenance = deterministicVerification.provenance;
       if (!Array.isArray(provenance) || !provenance.some((item) => isRecord(item) && item.kind === "SOURCE_LITERAL" && item.trustedForAutomation === true)) {
         reasons.push("Trusted source provenance is missing.");
+      }
+      if (deterministicVerification.problemType === "LINEAR_SYSTEM_2X2") {
+        const source = normalizeLinearSystemSource(String(problemIR?.latex || ""));
+        const expectedFingerprint = createHash("sha256").update(source).digest("hex");
+        if (deterministicVerification.sourceFingerprint !== expectedFingerprint) reasons.push("Linear system source fingerprint does not match current source.");
+        if (!Array.isArray(deterministicVerification.derivationTrace) || deterministicVerification.derivationTrace.length < 7) reasons.push("Linear system derivation trace is incomplete.");
+        if (!Array.isArray(provenance) || provenance.filter((item) => isRecord(item) && item.kind === "SOURCE_LITERAL" && item.trustedForAutomation === true).length < 2) reasons.push("Both source equations need trusted source provenance.");
+        const candidate = deterministicVerification.systemSolution;
+        if (!isRecord(candidate)) reasons.push("Canonical linear system candidate is missing.");
+        else if (candidate.type === "POINT" && (typeof candidate.x !== "string" || typeof candidate.y !== "string")) reasons.push("Canonical point candidate coordinates are malformed.");
       }
     }
   }
