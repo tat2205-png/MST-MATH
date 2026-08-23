@@ -80,7 +80,10 @@ export class DeterministicLinearSystemVerifier {
     const determinant = subtract(multiply(first.a, second.b), multiply(second.a, first.b));
     const augmentedA = subtract(multiply(first.a, second.c), multiply(second.a, first.c));
     const augmentedB = subtract(multiply(first.b, second.c), multiply(second.b, first.c));
-    const classification: Classification = !equal(determinant, zero()) ? "UNIQUE_SOLUTION" : equal(augmentedA, zero()) && equal(augmentedB, zero()) ? "INFINITE_SOLUTIONS" : "NO_SOLUTION";
+    const firstCoefficientsZero = equal(first.a, zero()) && equal(first.b, zero());
+    const secondCoefficientsZero = equal(second.a, zero()) && equal(second.b, zero());
+    const inconsistentZeroEquation = (firstCoefficientsZero && !equal(first.c, zero())) || (secondCoefficientsZero && !equal(second.c, zero()));
+    const classification: Classification = !equal(determinant, zero()) ? "UNIQUE_SOLUTION" : inconsistentZeroEquation || !equal(augmentedA, zero()) || !equal(augmentedB, zero()) ? "NO_SOLUTION" : "INFINITE_SOLUTIONS";
     const checks: DeterministicVerificationResult["checks"] = [
       { type: "NORMALIZE_EQUATION_1", passed: true, detail: "Equation 1 normalized to exact rational coefficients." },
       { type: "NORMALIZE_EQUATION_2", passed: true, detail: "Equation 2 normalized to exact rational coefficients." },

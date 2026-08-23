@@ -1,7 +1,7 @@
 import { MathProblemIR, MathSolution, MathVerification } from "../../src/types/mathSchema.js";
 import { createHash } from "node:crypto";
 import { validateDeterministicVerification, validateMathGateResult } from "./mathRuntimeSchema.js";
-import { normalizeLinearSystemSource } from "./deterministicLinearSystemVerifier.js";
+import { deterministicLinearSystemVerifier, normalizeLinearSystemSource } from "./deterministicLinearSystemVerifier.js";
 
 export type MathGateStatus = "VERIFIED_PASS" | "BLOCKED" | "HUMAN_REVIEW_REQUIRED";
 
@@ -74,11 +74,17 @@ export function evaluateMathGate(
         const source = normalizeLinearSystemSource(String(problemIR?.latex || ""));
         const expectedFingerprint = createHash("sha256").update(source).digest("hex");
         if (deterministicVerification.sourceFingerprint !== expectedFingerprint) reasons.push("Linear system source fingerprint does not match current source.");
-        if (!Array.isArray(deterministicVerification.derivationTrace) || deterministicVerification.derivationTrace.length < 7) reasons.push("Linear system derivation trace is incomplete.");
-        if (!Array.isArray(provenance) || provenance.filter((item) => isRecord(item) && item.kind === "SOURCE_LITERAL" && item.trustedForAutomation === true).length < 2) reasons.push("Both source equations need trusted source provenance.");
+        const sourceSegments = source.split(";");
+        const sourceRecords = Array.isArray(provenance) ? provenance.filter((item) => isRecord(item) && item.kind === "SOURCE_LITERAL" && item.trustedForAutomation === true) : [];
+        if (sourceRecords.length !== 2 || sourceRecords.some((item, index) => item.id !== `source_equation_${index + 1}` || item.value !== sourceSegments[index] || item.sourceField !== "problemIR.latex")) reasons.push("Both source equations need matching trusted source provenance.");
+        const expectedTrace = ["NORMALIZE_EQUATION_1", "NORMALIZE_EQUATION_2", "COMPUTE_DETERMINANT", "CLASSIFY_SYSTEM", "SOLVE_EXACT_RATIONAL", "SUBSTITUTE_EQUATION_1", "SUBSTITUTE_EQUATION_2"];
+        if (!Array.isArray(deterministicVerification.derivationTrace) || deterministicVerification.derivationTrace.length !== expectedTrace.length || deterministicVerification.derivationTrace.some((item, index) => !isRecord(item) || item.type !== expectedTrace[index] || !Array.isArray(item.derivedFrom) || item.derivedFrom.length !== 2)) reasons.push("Linear system derivation trace is incomplete or malformed.");
         const candidate = deterministicVerification.systemSolution;
         if (!isRecord(candidate)) reasons.push("Canonical linear system candidate is missing.");
-        else if (candidate.type === "POINT" && (typeof candidate.x !== "string" || typeof candidate.y !== "string")) reasons.push("Canonical point candidate coordinates are malformed.");
+        else if (candidate.type === "POINT" && (typeof candidate.x !== "string" || typeof candidate.y !== "string" || Object.keys(candidate).length !== 3)) reasons.push("Canonical point candidate coordinates are malformed.");
+        else if ((candidate.type === "NO_SOLUTION" || candidate.type === "INFINITE_SOLUTIONS") && Object.keys(candidate).length !== 1) reasons.push("Canonical classification candidate is malformed.");
+        const recomputed = deterministicLinearSystemVerifier.verify(problemIR, solution);
+        if (recomputed.status !== "DETERMINISTIC_PASS" || recomputed.classification !== deterministicVerification.classification || JSON.stringify(recomputed.systemSolution) !== JSON.stringify(deterministicVerification.systemSolution)) reasons.push("Deterministic system result does not match a fresh verification.");
       }
     }
   }
