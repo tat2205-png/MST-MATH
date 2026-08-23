@@ -1,0 +1,53 @@
+{
+  "id": "IA-3.1",
+  "title": "Manim Compiler",
+  "phase": "IA-3",
+  "goal": "Compile approved Scene Graphs into deterministic Manim output without reinterpreting geometry.",
+  "allowedPaths": [
+    "image-animation/renderers/manim/**",
+    "image-animation/tests/manim/**",
+    "image-animation/automation/specs/IA-3.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/renderers/manim/**",
+    "image-animation/tests/manim/**"
+  ],
+  "requirements": [
+    "Scene Graph remains source of truth.",
+    "Support visually meaningful V1 object types and deterministic layout guards."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}
