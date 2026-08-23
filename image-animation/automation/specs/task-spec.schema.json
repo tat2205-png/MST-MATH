@@ -35,6 +35,8 @@
     "protectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "architectureProtectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "agentAllowedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "taskQa": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "passCriteria": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "requiredGates": { "type": "array", "items": { "type": "string", "minLength": 1 } }
   }
 }

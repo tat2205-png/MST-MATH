@@ -1,11 +1,13 @@
 import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
 import process from "node:process";
-import { getTrackedChangeSummary, runRepositoryGuard } from "./common.ts";
+import { getTrackedChangeSummary, runNpm, runRepositoryGuard } from "./common.ts";
 
 type GateStatus = "PASS" | "FAIL" | "NOT_AVAILABLE";
+const require = createRequire(import.meta.url);
 
 function commandGate(name: string, command: string, args: string[]): GateStatus {
-  const result = spawnSync(command, args, { stdio: "inherit", shell: true });
+  const result = command === "npm" ? runNpm(args, true) : command === "tsx" ? spawnSync(process.execPath, [require.resolve("tsx/cli"), ...args], { stdio: "inherit", shell: false }) : spawnSync(command, args, { stdio: "inherit", shell: false });
   const status: GateStatus = result.error ? "NOT_AVAILABLE" : result.status === 0 ? "PASS" : "FAIL";
   console.log(`${name}=${status}`);
   return status;

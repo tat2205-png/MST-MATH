@@ -49,8 +49,9 @@ const repairResult = await repairExecutor.executeAsync({ taskId: spec.id, attemp
 const afterRepair = captureGitSnapshot(root);
 const actualDelta = afterRepair.changedFiles.filter((file) => beforeImplementation.fingerprints[file] !== afterRepair.fingerprints[file]);
 const guard = evaluateRepositoryGuard(actualDelta, spec);
-const qa = spawnSync("npm", ["run", "ia:qa"], { cwd: root, stdio: "ignore", shell: true });
-const regression = spawnSync("npm", ["run", "ia:regression"], { cwd: root, stdio: "ignore", shell: true });
+const npmCli = path.join(path.dirname(process.execPath), "node_modules", "npm", "bin", "npm-cli.js");
+const qa = spawnSync(process.execPath, [npmCli, "run", "ia:qa"], { cwd: root, stdio: "ignore", shell: false });
+const regression = spawnSync(process.execPath, [npmCli, "run", "ia:regression"], { cwd: root, stdio: "ignore", shell: false });
 const finalContent = readFileSync(target, "utf8").trim();
 const passed = implementationPass && intentionalFailure && failureEvidence.length === 1 && repairResult.status === "CHANGED" && finalContent === "FIXED" && guard.status === "PASS" && beforeImplementation.head === afterRepair.head && beforeImplementation.branch === afterRepair.branch && qa.status === 0 && regression.status === 0;
 if (passed) {

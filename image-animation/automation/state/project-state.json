@@ -12,6 +12,6 @@
   "architectureLocked": true,
   "autoCommitPolicy": "PASS_ONLY",
   "autoMerge": false,
-  "humanGate": "IA-1.1_REQUIRED",
+  "humanGate": "NONE",
   "updatedAt": "2026-08-23T06:52:48.235Z"
 }

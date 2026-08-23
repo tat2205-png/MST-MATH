@@ -1,0 +1,21 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+const resumePath = path.join(process.cwd(), "image-animation", "automation", "scripts", "resume.ts");
+const resume = readFileSync(resumePath, "utf8");
+assert.match(resume, /ia:doctor/);
+assert.match(resume, /ia:build/);
+assert.match(resume, /shell: false/);
+assert.match(resume, /READY_TO_EXECUTE/);
+assert.match(resume, /PROJECT_STATE_TRANSITION_FAIL/);
+assert.match(resume, /PROVIDER_NOT_AVAILABLE/);
+assert.match(resume, /writeAtomic/);
+assert.ok(!resume.includes("shell: true"));
+const state = JSON.parse(readFileSync(path.join(process.cwd(), "image-animation", "automation", "state", "project-state.json"), "utf8"));
+assert.equal(state.currentTask, "IA-1.1");
+assert.equal(state.lastCompletedTask, "IA-0A.6");
+assert.equal(state.automationHealth, "PASS");
+const scripts = JSON.parse(readFileSync(path.join(process.cwd(), "package.json"), "utf8")).scripts;
+assert.equal(scripts["ia:resume"], "tsx image-animation/automation/scripts/resume.ts");
+console.log("Resume loop tests: PASS");

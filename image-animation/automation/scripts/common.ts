@@ -1,11 +1,15 @@
-import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
 import path from "node:path";
+import { readFileSync } from "node:fs";
 import process from "node:process";
 import { evaluateRepositoryGuard, type RepositoryGuardResult } from "../gates/repositoryGuard.ts";
 import { parseGitPorcelain } from "../gates/gitStatusParser.ts";
 
 export const root = process.cwd();
+export function runNpm(args: string[], inherit = false) {
+  const npmCli = path.join(path.dirname(process.execPath), "node_modules", "npm", "bin", "npm-cli.js");
+  return spawnSync(process.execPath, [npmCli, ...args], { cwd: root, stdio: inherit ? "inherit" : "pipe", encoding: "utf8", shell: false });
+}
 
 export function readTaskSpec() {
   return JSON.parse(readFileSync(path.join(root, "image-animation/automation/specs/IA-0A.1.json"), "utf8"));

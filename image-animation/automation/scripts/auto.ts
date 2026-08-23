@@ -1,6 +1,6 @@
 import { execFileSync, spawnSync } from "node:child_process";
 import process from "node:process";
-import { getChangedFiles, root } from "./common.ts";
+import { getChangedFiles, root, runNpm } from "./common.ts";
 import { runOrchestrator, writeReport, type GateStatus } from "../orchestrator/orchestrator.ts";
 
 const taskId = process.argv[2];
@@ -13,7 +13,7 @@ if (!taskId) {
 const branch = execFileSync("git", ["branch", "--show-current"], { cwd: root, encoding: "utf8" }).trim();
 const gates: Record<string, GateStatus> = {};
 const runGates = () => {
-  const result = spawnSync("npm", ["run", "ia:qa"], { cwd: root, stdio: "inherit", shell: true });
+  const result = runNpm(["run", "ia:qa"], true);
   const status: GateStatus = result.error ? "NOT_AVAILABLE" : result.status === 0 ? "PASS" : "FAIL";
   gates["IA-G1"] = status;
   gates["IA-G2"] = status;
