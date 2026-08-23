@@ -118,9 +118,9 @@ export class RepairOrchestrator {
 
     // Check OpenClaw Local Inference Health
     const openClawHealth = frameInputError ? { ok: false } : await openClawRepairClient.checkHealth();
-    const openClawLocalInferenceQa: "PASS" | "FAIL" = openClawHealth.ok ? "PASS" : "PASS"; // Active / ready
+    const openClawLocalInferenceQa: "PASS" | "FAIL" = openClawHealth.ok ? "PASS" : "FAIL";
     const openClawGatewayInferenceQa: "OPTIONAL_FAIL" | "NOT_REQUIRED" = "NOT_REQUIRED";
-    const openClawRepairEngine: "ACTIVE" | "UNAVAILABLE" = "ACTIVE";
+    const openClawRepairEngine: "ACTIVE" | "UNAVAILABLE" = openClawHealth.ok ? "ACTIVE" : "UNAVAILABLE";
 
     const attempts: RepairAttempt[] = [];
     let currentFiles = { ...workingFiles };
@@ -303,7 +303,7 @@ export class RepairOrchestrator {
 
       // Step F: Rerender ONLY affected scene via Local Render Bridge (Section 13)
       let renderJobId = `rerender_job_${currentAttemptNum}_${Date.now()}`;
-      let rerenderSuccess = true;
+      let rerenderSuccess = false;
 
       try {
         const headers: Record<string, string> = { "Content-Type": "application/json" };
@@ -332,10 +332,12 @@ export class RepairOrchestrator {
         if (renderRes && renderRes.ok) {
           const resData = await renderRes.json();
           renderJobId = resData.jobId || renderJobId;
+          rerenderSuccess = true;
         }
       } catch {
         // Handled gracefully for unit/mock environments
       }
+      rerenderQa = rerenderSuccess ? "PASS" : "FAIL";
 
       // Step G: Run Post-Repair Frame QA (Section 14, 15)
       let postQaReport: JobVisualFrameQAReport;

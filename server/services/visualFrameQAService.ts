@@ -175,9 +175,9 @@ export class VisualFrameQAService {
     });
 
     if (
-      startResult.notes?.includes("GEMINI_ERROR") ||
-      keyResult.notes?.includes("GEMINI_ERROR") ||
-      endResult.notes?.includes("GEMINI_ERROR")
+      startResult.notes?.includes("GEMINI_") ||
+      keyResult.notes?.includes("GEMINI_") ||
+      endResult.notes?.includes("GEMINI_")
     ) {
       geminiVisionOk = false;
     }
@@ -478,10 +478,10 @@ Hãy trả về JSON theo schema:
     } catch (err: any) {
       console.error(`[VisualFrameQAService] Error analyzing frame ${frameName}:`, err.message);
 
-      // Fallback rule for smoke test scene or network timeout
+      // Without vision analysis, visual correctness cannot be confirmed.
       return {
         frameName,
-        status: "PASS",
+        status: "NEED_SOURCE_VERIFICATION",
         issues: [],
         base64Image: frameSource.base64,
         inputStatus: "PASS",
@@ -502,7 +502,7 @@ Hãy trả về JSON theo schema:
           geometryInvariantPreserved: true,
           graphInvariantPreserved: true,
         },
-        notes: `Frame analyzed successfully. Note: ${err.message}`,
+        notes: `GEMINI_CONNECTION_ERROR: ${err.message}`,
       };
     }
   }
