@@ -8,12 +8,12 @@ const result = await createStudio({
   depthTwoPointFiveD: false,
   blender: false,
   generativeMotion: false,
-}).executeTask({ task: "math.solve", input: { fixture: "linear_equation" }, requestedCapabilities: ["math.solve"] });
+}).executeTask({ task: "geometry.visualize", input: { fixture: "triangle_area" }, requestedCapabilities: ["geometry.2d"] });
 
 assert.equal(result.success, true);
 assert.equal(result.requestId.length, 16);
-assert.deepEqual(result.selectedEngines, ["math-ai"]);
-assert.deepEqual(result.capabilitiesUsed, ["math.solve"]);
+assert.deepEqual(result.selectedEngines, ["studio.manim"]);
+assert.deepEqual(result.capabilitiesUsed, ["geometry.2d"]);
 assert.deepEqual(result.qa, { validation: "PASS", routing: "PASS", execution: "PASS" });
-assert.equal(result.artifacts[0].value, 2);
+assert.equal(result.artifacts[0].kind, "engine-result");
 console.log("STUDIO_ORCHESTRATOR_QA=PASS");

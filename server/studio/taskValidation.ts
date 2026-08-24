@@ -32,14 +32,22 @@ export function validateStudioTaskRequest(value: unknown): StudioTaskRequest {
   }
   if (new Set(request.requestedCapabilities).size !== request.requestedCapabilities.length) throw new TypeError("Studio capabilities must be unique.");
   const input = request.input;
-  if (input === null || typeof input !== "object" || Array.isArray(input) || !exactKeys(input as Record<string, unknown>, ["fixture"])) {
-    throw new TypeError("Studio input must contain only a deterministic fixture.");
+  if (input === null || typeof input !== "object" || Array.isArray(input)) throw new TypeError("Studio input must be an object.");
+  let validatedInput: StudioTaskRequest["input"];
+  if (request.task === "math.solve") {
+    if (!exactKeys(input as Record<string, unknown>, ["text"])) throw new TypeError("Studio math input must contain only text.");
+    const text = (input as Record<string, unknown>).text;
+    if (typeof text !== "string" || text.trim().length === 0 || text.length > 1024) throw new TypeError("Studio math text is invalid.");
+    validatedInput = Object.freeze({ text: text.trim() });
+  } else {
+    if (!exactKeys(input as Record<string, unknown>, ["fixture"])) throw new TypeError("Studio input must contain only a deterministic fixture.");
+    const fixture = (input as Record<string, unknown>).fixture;
+    if (fixture !== "linear_equation" && fixture !== "triangle_area") throw new TypeError("Unknown Studio fixture.");
+    validatedInput = Object.freeze({ fixture });
   }
-  const fixture = (input as Record<string, unknown>).fixture;
-  if (fixture !== "linear_equation" && fixture !== "triangle_area") throw new TypeError("Unknown Studio fixture.");
   const validated = Object.freeze({
     task: request.task as StudioTask,
-    input: Object.freeze({ fixture }),
+    input: validatedInput,
     requestedCapabilities: Object.freeze([...(request.requestedCapabilities as StudioPlannedCapability[])]),
   });
   planStudioTask(validated);

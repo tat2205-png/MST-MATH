@@ -1,0 +1,42 @@
+{
+  "id": "IA-S4A.1",
+  "title": "Studio Real Math Execution",
+  "phase": "STUDIO-4A.1",
+  "goal": "Route experimental Studio math.solve requests through the existing Math AI parser, solver, verifier, and gate.",
+  "allowedPaths": [
+    "server/studio/apiErrors.ts",
+    "server/studio/mathExecutionAdapter.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/taskContracts.ts",
+    "server/studio/taskValidation.ts",
+    "tests/studio-orchestrator-phase3.test.ts",
+    "tests/studio-capability-planner-phase3.test.ts",
+    "tests/studio-execute-api-phase3.test.ts",
+    "tests/studio-real-math-phase4a1.test.ts",
+    "tests/studio-real-math-live-phase4a1.test.ts",
+    "image-animation/automation/specs/IA-S4A.1.json"
+  ],
+  "forbiddenPaths": ["server/services/**", "server/geometry/**", "src/**", "manim_toolkit/**", "image-animation/core/**", "image-animation/renderers/**"],
+  "protectedPaths": ["server/services/**", "server/geometry/**", "src/**", "manim_toolkit/**", "image-animation/core/**", "image-animation/renderers/**"],
+  "architectureProtectedPaths": ["server/services/**", "server/geometry/**", "src/**", "manim_toolkit/**", "image-animation/core/**", "image-animation/renderers/**", "image-animation/automation/gates/**", "image-animation/automation/scripts/**"],
+  "agentAllowedPaths": [
+    "server/studio/apiErrors.ts",
+    "server/studio/mathExecutionAdapter.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/taskContracts.ts",
+    "server/studio/taskValidation.ts",
+    "tests/studio-orchestrator-phase3.test.ts",
+    "tests/studio-capability-planner-phase3.test.ts",
+    "tests/studio-execute-api-phase3.test.ts",
+    "tests/studio-real-math-phase4a1.test.ts",
+    "tests/studio-real-math-live-phase4a1.test.ts"
+  ],
+  "requirements": ["Use the existing Math AI services.", "Keep experimental execution default-off.", "Fail closed when verification rejects solver output."],
+  "requiredTests": ["npm run lint", "npm run build", "npm run qa:regression", "npm run qa:math", "npm run ia:regression"],
+  "taskQa": ["node --import tsx tests/studio-real-math-phase4a1.test.ts", "node -r dotenv/config --import tsx tests/studio-real-math-live-phase4a1.test.ts"],
+  "passCriteria": ["Real Gemini-backed math execution passes all Phase 4A.1 and inherited gates."],
+  "requiredGates": ["IA-G0", "IA-G1", "IA-G2", "IA-G3", "IA-G9"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "develop/studio-phase-4"
+}

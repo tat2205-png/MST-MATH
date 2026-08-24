@@ -11,7 +11,7 @@ export type StudioPlannedCapability =
 
 export interface StudioTaskRequest {
   readonly task: StudioTask;
-  readonly input: { readonly fixture: "linear_equation" | "triangle_area" };
+  readonly input: { readonly text: string } | { readonly fixture: "linear_equation" | "triangle_area" };
   readonly requestedCapabilities: readonly StudioPlannedCapability[];
 }
 
@@ -27,7 +27,7 @@ export interface StudioCapabilityPlan {
   readonly steps: readonly StudioPlanStep[];
 }
 
-export type StudioTraceStage = "VALIDATE" | "PLAN" | "ROUTE" | "EXECUTE" | "VERIFY" | "RESULT";
+export type StudioTraceStage = "VALIDATE" | "PLAN" | "ROUTE" | "ROUTE_MATH" | "PARSE" | "SOLVE" | "EXECUTE" | "VERIFY" | "RESULT";
 
 export interface StudioTraceEntry {
   readonly sequence: number;
@@ -44,6 +44,7 @@ export type StudioTaskErrorCode =
   | "PLANNING_FAILED"
   | "ROUTING_FAILED"
   | "EXECUTION_FAILED"
+  | "VERIFICATION_FAILED"
   | "VALIDATION_FAILED";
 
 export interface StudioTaskResult {

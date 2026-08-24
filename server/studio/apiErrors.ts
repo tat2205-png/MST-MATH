@@ -6,6 +6,7 @@ export type StudioApiErrorCode =
   | "PLANNING_FAILED"
   | "ROUTING_FAILED"
   | "VALIDATION_FAILED"
+  | "VERIFICATION_FAILED"
   | "EXECUTION_FAILED";
 
 export class StudioApiError extends Error {

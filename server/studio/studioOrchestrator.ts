@@ -4,6 +4,7 @@ import type { EngineRegistry } from "./engineRegistry.js";
 import type { StudioFeatureFlags } from "./featureFlags.js";
 import { planStudioTask } from "./capabilityPlanner.js";
 import { createTriangleAreaSceneGraph, solveDeterministicFixture } from "./orchestrationFixtures.js";
+import { StudioMathExecutionAdapter } from "./mathExecutionAdapter.js";
 import type {
   StudioCapabilityPlan,
   StudioPlannedCapability,
@@ -24,6 +25,7 @@ export class StudioOrchestrator {
   constructor(
     private readonly registry: EngineRegistry,
     private readonly flags?: StudioFeatureFlags,
+    private readonly mathExecution = new StudioMathExecutionAdapter(),
   ) {}
 
   availability() {
@@ -64,11 +66,33 @@ export class StudioOrchestrator {
     const selectedEngines: string[] = [];
     const capabilitiesUsed: StudioPlannedCapability[] = [];
     const runtimeStatus: Array<Readonly<{ capability: StudioPlannedCapability; status: string }>> = [];
-    addTrace("ROUTE", "PASS", "CAPABILITY_ROUTING_STARTED");
+    addTrace(request.task === "math.solve" ? "ROUTE_MATH" : "ROUTE", "PASS", request.task === "math.solve" ? "REAL_MATH_ROUTING_STARTED" : "CAPABILITY_ROUTING_STARTED");
 
     for (const step of plan.steps) {
       if (step.action === "COMPUTE") {
-        artifacts.push(solveDeterministicFixture(request.input.fixture));
+        if (request.task === "math.solve" && "text" in request.input) {
+          try {
+            const problem = await this.mathExecution.parse(request.input.text);
+            addTrace("PARSE", "PASS", "EXISTING_MATH_PARSER_COMPLETED");
+            const solution = await this.mathExecution.solve(problem);
+            addTrace("SOLVE", "PASS", "EXISTING_MATH_SOLVER_COMPLETED");
+            const verification = await this.mathExecution.verify(problem, solution);
+            addTrace("VERIFY", "PASS", "EXISTING_MATH_VERIFIER_COMPLETED");
+            const result = this.mathExecution.result(request.input.text, problem, solution, verification);
+            if (!result) {
+              trace[trace.length - 1] = Object.freeze({ ...trace[trace.length - 1], status: "FAIL", detail: "MATH_GATE_REJECTED" });
+              return this.failure(requestId, request, plan, trace, "VERIFICATION_FAILED", "Math verification rejected the solver output.");
+            }
+            artifacts.push(Object.freeze({ kind: "math-execution", ...result }));
+          } catch {
+            addTrace("EXECUTE", "FAIL", "REAL_MATH_EXECUTION_FAILED");
+            return this.failure(requestId, request, plan, trace, "EXECUTION_FAILED", "Real Math AI execution failed.");
+          }
+        } else if ("fixture" in request.input) {
+          artifacts.push(solveDeterministicFixture(request.input.fixture));
+        } else {
+          return this.failure(requestId, request, plan, trace, "INVALID_REQUEST", "Math input is invalid.");
+        }
         selectedEngines.push(step.component);
         capabilitiesUsed.push(step.capability);
         runtimeStatus.push(Object.freeze({ capability: step.capability, status: "READY" }));
@@ -112,8 +136,10 @@ export class StudioOrchestrator {
       capabilitiesUsed.push(step.capability);
     }
 
-    addTrace("EXECUTE", "PASS", "ALL_PLAN_STEPS_COMPLETED");
-    addTrace("VERIFY", "PASS", "STRUCTURED_RESULT_VERIFIED");
+    if (request.task !== "math.solve") {
+      addTrace("EXECUTE", "PASS", "ALL_PLAN_STEPS_COMPLETED");
+      addTrace("VERIFY", "PASS", "STRUCTURED_RESULT_VERIFIED");
+    }
     addTrace("RESULT", "PASS", "STUDIO_TASK_COMPLETED");
     return Object.freeze({
       requestId,

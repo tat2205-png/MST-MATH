@@ -23,7 +23,7 @@ try {
   const invalid = await execute({ task: "shell", input: { fixture: "triangle_area" }, requestedCapabilities: ["geometry.2d"] });
   assert.equal(invalid.status, 400);
   enabled = false;
-  const disabled = await execute({ task: "math.solve", input: { fixture: "linear_equation" }, requestedCapabilities: ["math.solve"] });
+  const disabled = await execute({ task: "math.solve", input: { text: "2x-4=0" }, requestedCapabilities: ["math.solve"] });
   assert.equal(disabled.status, 403);
 } finally {
   await new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
