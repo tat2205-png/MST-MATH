@@ -19,6 +19,8 @@ import { buildGoldenPath } from "./server/services/goldenPathService.js";
 import { REPAIR_SMOKE_TEST_MANIFEST, REPAIR_SMOKE_TEST_SCENE_CODE } from "./src/types/localRender.js";
 import { LuaDrawEngine } from "./server/geometry/luadrawEngine.js";
 import { luaDrawFlags } from "./server/geometry/geometryRouter.js";
+import { studioEngineRegistry } from "./server/studio/engineRegistry.js";
+import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
 
 async function startServer() {
   const app = express();
@@ -64,6 +66,31 @@ async function startServer() {
       res.json({ providers });
     } catch (err: any) {
       res.status(500).json({ error: err.message });
+    }
+  });
+
+  // Developer-safe Studio capability registry / orchestrator status
+  app.get("/api/studio/status", (req, res) => {
+    try {
+      const featureEnabled = process.env.STUDIO_ORCHESTRATOR_V1 === "true";
+      res.json({
+        success: true,
+        featureEnabled,
+        orchestrator: "StudioOrchestrator",
+        registeredCapabilities: studioEngineRegistry.snapshot().length,
+        capabilities: studioEngineRegistry.snapshot(),
+      });
+    } catch (err: any) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  app.post("/api/studio/plan", (req, res) => {
+    try {
+      const plan = studioOrchestrator.plan(req.body || {});
+      res.json({ success: true, plan });
+    } catch (err: any) {
+      res.status(500).json({ success: false, error: err.message });
     }
   });
 
