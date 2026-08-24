@@ -1,10 +1,11 @@
 import { createHash } from "node:crypto";
 import type { Express, Request, Response } from "express";
-import { createSceneGraph } from "../../image-animation/core/scene-graph/index.js";
 import { StudioApiError } from "./apiErrors.js";
 import { createStudio } from "./createStudio.js";
 import { readStudioFeatureFlags, type StudioFeatureFlags } from "./featureFlags.js";
+import { createTriangleAreaSceneGraph } from "./orchestrationFixtures.js";
 import { buildStudioRuntimeStatus, systemRuntimeProbe, type StudioRuntimeProbe } from "./runtimeStatus.js";
+import { validateStudioTaskRequest } from "./taskValidation.js";
 
 const MAX_CANARY_BYTES = 4096;
 const CANARY_TASK = "geometry_visual";
@@ -60,24 +61,7 @@ export async function executeStudioCanary(value: unknown, flags: StudioFeatureFl
   if (!flags.integrationCanary) {
     throw new StudioApiError("CAPABILITY_DISABLED", "Studio experimental execution is disabled.", 403);
   }
-  const graph = createSceneGraph([
-    {
-      identity: { id: "triangle" },
-      geometry: { kind: "polygon", points: [{ x: -2, y: -1 }, { x: 2, y: -1 }, { x: 0, y: 2 }] },
-      style: { stroke: "#2563eb", strokeWidth: 2 },
-      placement: { layer: 1, order: 0 },
-      relations: {},
-      metadata: { geometryLocked: true },
-    },
-    {
-      identity: { id: "answer" },
-      geometry: { kind: "label", position: { x: 0, y: -2 }, text: "Area = 6" },
-      style: {},
-      placement: { layer: 2, order: 0 },
-      relations: {},
-      metadata: { authority: "exact" },
-    },
-  ]);
+  const graph = createTriangleAreaSceneGraph();
   const result = await createStudio(flags).execute({ task: "geometry.2d", input: graph, output: "manim.source" });
   if (result.status === "UNAVAILABLE") throw new StudioApiError("ENGINE_UNAVAILABLE", "No deterministic engine is available.", 503);
   if (result.status !== "COMPLETED") throw new StudioApiError("EXECUTION_FAILED", "Studio canary execution failed.", 500);
@@ -92,6 +76,23 @@ export async function executeStudioCanary(value: unknown, flags: StudioFeatureFl
     rendererDecision: "manim",
     outputSha256: digest,
   });
+}
+
+export async function executeStudioTaskRequest(value: unknown, flags: StudioFeatureFlags) {
+  let request;
+  try {
+    request = validateStudioTaskRequest(value);
+  } catch (error) {
+    throw new StudioApiError("INVALID_REQUEST", error instanceof Error ? error.message : "Invalid Studio request.", 400);
+  }
+  const result = await createStudio(flags).executeTask(request);
+  if (result.success) return result;
+  const code = result.error?.code ?? "EXECUTION_FAILED";
+  const httpStatus = code === "CAPABILITY_DISABLED" ? 403
+    : code === "RUNTIME_MISSING" || code === "ENGINE_UNAVAILABLE" ? 503
+      : code === "INVALID_REQUEST" ? 400
+        : 422;
+  throw new StudioApiError(code, result.error?.message ?? "Studio execution failed.", httpStatus);
 }
 
 function sendError(response: Response, error: unknown): void {
@@ -114,6 +115,13 @@ export function registerStudioRoutes(app: Pick<Express, "get" | "post">, depende
   app.post("/api/studio/canary", async (request: Request, response: Response) => {
     try {
       response.json({ success: true, result: await executeStudioCanary(request.body, flagsProvider()) });
+    } catch (error) {
+      sendError(response, error);
+    }
+  });
+  app.post("/api/studio/execute", async (request: Request, response: Response) => {
+    try {
+      response.json({ success: true, result: await executeStudioTaskRequest(request.body, flagsProvider()) });
     } catch (error) {
       sendError(response, error);
     }

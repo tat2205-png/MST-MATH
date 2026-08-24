@@ -16,5 +16,5 @@ export function createStudio(flags: StudioFeatureFlags = readStudioFeatureFlags(
     const { ManimStudioAdapter } = await import("./adapters/manimAdapter.js");
     return new ManimStudioAdapter();
   });
-  return new StudioOrchestrator(registry);
+  return new StudioOrchestrator(registry, flags);
 }

@@ -26,6 +26,13 @@ const suites = [
   "tests/studio-api-validation.test.ts",
   "tests/studio-runtime-status.test.ts",
   "tests/studio-feature-flag.test.ts",
+  "tests/studio-orchestrator-phase3.test.ts",
+  "tests/studio-capability-planner-phase3.test.ts",
+  "tests/studio-routing-policy-phase3.test.ts",
+  "tests/studio-runtime-fallback-phase3.test.ts",
+  "tests/studio-execution-trace-phase3.test.ts",
+  "tests/studio-multi-engine-canary-phase3.test.ts",
+  "tests/studio-execute-api-phase3.test.ts",
 ];
 
 let failed = 0;

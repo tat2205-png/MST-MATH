@@ -1,0 +1,109 @@
+{
+  "id": "IA-S3.1",
+  "title": "Studio Deterministic Orchestrator Wiring",
+  "phase": "STUDIO-3",
+  "goal": "Extend the existing Studio orchestrator with deterministic task planning, runtime-aware coordination, structured traces, and an experimental execute API.",
+  "allowedPaths": [
+    "server/studio/api.ts",
+    "server/studio/apiErrors.ts",
+    "server/studio/capabilityPlanner.ts",
+    "server/studio/createStudio.ts",
+    "server/studio/orchestrationFixtures.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/taskContracts.ts",
+    "server/studio/taskValidation.ts",
+    "tests/studio-orchestrator-phase3.test.ts",
+    "tests/studio-capability-planner-phase3.test.ts",
+    "tests/studio-routing-policy-phase3.test.ts",
+    "tests/studio-runtime-fallback-phase3.test.ts",
+    "tests/studio-execution-trace-phase3.test.ts",
+    "tests/studio-multi-engine-canary-phase3.test.ts",
+    "tests/studio-execute-api-phase3.test.ts",
+    "scripts/run-regression.mjs",
+    "image-animation/automation/specs/IA-S3.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/studio/engineRegistry.ts",
+    "server/studio/contracts.ts",
+    "server/studio/adapters/**",
+    "server/geometry/**",
+    "server/services/**",
+    "src/**",
+    "manim_toolkit/**",
+    "image-animation/core/**",
+    "image-animation/renderers/**",
+    "image-animation/automation/gates/**",
+    "image-animation/automation/scripts/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [
+    "server/studio/engineRegistry.ts",
+    "server/studio/contracts.ts",
+    "server/studio/adapters/**",
+    "server/geometry/**",
+    "server/services/**",
+    "manim_toolkit/**",
+    "image-animation/core/**",
+    "image-animation/renderers/**"
+  ],
+  "architectureProtectedPaths": [
+    "server/studio/engineRegistry.ts",
+    "server/studio/contracts.ts",
+    "server/studio/adapters/**",
+    "server/geometry/**",
+    "server/services/**",
+    "manim_toolkit/**",
+    "image-animation/core/**",
+    "image-animation/renderers/**",
+    "image-animation/automation/gates/**",
+    "image-animation/automation/scripts/**"
+  ],
+  "agentAllowedPaths": [
+    "server/studio/api.ts",
+    "server/studio/apiErrors.ts",
+    "server/studio/capabilityPlanner.ts",
+    "server/studio/createStudio.ts",
+    "server/studio/orchestrationFixtures.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/taskContracts.ts",
+    "server/studio/taskValidation.ts",
+    "tests/studio-orchestrator-phase3.test.ts",
+    "tests/studio-capability-planner-phase3.test.ts",
+    "tests/studio-routing-policy-phase3.test.ts",
+    "tests/studio-runtime-fallback-phase3.test.ts",
+    "tests/studio-execution-trace-phase3.test.ts",
+    "tests/studio-multi-engine-canary-phase3.test.ts",
+    "tests/studio-execute-api-phase3.test.ts",
+    "scripts/run-regression.mjs"
+  ],
+  "requirements": [
+    "Reuse the existing Studio orchestrator, registry, adapters, and deterministic routers.",
+    "Keep Phase 3 execution experimental and default-off.",
+    "Return explicit typed runtime, planning, routing, and execution failures.",
+    "Do not modify production flows, existing engines, toolkit modules, or dependencies."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run build",
+    "npm run qa:regression",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "node --import tsx tests/studio-orchestrator-phase3.test.ts",
+    "node --import tsx tests/studio-capability-planner-phase3.test.ts",
+    "node --import tsx tests/studio-routing-policy-phase3.test.ts",
+    "node --import tsx tests/studio-runtime-fallback-phase3.test.ts",
+    "node --import tsx tests/studio-execution-trace-phase3.test.ts",
+    "node --import tsx tests/studio-multi-engine-canary-phase3.test.ts",
+    "node --import tsx tests/studio-execute-api-phase3.test.ts"
+  ],
+  "passCriteria": [
+    "All focused Phase 3 orchestration and API tests pass.",
+    "All inherited Phase 2A, Phase 2B, math, IA, and LuaDraw regressions pass.",
+    "Repository, architecture, security, and canary protection gates pass."
+  ],
+  "requiredGates": ["IA-G0", "IA-G1", "IA-G2", "IA-G3", "IA-G9"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "develop/studio-phase-2b"
+}
