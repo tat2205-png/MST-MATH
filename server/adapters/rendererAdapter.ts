@@ -1,178 +1,52 @@
 import { VideoSpecification } from "../../src/types/mathSchema.js";
 
-export interface RenderJobRequest {
-  jobId: string;
-  videoSpec: VideoSpecification;
-  outputFormat: "mp4" | "webm" | "gif";
-  resolution: "1080p" | "720p" | "480p";
-  fps: number;
-}
+export type LocalRendererState = "READY" | "UNAVAILABLE" | "CONTRACT_MISMATCH";
+export interface LocalRendererCapabilities { readonly status: LocalRendererState; readonly rendererId: string; readonly manimAvailable: boolean; readonly ffmpegAvailable: boolean; readonly supportedOutputTypes: readonly string[]; readonly runtimeReady: boolean; }
+export interface RenderJobRequest { jobId: string; videoSpec: VideoSpecification; outputFormat: "mp4" | "webm" | "gif"; resolution: "1080p" | "720p" | "480p"; fps: number; }
+export interface RenderJobStatus { jobId: string; status: "IDLE" | "QUEUED" | "RENDERING" | "COMPLETED" | "FAILED"; progress: number; videoUrl?: string; logs: string[]; errorMessage?: string; startedAt: string; completedAt?: string; exitCode?: number | null; artifacts?: unknown[]; rendererMode: "REAL_LOCAL"; }
 
-export interface RenderJobStatus {
-  jobId: string;
-  status: "IDLE" | "QUEUED" | "RENDERING" | "COMPLETED" | "FAILED";
-  progress: number; // 0 to 100
-  currentSceneIndex?: number;
-  totalScenes?: number;
-  videoUrl?: string;
-  logs: string[];
-  errorMessage?: string;
-  startedAt: string;
-  completedAt?: string;
-}
+const unavailable = (status: LocalRendererState): LocalRendererCapabilities => ({ status, rendererId: "local.manim", manimAvailable: false, ffmpegAvailable: false, supportedOutputTypes: [], runtimeReady: false });
 
-export interface RendererAdapter {
-  submitRenderJob(request: RenderJobRequest): Promise<RenderJobStatus>;
-  getJobStatus(jobId: string): Promise<RenderJobStatus>;
-  isServiceAvailable(): Promise<boolean>;
-}
+export class PythonManimRendererAdapter {
+  constructor(private readonly serviceUrl = process.env.LOCAL_RENDER_BRIDGE_URL || "http://127.0.0.1:8765") {}
 
-// In-memory active jobs repository for tracking
-const activeJobs = new Map<string, RenderJobStatus>();
-
-export class PythonManimRendererAdapter implements RendererAdapter {
-  private serviceUrl: string;
-
-  constructor() {
-    this.serviceUrl = process.env.PYTHON_RENDERER_URL || "http://localhost:8000";
-  }
-
-  async isServiceAvailable(): Promise<boolean> {
+  async capabilities(): Promise<LocalRendererCapabilities> {
     try {
-      const res = await fetch(`${this.serviceUrl}/health`, { signal: AbortSignal.timeout(2000) });
-      return res.ok;
-    } catch {
-      return false;
-    }
+      const response = await fetch(`${this.serviceUrl}/api/capabilities`, { signal: AbortSignal.timeout(3000) });
+      if (!response.ok) return unavailable(response.status === 404 ? "CONTRACT_MISMATCH" : "UNAVAILABLE");
+      const data = await response.json() as Record<string, unknown>;
+      if (data.rendererId !== "local.manim" || typeof data.runtimeReady !== "boolean" || !Array.isArray(data.supportedOutputTypes)) return unavailable("CONTRACT_MISMATCH");
+      const outputs = (data.supportedOutputTypes as unknown[]).filter((item): item is string => typeof item === "string");
+      const ready = data.status === "READY" && data.runtimeReady === true && data.manimAvailable === true && data.ffmpegAvailable === true && outputs.includes("video/mp4");
+      return { status: ready ? "READY" : "UNAVAILABLE", rendererId: "local.manim", manimAvailable: data.manimAvailable === true, ffmpegAvailable: data.ffmpegAvailable === true, supportedOutputTypes: Object.freeze(outputs), runtimeReady: ready };
+    } catch { return unavailable("UNAVAILABLE"); }
   }
+
+  async isServiceAvailable(): Promise<boolean> { return (await this.capabilities()).status === "READY"; }
 
   async submitRenderJob(request: RenderJobRequest): Promise<RenderJobStatus> {
-    const isExternalReady = await this.isServiceAvailable();
-
-    if (isExternalReady) {
-      try {
-        const response = await fetch(`${this.serviceUrl}/api/render`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            job_id: request.jobId,
-            manim_code: request.videoSpec.manim_python_code,
-            scenes: request.videoSpec.scenes,
-            resolution: request.resolution,
-            fps: request.fps,
-          }),
-        });
-
-        if (response.ok) {
-          const data = (await response.json()) as any;
-          const status: RenderJobStatus = {
-            jobId: request.jobId,
-            status: "QUEUED",
-            progress: 5,
-            logs: [`Render job queued on external worker (${this.serviceUrl})`],
-            startedAt: new Date().toISOString(),
-          };
-          activeJobs.set(request.jobId, status);
-          return status;
-        }
-      } catch (err: any) {
-        console.warn(`External Python render service unreachable, switching to async simulator:`, err.message);
-      }
-    }
-
-    // Fallback asynchronous simulation worker
-    const initialStatus: RenderJobStatus = {
-      jobId: request.jobId,
-      status: "RENDERING",
-      progress: 10,
-      totalScenes: request.videoSpec.scenes.length,
-      currentSceneIndex: 1,
-      logs: [
-        `[RendererAdapter] Dispatching Manim Community render job ID: ${request.jobId}`,
-        `[Worker] Initializing Python 3.11 environment with Manim v0.18.1...`,
-        `[Worker] Parsing ${request.videoSpec.scenes.length} scene AST definitions...`,
-        `[Worker] Target: ${request.resolution} @ ${request.fps}fps`,
-      ],
-      startedAt: new Date().toISOString(),
-    };
-
-    activeJobs.set(request.jobId, initialStatus);
-    this.runSimulationWorker(request.jobId, request.videoSpec);
-
-    return initialStatus;
+    const capability = await this.capabilities();
+    if (capability.status !== "READY") throw new Error(capability.status === "CONTRACT_MISMATCH" ? "CONTRACT_MISMATCH" : "RUNTIME_MISSING");
+    if (request.outputFormat !== "mp4") throw new Error("ENGINE_UNAVAILABLE");
+    const source = request.videoSpec?.manim_python_code;
+    const scene = typeof source === "string" ? source.match(/class\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(\s*Scene\s*\)/)?.[1] : undefined;
+    if (!source || source.length > 500_000 || !scene) throw new TypeError("Invalid Manim render request.");
+    const body = { manifest: { projectId: request.jobId, projectName: "Studio Local Render", entryFile: "main.py", sceneName: scene, quality: "preview", action: "render", files: [{ path: "main.py", content: source }] } };
+    const response = await fetch(`${this.serviceUrl}/api/jobs`, { method: "POST", headers: { "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(210_000) });
+    if (!response.ok) throw new Error("REAL_RENDER_SUBMISSION_FAILED");
+    return this.normalize(await response.json() as Record<string, unknown>, request.jobId);
   }
 
   async getJobStatus(jobId: string): Promise<RenderJobStatus> {
-    const isExternalReady = await this.isServiceAvailable();
-    if (isExternalReady) {
-      try {
-        const res = await fetch(`${this.serviceUrl}/api/status/${jobId}`);
-        if (res.ok) {
-          const data = (await res.json()) as any;
-          return data;
-        }
-      } catch {
-        // Fallback to local activeJobs map
-      }
-    }
-
-    const localJob = activeJobs.get(jobId);
-    if (!localJob) {
-      return {
-        jobId,
-        status: "FAILED",
-        progress: 0,
-        logs: ["Job ID not found in queue."],
-        errorMessage: "Job not found",
-        startedAt: new Date().toISOString(),
-      };
-    }
-    return localJob;
+    if (!/^[A-Za-z0-9_-]+$/.test(jobId)) throw new TypeError("Invalid render job ID.");
+    const response = await fetch(`${this.serviceUrl}/api/jobs/${encodeURIComponent(jobId)}`, { signal: AbortSignal.timeout(3000) });
+    if (!response.ok) throw new Error("ENGINE_UNAVAILABLE");
+    return this.normalize(await response.json() as Record<string, unknown>, jobId);
   }
 
-  private runSimulationWorker(jobId: string, spec: VideoSpecification) {
-    let progress = 15;
-    const totalScenes = spec.scenes.length || 3;
-    let currentScene = 1;
-
-    const interval = setInterval(() => {
-      const job = activeJobs.get(jobId);
-      if (!job) {
-        clearInterval(interval);
-        return;
-      }
-
-      progress += Math.floor(Math.random() * 15) + 12;
-
-      if (progress >= 40 && currentScene === 1 && totalScenes > 1) {
-        currentScene = 2;
-        job.logs.push(`[Manim] Rendered Scene 1 (${spec.scenes[0]?.scene_id || 'intro'}): 450 frames compiled.`);
-      }
-      if (progress >= 75 && currentScene === 2 && totalScenes > 2) {
-        currentScene = 3;
-        job.logs.push(`[Manim] Rendered Scene 2 (${spec.scenes[1]?.scene_id || 'step1'}): 600 frames compiled.`);
-      }
-
-      if (progress >= 100) {
-        progress = 100;
-        job.status = "COMPLETED";
-        job.progress = 100;
-        job.completedAt = new Date().toISOString();
-        job.logs.push(
-          `[Manim] Scene compilation finished.`,
-          `[FFmpeg] Multiplexing audio narration & MP4 video streams...`,
-          `[Storage] Render completed successfully.`
-        );
-        // Pre-packaged educational math animation sample demo url
-        job.videoUrl = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
-        clearInterval(interval);
-      } else {
-        job.progress = Math.min(progress, 95);
-        job.currentSceneIndex = currentScene;
-        job.logs.push(`[Renderer] Compiling frames: ${job.progress}% (Scene ${currentScene}/${totalScenes})`);
-      }
-
-      activeJobs.set(jobId, { ...job });
-    }, 1200);
+  private normalize(data: Record<string, unknown>, fallbackId: string): RenderJobStatus {
+    const known = ["IDLE", "QUEUED", "RENDERING", "COMPLETED", "FAILED"];
+    const status = known.includes(String(data.status)) ? data.status as RenderJobStatus["status"] : "FAILED";
+    return { jobId: typeof data.jobId === "string" ? data.jobId : fallbackId, status, progress: typeof data.progress === "number" ? data.progress : 0, logs: Array.isArray(data.logs) ? data.logs.filter((item): item is string => typeof item === "string") : [], errorMessage: typeof data.error === "string" ? data.error : undefined, startedAt: new Date().toISOString(), exitCode: typeof data.exitCode === "number" ? data.exitCode : null, artifacts: Array.isArray(data.artifacts) ? data.artifacts : [], rendererMode: "REAL_LOCAL" };
   }
 }

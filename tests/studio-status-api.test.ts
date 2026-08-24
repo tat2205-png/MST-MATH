@@ -12,7 +12,7 @@ const flags: StudioFeatureFlags = {
   blender: false,
   generativeMotion: false,
 };
-const status = getStudioStatus(flags, { luaDrawReady: () => true });
+const status = getStudioStatus(flags, { luaDrawReady: () => true, manimReady: () => true });
 assert.equal(status.productionPipelineChanged, false);
 assert.equal(status.executionDefault, "OFF");
 assert.deepEqual(status.engines.map((engine) => [engine.name, engine.status]), [
@@ -31,7 +31,7 @@ assert.equal(JSON.stringify(status).includes(":\\"), false);
 
 const app = express();
 app.use(express.json());
-registerStudioRoutes(app, { flags: () => flags, runtimeProbe: { luaDrawReady: () => true } });
+registerStudioRoutes(app, { flags: () => flags, runtimeProbe: { luaDrawReady: () => true, manimReady: () => true } });
 const server = app.listen(0, "127.0.0.1");
 try {
   await new Promise<void>((resolve) => server.once("listening", resolve));

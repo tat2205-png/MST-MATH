@@ -9,6 +9,7 @@ export type StudioRuntimeState =
 
 export interface StudioRuntimeProbe {
   luaDrawReady(): boolean;
+  manimReady?(): boolean;
 }
 
 export interface StudioRuntimeStatus {
@@ -25,6 +26,11 @@ export const systemRuntimeProbe: StudioRuntimeProbe = {
       return result.status === 0 && result.error === undefined;
     });
   },
+  manimReady() {
+    const python = spawnSync("python", ["-c", "import manim"], { shell: false, windowsHide: true });
+    const ffmpeg = spawnSync("ffmpeg", ["-version"], { shell: false, windowsHide: true });
+    return python.status === 0 && python.error === undefined && ffmpeg.status === 0 && ffmpeg.error === undefined;
+  },
 };
 
 export function buildStudioRuntimeStatus(
@@ -34,7 +40,7 @@ export function buildStudioRuntimeStatus(
   return Object.freeze([
     { id: "math-ai", name: "Math AI", status: "READY", executionEnabled: false },
     { id: "luadraw", name: "LuaDraw", status: probe.luaDrawReady() ? "READY" : "CORE_READY_RUNTIME_MISSING", executionEnabled: flags.integrationCanary && flags.luaDraw },
-    { id: "manim-2d", name: "Manim 2D", status: "READY", executionEnabled: flags.integrationCanary },
+    { id: "manim-2d", name: "Manim 2D", status: probe.manimReady?.() === true ? "READY" : "CORE_READY_RUNTIME_MISSING", executionEnabled: flags.integrationCanary },
     { id: "manim-3d", name: "Native deterministic Manim 3D", status: "UNAVAILABLE", executionEnabled: false },
     { id: "image-animation", name: "Image Animation core", status: "READY", executionEnabled: flags.integrationCanary && flags.imageAnimation },
     { id: "segmentation", name: "Segmentation", status: "CORE_READY_RUNTIME_MISSING", executionEnabled: false },
