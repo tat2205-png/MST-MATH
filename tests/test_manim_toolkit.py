@@ -2,6 +2,7 @@ import unittest
 
 from manim import Circle, RIGHT, Rectangle
 
+from manim_toolkit import GoldenRightTriangleScene, build_golden_right_triangle_scene
 from manim_toolkit.background_ui import create_clean_background, create_grid_background
 from manim_toolkit.geometry_tools import make_point, make_segment, projection_point_to_line
 from manim_toolkit.latex_utils import fit_math_to_box, safe_mathtex, safe_tex, safe_text
@@ -58,6 +59,12 @@ class ManimToolkitTests(unittest.TestCase):
         right = create_formula_box("x-y=2")
         arranged = safe_arrange([left, right], direction="HORIZONTAL", gap=0.5)
         self.assertIsNotNone(arranged)
+
+    def test_golden_right_triangle_scene_integration(self):
+        scene = build_golden_right_triangle_scene()
+        self.assertIsNotNone(scene)
+        self.assertTrue(hasattr(GoldenRightTriangleScene, "construct"))
+        self.assertGreater(len(scene), 0)
 
 
 if __name__ == "__main__":

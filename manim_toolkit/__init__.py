@@ -13,6 +13,7 @@ from .background_ui import (
     create_scientific_background,
     create_teacher_background,
 )
+from .golden_scene import GoldenRightTriangleScene, build_golden_right_triangle_scene
 from .geometry_tools import (
     line_intersection,
     make_angle_marker,
@@ -97,4 +98,6 @@ __all__ = [
     "create_solution_box",
     "create_result_box",
     "create_geometry_panel",
+    "GoldenRightTriangleScene",
+    "build_golden_right_triangle_scene",
 ]
