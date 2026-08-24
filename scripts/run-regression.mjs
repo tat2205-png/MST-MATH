@@ -16,6 +16,11 @@ const suites = [
   "tests/test-step6d-frame-input.ts",
   "tests/test-step8a-master-canvas.ts",
   "tests/test-step8b-source-aware-invariants.ts",
+  "tests/test-luadraw-contract.ts",
+  "tests/studio-engine-registry.test.ts",
+  "tests/studio-image-animation-adapter.test.ts",
+  "tests/studio-luadraw-adapter.test.ts",
+  "tests/studio-integration-canary.test.ts",
 ];
 
 let failed = 0;

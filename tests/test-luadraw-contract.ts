@@ -1,0 +1,34 @@
+import assert from "node:assert/strict";
+import path from "node:path";
+import { buildGoldenCubeNet } from "../server/geometry/goldenCube.js";
+import { LuaDrawEngine } from "../server/geometry/luadrawEngine.js";
+import { luaDrawFlags, routeGeometry } from "../server/geometry/geometryRouter.js";
+import { validateGeometrySpec } from "../server/geometry/geometryValidator.js";
+
+const cube = buildGoldenCubeNet();
+const report = validateGeometrySpec(cube);
+assert.equal(report.status, "PASS");
+for (const gate of ["VERTEX_QA","EDGE_QA","FACE_QA","FACE_ADJACENCY_QA","DIMENSION_QA","LABEL_QA","NET_CONNECTED","NET_FACE_COUNT","NET_EDGE_MATCH","NET_OVERLAP","MANIFOLD_QA","SOURCE_PROVENANCE_QA"]) assert.equal(report.checks[gate], "PASS", gate);
+assert.equal(cube.vertices.length, 8);
+assert.equal(cube.edges.length, 12);
+assert.equal(cube.faces.length, 6);
+assert.equal(cube.labels.length, 8);
+assert.equal(cube.dimensions.length, 3);
+assert.equal(Object.keys(cube.net?.faceCoordinates ?? {}).length, cube.faces.length);
+
+const badVertex = structuredClone(cube); badVertex.vertices[0].x = Number.NaN;
+assert.equal(validateGeometrySpec(badVertex).status, "FAIL");
+const badPath = await new LuaDrawEngine().render(cube, path.resolve(process.cwd(), "..", "unsafe-luadraw"));
+assert.equal(badPath.status, "FAIL");
+const originalPath = process.env.PATH;
+process.env.PATH = "";
+const missingRuntime = await new LuaDrawEngine().render(cube, path.resolve(process.cwd(), "local_bridge", "runs", "luadraw_missing_runtime"));
+process.env.PATH = originalPath;
+assert.equal(missingRuntime.status, "FAIL");
+const unsupported = structuredClone(cube); Reflect.set(unsupported, "geometryType", "SPHERE");
+assert.equal(validateGeometrySpec(unsupported).status, "FAIL");
+const tampered = structuredClone(cube); tampered.dimensions[0].value = 99;
+assert.equal(validateGeometrySpec(tampered).checks.SOURCE_PROVENANCE_QA, "FAIL");
+assert.equal(luaDrawFlags.autoRoute, false);
+assert.equal(routeGeometry(cube, new LuaDrawEngine()), null);
+console.log("LUADRAW_CONTRACT_TESTS=PASS");
