@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Upload,
   Camera,
@@ -12,9 +12,17 @@ import {
   CheckCircle2,
   Trash2,
   BookOpen,
+  Cpu,
+  ArrowRight,
 } from "lucide-react";
 import { HIGH_SCHOOL_MATH_SAMPLES, MathSample } from "../../lib/mathSamples.js";
 import { MathView } from "../MathView.js";
+import {
+  buildStudioUiPlanSummary,
+  deriveTaskType,
+  normalizeRuntimeStatus,
+  requestStudioPlan,
+} from "../../services/studioWorkflow.js";
 
 interface InputTabProps {
   onStartPipeline: (payload: {
@@ -33,9 +41,58 @@ export const InputTab: React.FC<InputTabProps> = ({ onStartPipeline, isProcessin
   const [imageBase64, setImageBase64] = useState<string | null>(null);
   const [imageMimeType, setImageMimeType] = useState<string>("image/jpeg");
   const [fileName, setFileName] = useState<string | null>(null);
+  const [studioEnabled, setStudioEnabled] = useState(false);
+  const [studioStatus, setStudioStatus] = useState<{ featureEnabled: boolean; registeredCapabilities: number; capabilities: Array<{ capability: string; status: string; engine: string }> } | null>(null);
+  const [studioPlan, setStudioPlan] = useState<any>(null);
+  const [studioError, setStudioError] = useState<string | null>(null);
+  const [studioLoading, setStudioLoading] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
+
+  const refreshStudioStatus = async () => {
+    try {
+      const res = await fetch("/api/studio/status");
+      const data = await res.json();
+      if (res.ok && data.success !== false) {
+        setStudioStatus(data);
+      } else {
+        setStudioStatus({ featureEnabled: false, registeredCapabilities: 0, capabilities: [] });
+      }
+    } catch {
+      setStudioStatus({ featureEnabled: false, registeredCapabilities: 0, capabilities: [] });
+    }
+  };
+
+  useEffect(() => {
+    if (!studioEnabled) return;
+    void refreshStudioStatus();
+  }, [studioEnabled]);
+
+  const handleStudioPreview = async () => {
+    const trimmed = inputText.trim();
+    if (!trimmed) {
+      setStudioError("Enter a problem to preview the Studio route.");
+      return;
+    }
+
+    setStudioLoading(true);
+    setStudioError(null);
+    try {
+      const taskType = deriveTaskType({ problem: trimmed, geometryType: /cube|tetra|prism|pyramid|net/i.test(trimmed) ? "POLYHEDRON_NET" : undefined });
+      const nextPlan = await requestStudioPlan({
+        intent: trimmed,
+        taskType,
+        geometryType: /cube|tetra|prism|pyramid|net/i.test(trimmed) ? "POLYHEDRON_NET" : "RIGHT_TRIANGLE",
+        outputFormat: "mp4",
+      });
+      setStudioPlan(nextPlan);
+    } catch (err: any) {
+      setStudioError(err.message || "Unable to preview Studio plan.");
+    } finally {
+      setStudioLoading(false);
+    }
+  };
 
   // Quick Math Symbol Shortcuts for fast typing
   const mathSymbols = [
@@ -144,6 +201,75 @@ export const InputTab: React.FC<InputTabProps> = ({ onStartPipeline, isProcessin
               Định dạng: <strong className="text-slate-800 font-mono">Text / Image / PDF / DOCX</strong>
             </span>
           </div>
+        </div>
+
+        <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="flex items-center space-x-2">
+              <Cpu className="w-4 h-4 text-indigo-600" />
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">Studio Orchestrator</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-700 border border-amber-200">BETA / OPT-IN</span>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setStudioEnabled((v) => !v)}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${studioEnabled ? "bg-indigo-600" : "bg-slate-300"}`}
+              aria-label="Toggle Studio Orchestrator"
+            >
+              <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition ${studioEnabled ? "translate-x-5" : "translate-x-1"}`} />
+            </button>
+          </div>
+
+          {studioEnabled && (
+            <div className="mt-4 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <div className="text-xs text-slate-600">
+                  {studioStatus?.featureEnabled ? "Feature flag enabled; registry is live." : "Feature flag disabled by default; the production path remains unchanged."}
+                </div>
+                <button
+                  type="button"
+                  onClick={handleStudioPreview}
+                  disabled={studioLoading || !inputText.trim()}
+                  className="inline-flex items-center justify-center space-x-2 rounded bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white disabled:cursor-not-allowed disabled:bg-slate-300"
+                >
+                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>{studioLoading ? "Checking route..." : "Preview route"}</span>
+                </button>
+              </div>
+
+              {studioStatus && (
+                <div className="flex flex-wrap gap-2">
+                  {normalizeRuntimeStatus(studioStatus.capabilities || []).slice(0, 6).map((entry) => (
+                    <span
+                      key={entry.capability}
+                      className={`inline-flex items-center rounded-full border px-2 py-1 text-[10px] font-medium ${entry.status === "AVAILABLE" || entry.status === "CORE_AVAILABLE" || entry.status === "ROUTER_AVAILABLE" ? "border-emerald-200 bg-emerald-50 text-emerald-700" : entry.status === "OPTIONAL_RUNTIME_MISSING" ? "border-amber-200 bg-amber-50 text-amber-700" : "border-slate-200 bg-slate-100 text-slate-600"}`}
+                    >
+                      {entry.label}: {entry.status}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {studioPlan && (
+                <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-3 text-xs text-indigo-900">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-bold uppercase tracking-[0.12em]">Execution Plan</span>
+                    <span className="rounded bg-white px-2 py-0.5 font-mono text-[10px] border border-indigo-200">{buildStudioUiPlanSummary(studioPlan).routeLabel}</span>
+                  </div>
+                  <div className="mt-2 space-y-1 text-indigo-800">
+                    <div><span className="font-semibold">Capabilities:</span> {buildStudioUiPlanSummary(studioPlan).capabilitySummary}</div>
+                    <div><span className="font-semibold">Engines:</span> {buildStudioUiPlanSummary(studioPlan).engineSummary}</div>
+                    <div><span className="font-semibold">Rationale:</span> {studioPlan.rationale}</div>
+                  </div>
+                </div>
+              )}
+
+              {studioError && (
+                <div className="rounded border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-700">{studioError}</div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
