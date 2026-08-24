@@ -6,6 +6,9 @@ const require = createRequire(import.meta.url);
 const tsxCli = require.resolve("tsx/cli");
 
 const suites = [
+  "tests/test-surface-shortest-path-viewer-v1.ts",
+  "tests/test-surface-shortest-path-remediation-v1.ts",
+  "tests/test-surface-shortest-path-v1.ts",
   "tests/test-developable-surfaces-v1.ts",
   "tests/test-n-gonal-fold-v1.ts",
   "tests/test-fold-3d-viewer-v1.ts",
