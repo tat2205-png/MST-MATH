@@ -6,6 +6,8 @@ const require = createRequire(import.meta.url);
 const tsxCli = require.resolve("tsx/cli");
 
 const suites = [
+  "tests/test-document-engine-v1.ts",
+  "tests/test-math-ir-v1.ts",
   "tests/math-regression.ts",
   "tests/test-graph-engine.ts",
   "tests/test-skill-engine.ts",
