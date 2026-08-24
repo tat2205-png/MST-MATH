@@ -9,3 +9,5 @@ export * from "./scene.js";
 export * from "./adapters.js";
 export * from "./three-viewer-adapter.js";
 export * from "./n-gonal-solids.js";
+export * from "./developable-surfaces.js";
+export * from "./developable-three-adapter.js";

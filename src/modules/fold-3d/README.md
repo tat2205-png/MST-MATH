@@ -27,3 +27,7 @@ if (flat.value) {
 ```
 
 Face, edge, and vertex correspondence IDs remain stable at every progress value.
+
+## Developable curved surfaces
+
+Cylinder, cone, and conical-frustum scenes use analytic developable surfaces rather than polyhedral faces. Their flat nets are rectangle/circle, sector/circle, and annular-sector/circle primitives. Stable intrinsic coordinates (`theta_z`, `slant_theta`, and `disk_xy`), a configurable seam, and reversible development mappings prepare surface-point work without implementing shortest paths. Disk boundaries are staged rigid attachments rather than false straight hinges. Three.js tessellation is explicitly visual-only; SVG, TikZ, and Manim boundaries consume the renderer-neutral net and mapping contract.
