@@ -1,6 +1,7 @@
 import type { MathScene } from "../math-ir/index.js";
 
-export type SupportedFoldSolid = "cube" | "rectangular_prism" | "triangular_prism" | "tetrahedron" | "square_pyramid";
+export type SupportedFoldSolid = "cube" | "rectangular_prism" | "triangular_prism" | "tetrahedron" | "square_pyramid" | "n_gonal_prism" | "n_gonal_pyramid";
+export type NGonalBaseMode = "regular" | "explicit_convex";
 export type Vec2 = [number, number];
 export type Vec3 = [number, number, number];
 export type Mat4 = [number,number,number,number, number,number,number,number, number,number,number,number, number,number,number,number];
@@ -23,7 +24,7 @@ export interface FoldTopology {
   edges: FoldEdge[];
   faces: FoldFace[];
   adjacency: FaceAdjacency[];
-  metadata: { dimensions: Record<string, number>; origin: "source" | "visual_only" };
+  metadata: { dimensions: Record<string, number>; origin: "source" | "visual_only"; baseSides?: number; baseMode?: NGonalBaseMode };
 }
 
 export interface NetFaceVertex { vertexId: string; position: Vec2; }
@@ -47,6 +48,8 @@ export interface NetLayout {
   hinges: FoldHinge[];
   variant: "canonical-v1";
 }
+
+export interface RouteStripLayout { id: string; solidId: string; topologyId: string; mode: "ROUTE_STRIP"; rootFaceId: string; faceSequence: string[]; faces: NetFace[]; hinges: FoldHinge[]; }
 
 export interface FaceTransform { faceId: string; matrix: Mat4; transformedVertices: Array<{ vertexId: string; position: Vec3 }>; }
 export interface FoldState { progress: number; faceTransforms: FaceTransform[]; }

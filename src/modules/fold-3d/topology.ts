@@ -8,13 +8,17 @@ const edgeKey=(a:string,b:string)=>[a,b].sort().join("|");
 function solidType(entity:MathEntity):SupportedFoldSolid|undefined{
   if(entity.type==="polyhedron"&&["cube","rectangular_prism","tetrahedron"].includes(entity.solidKind??""))return entity.solidKind as SupportedFoldSolid;
   if(entity.type==="prism"&&entity.prismKind==="triangular")return "triangular_prism";
+  if(entity.type==="prism"&&entity.prismKind==="general"&&Number.isInteger(entity.baseSides)&&entity.baseSides!>=3&&entity.baseSides!<=10)return "n_gonal_prism";
   if(entity.type==="pyramid"&&entity.pyramidKind==="square")return "square_pyramid";
+  if(entity.type==="pyramid"&&entity.pyramidKind==="general"&&Number.isInteger(entity.baseSides)&&entity.baseSides!>=3&&entity.baseSides!<=10)return "n_gonal_pyramid";
   return undefined;
 }
+const isGeneralSolid=(entity:MathEntity)=>entity.type==="prism"?entity.prismKind==="general":entity.type==="pyramid"&&entity.pyramidKind==="general";
 
 export function buildFoldTopology(scene:MathScene,solidEntityId?:string):FoldBuildResult<FoldTopology>{
   const normalized=normalizeGeometryScene(scene); if(!normalized.scene)return{status:"FAIL",issues:normalized.issues.map(issue=>({...issue,code:issue.code==="INVALID_SOLID"?"INVALID_SOLID":issue.code}))};
-  const solid=scene.entities.find(entity=>entity.id===solidEntityId)||scene.entities.find(entity=>solidType(entity)); const type=solid&&solidType(solid);
+  const solid=scene.entities.find(entity=>entity.id===solidEntityId)||scene.entities.find(entity=>solidType(entity))||scene.entities.find(isGeneralSolid); const type=solid&&solidType(solid);
+  if(solid&&isGeneralSolid(solid)&&(solid.type==="prism"||solid.type==="pyramid")&&(!Number.isFinite(solid.baseSides)||!Number.isInteger(solid.baseSides)||solid.baseSides!<3||solid.baseSides!>10))return{status:"FAIL",issues:[{code:"INVALID_BASE_SIDE_COUNT",severity:"error",path:`scene.entities.${solid.id}.baseSides`,message:"baseSides must be an integer from 3 through 10."}]};
   if(!solid||!type)return{status:"UNSUPPORTED",issues:[{code:"UNSUPPORTED_SOLID",severity:"error",path:"scene.entities",message:"Scene has no supported fold solid."}]};
   const coordinates=new Map(normalized.scene.renderCoordinates.map(item=>[item.entityId,item.coordinate]));
   const sourceVertexIds=solid.type==="polyhedron"?solid.vertexIds:scene.entities.filter(entity=>entity.type==="point").map(entity=>entity.id);
@@ -35,7 +39,8 @@ export function buildFoldTopology(scene:MathScene,solidEntityId?:string):FoldBui
   const edges:FoldEdge[]=sourceEdges.filter(edge=>incident.has(`fold-${edge.id}`)).map(edge=>({id:`fold-${edge.id}`,sourceEntityId:edge.id,vertexIds:[vertexBySource.get(edge.startPointId)!.id,vertexBySource.get(edge.endPointId)!.id],incidentFaceIds:incident.get(`fold-${edge.id}`)!,boundary:incident.get(`fold-${edge.id}`)!.length===1}));
   const adjacency=edges.filter(edge=>edge.incidentFaceIds.length===2).map(edge=>({faceIds:[edge.incidentFaceIds[0],edge.incidentFaceIds[1]] as [string,string],sharedEdgeId:edge.id}));
   const dimensions=(scene.metadata?.adapterMetadata?.dimensions??{}) as Record<string,number>,origin=vertices.every(vertex=>vertex.origin==="source")?"source":"visual_only";
-  const topology:FoldTopology={id:`topology-${solid.id}`,solidId:solid.id,solidType:type,sourceSceneId:scene.id,sourceScene:scene,vertices,edges,faces,adjacency,metadata:{dimensions,origin}};
+  const baseSides=(solid.type==="prism"||solid.type==="pyramid")?solid.baseSides:undefined,baseMode=(solid.type==="prism"||solid.type==="pyramid")?solid.baseMode:undefined;
+  const topology:FoldTopology={id:`topology-${solid.id}`,solidId:solid.id,solidType:type,sourceSceneId:scene.id,sourceScene:scene,vertices,edges,faces,adjacency,metadata:{dimensions,origin,baseSides,baseMode}};
   const validation=validateFoldTopology(topology);
   return validation.status==="PASS"?{status:"PASS",value:topology,issues:[]}:{status:"FAIL",issues:validation.issues};
 }

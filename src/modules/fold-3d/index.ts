@@ -8,3 +8,4 @@ export * from "./fold.js";
 export * from "./scene.js";
 export * from "./adapters.js";
 export * from "./three-viewer-adapter.js";
+export * from "./n-gonal-solids.js";

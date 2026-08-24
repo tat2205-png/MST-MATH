@@ -8,7 +8,7 @@ This module is the deterministic folding layer between the canonical Math IR / G
 
 `FoldTopology` references canonical Math IR entity IDs while recording ordered face loops, normals, edge incidence, and face adjacency. A `NetLayout` contains one deterministic planar placement and an acyclic, rooted hinge spanning tree. `computeFoldState(net, progress)` composes rigid child transforms as `parent transform × rotation about shared edge`; progress is validated in the closed interval `[0, 1]`. The root face remains fixed.
 
-Supported V1 solids are cube, rectangular prism, triangular prism, tetrahedron, and square pyramid. Supplied dimensions are retained; canonical defaults are marked `visual_only`. Each solid has one canonical net. Arbitrary polyhedra, exhaustive net enumeration, curved surfaces, collision physics, and self-intersection simulation are not supported.
+Supported solids are cube, rectangular prism, triangular prism, tetrahedron, square pyramid, and generic convex n-gonal prisms/pyramids for `3 <= baseSides <= 10`. Generic bases may be regular visual-only polygons or ordered explicit convex source polygons. Supplied dimensions are retained; canonical defaults are marked `visual_only`. Each solid has one canonical full net. `generateRouteStrip` unfolds a caller-provided sequence of adjacent faces without performing shortest-path selection. Arbitrary or concave polyhedra, exhaustive net enumeration, curved surfaces, collision physics, and self-intersection simulation are not supported.
 
 Validation fails closed for malformed topology, non-manifold edges, invalid faces or hinges, disconnected/cyclic fold trees, overlapping canonical net interiors, unsafe/non-finite coordinates, invalid progress, and invalid transforms.
 

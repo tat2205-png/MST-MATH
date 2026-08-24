@@ -1,16 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { FOLD_FIXTURES, createFoldScene, updateFoldScene } from "../../modules/fold-3d/index.js";
+import { FOLD_FIXTURES, createFoldScene, createNGonalSolidScene, updateFoldScene } from "../../modules/fold-3d/index.js";
 import { createFoldThreeMapping, setFoldFaceHighlighted } from "../../modules/fold-3d/three-viewer-adapter.js";
 
 type FixtureName = keyof typeof FOLD_FIXTURES;
-const choices: Array<[FixtureName, string]> = [["cube", "Cube"], ["rectangularPrism", "Rectangular prism 2×3×5"], ["triangularPrism", "Triangular prism"], ["tetrahedron", "Tetrahedron"], ["squarePyramid", "Square pyramid"]];
+type ViewerSolid = FixtureName | "nGonalPrism" | "nGonalPyramid";
+const choices: Array<[ViewerSolid, string]> = [["cube", "Cube"], ["rectangularPrism", "Rectangular prism 2×3×5"], ["triangularPrism", "Triangular prism (legacy)"], ["tetrahedron", "Tetrahedron"], ["squarePyramid", "Square pyramid (legacy)"], ["nGonalPrism", "Prism"], ["nGonalPyramid", "Pyramid"]];
 
 export default function Fold3DViewer() {
-  const [solid, setSolid] = useState<FixtureName>("cube"), [progress, setProgress] = useState(0), [edges, setEdges] = useState(true), [selectedFace, setSelectedFace] = useState<string>();
+  const [solid, setSolid] = useState<ViewerSolid>("cube"), [baseSides, setBaseSides] = useState(5), [progress, setProgress] = useState(0), [edges, setEdges] = useState(true), [selectedFace, setSelectedFace] = useState<string>();
   const host = useRef<HTMLDivElement>(null), resetCamera = useRef<() => void>(() => {}), mappingRef = useRef<ReturnType<typeof createFoldThreeMapping>>();
-  const foldScene = useMemo(() => createFoldScene(FOLD_FIXTURES[solid], 0).value!, [solid]);
+  const source = useMemo(() => solid === "nGonalPrism" || solid === "nGonalPyramid" ? createNGonalSolidScene({ kind: solid === "nGonalPrism" ? "prism" : "pyramid", baseSides }).value! : FOLD_FIXTURES[solid], [solid, baseSides]);
+  const foldScene = useMemo(() => createFoldScene(source, 0).value!, [source]);
 
   useEffect(() => {
     const container = host.current; if (!container || !foldScene) return;
@@ -34,12 +36,13 @@ export default function Fold3DViewer() {
     <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) 280px", gap: 16 }}>
       <div ref={host} style={{ minHeight: 620, border: "1px solid #94a3b8", borderRadius: 8, overflow: "hidden", background: "#f8fafc" }} />
       <aside style={{ background: "white", padding: 16, borderRadius: 8 }}>
-        <label>Solid<br/><select value={solid} onChange={(event) => { setSolid(event.target.value as FixtureName); setProgress(0); setSelectedFace(undefined); }} style={{ width: "100%" }}>{choices.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+        <label>Solid<br/><select value={solid} onChange={(event) => { setSolid(event.target.value as ViewerSolid); setProgress(0); setSelectedFace(undefined); }} style={{ width: "100%" }}>{choices.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+        {(solid === "nGonalPrism" || solid === "nGonalPyramid") && <p><label>Base sides<br/><select value={baseSides} onChange={(event) => { setBaseSides(Number(event.target.value)); setProgress(0); setSelectedFace(undefined); }} style={{ width: "100%" }}>{Array.from({length:8},(_,index)=>index+3).map(value=><option key={value} value={value}>{value}</option>)}</select></label></p>}
         <p><label>Fold progress: <strong>{Math.round(progress * 100)}%</strong><input aria-label="Fold progress" type="range" min="0" max="1" step="0.01" value={progress} onChange={(event) => setProgress(Number(event.target.value))} style={{ width: "100%" }}/></label></p>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12 }}><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
         <p><label><input type="checkbox" checked={edges} onChange={(event) => setEdges(event.target.checked)}/> Show Edges</label></p>
         <button type="button" onClick={() => resetCamera.current()}>Reset Camera</button>
-        <hr/><div><strong>FoldScene debug</strong><p>Solid: {foldScene.solidType}<br/>Progress: {Math.round(progress * 100)}%<br/>Root Face: {foldScene.net.rootFaceId}<br/>Face Count: {counts.faces.length}<br/>Edge Count: {counts.edges.length}<br/>Hinge Count: {foldScene.net.hinges.length}<br/>FoldScene Status: PASS<br/>Selected Face: {selectedFace ?? "none"}</p></div>
+        <hr/><div><strong>FoldScene debug</strong><p>Type: {foldScene.solidType}<br/>Base Sides: {foldScene.topology.metadata.baseSides ?? "n/a"}<br/>Progress: {Math.round(progress * 100)}%<br/>Root Face: {foldScene.net.rootFaceId}<br/>Vertices: {counts.vertices.length}<br/>Edges: {counts.edges.length}<br/>Faces: {counts.faces.length}<br/>Hinges: {foldScene.net.hinges.length}<br/>FoldScene Status: PASS<br/>Selected Face: {selectedFace ?? "none"}</p></div>
         <small>Drag to orbit. Scroll or pinch to zoom. Click a face to verify its canonical ID.</small>
       </aside>
     </div>

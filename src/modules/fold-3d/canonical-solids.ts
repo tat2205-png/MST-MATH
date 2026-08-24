@@ -2,10 +2,11 @@ import type { MathEntity, MathMetadata, MathScene } from "../math-ir/index.js";
 import type { SupportedFoldSolid, Vec3 } from "./types.js";
 
 interface Definition { vertices: Record<string,Vec3>; faces: Array<{id:string;vertices:string[]}>; dimensions:Record<string,number>; }
+type CanonicalFoldSolid = Exclude<SupportedFoldSolid,"n_gonal_prism"|"n_gonal_pyramid">;
 const evidence = (kind:SupportedFoldSolid,origin:"source"|"visual_only"):MathMetadata => ({ sourceEvidence:[{id:`evidence-${kind}`,origin:origin==="source"?"user":"visual",sourceType:"user",sourceId:`canonical:${kind}`}],adapterMetadata:{foldSolidType:kind,canonicalOrigin:origin} });
 const edgeId=(a:string,b:string)=>`edge-${[a,b].sort().join("-")}`;
 
-function definition(kind:SupportedFoldSolid,input:Record<string,number>):Definition {
+function definition(kind:CanonicalFoldSolid,input:Record<string,number>):Definition {
   if(kind==="cube"||kind==="rectangular_prism"){
     const a=kind==="cube"?(input.edge??1):(input.length??2),b=kind==="cube"?a:(input.width??3),c=kind==="cube"?a:(input.height??5);
     return {dimensions:{length:a,width:b,height:c},vertices:{A:[0,0,0],B:[a,0,0],C:[a,b,0],D:[0,b,0],E:[0,0,c],F:[a,0,c],G:[a,b,c],H:[0,b,c]},faces:[{id:"face-bottom",vertices:["A","D","C","B"]},{id:"face-top",vertices:["E","F","G","H"]},{id:"face-front",vertices:["A","B","F","E"]},{id:"face-right",vertices:["B","C","G","F"]},{id:"face-back",vertices:["C","D","H","G"]},{id:"face-left",vertices:["D","A","E","H"]}]};
@@ -20,7 +21,7 @@ function definition(kind:SupportedFoldSolid,input:Record<string,number>):Definit
   const a=input.base??2,h=input.height??3; return {dimensions:{base:a,height:h},vertices:{A:[0,0,0],B:[a,0,0],C:[a,a,0],D:[0,a,0],S:[a/2,a/2,h]},faces:[{id:"face-base",vertices:["A","D","C","B"]},{id:"face-abs",vertices:["A","B","S"]},{id:"face-bcs",vertices:["B","C","S"]},{id:"face-cds",vertices:["C","D","S"]},{id:"face-das",vertices:["D","A","S"]}]};
 }
 
-export function createCanonicalSolidScene(kind:SupportedFoldSolid,dimensions:Record<string,number>={},origin:"source"|"visual_only"="visual_only"):MathScene {
+export function createCanonicalSolidScene(kind:CanonicalFoldSolid,dimensions:Record<string,number>={},origin:"source"|"visual_only"="visual_only"):MathScene {
   const def=definition(kind,dimensions),metadata=evidence(kind,origin),entities:MathEntity[]=[];
   for(const [id,[x,y,z]] of Object.entries(def.vertices))entities.push({id:`vertex-${id}`,type:"point",label:id,layoutCoordinate:{dimension:"3d",x,y,z},metadata});
   const edges=new Map<string,[string,string]>(); for(const face of def.faces)for(let i=0;i<face.vertices.length;i++){const a=face.vertices[i],b=face.vertices[(i+1)%face.vertices.length];edges.set(edgeId(a,b),[a,b]);}
