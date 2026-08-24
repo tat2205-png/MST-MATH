@@ -9,6 +9,10 @@ def create_clean_background(width: float = 14, height: float = 8, color: str = "
 
 
 def create_grid_background(width: float = 14, height: float = 8, step: float = 0.5):
+    if width <= 0 or height <= 0:
+        raise ValueError("Background width and height must be positive.")
+    if step <= 0:
+        raise ValueError("Grid step must be positive.")
     cells = []
     for x in range(int(-(width / 2) / step), int((width / 2) / step) + 1):
         cells.append(Line([x * step, -height / 2, 0], [x * step, height / 2, 0], stroke_color=GREY, stroke_width=0.5))
