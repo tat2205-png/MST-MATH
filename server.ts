@@ -17,6 +17,8 @@ import { buildMasterCanvas } from "./server/services/masterCanvasPlanner.js";
 import { evaluateMathGate } from "./server/services/mathVerificationGate.js";
 import { buildGoldenPath } from "./server/services/goldenPathService.js";
 import { REPAIR_SMOKE_TEST_MANIFEST, REPAIR_SMOKE_TEST_SCENE_CODE } from "./src/types/localRender.js";
+import { LuaDrawEngine } from "./server/geometry/luadrawEngine.js";
+import { luaDrawFlags } from "./server/geometry/geometryRouter.js";
 
 async function startServer() {
   const app = express();
@@ -36,6 +38,7 @@ async function startServer() {
   const rendererAdapter = new PythonManimRendererAdapter();
   const integrationService = new IntegrationAdaptersService();
   const visualFrameQAService = new VisualFrameQAService();
+  const luaDrawEngine = new LuaDrawEngine();
 
   // --- API Routes ---
 
@@ -502,6 +505,16 @@ async function startServer() {
 
   app.listen(PORT, HOST, () => {
     console.log(`MATH AI VIDEO STUDIO Server running on http://${HOST}:${PORT}`);
+  });
+
+  // Explicit deterministic geometry renderer. Auto-routing remains disabled by default.
+  app.post("/api/geometry/luadraw/render", async (req, res) => {
+    if (!luaDrawFlags.enabled) return res.status(503).json({ success: false, error: "LUADRAW_DISABLED" });
+    const taskId = String(req.body?.geometrySpec?.taskId || "");
+    if (!/^[A-Za-z0-9_-]+$/.test(taskId)) return res.status(400).json({ success: false, error: "INVALID_GEOMETRY_TASK" });
+    const outputDir = path.join(process.cwd(), "local_bridge", "runs", `luadraw_${taskId}_${Date.now()}`);
+    const result = await luaDrawEngine.render(req.body.geometrySpec, outputDir);
+    return res.status(result.status === "PASS" ? 200 : 422).json({ success: result.status === "PASS", result });
   });
 }
 

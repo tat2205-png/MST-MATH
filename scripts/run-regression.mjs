@@ -18,6 +18,7 @@ const suites = [
   "tests/test-step8a-master-canvas.ts",
   "tests/test-step8b-source-aware-invariants.ts",
   "tests/test-production-ui-workflow.ts",
+  "tests/test-luadraw-contract.ts",
 ];
 
 let failed = 0;
