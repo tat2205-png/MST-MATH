@@ -155,7 +155,7 @@ export class RepairOrchestrator {
           maxAttemptGateQa: "PASS",
           realOpenclawPatchQa: "PASS",
           rerenderQa: "PASS",
-          postRepairFrameQa: "PASS",
+          postRepairFrameQa: "FAIL",
           mathRegressionQa: "PASS",
           graphRegressionQa: "PASS",
           geometryLockQa: "PASS",
@@ -176,7 +176,7 @@ export class RepairOrchestrator {
     let maxAttemptGateQa: "PASS" | "FAIL" = "PASS";
     let realOpenclawPatchQa: "PASS" | "FAIL" = "PASS";
     let rerenderQa: "PASS" | "FAIL" = "PASS";
-    let postRepairFrameQa: "PASS" | "FAIL" = "PASS";
+    let postRepairFrameQa: "PASS" | "FAIL" = "FAIL";
 
     // 5. Run Repair Loop (Attempts 1 to MAX_AUTO_REPAIR_ATTEMPTS)
     let currentAttemptNum = 1;
@@ -351,60 +351,11 @@ export class RepairOrchestrator {
           rawFrames,
         });
       } else {
-        // Inspect layout in patched files
-        const mainContent = currentFiles["main.py"] || "";
-        const isOverlapFixed =
-          !mainContent.includes("move_to(title.get_center())") &&
-          (mainContent.includes("next_to(") || mainContent.includes("shift(") || mainContent.includes("arrange("));
-
-        if (isOverlapFixed) {
-          postQaReport = {
-            jobId: renderJobId,
-            overallStatus: "PASS",
-            frames: {
-              start: { frameName: "START", status: "PASS", issues: [], notes: "Layout clear." },
-              key: { frameName: "KEY", status: "PASS", issues: [], notes: "Formula positioned clearly below title with safe margin." },
-              end: { frameName: "END", status: "PASS", issues: [], notes: "Animation sequence complete and verified." },
-            },
-            summary: {
-              totalIssues: 0,
-              lowCount: 0,
-              mediumCount: 0,
-              highCount: 0,
-              criticalCount: 0,
-              mathErrors: 0,
-              geometryErrors: 0,
-              graphErrors: 0,
-              layoutErrors: 0,
-              cameraErrors: 0,
-              textErrors: 0,
-              assetErrors: 0,
-            },
-            qaMetrics: {
-              startFrameFetchQa: "PASS",
-              keyFrameFetchQa: "PASS",
-              endFrameFetchQa: "PASS",
-              geminiVisionQa: "PASS",
-              startVisualQa: "PASS",
-              keyVisualQa: "PASS",
-              endVisualQa: "PASS",
-              mathFrameQa: "PASS",
-              geometryFrameQa: "NOT_APPLICABLE",
-              graphFrameQa: "NOT_APPLICABLE",
-              layoutFrameQa: "PASS",
-              cameraFrameQa: "PASS",
-              frameQa: "PASS",
-            },
-            finalStatus: "RENDER_READY",
-            timestamp: new Date().toISOString(),
-          };
-        } else {
-          postQaReport = await this.visualFrameQAService.runJobFrameQA({
-            jobId: renderJobId,
-            bridgeUrl,
-            localBridgeToken,
-          });
-        }
+        postQaReport = await this.visualFrameQAService.runJobFrameQA({
+          jobId: renderJobId,
+          bridgeUrl,
+          localBridgeToken,
+        });
       }
 
       currentFrameQaStatus = postQaReport.overallStatus;
