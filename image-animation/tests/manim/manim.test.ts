@@ -85,6 +85,6 @@ assert.throws(() => compileManim(graph, { layout: { frameWidth: 0 } }), /positiv
 assert.throws(() => compileManim(graph, { layout: { margin: -1 } }), /non-negative finite number/);
 
 const empty = compileManim(createSceneGraph([]));
-assert.match(empty.source, /def construct\(self\):\n        pass\n$/);
+assert.match(empty.source, /def construct\(self\):\n        self\.add\(create_clean_background\(\)\)\n        pass\n$/);
 
 console.log("Manim compiler tests: PASS");

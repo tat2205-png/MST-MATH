@@ -28,7 +28,10 @@ def run_job(job_id, payload, workspace):
         source = next(item["content"] for item in manifest["files"] if item["path"] == entry)
         script, media = workspace / entry, workspace / "media"
         script.write_text(source, encoding="utf-8")
-        process = subprocess.run([sys.executable, "-m", "manim", "-ql", "--disable_caching", "--media_dir", str(media), str(script), manifest["sceneName"]], cwd=workspace, capture_output=True, text=True, shell=False, timeout=180)
+        environment = os.environ.copy()
+        project_root = str(Path(__file__).resolve().parent.parent)
+        environment["PYTHONPATH"] = project_root + (os.pathsep + environment["PYTHONPATH"] if environment.get("PYTHONPATH") else "")
+        process = subprocess.run([sys.executable, "-m", "manim", "-ql", "--disable_caching", "--media_dir", str(media), str(script), manifest["sceneName"]], cwd=workspace, env=environment, capture_output=True, text=True, shell=False, timeout=180)
         output = (process.stdout + "\n" + process.stderr)[-12000:]
         videos = sorted(path for path in media.glob("videos/**/*.mp4") if "partial_movie_files" not in path.parts)
         if process.returncode or len(videos) != 1 or videos[0].stat().st_size <= 0: return fail(job_id, output or "Manim render failed.", process.returncode)

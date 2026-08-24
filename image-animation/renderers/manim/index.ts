@@ -6,6 +6,7 @@ import {
   type Vec2,
   type VisualStyle,
 } from "../../core/scene-graph/index.ts";
+import { assertValidAnimationTimeline, type AnimationEvent, type AnimationTimeline } from "../../core/timeline/index.ts";
 
 export interface ManimLayout {
   readonly frameWidth?: number;
@@ -16,6 +17,7 @@ export interface ManimLayout {
 export interface ManimCompileOptions {
   readonly sceneClassName?: string;
   readonly layout?: ManimLayout;
+  readonly timeline?: AnimationTimeline;
 }
 
 export interface ManimLayoutIssue {
@@ -201,14 +203,40 @@ function constructor(node: SceneNode): string {
   }
 }
 
-function nodeLine(node: SceneNode, index: number): string {
+function nodeLine(node: SceneNode, index: number, initiallyAdded = true): string {
   const variable = `node_${String(index).padStart(4, "0")}`;
   const commentId = node.identity.id.replaceAll("\r", "\\r").replaceAll("\n", "\\n");
   return [
     `        # ${commentId}`,
     `        ${variable} = ${constructor(node)}${styleCalls(node.style)}`,
-    `        self.add(${variable})`,
+    ...(initiallyAdded ? [`        self.add(${variable})`] : []),
   ].join("\n");
+}
+
+function eventAnimation(event: AnimationEvent, variable: string): string {
+  switch (event.type) {
+    case "appear": return `FadeIn(${variable})`;
+    case "disappear": return `FadeOut(${variable})`;
+    case "move": return `${variable}.animate.move_to(${vector(event.to)})`;
+    case "highlight": return `Indicate(${variable}, color=${pythonString(event.color)})`;
+    case "draw": return `Create(${variable})`;
+    case "fade": return `${variable}.animate.set_opacity(${numberLiteral(event.to)})`;
+    case "scale": return `${variable}.animate.scale(${numberLiteral(event.to / (event.from ?? 1))})`;
+    case "camera_focus": return `Indicate(${variable})`;
+  }
+}
+
+function timelineLines(timeline: AnimationTimeline, variables: ReadonlyMap<string, string>): string[] {
+  const lines: string[] = [];
+  let cursor = 0;
+  for (const event of timeline.events) {
+    const variable = variables.get(event.targetId);
+    if (!variable) throw new TypeError(`Timeline target was not compiled: ${event.targetId}`);
+    if (event.start > cursor) lines.push(`        self.wait(${numberLiteral(event.start - cursor)})`);
+    lines.push(`        self.play(${eventAnimation(event, variable)}, run_time=${numberLiteral(event.duration)})`);
+    cursor = Math.max(cursor, event.start + event.duration);
+  }
+  return lines;
 }
 
 function validateClassName(value: string): string {
@@ -224,11 +252,17 @@ export function compileManim(
 ): ManimCompilation {
   assertValidSceneGraph(graph);
   const nodes = orderSceneNodes(graph.nodes);
+  if (options.timeline) assertValidAnimationTimeline(options.timeline, { sceneGraph: graph });
   validateLayout(nodes, options.layout);
   const className = validateClassName(options.sceneClassName ?? "CompiledScene");
-  const body = nodes.length === 0 ? "        pass" : nodes.map(nodeLine).join("\n");
+  const variables = new Map(nodes.map((node, index) => [node.identity.id, `node_${String(index).padStart(4, "0")}`]));
+  const deferred = new Set(options.timeline?.events.filter((event) => event.type === "appear" || event.type === "draw").map((event) => event.targetId) ?? []);
+  const construction = nodes.map((node, index) => nodeLine(node, index, !deferred.has(node.identity.id)));
+  const animation = options.timeline ? timelineLines(options.timeline, variables) : [];
+  const body = nodes.length === 0 ? "        pass" : [...construction, ...animation].join("\n");
   const source = [
     "from manim import *",
+    "from manim_toolkit.background_ui import create_clean_background",
     "",
     "def _place_label(label, point, anchor):",
     "    label.move_to(point)",
@@ -244,6 +278,7 @@ export function compileManim(
     "",
     `class ${className}(Scene):`,
     "    def construct(self):",
+    "        self.add(create_clean_background())",
     body,
     "",
   ].join("\n");
