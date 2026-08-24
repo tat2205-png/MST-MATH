@@ -21,6 +21,11 @@ const suites = [
   "tests/studio-image-animation-adapter.test.ts",
   "tests/studio-luadraw-adapter.test.ts",
   "tests/studio-integration-canary.test.ts",
+  "tests/studio-status-api.test.ts",
+  "tests/studio-canary-api.test.ts",
+  "tests/studio-api-validation.test.ts",
+  "tests/studio-runtime-status.test.ts",
+  "tests/studio-feature-flag.test.ts",
 ];
 
 let failed = 0;

@@ -16,6 +16,7 @@ import { openClawRepairClient } from "./server/services/openclawRepairClient.js"
 import { buildMasterCanvas } from "./server/services/masterCanvasPlanner.js";
 import { evaluateMathGate } from "./server/services/mathVerificationGate.js";
 import { REPAIR_SMOKE_TEST_MANIFEST, REPAIR_SMOKE_TEST_SCENE_CODE } from "./src/types/localRender.js";
+import { registerStudioRoutes } from "./server/studio/api.js";
 
 async function startServer() {
   const app = express();
@@ -36,6 +37,8 @@ async function startServer() {
   const visualFrameQAService = new VisualFrameQAService();
 
   // --- API Routes ---
+
+  registerStudioRoutes(app);
 
   // Health check
   app.get("/api/health", async (req, res) => {
