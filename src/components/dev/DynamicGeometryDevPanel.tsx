@@ -2,10 +2,11 @@ import { useMemo, useState } from "react";
 import type { MouseEvent as ReactMouseEvent } from "react";
 import { createMathScene } from "../../modules/math-ir/index.js";
 import { applySessionCommand, createConstructionSession, eligibleTools, inferSnaps, redoSession, rendererSnapshot, undoSession, type ConstructionCommandId } from "../../modules/dynamic-geometry/index.js";
+import { analyzeDegreesOfFreedom, createRenderSnapshot } from "../../modules/constraint-orchestration/index.js";
 
 export default function DynamicGeometryDevPanel({onExit}:{onExit:()=>void}){
   const[session,setSession]=useState(()=>createConstructionSession(createMathScene({id:"dynamic-geometry-dev",name:"MV-1 Developer Surface",dimension:"2d",entities:[],constraints:[]}))),[message,setMessage]=useState("Click the canvas to create free points."),[selected,setSelected]=useState<string[]>([]);
-  const snapshot=useMemo(()=>rendererSnapshot(session.scene),[session.scene]),tools=eligibleTools(session.scene,selected);
+  const snapshot=useMemo(()=>rendererSnapshot(session.scene),[session.scene]),renderSnapshot=useMemo(()=>createRenderSnapshot(session.scene),[session.scene]),tools=eligibleTools(session.scene,selected),inspected=selected[0]?analyzeDegreesOfFreedom(session.scene,selected[0]):undefined;
   const command=(id:ConstructionCommandId,inputIds=selected,parameters?:Record<string,unknown>)=>{const applied=applySessionCommand(session,{id,inputIds,parameters});if(applied.result.status==="PASS"){setSession(applied.session);setSelected(applied.result.createdIds.length?applied.result.createdIds.slice(-2):inputIds);setMessage(`${id}: ${applied.result.createdIds.join(", ")||"updated"}`);}else setMessage(`${applied.result.issues[0].code}: ${applied.result.issues[0].message}`);};
   const point=(event:ReactMouseEvent<SVGSVGElement>)=>{const box=event.currentTarget.getBoundingClientRect(),position:[number,number]=[(event.clientX-box.left)/box.width*20-10,10-(event.clientY-box.top)/box.height*20],snap=inferSnaps(session.scene,position,.35)[0];command("CREATE_FREE_POINT",[],{position:snap?.position??position});};
   const selectedPoint=selected.length===1&&session.scene.entities.find(x=>x.id===selected[0])?.type==="point";
@@ -21,7 +22,7 @@ export default function DynamicGeometryDevPanel({onExit}:{onExit:()=>void}){
         <p><button disabled={!selectedPoint} onClick={()=>command("CREATE_SEGMENT",[selected[0],selected[0]])}>Try Invalid Segment</button></p>
         <p><button disabled={!selected.length} onClick={()=>command("RENAME_OBJECT",[selected[0]],{label:prompt("Label")??""})}>Rename</button> <button disabled={!selected.length} onClick={()=>command("SET_VISIBILITY",[selected[0]],{visible:false})}>Hide</button> <button disabled={!selected.length} onClick={()=>command("DELETE_OBJECT",[selected[0]],{cascade:true})}>Delete</button></p>
         <p><button disabled={!session.history.length} onClick={()=>setSession(undoSession(session))}>Undo</button> <button disabled={!session.future.length} onClick={()=>setSession(redoSession(session))}>Redo</button></p>
-        <p role="status">{message}</p><details><summary>Semantic objects</summary><pre style={{whiteSpace:"pre-wrap"}}>{JSON.stringify(snapshot,null,2)}</pre></details>
+        <p role="status">{message}</p><section data-mv2-constraint-inspector><strong>CONSTRAINT INSPECTOR</strong><p>Selected: {selected[0]??"none"}<br/>Degrees of freedom: {inspected?.classification??"none"}<br/>Positional DOF: {inspected?.positionalDof??"—"}<br/>Active constraints: {inspected?.constraintIds.join(", ")||"none"}</p><pre style={{whiteSpace:"pre-wrap"}} data-semantic-update>{JSON.stringify({createdIds:renderSnapshot.createdIds,updatedIds:renderSnapshot.updatedIds,removedIds:renderSnapshot.removedIds,lastSemanticUpdate:session.scene.semantics?.events?.at(-1)??null},null,2)}</pre></section><details><summary>Semantic objects</summary><pre style={{whiteSpace:"pre-wrap"}}>{JSON.stringify(snapshot,null,2)}</pre></details>
       </aside>
     </div>
   </main>;
