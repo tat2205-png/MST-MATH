@@ -89,3 +89,22 @@ export interface ImportCandidate {
 }
 
 export interface QAResult { level: "PASS" | "WARNING" | "FAIL"; code: string; message: string }
+
+export type ImportSourceKind = "DOCX" | "DIGITAL_TEXT" | "SCANNED" | "MIXED";
+export interface QuestionBankImportResult {
+  success: boolean;
+  duplicate: boolean;
+  source: SourceProvenance;
+  sourceKind: ImportSourceKind;
+  candidatesCreated: number;
+  questionsSaved: number;
+  reviewRequired: number;
+  quarantined: number;
+  warnings: string[];
+}
+
+export interface QuestionBankUploadRequest {
+  originalFileName: string;
+  mimeType: string;
+  dataBase64: string;
+}

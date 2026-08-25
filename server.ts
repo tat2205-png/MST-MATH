@@ -21,6 +21,8 @@ import { LuaDrawEngine } from "./server/geometry/luadrawEngine.js";
 import { luaDrawFlags } from "./server/geometry/geometryRouter.js";
 import { studioEngineRegistry } from "./server/studio/engineRegistry.js";
 import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
+import { QuestionBankImportService } from "./server/questionBank/importService.js";
+import { createQuestionBankRouter } from "./server/questionBank/routes.js";
 
 async function startServer() {
   const app = express();
@@ -41,8 +43,10 @@ async function startServer() {
   const integrationService = new IntegrationAdaptersService();
   const visualFrameQAService = new VisualFrameQAService();
   const luaDrawEngine = new LuaDrawEngine();
+  const questionBankService = new QuestionBankImportService({ dataRoot: process.env.QUESTION_BANK_DATA_ROOT || "D:\\NA-MATH-QUESTION-BANK" });
 
   // --- API Routes ---
+  app.use("/api/question-bank", createQuestionBankRouter(questionBankService));
 
   // Health check
   app.get("/api/health", async (req, res) => {
