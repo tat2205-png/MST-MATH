@@ -5,10 +5,10 @@ import path from "node:path";
 import express from "express";
 import { QuestionBankImportService } from "../server/questionBank/importService.ts";
 import { createQuestionBankRouter } from "../server/questionBank/routes.ts";
+import { zipSync } from "fflate";
 
-function storedZip(name: string, body: Uint8Array): Uint8Array { const filename = new TextEncoder().encode(name); const bytes = new Uint8Array(30 + filename.length + body.length); const view = new DataView(bytes.buffer); view.setUint32(0, 0x04034b50, true); view.setUint16(8, 0, true); view.setUint32(18, body.length, true); view.setUint32(22, body.length, true); view.setUint16(26, filename.length, true); bytes.set(filename, 30); bytes.set(body, 30 + filename.length); return bytes; }
 const docxXml = new TextEncoder().encode("<w:document><w:body><w:p><w:r><w:t>Câu 1. Cho hình chóp S.ABCD</w:t></w:r></w:p><w:p><w:r><w:t>Chứng minh SA vuông góc đáy.</w:t></w:r></w:p></w:body></w:document>");
-const docx = storedZip("word/document.xml", docxXml);
+const docx = zipSync({ "word/document.xml": docxXml });
 const digitalPdf = new TextEncoder().encode("%PDF-1.4\n1 0 obj <</Type /Page>> stream BT (Câu 2. Trong khong gian Oxyz) Tj ET endstream endobj");
 const scannedPdf = new TextEncoder().encode("%PDF-1.4\n1 0 obj <</Type /Page /XObject 2 0 R>> endobj");
 const root = mkdtempSync(path.join(tmpdir(), "qb-0k-")); const service = new QuestionBankImportService({ dataRoot: root });

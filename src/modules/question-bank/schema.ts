@@ -26,12 +26,14 @@ export function validateQuestion(question: QuestionRecord): QAResult[] {
     const ids = question.options?.map((o) => o.id) ?? [];
     if (ids.length !== 4 || new Set(ids).size !== 4 || "ABCD".split("").some((id) => !ids.includes(id as never))) r.push({ level: "FAIL", code: "MCQ_OPTIONS", message: "MCQ requires unique A/B/C/D options" });
     question.options?.forEach((o) => r.push(...validateBlocks(o.content, `option ${o.id}`)));
-    if (question.answer?.type !== "MCQ" || !ids.includes(question.answer.optionId)) r.push({ level: "FAIL", code: "MCQ_ANSWER", message: "MCQ answer is required and must reference an option" });
+    if (question.answer?.type !== "MCQ" || !ids.includes(question.answer.optionId)) r.push({ level: question.status === "APPROVED" ? "FAIL" : "WARNING", code: "MCQ_ANSWER", message: "MCQ answer is unresolved" });
   } else if (question.questionType === "TRUE_FALSE") {
-    if (question.answer?.type !== "TRUE_FALSE" || !question.answer.statements.length) r.push({ level: "FAIL", code: "TF_STATEMENTS", message: "TRUE_FALSE requires semantic boolean statements" });
+    if (!question.statements?.length && (question.answer?.type !== "TRUE_FALSE" || !question.answer.statements.length)) r.push({ level: "FAIL", code: "TF_STATEMENTS", message: "TRUE_FALSE requires semantic statements" });
+    if (question.answer?.type !== "TRUE_FALSE") r.push({ level: question.status === "APPROVED" ? "FAIL" : "WARNING", code: "TF_ANSWER", message: "TRUE_FALSE answers are unresolved" });
     question.answer?.type === "TRUE_FALSE" && question.answer.statements.forEach((s) => r.push(...validateBlocks(s.content, `statement ${s.id}`)));
-  } else if (question.questionType === "SHORT_ANSWER" && (question.answer?.type !== "SHORT_ANSWER" || validateBlocks(question.answer.content, "answer").length)) {
-    r.push({ level: "FAIL", code: "SHORT_ANSWER_REQUIRED", message: "Canonical short answer is required" });
+    question.statements?.forEach((s) => r.push(...validateBlocks(s.content, `statement ${s.id}`)));
+  } else if (question.questionType === "SHORT_ANSWER" && (question.answer?.type !== "SHORT_ANSWER" || validateBlocks(question.answer.content, "answer").some((x) => x.level === "FAIL"))) {
+    r.push({ level: question.status === "APPROVED" ? "FAIL" : "WARNING", code: "SHORT_ANSWER_REQUIRED", message: "Canonical short answer is unresolved" });
   }
   if (question.questionType === "ESSAY" && question.status !== "DRAFT" && !question.solution?.length) r.push({ level: "WARNING", code: "ESSAY_SOLUTION_MISSING", message: "Essay solution is missing" });
   return r.length ? r : [{ level: "PASS", code: "VALID", message: "Question is valid" }];

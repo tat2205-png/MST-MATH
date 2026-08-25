@@ -13,6 +13,7 @@ import type { QuestionRecord } from "../src/modules/question-bank/types.ts";
 import { transitionQuestion } from "../src/modules/question-bank/workflow.ts";
 import { importPdf } from "../src/modules/question-bank/importers/pdf.ts";
 import { importDocx } from "../src/modules/question-bank/importers/docx.ts";
+import { zipSync } from "fflate";
 
 const vi = ["Cho hình chóp", "Trong không gian Oxyz", "phương trình mặt phẳng", "vectơ pháp tuyến"];
 const latex = [String.raw`SA\perp(ABCD)`, String.raw`\displaystyle\int_0^1 x^2,dx`, String.raw`\lim_{x\to+\infty}f(x)`, String.raw`\frac{a+b}{c}`];
@@ -41,12 +42,8 @@ assert.equal(detectDuplicate(question, [structuredClone(question)]).kind, "EXACT
 const scanned = new TextEncoder().encode("%PDF-1.4\n1 0 obj <</Type /Page /Resources << /XObject << /Im1 2 0 R >> >> >> endobj"); const pdf = importPdf(scanned, "scan.pdf"); assert.equal(pdf.classification, "SCANNED"); assert.equal(pdf.routing, "OCR_REQUIRED"); assert.equal(pdf.candidates[0].status, "QUARANTINED");
 const digital = new TextEncoder().encode("%PDF-1.4\n1 0 obj <</Type /Page>> stream BT (Câu 1. Trong không gian Oxyz) Tj ET endstream endobj"); const parsedPdf = importPdf(digital, "digital.pdf"); assert.equal(parsedPdf.classification, "DIGITAL_TEXT"); assert.equal(parsedPdf.candidates[0].source.page, 1);
 
-function storedZip(name: string, body: Uint8Array): Uint8Array {
-  const filename = new TextEncoder().encode(name); const bytes = new Uint8Array(30 + filename.length + body.length); const view = new DataView(bytes.buffer);
-  view.setUint32(0, 0x04034b50, true); view.setUint16(8, 0, true); view.setUint32(18, body.length, true); view.setUint32(22, body.length, true); view.setUint16(26, filename.length, true); bytes.set(filename, 30); bytes.set(body, 30 + filename.length); return bytes;
-}
 const docxXml = new TextEncoder().encode("<w:document><w:body><w:p><w:r><w:t>Câu 1. Cho hình chóp</w:t></w:r></w:p><w:p><w:r><w:t>vectơ pháp tuyến</w:t></w:r></w:p></w:body></w:document>");
-const docx = importDocx(storedZip("word/document.xml", docxXml), "đề toán.docx"); assert.equal(docx.length, 1); assert.equal(docx[0].source.originalFileName, "đề toán.docx"); assert.equal(docx[0].source.questionNumber, "1"); assert.ok(docx[0].content[0].type === "text" && docx[0].content[0].value.includes("Cho hình chóp"));
+const docx = importDocx(zipSync({ "word/document.xml": docxXml }), "đề toán.docx"); assert.equal(docx.length, 1); assert.equal(docx[0].source.originalFileName, "đề toán.docx"); assert.equal(docx[0].source.questionNumber, "1"); assert.ok(docx[0].content[0].type === "text" && docx[0].content[0].value.includes("Cho hình chóp"));
 
 const mainSource = readFileSync("src/main.tsx", "utf8"); const uiSource = readFileSync("src/modules/question-bank/QuestionBankDevApp.tsx", "utf8"); assert.match(mainSource, /VITE_QUESTION_BANK_DEV === 'true'/); assert.match(mainSource, /\/dev\/question-bank/); for (const feature of ["Import DOCX/PDF", "Review", "Search questions", "Chi tiết & trình biên tập", "Đáp án", "Lời giải", "QA state", "Assets"]) assert.ok(uiSource.includes(feature), feature);
 

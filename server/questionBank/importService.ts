@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { importDocx } from "../../src/modules/question-bank/importers/docx.js";
+import { importDocxDetailed } from "../../src/modules/question-bank/importers/docx.js";
 import { importPdf } from "../../src/modules/question-bank/importers/pdf.js";
 import { contentToSearchText } from "../../src/modules/question-bank/normalization.js";
 import { validateQuestion } from "../../src/modules/question-bank/schema.js";
@@ -39,7 +39,8 @@ function candidateToQuestion(candidate: ImportCandidate, index: number): Questio
   const base = Number.parseInt(candidate.source.sourceHash.slice(0, 8), 16) % 900000 + 100000;
   const sequence = ((base + index - 100000) % 900000) + 100000;
   const now = new Date().toISOString();
-  return { id: `NA-M12-IMPORT-SOURCE-ESSAY-L1-${String(sequence).padStart(6, "0")}`, grade: 12, subject: "MATH", curriculum: "GDPT_2018", chapter: "Chưa phân loại", lesson: "Chưa phân loại", topic: "Nhập tài liệu", knowledgeUnit: "Chờ giáo viên rà soát", questionType: "ESSAY", cognitiveLevel: "RECOGNITION", difficulty: 1, content: candidate.content, answer: { type: "ESSAY" }, assets: candidate.assetIds, tags: ["imported"], searchText: contentToSearchText(candidate.content), source: candidate.source, status: candidate.status === "QUARANTINED" ? "QUARANTINED" : "REVIEW", createdAt: now, updatedAt: now };
+  const type = candidate.questionType ?? "ESSAY"; const typeCode = type === "TRUE_FALSE" ? "TF" : type === "SHORT_ANSWER" ? "SA" : type; const searchText = contentToSearchText(candidate.content); const metadata = /oxyz/iu.test(searchText) ? { chapter: "Hình học giải tích", topic: "Oxyz", knowledgeUnit: "Chờ phân loại chi tiết" } : /hàm số/iu.test(searchText) ? { chapter: "Hàm số", topic: "Khảo sát hàm số", knowledgeUnit: "Chờ phân loại chi tiết" } : /hình chóp|hình lăng trụ/iu.test(searchText) ? { chapter: "Hình học không gian", topic: "Khối đa diện", knowledgeUnit: "Chờ phân loại chi tiết" } : { chapter: "Chưa phân loại", topic: "Chưa phân loại", knowledgeUnit: "Chờ giáo viên phân loại" };
+  return { id: `NA-M12-IMPORT-SOURCE-${typeCode}-L1-${String(sequence).padStart(6, "0")}`, grade: 12, subject: "MATH", curriculum: "GDPT_2018", chapter: metadata.chapter, lesson: "Chưa phân loại", topic: metadata.topic, knowledgeUnit: metadata.knowledgeUnit, questionType: type, cognitiveLevel: "RECOGNITION", difficulty: 1, content: candidate.content, options: candidate.options, statements: candidate.statements, answer: candidate.answer ?? (type === "ESSAY" ? { type: "ESSAY" } : undefined), solution: candidate.solution, assets: candidate.assetIds, tags: ["imported", type.toLocaleLowerCase()], searchText, source: candidate.source, status: candidate.status === "QUARANTINED" ? "QUARANTINED" : "REVIEW", createdAt: now, updatedAt: now, importMetadata: candidate.confidence && candidate.sourcePosition ? { confidence: candidate.confidence, evidence: candidate.evidence ?? [], warnings: candidate.notes, sourcePosition: candidate.sourcePosition } : undefined };
 }
 
 export class QuestionBankImportService {
@@ -50,17 +51,19 @@ export class QuestionBankImportService {
   }
   importUpload(payload: QuestionBankUploadRequest): QuestionBankImportResult {
     const upload = validateUpload(payload);
-    const imported = upload.extension === ".docx" ? { kind: "DOCX" as const, candidates: importDocx(upload.bytes, upload.name), warnings: [] as string[] } : (() => { const result = importPdf(upload.bytes, upload.name); return { kind: result.classification, candidates: result.candidates, warnings: result.routing ? [result.routing] : [] }; })();
+    const docx = upload.extension === ".docx" ? importDocxDetailed(upload.bytes, upload.name) : undefined;
+    const imported = docx ? { kind: "DOCX" as const, candidates: docx.candidates, warnings: docx.document.warnings, diagnostics: docx.diagnostics as unknown as Record<string, number> } : (() => { const result = importPdf(upload.bytes, upload.name); return { kind: result.classification, candidates: result.candidates, warnings: result.routing ? [result.routing] : [], diagnostics: undefined }; })();
     const source = imported.candidates[0]?.source;
     if (!source) throw new QuestionBankImportError("NO_CANDIDATES", "No question candidates were extracted", 422);
     const existing = this.repository.searchQuestions({});
-    if (existing.some((q) => q.source.sourceHash === source.sourceHash)) return { success: true, duplicate: true, source, sourceKind: imported.kind, candidatesCreated: imported.candidates.length, questionsSaved: 0, reviewRequired: 0, quarantined: 0, warnings: ["DUPLICATE_SOURCE"] };
+    if (existing.some((q) => q.source.sourceHash === source.sourceHash)) return { success: true, duplicate: true, source, sourceKind: imported.kind, candidatesCreated: imported.candidates.length, questionsSaved: 0, reviewRequired: 0, quarantined: 0, warnings: ["DUPLICATE_SOURCE"], diagnostics: imported.diagnostics };
     const sourceDir = path.join(this.options.dataRoot, "source", upload.extension === ".docx" ? "word" : "pdf"); mkdirSync(sourceDir, { recursive: true });
     const storedName = `${path.parse(upload.name).name.replace(/[^\p{L}\p{N}._-]+/gu, "_")}-${source.sourceHash.slice(0, 12)}${upload.extension}`; const destination = path.join(sourceDir, storedName);
     try { writeFileSync(destination, upload.bytes, { flag: "wx" }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error; }
+    if (docx?.assets.length) { const assetDir = path.join(this.options.dataRoot, "assets", "image"); mkdirSync(assetDir, { recursive: true }); for (const asset of docx.assets) { const extension = path.extname(asset.target).replace(/[^.a-z0-9]/gi, "") || ".bin"; const assetPath = path.join(assetDir, `${asset.assetId}${extension}`); try { writeFileSync(assetPath, asset.bytes, { flag: "wx" }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error; } } }
     let saved = 0; const warnings = [...imported.warnings];
     imported.candidates.forEach((candidate, index) => { const question = candidateToQuestion(candidate, index); const failures = validateQuestion(question).filter((q) => q.level === "FAIL"); if (failures.length) { warnings.push(...failures.map((q) => q.code)); return; } if (question.status === "APPROVED") throw new Error("AUTO_APPROVAL_GUARD"); try { this.repository.saveQuestion(question); saved += 1; } catch (error) { warnings.push((error as Error).message.includes("UNIQUE") ? "QUESTION_ID_COLLISION" : "PERSISTENCE_ERROR"); } });
-    return { success: true, duplicate: false, source, sourceKind: imported.kind, candidatesCreated: imported.candidates.length, questionsSaved: saved, reviewRequired: imported.candidates.filter((c) => c.status !== "QUARANTINED").length, quarantined: imported.candidates.filter((c) => c.status === "QUARANTINED").length, warnings: [...new Set([...warnings, ...imported.candidates.flatMap((c) => c.notes)])] };
+    return { success: true, duplicate: false, source, sourceKind: imported.kind, candidatesCreated: imported.candidates.length, questionsSaved: saved, reviewRequired: imported.candidates.filter((c) => c.status !== "QUARANTINED").length, quarantined: imported.candidates.filter((c) => c.status === "QUARANTINED").length, warnings: [...new Set([...warnings, ...imported.candidates.flatMap((c) => c.notes)])], diagnostics: imported.diagnostics };
   }
   listQuestions(): QuestionRecord[] { return this.repository.searchQuestions({}); }
   close(): void { this.repository.close(); }

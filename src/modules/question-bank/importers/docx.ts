@@ -1,22 +1,19 @@
-import { inflateRawSync } from "node:zlib";
-import type { ImportCandidate } from "../types.js";
-import { groupQuestionCandidates, provenance } from "./common.js";
+import type { ContentBlock, DocumentIR, ImportCandidate } from "../types.js";
+import { parseDocxToDocumentIR } from "../documentIr.js";
+import { segmentDocument } from "../segmentation.js";
+import { provenance, sha256 } from "./common.js";
 
-function unzipEntries(bytes: Uint8Array): Map<string, Uint8Array> {
-  const out = new Map<string, Uint8Array>(); const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength); let p = 0;
-  while (p + 30 <= bytes.length && view.getUint32(p, true) === 0x04034b50) {
-    const method = view.getUint16(p + 8, true), size = view.getUint32(p + 18, true), nameLen = view.getUint16(p + 26, true), extraLen = view.getUint16(p + 28, true);
-    const name = new TextDecoder().decode(bytes.slice(p + 30, p + 30 + nameLen)); const start = p + 30 + nameLen + extraLen; const compressed = bytes.slice(start, start + size);
-    out.set(name, method === 0 ? compressed : method === 8 ? inflateRawSync(compressed) : new Uint8Array()); p = start + size;
-  }
-  return out;
+export interface ExtractedDocxAsset { assetId: string; relationshipId: string; target: string; bytes: Uint8Array }
+export interface DocxImportDiagnostics { questionCandidates: number; segmented: number; mcq: number; trueFalse: number; shortAnswer: number; essay: number; mathObjects: number; mathConverted: number; mathWarnings: number; assets: number; assetsMapped: number; review: number; quarantined: number }
+export interface DetailedDocxImport { candidates: ImportCandidate[]; document: DocumentIR; assets: ExtractedDocxAsset[]; diagnostics: DocxImportDiagnostics }
+
+function remapContent(blocks: ContentBlock[], prefix: string): void { blocks.forEach((block) => { if (block.type === "image") block.assetId = `${prefix}-${block.assetId}`; else if (block.type === "table") block.rows.flat().forEach((cell) => remapContent(cell, prefix)); }); }
+export function importDocxDetailed(bytes: Uint8Array, originalFileName: string): DetailedDocxImport {
+  const parsed = parseDocxToDocumentIR(bytes, originalFileName); const hashPrefix = sha256(bytes).slice(0, 12); parsed.document.blocks.forEach((block) => { if (block.type === "paragraph" || block.type === "heading") remapContent(block.content, hashPrefix); else if (block.type === "table") block.rows.flat().forEach((cell) => remapContent(cell, hashPrefix)); });
+  const segmented = segmentDocument(parsed.document); const candidates: ImportCandidate[] = segmented.map((question) => ({ content: question.content, source: provenance(originalFileName, "DOCX", bytes, undefined, question.questionNumber), status: question.warnings.some((warning) => warning === "EMPTY_OMML_RESULT") ? "QUARANTINED" : "DRAFT", assetIds: question.assetIds, notes: question.warnings, questionType: question.questionType, options: question.options, statements: question.statements, answer: question.answer, solution: question.solution, confidence: question.confidence, evidence: question.evidence, sourcePosition: question.sourcePosition }));
+  if (!candidates.length && parsed.document.blocks.length) { const content = parsed.document.blocks.flatMap((block) => block.type === "paragraph" || block.type === "heading" ? block.content : block.type === "table" ? [{ type: "table" as const, rows: block.rows }] : []); candidates.push({ content, source: provenance(originalFileName, "DOCX", bytes), status: "DRAFT", assetIds: [], notes: ["NO_EXPLICIT_QUESTION_BOUNDARY"], questionType: "ESSAY", confidence: { segmentation: 0.25, type: 0.4, math: parsed.document.mathObjects ? parsed.document.mathConverted / parsed.document.mathObjects : 1, answer: 0, assetMapping: 0 }, evidence: ["WHOLE_DOCUMENT_FALLBACK"], sourcePosition: { blockStart: 0, blockEnd: parsed.document.blocks.length - 1 } }); }
+  const assets: ExtractedDocxAsset[] = []; for (const [relationshipId, target] of parsed.relationships) { const normalized = target.replace(/\\/g, "/").replace(/^\.\.\//, ""); const mediaName = normalized.startsWith("word/") ? normalized : `word/${normalized}`; const data = parsed.media.get(mediaName); if (data) assets.push({ assetId: `${hashPrefix}-asset-${relationshipId}`, relationshipId, target, bytes: data }); }
+  const counts = (type: string) => candidates.filter((candidate) => candidate.questionType === type).length; const diagnostics: DocxImportDiagnostics = { questionCandidates: candidates.length, segmented: segmented.length, mcq: counts("MCQ"), trueFalse: counts("TRUE_FALSE"), shortAnswer: counts("SHORT_ANSWER"), essay: counts("ESSAY"), mathObjects: parsed.document.mathObjects, mathConverted: parsed.document.mathConverted, mathWarnings: parsed.document.warnings.length, assets: parsed.media.size, assetsMapped: assets.length, review: candidates.filter((candidate) => candidate.status === "DRAFT").length, quarantined: candidates.filter((candidate) => candidate.status === "QUARANTINED").length };
+  return { candidates, document: parsed.document, assets, diagnostics };
 }
-function xmlText(xml: string): string[] {
-  const paragraphs = xml.match(/<w:p\b[\s\S]*?<\/w:p>/g) ?? [];
-  return paragraphs.map((p) => [...p.matchAll(/<w:t(?:\s[^>]*)?>([\s\S]*?)<\/w:t>/g)].map((m) => m[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&")).join("")).filter(Boolean);
-}
-export function importDocx(bytes: Uint8Array, originalFileName: string): ImportCandidate[] {
-  const entries = unzipEntries(bytes); const doc = entries.get("word/document.xml"); if (!doc) throw new Error("Invalid DOCX: word/document.xml is missing");
-  const groups = groupQuestionCandidates(xmlText(new TextDecoder().decode(doc))); const assets = [...entries.keys()].filter((x) => x.startsWith("word/media/")).map((x) => `asset-${x.replace(/[^a-z0-9]/gi, "-")}`);
-  return groups.map((g) => ({ content: g.blocks, source: provenance(originalFileName, "DOCX", bytes, undefined, g.number), status: "DRAFT", assetIds: assets, notes: assets.length ? ["Embedded images require asset registry persistence"] : [] }));
-}
+export function importDocx(bytes: Uint8Array, originalFileName: string): ImportCandidate[] { return importDocxDetailed(bytes, originalFileName).candidates; }

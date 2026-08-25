@@ -45,6 +45,7 @@ export interface QuestionRecord {
   difficulty: 1 | 2 | 3 | 4 | 5;
   content: ContentBlock[];
   options?: QuestionOption[];
+  statements?: Array<{ id: string; content: ContentBlock[] }>;
   answer?: QuestionAnswer;
   solution?: ContentBlock[];
   assets: string[];
@@ -54,6 +55,7 @@ export interface QuestionRecord {
   status: QuestionStatus;
   createdAt: string;
   updatedAt: string;
+  importMetadata?: { confidence: ImportConfidence; evidence: string[]; warnings: string[]; sourcePosition: SourcePosition };
 }
 
 export interface AssetRecord {
@@ -86,7 +88,26 @@ export interface ImportCandidate {
   status: "DRAFT" | "QUARANTINED";
   assetIds: string[];
   notes: string[];
+  questionType?: QuestionType;
+  options?: QuestionOption[];
+  statements?: Array<{ id: string; content: ContentBlock[] }>;
+  answer?: QuestionAnswer;
+  solution?: ContentBlock[];
+  confidence?: ImportConfidence;
+  evidence?: string[];
+  sourcePosition?: SourcePosition;
 }
+
+export interface SourcePosition { blockStart: number; blockEnd: number; paragraphStart?: number; paragraphEnd?: number }
+export interface ImportConfidence { segmentation: number; type: number; math: number; answer: number; assetMapping: number }
+export interface DocumentBlockBase { order: number; paragraphIndex?: number; styleName?: string; numberingId?: string; sourcePosition: string }
+export type DocumentBlock =
+  | (DocumentBlockBase & { type: "paragraph" | "heading"; content: ContentBlock[] })
+  | (DocumentBlockBase & { type: "math"; latex: string; evidence: string; supported: boolean })
+  | (DocumentBlockBase & { type: "image"; assetId: string; relationshipId: string; target?: string })
+  | (DocumentBlockBase & { type: "table"; rows: ContentBlock[][][] })
+  | (DocumentBlockBase & { type: "pageBreak" });
+export interface DocumentIR { sourceName: string; blocks: DocumentBlock[]; warnings: string[]; mathObjects: number; mathConverted: number; assetsFound: number }
 
 export interface QAResult { level: "PASS" | "WARNING" | "FAIL"; code: string; message: string }
 
@@ -101,6 +122,7 @@ export interface QuestionBankImportResult {
   reviewRequired: number;
   quarantined: number;
   warnings: string[];
+  diagnostics?: Record<string, number>;
 }
 
 export interface QuestionBankUploadRequest {
