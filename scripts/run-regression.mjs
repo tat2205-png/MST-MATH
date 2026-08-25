@@ -7,6 +7,7 @@ const tsxCli = require.resolve("tsx/cli");
 
 const suites = [
   "tests/test-math-ir-dynamic-semantics-v1.ts",
+  "tests/test-mv1-construction-engine.ts",
   "tests/test-pattern-fold-v1.ts",
   "tests/test-surface-shortest-path-viewer-v1.ts",
   "tests/test-surface-shortest-path-remediation-v1.ts",
