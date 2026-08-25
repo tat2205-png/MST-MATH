@@ -2,10 +2,10 @@ import { planStudioTask } from "./capabilityPlanner.js";
 import type { StudioPlannedCapability, StudioTask, StudioTaskRequest } from "./taskContracts.js";
 
 const MAX_STUDIO_REQUEST_BYTES = 4096;
-const tasks = new Set<StudioTask>(["math.solve", "geometry.visualize", "animation.scene", "video.plan"]);
+const tasks = new Set<StudioTask>(["math.solve", "geometry.visualize", "animation.scene", "video.plan", "video.render"]);
 const capabilities = new Set<StudioPlannedCapability>([
   "math.solve", "geometry.2d", "geometry.luadraw", "animation.manim",
-  "animation.image", "animation.image.segmentation", "video.plan",
+  "animation.image", "animation.image.segmentation", "video.plan", "video.render",
 ]);
 
 function exactKeys(value: Record<string, unknown>, expected: readonly string[]): boolean {
@@ -34,11 +34,22 @@ export function validateStudioTaskRequest(value: unknown): StudioTaskRequest {
   const input = request.input;
   if (input === null || typeof input !== "object" || Array.isArray(input)) throw new TypeError("Studio input must be an object.");
   let validatedInput: StudioTaskRequest["input"];
-  if (request.task === "math.solve") {
-    if (!exactKeys(input as Record<string, unknown>, ["text"])) throw new TypeError("Studio math input must contain only text.");
+  if (request.task === "math.solve" || request.task === "video.render") {
+    const inputRecord = input as Record<string, unknown>;
+    const keys = Object.keys(inputRecord);
+    if (!keys.includes("text") || keys.some((key) => key !== "text" && key !== "video")) throw new TypeError("Studio real execution input fields are invalid.");
     const text = (input as Record<string, unknown>).text;
     if (typeof text !== "string" || text.trim().length === 0 || text.length > 1024) throw new TypeError("Studio math text is invalid.");
-    validatedInput = Object.freeze({ text: text.trim() });
+    const video = inputRecord.video;
+    if (video !== undefined) {
+      if (video === null || typeof video !== "object" || Array.isArray(video) || !Object.keys(video).every((key) => key === "resolution" || key === "fps")) throw new TypeError("Studio video options are invalid.");
+      const options = video as Record<string, unknown>;
+      if (options.resolution !== undefined && options.resolution !== "480p" && options.resolution !== "720p") throw new TypeError("Studio video resolution is invalid.");
+      if (options.fps !== undefined && options.fps !== 24 && options.fps !== 30) throw new TypeError("Studio video fps is invalid.");
+      const resolution = options.resolution as "480p" | "720p" | undefined;
+      const fps = options.fps as 24 | 30 | undefined;
+      validatedInput = Object.freeze({ text: text.trim(), video: Object.freeze({ ...(resolution === undefined ? {} : { resolution }), ...(fps === undefined ? {} : { fps }) }) });
+    } else validatedInput = Object.freeze({ text: text.trim() });
   } else {
     if (!exactKeys(input as Record<string, unknown>, ["fixture"])) throw new TypeError("Studio input must contain only a deterministic fixture.");
     const fixture = (input as Record<string, unknown>).fixture;

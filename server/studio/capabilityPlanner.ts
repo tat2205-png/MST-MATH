@@ -11,11 +11,12 @@ const taskCapabilities = {
   "geometry.visualize": ["geometry.2d", "geometry.luadraw"],
   "animation.scene": ["animation.manim", "animation.image", "animation.image.segmentation"],
   "video.plan": ["math.solve", "geometry.2d", "video.plan"],
+  "video.render": ["math.solve", "geometry.2d", "animation.manim", "video.render"],
 } as const satisfies Readonly<Record<StudioTask, readonly StudioPlannedCapability[]>>;
 
 function step(capability: StudioPlannedCapability, sequence: number): StudioPlanStep {
   if (capability === "math.solve") return Object.freeze({ sequence, capability, component: "math-ai", action: "COMPUTE" });
-  if (capability === "video.plan") return Object.freeze({ sequence, capability, component: "renderer-router", action: "PLAN" });
+  if (capability === "video.plan" || capability === "video.render") return Object.freeze({ sequence, capability, component: "renderer-router", action: "PLAN" });
   if (capability === "geometry.luadraw") return Object.freeze({ sequence, capability, component: "studio.luadraw", action: "EXECUTE" });
   if (capability === "animation.image" || capability === "animation.image.segmentation") {
     return Object.freeze({ sequence, capability, component: "studio.image-animation", action: "EXECUTE" });
@@ -37,6 +38,13 @@ export function planStudioTask(request: StudioTaskRequest): StudioCapabilityPlan
     const required: readonly StudioPlannedCapability[] = ["math.solve", "geometry.2d", "video.plan"];
     if (required.some((capability) => !capabilities.includes(capability)) || capabilities.length !== required.length) {
       throw new TypeError("video.plan requires math.solve, geometry.2d, and video.plan.");
+    }
+    capabilities = required;
+  }
+  if (request.task === "video.render") {
+    const required: readonly StudioPlannedCapability[] = ["math.solve", "geometry.2d", "animation.manim", "video.render"];
+    if (required.some((capability) => !capabilities.includes(capability)) || capabilities.length !== required.length) {
+      throw new TypeError("video.render requires math.solve, geometry.2d, animation.manim, and video.render.");
     }
     capabilities = required;
   }
