@@ -26,3 +26,5 @@ const result = validateMathIR(document);
 ```
 
 IA-1 defines contracts, validation, serialization, small factories, and fixtures only. Importers, solvers, renderers, folding, collision detection, and format-specific export remain future adapter responsibilities.
+
+MV-0 adds optional, renderer-neutral scene semantics without changing `math-ir/v1`: dependencies, dynamic parameters, typed mathematical events, case states, and status fields on the existing constraint and relation contracts. The dependency graph and update helpers use immutable results and stable lexical ordering. Geometry remains the responsibility of Geometry Engine or another named evaluator; semantic dependencies store only an `evaluatorRef`. Omitting `semantics` preserves the exact V1 shape and keeps previously serialized documents valid.

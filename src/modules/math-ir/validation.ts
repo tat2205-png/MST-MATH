@@ -10,6 +10,7 @@ import {
   type MathRelation,
   type MathScene,
 } from "./types.js";
+import { hasCycle, isParameterValueValid } from "./semantics.js";
 
 export type MathIRIssueSeverity = "error" | "warning";
 
@@ -27,6 +28,10 @@ export interface MathIRValidationResult {
 
 const entityTypes = new Set<string>(MATH_ENTITY_TYPES);
 const constraintTypes = new Set<string>(MATH_CONSTRAINT_TYPES);
+const constraintModes = new Set(["LOCKED", "WATCH"]);
+const constraintStatuses = new Set(["UNKNOWN", "SATISFIED", "VIOLATED", "UNRESOLVED"]);
+const relationStatuses = new Set(["UNKNOWN", "TRUE", "FALSE", "UNRESOLVED"]);
+const eventKinds = new Set(["OBJECT_CHANGED", "DEPENDENCY_RECALCULATED", "CONSTRAINT_STATUS_CHANGED", "RELATION_CHANGED", "PARAMETER_CHANGED", "CASE_CHANGED", "CRITICAL_EVENT"]);
 const isRecord = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null && !Array.isArray(value);
 const nonEmptyString = (value: unknown): value is string => typeof value === "string" && value.length > 0;
 
@@ -181,6 +186,12 @@ function validateConstraints(constraints: unknown, entityIds: Set<string>, expre
       if (new Set(raw.entityIds).size !== raw.entityIds.length) ctx.error("SELF_REFERENCE", `${itemPath}.entityIds`, "Constraint cannot repeat an entity reference.");
     }
     if (raw.expressionId !== undefined) requireReference(raw.expressionId, expressionIds, `${itemPath}.expressionId`, ctx, "expression");
+    if (raw.mode !== undefined && !constraintModes.has(String(raw.mode))) ctx.error("INVALID_CONSTRAINT_MODE", `${itemPath}.mode`, "Constraint mode must be LOCKED or WATCH.");
+    if (raw.status !== undefined && !constraintStatuses.has(String(raw.status))) ctx.error("INVALID_CONSTRAINT_STATUS", `${itemPath}.status`, "Constraint status is unsupported.");
+    if (raw.targetIds !== undefined) {
+      if (!Array.isArray(raw.targetIds)) ctx.error("MALFORMED_CONSTRAINT", `${itemPath}.targetIds`, "Constraint targetIds must be an array.");
+      else raw.targetIds.forEach((id, refIndex) => requireReference(id, entityIds, `${itemPath}.targetIds[${refIndex}]`, ctx));
+    }
     validateFact(raw.fact, `${itemPath}.fact`, ctx);
   });
   return constraints as MathConstraint[];
@@ -203,6 +214,7 @@ function validateRelations(relations: unknown, entityIds: Set<string>, expressio
       if (raw.objectIds.includes(raw.subjectId)) ctx.error("SELF_REFERENCE", itemPath, "Relation subject cannot also be its object.");
     }
     if (raw.expressionId !== undefined) requireReference(raw.expressionId, expressionIds, `${itemPath}.expressionId`, ctx, "expression");
+    if (raw.status !== undefined && !relationStatuses.has(String(raw.status))) ctx.error("INVALID_RELATION_STATUS", `${itemPath}.status`, "Relation status is unsupported.");
     validateFact(raw.fact, `${itemPath}.fact`, ctx);
   });
   return relations as MathRelation[];
@@ -232,7 +244,60 @@ function validateScene(scene: unknown, path: string, ctx: ValidationContext): vo
   const entities = validateEntities(scene.entities, expressions.ids, `${path}.entities`, ctx);
   validateConstraints(scene.constraints, entities.ids, expressions.ids, `${path}.constraints`, ctx);
   validateRelations(scene.relations, entities.ids, expressions.ids, `${path}.relations`, ctx);
+  validateSemantics(scene.semantics, entities.ids, `${path}.semantics`, ctx);
   if (scene.camera !== undefined && (!isRecord(scene.camera) || scene.camera.dimension !== scene.dimension)) ctx.error("MALFORMED_SCENE", `${path}.camera`, "Camera dimension must match its scene.");
+}
+
+function validateSemantics(raw: unknown, entityIds: Set<string>, path: string, ctx: ValidationContext): void {
+  if (raw === undefined) return;
+  if (!isRecord(raw)) { ctx.error("MALFORMED_SEMANTICS", path, "Scene semantics must be an object."); return; }
+  const dependencies = Array.isArray(raw.dependencies) ? raw.dependencies : [];
+  const parameters = Array.isArray(raw.parameters) ? raw.parameters : [];
+  const events = Array.isArray(raw.events) ? raw.events : [];
+  const cases = Array.isArray(raw.cases) ? raw.cases : [];
+  for (const [name, value] of [["dependencies", raw.dependencies], ["parameters", raw.parameters], ["events", raw.events], ["cases", raw.cases]] as const) {
+    if (value !== undefined && !Array.isArray(value)) ctx.error("MALFORMED_SEMANTICS", `${path}.${name}`, `${name} must be an array.`);
+  }
+  const semanticIds = new Set<string>();
+  for (const [name, values] of [["dependencies", dependencies], ["parameters", parameters], ["events", events], ["cases", cases]] as const) {
+    values.forEach((value, index) => {
+      const id = isRecord(value) ? value.id : undefined;
+      if (!nonEmptyString(id)) ctx.error("MISSING_ID", `${path}.${name}[${index}].id`, "Semantic records require a non-empty ID.");
+      else if (semanticIds.has(id)) ctx.error("DUPLICATE_SEMANTIC_ID", `${path}.${name}[${index}].id`, `Duplicate semantic ID: ${id}`);
+      else semanticIds.add(id);
+    });
+  }
+  const parameterIds = new Set(parameters.flatMap((value) => isRecord(value) && nonEmptyString(value.id) ? [value.id] : []));
+  const dependencySourceIds = new Set([...entityIds, ...parameterIds]);
+  dependencies.forEach((value, index) => {
+    const itemPath = `${path}.dependencies[${index}]`;
+    if (!isRecord(value)) { ctx.error("INVALID_DEPENDENCY", itemPath, "Dependency must be an object."); return; }
+    requireReference(value.dependentId, entityIds, `${itemPath}.dependentId`, ctx);
+    if (!Array.isArray(value.sourceIds) || value.sourceIds.length === 0) ctx.error("INVALID_DEPENDENCY", `${itemPath}.sourceIds`, "Dependency requires source IDs.");
+    else value.sourceIds.forEach((id, refIndex) => requireReference(id, dependencySourceIds, `${itemPath}.sourceIds[${refIndex}]`, ctx, "entity or parameter"));
+    if (!nonEmptyString(value.kind) || !nonEmptyString(value.evaluatorRef)) ctx.error("INVALID_DEPENDENCY", itemPath, "Dependency kind and evaluatorRef are required.");
+  });
+  const cycleCandidates = dependencies.filter((value): value is any => isRecord(value) && nonEmptyString(value.dependentId) && Array.isArray(value.sourceIds) && value.sourceIds.every(nonEmptyString));
+  if (hasCycle(cycleCandidates)) ctx.error("DEPENDENCY_CYCLE", `${path}.dependencies`, "Dependency cycles are not allowed.");
+  parameters.forEach((value, index) => {
+    const itemPath = `${path}.parameters[${index}]`;
+    if (!isRecord(value)) return;
+    const parameter = value as any;
+    if (parameter.domain?.kind === "range" && (!Number.isFinite(parameter.domain.min) || !Number.isFinite(parameter.domain.max) || parameter.domain.min > parameter.domain.max)) ctx.error("INVALID_PARAMETER_RANGE", `${itemPath}.domain`, "Parameter range must be finite and ordered.");
+    if (parameter.step !== undefined && (!Number.isFinite(parameter.step) || parameter.step <= 0)) ctx.error("INVALID_PARAMETER_STEP", `${itemPath}.step`, "Parameter step must be positive and finite.");
+    if (!isParameterValueValid(parameter, parameter.value)) ctx.error("INVALID_PARAMETER_VALUE", `${itemPath}.value`, "Parameter value is outside its domain.");
+    if (Array.isArray(parameter.bindings)) parameter.bindings.forEach((binding: unknown, bindingIndex: number) => { if (!isRecord(binding)) ctx.error("INVALID_PARAMETER_BINDING", `${itemPath}.bindings[${bindingIndex}]`, "Binding must be an object."); else requireReference(binding.objectId, entityIds, `${itemPath}.bindings[${bindingIndex}].objectId`, ctx); });
+  });
+  events.forEach((value, index) => {
+    const itemPath = `${path}.events[${index}]`;
+    if (!isRecord(value) || !Number.isInteger(value.sequence) || (value.sequence as number) < 0 || !eventKinds.has(String(value.kind))) ctx.error("INVALID_EVENT", itemPath, "Event kind and non-negative integer sequence are required.");
+    else if (value.objectIds !== undefined) { if (!Array.isArray(value.objectIds)) ctx.error("INVALID_EVENT", `${itemPath}.objectIds`, "Event objectIds must be an array."); else value.objectIds.forEach((id, refIndex) => requireReference(id, dependencySourceIds, `${itemPath}.objectIds[${refIndex}]`, ctx, "entity or parameter")); }
+  });
+  cases.forEach((value, index) => {
+    const itemPath = `${path}.cases[${index}]`;
+    if (!isRecord(value) || !nonEmptyString(value.family) || !nonEmptyString(value.currentKey)) ctx.error("INVALID_CASE_STATE", itemPath, "Case state requires family and currentKey.");
+    else if (value.objectIds !== undefined) { if (!Array.isArray(value.objectIds)) ctx.error("INVALID_CASE_STATE", `${itemPath}.objectIds`, "Case objectIds must be an array."); else value.objectIds.forEach((id, refIndex) => requireReference(id, entityIds, `${itemPath}.objectIds[${refIndex}]`, ctx)); }
+  });
 }
 
 export function validateMathIR(value: unknown): MathIRValidationResult {

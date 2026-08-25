@@ -127,6 +127,10 @@ export interface MathConstraint {
   expressionId?: ExpressionId;
   fact: MathFact;
   metadata?: MathMetadata;
+  mode?: ConstraintMode;
+  status?: ConstraintStatus;
+  targetIds?: EntityId[];
+  parameters?: Record<string, unknown>;
 }
 
 export interface MathRelation {
@@ -137,6 +141,97 @@ export interface MathRelation {
   expressionId?: ExpressionId;
   fact: MathFact;
   metadata?: MathMetadata;
+  status?: RelationStatus;
+  classification?: string;
+  evidence?: Record<string, unknown>;
+  computedValue?: unknown;
+}
+
+export type ConstraintMode = "LOCKED" | "WATCH";
+export type ConstraintStatus = "UNKNOWN" | "SATISFIED" | "VIOLATED" | "UNRESOLVED";
+export type RelationStatus = "UNKNOWN" | "TRUE" | "FALSE" | "UNRESOLVED";
+
+export interface MathDependency {
+  id: string;
+  dependentId: EntityId;
+  sourceIds: EntityId[];
+  kind: string;
+  evaluatorRef: string;
+  metadata?: MathMetadata;
+}
+
+export type ParameterDomain =
+  | { kind: "range"; min: number; max: number; inclusiveMin?: boolean; inclusiveMax?: boolean }
+  | { kind: "discrete"; values: Array<number | string | boolean> };
+
+export interface ParameterBinding {
+  objectId: EntityId;
+  property: string;
+}
+
+export interface DynamicParameter {
+  id: string;
+  value: number | string | boolean;
+  domain?: ParameterDomain;
+  step?: number;
+  semanticType?: string;
+  unit?: string;
+  bindings?: ParameterBinding[];
+  metadata?: MathMetadata;
+}
+
+export type MathEventKind =
+  | "OBJECT_CHANGED" | "DEPENDENCY_RECALCULATED" | "CONSTRAINT_STATUS_CHANGED"
+  | "RELATION_CHANGED" | "PARAMETER_CHANGED" | "CASE_CHANGED" | "CRITICAL_EVENT";
+
+export type SemanticChangeKind =
+  | "VISUAL_CHANGE_ONLY" | "SEMANTIC_CHANGE" | "DEPENDENCY_RECALCULATION"
+  | "CONSTRAINT_STATUS_CHANGE" | "RELATION_STATUS_CHANGE" | "CASE_TRANSITION";
+
+export interface MathEvent {
+  id: string;
+  kind: MathEventKind;
+  sequence: number;
+  objectIds?: EntityId[];
+  changeKind?: SemanticChangeKind;
+  payload?: Record<string, unknown>;
+  metadata?: MathMetadata;
+}
+
+export interface CaseTransition {
+  from: string;
+  to: string;
+  trigger: string;
+  objectIds?: EntityId[];
+}
+
+export interface CaseState {
+  id: string;
+  family: string;
+  currentKey: string;
+  previousKey?: string;
+  trigger?: string;
+  evidence?: Record<string, unknown>;
+  objectIds?: EntityId[];
+  order?: number;
+  metadata?: MathMetadata;
+}
+
+export interface SemanticUpdateResult {
+  changedObjectIds: EntityId[];
+  affectedDependentIds: EntityId[];
+  changedParameterIds: string[];
+  constraintStatusChanges: Array<{ constraintId: string; from: ConstraintStatus; to: ConstraintStatus }>;
+  relationStatusChanges: Array<{ relationId: string; from: RelationStatus; to: RelationStatus }>;
+  caseTransitions: CaseTransition[];
+  events: MathEvent[];
+}
+
+export interface MathSemantics {
+  dependencies?: MathDependency[];
+  parameters?: DynamicParameter[];
+  events?: MathEvent[];
+  cases?: CaseState[];
 }
 
 export interface MathStyle {
@@ -188,6 +283,7 @@ export interface MathScene {
   labelIds?: EntityId[];
   annotations?: MathAnnotation[];
   animations?: MathAnimation[];
+  semantics?: MathSemantics;
   metadata?: MathMetadata;
 }
 
