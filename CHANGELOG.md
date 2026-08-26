@@ -4,7 +4,7 @@
 
 ---
 
-## Unreleased
+## v1.3-rc.1 — 2026-08-27
 
 ### Added
 
@@ -25,7 +25,8 @@
 ### QA
 
 - REL-01: READY_FOR_RELEASE_CANDIDATE
-- REL-02: RC_PACKAGED (local checkpoint; version tag deferred because repository version sources are ambiguous)
+- REL-02: RC_PACKAGED
+- REL-03: release version resolved as `v1.3-rc.1`
 - Architecture QA: PASS
 - TypeScript QA: PASS
 - Build QA: PASS

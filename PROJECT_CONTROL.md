@@ -59,6 +59,12 @@ WORKTREE=SEE_NPM_RUN_PROJECT_STATUS
 NEXT_TASK=RELEASE_CANDIDATE_REVIEW
 
 FEATURE_FREEZE=ENABLED
+RC_VERSION=v1.3-rc.1
+RC_TAG=v1.3-rc.1
+
+Release versions are authoritative through annotated Git tags. The npm package
+metadata remains the existing non-published application scaffold (`0.0.0`),
+consistent with the prior `v1.1` and `v1.2` release checkpoints.
 
 ## REL-01 VERIFIED RELEASE EVIDENCE
 
