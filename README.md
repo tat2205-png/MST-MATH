@@ -29,4 +29,9 @@ npm run bridge:start
 npm run release:gate
 ```
 
+`npm run release:gate` requires the Local Render Bridge to be healthy at
+`http://127.0.0.1:8765/health`. Start it in a separate PowerShell session with
+`npm run bridge:start`; the release gate checks this prerequisite and fails
+closed with a targeted diagnostic when it is unavailable.
+
 `GEMINI_API_KEY` is optional. Without it, AI visual QA is reported as `SKIPPED`; deterministic frame structure and Math provenance remain required.

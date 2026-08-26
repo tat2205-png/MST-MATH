@@ -1,6 +1,19 @@
 $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
+$bridgeHealthUri = "http://127.0.0.1:8765/health"
+
+try {
+    $bridgeHealth = Invoke-RestMethod -Uri $bridgeHealthUri -Method Get -TimeoutSec 10
+    if ([string]$bridgeHealth.status -ne "READY") {
+        throw "unexpected health status '$($bridgeHealth.status)'"
+    }
+    Write-Host "LOCAL_RENDER_BRIDGE_PREREQUISITE=PASS | $bridgeHealthUri"
+}
+catch {
+    throw "LOCAL_RENDER_BRIDGE_PREREQUISITE=FAIL | Start the repository bridge with 'npm run bridge:start' before running the release gate. $($_.Exception.Message)"
+}
+
 function Invoke-ReleaseStep {
     param(
         [string]$Name,
