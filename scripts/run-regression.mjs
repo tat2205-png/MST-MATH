@@ -20,6 +20,10 @@ const suites = [
   "tests/test-production-ui-workflow.ts",
   "tests/test-luadraw-contract.ts",
   "tests/test-studio-orchestrator.ts",
+  "tests/test-question-bank-qb1a.ts",
+  "tests/test-question-bank-qb1b.ts",
+  "tests/test-question-bank-qb1c.ts",
+  "tests/test-question-bank-pipeline.ts",
 ];
 
 let failed = 0;
