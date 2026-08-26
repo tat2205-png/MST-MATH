@@ -8,3 +8,4 @@ export * from "./severity.js";
 export * from "./types.js";
 export * from "./adapters/question-bank-adapter.js";
 export * from "./language/index.js";
+export * from "./logic/index.js";

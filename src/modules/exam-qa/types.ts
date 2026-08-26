@@ -74,4 +74,5 @@ export interface QuestionValidationConfig {
   unexecutedValidators?: string[];
   warningsRequireReview?: boolean;
   languageValidation?: boolean;
+  logicValidation?: boolean;
 }

@@ -3,8 +3,9 @@ import { EXAM_QA_ISSUE_CODES } from "./issue-codes.js";
 import type { ExamQAIssueCode } from "./issue-codes.js";
 import type { NormalizedExamQuestion, QAIssue, QuestionValidationConfig, ValidatorExecution } from "./types.js";
 import { VI_LANGUAGE_VALIDATOR_ID, validateVietnameseQuestionLanguage } from "./language/index.js";
+import { MATHEMATICAL_LOGIC_VALIDATOR_ID, validateMathematicalQuestionLogic } from "./logic/index.js";
 
-export const QUESTION_VALIDATORS = { ID_NUMBER: "QUESTION_ID_NUMBER", STEM: "QUESTION_STEM", TYPE_STRUCTURE: "QUESTION_TYPE_STRUCTURE", MARKER: "MARKER_COMPATIBILITY", LANGUAGE: VI_LANGUAGE_VALIDATOR_ID } as const;
+export const QUESTION_VALIDATORS = { ID_NUMBER: "QUESTION_ID_NUMBER", STEM: "QUESTION_STEM", TYPE_STRUCTURE: "QUESTION_TYPE_STRUCTURE", MARKER: "MARKER_COMPATIBILITY", LANGUAGE: VI_LANGUAGE_VALIDATOR_ID, LOGIC: MATHEMATICAL_LOGIC_VALIDATOR_ID } as const;
 const requiredByDefault = Object.values(QUESTION_VALIDATORS);
 
 const issue = (question: NormalizedExamQuestion, code: ExamQAIssueCode, severity: QAIssue["severity"], message: string, field?: string, details?: Record<string, unknown>): QAIssue => ({
@@ -64,5 +65,6 @@ export function runQuestionValidators(question: NormalizedExamQuestion, config: 
     markerCompatibility = { status: "SUPPORTED" }; markerAnswer = normalized.answer; return [];
   });
   run(QUESTION_VALIDATORS.LANGUAGE, () => config.languageValidation === false ? [] : validateVietnameseQuestionLanguage(question));
+  run(QUESTION_VALIDATORS.LOGIC, () => config.logicValidation === false ? [] : validateMathematicalQuestionLogic(question));
   return { issues, validators: executions, markerCompatibility, markerAnswer };
 }
