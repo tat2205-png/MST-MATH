@@ -25,6 +25,7 @@
 ### QA
 
 - REL-01: READY_FOR_RELEASE_CANDIDATE
+- REL-02: RC_PACKAGED (local checkpoint; version tag deferred because repository version sources are ambiguous)
 - Architecture QA: PASS
 - TypeScript QA: PASS
 - Build QA: PASS

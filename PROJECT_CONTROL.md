@@ -10,7 +10,7 @@ Last updated: MANUAL
 
 ## ▶ NOW
 
-REL-02 — Release Candidate Packaging & Repository Normalization
+REL-02 — Release Candidate Packaged
 
 ## ⏭ NEXT
 
@@ -22,7 +22,7 @@ Release-candidate review and merge decision
 
 | # | Module | Status | Progress | Current Task | Next |
 |---|---|---|---:|---|---|
-| 01 | Math AI Studio Core | 🟢 STABLE | 100% | REL-02 packaging | Release-candidate review |
+| 01 | Math AI Studio Core | 🟢 STABLE | 100% | REL-02 complete | Release-candidate review |
 | 02 | Image Animation Engine | 🟢 STABLE | 90% | IA-7 Runtime | Segmentation Runtime |
 | 03 | NA Math Visual Engine | 🟡 ACTIVE | 60% | MV-0 | Dynamic Dependencies |
 | 04 | Fold / Unfold Engine | 🟡 ACTIVE | 72% | Pattern Authoring | Cut / Crease / Fold |
@@ -50,10 +50,10 @@ Release-candidate review and merge decision
 
 CURRENT_MODULE=MATH_AI_STUDIO
 CURRENT_TASK=REL-02
-TASK_STATUS=RELEASE_PACKAGING
+TASK_STATUS=RC_PACKAGED
 BRANCH=feature/exam-qa
 HEAD=SEE_NPM_RUN_PROJECT_STATUS
-QA=REL-01_READY_FOR_RELEASE_CANDIDATE
+QA=REL-02_ALL_MANDATORY_GATES_PASS
 BLOCKERS=NONE
 WORKTREE=SEE_NPM_RUN_PROJECT_STATUS
 NEXT_TASK=RELEASE_CANDIDATE_REVIEW
