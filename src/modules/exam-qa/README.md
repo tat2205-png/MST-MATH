@@ -6,5 +6,6 @@ Data flow: normalized exam source → schema/structural validators → per-quest
 
 Issues use stable codes separately from messages. Marker answers distinguish single-choice keys, boolean statement arrays, and canonical dot-decimal short answers; Vietnamese comma formatting is display-only. Essay/unknown questions remain in the model but are marker-unsupported.
 
-The generic Question Bank adapter is deliberately one-way and preserves unknown source fields in metadata. It does not depend on parsers or change a source schema. Language/typography QA, mathematical logic, deterministic answer solving, TNMarker template mapping/OCR, review UI, and document export are deferred to EXAM-QA-1 through EXAM-QA-5.
+The generic Question Bank adapter is deliberately one-way and preserves unknown source fields in metadata. It does not depend on parsers or change a source schema. The required Vietnamese language validator performs conservative, deterministic punctuation, whitespace, delimiter, Unicode, connector, decimal-consistency, and unit-format diagnostics over field-level prose while preserving source text and embedded math spans. Suggestions are advisory metadata only; full dictionary or AI proofreading is not claimed.
 
+Mathematical logic, deterministic answer solving, TNMarker template mapping/OCR, review UI, and document export remain deferred to EXAM-QA-2 through EXAM-QA-5.

@@ -2,8 +2,9 @@ import { normalizeMarkerAnswer, type MarkerAnswer, type MarkerCompatibility } fr
 import { EXAM_QA_ISSUE_CODES } from "./issue-codes.js";
 import type { ExamQAIssueCode } from "./issue-codes.js";
 import type { NormalizedExamQuestion, QAIssue, QuestionValidationConfig, ValidatorExecution } from "./types.js";
+import { VI_LANGUAGE_VALIDATOR_ID, validateVietnameseQuestionLanguage } from "./language/index.js";
 
-export const QUESTION_VALIDATORS = { ID_NUMBER: "QUESTION_ID_NUMBER", STEM: "QUESTION_STEM", TYPE_STRUCTURE: "QUESTION_TYPE_STRUCTURE", MARKER: "MARKER_COMPATIBILITY" } as const;
+export const QUESTION_VALIDATORS = { ID_NUMBER: "QUESTION_ID_NUMBER", STEM: "QUESTION_STEM", TYPE_STRUCTURE: "QUESTION_TYPE_STRUCTURE", MARKER: "MARKER_COMPATIBILITY", LANGUAGE: VI_LANGUAGE_VALIDATOR_ID } as const;
 const requiredByDefault = Object.values(QUESTION_VALIDATORS);
 
 const issue = (question: NormalizedExamQuestion, code: ExamQAIssueCode, severity: QAIssue["severity"], message: string, field?: string, details?: Record<string, unknown>): QAIssue => ({
@@ -62,5 +63,6 @@ export function runQuestionValidators(question: NormalizedExamQuestion, config: 
     if ("reason" in normalized) { markerCompatibility = { status: "INVALID", reason: normalized.reason }; return [issue(question, question.type === "SHORT_ANSWER" ? EXAM_QA_ISSUE_CODES.SHORT_ANSWER_FORMAT_INVALID : EXAM_QA_ISSUE_CODES.MARKER_UNSUPPORTED_TYPE, "ERROR", normalized.reason, "expectedAnswer")]; }
     markerCompatibility = { status: "SUPPORTED" }; markerAnswer = normalized.answer; return [];
   });
+  run(QUESTION_VALIDATORS.LANGUAGE, () => config.languageValidation === false ? [] : validateVietnameseQuestionLanguage(question));
   return { issues, validators: executions, markerCompatibility, markerAnswer };
 }

@@ -73,5 +73,5 @@ export interface QuestionValidationConfig {
   requiredValidators?: string[];
   unexecutedValidators?: string[];
   warningsRequireReview?: boolean;
+  languageValidation?: boolean;
 }
-
