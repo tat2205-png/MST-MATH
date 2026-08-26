@@ -2,6 +2,7 @@ import {useEffect,useMemo,useState,type PointerEvent as ReactPointerEvent} from 
 import {createMathScene,type MathEntity} from "../../modules/math-ir/index.js";
 import {WORKSPACE_TOOL_REGISTRY,acceptToolInput,createDynamicMathWorkspace,executeContextAction,executeWorkspaceCommand,handleWorkspaceKey,inspectWorkspaceObject,pickSemanticObject,redoWorkspace,selectObjects,serializeWorkspace,setActiveTool,setWorkspaceInspectorTab,setWorkspaceMode,undoWorkspace,type DynamicMathWorkspace} from "../../modules/dynamic-workspace/index.js";
 import type {Vec2} from "../../modules/dynamic-geometry/index.js";
+import {executeMathIntent,routeRuntime,type PlanDiagnostics} from "../../modules/intelligent-math-runtime/index.js";
 
 const STORAGE_KEY="math-ai-studio:dynamic-workspace:v1";
 const initial=()=>createDynamicMathWorkspace(createMathScene({id:"mv3-browser",name:"Universal Dynamic Math Workspace",dimension:"2d",entities:[],constraints:[]}));
@@ -10,7 +11,7 @@ const screen=(point:Vec2):Vec2=>[400+point[0]*40,300-point[1]*40];
 const world=(event:ReactPointerEvent<SVGSVGElement>):Vec2=>{const box=event.currentTarget.getBoundingClientRect();return[(event.clientX-box.left-box.width/2)/(box.width/20),(box.height/2-(event.clientY-box.top))/(box.height/20)];};
 
 export default function DynamicMathWorkspacePanel(){
- const[workspace,setWorkspace]=useState<DynamicMathWorkspace>(initial),[exportKind,setExportKind]=useState("studio");
+ const[workspace,setWorkspace]=useState<DynamicMathWorkspace>(initial),[exportKind,setExportKind]=useState("studio"),[mv4Diagnostics,setMv4Diagnostics]=useState<PlanDiagnostics>();
  const selected=workspace.view.selection[0],inspected=selected?inspectWorkspaceObject(workspace,selected):undefined;
  const entities=workspace.session.scene.entities,byId=useMemo(()=>new Map(entities.map(entity=>[entity.id,entity])),[entities]);
  const apply=(next:ReturnType<typeof executeWorkspaceCommand>)=>setWorkspace(next.workspace);
@@ -19,6 +20,10 @@ export default function DynamicMathWorkspacePanel(){
  const entityClick=(event:ReactPointerEvent,entity:MathEntity)=>{event.stopPropagation();if(workspace.view.activeToolId==="SELECT")setWorkspace(pickSemanticObject(workspace,{semanticObjectId:entity.id}));else apply(acceptToolInput(workspace,entity.id));};
  const rename=()=>{if(!selected)return;const value=window.prompt("Object name",inspected?.label??"");if(value)apply(executeContextAction(workspace,"RENAME_OBJECT",{label:value}));};
  const persist=()=>{localStorage.setItem(STORAGE_KEY,serializeWorkspace(workspace));setWorkspace({...workspace,view:{...workspace.view,message:"Workspace saved"}});};
+ const loadMv4Fixture=()=>{let next=executeWorkspaceCommand(initial(),{id:"CREATE_FREE_POINT",parameters:{position:[-3,0]}}).workspace;next=executeWorkspaceCommand(next,{id:"CREATE_FREE_POINT",parameters:{position:[3,0]}}).workspace;setWorkspace(next);setMv4Diagnostics(undefined);};
+ const runMv4Midpoint=()=>{const executed=executeMathIntent(workspace.session.scene,{intentId:"browser-midpoint",type:"CREATE_OBJECT",operation:"MIDPOINT",targets:["A","B"]});setMv4Diagnostics(executed.diagnostics);if(executed.status==="PASS")setWorkspace(createDynamicMathWorkspace(executed.scene,{...workspace.view,message:"MV-4 midpoint plan: PASS"}));};
+ const runMv4Ambiguous=()=>{const executed=executeMathIntent(workspace.session.scene,{intentId:"browser-ambiguous",type:"CREATE_OBJECT",operation:"PARALLEL_LINE",targets:[]});setMv4Diagnostics(executed.diagnostics);setWorkspace({...workspace,view:{...workspace.view,message:executed.issues[0]?.code??"MV-4 intent rejected"}});};
+ const moveMv4A=()=>{const point=workspace.session.scene.entities.find(entity=>entity.label==="A");if(point)apply(executeWorkspaceCommand(workspace,{id:"MOVE_POINT",inputIds:[point.id],parameters:{position:[-1,2]}}));};
  const categories=[...new Set(WORKSPACE_TOOL_REGISTRY.map(tool=>tool.category))];
  return <main data-mv3-workspace style={{height:"100vh",display:"grid",gridTemplateRows:"auto 1fr auto",background:"#07111f",color:"#e5eefb",fontFamily:"Inter,system-ui,sans-serif"}}>
   <header style={{display:"flex",alignItems:"center",gap:12,padding:"10px 16px",borderBottom:"1px solid #29405f",background:"#0c1b2d"}}><strong>Universal Dynamic Math Workspace</strong><span data-workspace-status style={{color:"#7dd3fc"}}>{workspace.view.message}</span><span style={{marginLeft:"auto"}}>Math ownership: MV-0 · Renderer math: none</span></header>
@@ -34,7 +39,7 @@ export default function DynamicMathWorkspacePanel(){
    {workspace.view.activeInspectorTab==="DEPENDENCIES"&&<section><h2>Dependency Inspector</h2><p>Parents: {inspected?.parents.join(", ")||"none"}</p><p>Children: {inspected?.children.join(", ")||"none"}</p></section>}
    {workspace.view.activeInspectorTab==="CONSTRAINTS"&&<section><h2>Constraint Editor</h2><p>{inspected?.constraints.length??0} linked constraints</p><p>Diagnostics: {workspace.view.lastDiagnostics.map(x=>`${x.constraintId}:${x.status}`).join(", ")||"none"}</p></section>}
    {workspace.view.activeInspectorTab==="EXPORT"&&<section><h2>Workspace Adapters</h2><select value={exportKind} onChange={event=>setExportKind(event.target.value)}>{["studio","three","geogebra","luadraw","manim"].map(kind=><option key={kind}>{kind}</option>)}</select><p>Adapter: {exportKind}</p><p>Renderer owns math: false</p></section>}
-   <hr/><h2>Objects</h2><ul>{entities.map(entity=><li key={entity.id}><button onClick={()=>setWorkspace(selectObjects(workspace,[entity.id]))}>{entity.label??entity.id} · {entity.type}</button></li>)}</ul></aside>
+   <hr/><section data-mv4-intelligent-construction><h2>MV-4 Intelligent Construction</h2><p><button onClick={loadMv4Fixture}>Load MV-4 Fixture</button> <button onClick={runMv4Midpoint}>Run Midpoint Intent</button> <button onClick={moveMv4A}>Move A</button> <button onClick={runMv4Ambiguous}>Test Ambiguous Intent</button></p><p>Runtime route: {routeRuntime({capability:workspace.view.mode==="3D"?"interactive_3d":"interactive_2d"}).bridge?.bridgeId??"none"}</p><p data-mv4-plan-status>{mv4Diagnostics?.failureReason?.code??(mv4Diagnostics?.semanticResult?"PLAN_EXECUTED":"Ready")}</p><details><summary>Planner diagnostics</summary><pre style={{whiteSpace:"pre-wrap",fontSize:10}}>{mv4Diagnostics?JSON.stringify({intent:mv4Diagnostics.normalizedIntent,plan:mv4Diagnostics.plan,commands:mv4Diagnostics.commandsExecuted,result:mv4Diagnostics.semanticResult,failure:mv4Diagnostics.failureReason},null,2):"No plan executed"}</pre></details></section><hr/><h2>Objects</h2><ul>{entities.map(entity=><li key={entity.id}><button onClick={()=>setWorkspace(selectObjects(workspace,[entity.id]))}>{entity.label??entity.id} · {entity.type}</button></li>)}</ul></aside>
   </section><footer style={{padding:"7px 16px",borderTop:"1px solid #29405f"}}>Selection: {workspace.view.selection.join(", ")||"none"} · Tool: {workspace.view.activeToolId} · Mode: {workspace.view.mode}</footer>
  </main>;
 }
