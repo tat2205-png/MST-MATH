@@ -10,6 +10,7 @@ const suites = [
   "tests/test-mv2-dev-inspector.ts",
   "tests/test-math-ir-dynamic-semantics-v1.ts",
   "tests/test-mv1-construction-engine.ts",
+  "tests/test-mv3-dynamic-workspace.ts",
   "tests/test-pattern-fold-v1.ts",
   "tests/test-surface-shortest-path-viewer-v1.ts",
   "tests/test-surface-shortest-path-remediation-v1.ts",
