@@ -26,7 +26,7 @@ import { createQuestionBankRouter } from "./server/questionBank/routes.js";
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT || 3000);
   const HOST = process.env.APP_HOST || "127.0.0.1";
 
   // Support JSON and large base64 image/document uploads (up to 50MB)
