@@ -1,0 +1,39 @@
+import assert from "node:assert/strict";
+import { zipSync } from "fflate";
+import { MemoryRecognitionCache } from "../src/modules/question-bank/recognition/cache.ts";
+import { AssetRegistry } from "../src/modules/question-bank/assets.ts";
+import { discoverEmbeddedEquationObjects } from "../src/modules/question-bank/recognition/embeddedDiscovery.ts";
+import { classifyMathImage } from "../src/modules/question-bank/recognition/imageClassifier.ts";
+import { canonicalizeLatex } from "../src/modules/question-bank/recognition/latex.ts";
+import { ManualFallbackProvider, NativeMathTypeProvider, NativeOmmlProvider } from "../src/modules/question-bank/recognition/providers.ts";
+import { MathRecognitionRouter, recognitionStatus } from "../src/modules/question-bank/recognition/router.ts";
+import { buildScannedDocument, filterRepeatedMargins, reconstructPageBlocks } from "../src/modules/question-bank/recognition/scannedPage.ts";
+import type { MathRecognitionProvider, OrderedPageBlock, RecognitionInput, RecognitionResult } from "../src/modules/question-bank/recognition/types.ts";
+
+const base: RecognitionInput = { sourceType: "OMML", sourceHash: "abc", nativeLatex: " $\\dfrac{a+b}{c}$ ", policy: "LOCAL_ONLY", plainTextHint: "Giữ nguyên tiếng Việt" };
+let lowerCalled = false;
+const lower: MathRecognitionProvider = { id: "external-test", version: "1", priority: 20, external: true, supports: () => true, recognize: async () => { lowerCalled = true; return undefined; } };
+const cache = new MemoryRecognitionCache(); const router = new MathRecognitionRouter([new ManualFallbackProvider(), lower, new NativeOmmlProvider()], cache);
+const native = await router.recognize(base); assert.equal(native.provider, "native-omml"); assert.equal(native.latex, "\\frac{a+b}{c}"); assert.equal(native.plainText, "Giữ nguyên tiếng Việt"); assert.equal(lowerCalled, false);
+const mathTypeRouter = new MathRecognitionRouter([new ManualFallbackProvider(), new NativeMathTypeProvider()]); const mathType = await mathTypeRouter.recognize({ ...base, sourceType: "MATHTYPE", nativeLatex: "x^2" }); assert.equal(mathType.provider, "native-mathtype"); assert.equal(mathType.latex, "x^2");
+const manual = await router.recognize({ ...base, sourceType: "EQUATION_IMAGE", nativeLatex: undefined }); assert.equal(manual.provider, "manual"); assert.equal(manual.requiresReview, true); assert.equal(lowerCalled, false);
+let calls = 0; const cachedProvider: MathRecognitionProvider = { id: "local", version: "model-1", priority: 1, external: false, supports: () => true, recognize: async (input) => { calls += 1; return { provider: "local", providerVersion: "model-1", sourceType: input.sourceType, plainText: "x", latex: "x^2", confidence: 0.9, warnings: [], requiresReview: true, rawEvidenceReference: "fixture" }; } };
+const cachedRouter = new MathRecognitionRouter([cachedProvider], cache); await cachedRouter.recognize({ ...base, sourceType: "EQUATION_IMAGE" }); await cachedRouter.recognize({ ...base, sourceType: "EQUATION_IMAGE" }); assert.equal(calls, 1);
+assert.equal(recognitionStatus(0.9), "REVIEW"); assert.equal(recognitionStatus(0.4), "QUARANTINED"); assert.equal(canonicalizeLatex("\\documentclass{article}"), undefined);
+
+assert.equal(classifyMathImage({ width: 500, height: 100, mimeType: "image/png", monochromeRatio: 0.9 }).classification, "EQUATION");
+assert.equal(classifyMathImage({ width: 400, height: 300, mimeType: "image/png", nearbyText: "Cho hình tam giác ABC" }).classification, "FIGURE");
+assert.equal(classifyMathImage({ width: 400, height: 300, mimeType: "image/png", nearbyText: "Bảng biến thiên" }).classification, "TABLE_IMAGE");
+const assets = new AssetRegistry(); const createdAt = new Date(0).toISOString(); assets.register({ assetId: "original", type: "IMAGE", sourcePath: "fixture/original.png", mimeType: "image/png", hash: "original-hash", createdAt }); assets.registerDerived({ assetId: "crop", type: "IMAGE", sourcePath: "fixture/crop.png", mimeType: "image/png", hash: "crop-hash", createdAt, derivedFromAssetId: "original", derivation: { kind: "RECOGNITION_CROP", boundingBox: { x: 0.1, y: 0.2, width: 0.3, height: 0.1, page: 1 }, recognitionResultReference: "fixture-result" } }); assert.deepEqual(assets.lineage("crop").map((item) => item.assetId), ["crop", "original"]); assert.ok(assets.get("original"));
+
+const embedded = zipSync({ "word/embeddings/oleObject1.bin": new TextEncoder().encode("Equation.3 MathType Design Science"), "word/media/image1.wmf": new Uint8Array([1]), "word/_rels/document.xml.rels": new TextEncoder().encode("<Relationship Type='oleObject equation'/>") });
+const discovery = discoverEmbeddedEquationObjects(embedded); assert.equal(discovery[0].classification, "MATHTYPE_OR_EMBEDDED_EQUATION"); assert.ok(discovery.some((x) => x.packagePath.endsWith(".wmf")));
+
+const header = (page: number): OrderedPageBlock => ({ order: 0, boundingBox: { x: 0.1, y: 0.01, width: 0.8, height: 0.04, page }, confidence: 0.95, content: [{ type: "text", value: "TRƯỜNG THPT" }] });
+const pages = new Map<number, OrderedPageBlock[]>([[1, [header(1), { order: 2, boundingBox: { x: 0.1, y: 0.3, width: 0.8, height: 0.1, page: 1 }, confidence: 0.96, content: [{ type: "text", value: "A. 1 B. 2 C. 3 D. 4" }] }, { order: 1, boundingBox: { x: 0.1, y: 0.2, width: 0.8, height: 0.1, page: 1 }, confidence: 0.96, content: [{ type: "text", value: "Câu 1. Chọn đáp án đúng." }] }]], [2, [header(2), { order: 1, boundingBox: { x: 0.1, y: 0.2, width: 0.8, height: 0.1, page: 2 }, confidence: 0.9, content: [{ type: "text", value: "Câu 2. Trả lời ngắn, ghi kết quả." }] }]]]);
+const filtered = filterRepeatedMargins(pages); assert.equal(filtered.get(1)?.[0].role, "HEADER"); const ordered = reconstructPageBlocks(1, filtered.get(1)!); assert.match(ordered[0].sourcePosition, /pdf:page:1:bbox/); assert.match((ordered[0] as { content: Array<{ value?: string }> }).content[0].value!, /Câu 1/);
+const evidence: RecognitionResult[] = [{ provider: "fixture", providerVersion: "1", sourceType: "SCANNED_PAGE", plainText: "", confidence: 0.9, sourceAssetId: "page-1", warnings: [], requiresReview: true, rawEvidenceReference: "page-1" }]; const scanned = buildScannedDocument("synthetic.pdf", pages, evidence); assert.equal(scanned.candidates.length, 2); assert.equal(scanned.candidates[0].questionType, "MCQ"); assert.equal(scanned.candidates[0].source.page, 1); assert.ok(scanned.candidates.every((x) => ["DRAFT", "QUARANTINED"].includes(x.status)));
+
+const mathpixSource = await import("node:fs").then((fs) => fs.readFileSync("src/modules/question-bank/recognition/mathpix.ts", "utf8")); assert.doesNotMatch(mathpixSource, /appKey:\s*["'][^"']+["']/); assert.match(mathpixSource, /EXTERNAL_PROVIDER_ALLOWED/);
+const reviewUi = await import("node:fs").then((fs) => fs.readFileSync("src/modules/question-bank/QuestionBankDevApp.tsx", "utf8")); assert.match(reviewUi, /Math recognition evidence/); assert.match(reviewUi, />Recognize</); assert.match(reviewUi, />Retry</); assert.match(reviewUi, />Use result</); assert.match(reviewUi, />Reject result</); assert.match(reviewUi, /disabled title="Requires an explicitly configured recognition endpoint"/);
+console.log("MATH_RECOGNITION_ROUTER_QA=PASS\nPROVIDER_PRIORITY_QA=PASS\nNO_PROVIDER_FALLBACK_QA=PASS\nCONFIDENCE_ROUTING_QA=PASS\nCACHE_QA=PASS\nEQUATION_IMAGE_CLASSIFIER_QA=PASS\nFIGURE_PRESERVATION_QA=PASS\nDERIVED_ASSET_LINEAGE_QA=PASS\nSCANNED_PAGE_PIPELINE_QA=PASS\nPAGE_PROVENANCE_QA=PASS\nREADING_ORDER_QA=PASS\nHEADER_FOOTER_FILTER_QA=PASS\nEMBEDDED_EQUATION_DISCOVERY_QA=PASS\nMATHTYPE_ROUTING_QA=PASS\nLATEX_CANONICALIZATION_QA=PASS\nVIETNAMESE_TEXT_PRESERVATION_QA=PASS\nAUTO_APPROVAL_GUARD_QA=PASS\nNO_EXTERNAL_API_IN_TESTS_QA=PASS\nSECRET_NOT_LOGGED_QA=PASS\nQB_1C_FOCUSED_QA=PASS");

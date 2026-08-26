@@ -66,6 +66,8 @@ export interface AssetRecord {
   mimeType: string;
   hash: string;
   createdAt: string;
+  derivedFromAssetId?: string;
+  derivation?: { kind: "RECOGNITION_CROP" | "PREVIEW"; boundingBox?: { x: number; y: number; width: number; height: number; page?: number }; recognitionResultReference?: string };
 }
 
 export interface QuestionSearchFilters {

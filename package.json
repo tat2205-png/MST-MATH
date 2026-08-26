@@ -19,6 +19,8 @@
     "bridge:start": "python local_bridge/bridge.py",
     "qa:regression": "node scripts/run-regression.mjs",
     "qa:question-bank:acceptance": "node --import tsx scripts/qb-import-acceptance.ts",
+    "qa:question-bank:recognition": "node --import tsx tests/test-question-bank-qb1c.ts",
+    "qa:question-bank:recognition-discovery": "node --import tsx scripts/qb-recognition-discovery.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
