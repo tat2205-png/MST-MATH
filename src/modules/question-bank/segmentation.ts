@@ -5,6 +5,7 @@ const questionStart = /^(?:Câu|Bài|Question)\s*0*(\d+)\s*[.:)]?\s*/iu;
 const solutionStart = /^(?:Lời giải|Giải|Hướng dẫn giải|Hướng dẫn)\s*[:.]?\s*/iu;
 const answerHeader = /^(?:Đáp án|Hướng dẫn đáp án)\s*[:.]?\s*/iu;
 const plainText = (blocks: ContentBlock[]) => blocks.map((block) => block.type === "text" ? block.value : block.type === "math" ? `$${block.latex}$` : block.type === "image" ? `[IMAGE:${block.assetId}]` : "[TABLE]").join("");
+const firstText = (blocks: ContentBlock[]): string => { const block = blocks.find((item) => item.type === "text"); return block?.type === "text" ? block.value.trim() : ""; };
 function blockContent(block: DocumentBlock): ContentBlock[] { if (block.type === "paragraph" || block.type === "heading") return block.content; if (block.type === "table") return [{ type: "table", rows: block.rows }]; if (block.type === "image") return [{ type: "image", assetId: block.assetId, alt: block.target }]; if (block.type === "math") return [{ type: "math", latex: block.latex }]; return []; }
 function trimFirstText(blocks: ContentBlock[], pattern: RegExp): ContentBlock[] { const copy = structuredClone(blocks); const first = copy.find((b) => b.type === "text"); if (first?.type === "text") first.value = first.value.replace(pattern, ""); return copy.filter((b) => b.type !== "text" || b.value.length > 0); }
 
@@ -34,7 +35,7 @@ function classify(content: ContentBlock[]): { type: QuestionType; stem: ContentB
 }
 export function segmentDocument(document: DocumentIR): SegmentedQuestion[] {
   const answerMap = parseAnswerSection(document.blocks); const boundaries: Array<{ index: number; number: string }> = [];
-  document.blocks.forEach((block, index) => { if (block.type !== "paragraph" && block.type !== "heading") return; const match = questionStart.exec(plainText(block.content).trim()); if (match) boundaries.push({ index, number: match[1] }); else if (block.numberingId && /question|câu|bài/iu.test(block.styleName ?? "")) boundaries.push({ index, number: String(boundaries.length + 1) }); });
+  document.blocks.forEach((block, index) => { if (block.type !== "paragraph" && block.type !== "heading") return; const match = questionStart.exec(firstText(block.content)); if (match) boundaries.push({ index, number: match[1] }); else if (block.numberingId && /question|câu|bài/iu.test(block.styleName ?? "")) boundaries.push({ index, number: String(boundaries.length + 1) }); });
   return boundaries.map((boundary, boundaryIndex) => {
     const end = boundaryIndex + 1 < boundaries.length ? boundaries[boundaryIndex + 1].index - 1 : document.blocks.findIndex((block, index) => index > boundary.index && (block.type === "paragraph" || block.type === "heading") && answerHeader.test(plainText(block.content).trim())) - 1;
     const safeEnd = end < boundary.index ? document.blocks.length - 1 : end; const slice = document.blocks.slice(boundary.index, safeEnd + 1); let solutionAt = slice.findIndex((block) => (block.type === "paragraph" || block.type === "heading") && solutionStart.test(plainText(block.content).trim())); if (solutionAt < 0) solutionAt = slice.length;
