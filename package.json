@@ -21,7 +21,8 @@
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
-    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression"
+    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression",
+    "project:status": "node scripts/project-status.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
