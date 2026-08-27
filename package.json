@@ -23,6 +23,7 @@
     "qa:question-bank:e2e": "node --import tsx tests/test-question-bank-qb1e.ts",
     "qa:question-bank:search": "node --import tsx tests/test-question-bank-qb1f.ts",
     "qa:assessment": "node --import tsx tests/test-question-bank-qb2a.ts",
+    "qa:game": "node --import tsx tests/test-question-bank-qb2b.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
