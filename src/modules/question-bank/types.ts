@@ -14,5 +14,9 @@ export interface QuestionOption { label: string; content: ContentBlock[] }
 export interface TrueFalseItem { label: string; content: ContentBlock[] }
 export interface SourceProvenance { document: string; sourceHash: string; blockIds: string[]; sourceLocations: string[] }
 export interface FigureAssociation { figureId: string; questionId?: string; status: "CONFIRMED" | "AMBIGUOUS" | "UNASSIGNED"; confidence: 0 | 1; evidence: string[] }
-export interface QuestionObject { id: string; source: SourceProvenance; section?: string; index?: number; type: QuestionType; stem: ContentBlock[]; options: QuestionOption[]; trueFalseItems: TrueFalseItem[]; shortAnswer?: ContentBlock[]; solution?: ContentBlock[]; subquestions: Array<{ label: string; content: ContentBlock[] }>; figures: FigureRecord[]; figureAssociations: FigureAssociation[]; metadata: Record<string, string>; warnings: string[]; validationStatus: "VALID" | "REVIEW_REQUIRED" | "INVALID" }
+export type QuestionBankStatus = "REVIEW" | "QUARANTINED" | "APPROVED";
+export interface QuestionObject { schemaVersion?: 1; id: string; source: SourceProvenance; section?: string; index?: number; type: QuestionType; stem: ContentBlock[]; options: QuestionOption[]; trueFalseItems: TrueFalseItem[]; shortAnswer?: ContentBlock[]; solution?: ContentBlock[]; subquestions: Array<{ label: string; content: ContentBlock[] }>; figures: FigureRecord[]; figureAssociations: FigureAssociation[]; metadata: Record<string, string>; warnings: string[]; validationStatus: "VALID" | "REVIEW_REQUIRED" | "INVALID"; bankStatus?: QuestionBankStatus; examQa?: { status: "READY" | "REVIEW_REQUIRED" | "BLOCKED" | "NOT_TESTED"; issueCodes: string[] } }
 export interface QAResult { level: "PASS" | "WARNING" | "FAIL"; code: string; message: string }
+export interface DuplicateResult { status: "UNIQUE" | "DUPLICATE" | "POSSIBLE_DUPLICATE"; matchedId?: string; evidence: string[] }
+export interface QuestionBankSnapshot { schemaVersion: 1; questions: QuestionObject[]; orphanFigures: FigureRecord[] }
+export interface QuestionBankRepository { load(): QuestionBankSnapshot; replace(snapshot: QuestionBankSnapshot): void }
