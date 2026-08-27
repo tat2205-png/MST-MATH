@@ -21,6 +21,7 @@
     "qa:question-bank": "node --import tsx tests/test-question-bank-qb1a.ts && node --import tsx tests/test-question-bank-qb1b.ts && node --import tsx tests/test-question-bank-qb1c.ts",
     "qa:question-bank:persistence": "node --import tsx tests/test-question-bank-qb1d.ts",
     "qa:question-bank:e2e": "node --import tsx tests/test-question-bank-qb1e.ts",
+    "qa:question-bank:search": "node --import tsx tests/test-question-bank-qb1f.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
