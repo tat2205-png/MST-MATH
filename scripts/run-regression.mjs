@@ -30,6 +30,7 @@ const suites = [
   "tests/test-question-bank-qb2a.ts",
   "tests/test-question-bank-qb2b.ts",
   "tests/test-question-bank-qb2c.ts",
+  "tests/test-question-bank-qb2d.ts",
 ];
 
 let failed = 0;
