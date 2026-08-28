@@ -66,16 +66,22 @@
 
 ## PHASE 5 — QUESTION BANK
 
-- [ ] QB-1 — Document understanding
-- [ ] QB-1A — Real document question segmentation
-- [ ] QB-1B — Canonical question schema
-- [ ] QB-2 — Question classification
+- [x] QB-1A — Real document question segmentation and OMML/LaTeX parsing
+- [x] QB-1B — Question extraction and normalization
+- [x] QB-1C — Figure/question association
+- [x] QB-1D — Question Bank persistence and integration
+- [x] QB-1E — Import → QA → Bank end-to-end
+- [x] QB-1F — Search, filter, and safe reuse
+- [x] QB-2A — Deterministic assessment generation
+- [x] QB-2B — Assessment-backed classroom game integration
+- [x] QB-2C — Solution/video integration
+- [x] QB-2D — JSON/LaTeX/DOCX/PDF export and delivery
+- [x] QB-3A — Final end-to-end acceptance and baseline freeze
 - [ ] QB-3 — Knowledge tagging
 - [ ] QB-4 — Difficulty classification
-- [ ] QB-5 — Answer / solution extraction
-- [ ] QB-6 — Search and retrieval
-- [ ] QB-7 — Import / export
-- [ ] QB-8 — Production question database
+
+Question Bank core is feature-frozen after QB-3A. Knowledge tagging and
+difficulty enrichment remain explicitly outside the accepted core baseline.
 
 ---
 
