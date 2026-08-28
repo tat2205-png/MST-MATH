@@ -22,7 +22,7 @@ This matrix maps final program gates to repository-owned, deterministic evidence
 | Student/teacher JSON, LaTeX, DOCX, PDF delivery | `test-question-bank-qb2d.ts` | PASS |
 | Program regression and architecture | `npm run qa:regression`, `npm run arch:check`, `npm run qa:ci` | PASS |
 | Server, bridge, repair, and runtime integration | `npm run qa:full` with bridge health `READY` | PASS |
-| Clean committed-source reproducibility | temporary worktree + `npm ci` + final QA subset | REQUIRED BEFORE FREEZE |
+| Clean committed-source reproducibility | temporary worktree + `npm ci` + final QA subset | PASS |
 
 ## Acceptance corpus
 
