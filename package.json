@@ -17,6 +17,7 @@
     "qa:na-math-v2.6": "node --import tsx tests/test-na-math-v2.6.ts",
     "qa:docx:1a": "node --import tsx tests/test-docx-1a.ts",
     "qa:docx:1b": "node --import tsx tests/test-docx-1b.ts",
+    "qa:docx:1c": "node --import tsx tests/test-docx-1c.ts",
     "qa:luadraw": "python scripts/doctor_luadraw.py && node --import tsx tests/test-luadraw-contract.ts",
     "qa:luadraw:smoke": "node --import tsx scripts/run-luadraw-smoke.ts",
     "bridge:start": "python local_bridge/bridge.py",

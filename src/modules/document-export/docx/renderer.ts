@@ -7,6 +7,7 @@ import type { ContentBlock, DocumentBlock, DocumentIR } from "../../question-ban
 import { DocxRenderError, type DocxRenderOptions, type DocxRenderResult } from "./types.js";
 import { escapeXml, xmlDocument } from "./xml.js";
 import { createWordStylesXml } from "./styles.js";
+import { serializeMathNodeToOmml } from "./omml.js";
 
 const encode = (value: string) => new TextEncoder().encode(value);
 const W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
@@ -21,8 +22,7 @@ function contentXml(content: ContentBlock[], warnings: string[]): string {
   return content.map((item) => {
     if (item.type === "text") return textRun(item.value);
     if (item.type === "math") {
-      warnings.push("DOCX_MATH_EXPORT_PENDING_DOCX_1C");
-      return textRun(item.math.latex ?? item.math.normalized ?? "[math]");
+      return serializeMathNodeToOmml(item.math);
     }
     if (item.type === "figure") {
       warnings.push(`DOCX_INLINE_MEDIA_PENDING_DOCX_1D:${item.figureId}`);
@@ -53,13 +53,14 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
   const creator = escapeXml(options.creator ?? "Math AI Studio");
   const generatedAt = (options.generatedAt ?? new Date(0)).toISOString();
   return {
-    "[Content_Types].xml": encode(xmlDocument('<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>')),
+    "[Content_Types].xml": encode(xmlDocument('<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>')),
     "_rels/.rels": encode(xmlDocument('<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>')),
     "docProps/core.xml": encode(xmlDocument(`<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${title}</dc:title><dc:creator>${creator}</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${generatedAt}</dcterms:created></cp:coreProperties>`)),
     "docProps/app.xml": encode(xmlDocument('<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>Math AI Studio</Application><AppVersion>DOCX_EXPORT_V1</AppVersion></Properties>')),
-    "word/document.xml": encode(xmlDocument(`<w:document xmlns:w="${W}" xmlns:r="${R}"><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1021" w:right="1021" w:bottom="1021" w:left="1021" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`)),
+    "word/document.xml": encode(xmlDocument(`<w:document xmlns:w="${W}" xmlns:r="${R}" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1021" w:right="1021" w:bottom="1021" w:left="1021" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`)),
     "word/styles.xml": encode(createWordStylesXml(outputIdentity)),
-    "word/_rels/document.xml.rels": encode(xmlDocument('<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>')),
+    "word/settings.xml": encode(xmlDocument(`<w:settings xmlns:w="${W}" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:mathPr><m:mathFont m:val="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></m:mathPr></w:settings>`)),
+    "word/_rels/document.xml.rels": encode(xmlDocument('<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rIdSettings" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/></Relationships>')),
   };
 }
 

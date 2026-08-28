@@ -20,7 +20,7 @@ function deepFreeze<T>(value: T): Readonly<T> {
 const canonicalCommands = new Set(
   Object.values(symbolRegistry.categories)
     .flat()
-    .flatMap((entry) => entry[2].match(/\\[A-Za-z]+/g) ?? []),
+    .flatMap((entry) => `${entry[1]} ${entry[2]}`.match(/\\[A-Za-z]+/g) ?? []),
 );
 
 function validateMathSource(source: string): { status: CanonicalMathStatus; reasons: string[] } {
