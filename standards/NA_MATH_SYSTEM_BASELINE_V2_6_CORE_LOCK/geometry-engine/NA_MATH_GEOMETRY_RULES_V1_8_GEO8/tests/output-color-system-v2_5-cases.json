@@ -1,0 +1,47 @@
+{
+  "version": "2.5.0",
+  "cases": [
+    {
+      "id": "learning_material_navy",
+      "output": "learning_material",
+      "color": "#0C2D57",
+      "expect": "PASS"
+    },
+    {
+      "id": "worksheet_green",
+      "output": "worksheet",
+      "color": "#2F8F68",
+      "expect": "PASS"
+    },
+    {
+      "id": "exercise_sheet_purple",
+      "output": "exercise_sheet",
+      "color": "#6B4FA3",
+      "expect": "PASS"
+    },
+    {
+      "id": "video_amber",
+      "output": "video",
+      "color": "#D9911B",
+      "expect": "PASS"
+    },
+    {
+      "id": "worksheet_wrong_blue",
+      "output": "worksheet",
+      "color": "#1E63B5",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "exercise_sheet_wrong_green",
+      "output": "exercise_sheet",
+      "color": "#2F8F68",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "video_wrong_purple",
+      "output": "video",
+      "color": "#6B4FA3",
+      "expect": "BLOCKED"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "NA_MATH_GOLDEN_GEOMETRY_QA_CORPUS",
+  "version": "1.8.0",
+  "layout_baseline": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+  "layout_status": "LOCKED",
+  "total_cases": 43,
+  "suites": [
+    {
+      "id": "GEO-1",
+      "name": "Semantic Geometry Schema",
+      "cases": 4,
+      "validator": "tests/validate_geo1.py"
+    },
+    {
+      "id": "GEO-2",
+      "name": "View Profile Registry",
+      "cases": 4,
+      "validator": "tests/validate_geo2.py"
+    },
+    {
+      "id": "GEO-3",
+      "name": "Edge Visibility Resolver",
+      "cases": 5,
+      "validator": "tests/validate_geo3.py"
+    },
+    {
+      "id": "GEO-4",
+      "name": "Label Placement & Collision",
+      "cases": 4,
+      "validator": "tests/validate_geo4.py"
+    },
+    {
+      "id": "GEO-5",
+      "name": "Pyramid Altitude Inference",
+      "cases": 9,
+      "validator": "tests/validate_geo5.py"
+    },
+    {
+      "id": "GEO-6",
+      "name": "Canonical Prism/Box/Trapezoid",
+      "cases": 8,
+      "validator": "tests/validate_geo6.py"
+    },
+    {
+      "id": "GEO-7",
+      "name": "Spatial Relations",
+      "cases": 9,
+      "validator": "tests/validate_geo7.py"
+    }
+  ],
+  "negative_guards": [
+    "unknown view profile blocks render",
+    "unspecified edge blocks render",
+    "label placement failure blocks render",
+    "missing altitude premise => NO_INFERENCE",
+    "independent prism vertex shift rejected",
+    "false projected intersection marker rejected",
+    "decorative connectors between parallel planes rejected"
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "GOLDEN_SA_SB_SC_CIRCUMCENTER",
+  "title": "SA=SB=SC — chân đường cao là tâm ngoại tiếp đáy",
+  "layoutContract": {
+    "layoutId": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "layoutStatus": "LOCKED",
+    "geometryMayChangeLayout": false
+  },
+  "objects": [
+    {
+      "id": "S",
+      "kind": "point",
+      "label": "S",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "A",
+      "kind": "point",
+      "label": "A",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "B",
+      "kind": "point",
+      "label": "B",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "C",
+      "kind": "point",
+      "label": "C",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "H",
+      "kind": "point",
+      "label": "H",
+      "provenance": "CONSTRUCTED"
+    },
+    {
+      "id": "SA",
+      "kind": "segment",
+      "endpoints": [
+        "S",
+        "A"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "SB",
+      "kind": "segment",
+      "endpoints": [
+        "S",
+        "B"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "SC",
+      "kind": "segment",
+      "endpoints": [
+        "S",
+        "C"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "HA",
+      "kind": "segment",
+      "endpoints": [
+        "H",
+        "A"
+      ],
+      "provenance": "DERIVED"
+    },
+    {
+      "id": "HB",
+      "kind": "segment",
+      "endpoints": [
+        "H",
+        "B"
+      ],
+      "provenance": "DERIVED"
+    },
+    {
+      "id": "HC",
+      "kind": "segment",
+      "endpoints": [
+        "H",
+        "C"
+      ],
+      "provenance": "DERIVED"
+    },
+    {
+      "id": "SH",
+      "kind": "segment",
+      "endpoints": [
+        "S",
+        "H"
+      ],
+      "provenance": "CONSTRUCTED"
+    },
+    {
+      "id": "PL_ABC",
+      "kind": "plane",
+      "label": "(ABC)",
+      "definition": {
+        "type": "three-points",
+        "points": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "provenance": "GIVEN"
+    }
+  ],
+  "relations": [
+    {
+      "id": "C1",
+      "type": "equal-length",
+      "objects": [
+        "SA",
+        "SB",
+        "SC"
+      ],
+      "provenance": "GIVEN",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "C2",
+      "type": "projection-foot",
+      "objects": [
+        "H",
+        "S",
+        "PL_ABC"
+      ],
+      "provenance": "CONSTRUCTED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "C3",
+      "type": "perpendicular",
+      "objects": [
+        "SH",
+        "PL_ABC"
+      ],
+      "provenance": "CONSTRUCTED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "C4",
+      "type": "equal-length",
+      "objects": [
+        "HA",
+        "HB",
+        "HC"
+      ],
+      "provenance": "DERIVED",
+      "status": "VERIFIED",
+      "evidence": [
+        "C1",
+        "C2",
+        "C3"
+      ]
+    },
+    {
+      "id": "C5",
+      "type": "circumcenter",
+      "objects": [
+        "H",
+        "A",
+        "B",
+        "C"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED",
+      "evidence": [
+        "C4"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "relationId": "C4",
+      "requiredForRender": true
+    },
+    {
+      "relationId": "C5",
+      "requiredForRender": true
+    }
+  ],
+  "activeViewProfileId": "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN",
+  "availableViewProfiles": [
+    {
+      "id": "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN",
+      "projection": {
+        "mode": "parallel"
+      },
+      "edgeStyles": [
+        {
+          "edgeId": "SA",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "SB",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "SC",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "SH",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        }
+      ]
+    }
+  ],
+  "verificationStatus": "VERIFIED",
+  "renderPolicy": {
+    "noVisualInference": true,
+    "failClosed": true,
+    "allowUnverifiedDecorativeGeometry": false
+  }
+}

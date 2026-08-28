@@ -1,0 +1,121 @@
+{
+  "version": "1.3.0",
+  "cases": [
+    {
+      "id": "triangular_prism_exact",
+      "profile": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "edges": [
+        "AB",
+        "BC",
+        "CA",
+        "A′B′",
+        "B′C′",
+        "C′A′",
+        "AA′",
+        "BB′",
+        "CC′"
+      ],
+      "expected": {
+        "AB": "dashed",
+        "BC": "solid",
+        "CA": "solid",
+        "A′B′": "solid",
+        "B′C′": "solid",
+        "C′A′": "solid",
+        "AA′": "solid",
+        "BB′": "solid",
+        "CC′": "solid"
+      },
+      "expect_status": "PASS"
+    },
+    {
+      "id": "triangular_prism_alias_input",
+      "profile": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "edges": [
+        "AB",
+        "CB",
+        "CA",
+        "A′B′",
+        "C′B′",
+        "C′A′",
+        "AA′",
+        "BB′",
+        "CC′"
+      ],
+      "expected": {
+        "AB": "dashed",
+        "CB": "solid",
+        "CA": "solid",
+        "A′B′": "solid",
+        "C′B′": "solid",
+        "C′A′": "solid",
+        "AA′": "solid",
+        "BB′": "solid",
+        "CC′": "solid"
+      },
+      "expect_status": "PASS"
+    },
+    {
+      "id": "box_exact",
+      "profile": "BOX_FRONT_LEFT_ABOVE_KNTT",
+      "edges": [
+        "AB",
+        "BC",
+        "AD",
+        "DC",
+        "AA′",
+        "BB′",
+        "CC′",
+        "DD′",
+        "A′B′",
+        "B′C′",
+        "C′D′",
+        "D′A′"
+      ],
+      "expected": {
+        "AB": "solid",
+        "BC": "solid",
+        "AD": "dashed",
+        "DC": "dashed",
+        "AA′": "solid",
+        "BB′": "solid",
+        "CC′": "solid",
+        "DD′": "dashed",
+        "A′B′": "solid",
+        "B′C′": "solid",
+        "C′D′": "solid",
+        "D′A′": "solid"
+      },
+      "expect_status": "PASS"
+    },
+    {
+      "id": "unknown_profile_blocks",
+      "profile": "UNKNOWN_PROFILE",
+      "edges": [
+        "AB"
+      ],
+      "expected": {},
+      "expect_status": "BLOCKED",
+      "expect_error": "UNKNOWN_VIEW_PROFILE"
+    },
+    {
+      "id": "unspecified_edge_blocks",
+      "profile": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "edges": [
+        "AB",
+        "BC",
+        "CA",
+        "A′B′",
+        "B′C′",
+        "C′A′",
+        "AA′",
+        "BB′",
+        "CC′",
+        "XY"
+      ],
+      "expected": {},
+      "expect_status": "BLOCKED",
+      "expect_error": "EDGE_STYLE_UNSPECIFIED:XY"
+    }
+  ]
+}

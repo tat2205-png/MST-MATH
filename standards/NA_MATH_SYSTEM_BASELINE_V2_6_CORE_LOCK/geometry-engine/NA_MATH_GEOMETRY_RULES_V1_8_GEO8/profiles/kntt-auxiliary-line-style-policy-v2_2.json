@@ -1,0 +1,22 @@
+{
+  "id": "KNTT_AUXILIARY_LINE_STYLE_POLICY_V2_2",
+  "version": "2.2.0",
+  "status": "LOCKED",
+  "rules": [
+    {
+      "id": "DISTANCE_AH_DASHED",
+      "context": "distance problem using auxiliary AH in pyramid",
+      "when": [
+        "H ∈ SD",
+        "AH ⟂ SD",
+        "AH is constructed for the solution"
+      ],
+      "render": {
+        "AH": "dashed",
+        "right_angle_marker_at_H": true,
+        "H_label": true
+      }
+    }
+  ],
+  "fail_closed": true
+}

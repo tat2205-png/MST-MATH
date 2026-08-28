@@ -1,0 +1,350 @@
+{
+  "version": "1.5.0",
+  "cases": [
+    {
+      "id": "direct_altitude_pass",
+      "template": "DIRECT_ALTITUDE_GIVEN",
+      "facts": [
+        [
+          "perpendicular",
+          [
+            "SH",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "H",
+            "BASE_PLANE"
+          ]
+        ]
+      ],
+      "expect": "PASS",
+      "expect_derived": [
+        [
+          "altitude",
+          [
+            "SH"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "two_lines_pass",
+      "template": "TWO_INTERSECTING_BASE_LINES_TO_ALTITUDE",
+      "facts": [
+        [
+          "lies-in",
+          [
+            "d1",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "d2",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "intersection",
+          [
+            "d1",
+            "d2",
+            "H"
+          ]
+        ],
+        [
+          "perpendicular",
+          [
+            "SH",
+            "d1"
+          ]
+        ],
+        [
+          "perpendicular",
+          [
+            "SH",
+            "d2"
+          ]
+        ]
+      ],
+      "expect": "PASS",
+      "expect_derived": [
+        [
+          "perpendicular",
+          [
+            "SH",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "altitude",
+          [
+            "SH"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "side_plane_pass",
+      "template": "PERP_SIDE_PLANE_TO_BASE_ALTITUDE",
+      "facts": [
+        [
+          "perpendicular",
+          [
+            "SIDE_PLANE",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "intersection",
+          [
+            "SIDE_PLANE",
+            "BASE_PLANE",
+            "AB"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "SH",
+            "SIDE_PLANE"
+          ]
+        ],
+        [
+          "perpendicular",
+          [
+            "SH",
+            "AB"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "H",
+            "AB"
+          ]
+        ]
+      ],
+      "expect": "PASS",
+      "expect_derived": [
+        [
+          "perpendicular",
+          [
+            "SH",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "altitude",
+          [
+            "SH"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "side_plane_missing_SH_perp_AB_blocks",
+      "template": "PERP_SIDE_PLANE_TO_BASE_ALTITUDE",
+      "facts": [
+        [
+          "perpendicular",
+          [
+            "SIDE_PLANE",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "intersection",
+          [
+            "SIDE_PLANE",
+            "BASE_PLANE",
+            "AB"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "SH",
+            "SIDE_PLANE"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "H",
+            "AB"
+          ]
+        ]
+      ],
+      "expect": "NO_INFERENCE"
+    },
+    {
+      "id": "equal_SA_SB_SC_pass",
+      "template": "EQUAL_SA_SB_SC_CIRCUMCENTER",
+      "facts": [
+        [
+          "equal-length",
+          [
+            "SA",
+            "SB",
+            "SC"
+          ]
+        ],
+        [
+          "projection-foot",
+          [
+            "H",
+            "S",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "perpendicular",
+          [
+            "SH",
+            "BASE_PLANE"
+          ]
+        ]
+      ],
+      "expect": "PASS",
+      "expect_derived": [
+        [
+          "equal-length",
+          [
+            "HA",
+            "HB",
+            "HC"
+          ]
+        ],
+        [
+          "circumcenter",
+          [
+            "H",
+            "A",
+            "B",
+            "C"
+          ]
+        ],
+        [
+          "altitude",
+          [
+            "SH"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "equal_SA_SB_SC_without_projection_blocks",
+      "template": "EQUAL_SA_SB_SC_CIRCUMCENTER",
+      "facts": [
+        [
+          "equal-length",
+          [
+            "SA",
+            "SB",
+            "SC"
+          ]
+        ]
+      ],
+      "expect": "NO_INFERENCE"
+    },
+    {
+      "id": "right_angles_cyclic_pass",
+      "template": "RIGHT_ANGLES_SBA_SCA_TO_CYCLIC_FOOT",
+      "facts": [
+        [
+          "right-angle",
+          [
+            "SB",
+            "BA"
+          ]
+        ],
+        [
+          "right-angle",
+          [
+            "SC",
+            "CA"
+          ]
+        ],
+        [
+          "projection-foot",
+          [
+            "H",
+            "S",
+            "BASE_PLANE"
+          ]
+        ],
+        [
+          "perpendicular",
+          [
+            "SH",
+            "BASE_PLANE"
+          ]
+        ]
+      ],
+      "expect": "PASS",
+      "expect_derived": [
+        [
+          "perpendicular",
+          [
+            "HB",
+            "AB"
+          ]
+        ],
+        [
+          "perpendicular",
+          [
+            "HC",
+            "AC"
+          ]
+        ],
+        [
+          "cyclic",
+          [
+            "H",
+            "B",
+            "A",
+            "C"
+          ]
+        ],
+        [
+          "altitude",
+          [
+            "SH"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "right_angles_without_projection_blocks",
+      "template": "RIGHT_ANGLES_SBA_SCA_TO_CYCLIC_FOOT",
+      "facts": [
+        [
+          "right-angle",
+          [
+            "SB",
+            "BA"
+          ]
+        ],
+        [
+          "right-angle",
+          [
+            "SC",
+            "CA"
+          ]
+        ]
+      ],
+      "expect": "NO_INFERENCE"
+    },
+    {
+      "id": "visual_center_is_not_proof",
+      "template": "DIRECT_ALTITUDE_GIVEN",
+      "facts": [],
+      "expect": "NO_INFERENCE"
+    }
+  ]
+}

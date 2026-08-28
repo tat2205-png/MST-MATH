@@ -1,0 +1,63 @@
+{
+  "id": "NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0",
+  "version": "2.5.0",
+  "status": "LOCKED",
+  "source_baseline": "NA-MATH-LAYOUT V1.3 CANONICAL",
+  "shared_tokens": {
+    "deep_navy": "#0C2D57",
+    "teal": "#0C9A94",
+    "blue": "#1E63B5",
+    "green": "#2F8F68",
+    "amber": "#D9911B",
+    "purple": "#6B4FA3",
+    "paper": "#FCFCFA",
+    "ink": "#18212B",
+    "muted": "#66717D",
+    "line": "#D8E0E6"
+  },
+  "output_contracts": {
+    "learning_material": {
+      "label": "Tài liệu học tập",
+      "primary_accent": "#0C2D57",
+      "primary_name": "Deep Navy",
+      "secondary_allowed": [
+        "#0C9A94",
+        "#1E63B5",
+        "#2F8F68",
+        "#D9911B",
+        "#6B4FA3"
+      ],
+      "usage": "Header/footer/title use Deep Navy; semantic cards may use secondary tokens.",
+      "forbid_palette_replacement": true
+    },
+    "worksheet": {
+      "label": "Phiếu học tập",
+      "primary_accent": "#2F8F68",
+      "primary_name": "Green",
+      "usage": "Primary header/tag/footer/accent.",
+      "forbid_palette_replacement": true
+    },
+    "exercise_sheet": {
+      "label": "Phiếu bài tập",
+      "primary_accent": "#6B4FA3",
+      "primary_name": "Purple",
+      "usage": "Primary header/tag/footer/accent.",
+      "forbid_palette_replacement": true
+    },
+    "video": {
+      "label": "Video bài giảng",
+      "primary_accent": "#D9911B",
+      "primary_name": "Amber",
+      "brand_navy": "#0C2D57",
+      "usage": "Amber for video identity/progress/highlight; Deep Navy remains for brand/title where defined by V1.3.",
+      "forbid_palette_replacement": true
+    }
+  },
+  "hard_rules": [
+    "Do not unify the four output palettes.",
+    "Do not replace a locked primary accent without explicit user request.",
+    "Preserve paper/ink/muted/line shared tokens.",
+    "Semantic card colors inside learning material do not change its primary identity from Deep Navy.",
+    "Color changes must not mutate V1.3 layout geometry or component placement."
+  ]
+}

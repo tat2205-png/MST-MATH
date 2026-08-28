@@ -1,0 +1,9 @@
+GEO-3 inherited QA
+PASS triangular_prism_exact
+PASS triangular_prism_alias_input
+PASS box_exact
+PASS unknown_profile_blocks
+PASS unspecified_edge_blocks
+GEO_3_STATUS=PASS (5/5)
+EDGE_ID_NORMALIZATION=PASS
+LAYOUT_V1_3_PRESERVED=PASS

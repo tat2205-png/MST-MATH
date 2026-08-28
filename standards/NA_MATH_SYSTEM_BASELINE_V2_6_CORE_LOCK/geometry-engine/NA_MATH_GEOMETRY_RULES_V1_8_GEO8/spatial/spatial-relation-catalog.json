@@ -1,0 +1,149 @@
+{
+  "id": "SPATIAL_RELATION_PROFILE_CATALOG",
+  "version": "1.7.0",
+  "layout_contract": {
+    "layout_id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "global_rules": {
+    "semantic_3d_is_source_of_truth": true,
+    "projected_crossing_is_not_intersection": true,
+    "parallel_projection_default": true,
+    "false_intersection_marker_forbidden": true,
+    "decorative_depth_guides_forbidden": true,
+    "visual_inference_forbidden": true
+  },
+  "profiles": [
+    {
+      "id": "SKEW_LINES_GENERIC_CANONICAL",
+      "family": "line_line",
+      "status": "CANONICAL",
+      "required_semantics": [
+        "intersection(a,b)=∅",
+        "direction(a) ∦ direction(b)",
+        "a,b noncoplanar"
+      ],
+      "render_rules": {
+        "2d_projection_may_cross": true,
+        "place_intersection_marker_at_projected_crossing": false,
+        "draw_connector_between_lines": false
+      },
+      "forbidden": [
+        "infer_intersection_from_2d_crossing",
+        "infer_skew_from_nonintersection_in_projection",
+        "add_common_perpendicular_without_construction"
+      ]
+    },
+    {
+      "id": "PARALLEL_PLANES_SKEW_LINES_CANONICAL",
+      "family": "planes_with_lines",
+      "status": "LOCKED",
+      "required_semantics": [
+        "(P) ∥ (Q)",
+        "a ⊂ (P)",
+        "b ⊂ (Q)",
+        "a ∦ b"
+      ],
+      "render_rules": {
+        "same_plane_outline_orientation_family": true,
+        "planes_separated_by_translation": true,
+        "a_b_projected_directions_must_be_nonparallel": true,
+        "decorative_connectors_between_planes": false,
+        "fake_prism_edges": false,
+        "false_intersection_marker": false
+      },
+      "forbidden": [
+        "vertical_or_dashed_plane_connectors",
+        "fake_prism_implication",
+        "mark_projected_crossing_as_intersection"
+      ]
+    },
+    {
+      "id": "LINE_PARALLEL_TO_PLANE_CANONICAL",
+      "family": "line_plane",
+      "status": "CANONICAL",
+      "required_semantics": [
+        "a ∥ (P)"
+      ],
+      "render_rules": {
+        "a_must_not_intersect_plane_semantically": true,
+        "projected_trace_may_overlap_plane_outline": true,
+        "do_not_mark_false_plane_intersection": true
+      },
+      "forbidden": [
+        "intersection_marker_without_semantic_intersection",
+        "draw_projection_foot_without_construction"
+      ]
+    },
+    {
+      "id": "LINE_INTERSECTS_PLANE_CANONICAL",
+      "family": "line_plane",
+      "status": "CANONICAL",
+      "required_semantics": [
+        "a ∩ (P) = {M}"
+      ],
+      "render_rules": {
+        "M_must_be_semantic_intersection_point": true,
+        "intersection_marker_allowed_only_at_M": true
+      },
+      "forbidden": [
+        "move_M_for_visual_balance",
+        "invent_second_intersection"
+      ]
+    },
+    {
+      "id": "LINE_PERPENDICULAR_TO_PLANE_CANONICAL",
+      "family": "line_plane",
+      "status": "CANONICAL",
+      "required_semantics": [
+        "a ⟂ (P)",
+        "a ∩ (P) = {H}"
+      ],
+      "render_rules": {
+        "H_is_projection_foot": true,
+        "right_angle_marker_only_if_projection_unambiguous": true,
+        "screen_vertical_not_required_unless_profile_says_so": true
+      },
+      "forbidden": [
+        "assume_screen_vertical_means_perpendicular",
+        "right_angle_marker_without_verified_perpendicular"
+      ]
+    },
+    {
+      "id": "PARALLEL_PLANES_CANONICAL",
+      "family": "plane_plane",
+      "status": "CANONICAL",
+      "required_semantics": [
+        "(P) ∥ (Q)"
+      ],
+      "render_rules": {
+        "same_orientation_family": true,
+        "corresponding_outline_directions_parallel": true,
+        "clear_separation": true,
+        "no_connector_edges": true
+      },
+      "forbidden": [
+        "fake_prism",
+        "connector_guides",
+        "perspective_convergence"
+      ]
+    },
+    {
+      "id": "INTERSECTING_PLANES_CANONICAL",
+      "family": "plane_plane",
+      "status": "CANONICAL",
+      "required_semantics": [
+        "(P) ∩ (Q) = d"
+      ],
+      "render_rules": {
+        "shared_line_d_must_be_common_to_both_planes": true,
+        "plane_outlines_may_be_clipped_around_d": true
+      },
+      "forbidden": [
+        "two_unrelated_crossing_parallelograms",
+        "fake_intersection_line"
+      ]
+    }
+  ]
+}

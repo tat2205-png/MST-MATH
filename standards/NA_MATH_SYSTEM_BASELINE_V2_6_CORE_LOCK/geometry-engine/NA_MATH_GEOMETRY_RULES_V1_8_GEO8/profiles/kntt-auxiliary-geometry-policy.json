@@ -1,0 +1,18 @@
+{
+  "id": "KNTT_AUXILIARY_GEOMETRY_POLICY",
+  "version": "2.0.0",
+  "status": "LOCKED",
+  "default": "DO_NOT_DRAW",
+  "allow_only_if": [
+    "GIVEN",
+    "explicitly CONSTRUCTED",
+    "DERIVED and required by current solution step"
+  ],
+  "forbidden_visual_only_reasons": [
+    "make figure look 3D",
+    "fill empty space",
+    "show likely altitude",
+    "show likely center",
+    "show likely parallel planes"
+  ]
+}

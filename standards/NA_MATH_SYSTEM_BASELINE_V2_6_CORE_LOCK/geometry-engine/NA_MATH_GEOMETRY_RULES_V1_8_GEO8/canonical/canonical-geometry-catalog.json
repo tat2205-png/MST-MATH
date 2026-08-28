@@ -1,0 +1,187 @@
+{
+  "id": "CANONICAL_GEOMETRY_PROFILE_CATALOG",
+  "version": "1.6.0",
+  "layout_contract": {
+    "layout_id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "global_rules": {
+    "projection": "PARALLEL_PROJECTION",
+    "geometry_first": true,
+    "visibility_from_view_profile_only": true,
+    "no_visual_inference": true,
+    "preserve_given_ratios_when_required": true,
+    "corresponding_prism_vertices_use_common_translation": true
+  },
+  "profiles": [
+    {
+      "id": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "family": "prism",
+      "status": "LOCKED",
+      "construction": {
+        "base1": [
+          "A",
+          "B",
+          "C"
+        ],
+        "base2": [
+          "A′",
+          "B′",
+          "C′"
+        ],
+        "correspondence": [
+          [
+            "A",
+            "A′"
+          ],
+          [
+            "B",
+            "B′"
+          ],
+          [
+            "C",
+            "C′"
+          ]
+        ],
+        "common_translation_required": true,
+        "front_vertices": [
+          "C",
+          "C′"
+        ],
+        "rear_lower_edge": "AB"
+      },
+      "relations": [
+        "AA′ ∥ BB′ ∥ CC′",
+        "AB ∥ A′B′",
+        "BC ∥ B′C′",
+        "CA ∥ C′A′"
+      ],
+      "visibility": {
+        "solid": [
+          "CA",
+          "CB",
+          "C′A′",
+          "C′B′",
+          "CC′",
+          "AA′",
+          "BB′",
+          "A′B′"
+        ],
+        "dashed": [
+          "AB"
+        ]
+      },
+      "forbidden": [
+        "independent_second_base_deformation",
+        "nonparallel_lateral_edges",
+        "dash_any_edge_other_than_AB_in_locked_profile",
+        "perspective_shrinkage"
+      ]
+    },
+    {
+      "id": "GENERIC_N_GONAL_PRISM_PARALLEL_TRANSLATION",
+      "family": "prism",
+      "status": "CANONICAL",
+      "construction": {
+        "base_vertex_count_min": 3,
+        "base_vertex_count_max": 10,
+        "second_base_equals_first_base_plus_common_translation": true,
+        "lateral_edges_all_parallel": true,
+        "corresponding_base_edges_parallel": true
+      },
+      "topology": {
+        "V": "2N",
+        "E": "3N",
+        "F": "N+2"
+      },
+      "visibility": {
+        "source": "VIEW_PROFILE_REQUIRED"
+      },
+      "forbidden": [
+        "independent_vertex_shift",
+        "perspective_convergence",
+        "automatic_regular_polygon_assumption"
+      ]
+    },
+    {
+      "id": "BOX_PARALLELEPIPED_CANONICAL",
+      "family": "box",
+      "status": "CANONICAL",
+      "construction": {
+        "base": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "translated_face": [
+          "A′",
+          "B′",
+          "C′",
+          "D′"
+        ],
+        "common_translation_required": true,
+        "parallel_classes": [
+          [
+            "AB",
+            "CD",
+            "A′B′",
+            "C′D′"
+          ],
+          [
+            "AD",
+            "BC",
+            "A′D′",
+            "B′C′"
+          ],
+          [
+            "AA′",
+            "BB′",
+            "CC′",
+            "DD′"
+          ]
+        ]
+      },
+      "specialization": {
+        "parallelepiped": "three parallel edge families",
+        "rectangular_box": "semantic right angles required; do not infer from drawing",
+        "cube": "rectangular_box + verified equal edge lengths"
+      },
+      "visibility": {
+        "source": "VIEW_PROFILE_REQUIRED",
+        "default_profile": "BOX_FRONT_LEFT_ABOVE_KNTT"
+      },
+      "forbidden": [
+        "assume_rectangle_from_projected_parallelogram",
+        "assume_cube_from_visual_equality",
+        "guess_hidden_edges"
+      ]
+    },
+    {
+      "id": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+      "family": "planar",
+      "status": "LOCKED",
+      "construction": {
+        "large_base": "AB",
+        "small_base": "CD",
+        "AB_parallel_CD": true,
+        "large_base_orientation": "horizontal",
+        "large_base_position": "top",
+        "small_base_position": "below",
+        "preserve_numeric_ratio_if_given": true
+      },
+      "metric_policy": {
+        "if_AB_and_CD_given": "display_length_ratio_AB_to_CD_equals_given_ratio",
+        "same_scale_for_both_bases": true
+      },
+      "forbidden": [
+        "auto_isosceles",
+        "auto_right_trapezoid",
+        "auto_center_small_base",
+        "swap_large_and_small_base_positions",
+        "ignore_given_base_ratio"
+      ]
+    }
+  ]
+}

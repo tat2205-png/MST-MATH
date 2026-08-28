@@ -1,0 +1,19 @@
+{
+  "release": "NA-MATH-SYSTEM BASELINE V2.6",
+  "status": "LOCKED",
+  "base": "V2.5",
+  "content_changes": "NONE",
+  "lock_policy_added": true,
+  "layout_v1_3_byte_identity": "PASS",
+  "frozen_files": "16/16",
+  "system_core_lock_qa": "PASS",
+  "development_policy": {
+    "NEW_FEATURE": "BLOCKED",
+    "NEW_GEOMETRY_PROFILE": "REVIEW_REQUIRED",
+    "BUG_FIX": "ALLOWED",
+    "QA": "ALLOWED",
+    "CANONICALIZATION": "ALLOWED",
+    "DOCUMENTATION": "ALLOWED",
+    "RELEASE_PACKAGING": "ALLOWED"
+  }
+}

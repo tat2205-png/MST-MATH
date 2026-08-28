@@ -1,0 +1,55 @@
+{
+  "version": "2.3.0",
+  "cases": [
+    {
+      "id": "perp_math_engine",
+      "source": "SA\\\\perp(ABCD)",
+      "expect": "PASS"
+    },
+    {
+      "id": "sqrt_math_engine",
+      "source": "\\\\sqrt{5}",
+      "expect": "PASS"
+    },
+    {
+      "id": "fraction_math_engine",
+      "source": "\\\\frac{2a\\\\sqrt{5}}{5}",
+      "expect": "PASS"
+    },
+    {
+      "id": "parallel_math_engine",
+      "source": "AB\\\\parallel CD",
+      "expect": "PASS"
+    },
+    {
+      "id": "membership_math_engine",
+      "source": "H\\\\in SD",
+      "expect": "PASS"
+    },
+    {
+      "id": "raw_unicode_perp",
+      "source": "SA ⊥ (ABCD)",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "raw_unicode_sqrt",
+      "source": "√5",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "raw_unicode_parallel",
+      "source": "AB ∥ CD",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "raw_unicode_membership",
+      "source": "H ∈ SD",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "raw_unicode_angle",
+      "source": "∠ABC",
+      "expect": "BLOCKED"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "NA_MATH_SYMBOL_RESOLVER_CONTRACT_V2_4",
+  "version": "2.4.0",
+  "status": "LOCKED",
+  "canonical_registry": "NA_MATH_KNTT_SYMBOL_STANDARD_V1_0",
+  "pipeline": [
+    "SOURCE_MATH",
+    "SEMANTIC_PARSE",
+    "CANONICAL_SYMBOL_LOOKUP",
+    "GDPT2018_KNTT_NORMALIZATION",
+    "MATH_ENGINE_RENDER",
+    "SYMBOL_QA",
+    "OUTPUT"
+  ],
+  "fail_closed": {
+    "unknown_math_symbol": "BLOCK_RENDER",
+    "raw_unicode_math_symbol": "BLOCK_RENDER",
+    "plain_text_math_glyph": "BLOCK_RENDER",
+    "ambiguous_notation_variant": "REVIEW_REQUIRED",
+    "renderer_bypass": "BLOCK_RENDER"
+  },
+  "fonts": {
+    "body": "Libertinus Serif",
+    "math": "Libertinus Math",
+    "ui": "Source Sans 3",
+    "fallback_body_vi": "Noto Serif",
+    "fallback_ui_vi": "Noto Sans"
+  },
+  "scope": [
+    "learning_material",
+    "worksheet",
+    "exercise_sheet",
+    "assessment",
+    "video",
+    "geometry_figure",
+    "solution_steps"
+  ]
+}

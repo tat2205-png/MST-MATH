@@ -14,6 +14,7 @@
     "qa:full": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Full",
     "qa:repair": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode RepairSmoke",
     "qa:math": "npx tsx tests/math-regression.ts",
+    "qa:na-math-v2.6": "node --import tsx tests/test-na-math-v2.6.ts",
     "qa:luadraw": "python scripts/doctor_luadraw.py && node --import tsx tests/test-luadraw-contract.ts",
     "qa:luadraw:smoke": "node --import tsx scripts/run-luadraw-smoke.ts",
     "bridge:start": "python local_bridge/bridge.py",

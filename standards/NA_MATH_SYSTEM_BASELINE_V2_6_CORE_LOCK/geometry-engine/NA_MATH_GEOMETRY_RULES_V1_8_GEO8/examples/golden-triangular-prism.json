@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "GOLDEN_TRIANGULAR_PRISM_FRONT_TO_BACK",
+  "title": "Lăng trụ tam giác — front-to-back KNTT",
+  "layoutContract": {
+    "layoutId": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "layoutStatus": "LOCKED",
+    "geometryMayChangeLayout": false
+  },
+  "objects": [
+    {
+      "id": "A",
+      "kind": "point",
+      "label": "A",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "B",
+      "kind": "point",
+      "label": "B",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "C",
+      "kind": "point",
+      "label": "C",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "A′",
+      "kind": "point",
+      "label": "A′",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "B′",
+      "kind": "point",
+      "label": "B′",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "C′",
+      "kind": "point",
+      "label": "C′",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "AB",
+      "kind": "segment",
+      "endpoints": [
+        "A",
+        "B"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "BC",
+      "kind": "segment",
+      "endpoints": [
+        "B",
+        "C"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "CA",
+      "kind": "segment",
+      "endpoints": [
+        "C",
+        "A"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "A′B′",
+      "kind": "segment",
+      "endpoints": [
+        "A′",
+        "B′"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "B′C′",
+      "kind": "segment",
+      "endpoints": [
+        "B′",
+        "C′"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "C′A′",
+      "kind": "segment",
+      "endpoints": [
+        "C′",
+        "A′"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "AA′",
+      "kind": "segment",
+      "endpoints": [
+        "A",
+        "A′"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "BB′",
+      "kind": "segment",
+      "endpoints": [
+        "B",
+        "B′"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "CC′",
+      "kind": "segment",
+      "endpoints": [
+        "C",
+        "C′"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "PRISM_ABC_A′B′C′",
+      "kind": "solid",
+      "solidType": "prism",
+      "vertices": [
+        "A",
+        "B",
+        "C",
+        "A′",
+        "B′",
+        "C′"
+      ],
+      "edges": [
+        "AB",
+        "BC",
+        "CA",
+        "A′B′",
+        "B′C′",
+        "C′A′",
+        "AA′",
+        "BB′",
+        "CC′"
+      ],
+      "provenance": "GIVEN"
+    }
+  ],
+  "relations": [
+    {
+      "id": "R1",
+      "type": "parallel",
+      "objects": [
+        "AA′",
+        "BB′",
+        "CC′"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "R2",
+      "type": "parallel",
+      "objects": [
+        "AB",
+        "A′B′"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "R3",
+      "type": "parallel",
+      "objects": [
+        "BC",
+        "B′C′"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "R4",
+      "type": "parallel",
+      "objects": [
+        "CA",
+        "C′A′"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED"
+    }
+  ],
+  "claims": [
+    {
+      "relationId": "R1",
+      "requiredForRender": true
+    },
+    {
+      "relationId": "R2",
+      "requiredForRender": true
+    },
+    {
+      "relationId": "R3",
+      "requiredForRender": true
+    },
+    {
+      "relationId": "R4",
+      "requiredForRender": true
+    }
+  ],
+  "activeViewProfileId": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+  "availableViewProfiles": [
+    {
+      "id": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "projection": {
+        "mode": "parallel"
+      },
+      "edgeStyles": [
+        {
+          "edgeId": "AB",
+          "style": "dashed",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "BC",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "CA",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "A′B′",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "B′C′",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "C′A′",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "AA′",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "BB′",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "CC′",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        }
+      ]
+    }
+  ],
+  "verificationStatus": "VERIFIED",
+  "renderPolicy": {
+    "noVisualInference": true,
+    "failClosed": true,
+    "allowUnverifiedDecorativeGeometry": false
+  }
+}

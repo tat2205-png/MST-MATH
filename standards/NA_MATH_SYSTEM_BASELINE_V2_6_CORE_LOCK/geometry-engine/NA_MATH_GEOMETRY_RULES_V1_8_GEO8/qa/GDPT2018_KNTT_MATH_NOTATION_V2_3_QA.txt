@@ -1,0 +1,13 @@
+PASS perp_math_engine
+PASS sqrt_math_engine
+PASS fraction_math_engine
+PASS parallel_math_engine
+PASS membership_math_engine
+PASS raw_unicode_perp
+PASS raw_unicode_sqrt
+PASS raw_unicode_parallel
+PASS raw_unicode_membership
+PASS raw_unicode_angle
+MATH_NOTATION_REGRESSION=PASS (10/10)
+RAW_UNICODE_MATH_SYMBOLS=BLOCKED
+MATH_ENGINE_RENDERING=REQUIRED

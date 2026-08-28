@@ -1,0 +1,18 @@
+{
+  "version": "1.3.0",
+  "mode": "parallel_projection",
+  "principle": "geometry_first_projection_second_visibility_third_labels_fourth_styling_last",
+  "preserve": [
+    "collinearity",
+    "incidence",
+    "parallelism",
+    "correspondence_of_prism_edges",
+    "coplanar_structure"
+  ],
+  "forbid": [
+    "free_form_perspective_for_core_math",
+    "manual_hidden_edge_guessing",
+    "decorative_right_angle_marker",
+    "image_generation_as_geometry_source_of_truth"
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "id": "PYRAMID_ALTITUDE_INFERENCE_CATALOG",
+  "version": "1.5.0",
+  "layout_contract": {
+    "layout_id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "layout_status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "render_policy": {
+    "altitude_vertical_only_if_verified": true,
+    "visual_inference_forbidden": true,
+    "missing_premise_policy": "NO_INFERENCE",
+    "failed_proof_policy": "BLOCK_ALTITUDE_RENDER"
+  },
+  "templates": [
+    {
+      "id": "DIRECT_ALTITUDE_GIVEN",
+      "purpose": "Use a directly given perpendicular-to-base relation.",
+      "premises": [
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "lies-in",
+          "objects": [
+            "H",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        }
+      ],
+      "derive": [
+        {
+          "type": "altitude",
+          "objects": [
+            "SH"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        }
+      ],
+      "render": {
+        "allow_vertical_SH": true,
+        "allow_altitude_marker": true
+      }
+    },
+    {
+      "id": "TWO_INTERSECTING_BASE_LINES_TO_ALTITUDE",
+      "purpose": "A line perpendicular to two intersecting lines of the base plane is perpendicular to the plane.",
+      "premises": [
+        {
+          "type": "lies-in",
+          "objects": [
+            "d1",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "lies-in",
+          "objects": [
+            "d2",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "intersection",
+          "objects": [
+            "d1",
+            "d2",
+            "H"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "d1"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "d2"
+          ],
+          "status": "VERIFIED"
+        }
+      ],
+      "derive": [
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "BASE_PLANE"
+          ],
+          "provenance": "DERIVED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "altitude",
+          "objects": [
+            "SH"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        }
+      ],
+      "render": {
+        "allow_vertical_SH": true
+      }
+    },
+    {
+      "id": "PERP_SIDE_PLANE_TO_BASE_ALTITUDE",
+      "purpose": "Perpendicular side-plane theorem.",
+      "premises": [
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SIDE_PLANE",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "intersection",
+          "objects": [
+            "SIDE_PLANE",
+            "BASE_PLANE",
+            "AB"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "lies-in",
+          "objects": [
+            "SH",
+            "SIDE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "AB"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "lies-in",
+          "objects": [
+            "H",
+            "AB"
+          ],
+          "status": "VERIFIED"
+        }
+      ],
+      "derive": [
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "BASE_PLANE"
+          ],
+          "provenance": "DERIVED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "altitude",
+          "objects": [
+            "SH"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        }
+      ],
+      "render": {
+        "allow_vertical_SH": true,
+        "forbid_midpoint_assumption": true
+      }
+    },
+    {
+      "id": "EQUAL_SA_SB_SC_CIRCUMCENTER",
+      "purpose": "If SA=SB=SC and H is the orthogonal projection of S to (ABC), then H is the circumcenter of triangle ABC.",
+      "premises": [
+        {
+          "type": "equal-length",
+          "objects": [
+            "SA",
+            "SB",
+            "SC"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "projection-foot",
+          "objects": [
+            "H",
+            "S",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        }
+      ],
+      "derive": [
+        {
+          "type": "equal-length",
+          "objects": [
+            "HA",
+            "HB",
+            "HC"
+          ],
+          "provenance": "DERIVED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "circumcenter",
+          "objects": [
+            "H",
+            "A",
+            "B",
+            "C"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "altitude",
+          "objects": [
+            "SH"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        }
+      ],
+      "render": {
+        "allow_vertical_SH": true,
+        "H_position_source": "CIRCUMCENTER_CONSTRUCTION",
+        "forbid_visual_center_guess": true
+      }
+    },
+    {
+      "id": "RIGHT_ANGLES_SBA_SCA_TO_CYCLIC_FOOT",
+      "purpose": "With H as the projection foot of S to (ABC), right angles SBA and SCA imply HB ⟂ AB and HC ⟂ AC, hence HBAC is cyclic.",
+      "premises": [
+        {
+          "type": "right-angle",
+          "objects": [
+            "SB",
+            "BA"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "right-angle",
+          "objects": [
+            "SC",
+            "CA"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "projection-foot",
+          "objects": [
+            "H",
+            "S",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        },
+        {
+          "type": "perpendicular",
+          "objects": [
+            "SH",
+            "BASE_PLANE"
+          ],
+          "status": "VERIFIED"
+        }
+      ],
+      "derive": [
+        {
+          "type": "perpendicular",
+          "objects": [
+            "HB",
+            "AB"
+          ],
+          "provenance": "DERIVED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "perpendicular",
+          "objects": [
+            "HC",
+            "AC"
+          ],
+          "provenance": "DERIVED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "cyclic",
+          "objects": [
+            "H",
+            "B",
+            "A",
+            "C"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        },
+        {
+          "type": "altitude",
+          "objects": [
+            "SH"
+          ],
+          "provenance": "CONFIRMED",
+          "status": "VERIFIED"
+        }
+      ],
+      "render": {
+        "allow_vertical_SH": true,
+        "allow_circle_only_after_cyclic_verified": true,
+        "forbid_circle_before_proof": true
+      }
+    }
+  ]
+}

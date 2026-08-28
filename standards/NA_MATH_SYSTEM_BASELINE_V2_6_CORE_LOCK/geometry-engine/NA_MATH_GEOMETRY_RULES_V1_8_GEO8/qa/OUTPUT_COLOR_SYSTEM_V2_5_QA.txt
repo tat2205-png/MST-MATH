@@ -1,0 +1,12 @@
+PASS learning_material_navy -> PASS
+PASS worksheet_green -> PASS
+PASS exercise_sheet_purple -> PASS
+PASS video_amber -> PASS
+PASS worksheet_wrong_blue -> BLOCKED
+PASS exercise_sheet_wrong_green -> BLOCKED
+PASS video_wrong_purple -> BLOCKED
+COLOR_SYSTEM_QA=PASS (7/7)
+LEARNING_MATERIAL=#0C2D57
+WORKSHEET=#2F8F68
+EXERCISE_SHEET=#6B4FA3
+VIDEO=#D9911B

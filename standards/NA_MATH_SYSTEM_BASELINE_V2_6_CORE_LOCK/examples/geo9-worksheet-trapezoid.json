@@ -1,0 +1,14 @@
+{
+  "id": "geo9-worksheet-trapezoid",
+  "layoutKind": "worksheet",
+  "userType": "PHIẾU HỌC TẬP",
+  "viewProfileId": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+  "outerSlot": {
+    "x": 610,
+    "y": 170,
+    "width": 350,
+    "height": 310
+  },
+  "geometryRule": "Large base horizontal above; smaller base below; preserve given ratio.",
+  "layoutMutation": null
+}

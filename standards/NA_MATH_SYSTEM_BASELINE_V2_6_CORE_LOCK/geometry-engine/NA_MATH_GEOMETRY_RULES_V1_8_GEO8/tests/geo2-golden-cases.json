@@ -1,0 +1,97 @@
+{
+  "version": "1.2.0",
+  "cases": [
+    {
+      "id": "triangular_prism_locked",
+      "profile": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "all_edges": [
+        "AB",
+        "BC",
+        "CA",
+        "A′B′",
+        "B′C′",
+        "C′A′",
+        "AA′",
+        "BB′",
+        "CC′"
+      ],
+      "expected_solid": [
+        "CA",
+        "CB",
+        "C′A′",
+        "C′B′",
+        "CC′",
+        "AA′",
+        "BB′",
+        "A′B′"
+      ],
+      "expected_dashed": [
+        "AB"
+      ]
+    },
+    {
+      "id": "box_front_left_above",
+      "profile": "BOX_FRONT_LEFT_ABOVE_KNTT",
+      "all_edges": [
+        "AB",
+        "BC",
+        "CD",
+        "DA",
+        "A′B′",
+        "B′C′",
+        "C′D′",
+        "D′A′",
+        "AA′",
+        "BB′",
+        "CC′",
+        "DD′"
+      ],
+      "expected_solid": [
+        "AB",
+        "BC",
+        "CC′",
+        "BB′",
+        "AA′",
+        "A′B′",
+        "B′C′",
+        "C′D′",
+        "D′A′"
+      ],
+      "expected_dashed": [
+        "AD",
+        "DC",
+        "DD′"
+      ]
+    },
+    {
+      "id": "parallel_planes_skew",
+      "profile": "PARALLEL_PLANES_SKEW_LINES_CANONICAL",
+      "all_edges": [
+        "a",
+        "b"
+      ],
+      "expected_solid": [
+        "a",
+        "b"
+      ],
+      "expected_dashed": []
+    },
+    {
+      "id": "trapezoid_base",
+      "profile": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+      "all_edges": [
+        "AB",
+        "BC",
+        "CD",
+        "DA"
+      ],
+      "expected_solid": [
+        "AB",
+        "BC",
+        "CD",
+        "DA"
+      ],
+      "expected_dashed": []
+    }
+  ]
+}

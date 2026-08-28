@@ -1,0 +1,6 @@
+GEO-1 corpus: 4 scenes
+PASS golden-circumcenter-foot.json
+PASS golden-parallel-planes-skew-lines.json
+PASS golden-pyramid-altitude.json
+PASS golden-triangular-prism.json
+GEO_1_STATUS=PASS (4/4 passed)

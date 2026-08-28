@@ -1,0 +1,14 @@
+{
+  "id": "geo9-video-skew-lines",
+  "layoutKind": "video",
+  "userType": "VIDEO BÀI GIẢNG",
+  "viewProfileId": "SKEW_LINES_MINIMAL_KNTT",
+  "outerSlot": {
+    "x": 1080,
+    "y": 180,
+    "width": 720,
+    "height": 720
+  },
+  "geometryRule": "KNTT V2 locked: default contains only a and b.",
+  "layoutMutation": null
+}

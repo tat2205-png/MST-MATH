@@ -1,0 +1,50 @@
+{
+  "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN": {
+    "condition": "SH ⟂ base_plane is GIVEN or CONFIRMED",
+    "render": "SH may be vertical in approved view",
+    "forbidden": [
+      "guess_foot",
+      "assume_center",
+      "assume_midpoint"
+    ]
+  },
+  "PERP_SIDE_PLANE_TO_BASE_ALTITUDE": {
+    "given": [
+      "(SAB) ⟂ (ABCD)",
+      "(SAB) ∩ (ABCD) = AB",
+      "SH ⊂ (SAB)",
+      "SH ⟂ AB"
+    ],
+    "derive": [
+      "SH ⟂ (ABCD)",
+      "SH is pyramid altitude"
+    ]
+  },
+  "EQUAL_SA_SB_SC_CIRCUMCENTER": {
+    "given": [
+      "SA = SB = SC",
+      "H = orthogonal projection of S on (ABC)"
+    ],
+    "derive": [
+      "HA = HB = HC",
+      "H = circumcenter of ABC"
+    ],
+    "render_guard": "do not place H visually before derivation"
+  },
+  "RIGHT_ANGLES_TO_CYCLIC_FOOT_PROFILE": {
+    "given": [
+      "∠SBA = 90°",
+      "∠SCA = 90°"
+    ],
+    "constructed": [
+      "BH ⟂ AB",
+      "CH ⟂ AC",
+      "H ∈ (ABC)"
+    ],
+    "allowed_after_proof": [
+      "SH ⟂ (ABC)",
+      "HBAC cyclic"
+    ],
+    "render_guard": "no circle until cyclic relation is confirmed"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "khoi_dong": {
+    "icon": "rocket",
+    "tone": "blue",
+    "role": "engage"
+  },
+  "kham_pha": {
+    "icon": "search",
+    "tone": "teal",
+    "role": "explore"
+  },
+  "hinh_thanh_kien_thuc": {
+    "icon": "book-open",
+    "tone": "blue",
+    "role": "concept"
+  },
+  "dinh_nghia": {
+    "icon": "bookmark",
+    "tone": "blue",
+    "role": "definition"
+  },
+  "dinh_li": {
+    "icon": "badge",
+    "tone": "blue",
+    "role": "theorem"
+  },
+  "tinh_chat": {
+    "icon": "nodes",
+    "tone": "teal",
+    "role": "property"
+  },
+  "cong_thuc": {
+    "icon": "formula",
+    "tone": "teal",
+    "role": "formula"
+  },
+  "vi_du": {
+    "icon": "pen-square",
+    "tone": "green",
+    "role": "example"
+  },
+  "chu_y": {
+    "icon": "alert-circle",
+    "tone": "amber",
+    "role": "attention"
+  },
+  "ghi_nho": {
+    "icon": "lightbulb",
+    "tone": "amber",
+    "role": "memory"
+  },
+  "luyen_tap": {
+    "icon": "pencil",
+    "tone": "blue",
+    "role": "practice"
+  },
+  "van_dung": {
+    "icon": "target",
+    "tone": "teal",
+    "role": "application"
+  },
+  "bai_tap": {
+    "icon": "clipboard",
+    "tone": "purple",
+    "role": "exercise"
+  },
+  "cau_hoi": {
+    "icon": "help-circle",
+    "tone": "blue",
+    "role": "question"
+  },
+  "huong_dan_giai": {
+    "icon": "route",
+    "tone": "teal",
+    "role": "solution"
+  },
+  "ket_luan": {
+    "icon": "check-circle",
+    "tone": "green",
+    "role": "conclusion"
+  },
+  "muc_tieu_hoc_tap": {
+    "icon": "target",
+    "tone": "blue",
+    "role": "learning-objective"
+  },
+  "y_chinh": {
+    "icon": "sparkles",
+    "tone": "teal",
+    "role": "key-idea"
+  },
+  "vi_du_mau": {
+    "icon": "book-open-check",
+    "tone": "green",
+    "role": "worked-example"
+  },
+  "tu_luyen": {
+    "icon": "pencil-line",
+    "tone": "blue",
+    "role": "try-it"
+  },
+  "loi_thuong_gap": {
+    "icon": "triangle-alert",
+    "tone": "amber",
+    "role": "common-mistake"
+  },
+  "goi_y": {
+    "icon": "lightbulb",
+    "tone": "teal",
+    "role": "hint"
+  },
+  "kiem_tra_nhanh": {
+    "icon": "circle-check-big",
+    "tone": "purple",
+    "role": "checkpoint"
+  },
+  "tom_tat": {
+    "icon": "list-checks",
+    "tone": "blue",
+    "role": "summary"
+  },
+  "the_cong_thuc": {
+    "icon": "sigma",
+    "tone": "teal",
+    "role": "math-formula-card"
+  },
+  "the_hinh_hoc": {
+    "icon": "triangle",
+    "tone": "blue",
+    "role": "geometry-figure-card"
+  },
+  "cac_buoc_giai": {
+    "icon": "list-ordered",
+    "tone": "teal",
+    "role": "solution-steps"
+  },
+  "dap_an_cuoi": {
+    "icon": "badge-check",
+    "tone": "green",
+    "role": "final-answer"
+  },
+  "kien_thuc_can_nho": {
+    "icon": "history",
+    "tone": "blue",
+    "role": "prerequisite"
+  },
+  "so_do_kien_thuc": {
+    "icon": "network",
+    "tone": "teal",
+    "role": "concept-map"
+  },
+  "so_sanh_phan_biet": {
+    "icon": "columns-2",
+    "tone": "purple",
+    "role": "compare"
+  },
+  "chien_luoc_giai": {
+    "icon": "route",
+    "tone": "teal",
+    "role": "strategy"
+  },
+  "chung_minh": {
+    "icon": "file-check-2",
+    "tone": "blue",
+    "role": "proof"
+  },
+  "ket_noi_thuc_te": {
+    "icon": "globe-2",
+    "tone": "green",
+    "role": "real-world-connection"
+  },
+  "dang_xet": {
+    "icon": "scan-search",
+    "tone": "teal",
+    "role": "focus"
+  }
+}
