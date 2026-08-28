@@ -1,8 +1,10 @@
 # Question Bank QB-3A Acceptance Matrix
 
-Feature freeze: **ENABLED**  
-Candidate branch: `feature/qb-document-pipeline`  
-Candidate baseline: `a5d3d1cf64fcc3e0a590dbacfa00e96816ece9c6`
+Feature freeze: **ENABLED**
+
+Candidate branch: `feature/qb-document-pipeline`
+
+Candidate base: `a5d3d1cf64fcc3e0a590dbacfa00e96816ece9c6`
 
 This matrix maps final program gates to repository-owned, deterministic evidence. It does not introduce a second acceptance implementation; the authoritative phase suites remain the executable contracts.
 

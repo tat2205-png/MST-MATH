@@ -27,7 +27,7 @@ Deferred to project control after Question Bank program acceptance
 | 03 | NA Math Visual Engine | 🟡 ACTIVE | 60% | MV-0 | Dynamic Dependencies |
 | 04 | Fold / Unfold Engine | 🟡 ACTIVE | 72% | Pattern Authoring | Cut / Crease / Fold |
 | 05 | Question Bank | 🟢 STABLE | 100% | QB-3A acceptance | Program baseline frozen |
-| 06 | Document Engine | 🟢 STABLE | 100% | QB DOCX pipeline complete | PDF/image ingestion remains separately scoped |
+| 06 | Document Engine | 🟡 ACTIVE | 60% | QB DOCX pipeline complete | PDF/image ingestion remains separately scoped |
 | 07 | NA Math Textbook Style | 🟡 ACTIVE | 65% | Renderer QA | Layout Stability |
 | 08 | Exam Generator | ⚪ PLANNED | 20% | Architecture | After Question Bank |
 | 09 | Classroom Game Engine | ⚪ PLANNED | 15% | Architecture | After Question Bank |
