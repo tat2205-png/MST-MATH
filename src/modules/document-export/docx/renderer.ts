@@ -1,0 +1,83 @@
+import { writeFile } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { mkdir } from "node:fs/promises";
+import { zipSync, type Zippable } from "fflate";
+import { NA_MATH_STANDARD_V2_6 } from "../../../config/naMathStandardV26.js";
+import type { ContentBlock, DocumentBlock, DocumentIR } from "../../question-bank/types.js";
+import { DocxRenderError, type DocxRenderOptions, type DocxRenderResult } from "./types.js";
+import { escapeXml, xmlDocument } from "./xml.js";
+
+const encode = (value: string) => new TextEncoder().encode(value);
+const W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+const R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+
+function textRun(value: string, bold = false): string {
+  const preserve = /^\s|\s$/.test(value) ? ' xml:space="preserve"' : "";
+  return `<w:r>${bold ? "<w:rPr><w:b/></w:rPr>" : ""}<w:t${preserve}>${escapeXml(value)}</w:t></w:r>`;
+}
+
+function contentXml(content: ContentBlock[], warnings: string[]): string {
+  return content.map((item) => {
+    if (item.type === "text") return textRun(item.value);
+    if (item.type === "math") {
+      warnings.push("DOCX_MATH_EXPORT_PENDING_DOCX_1C");
+      return textRun(item.math.latex ?? item.math.normalized ?? "[math]");
+    }
+    if (item.type === "figure") {
+      warnings.push(`DOCX_INLINE_MEDIA_PENDING_DOCX_1D:${item.figureId}`);
+      return textRun(`[Figure ${item.figureId}]`);
+    }
+    return "";
+  }).join("");
+}
+
+function paragraph(block: DocumentBlock, warnings: string[], pageBreak: boolean): string {
+  const style = block.kind === "SECTION" ? "Heading1" : block.style;
+  const properties = [style ? `<w:pStyle w:val="${escapeXml(style)}"/>` : "", block.numbering ? `<w:numPr><w:ilvl w:val="0"/><w:numId w:val="${escapeXml(block.numbering)}"/></w:numPr>` : ""].join("");
+  return `<w:p>${properties ? `<w:pPr>${properties}</w:pPr>` : ""}${contentXml(block.content, warnings)}${pageBreak ? '<w:r><w:br w:type="page"/></w:r>' : ""}</w:p>`;
+}
+
+function table(block: DocumentBlock, warnings: string[]): string {
+  const tableContent = block.content.find((item) => item.type === "table");
+  if (!tableContent || tableContent.type !== "table") return paragraph(block, warnings, false);
+  const cells = tableContent.cells.map((cell) => `<w:tc><w:tcPr><w:tcW w:w="0" w:type="auto"/></w:tcPr><w:p>${contentXml(cell, warnings)}</w:p></w:tc>`).join("");
+  return `<w:tbl><w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/></w:tblPr><w:tr>${cells}</w:tr></w:tbl>`;
+}
+
+function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings: string[]): Record<string, Uint8Array> {
+  const pageBreakIds = new Set(options.pageBreakAfterBlockIds ?? []);
+  const body = document.blocks.map((block) => block.kind === "TABLE" ? table(block, warnings) : paragraph(block, warnings, pageBreakIds.has(block.id))).join("");
+  const title = escapeXml(options.title ?? document.sourceDocument);
+  const creator = escapeXml(options.creator ?? "Math AI Studio");
+  const generatedAt = (options.generatedAt ?? new Date(0)).toISOString();
+  return {
+    "[Content_Types].xml": encode(xmlDocument('<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>')),
+    "_rels/.rels": encode(xmlDocument('<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>')),
+    "docProps/core.xml": encode(xmlDocument(`<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${title}</dc:title><dc:creator>${creator}</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${generatedAt}</dcterms:created></cp:coreProperties>`)),
+    "docProps/app.xml": encode(xmlDocument('<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>Math AI Studio</Application><AppVersion>DOCX_EXPORT_V1</AppVersion></Properties>')),
+    "word/document.xml": encode(xmlDocument(`<w:document xmlns:w="${W}" xmlns:r="${R}"><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1021" w:right="1021" w:bottom="1021" w:left="1021" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`)),
+    "word/_rels/document.xml.rels": encode(xmlDocument('<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"/>')),
+  };
+}
+
+export function renderDocumentToDocx(document: DocumentIR, options: DocxRenderOptions = {}): DocxRenderResult {
+  try {
+    const warnings = [...document.warnings];
+    const outputIdentity = options.outputIdentity ?? "learning_material";
+    const parts = packageParts(document, options, warnings);
+    const bytes = zipSync(parts as Zippable, { level: 6 });
+    return { bytes, warnings: [...new Set(warnings)], qa: { format: "docx", packageParts: Object.keys(parts).sort(), standardId: NA_MATH_STANDARD_V2_6.id, outputIdentity }, rendererVersion: "DOCX_EXPORT_V1", standardVersion: NA_MATH_STANDARD_V2_6.id };
+  } catch (error) {
+    if (error instanceof DocxRenderError) throw error;
+    throw new DocxRenderError("DOCX_RENDER_FAILED", "Unable to render semantic document to DOCX.", error);
+  }
+}
+
+export async function writeDocumentToDocx(document: DocumentIR, outputPath: string, options: DocxRenderOptions = {}): Promise<DocxRenderResult> {
+  if (!outputPath.toLowerCase().endsWith(".docx")) throw new DocxRenderError("DOCX_OUTPUT_EXTENSION_REQUIRED", "DOCX output path must end in .docx.");
+  const resolved = resolve(outputPath);
+  await mkdir(dirname(resolved), { recursive: true });
+  const result = renderDocumentToDocx(document, options);
+  await writeFile(resolved, result.bytes);
+  return { ...result, outputPath: resolved };
+}
