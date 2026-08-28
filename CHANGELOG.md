@@ -4,6 +4,26 @@
 
 ---
 
+## Post-QB Studio Integration — MAS-INT-01 — 2026-08-28
+
+### Finalized
+
+- Recovered and verified candidate `c848cf55edd1675a6254ce66569ab6ad4a7a2f3b`.
+- Persisted the required and optional runtime-readiness matrix.
+- Preserved Question Bank baseline `943186335bcc380994111cac6535aefd3ac9e2a9`
+  and release tag `v1.3-rc.1`.
+
+### QA
+
+- TypeScript, build, architecture, 25/25 regression, QA CI, and QA Full: PASS.
+- Real Question Bank → Studio → Manim MP4/frame artifact path: PASS.
+- Local Render Bridge and Auto Repair: PASS.
+- Missing optional AI credentials: non-blocking; deterministic QA remained PASS.
+
+### Next
+
+- UX-01 — Teacher Golden Workflow.
+
 ## Question Bank Program — QB-3A — 2026-08-28
 
 ### Accepted

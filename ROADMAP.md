@@ -10,6 +10,15 @@
 
 # DEVELOPMENT ORDER
 
+## POST-QB INTEGRATION CHECKPOINT
+
+- [x] MAS-INT-01 — Post-QB Studio integration and runtime readiness
+- [ ] UX-01 — Teacher Golden Workflow
+
+The executable readiness evidence is recorded in
+`MAS_INT_01_RUNTIME_READINESS.md`. UX-01 is the next product-integration task;
+it must reuse the frozen Question Bank and existing Studio engines.
+
 ## PHASE 1 — CORE FOUNDATION
 
 - [x] Math AI Studio Core
