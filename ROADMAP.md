@@ -13,7 +13,8 @@
 ## POST-QB INTEGRATION CHECKPOINT
 
 - [x] MAS-INT-01 — Post-QB Studio integration and runtime readiness
-- [ ] UX-01 — Teacher Golden Workflow
+- [x] UX-01 — Teacher Golden Workflow
+- [ ] E2E-TEACHER-01 — deferred acceptance phase
 
 The executable readiness evidence is recorded in
 `MAS_INT_01_RUNTIME_READINESS.md`. UX-01 is the next product-integration task;

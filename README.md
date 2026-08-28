@@ -19,6 +19,12 @@ npm run studio
 
 Open <http://127.0.0.1:3000>. The launcher builds once when needed, starts or safely reuses the loopback-only app and Local Render Bridge, and stops only processes it created when you press Ctrl+C.
 
+The default surface is the Vietnamese Teacher Golden Workflow: import a DOCX,
+review and approve detected questions, search/select stable Question IDs, then
+create an Assessment, classroom game, verified solution/video, or
+JSON/LaTeX/DOCX/PDF artifact. The original expert workflow remains available
+through **Studio chuyên sâu**.
+
 Normal use is entirely in the app: enter a supported problem, generate the verified solution and video plan, render, run frame QA/Auto Repair when offered, then play or download the MP4.
 
 ## Development and release verification

@@ -4,6 +4,28 @@
 
 ---
 
+## Teacher Golden Workflow — UX-01 — 2026-08-28
+
+### Added
+
+- One Vietnamese teacher workspace for DOCX import, review, Question Bank
+  search/selection, Assessment, Classroom Game, Solution/Video, and export.
+- Thin `TeacherWorkflowService` application boundary over the existing
+  authoritative Question Bank, Assessment, Game, Studio, and export services.
+- Runtime-aware actions, explicit workflow states, loading/error/empty states,
+  stable Question ID continuity, and student/teacher answer isolation.
+
+### QA
+
+- TypeScript, build, architecture, 26/26 regression, QA CI, and QA Full: PASS.
+- Real DOCX → Question Bank → Assessment → Game/Export service workflow: PASS.
+- Real Question → Math QA → Studio → Manim MP4/frame artifact path: PASS.
+- Visual QA at 1440×1000 and 1024×768: PASS.
+
+### Next
+
+- E2E-TEACHER-01 remains deferred.
+
 ## Post-QB Studio Integration — MAS-INT-01 — 2026-08-28
 
 ### Finalized
