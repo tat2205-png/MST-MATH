@@ -1,0 +1,103 @@
+{
+  "id": "IA-2A.1",
+  "title": "Existing Engine Integration Phase 2A",
+  "phase": "STUDIO-2A",
+  "goal": "Expose the existing Studio orchestrator through isolated experimental status and canary API surfaces without changing production execution.",
+  "allowedPaths": [
+    "server/studio/api.ts",
+    "server/studio/apiErrors.ts",
+    "server/studio/runtimeStatus.ts",
+    "server.ts",
+    "src/components/StudioEngineStatusPanel.tsx",
+    "src/components/IntegrationDrawer.tsx",
+    "tests/studio-status-api.test.ts",
+    "tests/studio-canary-api.test.ts",
+    "tests/studio-api-validation.test.ts",
+    "tests/studio-runtime-status.test.ts",
+    "tests/studio-feature-flag.test.ts",
+    "scripts/run-regression.mjs",
+    "image-animation/automation/specs/IA-2A.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/studio/engineRegistry.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/createStudio.ts",
+    "server/studio/adapters/**",
+    "image-animation/core/**",
+    "image-animation/schemas/**",
+    "image-animation/automation/gates/**",
+    "image-animation/automation/scripts/**",
+    "image-animation/automation/specs/IA-0A.1.json",
+    "image-animation/automation/specs/IA-11.0.json",
+    "image-animation/automation/specs/IA-11.1.json",
+    "image-animation/automation/specs/IA-11.2.json",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [
+    "server/studio/engineRegistry.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/createStudio.ts",
+    "server/studio/adapters/**",
+    "image-animation/core/**",
+    "image-animation/schemas/**"
+  ],
+  "architectureProtectedPaths": [
+    "server/studio/engineRegistry.ts",
+    "server/studio/studioOrchestrator.ts",
+    "server/studio/createStudio.ts",
+    "server/studio/adapters/**",
+    "image-animation/core/**",
+    "image-animation/schemas/**",
+    "image-animation/automation/gates/**",
+    "image-animation/automation/scripts/**"
+  ],
+  "agentAllowedPaths": [
+    "server/studio/api.ts",
+    "server/studio/apiErrors.ts",
+    "server/studio/runtimeStatus.ts",
+    "server.ts",
+    "src/components/StudioEngineStatusPanel.tsx",
+    "src/components/IntegrationDrawer.tsx",
+    "tests/studio-status-api.test.ts",
+    "tests/studio-canary-api.test.ts",
+    "tests/studio-api-validation.test.ts",
+    "tests/studio-runtime-status.test.ts",
+    "tests/studio-feature-flag.test.ts",
+    "scripts/run-regression.mjs"
+  ],
+  "requirements": [
+    "Keep all Studio execution default-off and fail closed.",
+    "Do not change the existing production pipeline.",
+    "Do not rewrite or duplicate existing engines, adapters, or renderers.",
+    "Do not expose secrets, filesystem paths, arbitrary code, or shell execution."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run build",
+    "npm run qa:regression",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "node --import tsx tests/studio-status-api.test.ts",
+    "node --import tsx tests/studio-canary-api.test.ts",
+    "node --import tsx tests/studio-api-validation.test.ts",
+    "node --import tsx tests/studio-runtime-status.test.ts",
+    "node --import tsx tests/studio-feature-flag.test.ts"
+  ],
+  "passCriteria": [
+    "Repository Guard passes with exact Phase 2A paths only.",
+    "All deterministic Studio and inherited regression gates pass.",
+    "Production execution remains unchanged and experimental execution defaults off."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G3",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

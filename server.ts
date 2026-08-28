@@ -21,6 +21,7 @@ import { LuaDrawEngine } from "./server/geometry/luadrawEngine.js";
 import { luaDrawFlags } from "./server/geometry/geometryRouter.js";
 import { studioEngineRegistry } from "./server/studio/engineRegistry.js";
 import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
+import { registerStudioRoutes } from "./server/studio/api.js";
 
 async function startServer() {
   const app = express();
@@ -43,6 +44,8 @@ async function startServer() {
   const luaDrawEngine = new LuaDrawEngine();
 
   // --- API Routes ---
+
+  registerStudioRoutes(app);
 
   // Health check
   app.get("/api/health", async (req, res) => {

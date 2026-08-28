@@ -1,0 +1,56 @@
+{
+  "id": "IA-1.1",
+  "title": "Scene Graph Core",
+  "phase": "IA-1",
+  "goal": "Implement a deterministic typed Scene Graph with stable IDs, validation, ordering, and serialization.",
+  "allowedPaths": [
+    "image-animation/core/scene-graph/**",
+    "image-animation/tests/scene-graph/**",
+    "image-animation/automation/scripts/resume.ts",
+    "image-animation/automation/scripts/build.ts",
+    "image-animation/automation/specs/IA-1.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/core/scene-graph/**",
+    "image-animation/tests/scene-graph/**"
+  ],
+  "requirements": [
+    "Support point, segment, polyline, polygon, circle, label, arrow, and image_layer.",
+    "Separate identity, geometry, visual style, layer, relations, and metadata.",
+    "Keep geometry separate from animation."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

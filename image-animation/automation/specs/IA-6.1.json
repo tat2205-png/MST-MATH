@@ -1,0 +1,53 @@
+{
+  "id": "IA-6.1",
+  "title": "Image Understanding",
+  "phase": "IA-6",
+  "goal": "Implement replaceable image-understanding proposal interfaces and candidate Scene Graph review flow.",
+  "allowedPaths": [
+    "image-animation/adapters/image-understanding/**",
+    "image-animation/tests/image-understanding/**",
+    "image-animation/automation/specs/IA-6.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/adapters/image-understanding/**",
+    "image-animation/tests/image-understanding/**"
+  ],
+  "requirements": [
+    "AI output remains proposed until explicitly approved.",
+    "Do not hard-code a paid provider."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

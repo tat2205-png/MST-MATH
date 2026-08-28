@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://math-ai-image-animation.local/schemas/task-spec.schema.json",
+  "title": "Image Animation Task Specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "phase",
+    "goal",
+    "allowedPaths",
+    "forbiddenPaths",
+    "requirements",
+    "requiredTests",
+    "maxRepairAttempts",
+    "architectureChangeAllowed",
+    "expectedBranch",
+    "protectedPaths",
+    "architectureProtectedPaths",
+    "agentAllowedPaths"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^IA-[A-Z0-9.]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "goal": { "type": "string", "minLength": 1 },
+    "allowedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+    "forbiddenPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "requirements": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "requiredTests": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "maxRepairAttempts": { "type": "integer", "minimum": 0 },
+    "architectureChangeAllowed": { "type": "boolean" },
+    "expectedBranch": { "type": "string", "minLength": 1 },
+    "protectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "architectureProtectedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "agentAllowedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "taskQa": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "passCriteria": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "requiredGates": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}

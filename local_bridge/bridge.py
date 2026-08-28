@@ -80,6 +80,8 @@ def run_job(job_id: str, payload: dict, workspace: Path):
         video = videos[0]
         stable_video = workspace / "golden_path.mp4"
         shutil.copy2(video, stable_video)
+        compatible_video = workspace / "render.mp4"
+        shutil.copy2(video, compatible_video)
         probe = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", str(video)], capture_output=True, text=True, shell=False, timeout=30)
         if probe.returncode != 0:
             fail_job(job_id, probe.stderr[-4000:] or "ffprobe failed.", process.returncode)
@@ -91,7 +93,10 @@ def run_job(job_id: str, payload: dict, workspace: Path):
         frames = workspace / "frames"
         frames.mkdir()
         timestamps = {"START": min(1.5, max(0.05, duration - 0.2)), "KEY": min(5.0, max(0.05, duration - 0.2)), "END": max(0.05, duration - 0.2)}
-        artifacts = [{"type": "final_video", "name": "golden_path.mp4", "pathOrUrl": f"/api/jobs/{job_id}/artifacts/golden_path.mp4", "sizeBytes": stable_video.stat().st_size}]
+        artifacts = [
+            {"type": "final_video", "name": "golden_path.mp4", "pathOrUrl": f"/api/jobs/{job_id}/artifacts/golden_path.mp4", "sizeBytes": stable_video.stat().st_size},
+            {"type": "preview_video", "name": "render.mp4", "pathOrUrl": f"/api/jobs/{job_id}/artifacts/render.mp4", "sizeBytes": compatible_video.stat().st_size},
+        ]
         for name, timestamp in timestamps.items():
             frame = frames / f"{name}.png"
             extract = subprocess.run(["ffmpeg", "-y", "-i", str(video), "-ss", f"{min(timestamp, max(0, duration - 0.1)):.3f}", "-frames:v", "1", str(frame)], capture_output=True, text=True, shell=False, timeout=30)
@@ -117,6 +122,17 @@ class BridgeHandler(BaseHTTPRequestHandler):
         if path == "/health":
             runtime_ready = all(CAPABILITIES[name]["installed"] for name in ("python", "manim", "ffmpeg", "ffprobe"))
             return json_response(self, 200, {"status": "READY" if runtime_ready else "DEGRADED", "bridgeVersion": "golden-path-v1.3", "capabilities": CAPABILITIES})
+        if path == "/api/capabilities":
+            runtime_ready = all(CAPABILITIES[name]["installed"] for name in ("python", "manim", "ffmpeg", "ffprobe"))
+            return json_response(self, 200, {
+                "status": "READY" if runtime_ready else "UNAVAILABLE",
+                "rendererId": "local.manim",
+                "manimAvailable": CAPABILITIES["manim"]["installed"],
+                "ffmpegAvailable": CAPABILITIES["ffmpeg"]["installed"],
+                "supportedOutputTypes": ["video/mp4"] if runtime_ready else [],
+                "runtimeReady": runtime_ready,
+                "capabilities": CAPABILITIES,
+            })
         match = re.fullmatch(r"/api/jobs/([A-Za-z0-9_-]+)", path)
         if match:
             with LOCK:
@@ -137,6 +153,9 @@ class BridgeHandler(BaseHTTPRequestHandler):
         match = re.fullmatch(r"/api/jobs/([A-Za-z0-9_-]+)/artifacts/golden_path\.mp4", path)
         if match:
             return self.serve_file(match.group(1), "", "golden_path.mp4", "video/mp4")
+        match = re.fullmatch(r"/api/jobs/([A-Za-z0-9_-]+)/artifacts/render\.mp4", path)
+        if match:
+            return self.serve_file(match.group(1), "", "render.mp4", "video/mp4")
         match = re.fullmatch(r"/api/jobs/([A-Za-z0-9_-]+)/artifacts/render\.log", path)
         if match:
             return self.serve_file(match.group(1), "", "render.log", "text/plain")

@@ -66,6 +66,5 @@ class ManimToolkitTests(unittest.TestCase):
         self.assertTrue(hasattr(GoldenRightTriangleScene, "construct"))
         self.assertGreater(len(scene), 0)
 
-
 if __name__ == "__main__":
     unittest.main()

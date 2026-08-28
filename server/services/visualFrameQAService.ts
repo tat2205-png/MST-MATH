@@ -15,7 +15,7 @@ interface FrameImageSource {
   mimeType?: string;
 }
 
-export type FrameInputStatus = "PASS" | "MISSING";
+export type FrameInputStatus = "PASS" | "MISSING" | "MALFORMED";
 
 export class VisualFrameQAService {
   /**
@@ -141,15 +141,15 @@ export class VisualFrameQAService {
     const startSource = frameSources.find((f) => f.frameName === "START");
     const keySource = frameSources.find((f) => f.frameName === "KEY");
     const endSource = frameSources.find((f) => f.frameName === "END");
-    const frameInputQa: FrameInputStatus = startFetchOk && keyFetchOk && endFetchOk &&
-      [startSource, keySource, endSource].every((source) => !!source?.base64 && source.base64.length > 0 && !!source.mimeType?.startsWith("image/"))
-      ? "PASS"
-      : "MISSING";
+    const sources = [startSource, keySource, endSource];
+    const frameInputQa: FrameInputStatus = !startFetchOk || !keyFetchOk || !endFetchOk
+      ? "MISSING"
+      : sources.every((source) => this.isValidImageSource(source)) ? "PASS" : "MALFORMED";
 
-    if (frameInputQa === "MISSING") {
-      const startResult = this.createMissingFrameResult("START", startSource);
-      const keyResult = this.createMissingFrameResult("KEY", keySource);
-      const endResult = this.createMissingFrameResult("END", endSource);
+    if (frameInputQa !== "PASS") {
+      const startResult = this.createInputFailureResult("START", startSource, frameInputQa);
+      const keyResult = this.createInputFailureResult("KEY", keySource, frameInputQa);
+      const endResult = this.createInputFailureResult("END", endSource, frameInputQa);
       return this.buildInputFailureReport(jobId, startResult, keyResult, endResult, timestamp);
     }
 
@@ -157,29 +157,18 @@ export class VisualFrameQAService {
     let geminiVisionOk = true;
     const frameStructuralQa = [startSource, keySource, endSource].every((source) => this.hasFrameStructure(source));
     const mathProvenanceQa = Boolean(problemIR?.originalText && solution);
-    const startResult = await this.evaluateSingleFrame("START", startSource, {
+    const context = {
       problemIR,
       solution,
       visualSpec,
       videoSpec,
-    });
-    const keyResult = await this.evaluateSingleFrame("KEY", keySource, {
-      problemIR,
-      solution,
-      visualSpec,
-      videoSpec,
-    });
-    const endResult = await this.evaluateSingleFrame("END", endSource, {
-      problemIR,
-      solution,
-      visualSpec,
-      videoSpec,
-    });
+    };
+    const startResult = await this.safeEvaluateSingleFrame("START", startSource, context);
+    const keyResult = await this.safeEvaluateSingleFrame("KEY", keySource, context);
+    const endResult = await this.safeEvaluateSingleFrame("END", endSource, context);
 
     if (
-      startResult.notes?.includes("GEMINI_") ||
-      keyResult.notes?.includes("GEMINI_") ||
-      endResult.notes?.includes("GEMINI_")
+      !startResult.analysisCompleted || !keyResult.analysisCompleted || !endResult.analysisCompleted
     ) {
       geminiVisionOk = false;
     }
@@ -206,7 +195,8 @@ export class VisualFrameQAService {
 
     // 5. Aggregate Frame QA Status (Rule 10):
     // FRAME_QA = PASS only when START=PASS, KEY=PASS, END=PASS and NO HIGH / CRITICAL issues
-    let overallStatus: FrameQAStatus = "PASS";
+    const analysisCompleted = startResult.analysisCompleted && keyResult.analysisCompleted && endResult.analysisCompleted;
+    let overallStatus: FrameQAStatus = analysisCompleted ? "PASS" : "FAIL";
 
     if (
       startResult.status === "NEED_SOURCE_VERIFICATION" ||
@@ -222,6 +212,7 @@ export class VisualFrameQAService {
       endResult.status === "FAIL" ||
       highCount > 0 ||
       criticalCount > 0 ||
+      !analysisCompleted ||
       !startFetchOk ||
       !keyFetchOk ||
       !endFetchOk
@@ -272,7 +263,7 @@ export class VisualFrameQAService {
         startVisualQa: geminiVisionOk ? (startResult.status === "PASS" ? "PASS" : "FAIL") : "SKIPPED",
         keyVisualQa: geminiVisionOk ? (keyResult.status === "PASS" ? "PASS" : "FAIL") : "SKIPPED",
         endVisualQa: geminiVisionOk ? (endResult.status === "PASS" ? "PASS" : "FAIL") : "SKIPPED",
-        mathFrameQa: mathErrors > 0 ? "FAIL" : overallStatus === "NEED_SOURCE_VERIFICATION" ? "NEED_SOURCE_VERIFICATION" : "PASS",
+        mathFrameQa: mathErrors > 0 || !analysisCompleted ? "FAIL" : overallStatus === "NEED_SOURCE_VERIFICATION" ? "NEED_SOURCE_VERIFICATION" : "PASS",
         geometryFrameQa: visualSpec?.type === "geometry_3d" || visualSpec?.type === "geometry_2d" ? (geometryErrors > 0 ? "FAIL" : "PASS") : "NOT_APPLICABLE",
         graphFrameQa: visualSpec?.type === "function_graph" ? (graphErrors > 0 ? "FAIL" : "PASS") : "NOT_APPLICABLE",
         layoutFrameQa: layoutErrors > 0 ? "FAIL" : "PASS",
@@ -305,6 +296,8 @@ export class VisualFrameQAService {
       return {
         frameName,
         status: "FAIL",
+        analysisCompleted: false,
+        analysisStage: "INPUT",
         issues: [
           {
             category: "FRAME_INPUT_ERROR",
@@ -444,40 +437,31 @@ Hãy trả về JSON theo schema:
         }
       );
 
-      const normalizedIssues: FrameQAIssue[] = Array.isArray(parsed?.issues)
-        ? parsed.issues.map((iss: any) => this.normalizeIssue(iss))
-        : [];
+      if (!parsed || !["PASS", "FAIL", "NEED_SOURCE_VERIFICATION"].includes(parsed.status) || !Array.isArray(parsed.issues) || !parsed.checks || typeof parsed.checks !== "object") {
+        throw new TypeError("MALFORMED_ANALYZER_RESULT");
+      }
+
+      const normalizedIssues: FrameQAIssue[] = parsed.issues.map((iss: any) => this.normalizeIssue(iss));
+      normalizedIssues.push(...this.issuesFromChecks(parsed.checks));
 
       let status: "PASS" | "FAIL" | "NEED_SOURCE_VERIFICATION" =
         parsed?.status === "FAIL" || normalizedIssues.some((i) => i.severity === "HIGH" || i.severity === "CRITICAL")
           ? "FAIL"
-          : parsed?.status === "NEED_SOURCE_VERIFICATION"
+          : parsed.status === "NEED_SOURCE_VERIFICATION"
           ? "NEED_SOURCE_VERIFICATION"
           : "PASS";
 
       return {
         frameName,
         status,
+        analysisCompleted: true,
+        analysisStage: normalizedIssues.length > 0 ? "BOUNDS" : "COMPLETE",
         issues: normalizedIssues,
         base64Image: frameSource.base64,
         inputStatus: "PASS",
         inputMimeType: frameSource.mimeType,
         imageUrl: frameSource.url,
-        checks: parsed?.checks || {
-          textClipped: false,
-          formulaClipped: false,
-          formulaReadable: true,
-          textOverlap: false,
-          objectOverlap: false,
-          spacingSufficient: true,
-          safeMarginViolated: false,
-          cameraCropping: false,
-          fontRenderError: false,
-          assetDistorted: false,
-          mathAccurate: true,
-          geometryInvariantPreserved: true,
-          graphInvariantPreserved: true,
-        },
+        checks: parsed.checks,
         notes: parsed?.notes || `Visual QA completed for ${frameName}.png`,
       };
     } catch (err: any) {
@@ -487,6 +471,8 @@ Hãy trả về JSON theo schema:
       return {
         frameName,
         status: "NEED_SOURCE_VERIFICATION",
+        analysisCompleted: false,
+        analysisStage: "ANALYZER",
         issues: [],
         base64Image: frameSource.base64,
         inputStatus: "PASS",
@@ -507,9 +493,39 @@ Hãy trả về JSON theo schema:
           geometryInvariantPreserved: true,
           graphInvariantPreserved: true,
         },
-        notes: `GEMINI_CONNECTION_ERROR: ${err.message}`,
+        notes: "OPTIONAL_VISUAL_ANALYZER_UNAVAILABLE",
       };
     }
+  }
+
+  private async safeEvaluateSingleFrame(frameName: "START" | "KEY" | "END", frameSource: FrameImageSource | undefined, context: any): Promise<FrameQAResult> {
+    try {
+      return await this.evaluateSingleFrame(frameName, frameSource, context);
+    } catch {
+      return { frameName, status: "FAIL", analysisCompleted: false, analysisStage: "ANALYZER", inputStatus: "PASS", issues: [{ category: "FRAME_INPUT_ERROR", severity: "CRITICAL", description: `Frame analyzer runtime failed for ${frameName}.`, affectedObject: frameName, evidence: "analyzer runtime stage", repairClass: "INFRASTRUCTURE_ERROR" }], notes: "FRAME_ANALYZER_RUNTIME_ERROR" };
+    }
+  }
+
+  private issuesFromChecks(checks: Record<string, unknown>): FrameQAIssue[] {
+    const issue = (category: FrameQAIssue["category"], description: string, affectedObject: string): FrameQAIssue => ({ category, severity: "HIGH", description, affectedObject, evidence: "deterministic analyzer bounds/check result", repairClass: category === "GEOMETRY_ERROR" ? "REVIEW_REQUIRED" : "SAFE_AUTO_REPAIR" });
+    const issues: FrameQAIssue[] = [];
+    if (checks.textClipped === true) issues.push(issue("TEXT_ERROR", "Text extends outside the visible frame bounds.", "Text"));
+    if (checks.formulaClipped === true || checks.formulaReadable === false) issues.push(issue("TEXT_ERROR", "LaTeX extends outside the visible frame bounds or is unreadable.", "LaTeX"));
+    if (checks.cameraCropping === true || checks.safeMarginViolated === true) issues.push(issue("CAMERA_ERROR", "Content exceeds the configured frame or safe margin.", "Frame bounds"));
+    if (checks.geometryInvariantPreserved === false) issues.push(issue("GEOMETRY_ERROR", "Geometry is outside the inspected frame or violates its invariant.", "Geometry"));
+    if (checks.textOverlap === true || checks.objectOverlap === true || checks.spacingSufficient === false) issues.push(issue("LAYOUT_ERROR", "Unrelated visual regions overlap or have insufficient spacing.", "Layout regions"));
+    return issues;
+  }
+
+  private isValidImageSource(source?: FrameImageSource): boolean {
+    if (!source?.base64 || !source.mimeType?.startsWith("image/")) return false;
+    try {
+      if (!/^[A-Za-z0-9+/]+={0,2}$/.test(source.base64) || source.base64.length % 4 !== 0) return false;
+      const bytes = Buffer.from(source.base64, "base64");
+      const png = bytes.length >= 8 && bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+      const jpeg = bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+      return (source.mimeType === "image/png" && png) || ((source.mimeType === "image/jpeg" || source.mimeType === "image/jpg") && jpeg);
+    } catch { return false; }
   }
 
   /**
@@ -589,15 +605,17 @@ Hãy trả về JSON theo schema:
     return resolved.toString();
   }
 
-  private createMissingFrameResult(frameName: "START" | "KEY" | "END", source?: FrameImageSource): FrameQAResult {
-    return source?.base64
-      ? { frameName, status: "FAIL", inputStatus: "PASS", inputMimeType: source.mimeType, base64Image: source.base64, imageUrl: source.url, issues: [], notes: "Visual Analysis = NOT_RUN" }
+  private createInputFailureResult(frameName: "START" | "KEY" | "END", source: FrameImageSource | undefined, inputStatus: Exclude<FrameInputStatus, "PASS">): FrameQAResult {
+    return source?.base64 && inputStatus === "MISSING"
+      ? { frameName, status: "FAIL", analysisCompleted: false, analysisStage: "INPUT", inputStatus: "PASS", inputMimeType: source.mimeType, base64Image: source.base64, imageUrl: source.url, issues: [], notes: "Visual Analysis = NOT_RUN" }
       : {
           frameName,
           status: "FAIL",
+          analysisCompleted: false,
+          analysisStage: "INPUT",
           inputStatus: "MISSING",
-          issues: [{ category: "FRAME_INPUT_ERROR", severity: "CRITICAL", description: `${frameName}.png input is missing or empty.`, repairClass: "INFRASTRUCTURE_ERROR" }],
-          notes: "Frame Input = MISSING; Visual Analysis = NOT_RUN",
+          issues: [{ category: "FRAME_INPUT_ERROR", severity: "CRITICAL", description: `${frameName}.png input is ${inputStatus.toLowerCase()}.`, affectedObject: frameName, evidence: "frame input validation", repairClass: "INFRASTRUCTURE_ERROR" }],
+          notes: `Frame Input = ${inputStatus}; Visual Analysis = NOT_RUN`,
         };
   }
 

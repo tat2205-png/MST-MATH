@@ -10,29 +10,38 @@ def fit_inside(mobj: Mobject, max_width: float | None = None, max_height: float 
     if mobj is None:
         raise ValueError("Mobject cannot be None.")
     clone = mobj.copy()
-    width = clone.get_width()
-    height = clone.get_height()
-    if max_width is not None and width > max_width:
-        clone.scale(max_width / width)
-    if max_height is not None and clone.get_height() > max_height:
-        clone.scale(max_height / clone.get_height())
-    if padding:
-        pad = padding * max(1.0, clone.get_width() / 4.0)
-        clone.scale((clone.get_width() + pad) / max(clone.get_width(), 1e-6))
+    if padding < 0:
+        raise ValueError("padding cannot be negative.")
+    target_width = None if max_width is None else max_width - padding * 2
+    target_height = None if max_height is None else max_height - padding * 2
+    if target_width is not None and target_width <= 0:
+        raise ValueError("max_width must exceed twice the padding.")
+    if target_height is not None and target_height <= 0:
+        raise ValueError("max_height must exceed twice the padding.")
+    if target_width is not None and clone.width > target_width:
+        clone.scale(target_width / clone.width)
+    if target_height is not None and clone.height > target_height:
+        clone.scale(target_height / clone.height)
     return clone
 
 
 def clamp_to_frame(mobj: Mobject, frame_width: float, frame_height: float, padding: float = 0.2):
     """Return a copy of an mobject clamped to a rectangular frame."""
     clone = mobj.copy()
-    w = clone.get_width()
-    h = clone.get_height()
+    if frame_width <= 0 or frame_height <= 0 or padding < 0:
+        raise ValueError("Frame dimensions must be positive and padding cannot be negative.")
+    w = clone.width
     target_w = max(0.1, frame_width - padding * 2)
     target_h = max(0.1, frame_height - padding * 2)
     if w > target_w:
         clone.scale(target_w / w)
-    if clone.get_height() > target_h:
-        clone.scale(target_h / clone.get_height())
+    if clone.height > target_h:
+        clone.scale(target_h / clone.height)
+    left_limit, right_limit = -frame_width / 2 + padding, frame_width / 2 - padding
+    bottom_limit, top_limit = -frame_height / 2 + padding, frame_height / 2 - padding
+    shift_x = max(left_limit - clone.get_left()[0], min(0.0, right_limit - clone.get_right()[0]))
+    shift_y = max(bottom_limit - clone.get_bottom()[1], min(0.0, top_limit - clone.get_top()[1]))
+    clone.shift([shift_x, shift_y, 0])
     return clone
 
 

@@ -36,8 +36,8 @@ export class LuaDrawEngine implements GeometryEngine {
       const [pdf, svg] = await Promise.all([fs.stat(pdfPath), fs.stat(svgPath)]);
       if (!pdf.size || !svg.size) throw new Error("LuaDraw produced an empty artifact.");
       return { engine: "LUADRAW", status: "PASS", pdfPath, svgPath, metadataPath, qaPath, sourceFingerprint: spec.sourceFingerprint };
-    } catch (error: any) {
-      return { engine: "LUADRAW", status: "FAIL", sourceFingerprint: spec.sourceFingerprint, error: error.message };
+    } catch (error: unknown) {
+      return { engine: "LUADRAW", status: "FAIL", sourceFingerprint: spec.sourceFingerprint, error: error instanceof Error ? error.message : String(error) };
     }
   }
 }

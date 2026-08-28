@@ -4,7 +4,7 @@ import math
 from typing import Sequence
 
 import numpy as np
-from manim import Axes, Circle, DashedLine, Dot, Line, Polygon, VGroup
+from manim import UP, Axes, Circle, DashedLine, Dot, Line, Polygon, Text, VGroup
 
 
 def _as_point(value):
@@ -24,15 +24,24 @@ def make_point(x: float, y: float, z: float = 0.0):
 
 
 def make_segment(start, end):
-    return Line(_as_point(start), _as_point(end))
+    a, b = _as_point(start), _as_point(end)
+    if np.allclose(a, b):
+        raise ValueError("A segment requires two distinct points.")
+    return Line(a, b)
 
 
 def make_line(start, end):
-    return Line(_as_point(start), _as_point(end))
+    a, b = _as_point(start), _as_point(end)
+    if np.allclose(a, b):
+        raise ValueError("A line requires two distinct points.")
+    return Line(a, b)
 
 
 def make_ray(start, end):
-    return Line(_as_point(start), _as_point(end), buff=0)
+    a, b = _as_point(start), _as_point(end)
+    if np.allclose(a, b):
+        raise ValueError("A ray requires two distinct points.")
+    return Line(a, b, buff=0)
 
 
 def make_triangle(a, b, c):
@@ -54,7 +63,7 @@ def projection_point_to_line(point, start, end):
     b = _as_point(end)
     ab = b - a
     if np.allclose(ab, 0):
-        return Dot(p)
+        raise ValueError("Projection requires a non-degenerate line.")
     t = np.dot(p - a, ab) / np.dot(ab, ab)
     proj = a + t * ab
     return Dot(proj)
@@ -71,7 +80,7 @@ def line_intersection(line1_start, line1_end, line2_start, line2_end):
     x4, y4 = b2[:2]
     denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
     if abs(denom) < 1e-9:
-        return None
+        raise ValueError("Parallel or coincident lines do not have one unique intersection.")
     px = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4)) / denom
     py = ((x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4)) / denom
     return np.array([px, py, 0.0], dtype=float)
@@ -106,8 +115,12 @@ def make_angle_marker(center, start, end, radius: float = 0.8):
 
 
 def make_dimension_line(start, end, label: str = "L"):
-    line = DashedLine(_as_point(start), _as_point(end))
-    return VGroup(line)
+    a, b = _as_point(start), _as_point(end)
+    if np.allclose(a, b):
+        raise ValueError("A dimension line requires two distinct points.")
+    line = DashedLine(a, b)
+    annotation = Text(str(label), font_size=18).next_to(line, UP, buff=0.1)
+    return VGroup(line, annotation)
 
 
 def make_axes_2d(x_range=(-5, 5), y_range=(-5, 5), **kwargs):

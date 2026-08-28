@@ -1,0 +1,17 @@
+{
+  "id": "IA-CANARY-001",
+  "title": "Codex Agent Canary",
+  "phase": "IA-0A",
+  "goal": "Change only canary.txt from BEFORE to AFTER.",
+  "allowedPaths": ["image-animation/fixtures/agent-canary/canary.txt"],
+  "forbiddenPaths": ["server/**", "src/**", "tests/**", "image-animation/automation/**", "openclaw-extension-windows-fix/**"],
+  "protectedPaths": [],
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/fixtures/agent-canary/canary.txt"],
+  "requirements": ["Do not modify any other file, commit, switch branch, or change HEAD."],
+  "requiredTests": ["image-animation/tests/codex-integration.test.ts"],
+  "requiredGates": ["IA-G0"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

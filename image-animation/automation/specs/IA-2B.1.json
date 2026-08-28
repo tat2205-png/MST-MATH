@@ -1,0 +1,87 @@
+{
+  "id": "IA-2B.1",
+  "title": "Existing Manim Toolkit Reconciliation",
+  "phase": "STUDIO-2B",
+  "goal": "Reconcile and characterize the existing tracked Manim toolkit without changing toolkit behavior or production architecture.",
+  "allowedPaths": [
+    "manim_toolkit/README.md",
+    "manim_toolkit/__init__.py",
+    "manim_toolkit/background_ui.py",
+    "manim_toolkit/geometry_tools.py",
+    "manim_toolkit/golden_scene.py",
+    "manim_toolkit/latex_utils.py",
+    "manim_toolkit/smoke_scene.py",
+    "manim_toolkit/ui_containers.py",
+    "tests/test_manim_toolkit.py",
+    "tests/test_manim_toolkit_phase2b_baseline.py",
+    "tests/test_manim_toolkit_hardening.py",
+    "tests/test_manim_toolkit_golden_scene.py",
+    "image-animation/automation/specs/IA-2B.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "scripts/**",
+    "image-animation/core/**",
+    "image-animation/renderers/**",
+    "image-animation/automation/gates/**",
+    "image-animation/automation/scripts/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [
+    "server/geometry/**",
+    "server/studio/**",
+    "image-animation/core/**",
+    "image-animation/renderers/**"
+  ],
+  "architectureProtectedPaths": [
+    "server/geometry/**",
+    "server/studio/**",
+    "image-animation/core/**",
+    "image-animation/renderers/**",
+    "image-animation/automation/gates/**",
+    "image-animation/automation/scripts/**"
+  ],
+  "agentAllowedPaths": [
+    "manim_toolkit/background_ui.py",
+    "manim_toolkit/geometry_tools.py",
+    "manim_toolkit/golden_scene.py",
+    "manim_toolkit/latex_utils.py",
+    "manim_toolkit/ui_containers.py",
+    "tests/test_manim_toolkit_golden_scene.py",
+    "tests/test_manim_toolkit_hardening.py",
+    "tests/test_manim_toolkit_phase2b_baseline.py"
+  ],
+  "requirements": [
+    "Preserve the exact reconciled toolkit behavior.",
+    "Keep geometry_tools.py a downstream Manim utility layer.",
+    "Do not replace the Geometry Router, LuaDraw, or Manim compiler.",
+    "Do not modify production execution paths or dependencies."
+  ],
+  "requiredTests": [
+    "python -m unittest tests/test_manim_toolkit.py tests/test_manim_toolkit_phase2b_baseline.py tests/test_manim_toolkit_hardening.py tests/test_manim_toolkit_golden_scene.py -v",
+    "npm run lint",
+    "npm run build",
+    "npm run qa:regression",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "python -m unittest tests/test_manim_toolkit.py tests/test_manim_toolkit_phase2b_baseline.py tests/test_manim_toolkit_hardening.py tests/test_manim_toolkit_golden_scene.py -v"
+  ],
+  "passCriteria": [
+    "All four toolkit modules import from the project environment.",
+    "Existing and Phase 2B characterization tests pass.",
+    "Repository and architecture protection gates pass.",
+    "The production geometry and rendering paths remain unchanged."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G3",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "develop/studio-phase-2b"
+}

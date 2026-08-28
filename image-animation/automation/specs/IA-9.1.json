@@ -1,0 +1,53 @@
+{
+  "id": "IA-9.1",
+  "title": "Blender Router",
+  "phase": "IA-9",
+  "goal": "Implement deterministic Blender routing and artifact contracts from validated graph plus timeline.",
+  "allowedPaths": [
+    "image-animation/renderers/blender/**",
+    "image-animation/tests/blender/**",
+    "image-animation/automation/specs/IA-9.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/renderers/blender/**",
+    "image-animation/tests/blender/**"
+  ],
+  "requirements": [
+    "Blender is optional and runtime status is truthful.",
+    "Do not make Blender mandatory for all tasks."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}
