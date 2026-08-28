@@ -7,6 +7,8 @@ export interface DocxRenderOptions {
   pageBreakAfterBlockIds?: string[];
   generatedAt?: Date;
   figureMetadata?: Record<string, DocxFigureMetadata>;
+  headerText?: string;
+  footerText?: string;
 }
 
 export interface DocxFigureMetadata {

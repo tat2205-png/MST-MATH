@@ -22,7 +22,8 @@ export function createWordStyleMap(identity: NaMathOutputIdentity): Readonly<Rec
 function paragraphStyle(style: WordStyleDefinition): string {
   const basedOn = style.basedOn ? `<w:basedOn w:val="${style.basedOn}"/>` : "";
   const run = `<w:rPr><w:rFonts w:ascii="${escapeXml(style.font)}" w:hAnsi="${escapeXml(style.font)}" w:eastAsia="${escapeXml(style.font)}"/><w:color w:val="${style.color}"/><w:sz w:val="${style.sizeHalfPoints}"/><w:szCs w:val="${style.sizeHalfPoints}"/>${style.bold ? "<w:b/>" : ""}${style.italic ? "<w:i/>" : ""}</w:rPr>`;
-  return `<w:style w:type="paragraph" w:styleId="${style.id}"><w:name w:val="${style.name}"/>${basedOn}<w:qFormat/>${run}</w:style>`;
+  const keep = style.id.startsWith("NAHeading") || style.id === "NATitle" || style.id === "NASubtitle" ? "<w:keepNext/>" : "";
+  return `<w:style w:type="paragraph" w:styleId="${style.id}"><w:name w:val="${style.name}"/>${basedOn}<w:qFormat/><w:pPr>${keep}<w:widowControl/><w:spacing w:after="120"/></w:pPr>${run}</w:style>`;
 }
 
 export function createWordStylesXml(identity: NaMathOutputIdentity): string {

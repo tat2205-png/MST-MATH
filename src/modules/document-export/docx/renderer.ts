@@ -8,6 +8,7 @@ import { DocxRenderError, type DocxRenderOptions, type DocxRenderResult } from "
 import { escapeXml, xmlDocument } from "./xml.js";
 import { createWordStylesXml } from "./styles.js";
 import { serializeMathNodeToOmml } from "./omml.js";
+import { createWordLayoutMap } from "./layout.js";
 
 const encode = (value: string) => new TextEncoder().encode(value);
 const W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
@@ -47,7 +48,9 @@ function contentXml(content: ContentBlock[], context: RenderContext): string {
 
 function paragraph(block: DocumentBlock, context: RenderContext, pageBreak: boolean): string {
   const style = block.kind === "SECTION" ? "NAHeading1" : block.style ?? "NABody";
-  const properties = [style ? `<w:pStyle w:val="${escapeXml(style)}"/>` : "", block.numbering ? `<w:numPr><w:ilvl w:val="0"/><w:numId w:val="${escapeXml(block.numbering)}"/></w:numPr>` : ""].join("");
+  const hasMath = block.content.some((item) => item.type === "math");
+  const hasFigure = block.content.some((item) => item.type === "figure");
+  const properties = [style ? `<w:pStyle w:val="${escapeXml(style)}"/>` : "", block.numbering ? `<w:numPr><w:ilvl w:val="0"/><w:numId w:val="${escapeXml(block.numbering)}"/></w:numPr>` : "", block.kind === "SECTION" || hasFigure ? "<w:keepNext/>" : "", hasMath ? "<w:keepLines/>" : "", "<w:widowControl/>", "<w:spacing w:after=\"120\"/>"].join("");
   return `<w:p>${properties ? `<w:pPr>${properties}</w:pPr>` : ""}${contentXml(block.content, context)}${pageBreak ? '<w:r><w:br w:type="page"/></w:r>' : ""}</w:p>`;
 }
 
@@ -55,19 +58,26 @@ function table(block: DocumentBlock, context: RenderContext): string {
   const tableContent = block.content.find((item) => item.type === "table");
   if (!tableContent || tableContent.type !== "table") return paragraph(block, context, false);
   const cells = tableContent.cells.map((cell) => `<w:tc><w:tcPr><w:tcW w:w="0" w:type="auto"/></w:tcPr><w:p>${contentXml(cell, context)}</w:p></w:tc>`).join("");
-  return `<w:tbl><w:tblPr><w:tblStyle w:val="NATable"/><w:tblW w:w="0" w:type="auto"/></w:tblPr><w:tr>${cells}</w:tr></w:tbl>`;
+  return `<w:tbl><w:tblPr><w:tblStyle w:val="NATable"/><w:tblW w:w="0" w:type="auto"/></w:tblPr><w:tr><w:trPr><w:cantSplit/></w:trPr>${cells}</w:tr></w:tbl>`;
 }
 
 function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings: string[]): Record<string, Uint8Array> {
   const outputIdentity = options.outputIdentity ?? "learning_material";
+  const layout = createWordLayoutMap();
   const media = new Map<string, MediaEntry>();
   for (const [index, figure] of document.figures.entries()) {
     if (!figure.bytes) continue;
     const extension = figure.mimeType === "image/svg+xml" ? "svg" : figure.mimeType === "image/png" ? "png" : figure.mimeType === "image/jpeg" ? "jpg" : undefined;
     if (!extension) throw new DocxRenderError("DOCX_MEDIA_TYPE_UNSUPPORTED", `Unsupported DOCX media type: ${figure.mimeType ?? "unknown"}`);
-    const widthEmu = figure.dimensions?.widthEmu ?? 4_572_000;
-    const heightEmu = figure.dimensions?.heightEmu ?? 3_048_000;
+    let widthEmu = figure.dimensions?.widthEmu ?? 4_572_000;
+    let heightEmu = figure.dimensions?.heightEmu ?? 3_048_000;
     if (widthEmu <= 0 || heightEmu <= 0) throw new DocxRenderError("DOCX_FIGURE_DIMENSION_INVALID", `Invalid figure dimensions: ${figure.id}`);
+    if (widthEmu > layout.availableTextWidthEmu) {
+      const scale = layout.availableTextWidthEmu / widthEmu;
+      widthEmu = layout.availableTextWidthEmu;
+      heightEmu = Math.round(heightEmu * scale);
+      warnings.push(`DOCX_FIGURE_SCALED_TO_SAFE_WIDTH:${figure.id}`);
+    }
     media.set(figure.id, { figure, relationshipId: `rIdImage${index + 1}`, target: `media/figure-${index + 1}.${extension}`, extension, contentType: figure.mimeType!, widthEmu, heightEmu });
   }
   const context: RenderContext = { warnings, media, options };
@@ -76,17 +86,25 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
   const title = escapeXml(options.title ?? document.sourceDocument);
   const creator = escapeXml(options.creator ?? "Math AI Studio");
   const generatedAt = (options.generatedAt ?? new Date(0)).toISOString();
+  const headerReference = options.headerText ? '<w:headerReference w:type="default" r:id="rIdHeader"/>' : "";
+  const footerReference = options.footerText ? '<w:footerReference w:type="default" r:id="rIdFooter"/>' : "";
+  const headerOverride = options.headerText ? '<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>' : "";
+  const footerOverride = options.footerText ? '<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>' : "";
+  const headerRelationship = options.headerText ? '<Relationship Id="rIdHeader" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>' : "";
+  const footerRelationship = options.footerText ? '<Relationship Id="rIdFooter" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/>' : "";
   const mediaDefaults = [...new Map([...media.values()].map((entry) => [entry.extension, entry])).values()].map((entry) => `<Default Extension="${entry.extension}" ContentType="${entry.contentType}"/>`).join("");
   const parts: Record<string, Uint8Array> = {
-    "[Content_Types].xml": encode(xmlDocument(`<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>${mediaDefaults}<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>`)),
+    "[Content_Types].xml": encode(xmlDocument(`<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>${mediaDefaults}<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/>${headerOverride}${footerOverride}<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>`)),
     "_rels/.rels": encode(xmlDocument('<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>')),
     "docProps/core.xml": encode(xmlDocument(`<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${title}</dc:title><dc:creator>${creator}</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${generatedAt}</dcterms:created></cp:coreProperties>`)),
     "docProps/app.xml": encode(xmlDocument('<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>Math AI Studio</Application><AppVersion>DOCX_EXPORT_V1</AppVersion></Properties>')),
-    "word/document.xml": encode(xmlDocument(`<w:document xmlns:w="${W}" xmlns:r="${R}" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main"><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1021" w:right="1021" w:bottom="1021" w:left="1021" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`)),
+    "word/document.xml": encode(xmlDocument(`<w:document xmlns:w="${W}" xmlns:r="${R}" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main"><w:body>${body}<w:sectPr>${headerReference}${footerReference}<w:pgSz w:w="${layout.page.widthTwips}" w:h="${layout.page.heightTwips}"/><w:pgMar w:top="${layout.page.marginTwips}" w:right="${layout.page.marginTwips}" w:bottom="${layout.page.marginTwips}" w:left="${layout.page.marginTwips}" w:header="${layout.compatibility.headerFooterDistanceTwips}" w:footer="${layout.compatibility.headerFooterDistanceTwips}" w:gutter="0"/></w:sectPr></w:body></w:document>`)),
     "word/styles.xml": encode(createWordStylesXml(outputIdentity)),
     "word/settings.xml": encode(xmlDocument(`<w:settings xmlns:w="${W}" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:mathPr><m:mathFont m:val="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></m:mathPr></w:settings>`)),
-    "word/_rels/document.xml.rels": encode(xmlDocument(`<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rIdSettings" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>${[...media.values()].map((entry) => `<Relationship Id="${entry.relationshipId}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="${entry.target}"/>`).join("")}</Relationships>`)),
+    "word/_rels/document.xml.rels": encode(xmlDocument(`<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rIdSettings" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>${headerRelationship}${footerRelationship}${[...media.values()].map((entry) => `<Relationship Id="${entry.relationshipId}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="${entry.target}"/>`).join("")}</Relationships>`)),
   };
+  if (options.headerText) parts["word/header1.xml"] = encode(xmlDocument(`<w:hdr xmlns:w="${W}"><w:p><w:pPr><w:pStyle w:val="NAHeader"/></w:pPr>${textRun(options.headerText)}</w:p></w:hdr>`));
+  if (options.footerText) parts["word/footer1.xml"] = encode(xmlDocument(`<w:ftr xmlns:w="${W}"><w:p><w:pPr><w:pStyle w:val="NAFooter"/></w:pPr>${textRun(options.footerText)}</w:p></w:ftr>`));
   for (const entry of media.values()) parts[`word/${entry.target}`] = entry.figure.bytes!;
   return parts;
 }
