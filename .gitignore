@@ -14,3 +14,9 @@ local_bridge/runs/
 local_bridge/tmp/
 media/
 render_output/
+
+.serena/
+.tmp/
+
+.serena/
+.tmp/

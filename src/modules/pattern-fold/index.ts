@@ -4,3 +4,6 @@ export * from "./fixtures.js";
 export * from "./adapters.js";
 export * from "./three-adapter.js";
 export * from "./partition.js";
+export * from "./authoring.js";
+export * from "./studio-authoring.js";
+export * from "../dynamic-geometry/index.js";
