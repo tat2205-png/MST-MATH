@@ -9,9 +9,9 @@ OVERALL_STATUS=POST_QB_STUDIO_INTEGRATION_READY
 
 POST_QB_STUDIO_SOURCE_BASELINE=c848cf55edd1675a6254ce66569ab6ad4a7a2f3b
 
-POST_QB_STUDIO_BASELINE=PENDING_FINAL_ACCEPTANCE_HEAD
+POST_QB_STUDIO_BASELINE=f9865122223df3dcdfc1051dbc73ba7a6fc5dc3f
 
-POST_QB_STUDIO_BASELINE_STATUS=PENDING_CLEAN_CHECKOUT
+POST_QB_STUDIO_BASELINE_STATUS=FROZEN_FOR_UX_01
 
 REQUIRED_RUNTIME_BLOCKERS=NONE
 
@@ -75,6 +75,11 @@ The recovery adds checkpoint evidence only and does not add product features.
 - Post-QB live video: `npm run qa:question-video:runtime` — PASS with a
   real MP4 and START/KEY/END PNG artifacts.
 - LuaDraw: `npm run qa:luadraw` — PASS.
+- Clean checkout: fresh `npm ci`, `qa:ci`, live Post-QB video runtime,
+  LuaDraw, and `qa:full` — PASS at baseline
+  `f9865122223df3dcdfc1051dbc73ba7a6fc5dc3f`.
+- Repository-only reproducibility — PASS; clean worktree remained unchanged
+  after installation, build, regression, runtime, and artifact checks.
 - Vietnamese, math, figure, Question ID traceability, source immutability,
   student/teacher answer isolation, configuration, feature-flag, and artifact
   checks — PASS through the registered QB and Studio suites.
@@ -89,7 +94,7 @@ duplicate dependency-type warning for Vite. It reports zero errors.
 
 ## Acceptance convention
 
-This evidence commit is the source checkpoint to validate from a clean
-temporary worktree. A documentation-only acceptance commit records its hash as
-`POST_QB_STUDIO_BASELINE` after the clean-checkout gates pass, avoiding an
+The evidence commit `f9865122223df3dcdfc1051dbc73ba7a6fc5dc3f` was validated
+from a clean temporary worktree and is the frozen Post-QB Studio baseline. This
+documentation-only acceptance commit records that verified hash, avoiding an
 impossible self-referential commit hash.
