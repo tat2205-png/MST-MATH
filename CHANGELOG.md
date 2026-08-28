@@ -4,6 +4,31 @@
 
 ---
 
+## Question Bank Program — QB-3A — 2026-08-28
+
+### Accepted
+
+- QB-1A through QB-1F: deterministic DOCX ingestion, normalization, figures,
+  persistence, reload, search/filter, and safe reuse.
+- QB-2A through QB-2D: assessment, classroom game, solution/video integration,
+  and deterministic JSON/LaTeX/DOCX/PDF delivery.
+- Student/teacher answer isolation, program-wide source traceability, stable
+  Question IDs, and fail-closed diagnostics.
+
+### QA
+
+- Question Bank feature freeze: ENABLED
+- Regression baseline: 25 suites minimum
+- Real Question → Video runtime: PASS with Local Render Bridge READY
+- Actual JSON, LaTeX, DOCX, PDF, MP4, and frame artifacts: PASS
+- Final acceptance matrix: `QB_3A_ACCEPTANCE.md`
+
+### Scope
+
+- No new Question Bank feature, database, UI, provider, engine, or export format
+  was added during QB-3A.
+- Existing release tag `v1.3-rc.1` remains frozen and unchanged.
+
 ## v1.3-rc.1 — 2026-08-27
 
 ### Added
