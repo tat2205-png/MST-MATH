@@ -6,6 +6,15 @@ export interface DocxRenderOptions {
   creator?: string;
   pageBreakAfterBlockIds?: string[];
   generatedAt?: Date;
+  figureMetadata?: Record<string, DocxFigureMetadata>;
+}
+
+export interface DocxFigureMetadata {
+  title?: string;
+  altText?: string;
+  geometryProfileId?: string;
+  semanticFigureId?: string;
+  semanticFlags?: string[];
 }
 
 export interface DocxQaMetadata {
