@@ -46,6 +46,8 @@
     "nls:structure:discover": "node --import tsx scripts/discover-nls-structure.ts",
     "qa:nls:structure": "node --import tsx tests/test-nls-structure.ts",
     "qa:nls:structure-review": "node --import tsx tests/test-nls-structure-review.ts",
+    "nls:structure:manual-review": "node --import tsx scripts/manual-review-nls-structure.ts",
+    "qa:nls:structure-manual": "node --import tsx tests/test-nls-structure-manual.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
