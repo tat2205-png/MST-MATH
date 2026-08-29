@@ -8,6 +8,7 @@ export * from "./docx/parser.js";
 export * from "./omml/omml.js";
 export * from "./normalize/math-ir-mapper.js";
 export * from "./latex/serializer.js";
+export * from "./student-workspace.js";
 
 export function docxToMathIR(input: Uint8Array, options: { sourceName?: string } = {}): DocxToMathIRResult {
   const parsed = parseDocx(input, options);
