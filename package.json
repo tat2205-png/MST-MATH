@@ -39,6 +39,8 @@
     "qa:ux-01": "node --import tsx tests/test-teacher-workflow-ux01.ts",
     "nls:sources:register": "node --import tsx scripts/register-nls-sources.ts",
     "qa:nls:sources": "node --import tsx tests/test-nls-source-registry.ts",
+    "nls:structure:discover": "node --import tsx scripts/discover-nls-structure.ts",
+    "qa:nls:structure": "node --import tsx tests/test-nls-structure.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",

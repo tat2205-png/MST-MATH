@@ -1,0 +1,2346 @@
+{
+  "schemaVersion": 1,
+  "sourceRegistryVersion": 1,
+  "strategy": "TOC_FIRST_SELECTIVE_OCR",
+  "fullBookOcr": false,
+  "totalPdfPages": 886,
+  "ocrPagesTotal": 135,
+  "ocrPageRatio": 0.15237,
+  "books": [
+    {
+      "id": "KNTT-MATH-10-T1-BOOK",
+      "sourceId": "KNTT-MATH-10-T1",
+      "nodeType": "BOOK",
+      "grade": 10,
+      "title": "Toan10-Tap1-KNTT",
+      "parentId": null,
+      "order": 1,
+      "pdfStartPage": 1,
+      "pdfEndPage": 106,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-10-T1",
+          "pdfPageNumber": 5,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "textbook_volume_1",
+      "pageCount": 106,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-10-T1-CH01",
+          "sourceId": "KNTT-MATH-10-T1",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "BÁT PHƯƠNG TRÌNH",
+          "parentId": "KNTT-MATH-10-T1-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG II. BÁT PHƯƠNG TRÌNH"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-T1-CH01-L01",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "BAT PHUONG TRINH BAC NHAT HO HOAT DONG THUC HANH hai ân TRẢI NGHIỆM",
+              "parentId": "KNTT-MATH-10-T1-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bai 3. Bat phuong trinh bac nhat ho HOẠT ĐỘNG THỰC HÀNH"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T1-CH01-L02",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Hệ bát phương trình bậc nhất",
+              "parentId": "KNTT-MATH-10-T1-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 26,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 26,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 4. Hệ bát phương trình bậc nhất 26"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-10-T1-CH02",
+          "sourceId": "KNTT-MATH-10-T1",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "HỆ THỨC LƯỢNG",
+          "parentId": "KNTT-MATH-10-T1-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG III. HỆ THỨC LƯỢNG"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-T1-CH02-L01",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Giá trị lượng giác của một 33 Bago tie pyuthust ngữ. ”„ góc từ 0° đến 180° Bảng giải thích thuật ngữ",
+              "parentId": "KNTT-MATH-10-T1-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 103,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 103,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 5. Giá trị lượng giác của một 33 Bago tie pyuthust ngữ. ”„"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T1-CH02-L02",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Hệ thức lượng trong tam giác",
+              "parentId": "KNTT-MATH-10-T1-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 38,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 38,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 6. Hệ thức lượng trong tam giác 38"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-10-T1-CH03",
+          "sourceId": "KNTT-MATH-10-T1",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "VECTƠ",
+          "parentId": "KNTT-MATH-10-T1-BOOK",
+          "order": 3,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG IV. VECTƠ"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-T1-CH03-L01",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Các khái niệm mở đầu",
+              "parentId": "KNTT-MATH-10-T1-CH03",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 46,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 46,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 7. Các khái niệm mở đầu 46"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T1-CH03-L02",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Tổng và hiệu của hai vecto’",
+              "parentId": "KNTT-MATH-10-T1-CH03",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 51,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 51,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 8. Tổng và hiệu của hai vecto’ 51"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T1-CH03-L03",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Tích của một vectơ với một số",
+              "parentId": "KNTT-MATH-10-T1-CH03",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 55,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 55,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 9. Tích của một vectơ với một số 55"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T1-CH03-L04",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Vectơ trong mặt phẳng toạ độ",
+              "parentId": "KNTT-MATH-10-T1-CH03",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 60,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 60,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 10. Vectơ trong mặt phẳng toạ độ 60"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T1-CH03-L05",
+              "sourceId": "KNTT-MATH-10-T1",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Tích vô hướng của hai vecœ",
+              "parentId": "KNTT-MATH-10-T1-CH03",
+              "order": 5,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 66,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 66,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 11. Tích vô hướng của hai vecœ 66"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-10-T2-BOOK",
+      "sourceId": "KNTT-MATH-10-T2",
+      "nodeType": "BOOK",
+      "grade": 10,
+      "title": "Toan10-Tap2-KNTT",
+      "parentId": null,
+      "order": 2,
+      "pdfStartPage": 1,
+      "pdfEndPage": 102,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-10-T2",
+          "pdfPageNumber": 4,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "textbook_volume_2",
+      "pageCount": 102,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-10-T2-CH01",
+          "sourceId": "KNTT-MATH-10-T2",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "PHƯƠNG PHÁP HOẠT ĐỘNG",
+          "parentId": "KNTT-MATH-10-T2-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-T2",
+              "pdfPageNumber": 4,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG VII. PHƯƠNG PHÁP HOẠT ĐỘNG"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-T2-CH01-L01",
+              "sourceId": "KNTT-MATH-10-T2",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Vị trí tương đôi giữa hai 36 trải nghiệm hình học",
+              "parentId": "KNTT-MATH-10-T2-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 90,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 90,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 20. Vị trí tương đôi giữa hai 36 trải nghiệm hình học 90"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T2-CH01-L02",
+              "sourceId": "KNTT-MATH-10-T2",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Đường tròn trong",
+              "parentId": "KNTT-MATH-10-T2-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 43,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 43,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 21. Đường tròn trong 43"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T2-CH01-L03",
+              "sourceId": "KNTT-MATH-10-T2",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Ba đường conic",
+              "parentId": "KNTT-MATH-10-T2-CH01",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 48,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 48,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 22. Ba đường conic 48"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-10-T2-CH02",
+          "sourceId": "KNTT-MATH-10-T2",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "ĐẠI SỐ TÔ HỢP Bài tập ôn tập cuối năm 95",
+          "parentId": "KNTT-MATH-10-T2-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-T2",
+              "pdfPageNumber": 4,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG VIII. ĐẠI SỐ TÔ HỢP Bài tập ôn tập cuối năm 95"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-T2-CH02-L01",
+              "sourceId": "KNTT-MATH-10-T2",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Quy tắc đếm",
+              "parentId": "KNTT-MATH-10-T2-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 60,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 60,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 23. Quy tắc đếm 60"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-T2-CH02-L02",
+              "sourceId": "KNTT-MATH-10-T2",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Hoán vị, chỉnh hợp",
+              "parentId": "KNTT-MATH-10-T2-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 66,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 66,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 24. Hoán vị, chỉnh hợp 66"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-10-CD-BOOK",
+      "sourceId": "KNTT-MATH-10-CD",
+      "nodeType": "BOOK",
+      "grade": 10,
+      "title": "Toan10-ChuyenDe-KNTT",
+      "parentId": null,
+      "order": 3,
+      "pdfStartPage": 1,
+      "pdfEndPage": 66,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-10-CD",
+          "pdfPageNumber": 5,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "specialized_topic",
+      "pageCount": 66,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-10-CD-CH01",
+          "sourceId": "KNTT-MATH-10-CD",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "HỆ PHƯƠNG TRINH BAC NHÁT BA AN",
+          "parentId": "KNTT-MATH-10-CD-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHUYEN DE 1"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-CD-CH01-L01",
+              "sourceId": "KNTT-MATH-10-CD",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Hệ phương trình bậc nhất ba an §",
+              "parentId": "KNTT-MATH-10-CD-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-CD",
+                  "pdfPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 1. Hệ phương trình bậc nhất ba an §"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-CD-CH01-L02",
+              "sourceId": "KNTT-MATH-10-CD",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Ứng dụng của hệ phương trình bậc nhát ba an",
+              "parentId": "KNTT-MATH-10-CD-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 15,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 15,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 2. Ứng dụng của hệ phương trình bậc nhát ba an 15"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-10-CD-CH02",
+          "sourceId": "KNTT-MATH-10-CD",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "BA DUONG CONIC VA UNG DUNG",
+          "parentId": "KNTT-MATH-10-CD-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHUYEN DE 3"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-10-CD-CH02-L01",
+              "sourceId": "KNTT-MATH-10-CD",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Elip i",
+              "parentId": "KNTT-MATH-10-CD-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 39,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 39,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 5. Elip i 39"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-CD-CH02-L02",
+              "sourceId": "KNTT-MATH-10-CD",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Hypeboi VAT PpIif? SANE",
+              "parentId": "KNTT-MATH-10-CD-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 47,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 47,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 6. Hypeboi VAT PpIif? SANE 47"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-CD-CH02-L03",
+              "sourceId": "KNTT-MATH-10-CD",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "PARABOL",
+              "parentId": "KNTT-MATH-10-CD-CH02",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 54,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 54,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bai 7. Parabol 54"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-10-CD-CH02-L04",
+              "sourceId": "KNTT-MATH-10-CD",
+              "nodeType": "LESSON",
+              "grade": 10,
+              "title": "Sự thống nhất giữa ba đường conic Sĩ",
+              "parentId": "KNTT-MATH-10-CD-CH02",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-10-CD",
+                  "pdfPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 8. Sự thống nhất giữa ba đường conic Sĩ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-10-CD-CH03",
+          "sourceId": "KNTT-MATH-10-CD",
+          "nodeType": "CHAPTER",
+          "grade": 10,
+          "title": "HỆ PHƯƠNG TRÌNH",
+          "parentId": "KNTT-MATH-10-CD-BOOK",
+          "order": 3,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-10-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHUYEN DE 1"
+            }
+          ],
+          "lessons": []
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-11-T1-BOOK",
+      "sourceId": "KNTT-MATH-11-T1",
+      "nodeType": "BOOK",
+      "grade": 11,
+      "title": "Toan11-Tap1-KNTT",
+      "parentId": null,
+      "order": 4,
+      "pdfStartPage": 1,
+      "pdfEndPage": 134,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-11-T1",
+          "pdfPageNumber": 5,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "textbook_volume_1",
+      "pageCount": 134,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-11-T1-CH01",
+          "sourceId": "KNTT-MATH-11-T1",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "HÀM SÓ LƯỢNG GIÁC CHƯƠNG IV.",
+          "parentId": "KNTT-MATH-11-T1-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-T1",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG I. HÀM SÓ LƯỢNG GIÁC CHƯƠNG IV."
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-11-T1-CH01-L01",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Công thức lượng giác 17 Bài 11. Hai đường thẳng",
+              "parentId": "KNTT-MATH-11-T1-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 78,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 78,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 2. Công thức lượng giác 17 Bài 11. Hai đường thẳng 78"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T1-CH01-L02",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Hàm sô lượng giác 22 - - E: -",
+              "parentId": "KNTT-MATH-11-T1-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 3. Hàm sô lượng giác 22 - - E: -"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T1-CH01-L03",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Đường thăng và",
+              "parentId": "KNTT-MATH-11-T1-CH01",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 84,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 84,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 12. Đường thăng và 84"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T1-CH01-L04",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Phương trình lượng giác -, mặt phang song song cơ bản Bài 13. Hai mặt phẳng songsong",
+              "parentId": "KNTT-MATH-11-T1-CH01",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 88,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 88,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 4. Phương trình lượng giác -, mặt phang song song"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-11-T1-CH02",
+          "sourceId": "KNTT-MATH-11-T1",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "DÃY SỐ.",
+          "parentId": "KNTT-MATH-11-T1-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-T1",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG II. DÃY SỐ."
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-11-T1-CH02-L01",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Day số 42 : -",
+              "parentId": "KNTT-MATH-11-T1-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 5. Day số 42 : -"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T1-CH02-L02",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Giới han của dãy so",
+              "parentId": "KNTT-MATH-11-T1-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 104,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 104,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 15. Giới han của dãy so 104"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T1-CH02-L03",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Cấp số nhân 52 Bài 17. Hàm số liên tục",
+              "parentId": "KNTT-MATH-11-T1-CH02",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 119,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 119,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 7. Cấp số nhân 52 Bài 17. Hàm số liên tục 119"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-11-T1-CH03",
+          "sourceId": "KNTT-MATH-11-T1",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "CAC SO DAC TRUNG TRAI NGHIEM",
+          "parentId": "KNTT-MATH-11-T1-BOOK",
+          "order": 3,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-T1",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHUONG III. CAC SO DAC TRUNG TRAI NGHIEM"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-11-T1-CH03-L01",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Mau so liệu ghép nhó 58",
+              "parentId": "KNTT-MATH-11-T1-CH03",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 5,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 8. Mau so liệu ghép nhó 58 5"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T1-CH03-L02",
+              "sourceId": "KNTT-MATH-11-T1",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Các số đặc trưng đo xu thế as trung tam Bai tập cuối chương III 69 Beg ae ae bec",
+              "parentId": "KNTT-MATH-11-T1-CH03",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T1",
+                  "pdfPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 9. Các số đặc trưng đo xu thế as"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-11-T2-BOOK",
+      "sourceId": "KNTT-MATH-11-T2",
+      "nodeType": "BOOK",
+      "grade": 11,
+      "title": "Toan11-Tap2-KNTT",
+      "parentId": null,
+      "order": 5,
+      "pdfStartPage": 1,
+      "pdfEndPage": 114,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-11-T2",
+          "pdfPageNumber": 4,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "textbook_volume_2",
+      "pageCount": 114,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-11-T2-CH01",
+          "sourceId": "KNTT-MATH-11-T2",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "QUAN HỆ VUÔNG GOC HOAT DONG",
+          "parentId": "KNTT-MATH-11-T2-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-T2",
+              "pdfPageNumber": 4,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG VII. QUAN HỆ VUÔNG GOC HOAT DONG"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-11-T2-CH01-L01",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Hai đường thẳng vuông góc 27 Một vài mô hình toán học sử dụng",
+              "parentId": "KNTT-MATH-11-T2-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 22. Hai đường thẳng vuông góc 27 Một vài mô hình toán học sử dụng"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH01-L02",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Đường thẳng vuông góc với hàm số mũ và hàm số lôgarit",
+              "parentId": "KNTT-MATH-11-T2-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 99,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 99,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 23. Đường thẳng vuông góc với hàm số mũ và hàm số lôgarit 99"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH01-L03",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Phép chiêu vuông góc. Hình học",
+              "parentId": "KNTT-MATH-11-T2-CH01",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 102,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 102,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 24. Phép chiêu vuông góc. Hình học 102"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH01-L04",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Hai mat phẳng vuông góc",
+              "parentId": "KNTT-MATH-11-T2-CH01",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 44,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 44,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 25. Hai mat phẳng vuông góc 44"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH01-L05",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Khoảng cách",
+              "parentId": "KNTT-MATH-11-T2-CH01",
+              "order": 5,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 54,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 54,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 26. Khoảng cách 54"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH01-L06",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Thể tích",
+              "parentId": "KNTT-MATH-11-T2-CH01",
+              "order": 6,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 61,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 61,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 27. Thể tích 61"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-11-T2-CH02",
+          "sourceId": "KNTT-MATH-11-T2",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "CÁC QUY TÁC TÍNH mess Ne us",
+          "parentId": "KNTT-MATH-11-T2-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-T2",
+              "pdfPageNumber": 4,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG VIII. CÁC QUY TÁC TÍNH mess Ne us"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-11-T2-CH02-L01",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Biên cô hợp, biên cô giao, \" biến cố độc lập 66 Bảng giải thích thuật ngữ",
+              "parentId": "KNTT-MATH-11-T2-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 111,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 111,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 28. Biên cô hợp, biên cô giao, \""
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH02-L02",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Công thức cộng xác suất",
+              "parentId": "KNTT-MATH-11-T2-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 72,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 72,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 29. Công thức cộng xác suất 72"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-11-T2-CH02-L03",
+              "sourceId": "KNTT-MATH-11-T2",
+              "nodeType": "LESSON",
+              "grade": 11,
+              "title": "Công thức nhân xác suất cho hai biên cô độc lập",
+              "parentId": "KNTT-MATH-11-T2-CH02",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 76,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 4,
+                  "printedPageNumber": 76,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 30. Công thức nhân xác suất"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-11-CD-BOOK",
+      "sourceId": "KNTT-MATH-11-CD",
+      "nodeType": "BOOK",
+      "grade": 11,
+      "title": "Toan11-ChuyenDe-KNTT",
+      "parentId": null,
+      "order": 6,
+      "pdfStartPage": 1,
+      "pdfEndPage": 86,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-11-CD",
+          "pdfPageNumber": 5,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "specialized_topic",
+      "pageCount": 86,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-11-CD-CH01",
+          "sourceId": "KNTT-MATH-11-CD",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "CHUYÊN ĐỀ 1",
+          "parentId": "KNTT-MATH-11-CD-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "UNKNOWN",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "UNKNOWN",
+              "detectedHeading": "SPECIALIZED_TOPIC_FALLBACK"
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "KNTT-MATH-11-CD-CH02",
+          "sourceId": "KNTT-MATH-11-CD",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "CHUYÊN ĐỀ 2",
+          "parentId": "KNTT-MATH-11-CD-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "UNKNOWN",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "UNKNOWN",
+              "detectedHeading": "SPECIALIZED_TOPIC_FALLBACK"
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "KNTT-MATH-11-CD-CH03",
+          "sourceId": "KNTT-MATH-11-CD",
+          "nodeType": "CHAPTER",
+          "grade": 11,
+          "title": "CHUYÊN ĐỀ 3",
+          "parentId": "KNTT-MATH-11-CD-BOOK",
+          "order": 3,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "UNKNOWN",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-11-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "UNKNOWN",
+              "detectedHeading": "SPECIALIZED_TOPIC_FALLBACK"
+            }
+          ],
+          "lessons": []
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-12-T1-BOOK",
+      "sourceId": "KNTT-MATH-12-T1",
+      "nodeType": "BOOK",
+      "grade": 12,
+      "title": "Toan12-Tap1-KNTT",
+      "parentId": null,
+      "order": 7,
+      "pdfStartPage": 1,
+      "pdfEndPage": 104,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-12-T1",
+          "pdfPageNumber": 6,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "textbook_volume_1",
+      "pageCount": 104,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-12-T1-CH01",
+          "sourceId": "KNTT-MATH-12-T1",
+          "nodeType": "CHAPTER",
+          "grade": 12,
+          "title": "UNG DỤNG ĐẠO HAM CHƯƠNG III.",
+          "parentId": "KNTT-MATH-12-T1-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-12-T1",
+              "pdfPageNumber": 6,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG I. UNG DỤNG ĐẠO HAM CHƯƠNG III."
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-12-T1-CH01-L01",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Tính đơn điệu và cực trị 5 - của hàm sé Bài 9. Khoảng biến thiên và „8 - khoảng tứ phân vị",
+              "parentId": "KNTT-MATH-12-T1-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 1. Tính đơn điệu và cực trị 5 -"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T1-CH01-L02",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Giá trị lớn nhật và giá tri",
+              "parentId": "KNTT-MATH-12-T1-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 15,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "printedPageNumber": 15,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 2. Giá trị lớn nhật và giá tri 15"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T1-CH01-L03",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Đường tiệm cận của đồ thị 20 - hàm sô Bài tập cuôi chương III",
+              "parentId": "KNTT-MATH-12-T1-CH01",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 85,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "printedPageNumber": 85,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 3. Đường tiệm cận của đồ thị 20 -"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T1-CH01-L04",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Khảo sat sự biến thiên và ... vẽ dé thị của ham sé",
+              "parentId": "KNTT-MATH-12-T1-CH01",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 4. Khảo sat sự biến thiên và ..."
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T1-CH01-L05",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Ứng dụng đạo hàm đề eons giải quyết một số vấn đề 33 THỰC HANH TRAI NGHIEM liên quan đến thực tiễn : l :",
+              "parentId": "KNTT-MATH-12-T1-CH01",
+              "order": 5,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": null,
+              "printedEndPage": null,
+              "confidence": "UNKNOWN",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "UNKNOWN",
+                  "detectedHeading": "Bài 5. Ứng dụng đạo hàm đề eons"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-12-T1-CH02",
+          "sourceId": "KNTT-MATH-12-T1",
+          "nodeType": "CHAPTER",
+          "grade": 12,
+          "title": "VECTƠ VÀ HỆ TRUC",
+          "parentId": "KNTT-MATH-12-T1-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-12-T1",
+              "pdfPageNumber": 6,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG II. VECTƠ VÀ HỆ TRUC"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-12-T1-CH02-L01",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Vectơ trong không gian",
+              "parentId": "KNTT-MATH-12-T1-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 45,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "printedPageNumber": 45,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 6. Vectơ trong không gian 45"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T1-CH02-L02",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Hệ trục toạ độ trong",
+              "parentId": "KNTT-MATH-12-T1-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 60,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "printedPageNumber": 60,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 7. Hệ trục toạ độ trong 60"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T1-CH02-L03",
+              "sourceId": "KNTT-MATH-12-T1",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Biêu thức toạ độ của",
+              "parentId": "KNTT-MATH-12-T1-CH02",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 67,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T1",
+                  "pdfPageNumber": 6,
+                  "printedPageNumber": 67,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 8. Biêu thức toạ độ của 67"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-12-T2-BOOK",
+      "sourceId": "KNTT-MATH-12-T2",
+      "nodeType": "BOOK",
+      "grade": 12,
+      "title": "Toan12-Tap2-KNTT",
+      "parentId": null,
+      "order": 8,
+      "pdfStartPage": 1,
+      "pdfEndPage": 99,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-12-T2",
+          "pdfPageNumber": 5,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "textbook_volume_2",
+      "pageCount": 99,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-12-T2-CH01",
+          "sourceId": "KNTT-MATH-12-T2",
+          "nodeType": "CHAPTER",
+          "grade": 12,
+          "title": "NGUYÊN HÀM VÀ TÍCH PHÂN",
+          "parentId": "KNTT-MATH-12-T2-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-12-T2-CH01-L01",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Nguyên hàm",
+              "parentId": "KNTT-MATH-12-T2-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 4,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 4,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 11. Nguyên hàm 4"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T2-CH01-L02",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Tích phân",
+              "parentId": "KNTT-MATH-12-T2-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 12,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 12,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 12. Tích phân 12"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T2-CH01-L03",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Ứng dụng hình học của tích phân",
+              "parentId": "KNTT-MATH-12-T2-CH01",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 19,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 19,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 13. Ứng dụng hình học của tích phân 19"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-12-T2-CH02",
+          "sourceId": "KNTT-MATH-12-T2",
+          "nodeType": "CHAPTER",
+          "grade": 12,
+          "title": "PHƯƠNG PHAP TOA ĐỘ",
+          "parentId": "KNTT-MATH-12-T2-BOOK",
+          "order": 2,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG V. PHƯƠNG PHAP TOA ĐỘ"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-12-T2-CH02-L01",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Phương trình mặt phẳng",
+              "parentId": "KNTT-MATH-12-T2-CH02",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 29,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 29,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 14. Phương trình mặt phẳng 29"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T2-CH02-L02",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Phương trình đường thẳng trong không gian",
+              "parentId": "KNTT-MATH-12-T2-CH02",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 41,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 41,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 15. Phương trình đường thẳng trong không gian 41"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T2-CH02-L03",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Công thức tính góc trong không gian",
+              "parentId": "KNTT-MATH-12-T2-CH02",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 50,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 50,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 16. Công thức tính góc trong không gian 50"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T2-CH02-L04",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Phương trình mặt cầu",
+              "parentId": "KNTT-MATH-12-T2-CH02",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 54,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 54,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 17. Phương trình mặt cầu 54"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "KNTT-MATH-12-T2-CH03",
+          "sourceId": "KNTT-MATH-12-T2",
+          "nodeType": "CHAPTER",
+          "grade": 12,
+          "title": "XÁC SUÁT CÓ DIEU KIỆN .",
+          "parentId": "KNTT-MATH-12-T2-BOOK",
+          "order": 3,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG VI. XÁC SUÁT CÓ DIEU KIỆN ."
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-12-T2-CH03-L01",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Xác suất có điều kiện",
+              "parentId": "KNTT-MATH-12-T2-CH03",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 64,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 64,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 18. Xác suất có điều kiện 64"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-T2-CH03-L02",
+              "sourceId": "KNTT-MATH-12-T2",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Công thức xác suất toàn phần và công thức Bayes",
+              "parentId": "KNTT-MATH-12-T2-CH03",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 72,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 72,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 19. Công thức xác suất toàn phần và công thức Bayes 72"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KNTT-MATH-12-CD-BOOK",
+      "sourceId": "KNTT-MATH-12-CD",
+      "nodeType": "BOOK",
+      "grade": 12,
+      "title": "Toan12-ChuyenDe-KNTT",
+      "parentId": null,
+      "order": 9,
+      "pdfStartPage": 1,
+      "pdfEndPage": 75,
+      "printedStartPage": null,
+      "printedEndPage": null,
+      "confidence": "HIGH_CONFIDENCE",
+      "verificationStatus": "VERIFIED",
+      "evidence": [
+        {
+          "sourceId": "KNTT-MATH-12-CD",
+          "pdfPageNumber": 5,
+          "evidenceType": "TOC_OCR",
+          "ocrConfidence": "HIGH_CONFIDENCE",
+          "detectedHeading": "MỤC LỤC"
+        }
+      ],
+      "volumeType": "specialized_topic",
+      "pageCount": 75,
+      "chapters": [
+        {
+          "id": "KNTT-MATH-12-CD-CH01",
+          "sourceId": "KNTT-MATH-12-CD",
+          "nodeType": "CHAPTER",
+          "grade": 12,
+          "title": "BIEN NGAU NHIÊN RO! RAC. CAC SO DAC TRƯNG",
+          "parentId": "KNTT-MATH-12-CD-BOOK",
+          "order": 1,
+          "pdfStartPage": null,
+          "pdfEndPage": null,
+          "printedStartPage": null,
+          "printedEndPage": null,
+          "confidence": "NEEDS_REVIEW",
+          "verificationStatus": "NEEDS_REVIEW",
+          "evidence": [
+            {
+              "sourceId": "KNTT-MATH-12-CD",
+              "pdfPageNumber": 5,
+              "evidenceType": "TOC_OCR",
+              "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHUYÊN ĐÈ 1"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "KNTT-MATH-12-CD-CH01-L01",
+              "sourceId": "KNTT-MATH-12-CD",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Biến ngẫu nhiên rời rac và các số đặc trưng",
+              "parentId": "KNTT-MATH-12-CD-CH01",
+              "order": 1,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 5,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 5,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 1. Biến ngẫu nhiên rời rac và các số đặc trưng 5"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-CD-CH01-L02",
+              "sourceId": "KNTT-MATH-12-CD",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Biến ngẫu nhiên có phân bồ nhị thức và áp dụng",
+              "parentId": "KNTT-MATH-12-CD-CH01",
+              "order": 2,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 15,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 15,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 2. Biến ngẫu nhiên có phân bồ nhị thức và áp dụng 15"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-CD-CH01-L03",
+              "sourceId": "KNTT-MATH-12-CD",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Vận dụng hệ bat phương trình bậc nhất hai an để giải quyết một số bài toán",
+              "parentId": "KNTT-MATH-12-CD-CH01",
+              "order": 3,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 23,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 23,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 3. Vận dụng hệ bat phương trình bậc nhất hai an để giải quyết một số bài toán 23"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-CD-CH01-L04",
+              "sourceId": "KNTT-MATH-12-CD",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Tiền tệ. Lai suất",
+              "parentId": "KNTT-MATH-12-CD-CH01",
+              "order": 4,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 46,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 46,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 5. Tiền tệ. Lai suất 46"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-CD-CH01-L05",
+              "sourceId": "KNTT-MATH-12-CD",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Tín dụng. Vay nợ",
+              "parentId": "KNTT-MATH-12-CD-CH01",
+              "order": 5,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 54,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 54,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 6. Tín dụng. Vay nợ 54"
+                }
+              ]
+            },
+            {
+              "id": "KNTT-MATH-12-CD-CH01-L06",
+              "sourceId": "KNTT-MATH-12-CD",
+              "nodeType": "LESSON",
+              "grade": 12,
+              "title": "Đầu tư tài chính. Lập kế hoạch tài chính cá nhân",
+              "parentId": "KNTT-MATH-12-CD-CH01",
+              "order": 6,
+              "pdfStartPage": null,
+              "pdfEndPage": null,
+              "printedStartPage": 60,
+              "printedEndPage": null,
+              "confidence": "NEEDS_REVIEW",
+              "verificationStatus": "NEEDS_REVIEW",
+              "evidence": [
+                {
+                  "sourceId": "KNTT-MATH-12-CD",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 60,
+                  "evidenceType": "TOC_OCR",
+                  "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân 60"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
