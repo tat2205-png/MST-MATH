@@ -3,7 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, lstatSync, readFileSync, realpathSync, readdirSync } from "node:fs";
 import { extname, isAbsolute, relative, resolve } from "node:path";
 import { KNTT_SOURCE_DEFINITIONS } from "./definitions.js";
-import type { NlsSourceDefinition, NlsSourceManifest, NlsSourceRecord, TextLayerStatus } from "./types.js";
+import type { NlsSourceDefinition, NlsSourceManifest, NlsSourcePairManifest, NlsSourceRecord, NlsSourceRole, TextLayerStatus } from "./types.js";
 
 export class NlsSourceValidationError extends Error {
   constructor(public readonly code: string, message: string) { super(`${code}:${message}`); }
@@ -24,7 +24,7 @@ export function validateDefinitions(definitions: readonly NlsSourceDefinition[] 
   if (new Set(definitions.map((item) => item.sourceId)).size !== definitions.length) fail("DUPLICATE_SOURCE_ID", "Source IDs must be unique");
   if (new Set(definitions.map((item) => item.filename)).size !== definitions.length) fail("DUPLICATE_FILENAME", "Filenames must be unique");
   for (const item of definitions) {
-    const match = /^Toan(10|11|12)-(Tap1|Tap2|ChuyenDe)-KNTT\.pdf$/.exec(item.filename);
+    const match = /^Toan(10|11|12)-(Tap1|Tap2|ChuyenDe)-KNTT(?:-CLEAN)?\.pdf$/.exec(item.filename);
     if (!match) fail("INVALID_FILENAME_MAPPING", item.filename);
     const expectedVolume = match[2] === "Tap1" ? "textbook_volume_1" : match[2] === "Tap2" ? "textbook_volume_2" : "specialized_topic";
     if (Number(match[1]) !== item.grade || expectedVolume !== item.volumeType) fail("INVALID_FILENAME_MAPPING", item.filename);
@@ -56,7 +56,7 @@ export function discoverUnknownFiles(sourceRoot: string, definitions: readonly N
   return readdirSync(sourceRoot, { withFileTypes: true }).filter((item) => !expected.has(item.name.toLowerCase())).map((item) => item.name).sort();
 }
 
-export function registerKnttSources(sourceRoot: string, definitions: readonly NlsSourceDefinition[] = KNTT_SOURCE_DEFINITIONS): NlsSourceManifest {
+export function registerKnttSources(sourceRoot: string, definitions: readonly NlsSourceDefinition[] = KNTT_SOURCE_DEFINITIONS, sourceRole: NlsSourceRole = "ORIGINAL_REFERENCE"): NlsSourceManifest {
   validateDefinitions(definitions);
   if (!existsSync(sourceRoot) || !lstatSync(sourceRoot).isDirectory()) fail("SOURCE_ROOT_INVALID", sourceRoot);
   const root = resolve(sourceRoot);
@@ -72,10 +72,19 @@ export function registerKnttSources(sourceRoot: string, definitions: readonly Nl
     const after = sha256File(path);
     if (before !== after) fail("SOURCE_MODIFIED", definition.filename);
     const stat = lstatSync(path);
-    return { ...definition, subject: "MATHEMATICS", series: "KET_NOI_TRI_THUC", curriculum: "GDPT_2018", language: "vi-VN", sourceKind: "REFERENCE_PDF", sourcePolicy: "READ_ONLY", relativePath: definition.filename, fileExtension: ".pdf", mimeType: "application/pdf", fileSize: stat.size, modifiedAt: stat.mtime.toISOString(), sha256: before, pageCount: pdf.pageCount, textLayerStatus, metadataReadable: pdf.metadataReadable, validationStatus: "PASS" };
+    return { ...definition, sourceRole, subject: "MATHEMATICS", series: "KET_NOI_TRI_THUC", curriculum: "GDPT_2018", language: "vi-VN", sourceKind: "REFERENCE_PDF", sourcePolicy: "READ_ONLY", relativePath: definition.filename, fileExtension: ".pdf", mimeType: "application/pdf", fileSize: stat.size, modifiedAt: stat.mtime.toISOString(), sha256: before, pageCount: pdf.pageCount, textLayerStatus, metadataReadable: pdf.metadataReadable, validationStatus: "PASS" };
   });
   if (new Set(records.map((item) => item.sha256)).size !== records.length) fail("DUPLICATE_CHECKSUM", "Distinct books have identical checksums");
   return { schemaVersion: 1, program: "NA_MATH_NLS", sourceRootEnvironmentVariable: "NA_MATH_NLS_SOURCE_ROOT", expectedSourceCount: 9, sources: records };
 }
 
+export function registerKnttSourcePairs(originalRoot: string, cleanRoot: string): NlsSourcePairManifest {
+  const original = registerKnttSources(originalRoot, KNTT_SOURCE_DEFINITIONS, "ORIGINAL_REFERENCE");
+  const cleanDefinitions = KNTT_SOURCE_DEFINITIONS.map((d) => ({ ...d, filename: d.filename.replace(/\.pdf$/i, "-CLEAN.pdf") }));
+  const clean = registerKnttSources(cleanRoot, cleanDefinitions, "CLEAN_CONTENT");
+  const pairs = KNTT_SOURCE_DEFINITIONS.map((definition, i) => ({ canonicalSourceId: definition.sourceId, grade: definition.grade, volumeType: definition.volumeType, original: original.sources[i], clean: clean.sources[i], removedPageCount: original.sources[i].pageCount - clean.sources[i].pageCount, pairStatus: "PASS" as const }));
+  return { schemaVersion: 1, program: "NA_MATH_NLS", sourceRootEnvironmentVariables: { original: "NA_MATH_NLS_SOURCE_ROOT", clean: "NA_MATH_NLS_CLEAN_SOURCE_ROOT" }, pageNumberPolicy: "ORIGINAL_AND_CLEAN_PHYSICAL_PAGES_ARE_DISTINCT", oldReviewPacketStatus: "STALE_FOR_CLEAN_CORPUS", expectedPairCount: 9, pairs };
+}
+
 export const serializeNlsManifest = (manifest: NlsSourceManifest): string => `${JSON.stringify(manifest, null, 2)}\n`;
+export const serializeNlsSourcePairManifest = (manifest: NlsSourcePairManifest): string => `${JSON.stringify(manifest, null, 2)}\n`;

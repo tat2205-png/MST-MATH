@@ -9,6 +9,7 @@ export type NlsGrade = 10 | 11 | 12;
 export type NlsVolumeType = "textbook_volume_1" | "textbook_volume_2" | "specialized_topic";
 export type TextLayerStatus = "AVAILABLE" | "PARTIAL" | "UNAVAILABLE" | "UNKNOWN";
 export type ValidationStatus = "PASS" | "FAIL";
+export type NlsSourceRole = "ORIGINAL_REFERENCE" | "CLEAN_CONTENT";
 
 export interface NlsSourceDefinition {
   sourceId: NlsSourceId;
@@ -18,6 +19,7 @@ export interface NlsSourceDefinition {
 }
 
 export interface NlsSourceRecord extends NlsSourceDefinition {
+  sourceRole: NlsSourceRole;
   subject: "MATHEMATICS";
   series: "KET_NOI_TRI_THUC";
   curriculum: "GDPT_2018";
@@ -42,4 +44,24 @@ export interface NlsSourceManifest {
   sourceRootEnvironmentVariable: "NA_MATH_NLS_SOURCE_ROOT";
   expectedSourceCount: 9;
   sources: NlsSourceRecord[];
+}
+
+export interface NlsSourcePair {
+  canonicalSourceId: NlsSourceId;
+  grade: NlsGrade;
+  volumeType: NlsVolumeType;
+  original: NlsSourceRecord;
+  clean: NlsSourceRecord;
+  removedPageCount: number;
+  pairStatus: "PASS";
+}
+
+export interface NlsSourcePairManifest {
+  schemaVersion: 1;
+  program: "NA_MATH_NLS";
+  sourceRootEnvironmentVariables: { original: "NA_MATH_NLS_SOURCE_ROOT"; clean: "NA_MATH_NLS_CLEAN_SOURCE_ROOT" };
+  pageNumberPolicy: "ORIGINAL_AND_CLEAN_PHYSICAL_PAGES_ARE_DISTINCT";
+  oldReviewPacketStatus: "STALE_FOR_CLEAN_CORPUS";
+  expectedPairCount: 9;
+  pairs: NlsSourcePair[];
 }

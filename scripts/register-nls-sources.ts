@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { discoverUnknownFiles, registerKnttSources, resolveNlsSourceRoot, serializeNlsManifest } from "../src/modules/nls-source-registry/index.js";
 
 const root = resolveNlsSourceRoot();
-const manifest = registerKnttSources(root);
+const manifest = registerKnttSources(root, undefined, "ORIGINAL_REFERENCE");
 const manifestPath = resolve("docs", "nls", "na-math-nls-sources.manifest.json");
 const reportPath = resolve("docs", "nls", "NLS-SOURCE-01-QA.md");
 writeFileSync(manifestPath, serializeNlsManifest(manifest), "utf8");

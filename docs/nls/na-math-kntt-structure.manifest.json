@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "pageNumberPolicy": "ORIGINAL_PDF_PAGE_MAPPINGS_STALE_FOR_CLEAN_CORPUS",
   "sourceRegistryVersion": 1,
   "strategy": "TOC_FIRST_SELECTIVE_OCR",
   "fullBookOcr": false,

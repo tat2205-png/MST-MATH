@@ -13,5 +13,8 @@ export const KNTT_SOURCE_DEFINITIONS: readonly NlsSourceDefinition[] = Object.fr
 ]);
 
 export const DEFAULT_NLS_SOURCE_ROOT = "D:\\NA-MATH-NLS-AI-SOURCES";
+export const DEFAULT_NLS_CLEAN_SOURCE_ROOT = "D:\\NA-MATH-NLS-AI-SOURCES-CLEAN";
 export const resolveNlsSourceRoot = (environment: NodeJS.ProcessEnv = process.env): string =>
   environment.NA_MATH_NLS_SOURCE_ROOT?.trim() || DEFAULT_NLS_SOURCE_ROOT;
+export const resolveNlsCleanSourceRoot = (environment: NodeJS.ProcessEnv = process.env): string =>
+  environment.NA_MATH_NLS_CLEAN_SOURCE_ROOT?.trim() || DEFAULT_NLS_CLEAN_SOURCE_ROOT;
