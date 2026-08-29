@@ -1,0 +1,26 @@
+[project]
+name = "math-ai-studio-runtime"
+version = "1.3.0"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "manim==0.21.0",
+    "matplotlib==3.11.1",
+    "mpmath==1.3.0",
+    "numpy==2.5.2",
+    "scipy==1.18.1",
+    "shapely==2.1.2",
+    "sympy==1.14.0",
+    "z3-solver==5.1.0",
+]
+
+[dependency-groups]
+test = [
+    "hypothesis==6.165.10",
+    "pytest==9.1.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
