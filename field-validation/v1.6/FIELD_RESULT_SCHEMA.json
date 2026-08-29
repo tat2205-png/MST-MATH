@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": ["runId", "taskId", "testerId", "fieldLevel", "result"],
+  "properties": {
+    "runId": {"type": "string", "minLength": 1},
+    "taskId": {"type": "string", "pattern": "^PILOT-(0[1-9]|10)$"},
+    "testerId": {"type": "string", "pattern": "^(SELF|T|CLASS)-[0-9]+$"},
+    "fieldLevel": {"type": "integer", "enum": [1, 2, 3]},
+    "sourceId": {"type": "string"},
+    "sourceType": {"type": "string"},
+    "startTime": {"type": "string", "format": "date-time"},
+    "endTime": {"type": "string", "format": "date-time"},
+    "duration": {"type": "number", "minimum": 0},
+    "result": {"type": "string", "enum": ["PASS", "PASS_WITH_MINOR_CORRECTION", "PASS_WITH_MAJOR_CORRECTION", "FAIL", "BLOCKED"]},
+    "retryCount": {"type": "integer", "minimum": 0},
+    "manualCorrectionCount": {"type": "integer", "minimum": 0},
+    "humanInterventionCount": {"type": "integer", "minimum": 0},
+    "mathErrorFound": {"type": "boolean"},
+    "visualDefectFound": {"type": "boolean"},
+    "blockingFailure": {"type": ["string", "null"], "enum": ["F0", "F1", "F2", "F3", "F4", null]},
+    "outputAccepted": {"type": "boolean"},
+    "issueIds": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  }
+}
