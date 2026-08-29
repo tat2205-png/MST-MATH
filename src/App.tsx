@@ -22,8 +22,9 @@ import {
   SafetyLocks,
 } from "./types/mathSchema.js";
 import { AlertCircle, CheckCircle2, Sparkles, X } from "lucide-react";
+import { TeacherWorkspace } from "./components/teacher/TeacherWorkspace.js";
 
-export function App() {
+function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
   const [currentTab, setCurrentTab] = useState<"input" | "parsed" | "solution" | "visual" | "video" | "qa">("input");
   const [selectedProvider, setSelectedProvider] = useState<ProviderType>("gemini");
   
@@ -319,6 +320,12 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+      <button
+        onClick={onOpenTeacher}
+        className="fixed bottom-4 right-4 z-50 rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+      >
+        Quy trình giáo viên
+      </button>
       {/* App Header & Navigation */}
       <Header
         currentTab={currentTab}
@@ -492,5 +499,12 @@ export function App() {
       />
     </div>
   );
+}
+
+export function App() {
+  const [productSurface, setProductSurface] = useState<"teacher" | "studio">("teacher");
+  return productSurface === "teacher"
+    ? <TeacherWorkspace onOpenStudio={() => setProductSurface("studio")} />
+    : <StudioApp onOpenTeacher={() => setProductSurface("teacher")} />;
 }
 export default App;

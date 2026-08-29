@@ -75,6 +75,7 @@ const suites = [
   "tests/studio-manim-timeline-phase4a3.test.ts",
   "tests/studio-real-math-phase4a1.test.ts",
   "tests/studio-real-render-contract-phase4a2.test.ts",
+  "tests/test-teacher-workflow-ux01.ts",
 ];
 
 let failed = 0;

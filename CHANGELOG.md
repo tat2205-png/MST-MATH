@@ -4,6 +4,68 @@
 
 ---
 
+## Post-UX-01 Final Convergence — MAS-INT-02 — 2026-08-29
+
+### Integrated
+
+- Converged frozen UX-01 commit `19f2763e821d6e93e4f03f1eb1310a05ac31711e`
+  with frozen final-convergence commit `ab7d97894f4e76310b2898f9dc23a756ab093918`.
+- Preserved both Studio Phase 4/final-convergence routes and the UX-01 teacher
+  workflow service, UI, contracts, API routes, and regression coverage.
+
+### QA
+
+- TypeScript, build, architecture, UX-01, Question Bank, DOCX export, integrated
+  70-suite regression, QA CI, QA Full, runtime bridge, real Manim MP4/frame QA,
+  and release gate: PASS.
+- Optional Gemini visual analysis: SKIPPED because credentials were unavailable;
+  deterministic frame structure and math provenance remained PASS.
+- Existing `v1.3-rc.1` tag remains unchanged; no production release declared.
+
+---
+
+## Teacher Golden Workflow — UX-01 — 2026-08-28
+
+### Added
+
+- One Vietnamese teacher workspace for DOCX import, review, Question Bank
+  search/selection, Assessment, Classroom Game, Solution/Video, and export.
+- Thin `TeacherWorkflowService` application boundary over the existing
+  authoritative Question Bank, Assessment, Game, Studio, and export services.
+- Runtime-aware actions, explicit workflow states, loading/error/empty states,
+  stable Question ID continuity, and student/teacher answer isolation.
+
+### QA
+
+- TypeScript, build, architecture, 26/26 regression, QA CI, and QA Full: PASS.
+- Real DOCX → Question Bank → Assessment → Game/Export service workflow: PASS.
+- Real Question → Math QA → Studio → Manim MP4/frame artifact path: PASS.
+- Visual QA at 1440×1000 and 1024×768: PASS.
+
+### Next
+
+- E2E-TEACHER-01 remains deferred.
+
+## Post-QB Studio Integration — MAS-INT-01 — 2026-08-28
+
+### Finalized
+
+- Recovered and verified candidate `c848cf55edd1675a6254ce66569ab6ad4a7a2f3b`.
+- Persisted the required and optional runtime-readiness matrix.
+- Preserved Question Bank baseline `943186335bcc380994111cac6535aefd3ac9e2a9`
+  and release tag `v1.3-rc.1`.
+
+### QA
+
+- TypeScript, build, architecture, 25/25 regression, QA CI, and QA Full: PASS.
+- Real Question Bank → Studio → Manim MP4/frame artifact path: PASS.
+- Local Render Bridge and Auto Repair: PASS.
+- Missing optional AI credentials: non-blocking; deterministic QA remained PASS.
+
+### Next
+
+- UX-01 — Teacher Golden Workflow.
+
 ## Question Bank Program — QB-3A — 2026-08-28
 
 ### Accepted

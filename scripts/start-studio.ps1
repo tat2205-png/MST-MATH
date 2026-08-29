@@ -54,6 +54,10 @@ try {
     }
 
     if (-not (Test-Service -Port 3000 -Uri "http://127.0.0.1:3000/api/health" -ExpectedStatus "ok")) {
+        # MAS-INT-01 verified this existing orchestrator as REQUIRED_PASS. The
+        # official product launcher enables its existing feature flag for the
+        # child app process; development startup remains explicitly controlled.
+        $env:STUDIO_ORCHESTRATOR_V1 = "true"
         $app = Start-Process -FilePath "npm.cmd" -ArgumentList @("run", "start") -WorkingDirectory $projectRoot -PassThru -WindowStyle Hidden
         $started.Add($app)
         Wait-Service -Uri "http://127.0.0.1:3000/api/health" -ExpectedStatus "ok"

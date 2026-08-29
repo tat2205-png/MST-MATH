@@ -36,6 +36,7 @@
     "qa:question-video": "node --import tsx tests/test-question-bank-qb2c.ts",
     "qa:question-video:runtime": "node --import tsx scripts/run-question-video-runtime.ts",
     "qa:export": "node --import tsx tests/test-question-bank-qb2d.ts",
+    "qa:ux-01": "node --import tsx tests/test-teacher-workflow-ux01.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
