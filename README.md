@@ -5,15 +5,18 @@ Local production workflow for verified high-school mathematics explanations and 
 ## Requirements
 
 - Node.js 20+ and npm
-- Python 3.10+
-- Manim Community Edition available to that Python (`python -m manim --version`)
+- Python 3.14.x
+- uv
+- Manim Community Edition 0.21.x (locked to 0.21.0)
 - FFmpeg and ffprobe on `PATH`
+- XeLaTeX and dvisvgm on `PATH`
 - PowerShell 7 (`pwsh`)
 
 ## Setup and launch
 
 ```powershell
 npm ci
+uv sync --group test
 npm run studio
 ```
 
@@ -32,8 +35,17 @@ Normal use is entirely in the app: enter a supported problem, generate the verif
 ```powershell
 npm run dev
 npm run bridge:start
+npm run qa:python-runtime
+npm run qa:python-math
+npm run qa:manim
 npm run release:gate
 ```
+
+`uv sync --group test` is the canonical Python environment command. It creates
+the repository-local `.venv`, which is ignored and must never be committed, from
+the checked-in `pyproject.toml` and `uv.lock`. The runtime doctor verifies Python
+3.14 compatibility, Manim 0.21.x, FFmpeg, XeLaTeX, and dvisvgm without requiring
+a GUI, network connection, or external AI service.
 
 `npm run release:gate` requires the Local Render Bridge to be healthy at
 `http://127.0.0.1:8765/health`. Start it in a separate PowerShell session with
