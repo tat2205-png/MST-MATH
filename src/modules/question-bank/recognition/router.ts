@@ -9,7 +9,10 @@ export class MathRecognitionRouter {
     for (const provider of this.providers) {
       if (!provider.supports(input) || (provider.external && input.policy !== "EXTERNAL_PROVIDER_ALLOWED")) continue;
       const key = recognitionCacheKey(input, provider.id, provider.version); const cached = this.cache.get(key); if (cached) return cached;
-      const result = await provider.recognize(input); if (!result) continue;
+      let result: RecognitionResult | undefined;
+      try { result = await provider.recognize(input); }
+      catch { continue; }
+      if (!result) continue;
       const latex = result.confidence >= 0.5 && result.latex ? canonicalizeLatex(result.latex) : undefined;
       const normalized = { ...result, latex, confidence: Math.max(0, Math.min(1, result.confidence)), requiresReview: true, warnings: [...result.warnings, ...(result.latex && !latex ? ["LATEX_REJECTED_LOW_CONFIDENCE_OR_INVALID"] : [])] };
       this.cache.set(key, normalized); return normalized;
@@ -19,4 +22,3 @@ export class MathRecognitionRouter {
 }
 export function recognitionTier(confidence: number): RecognitionTier { return confidence >= 0.85 ? "HIGH_CONFIDENCE" : confidence >= 0.55 ? "MEDIUM_CONFIDENCE" : "LOW_CONFIDENCE"; }
 export function recognitionStatus(confidence: number): "REVIEW" | "QUARANTINED" { return recognitionTier(confidence) === "LOW_CONFIDENCE" ? "QUARANTINED" : "REVIEW"; }
-
