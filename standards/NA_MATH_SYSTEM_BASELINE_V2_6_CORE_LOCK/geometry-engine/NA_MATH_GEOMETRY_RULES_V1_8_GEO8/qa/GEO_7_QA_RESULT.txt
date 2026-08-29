@@ -1,0 +1,20 @@
+GEO-7 profiles: 7
+GEO-7 cases: 9
+PASS skew_lines_pass
+PASS skew_lines_missing_noncoplanar_blocks
+PASS parallel_lines_not_skew
+PASS parallel_planes_skew_lines_pass
+PASS parallel_planes_skew_missing_nonparallel_blocks
+PASS projected_crossing_without_semantic_intersection_forbidden
+PASS semantic_intersection_marker_allowed
+PASS decorative_plane_connector_forbidden
+PASS no_plane_connector_pass
+GEO_7_STATUS=PASS (9/9 cases passed)
+SKEW_LINE_SEMANTICS=PASS
+PARALLEL_PLANES_PROFILE=PASS
+FALSE_INTERSECTION_QA=PASS
+DECORATIVE_CONNECTOR_QA=PASS
+LINE_PLANE_RELATION_PROFILES=PASS
+PLANE_PLANE_RELATION_PROFILES=PASS
+SEMANTIC_3D_SOURCE_OF_TRUTH=PASS
+LAYOUT_V1_3_PRESERVED=PASS

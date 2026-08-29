@@ -1,0 +1,14 @@
+PASS new_feature -> BLOCKED
+PASS new_geometry_profile -> REVIEW_REQUIRED
+PASS bug_fix -> ALLOWED
+PASS qa -> ALLOWED
+PASS canonicalization -> ALLOWED
+PASS layout_mutation -> BLOCKED
+PASS color_mutation -> BLOCKED
+PASS font_mutation -> BLOCKED
+PASS notation_mutation -> BLOCKED
+PASS approved_geometry_mutation -> BLOCKED
+SYSTEM_CORE_LOCK_QA=PASS (10/10)
+NEW_FEATURE=BLOCKED
+NEW_GEOMETRY_PROFILE=REVIEW_REQUIRED
+LOCKED_LAYER_MUTATION=BLOCKED

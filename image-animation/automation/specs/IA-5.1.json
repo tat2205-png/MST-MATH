@@ -1,0 +1,54 @@
+{
+  "id": "IA-5.1",
+  "title": "Manual Image Editor",
+  "phase": "IA-5",
+  "goal": "Implement deterministic Scene Graph editing operations that never silently invent geometry.",
+  "allowedPaths": [
+    "image-animation/core/editor/**",
+    "image-animation/tests/editor/**",
+    "image-animation/automation/scripts/resume.ts",
+    "image-animation/automation/specs/IA-5.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/core/editor/**",
+    "image-animation/tests/editor/**"
+  ],
+  "requirements": [
+    "Support add, edit, delete, rename, layer, relation, lock, and unlock operations.",
+    "Every operation returns a valid graph or deterministic errors."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

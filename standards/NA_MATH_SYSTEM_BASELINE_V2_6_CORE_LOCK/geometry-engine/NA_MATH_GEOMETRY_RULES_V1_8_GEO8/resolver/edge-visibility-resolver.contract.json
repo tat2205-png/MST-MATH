@@ -1,0 +1,25 @@
+{
+  "id": "EDGE_VISIBILITY_RESOLVER_CONTRACT",
+  "version": "1.3.0",
+  "layout_contract": {
+    "layout": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "edge_id_policy": {
+    "canonical_ids": true,
+    "undirected_segment_aliases_supported": true,
+    "example_aliases": {
+      "CB": "BC",
+      "C′B′": "B′C′"
+    }
+  },
+  "hard_rules": [
+    "unknown profile => BLOCKED",
+    "unspecified scene edge => BLOCKED",
+    "conflicting solid/dashed assignment => BLOCKED",
+    "profile references missing scene edge => BLOCKED",
+    "manual renderer visibility override => FORBIDDEN",
+    "layout V1.3 cannot be modified"
+  ]
+}

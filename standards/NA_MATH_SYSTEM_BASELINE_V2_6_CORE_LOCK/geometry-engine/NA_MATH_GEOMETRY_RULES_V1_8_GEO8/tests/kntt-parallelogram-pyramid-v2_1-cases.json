@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "profile": "PYRAMID_PARALLELOGRAM_FRONT_TO_BACK_KNTT_LOCKED",
+  "cases": [
+    {
+      "id": "exact_visibility",
+      "solid": [
+        "SB",
+        "SC",
+        "SD",
+        "BC",
+        "CD"
+      ],
+      "dashed": [
+        "SA",
+        "AB",
+        "AD"
+      ],
+      "expect": "PASS"
+    },
+    {
+      "id": "A_right_of_D",
+      "rule": "A_right_of_D",
+      "value": true,
+      "expect": "PASS"
+    },
+    {
+      "id": "AB_horizontal",
+      "rule": "AB_horizontal",
+      "value": true,
+      "expect": "PASS"
+    },
+    {
+      "id": "wide_faces",
+      "rule": "wide_faces",
+      "value": true,
+      "expect": "PASS"
+    },
+    {
+      "id": "no_overlap",
+      "rule": "no_edge_overlap_or_near_overlap",
+      "value": true,
+      "expect": "PASS"
+    },
+    {
+      "id": "no_auxiliaries",
+      "auxiliaries": [],
+      "expect": "PASS"
+    }
+  ]
+}

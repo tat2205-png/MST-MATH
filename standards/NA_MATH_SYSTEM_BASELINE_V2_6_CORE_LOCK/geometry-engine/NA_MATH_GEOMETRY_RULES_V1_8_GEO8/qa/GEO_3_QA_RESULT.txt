@@ -1,0 +1,13 @@
+GEO-3 cases: 5
+PASS triangular_prism_exact
+PASS triangular_prism_alias_input
+PASS box_exact
+PASS unknown_profile_blocks
+PASS unspecified_edge_blocks
+GEO_3_STATUS=PASS (5/5 golden cases passed)
+EDGE_ID_NORMALIZATION=PASS
+VISIBILITY_RESOLVER=PASS
+MANUAL_VISIBILITY_OVERRIDE=FORBIDDEN
+UNKNOWN_PROFILE=BLOCK_RENDER
+UNSPECIFIED_EDGE=BLOCK_RENDER
+LAYOUT_V1_3_PRESERVED=PASS

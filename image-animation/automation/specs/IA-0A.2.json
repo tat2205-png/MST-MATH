@@ -1,0 +1,33 @@
+{
+  "id": "IA-0A.2",
+  "title": "Build Deterministic Orchestrator",
+  "phase": "IA-0A",
+  "goal": "Run task specifications through fail-closed preflight, repository, and deterministic QA gates.",
+  "allowedPaths": [
+    "image-animation/**",
+    "package.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "requirements": [
+    "Accept a generic task ID and load its task specification.",
+    "Use explicit fail-closed orchestration states.",
+    "Do not implement autonomous repair, commit, merge, or architecture changes."
+  ],
+  "requiredTests": [
+    "image-animation/tests/orchestrator.test.ts",
+    "npm run lint",
+    "npm run ia:qa"
+  ],
+  "requiredGates": ["IA-G0", "IA-G1", "IA-G2", "IA-G9"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation",
+  "protectedPaths": ["image-animation/tests/**"],
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/automation/**"]
+}

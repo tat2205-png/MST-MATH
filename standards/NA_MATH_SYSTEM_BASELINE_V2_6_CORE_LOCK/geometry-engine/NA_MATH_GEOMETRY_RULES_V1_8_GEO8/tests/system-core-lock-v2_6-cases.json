@@ -1,0 +1,55 @@
+{
+  "version": "2.6.0",
+  "cases": [
+    {
+      "id": "new_feature",
+      "action": "NEW_FEATURE",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "new_geometry_profile",
+      "action": "NEW_GEOMETRY_PROFILE",
+      "expect": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "bug_fix",
+      "action": "BUG_FIX",
+      "expect": "ALLOWED"
+    },
+    {
+      "id": "qa",
+      "action": "QA",
+      "expect": "ALLOWED"
+    },
+    {
+      "id": "canonicalization",
+      "action": "CANONICALIZATION",
+      "expect": "ALLOWED"
+    },
+    {
+      "id": "layout_mutation",
+      "layer": "layout",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "color_mutation",
+      "layer": "color_system",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "font_mutation",
+      "layer": "typography",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "notation_mutation",
+      "layer": "math_notation",
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "approved_geometry_mutation",
+      "layer": "approved_geometry_profiles",
+      "expect": "BLOCKED"
+    }
+  ]
+}

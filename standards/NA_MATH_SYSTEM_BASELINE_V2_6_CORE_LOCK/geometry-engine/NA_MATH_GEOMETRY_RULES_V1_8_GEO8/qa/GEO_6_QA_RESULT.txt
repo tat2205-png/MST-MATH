@@ -1,0 +1,19 @@
+GEO-6 profiles: 4
+GEO-6 cases: 8
+PASS triangular_prism_locked_profile
+PASS generic_prism_common_translation_pass
+PASS generic_prism_independent_vertex_shift_fail
+PASS trapezoid_ratio_2_to_1
+PASS trapezoid_not_auto_centered
+PASS box_parallelepiped_only
+PASS box_rectangular
+PASS cube_requires_equal_edges
+GEO_6_STATUS=PASS (8/8 cases passed)
+TRIANGULAR_PRISM_CANONICAL=PASS
+GENERIC_PRISM_TRANSLATION=PASS
+PRISM_TOPOLOGY_N_3_TO_10=PASS
+BOX_SEMANTIC_SPECIALIZATION=PASS
+TRAPEZOID_LARGE_TOP_HORIZONTAL=PASS
+TRAPEZOID_RATIO_PRESERVATION=PASS
+NO_AUTOMATIC_ISOSCELES_TRAPEZOID=PASS
+LAYOUT_V1_3_PRESERVED=PASS

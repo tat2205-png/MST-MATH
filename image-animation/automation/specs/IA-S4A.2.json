@@ -1,0 +1,16 @@
+{
+  "id": "IA-S4A.2",
+  "title": "Studio Real Render Contract",
+  "phase": "STUDIO-4A.2",
+  "goal": "Reconcile the existing renderer adapter with the existing local Manim bridge and fail closed.",
+  "allowedPaths": ["local_bridge/bridge.py", "server/adapters/rendererAdapter.ts", "server/studio/runtimeStatus.ts", "tests/studio-runtime-status.test.ts", "tests/studio-status-api.test.ts", "tests/studio-real-render-contract-phase4a2.test.ts", "tests/studio-real-render-live-phase4a2.test.ts", "image-animation/automation/specs/IA-S4A.2.json"],
+  "forbiddenPaths": ["server/services/**", "server/geometry/**", "src/**", "manim_toolkit/**", "image-animation/core/**", "image-animation/renderers/**"],
+  "requirements": ["Use the existing renderer and bridge.", "Never treat simulator or remote samples as real output.", "Keep production activation off."],
+  "requiredTests": ["npm run lint", "npm run build", "npm run qa:regression", "npm run ia:regression"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "develop/studio-phase-4",
+  "protectedPaths": ["server/services/**", "server/geometry/**", "src/**", "manim_toolkit/**", "image-animation/core/**", "image-animation/renderers/**"],
+  "architectureProtectedPaths": ["server/services/**", "server/geometry/**", "src/**", "manim_toolkit/**", "image-animation/core/**", "image-animation/renderers/**", "image-animation/automation/gates/**", "image-animation/automation/scripts/**"],
+  "agentAllowedPaths": ["local_bridge/bridge.py", "server/adapters/rendererAdapter.ts", "server/studio/runtimeStatus.ts", "tests/studio-runtime-status.test.ts", "tests/studio-status-api.test.ts", "tests/studio-real-render-contract-phase4a2.test.ts", "tests/studio-real-render-live-phase4a2.test.ts"]
+}

@@ -1,0 +1,131 @@
+{
+  "version": "2.0.0",
+  "cases": [
+    {
+      "id": "pyramid_exact",
+      "profile": "PYRAMID_QUADRILATERAL_FRONT_TO_BACK_KNTT",
+      "objects": [
+        "S",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "solid": [
+        "SD",
+        "SC",
+        "SB",
+        "DC",
+        "CB"
+      ],
+      "dashed": [
+        "SA",
+        "AD",
+        "AB"
+      ],
+      "aux": [],
+      "expect": "PASS"
+    },
+    {
+      "id": "pyramid_reject_H",
+      "profile": "PYRAMID_QUADRILATERAL_FRONT_TO_BACK_KNTT",
+      "objects": [
+        "S",
+        "A",
+        "B",
+        "C",
+        "D",
+        "H"
+      ],
+      "solid": [
+        "SD",
+        "SC",
+        "SB",
+        "DC",
+        "CB"
+      ],
+      "dashed": [
+        "SA",
+        "AD",
+        "AB"
+      ],
+      "aux": [
+        "H"
+      ],
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "pyramid_SA_perp_no_H",
+      "profile": "PYRAMID_SA_PERP_BASE_FRONT_TO_BACK_KNTT",
+      "objects": [
+        "S",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "facts": [
+        "SA ⟂ BASE_PLANE",
+        "A is the altitude foot"
+      ],
+      "expect": "PASS"
+    },
+    {
+      "id": "skew_minimal",
+      "profile": "SKEW_LINES_MINIMAL_KNTT",
+      "objects": [
+        "a",
+        "b"
+      ],
+      "expect": "PASS"
+    },
+    {
+      "id": "skew_reject_planes",
+      "profile": "SKEW_LINES_MINIMAL_KNTT",
+      "objects": [
+        "a",
+        "b",
+        "P",
+        "Q"
+      ],
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "common_perp_exact",
+      "profile": "SKEW_LINES_COMMON_PERPENDICULAR_KNTT",
+      "objects": [
+        "a",
+        "b",
+        "Δ",
+        "M",
+        "N"
+      ],
+      "relations": [
+        "M ∈ a",
+        "N ∈ b",
+        "Δ ⟂ a",
+        "Δ ⟂ b"
+      ],
+      "expect": "PASS"
+    },
+    {
+      "id": "common_perp_reject_plane",
+      "profile": "SKEW_LINES_COMMON_PERPENDICULAR_KNTT",
+      "objects": [
+        "a",
+        "b",
+        "Δ",
+        "M",
+        "N",
+        "P"
+      ],
+      "relations": [
+        "M ∈ a",
+        "N ∈ b",
+        "Δ ⟂ a",
+        "Δ ⟂ b"
+      ],
+      "expect": "BLOCKED"
+    }
+  ]
+}

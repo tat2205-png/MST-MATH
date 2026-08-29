@@ -1,0 +1,61 @@
+{
+  "id": "IA-10.1",
+  "title": "Generative Motion Router and V1 Demo",
+  "phase": "IA-10",
+  "goal": "Implement policy-controlled generative motion routing, Frame QA evidence rules, and a deterministic V1 demo.",
+  "allowedPaths": [
+    "image-animation/renderers/router/**",
+    "image-animation/renderers/generative/**",
+    "image-animation/qa/frame/**",
+    "image-animation/demo/**",
+    "image-animation/tests/v1/**",
+    "image-animation/automation/specs/IA-10.1.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/renderers/router/**",
+    "image-animation/renderers/generative/**",
+    "image-animation/qa/frame/**",
+    "image-animation/demo/**",
+    "image-animation/tests/v1/**"
+  ],
+  "requirements": [
+    "Exact mathematical geometry routes to deterministic renderers.",
+    "Generative output is non-authoritative.",
+    "Frame QA cannot pass without actual frame evidence.",
+    "Provide reproducible end-to-end demo instructions and artifacts."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

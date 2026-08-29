@@ -1,0 +1,14 @@
+{
+  "id": "geo9-assessment-pyramid",
+  "layoutKind": "assessment",
+  "userType": "PHIẾU BÀI TẬP",
+  "viewProfileId": "PYRAMID_QUADRILATERAL_FRONT_TO_BACK_KNTT",
+  "outerSlot": {
+    "x": 690,
+    "y": 220,
+    "width": 270,
+    "height": 300
+  },
+  "geometryRule": "KNTT V2 locked: visible SD,SC,SB,DC,CB; hidden SA,AD,AB; no auto H/altitude.",
+  "layoutMutation": null
+}

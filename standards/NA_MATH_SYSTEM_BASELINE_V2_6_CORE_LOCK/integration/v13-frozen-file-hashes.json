@@ -1,0 +1,23 @@
+{
+  "baseline": "NA-MATH-DESIGN-SYSTEM V1.3",
+  "status": "LOCKED",
+  "file_count": 16,
+  "hashes": {
+    "CHANGELOG_V1_2.md": "bfb7f451121689bed5de9665dba4d816987e72c6736f62226f1aadea6b4fa535",
+    "CHANGELOG_V1_3.md": "cb6c7bb545dd77e96779cf739fa4a67269956fac01850770677f8a0dedb82c6c",
+    "NA_MATH_DESIGN_SYSTEM_SPEC_V1.md": "711f985c9f53043aded6e2a0fad4d794aa72771bf826d425fb0b3d2ad0c20f11",
+    "design-system.manifest.json": "e82b776d535e8ae6e9b0c2cd29a575e9a23b6c30d4242506952869883b059c65",
+    "src/modules/design-system/components/component-registry.ts": "90a115a54a3dfb5610f4bb1238aa29698740c7968e1f7d631342c31e09b35906",
+    "src/modules/design-system/geometry/geometry-types.ts": "183e23d54d0e9d9d55541a773865f5910c191c07fd6094f873a9db0670432402",
+    "src/modules/design-system/geometry/golden-geometry-cases.json": "863a45ecb8dee7e02b079075a4dceac949a3127869b27d01cc5584e688ca825b",
+    "src/modules/design-system/geometry/parallel-projection.ts": "af4efb1e335c7c10b2d7c1e29fa3d44fc794724c06b209d404950c66af9c1f2d",
+    "src/modules/design-system/geometry/projection-policy.json": "44adf5e0c0d45ce4ad447c617ee707b72db483a9b8029a814dbd85f31b064da4",
+    "src/modules/design-system/layouts/layout-specs.ts": "e984128fb1455393e19063e4cdeb6a3e9ac5705c664167a4b7e4f84a93b362ad",
+    "src/modules/design-system/qa/collision.ts": "65d1e96dcc39d4bb24714d0b0176f0c174c5c09b1fffcff9cc57a571673b7cf3",
+    "src/modules/design-system/qa/component-policy.ts": "d4b6ced30c052903e60089f93099cac4d975cc5f952405708a24d8b3047347eb",
+    "src/modules/design-system/qa/geometry-3d-policy.ts": "6fbaa2f8d515956b0dfcb52541a76c2217d1dec245ce33bf29f3cfb9c1505915",
+    "src/modules/design-system/qa/pedagogical-component-policy.ts": "60a27ab6ca29484d774fa7acc2d1d2822327b4f071d4dc02ebf6fb4758c7e8c3",
+    "src/modules/design-system/semantics/content-semantic-map.json": "c3b21c3cab94fd2bdd2608aed6791b640f2ec27bbe75f95a77fd7c751c6b14c0",
+    "src/modules/design-system/tokens/tokens.json": "fd668ff8800e358370fbf37d8b2451f8c5235c691351c6290bf972b7ad085103"
+  }
+}

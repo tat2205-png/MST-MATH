@@ -1,0 +1,14 @@
+{
+  "id": "geo9-document-triangular-prism",
+  "layoutKind": "document",
+  "userType": "TÀI LIỆU HỌC TẬP",
+  "viewProfileId": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+  "outerSlot": {
+    "x": 650,
+    "y": 190,
+    "width": 330,
+    "height": 350
+  },
+  "geometryRule": "AB dashed only; all other locked prism edges solid.",
+  "layoutMutation": null
+}

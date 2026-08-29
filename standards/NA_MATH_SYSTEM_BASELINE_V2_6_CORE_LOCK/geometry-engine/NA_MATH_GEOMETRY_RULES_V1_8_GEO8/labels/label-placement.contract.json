@@ -1,0 +1,29 @@
+{
+  "id": "LABEL_PLACEMENT_COLLISION_SOLVER",
+  "version": "1.4.0",
+  "layout_contract": {
+    "layout_id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "pipeline": [
+    "projected_geometry",
+    "resolved_visibility",
+    "label_metrics",
+    "view_profile_hints",
+    "reserved_markers",
+    "safe_box",
+    "candidate_search",
+    "collision_qa",
+    "render_or_block"
+  ],
+  "hard_rules": [
+    "label-label overlap forbidden",
+    "label-point overlap forbidden",
+    "label-edge overlap forbidden within clearance",
+    "label-marker overlap forbidden",
+    "label outside safe-box forbidden",
+    "font shrink for collision forbidden",
+    "failed placement => BLOCK_RENDER"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "PARALLEL_PLANES_SKEW_LINES_CANONICAL",
+  "required": [
+    "(P) ∥ (Q)",
+    "a ⊂ (P)",
+    "b ⊂ (Q)",
+    "a ∦ b"
+  ],
+  "visual": {
+    "same_plane_orientation_family": true,
+    "decorative_connectors": false,
+    "projected_line_directions_nonparallel": true,
+    "false_intersection_marker": false,
+    "fake_prism_implication": false
+  }
+}

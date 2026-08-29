@@ -150,6 +150,8 @@ export interface FrameQACheckList {
 export interface FrameQAResult {
   frameName: "START" | "KEY" | "END";
   status: "PASS" | "FAIL" | "NEED_SOURCE_VERIFICATION";
+  analysisCompleted: boolean;
+  analysisStage: "INPUT" | "ANALYZER" | "BOUNDS" | "COMPLETE";
   issues: FrameQAIssue[];
   imageUrl?: string;
   base64Image?: string;

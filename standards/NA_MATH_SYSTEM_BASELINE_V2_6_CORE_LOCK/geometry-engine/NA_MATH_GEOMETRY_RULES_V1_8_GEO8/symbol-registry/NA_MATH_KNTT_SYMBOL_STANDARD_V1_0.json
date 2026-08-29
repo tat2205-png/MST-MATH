@@ -1,0 +1,485 @@
+{
+  "id": "NA_MATH_KNTT_SYMBOL_STANDARD_V1_0",
+  "status": "PROPOSED_CANONICAL",
+  "curriculum": "GDPT 2018",
+  "textbook_family": "Kết nối tri thức",
+  "renderer": "Math Engine / LaTeX-compatible renderer",
+  "global_rules": [
+    "All mathematical notation must be rendered by Math Engine.",
+    "Do not use raw Unicode mathematical symbols in formulas.",
+    "Do not replace a mathematical symbol with a visually similar glyph.",
+    "Preserve Vietnamese textbook conventions, including semicolon-separated coordinates.",
+    "Do not invent notation not present in the problem or required by the proof."
+  ],
+  "categories": {
+    "logic_sets": [
+      [
+        "Mệnh đề kéo theo",
+        "P\\Rightarrow Q",
+        "\\Rightarrow"
+      ],
+      [
+        "Mệnh đề tương đương",
+        "P\\Leftrightarrow Q",
+        "\\Leftrightarrow"
+      ],
+      [
+        "Với mọi",
+        "\\forall x\\in A",
+        "\\forall"
+      ],
+      [
+        "Tồn tại",
+        "\\exists x\\in A",
+        "\\exists"
+      ],
+      [
+        "Thuộc",
+        "x\\in A",
+        "\\in"
+      ],
+      [
+        "Không thuộc",
+        "x\\notin A",
+        "\\notin"
+      ],
+      [
+        "Tập con",
+        "A\\subset B",
+        "\\subset"
+      ],
+      [
+        "Tập con hoặc bằng",
+        "A\\subseteq B",
+        "\\subseteq"
+      ],
+      [
+        "Hợp",
+        "A\\cup B",
+        "\\cup"
+      ],
+      [
+        "Giao",
+        "A\\cap B",
+        "\\cap"
+      ],
+      [
+        "Hiệu",
+        "A\\setminus B",
+        "\\setminus"
+      ],
+      [
+        "Tập rỗng",
+        "\\varnothing",
+        "\\varnothing"
+      ],
+      [
+        "Số tự nhiên",
+        "\\mathbb{N}",
+        "\\mathbb{N}"
+      ],
+      [
+        "Số nguyên",
+        "\\mathbb{Z}",
+        "\\mathbb{Z}"
+      ],
+      [
+        "Số hữu tỉ",
+        "\\mathbb{Q}",
+        "\\mathbb{Q}"
+      ],
+      [
+        "Số thực",
+        "\\mathbb{R}",
+        "\\mathbb{R}"
+      ],
+      [
+        "Khoảng mở",
+        "(a;b)",
+        "(a;b)"
+      ],
+      [
+        "Đoạn",
+        "[a;b]",
+        "[a;b]"
+      ],
+      [
+        "Nửa khoảng",
+        "[a;b)",
+        "[a;b)"
+      ]
+    ],
+    "algebra": [
+      [
+        "Căn bậc hai",
+        "\\sqrt{x}",
+        "\\sqrt{x}"
+      ],
+      [
+        "Căn bậc n",
+        "\\sqrt[n]{x}",
+        "\\sqrt[n]{x}"
+      ],
+      [
+        "Phân số",
+        "\\frac{a}{b}",
+        "\\frac{a}{b}"
+      ],
+      [
+        "Giá trị tuyệt đối",
+        "|x|",
+        "\\lvert x\\rvert"
+      ],
+      [
+        "Không bằng",
+        "a\\ne b",
+        "\\ne"
+      ],
+      [
+        "Nhỏ hơn hoặc bằng",
+        "a\\le b",
+        "\\le"
+      ],
+      [
+        "Lớn hơn hoặc bằng",
+        "a\\ge b",
+        "\\ge"
+      ],
+      [
+        "Vô cực",
+        "+\\infty,\\ -\\infty",
+        "\\infty"
+      ],
+      [
+        "Tổng",
+        "\\sum_{k=1}^{n}u_k",
+        "\\sum"
+      ],
+      [
+        "Tích",
+        "\\prod_{k=1}^{n}u_k",
+        "\\prod"
+      ]
+    ],
+    "plane_geometry": [
+      [
+        "Đoạn thẳng",
+        "AB",
+        "AB"
+      ],
+      [
+        "Tia",
+        "Ax",
+        "Ax"
+      ],
+      [
+        "Góc",
+        "\\widehat{ABC}",
+        "\\widehat{ABC}"
+      ],
+      [
+        "Độ",
+        "60^\\circ",
+        "^\\circ"
+      ],
+      [
+        "Vuông góc",
+        "AB\\perp CD",
+        "\\perp"
+      ],
+      [
+        "Song song",
+        "AB\\parallel CD",
+        "\\parallel"
+      ],
+      [
+        "Độ dài vectơ/đoạn",
+        "AB",
+        "AB"
+      ]
+    ],
+    "spatial_geometry": [
+      [
+        "Điểm thuộc đường",
+        "H\\in SD",
+        "\\in"
+      ],
+      [
+        "Điểm thuộc mặt phẳng",
+        "A\\in(P)",
+        "\\in"
+      ],
+      [
+        "Đường thuộc mặt phẳng",
+        "a\\subset(P)",
+        "\\subset"
+      ],
+      [
+        "Hai đường vuông góc",
+        "a\\perp b",
+        "\\perp"
+      ],
+      [
+        "Đường vuông góc mặt phẳng",
+        "d\\perp(P)",
+        "\\perp"
+      ],
+      [
+        "Hai mặt phẳng vuông góc",
+        "(P)\\perp(Q)",
+        "\\perp"
+      ],
+      [
+        "Hai đường song song",
+        "a\\parallel b",
+        "\\parallel"
+      ],
+      [
+        "Đường song song mặt phẳng",
+        "d\\parallel(P)",
+        "\\parallel"
+      ],
+      [
+        "Hai mặt phẳng song song",
+        "(P)\\parallel(Q)",
+        "\\parallel"
+      ],
+      [
+        "Giao hai đường",
+        "a\\cap b=\\{M\\}",
+        "\\cap"
+      ],
+      [
+        "Giao đường và mặt",
+        "d\\cap(P)=\\{H\\}",
+        "\\cap"
+      ],
+      [
+        "Giao hai mặt phẳng",
+        "(P)\\cap(Q)=d",
+        "\\cap"
+      ],
+      [
+        "Khoảng cách điểm-đường",
+        "d(M,a)",
+        "d(M,a)"
+      ],
+      [
+        "Khoảng cách điểm-mặt",
+        "d(M,(P))",
+        "d(M,(P))"
+      ],
+      [
+        "Khoảng cách đường-mặt",
+        "d(a,(P))",
+        "d(a,(P))"
+      ],
+      [
+        "Khoảng cách hai mặt",
+        "d((P),(Q))",
+        "d((P),(Q))"
+      ],
+      [
+        "Khoảng cách hai đường",
+        "d(a,b)",
+        "d(a,b)"
+      ],
+      [
+        "Ví dụ chuẩn hình chóp",
+        "SA\\perp(ABCD)",
+        "SA\\perp(ABCD)"
+      ]
+    ],
+    "vectors_coordinates": [
+      [
+        "Vectơ AB",
+        "\\overrightarrow{AB}",
+        "\\overrightarrow{AB}"
+      ],
+      [
+        "Vectơ a",
+        "\\vec{a}",
+        "\\vec{a}"
+      ],
+      [
+        "Độ dài vectơ",
+        "|\\vec{a}|",
+        "\\lvert\\vec{a}\\rvert"
+      ],
+      [
+        "Tích vô hướng",
+        "\\vec{a}\\cdot\\vec{b}",
+        "\\cdot"
+      ],
+      [
+        "Điểm trong Oxy",
+        "M(x;y)",
+        "M(x;y)"
+      ],
+      [
+        "Vectơ trong Oxy",
+        "\\vec{u}=(a;b)",
+        "\\vec{u}=(a;b)"
+      ],
+      [
+        "Điểm trong Oxyz",
+        "M(x;y;z)",
+        "M(x;y;z)"
+      ],
+      [
+        "Vectơ trong Oxyz",
+        "\\vec{u}=(a;b;c)",
+        "\\vec{u}=(a;b;c)"
+      ]
+    ],
+    "functions_calculus": [
+      [
+        "Hàm số",
+        "y=f(x)",
+        "y=f(x)"
+      ],
+      [
+        "Giới hạn",
+        "\\lim_{x\\to x_0}f(x)",
+        "\\lim"
+      ],
+      [
+        "Giới hạn vô cực",
+        "\\lim_{x\\to+\\infty}f(x)",
+        "\\lim"
+      ],
+      [
+        "Đạo hàm",
+        "f'(x)",
+        "f'(x)"
+      ],
+      [
+        "Đạo hàm cấp hai",
+        "f''(x)",
+        "f''(x)"
+      ],
+      [
+        "Nguyên hàm",
+        "\\int f(x)\\,dx",
+        "\\int"
+      ],
+      [
+        "Tích phân xác định",
+        "\\int_a^b f(x)\\,dx",
+        "\\int"
+      ]
+    ],
+    "sequences": [
+      [
+        "Dãy số",
+        "(u_n)",
+        "(u_n)"
+      ],
+      [
+        "Cấp số cộng",
+        "u_n=u_1+(n-1)d",
+        "u_n=u_1+(n-1)d"
+      ],
+      [
+        "Cấp số nhân",
+        "u_n=u_1q^{n-1}",
+        "u_n=u_1q^{n-1}"
+      ]
+    ],
+    "probability_combinatorics": [
+      [
+        "Hoán vị",
+        "P_n=n!",
+        "P_n=n!"
+      ],
+      [
+        "Chỉnh hợp",
+        "A_n^k",
+        "A_n^k"
+      ],
+      [
+        "Tổ hợp",
+        "C_n^k",
+        "C_n^k"
+      ],
+      [
+        "Không gian mẫu",
+        "\\Omega",
+        "\\Omega"
+      ],
+      [
+        "Số phần tử",
+        "n(\\Omega),\\ n(A)",
+        "n(\\Omega)"
+      ],
+      [
+        "Xác suất",
+        "P(A)",
+        "P(A)"
+      ],
+      [
+        "Xác suất cổ điển",
+        "P(A)=\\frac{n(A)}{n(\\Omega)}",
+        "\\frac{}{}"
+      ],
+      [
+        "Biến cố đối",
+        "\\overline{A}",
+        "\\overline{A}"
+      ],
+      [
+        "Xác suất có điều kiện",
+        "P(A\\mid B)",
+        "\\mid"
+      ]
+    ],
+    "statistics": [
+      [
+        "Số trung bình",
+        "\\bar{x}",
+        "\\bar{x}"
+      ],
+      [
+        "Trung vị",
+        "M_e",
+        "M_e"
+      ],
+      [
+        "Tứ phân vị",
+        "Q_1,\\ Q_2,\\ Q_3",
+        "Q_1"
+      ],
+      [
+        "Phương sai",
+        "s^2",
+        "s^2"
+      ],
+      [
+        "Độ lệch chuẩn",
+        "s",
+        "s"
+      ]
+    ]
+  },
+  "forbidden_raw_unicode_examples": [
+    "⊥",
+    "∥",
+    "∈",
+    "∉",
+    "√",
+    "∠",
+    "⇒",
+    "⇔",
+    "≠",
+    "≤",
+    "≥",
+    "∞"
+  ],
+  "kntt_specific_notes": [
+    "Coordinates use semicolons: M(x;y) and M(x;y;z).",
+    "Combinatorics uses A_n^k and C_n^k; do not normalize to nPk or binomial notation in the main KNTT-style solution.",
+    "Spatial planes use parentheses, e.g. (P), (ABC), (ABCD).",
+    "A line contained in a plane is written with subset notation, e.g. a\\subset(P), not a\\in(P).",
+    "Distance notation follows d(M,a), d(M,(P)), d(a,(P)), d((P),(Q)), d(a,b)."
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "GOLDEN_PYRAMID_ALTITUDE_SIDE_PLANE",
+  "title": "Hình chóp — đường cao suy ra từ mặt bên vuông góc đáy",
+  "layoutContract": {
+    "layoutId": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "layoutStatus": "LOCKED",
+    "geometryMayChangeLayout": false
+  },
+  "objects": [
+    {
+      "id": "S",
+      "kind": "point",
+      "label": "S",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "A",
+      "kind": "point",
+      "label": "A",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "B",
+      "kind": "point",
+      "label": "B",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "C",
+      "kind": "point",
+      "label": "C",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "D",
+      "kind": "point",
+      "label": "D",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "H",
+      "kind": "point",
+      "label": "H",
+      "provenance": "CONSTRUCTED"
+    },
+    {
+      "id": "AB",
+      "kind": "segment",
+      "endpoints": [
+        "A",
+        "B"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "SH",
+      "kind": "segment",
+      "endpoints": [
+        "S",
+        "H"
+      ],
+      "provenance": "CONSTRUCTED"
+    },
+    {
+      "id": "PL_SAB",
+      "kind": "plane",
+      "label": "(SAB)",
+      "definition": {
+        "type": "three-points",
+        "points": [
+          "S",
+          "A",
+          "B"
+        ]
+      },
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "PL_ABCD",
+      "kind": "plane",
+      "label": "(ABCD)",
+      "definition": {
+        "type": "three-points",
+        "points": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "provenance": "GIVEN"
+    }
+  ],
+  "relations": [
+    {
+      "id": "P1",
+      "type": "perpendicular",
+      "objects": [
+        "PL_SAB",
+        "PL_ABCD"
+      ],
+      "provenance": "GIVEN",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "P2",
+      "type": "intersection",
+      "objects": [
+        "PL_SAB",
+        "PL_ABCD",
+        "AB"
+      ],
+      "provenance": "DERIVED",
+      "status": "VERIFIED",
+      "evidence": [
+        "P1",
+        "AB lies in both planes"
+      ]
+    },
+    {
+      "id": "P3",
+      "type": "lies-in",
+      "objects": [
+        "SH",
+        "PL_SAB"
+      ],
+      "provenance": "CONSTRUCTED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "P4",
+      "type": "perpendicular",
+      "objects": [
+        "SH",
+        "AB"
+      ],
+      "provenance": "CONSTRUCTED",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "P5",
+      "type": "perpendicular",
+      "objects": [
+        "SH",
+        "PL_ABCD"
+      ],
+      "provenance": "DERIVED",
+      "status": "VERIFIED",
+      "evidence": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ]
+    },
+    {
+      "id": "P6",
+      "type": "altitude",
+      "objects": [
+        "SH"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED",
+      "evidence": [
+        "P5"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "relationId": "P5",
+      "requiredForRender": true
+    },
+    {
+      "relationId": "P6",
+      "requiredForRender": true
+    }
+  ],
+  "activeViewProfileId": "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN",
+  "availableViewProfiles": [
+    {
+      "id": "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN",
+      "projection": {
+        "mode": "parallel"
+      },
+      "edgeStyles": [
+        {
+          "edgeId": "AB",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        },
+        {
+          "edgeId": "SH",
+          "style": "solid",
+          "source": "VIEW_PROFILE"
+        }
+      ]
+    }
+  ],
+  "verificationStatus": "VERIFIED",
+  "renderPolicy": {
+    "noVisualInference": true,
+    "failClosed": true,
+    "allowUnverifiedDecorativeGeometry": false
+  }
+}

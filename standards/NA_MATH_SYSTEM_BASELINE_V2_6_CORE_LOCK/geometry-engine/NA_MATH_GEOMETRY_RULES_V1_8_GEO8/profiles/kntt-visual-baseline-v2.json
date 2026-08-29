@@ -1,0 +1,197 @@
+{
+  "id": "KNTT_VISUAL_BASELINE_V2",
+  "version": "2.4.0",
+  "status": "LOCKED",
+  "curriculum": "GDPT 2018",
+  "textbook_family": "Kết nối tri thức",
+  "view_direction": "front-to-back",
+  "global_rules": {
+    "minimum_necessary_geometry": true,
+    "freehand_visibility_inference": false,
+    "auxiliary_geometry_default": "FORBIDDEN",
+    "add_auxiliary_only_if_given_constructed_or_required_by_solution": true,
+    "projected_crossing_is_not_3d_intersection": true,
+    "layout_mutation": "FORBIDDEN"
+  },
+  "profiles": [
+    {
+      "id": "PYRAMID_QUADRILATERAL_FRONT_TO_BACK_KNTT",
+      "status": "LOCKED",
+      "object": "S.ABCD",
+      "rear_base_vertex": "A",
+      "visible_edges": [
+        "SD",
+        "SC",
+        "SB",
+        "DC",
+        "CB"
+      ],
+      "hidden_edges": [
+        "SA",
+        "AD",
+        "AB"
+      ],
+      "default_auxiliaries": [],
+      "forbidden_by_default": [
+        "H",
+        "altitude",
+        "right_angle_marker",
+        "base_diagonal",
+        "circumcenter",
+        "auxiliary_plane"
+      ]
+    },
+    {
+      "id": "PYRAMID_SA_PERP_BASE_FRONT_TO_BACK_KNTT",
+      "status": "LOCKED",
+      "object": "S.ABCD",
+      "activation": [
+        "SA ⟂ BASE_PLANE is GIVEN or VERIFIED",
+        "A is the altitude foot"
+      ],
+      "visible_edges": [
+        "SD",
+        "SC",
+        "SB",
+        "DC",
+        "CB"
+      ],
+      "hidden_edges": [
+        "SA",
+        "AD",
+        "AB"
+      ],
+      "allowed_auxiliaries": [
+        "right_angle_marker_at_A_if_needed"
+      ],
+      "forbidden": [
+        "invent_H_when_A_is_foot"
+      ]
+    },
+    {
+      "id": "SKEW_LINES_MINIMAL_KNTT",
+      "status": "LOCKED",
+      "required_objects": [
+        "a",
+        "b"
+      ],
+      "default_objects": [
+        "a",
+        "b"
+      ],
+      "forbidden_by_default": [
+        "plane_P",
+        "plane_Q",
+        "intersection_point",
+        "common_perpendicular",
+        "projection_lines",
+        "connector"
+      ]
+    },
+    {
+      "id": "SKEW_LINES_COMMON_PERPENDICULAR_KNTT",
+      "status": "LOCKED",
+      "activation": "lesson/problem explicitly requires common perpendicular",
+      "required_objects": [
+        "a",
+        "b",
+        "Δ",
+        "M",
+        "N"
+      ],
+      "forbidden_by_default": [
+        "plane_P",
+        "plane_Q"
+      ],
+      "required_relations": [
+        "M ∈ a",
+        "N ∈ b",
+        "Δ ⟂ a",
+        "Δ ⟂ b"
+      ]
+    },
+    {
+      "id": "PYRAMID_PARALLELOGRAM_FRONT_TO_BACK_KNTT_LOCKED",
+      "status": "LOCKED",
+      "object": "S.ABCD",
+      "base_type": "parallelogram",
+      "view_direction": "front-to-back",
+      "projected_layout": {
+        "A_right_of_D": true,
+        "AB_horizontal": true,
+        "AB_to_CD_spacing_scale_vs_previous_balanced_demo": 0.6666666667,
+        "S_to_AB_distance_scale_vs_previous_demo": 1.3333333333,
+        "wide_faces": true,
+        "no_edge_overlap_or_near_overlap": true
+      },
+      "base_relations": [
+        "AB ∥ CD",
+        "AD ∥ BC"
+      ],
+      "edge_styles": {
+        "dashed": [
+          "SA",
+          "AB",
+          "AD"
+        ],
+        "solid": [
+          "SB",
+          "SC",
+          "SD",
+          "BC",
+          "CD"
+        ]
+      },
+      "default_auxiliaries": [],
+      "forbidden_by_default": [
+        "H",
+        "altitude",
+        "right_angle_marker",
+        "base_diagonal",
+        "center",
+        "auxiliary_plane",
+        "decorative_connector"
+      ],
+      "notes": [
+        "This is a representation profile, not a claim about physical edge lengths unless given.",
+        "Do not change visibility from projected appearance heuristics.",
+        "Keep all faces readable with a wide, balanced oblique parallel projection."
+      ]
+    }
+  ],
+  "latest_locked_profile": "PYRAMID_PARALLELOGRAM_FRONT_TO_BACK_KNTT_LOCKED",
+  "auxiliary_line_style_overrides": {
+    "AH_DISTANCE_CONSTRUCTION_IN_PYRAMID_PROFILE": {
+      "status": "LOCKED",
+      "activation": [
+        "H is explicitly constructed on SD",
+        "AH ⟂ SD is required by the current distance solution"
+      ],
+      "line": "AH",
+      "style": "dashed",
+      "right_angle_marker_at_H": "preserve",
+      "point_H": "preserve",
+      "do_not_change": [
+        "mathematical relation AH ⟂ SD",
+        "H position",
+        "solution content",
+        "layout V1.3"
+      ]
+    }
+  },
+  "latest_locked_update": "CANONICAL_SYMBOL_REGISTRY_V2_4",
+  "math_notation_policy": {
+    "id": "GDPT2018_KNTT_MATH_NOTATION_POLICY",
+    "status": "LOCKED",
+    "renderer": "Math Engine",
+    "raw_unicode_math_symbols": "FORBIDDEN"
+  },
+  "canonical_symbol_registry": {
+    "id": "NA_MATH_KNTT_SYMBOL_STANDARD_V1_0",
+    "status": "LOCKED",
+    "resolver": "NA_MATH_SYMBOL_RESOLVER_CONTRACT_V2_4",
+    "math_font": "Libertinus Math",
+    "body_font": "Libertinus Serif",
+    "ui_font": "Source Sans 3"
+  }
+}

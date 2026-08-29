@@ -1,0 +1,52 @@
+{
+  "version": "1.3.0",
+  "cases": [
+    {
+      "id": "triangular_prism",
+      "name": "Lăng trụ tam giác ABC.A'B'C'",
+      "must_verify": [
+        "AA' ∥ BB' ∥ CC'",
+        "AB ∥ A'B'",
+        "BC ∥ B'C'",
+        "CA ∥ C'A'"
+      ]
+    },
+    {
+      "id": "rectangular_box",
+      "name": "Hình hộp ABCD.A'B'C'D'",
+      "must_verify": [
+        "AA' ∥ BB' ∥ CC' ∥ DD'",
+        "AB ∥ CD ∥ A'B' ∥ C'D'",
+        "AD ∥ BC ∥ A'D' ∥ B'C'"
+      ]
+    },
+    {
+      "id": "pyramid",
+      "name": "Hình chóp S.ABCD",
+      "must_verify": [
+        "base vertex cyclic order",
+        "S connected to A,B,C,D",
+        "visibility consistent with view"
+      ]
+    },
+    {
+      "id": "skew_lines_in_box",
+      "name": "Hai đường thẳng chéo nhau trong hình hộp",
+      "must_verify": [
+        "no intersection",
+        "not parallel",
+        "not coplanar"
+      ]
+    },
+    {
+      "id": "skew_lines_parallel_planes",
+      "name": "Hai đường thẳng chéo nhau trên hai mặt phẳng song song",
+      "must_verify": [
+        "(P) ∥ (Q)",
+        "a ⊂ (P)",
+        "b ⊂ (Q)",
+        "a not parallel b"
+      ]
+    }
+  ]
+}

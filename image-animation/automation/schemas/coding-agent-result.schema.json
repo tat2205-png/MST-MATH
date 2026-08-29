@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://math-ai-image-animation.local/schemas/coding-agent-result.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["taskId", "status", "summary", "claimedChangedFiles", "testsRun", "notes", "fileEdits"],
+  "properties": {
+    "taskId": { "type": "string" },
+    "status": { "enum": ["success", "failed", "blocked"] },
+    "summary": { "type": "string" },
+    "claimedChangedFiles": { "type": "array", "items": { "type": "string" } },
+    "testsRun": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "array", "items": { "type": "string" } },
+    "fileEdits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "operation", "beforeSha256", "content"],
+        "properties": {
+          "path": { "type": "string" },
+          "operation": { "enum": ["CREATE", "UPDATE", "DELETE"] },
+          "beforeSha256": { "type": ["string", "null"] },
+          "content": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

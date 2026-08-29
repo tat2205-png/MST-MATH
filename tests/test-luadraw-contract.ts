@@ -14,7 +14,7 @@ assert.equal(cube.edges.length, 12);
 assert.equal(cube.faces.length, 6);
 assert.equal(cube.labels.length, 8);
 assert.equal(cube.dimensions.length, 3);
-assert.equal(Object.keys(cube.net!.faceCoordinates).length, cube.faces.length);
+assert.equal(Object.keys(cube.net?.faceCoordinates ?? {}).length, cube.faces.length);
 
 const badVertex = structuredClone(cube); badVertex.vertices[0].x = Number.NaN;
 assert.equal(validateGeometrySpec(badVertex).status, "FAIL");
@@ -25,7 +25,7 @@ process.env.PATH = "";
 const missingRuntime = await new LuaDrawEngine().render(cube, path.resolve(process.cwd(), "local_bridge", "runs", "luadraw_missing_runtime"));
 process.env.PATH = originalPath;
 assert.equal(missingRuntime.status, "FAIL");
-const unsupported = structuredClone(cube) as any; unsupported.geometryType = "SPHERE";
+const unsupported = structuredClone(cube); Reflect.set(unsupported, "geometryType", "SPHERE");
 assert.equal(validateGeometrySpec(unsupported).status, "FAIL");
 const tampered = structuredClone(cube); tampered.dimensions[0].value = 99;
 assert.equal(validateGeometrySpec(tampered).checks.SOURCE_PROVENANCE_QA, "FAIL");

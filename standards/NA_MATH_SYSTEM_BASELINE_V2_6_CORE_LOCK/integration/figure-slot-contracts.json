@@ -1,0 +1,54 @@
+{
+  "version": "1.9.0",
+  "layout_baseline": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+  "layout_status": "LOCKED",
+  "outer_layout_mutation": "FORBIDDEN",
+  "geometry_slot_policy": {
+    "slot_bounds_are_read_only": true,
+    "geometry_must_clip_to_slot": true,
+    "geometry_may_request_layout_resize": false,
+    "geometry_may_move_slot": false,
+    "geometry_may_change_header_footer": false,
+    "geometry_may_change_card_structure": false,
+    "inner_geometry_safe_inset_ratio": 0.04
+  },
+  "slots": [
+    {
+      "layout_kind": "document",
+      "user_type": "TÀI LIỆU HỌC TẬP",
+      "component": "geometry-figure-card",
+      "mainVisualRatio": 0.3,
+      "density": "comfortable",
+      "safeMargin": 18,
+      "geometry_profile_example": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT"
+    },
+    {
+      "layout_kind": "worksheet",
+      "user_type": "PHIẾU HỌC TẬP",
+      "component": "geometry-figure-card",
+      "mainVisualRatio": 0.28,
+      "density": "comfortable",
+      "safeMargin": 18,
+      "geometry_profile_example": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL"
+    },
+    {
+      "layout_kind": "assessment",
+      "user_type": "PHIẾU BÀI TẬP",
+      "component": "geometry-figure-card",
+      "mainVisualRatio": 0.24,
+      "density": "compact",
+      "safeMargin": 16,
+      "geometry_profile_example": "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN"
+    },
+    {
+      "layout_kind": "video",
+      "user_type": "VIDEO BÀI GIẢNG",
+      "component": "geometry-figure-card",
+      "mainVisualRatio": 0.42,
+      "problemBarRatio": 0.2,
+      "density": "presentation",
+      "safeMargin": 72,
+      "geometry_profile_example": "PARALLEL_PLANES_SKEW_LINES_CANONICAL"
+    }
+  ]
+}

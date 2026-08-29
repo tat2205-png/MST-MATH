@@ -1,0 +1,17 @@
+{
+  "id": "IA-0A.4",
+  "title": "Agent Adapter and Task Execution Sandbox",
+  "phase": "IA-0A",
+  "goal": "Provide provider-neutral, fail-closed coding-agent execution and discovery infrastructure.",
+  "allowedPaths": ["image-animation/automation/agents/**", "image-animation/automation/orchestrator/**", "image-animation/automation/gates/**", "image-animation/automation/scripts/agent-status.ts", "image-animation/automation/specs/IA-0A.1.json", "image-animation/automation/specs/IA-0A.2.json", "image-animation/automation/specs/IA-0A.3.json", "image-animation/automation/specs/IA-0A.4.json", "image-animation/automation/specs/task-spec.schema.json", "image-animation/tests/agent-sandbox.test.ts", "package.json"],
+  "forbiddenPaths": ["server/**", "src/**", "tests/**", "openclaw-extension-windows-fix/**"],
+  "protectedPaths": ["image-animation/tests/**"],
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/automation/agents/**", "image-animation/automation/orchestrator/**", "image-animation/automation/gates/**"],
+  "requirements": ["Use deterministic evidence and post-execution guards.", "Do not install, authenticate, or invoke providers during discovery.", "Never allow agent output to declare final PASS."],
+  "requiredTests": ["image-animation/tests/agent-sandbox.test.ts", "npm run ia:qa", "npm run ia:regression"],
+  "requiredGates": ["IA-G0", "IA-G1", "IA-G2", "IA-G9"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

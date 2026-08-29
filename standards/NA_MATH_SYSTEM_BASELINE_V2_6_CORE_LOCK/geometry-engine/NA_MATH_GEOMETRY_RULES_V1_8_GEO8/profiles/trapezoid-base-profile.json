@@ -1,0 +1,13 @@
+{
+  "id": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+  "large_base_position": "top",
+  "large_base_orientation": "horizontal",
+  "small_base_position": "below_large_base",
+  "preserve_given_base_ratio": true,
+  "forbidden_inferences": [
+    "isosceles",
+    "right_trapezoid",
+    "symmetry",
+    "centered_small_base"
+  ]
+}

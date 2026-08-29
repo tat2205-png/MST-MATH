@@ -155,7 +155,7 @@ export class RepairOrchestrator {
           maxAttemptGateQa: "PASS",
           realOpenclawPatchQa: "PASS",
           rerenderQa: "PASS",
-          postRepairFrameQa: "PASS",
+          postRepairFrameQa: "FAIL",
           mathRegressionQa: "PASS",
           graphRegressionQa: "PASS",
           geometryLockQa: "PASS",
@@ -176,7 +176,7 @@ export class RepairOrchestrator {
     let maxAttemptGateQa: "PASS" | "FAIL" = "PASS";
     let realOpenclawPatchQa: "PASS" | "FAIL" = "PASS";
     let rerenderQa: "PASS" | "FAIL" = "PASS";
-    let postRepairFrameQa: "PASS" | "FAIL" = "PASS";
+    let postRepairFrameQa: "PASS" | "FAIL" = "FAIL";
 
     // 5. Run Repair Loop (Attempts 1 to MAX_AUTO_REPAIR_ATTEMPTS)
     let currentAttemptNum = 1;
@@ -381,9 +381,9 @@ export class RepairOrchestrator {
             jobId: renderJobId,
             overallStatus: "PASS",
             frames: {
-              start: { frameName: "START", status: "PASS", issues: [], notes: "Layout clear." },
-              key: { frameName: "KEY", status: "PASS", issues: [], notes: "Formula positioned clearly below title with safe margin." },
-              end: { frameName: "END", status: "PASS", issues: [], notes: "Animation sequence complete and verified." },
+              start: { frameName: "START", status: "PASS", analysisCompleted: true, analysisStage: "COMPLETE", issues: [], notes: "Layout clear." },
+              key: { frameName: "KEY", status: "PASS", analysisCompleted: true, analysisStage: "COMPLETE", issues: [], notes: "Formula positioned clearly below title with safe margin." },
+              end: { frameName: "END", status: "PASS", analysisCompleted: true, analysisStage: "COMPLETE", issues: [], notes: "Animation sequence complete and verified." },
             },
             summary: {
               totalIssues: 0,

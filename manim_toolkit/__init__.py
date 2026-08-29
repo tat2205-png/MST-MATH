@@ -1,0 +1,103 @@
+"""Additive Manim toolkit for V1.2.
+
+This package is intentionally isolated from the production LuaDraw and scene graph
+architecture. It provides reusable UI, geometry, and background utilities for
+future Manim scenes without altering existing production behavior.
+"""
+
+from .background_ui import (
+    create_clean_background,
+    create_grid_background,
+    create_oxy_background,
+    create_oxyz_background,
+    create_scientific_background,
+    create_teacher_background,
+)
+from .golden_scene import GoldenRightTriangleScene, build_golden_right_triangle_scene
+from .geometry_tools import (
+    line_intersection,
+    make_angle_marker,
+    make_axes_2d,
+    make_axes_3d,
+    make_circle,
+    make_dimension_line,
+    make_line,
+    make_parallel_marker,
+    make_perpendicular_marker,
+    make_point,
+    make_polygon,
+    make_ray,
+    make_segment,
+    make_triangle,
+    projection_point_to_line,
+)
+from .latex_utils import (
+    fit_math_to_box,
+    fit_math_to_width,
+    normalize_latex,
+    safe_mathtex,
+    safe_text,
+    safe_tex,
+    split_long_equation,
+    validate_latex_string,
+)
+from .ui_containers import (
+    check_overlap,
+    clamp_to_frame,
+    create_card,
+    create_formula_box,
+    create_geometry_panel,
+    create_pill,
+    create_result_box,
+    create_solution_box,
+    create_title_box,
+    fit_inside,
+    safe_arrange,
+    safe_next_to,
+)
+
+__all__ = [
+    "create_clean_background",
+    "create_grid_background",
+    "create_teacher_background",
+    "create_scientific_background",
+    "create_oxy_background",
+    "create_oxyz_background",
+    "make_point",
+    "make_segment",
+    "make_line",
+    "make_ray",
+    "make_triangle",
+    "make_polygon",
+    "make_circle",
+    "projection_point_to_line",
+    "line_intersection",
+    "make_parallel_marker",
+    "make_perpendicular_marker",
+    "make_angle_marker",
+    "make_dimension_line",
+    "make_axes_2d",
+    "make_axes_3d",
+    "normalize_latex",
+    "validate_latex_string",
+    "safe_mathtex",
+    "safe_tex",
+    "safe_text",
+    "fit_math_to_width",
+    "fit_math_to_box",
+    "split_long_equation",
+    "fit_inside",
+    "clamp_to_frame",
+    "safe_next_to",
+    "safe_arrange",
+    "check_overlap",
+    "create_card",
+    "create_pill",
+    "create_title_box",
+    "create_formula_box",
+    "create_solution_box",
+    "create_result_box",
+    "create_geometry_panel",
+    "GoldenRightTriangleScene",
+    "build_golden_right_triangle_scene",
+]

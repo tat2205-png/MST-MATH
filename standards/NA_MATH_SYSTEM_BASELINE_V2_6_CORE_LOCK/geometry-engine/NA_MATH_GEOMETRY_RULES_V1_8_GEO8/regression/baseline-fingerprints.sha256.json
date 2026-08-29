@@ -1,0 +1,7 @@
+{
+  "profiles/view-profile-registry.json": "13cc828872085fb3832704bc7eb5acfcdf79204eacdff8bf05bd460c86b030cc",
+  "canonical/canonical-geometry-catalog.json": "3c6c49a7ad82e0f74e7675b1fc4e82196374faf002c31fd85ab7e77ca6e2efb1",
+  "inference/pyramid-altitude-inference-catalog.json": "ff3e4a9d46fc5f8f6224610a5cc94911640073d1fce883d734666e3841904e2e",
+  "spatial/spatial-relation-catalog.json": "1b3f53716eaf570a8f7c12f88bc1ae1f87bc43e86dc3f2db66f9990413f08e5b",
+  "regression/critical-locks.json": "afa0faafa68e27dbedcbcc48395852b948338bbbc362d95a33ffad73f7e0b711"
+}

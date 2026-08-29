@@ -1,0 +1,171 @@
+{
+  "version": "1.7.0",
+  "cases": [
+    {
+      "id": "skew_lines_pass",
+      "mode": "skew",
+      "facts": [
+        [
+          "disjoint",
+          [
+            "a",
+            "b"
+          ]
+        ],
+        [
+          "nonparallel",
+          [
+            "a",
+            "b"
+          ]
+        ],
+        [
+          "noncoplanar",
+          [
+            "a",
+            "b"
+          ]
+        ]
+      ],
+      "expect": "PASS"
+    },
+    {
+      "id": "skew_lines_missing_noncoplanar_blocks",
+      "mode": "skew",
+      "facts": [
+        [
+          "disjoint",
+          [
+            "a",
+            "b"
+          ]
+        ],
+        [
+          "nonparallel",
+          [
+            "a",
+            "b"
+          ]
+        ]
+      ],
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "parallel_lines_not_skew",
+      "mode": "skew",
+      "facts": [
+        [
+          "disjoint",
+          [
+            "a",
+            "b"
+          ]
+        ],
+        [
+          "parallel",
+          [
+            "a",
+            "b"
+          ]
+        ],
+        [
+          "coplanar",
+          [
+            "a",
+            "b"
+          ]
+        ]
+      ],
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "parallel_planes_skew_lines_pass",
+      "mode": "parallel_planes_skew",
+      "facts": [
+        [
+          "parallel",
+          [
+            "P",
+            "Q"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "a",
+            "P"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "b",
+            "Q"
+          ]
+        ],
+        [
+          "nonparallel",
+          [
+            "a",
+            "b"
+          ]
+        ]
+      ],
+      "expect": "PASS"
+    },
+    {
+      "id": "parallel_planes_skew_missing_nonparallel_blocks",
+      "mode": "parallel_planes_skew",
+      "facts": [
+        [
+          "parallel",
+          [
+            "P",
+            "Q"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "a",
+            "P"
+          ]
+        ],
+        [
+          "lies-in",
+          [
+            "b",
+            "Q"
+          ]
+        ]
+      ],
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "projected_crossing_without_semantic_intersection_forbidden",
+      "mode": "false_intersection",
+      "semantic_intersection": false,
+      "renderer_marker": true,
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "semantic_intersection_marker_allowed",
+      "mode": "false_intersection",
+      "semantic_intersection": true,
+      "renderer_marker": true,
+      "expect": "PASS"
+    },
+    {
+      "id": "decorative_plane_connector_forbidden",
+      "mode": "connector",
+      "count": 2,
+      "expect": "BLOCKED"
+    },
+    {
+      "id": "no_plane_connector_pass",
+      "mode": "connector",
+      "count": 0,
+      "expect": "PASS"
+    }
+  ]
+}

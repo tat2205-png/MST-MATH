@@ -1,0 +1,431 @@
+{
+  "version": "2.1.0",
+  "layout_contract": {
+    "layout_id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "rules": {
+    "visibility_source": "VIEW_PROFILE_ONLY",
+    "projection_mode": "PARALLEL_PROJECTION",
+    "visual_guessing_forbidden": true,
+    "profile_required_for_3d_render": true,
+    "unknown_profile_policy": "BLOCK_RENDER"
+  },
+  "profiles": [
+    {
+      "id": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+      "family": "prism",
+      "object_type": "triangular_prism",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "front-to-back",
+        "front_vertices": [
+          "C",
+          "C′"
+        ],
+        "rear_vertices": [
+          "A",
+          "B",
+          "A′",
+          "B′"
+        ]
+      },
+      "edge_styles": {
+        "solid": [
+          "AC",
+          "BC",
+          "A′C′",
+          "B′C′",
+          "CC′",
+          "AA′",
+          "BB′",
+          "A′B′"
+        ],
+        "dashed": [
+          "AB"
+        ]
+      },
+      "required_relations": [
+        "AA′ ∥ BB′ ∥ CC′",
+        "AB ∥ A′B′",
+        "BC ∥ B′C′",
+        "CA ∥ C′A′"
+      ],
+      "label_hints": {
+        "C": "below",
+        "C′": "right",
+        "A": "left",
+        "B": "right",
+        "A′": "upper-left",
+        "B′": "upper-right"
+      },
+      "forbidden": [
+        "dash_CA",
+        "dash_CB",
+        "dash_C′A′",
+        "dash_C′B′",
+        "dash_CC′",
+        "guess_visibility"
+      ],
+      "edge_aliases": {
+        "CB": "BC",
+        "C′B′": "B′C′"
+      }
+    },
+    {
+      "id": "BOX_FRONT_LEFT_ABOVE_KNTT",
+      "family": "parallelepiped",
+      "object_type": "box_or_parallelepiped",
+      "status": "BASELINE",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "front-left-above",
+        "front_face": "ABB′A′",
+        "rear_vertex": "D"
+      },
+      "edge_styles": {
+        "solid": [
+          "AB",
+          "BC",
+          "CC′",
+          "BB′",
+          "AA′",
+          "A′B′",
+          "B′C′",
+          "C′D′",
+          "A′D′"
+        ],
+        "dashed": [
+          "AD",
+          "CD",
+          "DD′"
+        ]
+      },
+      "required_relations": [
+        "AB ∥ CD ∥ A′B′ ∥ C′D′",
+        "AD ∥ BC ∥ A′D′ ∥ B′C′",
+        "AA′ ∥ BB′ ∥ CC′ ∥ DD′"
+      ],
+      "label_hints": {
+        "A": "below-left",
+        "B": "below-right",
+        "C": "right",
+        "D": "left",
+        "A′": "upper-left",
+        "B′": "upper-right",
+        "C′": "upper-right",
+        "D′": "upper-left"
+      },
+      "forbidden": [
+        "dash_front_face_edge",
+        "guess_hidden_edges"
+      ]
+    },
+    {
+      "id": "PYRAMID_QUADRILATERAL_FRONT_PROFILE",
+      "family": "pyramid",
+      "object_type": "quadrilateral_pyramid",
+      "status": "TEMPLATE",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "front-oblique",
+        "apex": "S",
+        "rear_base_vertex": "D"
+      },
+      "edge_styles": {
+        "solid": [
+          "AB",
+          "BC",
+          "AS",
+          "BS",
+          "CS"
+        ],
+        "dashed": [
+          "AD",
+          "CD",
+          "DS"
+        ]
+      },
+      "required_relations": [
+        "base cyclic order A-B-C-D",
+        "S connected to A,B,C,D"
+      ],
+      "label_hints": {
+        "S": "above",
+        "A": "below-left",
+        "B": "below",
+        "C": "right",
+        "D": "left"
+      },
+      "forbidden": [
+        "assume_altitude",
+        "assume_center_of_base",
+        "guess_SD_visibility_outside_profile"
+      ],
+      "deprecated_for_kntt_default": true,
+      "replacement_profile": "PYRAMID_QUADRILATERAL_FRONT_TO_BACK_KNTT",
+      "note": "Old fixed hidden-edge profile is not the KNTT default."
+    },
+    {
+      "id": "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN",
+      "family": "pyramid",
+      "object_type": "pyramid_with_proven_altitude",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "textbook-altitude",
+        "altitude_screen_orientation": "vertical",
+        "activation_condition": "altitude relation VERIFIED"
+      },
+      "edge_styles": {
+        "solid": [],
+        "dashed": []
+      },
+      "required_relations": [
+        "SH ⟂ base_plane",
+        "H ∈ base_plane"
+      ],
+      "label_hints": {
+        "S": "above",
+        "H": "offset-from-SH"
+      },
+      "forbidden": [
+        "vertical_SH_without_verified_altitude",
+        "guess_H_position",
+        "assume_H_center"
+      ]
+    },
+    {
+      "id": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+      "family": "planar_base",
+      "object_type": "trapezoid",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "2d_textbook",
+        "large_base_orientation": "horizontal",
+        "large_base_position": "top",
+        "small_base_position": "below"
+      },
+      "edge_styles": {
+        "solid": [
+          "all_boundary_edges"
+        ],
+        "dashed": []
+      },
+      "required_relations": [
+        "large_base ∥ small_base"
+      ],
+      "label_hints": {},
+      "forbidden": [
+        "auto_isosceles",
+        "auto_right_trapezoid",
+        "auto_center_small_base"
+      ],
+      "metric_policy": {
+        "preserve_given_base_ratio": true
+      }
+    },
+    {
+      "id": "PARALLEL_PLANES_SKEW_LINES_CANONICAL",
+      "family": "planes",
+      "object_type": "skew_lines_on_parallel_planes",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "two-separated-parallel-planes",
+        "same_plane_orientation_family": true
+      },
+      "edge_styles": {
+        "solid": [
+          "plane_outlines",
+          "a",
+          "b"
+        ],
+        "dashed": []
+      },
+      "required_relations": [
+        "(P) ∥ (Q)",
+        "a ⊂ (P)",
+        "b ⊂ (Q)",
+        "a ∦ b"
+      ],
+      "label_hints": {
+        "(P)": "inside-left",
+        "(Q)": "inside-left",
+        "a": "near-line-end",
+        "b": "near-line-end"
+      },
+      "forbidden": [
+        "decorative_connectors_between_planes",
+        "fake_prism_guides",
+        "false_intersection_marker",
+        "same_projected_direction_for_a_b"
+      ]
+    },
+    {
+      "id": "PRISM_GENERIC_TRANSLATION_PROFILE",
+      "family": "prism",
+      "object_type": "generic_prism",
+      "status": "TEMPLATE",
+      "projection": {
+        "mode": "parallel",
+        "construction": "second_base = first_base + common_projection_translation"
+      },
+      "edge_styles": {
+        "solid": [],
+        "dashed": []
+      },
+      "required_relations": [
+        "all_lateral_edges_parallel",
+        "corresponding_base_edges_parallel"
+      ],
+      "label_hints": {},
+      "forbidden": [
+        "independent_vertex_offsets",
+        "nonparallel_lateral_edges",
+        "perspective_distortion"
+      ]
+    },
+    {
+      "id": "PYRAMID_QUADRILATERAL_FRONT_TO_BACK_KNTT",
+      "family": "pyramid",
+      "object_type": "quadrilateral_pyramid",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "front-to-back",
+        "rear_base_vertex": "A"
+      },
+      "edge_styles": {
+        "solid": [
+          "SD",
+          "SC",
+          "SB",
+          "DC",
+          "CB"
+        ],
+        "dashed": [
+          "SA",
+          "AD",
+          "AB"
+        ]
+      },
+      "required_relations": [
+        "base cyclic order A-B-C-D",
+        "S connected to A,B,C,D"
+      ],
+      "label_hints": {},
+      "forbidden": [
+        "auto_H",
+        "auto_altitude",
+        "auto_right_angle_marker",
+        "auto_base_diagonal",
+        "visual_center_guess"
+      ]
+    },
+    {
+      "id": "SKEW_LINES_MINIMAL_KNTT",
+      "family": "line_line",
+      "object_type": "skew_lines",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "minimal-skew-lines"
+      },
+      "edge_styles": {
+        "solid": [
+          "a",
+          "b"
+        ],
+        "dashed": []
+      },
+      "required_relations": [
+        "intersection(a,b)=∅",
+        "direction(a) ∦ direction(b)",
+        "a,b noncoplanar"
+      ],
+      "label_hints": {},
+      "forbidden": [
+        "auto_plane_P",
+        "auto_plane_Q",
+        "auto_intersection_point",
+        "auto_common_perpendicular",
+        "auto_connector"
+      ]
+    },
+    {
+      "id": "SKEW_LINES_COMMON_PERPENDICULAR_KNTT",
+      "family": "line_line",
+      "object_type": "skew_lines_common_perpendicular",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "common-perpendicular-only"
+      },
+      "edge_styles": {
+        "solid": [
+          "a",
+          "b",
+          "Δ"
+        ],
+        "dashed": []
+      },
+      "required_relations": [
+        "M ∈ a",
+        "N ∈ b",
+        "Δ ⟂ a",
+        "Δ ⟂ b"
+      ],
+      "label_hints": {},
+      "forbidden": [
+        "auto_plane_P",
+        "auto_plane_Q"
+      ]
+    },
+    {
+      "id": "PYRAMID_PARALLELOGRAM_FRONT_TO_BACK_KNTT_LOCKED",
+      "family": "pyramid",
+      "object_type": "quadrilateral_pyramid_parallelogram_base",
+      "status": "LOCKED",
+      "projection": {
+        "mode": "parallel",
+        "view_intent": "front-to-back-balanced-wide",
+        "A_right_of_D": true,
+        "AB_horizontal": true,
+        "wide_faces": true,
+        "avoid_projected_edge_overlap": true
+      },
+      "edge_styles": {
+        "solid": [
+          "SB",
+          "SC",
+          "SD",
+          "BC",
+          "CD"
+        ],
+        "dashed": [
+          "SA",
+          "AB",
+          "AD"
+        ]
+      },
+      "required_relations": [
+        "AB ∥ CD",
+        "AD ∥ BC",
+        "base cyclic order A-B-C-D"
+      ],
+      "forbidden": [
+        "auto_H",
+        "auto_altitude",
+        "auto_right_angle_marker",
+        "auto_diagonal",
+        "auto_center",
+        "auto_auxiliary_plane"
+      ]
+    }
+  ],
+  "kntt_visual_baseline": "KNTT_VISUAL_DEMO_V2_LOCKED",
+  "latest_locked_profile": "PYRAMID_PARALLELOGRAM_FRONT_TO_BACK_KNTT_LOCKED"
+}

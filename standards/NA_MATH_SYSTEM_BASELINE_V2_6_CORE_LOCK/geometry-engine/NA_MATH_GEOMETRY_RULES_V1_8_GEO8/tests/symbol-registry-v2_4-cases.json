@@ -1,0 +1,80 @@
+{
+  "version": "2.4.0",
+  "cases": [
+    {
+      "id": "perp",
+      "input": "SA\\perp(ABCD)",
+      "expected": "PASS"
+    },
+    {
+      "id": "parallel",
+      "input": "AB\\parallel CD",
+      "expected": "PASS"
+    },
+    {
+      "id": "membership",
+      "input": "H\\in SD",
+      "expected": "PASS"
+    },
+    {
+      "id": "sqrt",
+      "input": "\\sqrt{5}",
+      "expected": "PASS"
+    },
+    {
+      "id": "frac",
+      "input": "\\frac{2a\\sqrt{5}}{5}",
+      "expected": "PASS"
+    },
+    {
+      "id": "vector",
+      "input": "\\overrightarrow{AB}",
+      "expected": "PASS"
+    },
+    {
+      "id": "angle",
+      "input": "\\widehat{ABC}",
+      "expected": "PASS"
+    },
+    {
+      "id": "coords_3d",
+      "input": "M(x;y;z)",
+      "expected": "PASS"
+    },
+    {
+      "id": "combination",
+      "input": "C_n^k",
+      "expected": "PASS"
+    },
+    {
+      "id": "raw_perp",
+      "input": "⊥",
+      "expected": "BLOCKED"
+    },
+    {
+      "id": "raw_parallel",
+      "input": "∥",
+      "expected": "BLOCKED"
+    },
+    {
+      "id": "raw_sqrt",
+      "input": "√",
+      "expected": "BLOCKED"
+    },
+    {
+      "id": "raw_member",
+      "input": "∈",
+      "expected": "BLOCKED"
+    },
+    {
+      "id": "raw_angle",
+      "input": "∠",
+      "expected": "BLOCKED"
+    },
+    {
+      "id": "nPk_variant",
+      "input": "nPk",
+      "expected": "REVIEW_REQUIRED"
+    }
+  ]
+}

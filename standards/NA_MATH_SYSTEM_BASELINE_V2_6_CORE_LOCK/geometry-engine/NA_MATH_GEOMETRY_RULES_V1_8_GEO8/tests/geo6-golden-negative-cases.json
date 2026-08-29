@@ -1,0 +1,144 @@
+{
+  "version": "1.6.0",
+  "cases": [
+    {
+      "id": "triangular_prism_locked_profile",
+      "type": "tri_prism",
+      "expect": {
+        "dashed": [
+          "AB"
+        ],
+        "solid": [
+          "CA",
+          "CB",
+          "C′A′",
+          "C′B′",
+          "CC′",
+          "AA′",
+          "BB′",
+          "A′B′"
+        ]
+      }
+    },
+    {
+      "id": "generic_prism_common_translation_pass",
+      "type": "translation",
+      "base1": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "base2": [
+        [
+          1,
+          -2
+        ],
+        [
+          5,
+          -2
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "expect": true
+    },
+    {
+      "id": "generic_prism_independent_vertex_shift_fail",
+      "type": "translation",
+      "base1": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "base2": [
+        [
+          1,
+          -2
+        ],
+        [
+          5,
+          -2
+        ],
+        [
+          3.2,
+          1
+        ]
+      ],
+      "expect": false
+    },
+    {
+      "id": "trapezoid_ratio_2_to_1",
+      "type": "trapezoid",
+      "large": 8,
+      "small": 4,
+      "offset": 1.3,
+      "gap": 3,
+      "expect_ratio": 2.0
+    },
+    {
+      "id": "trapezoid_not_auto_centered",
+      "type": "trapezoid_offset",
+      "large": 8,
+      "small": 4,
+      "offset": 0.5,
+      "gap": 3,
+      "expect_offset": 0.5
+    },
+    {
+      "id": "box_parallelepiped_only",
+      "type": "box_classify",
+      "parallel": true,
+      "right": false,
+      "equal": false,
+      "expect": {
+        "parallelepiped": true,
+        "rectangularBox": false,
+        "cube": false
+      }
+    },
+    {
+      "id": "box_rectangular",
+      "type": "box_classify",
+      "parallel": true,
+      "right": true,
+      "equal": false,
+      "expect": {
+        "parallelepiped": true,
+        "rectangularBox": true,
+        "cube": false
+      }
+    },
+    {
+      "id": "cube_requires_equal_edges",
+      "type": "box_classify",
+      "parallel": true,
+      "right": true,
+      "equal": true,
+      "expect": {
+        "parallelepiped": true,
+        "rectangularBox": true,
+        "cube": true
+      }
+    }
+  ]
+}

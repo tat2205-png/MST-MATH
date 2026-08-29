@@ -1,0 +1,17 @@
+{
+  "id": "IA-0A.6",
+  "title": "End-to-End Self-Build Canary",
+  "phase": "IA-0A",
+  "goal": "Prove real Codex proposal, host patch application, deterministic failure evidence, real repair, QA rerun, and PASS-only checkpoint on disposable fixture code.",
+  "allowedPaths": ["image-animation/fixtures/self-build-canary/**"],
+  "forbiddenPaths": ["server/**", "src/**", "tests/**", "image-animation/automation/**", "openclaw-extension-windows-fix/**"],
+  "protectedPaths": [],
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/fixtures/self-build-canary/**"],
+  "requirements": ["Initial implementation must create BROKEN.", "Deterministic QA must fail before repair and pass after repair.", "Only real Codex may perform implementation and repair in acceptance mode."],
+  "requiredTests": ["image-animation/tests/self-build.test.ts", "npm run ia:qa", "npm run ia:regression"],
+  "requiredGates": ["IA-G0"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

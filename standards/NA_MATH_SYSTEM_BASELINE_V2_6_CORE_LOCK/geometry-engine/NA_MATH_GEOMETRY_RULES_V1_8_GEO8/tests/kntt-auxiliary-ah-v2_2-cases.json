@@ -1,0 +1,41 @@
+{
+  "version": "2.2.0",
+  "cases": [
+    {
+      "id": "AH_dashed_when_constructed_for_distance",
+      "facts": [
+        "H ∈ SD",
+        "AH ⟂ SD",
+        "AH required by solution"
+      ],
+      "expected_style": {
+        "AH": "dashed"
+      },
+      "expect": "PASS"
+    },
+    {
+      "id": "right_angle_marker_preserved",
+      "facts": [
+        "AH ⟂ SD"
+      ],
+      "expected": {
+        "right_angle_marker_at_H": true
+      },
+      "expect": "PASS"
+    },
+    {
+      "id": "H_position_preserved",
+      "expected": {
+        "H_position_mutation": false
+      },
+      "expect": "PASS"
+    },
+    {
+      "id": "layout_v1_3_unchanged",
+      "expected": {
+        "layout_mutation": false
+      },
+      "expect": "PASS"
+    }
+  ]
+}

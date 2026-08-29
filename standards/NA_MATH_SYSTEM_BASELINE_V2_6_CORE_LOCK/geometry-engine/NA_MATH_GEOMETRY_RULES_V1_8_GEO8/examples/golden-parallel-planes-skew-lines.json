@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "GOLDEN_PARALLEL_PLANES_SKEW_LINES",
+  "title": "Hai đường thẳng chéo nhau trên hai mặt phẳng song song",
+  "layoutContract": {
+    "layoutId": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "layoutStatus": "LOCKED",
+    "geometryMayChangeLayout": false
+  },
+  "objects": [
+    {
+      "id": "P",
+      "kind": "plane",
+      "label": "(P)",
+      "definition": {
+        "type": "point-two-directions",
+        "point": "A",
+        "directions": [
+          {
+            "x": 1,
+            "y": 0,
+            "z": 0
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          }
+        ]
+      },
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "Q",
+      "kind": "plane",
+      "label": "(Q)",
+      "definition": {
+        "type": "point-two-directions",
+        "point": "C",
+        "directions": [
+          {
+            "x": 1,
+            "y": 0,
+            "z": 0
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          }
+        ]
+      },
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "A",
+      "kind": "point",
+      "label": "A",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "B",
+      "kind": "point",
+      "label": "B",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "C",
+      "kind": "point",
+      "label": "C",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "D",
+      "kind": "point",
+      "label": "D",
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "a",
+      "kind": "line",
+      "through": [
+        "A",
+        "B"
+      ],
+      "provenance": "GIVEN"
+    },
+    {
+      "id": "b",
+      "kind": "line",
+      "through": [
+        "C",
+        "D"
+      ],
+      "provenance": "GIVEN"
+    }
+  ],
+  "relations": [
+    {
+      "id": "S1",
+      "type": "parallel",
+      "objects": [
+        "P",
+        "Q"
+      ],
+      "provenance": "GIVEN",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "S2",
+      "type": "lies-in",
+      "objects": [
+        "a",
+        "P"
+      ],
+      "provenance": "GIVEN",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "S3",
+      "type": "lies-in",
+      "objects": [
+        "b",
+        "Q"
+      ],
+      "provenance": "GIVEN",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "S4",
+      "type": "noncoplanar",
+      "objects": [
+        "a",
+        "b"
+      ],
+      "provenance": "DERIVED",
+      "status": "VERIFIED",
+      "evidence": [
+        "S1",
+        "S2",
+        "S3",
+        "a not parallel b"
+      ]
+    },
+    {
+      "id": "S5",
+      "type": "skew",
+      "objects": [
+        "a",
+        "b"
+      ],
+      "provenance": "CONFIRMED",
+      "status": "VERIFIED",
+      "evidence": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "relationId": "S5",
+      "requiredForRender": true
+    }
+  ],
+  "activeViewProfileId": "PARALLEL_PLANES_SKEW_LINES_CANONICAL",
+  "availableViewProfiles": [
+    {
+      "id": "PARALLEL_PLANES_SKEW_LINES_CANONICAL",
+      "projection": {
+        "mode": "parallel"
+      },
+      "edgeStyles": []
+    }
+  ],
+  "verificationStatus": "VERIFIED",
+  "renderPolicy": {
+    "noVisualInference": true,
+    "failClosed": true,
+    "allowUnverifiedDecorativeGeometry": false
+  }
+}

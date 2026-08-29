@@ -1,0 +1,19 @@
+GEO-5 templates: 5
+GEO-5 cases: 9
+PASS direct_altitude_pass
+PASS two_lines_pass
+PASS side_plane_pass
+PASS side_plane_missing_SH_perp_AB_blocks
+PASS equal_SA_SB_SC_pass
+PASS equal_SA_SB_SC_without_projection_blocks
+PASS right_angles_cyclic_pass
+PASS right_angles_without_projection_blocks
+PASS visual_center_is_not_proof
+GEO_5_STATUS=PASS (9/9 cases passed)
+ALTITUDE_VERTICAL_ONLY_IF_VERIFIED=PASS
+MISSING_PREMISE_NO_INFERENCE=PASS
+VISUAL_INFERENCE_FORBIDDEN=PASS
+CIRCUMCENTER_RULE=PASS
+CYCLIC_HBAC_RULE=PASS
+SIDE_PLANE_ALTITUDE_RULE=PASS
+LAYOUT_V1_3_PRESERVED=PASS

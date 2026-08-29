@@ -1,0 +1,100 @@
+{
+  "name": "NA-MATH-GEOMETRY-RULES",
+  "version": "1.8.0",
+  "status": "GEOMETRY_BASELINE_CANDIDATE",
+  "layout": {
+    "id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "core_pipeline": [
+    "given_data",
+    "semantic_geometry",
+    "derived_relations_with_provenance",
+    "view_profile",
+    "parallel_projection",
+    "edge_visibility_table",
+    "label_placement",
+    "geometry_qa",
+    "render"
+  ],
+  "view_profiles": [
+    "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+    "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+    "PYRAMID_ALTITUDE_VERTICAL_IF_PROVEN",
+    "PARALLEL_PLANES_SKEW_LINES_CANONICAL"
+  ],
+  "inference_templates": [
+    "PERP_SIDE_PLANE_TO_BASE_ALTITUDE",
+    "EQUAL_SA_SB_SC_CIRCUMCENTER",
+    "RIGHT_ANGLES_TO_CYCLIC_FOOT_PROFILE"
+  ],
+  "fail_closed": true,
+  "geo_1": {
+    "task": "Semantic Geometry Schema",
+    "status": "PASS",
+    "schema_version": "1.1.0",
+    "golden_scenes": 4,
+    "layout_baseline_preserved": true
+  },
+  "next": "GEO-9 — Integrate Geometry Pipeline into Locked V1.3 Layouts",
+  "geo_2": {
+    "task": "View Profile Registry",
+    "status": "PASS",
+    "registered_profiles": 7,
+    "visibility_source": "VIEW_PROFILE_ONLY",
+    "unknown_profile_policy": "BLOCK_RENDER",
+    "layout_baseline_preserved": true
+  },
+  "geo_3": {
+    "task": "Edge Visibility Resolver",
+    "status": "PASS",
+    "edge_id_normalization": "PASS",
+    "visibility_source": "VIEW_PROFILE_ONLY",
+    "layout_baseline_preserved": true
+  },
+  "geo_4": {
+    "task": "Label Placement & Collision Solver",
+    "status": "PASS",
+    "font_shrink_for_collision": "FORBIDDEN",
+    "block_on_failed_placement": true,
+    "layout_baseline_preserved": true
+  },
+  "geo_5": {
+    "task": "Pyramid Altitude Inference Templates",
+    "status": "PASS",
+    "templates": 5,
+    "golden_and_negative_cases": 9,
+    "vertical_altitude_only_if_verified": true,
+    "missing_premise_policy": "NO_INFERENCE",
+    "visual_inference": "FORBIDDEN",
+    "layout_baseline_preserved": true
+  },
+  "geo_6": {
+    "task": "Prism / Box / Trapezoid Canonical Geometry Profiles",
+    "status": "PASS",
+    "triangular_prism_profile": "LOCKED",
+    "generic_prism_N_range": "3..10",
+    "trapezoid_profile": "LOCKED",
+    "given_ratio_preservation": true,
+    "visibility_responsibility": "GEO-3_VIEW_PROFILE",
+    "layout_baseline_preserved": true
+  },
+  "geo_7": {
+    "task": "Skew Lines / Parallel Planes / Spatial Relation Profiles",
+    "status": "PASS",
+    "spatial_profiles": 7,
+    "false_intersection_guard": "PASS",
+    "decorative_connector_guard": "PASS",
+    "semantic_3d_source_of_truth": true,
+    "layout_baseline_preserved": true
+  },
+  "geo_8": {
+    "task": "Golden Geometry QA Corpus & Regression Pack",
+    "status": "PASS",
+    "regression_suites": 8,
+    "golden_negative_cases": 43,
+    "critical_lock_suite": "PASS",
+    "layout_baseline_preserved": true
+  }
+}

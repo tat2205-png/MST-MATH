@@ -1,0 +1,9 @@
+GEO-2 profiles: 7
+PASS triangular_prism_locked
+PASS box_front_left_above
+PASS parallel_planes_skew
+PASS trapezoid_base
+GEO_2_STATUS=PASS (4/4 golden cases passed)
+LAYOUT_V1_3_PRESERVED=PASS
+UNKNOWN_VIEW_PROFILE_POLICY=BLOCK_RENDER
+VISIBILITY_SOURCE=VIEW_PROFILE_ONLY

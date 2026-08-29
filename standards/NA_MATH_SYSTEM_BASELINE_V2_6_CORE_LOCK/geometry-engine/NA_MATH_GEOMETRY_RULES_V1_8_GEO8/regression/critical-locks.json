@@ -1,0 +1,55 @@
+{
+  "version": "1.8.0",
+  "layout": {
+    "id": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "status": "LOCKED",
+    "geometry_may_change_layout": false
+  },
+  "triangular_prism": {
+    "profile_id": "TRIANGULAR_PRISM_FRONT_TO_BACK_KNTT",
+    "dashed_only": [
+      "AB"
+    ],
+    "solid": [
+      "CA",
+      "CB",
+      "C′A′",
+      "C′B′",
+      "CC′",
+      "AA′",
+      "BB′",
+      "A′B′"
+    ]
+  },
+  "trapezoid": {
+    "profile_id": "TRAPEZOID_BASE_LARGE_TOP_HORIZONTAL",
+    "large_base_orientation": "horizontal",
+    "large_base_position": "top",
+    "small_base_position": "below",
+    "preserve_numeric_ratio_if_given": true,
+    "forbidden": [
+      "auto_isosceles",
+      "auto_right_trapezoid",
+      "auto_center_small_base"
+    ]
+  },
+  "visibility": {
+    "source": "VIEW_PROFILE_ONLY",
+    "unknown_profile_policy": "BLOCK_RENDER",
+    "manual_override": "FORBIDDEN"
+  },
+  "altitude": {
+    "vertical_only_if_verified": true,
+    "missing_premise_policy": "NO_INFERENCE",
+    "visual_inference": "FORBIDDEN"
+  },
+  "labels": {
+    "font_shrink_for_collision": "FORBIDDEN",
+    "failed_placement": "BLOCK_RENDER"
+  },
+  "spatial": {
+    "projected_crossing_is_not_intersection": true,
+    "decorative_plane_connectors_forbidden": true,
+    "semantic_3d_source_of_truth": true
+  }
+}

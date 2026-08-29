@@ -19,6 +19,10 @@ import { buildGoldenPath } from "./server/services/goldenPathService.js";
 import { REPAIR_SMOKE_TEST_MANIFEST, REPAIR_SMOKE_TEST_SCENE_CODE } from "./src/types/localRender.js";
 import { LuaDrawEngine } from "./server/geometry/luadrawEngine.js";
 import { luaDrawFlags } from "./server/geometry/geometryRouter.js";
+import { studioEngineRegistry } from "./server/studio/engineRegistry.js";
+import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
+import { registerStudioRoutes } from "./server/studio/api.js";
+import { TeacherWorkflowService } from "./server/services/teacherWorkflowService.js";
 
 async function startServer() {
   const app = express();
@@ -39,8 +43,11 @@ async function startServer() {
   const integrationService = new IntegrationAdaptersService();
   const visualFrameQAService = new VisualFrameQAService();
   const luaDrawEngine = new LuaDrawEngine();
+  const teacherWorkflowService = new TeacherWorkflowService();
 
   // --- API Routes ---
+
+  registerStudioRoutes(app);
 
   // Health check
   app.get("/api/health", async (req, res) => {
@@ -64,6 +71,122 @@ async function startServer() {
       res.json({ providers });
     } catch (err: any) {
       res.status(500).json({ error: err.message });
+    }
+  });
+
+  // Developer-safe Studio capability registry / orchestrator status
+  app.get("/api/studio/status", (req, res) => {
+    try {
+      const featureEnabled = process.env.STUDIO_ORCHESTRATOR_V1 === "true";
+      res.json({
+        success: true,
+        featureEnabled,
+        orchestrator: "StudioOrchestrator",
+        registeredCapabilities: studioEngineRegistry.snapshot().length,
+        capabilities: studioEngineRegistry.snapshot(),
+      });
+    } catch (err: any) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  app.post("/api/studio/plan", (req, res) => {
+    try {
+      const plan = studioOrchestrator.plan(req.body || {});
+      res.json({ success: true, plan });
+    } catch (err: any) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  // Teacher Golden Workflow application boundary. These routes orchestrate
+  // existing authoritative services; browser components never access storage
+  // or domain engines directly.
+  app.get("/api/teacher-workflow/status", (_req, res) => {
+    res.json({ success: true, summary: teacherWorkflowService.summary() });
+  });
+
+  app.post("/api/teacher-workflow/import", (req, res) => {
+    try {
+      const { base64, fileName } = req.body || {};
+      if (typeof base64 !== "string" || typeof fileName !== "string") return res.status(400).json({ success: false, code: "INVALID_DOCUMENT", error: "Thiếu dữ liệu tệp DOCX." });
+      res.json({ success: true, result: teacherWorkflowService.importDocx(base64, fileName) });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      const explicitCode = message.split(":", 1)[0];
+      const code = ["UNSUPPORTED_FILE", "INVALID_DOCUMENT"].includes(explicitCode)
+        ? explicitCode
+        : /zip|document\.xml|central directory|archive/i.test(message)
+          ? "INVALID_DOCUMENT"
+          : /segment|question boundary/i.test(message)
+            ? "QUESTION_SEGMENTATION_WARNING"
+            : /math|omml|latex/i.test(message)
+              ? "MATH_WARNING"
+              : /figure|relationship|media/i.test(message)
+                ? "FIGURE_ASSOCIATION_WARNING"
+                : /parse|xml/i.test(message)
+                  ? "PARSE_FAILURE"
+                  : "IMPORT_RUNTIME_FAILURE";
+      res.status(code === "UNSUPPORTED_FILE" || code === "INVALID_DOCUMENT" ? 400 : 422).json({ success: false, code, error: message.replace(`${code}:`, "").trim() });
+    }
+  });
+
+  app.post("/api/teacher-workflow/approve", (req, res) => {
+    try {
+      const ids = Array.isArray(req.body?.ids) ? req.body.ids.filter((id: unknown): id is string => typeof id === "string") : [];
+      res.json({ success: true, summary: teacherWorkflowService.approve(ids) });
+    } catch (error) {
+      res.status(409).json({ success: false, code: "APPROVAL_BLOCKED", error: error instanceof Error ? error.message : String(error) });
+    }
+  });
+
+  app.post("/api/teacher-workflow/questions/query", (req, res) => {
+    try {
+      res.json({ success: true, result: teacherWorkflowService.query(req.body?.query || {}) });
+    } catch (error) {
+      res.status(400).json({ success: false, code: "QUESTION_QUERY_FAILED", error: error instanceof Error ? error.message : String(error) });
+    }
+  });
+
+  app.post("/api/teacher-workflow/assessments", (req, res) => {
+    try {
+      const result = teacherWorkflowService.generateAssessment(req.body?.spec);
+      if ("diagnostics" in result) return res.status(409).json({ success: false, code: "ASSESSMENT_GENERATION_FAILED", ...result });
+      res.json({ success: true, result });
+    } catch (error) {
+      res.status(400).json({ success: false, code: "INVALID_ASSESSMENT_SPEC", error: error instanceof Error ? error.message : String(error) });
+    }
+  });
+
+  app.post("/api/teacher-workflow/games/start", (req, res) => {
+    try {
+      res.json({ success: true, result: teacherWorkflowService.startGame(String(req.body?.assessmentId || "")) });
+    } catch (error) {
+      res.status(409).json({ success: false, code: "GAME_START_FAILED", error: error instanceof Error ? error.message : String(error) });
+    }
+  });
+
+  app.post("/api/teacher-workflow/games/action", (req, res) => {
+    try {
+      res.json({ success: true, result: teacherWorkflowService.gameAction(String(req.body?.sessionId || ""), req.body?.action, req.body?.response) });
+    } catch (error) {
+      res.status(409).json({ success: false, code: "GAME_ACTION_FAILED", error: error instanceof Error ? error.message : String(error) });
+    }
+  });
+
+  app.post("/api/teacher-workflow/video/prepare", (req, res) => {
+    try {
+      res.json({ success: true, result: teacherWorkflowService.prepareVideo(String(req.body?.questionId || "")) });
+    } catch (error) {
+      res.status(409).json({ success: false, code: "VIDEO_PREPARATION_FAILED", error: error instanceof Error ? error.message : String(error) });
+    }
+  });
+
+  app.post("/api/teacher-workflow/exports", (req, res) => {
+    try {
+      res.json({ success: true, result: teacherWorkflowService.exportAssessment(req.body) });
+    } catch (error) {
+      res.status(409).json({ success: false, code: "EXPORT_FAILED", error: error instanceof Error ? error.message : String(error) });
     }
   });
 

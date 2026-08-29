@@ -1,0 +1,17 @@
+{
+  "id": "IA-0A.5",
+  "title": "Real Codex Coding Agent Integration",
+  "phase": "IA-0A",
+  "goal": "Integrate the local Codex CLI through the provider-neutral agent sandbox without granting it final QA authority.",
+  "allowedPaths": ["image-animation/automation/agents/**", "image-animation/automation/orchestrator/**", "image-animation/automation/schemas/**", "image-animation/automation/scripts/agent-status.ts", "image-animation/automation/scripts/build.ts", "image-animation/automation/scripts/canary.ts", "image-animation/automation/specs/IA-0A.4.json", "image-animation/automation/specs/IA-0A.5.json", "image-animation/automation/specs/IA-CANARY-001.json", "image-animation/automation/specs/task-spec.schema.json", "image-animation/fixtures/agent-canary/**", "image-animation/tests/agent-sandbox.test.ts", "image-animation/tests/codex-integration.test.ts", "package.json"],
+  "forbiddenPaths": ["server/**", "src/**", "tests/**", "openclaw-extension-windows-fix/**"],
+  "protectedPaths": ["image-animation/tests/**"],
+  "architectureProtectedPaths": ["image-animation/core/**", "image-animation/schemas/**"],
+  "agentAllowedPaths": ["image-animation/fixtures/agent-canary/**"],
+  "requirements": ["Require explicit IA_AGENT_PROVIDER=codex for real execution.", "Use Codex only through TaskExecutionSandbox.", "Keep real production execution disabled and use only the isolated canary."],
+  "requiredTests": ["image-animation/tests/codex-integration.test.ts", "npm run ia:qa", "npm run ia:regression"],
+  "requiredGates": ["IA-G0", "IA-G1", "IA-G2", "IA-G9"],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

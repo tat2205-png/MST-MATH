@@ -1,0 +1,140 @@
+{
+  "id": "GDPT2018_KNTT_MATH_NOTATION_POLICY",
+  "version": "2.4.0",
+  "status": "LOCKED",
+  "scope": [
+    "learning_material",
+    "worksheet",
+    "exercise_sheet",
+    "assessment",
+    "video",
+    "geometry_figure",
+    "solution_steps"
+  ],
+  "curriculum": "GDPT 2018",
+  "textbook_family": "Kết nối tri thức",
+  "renderer": {
+    "required": "Math Engine / LaTeX-compatible math renderer",
+    "raw_unicode_for_math_symbols": "FORBIDDEN",
+    "plain_text_substitution_for_math_symbols": "FORBIDDEN",
+    "semantic_math_ast": "REQUIRED_WHEN_AVAILABLE",
+    "required_math_font": "Libertinus Math",
+    "body_font": "Libertinus Serif",
+    "ui_font": "Source Sans 3",
+    "renderer_bypass": "FORBIDDEN"
+  },
+  "hard_rules": [
+    "Preserve source mathematical meaning exactly.",
+    "Do not invent notation absent from the problem or proof.",
+    "Do not replace mathematical symbols with visually similar glyphs.",
+    "Do not mix body-text Unicode math with rendered formulas.",
+    "Keep math baseline, size, spacing and font family consistent.",
+    "Use Vietnamese KNTT notation conventions where variants exist."
+  ],
+  "canonical_examples": {
+    "perpendicular": {
+      "latex": "\\perp",
+      "raw_unicode": "⊥",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "parallel": {
+      "latex": "\\parallel",
+      "raw_unicode": "∥",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "belongs_to": {
+      "latex": "\\in",
+      "raw_unicode": "∈",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "not_belongs_to": {
+      "latex": "\\notin",
+      "raw_unicode": "∉",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "intersection": {
+      "latex": "\\cap",
+      "raw_unicode": "∩",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "union": {
+      "latex": "\\cup",
+      "raw_unicode": "∪",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "subset": {
+      "latex": "\\subset",
+      "raw_unicode": "⊂",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "subseteq": {
+      "latex": "\\subseteq",
+      "raw_unicode": "⊆",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "sqrt": {
+      "latex": "\\sqrt{...}",
+      "raw_unicode": "√",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "fraction": {
+      "latex": "\\frac{...}{...}",
+      "plain_slash_fraction": "DISCOURAGED_IN_DISPLAY_MATH"
+    },
+    "vector": {
+      "latex": "\\vec{AB}",
+      "unicode_arrow_substitution": "FORBIDDEN"
+    },
+    "angle": {
+      "latex": "\\angle ABC",
+      "raw_unicode": "∠",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "degree": {
+      "latex": "60^\\circ",
+      "raw_unicode_degree_in_formula": "FORBIDDEN"
+    },
+    "therefore": {
+      "latex": "\\Rightarrow",
+      "raw_unicode": "⇒",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "equivalent": {
+      "latex": "\\Leftrightarrow",
+      "raw_unicode": "⇔",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "not_equal": {
+      "latex": "\\ne",
+      "raw_unicode": "≠",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "less_equal": {
+      "latex": "\\le",
+      "raw_unicode": "≤",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "greater_equal": {
+      "latex": "\\ge",
+      "raw_unicode": "≥",
+      "raw_unicode_status": "FORBIDDEN"
+    },
+    "infinity": {
+      "latex": "\\infty",
+      "raw_unicode": "∞",
+      "raw_unicode_status": "FORBIDDEN"
+    }
+  },
+  "geometry_notation": {
+    "line": "Use labels such as a, b, d or two-point names in math mode.",
+    "plane": "Use (P), (Q), (ABC) in math mode.",
+    "distance": "d(A,(P)),\\ d(a,b)",
+    "perpendicular_statement": "SA\\perp(ABCD)",
+    "parallel_statement": "AB\\parallel CD",
+    "membership_statement": "H\\in SD",
+    "angle_statement": "\\angle ABC",
+    "right_angle_marker": "visual marker must correspond to a verified perpendicular relation"
+  },
+  "canonical_symbol_registry": "NA_MATH_KNTT_SYMBOL_STANDARD_V1_0",
+  "resolver_contract": "NA_MATH_SYMBOL_RESOLVER_CONTRACT_V2_4"
+}

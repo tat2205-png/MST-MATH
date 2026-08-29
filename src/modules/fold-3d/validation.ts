@@ -1,0 +1,37 @@
+import { EPSILON, distance2, finiteMatrix } from "./math.js";
+import type { FoldIssue, FoldState, FoldTopology, FoldValidationResult, NetLayout, Vec2 } from "./types.js";
+
+const result=(issues:FoldIssue[]):FoldValidationResult=>({status:issues.some(issue=>issue.severity==="error")?"FAIL":"PASS",issues});
+const error=(issues:FoldIssue[],code:string,path:string,message:string)=>issues.push({code,severity:"error",path,message});
+
+export function validateFoldTopology(topology:FoldTopology):FoldValidationResult{
+  const issues:FoldIssue[]=[]; const vertexIds=new Set(topology.vertices.map(v=>v.id)),edgeIds=new Set<string>(),faceIds=new Set<string>();
+  if(topology.vertices.some(v=>v.foldedPosition.some(n=>!Number.isFinite(n)||Math.abs(n)>1e6)))error(issues,"INVALID_SOLID","vertices","Vertex coordinates must be finite and bounded.");
+  topology.edges.forEach((edge,index)=>{if(edgeIds.has(edge.id))error(issues,"INVALID_EDGE",`edges[${index}].id`,`Duplicate edge ${edge.id}.`);edgeIds.add(edge.id);if(edge.vertexIds[0]===edge.vertexIds[1]||edge.vertexIds.some(id=>!vertexIds.has(id)))error(issues,"INVALID_EDGE",`edges[${index}]`,`Edge requires two valid distinct vertices.`);if(edge.incidentFaceIds.length!==2)error(issues,"NON_MANIFOLD_EDGE",`edges[${index}].incidentFaceIds`,`Closed supported solids require exactly two incident faces per edge.`);});
+  topology.faces.forEach((face,index)=>{if(faceIds.has(face.id))error(issues,"DUPLICATE_FACE",`faces[${index}].id`,`Duplicate face ${face.id}.`);faceIds.add(face.id);if(face.vertexIds.length<3||new Set(face.vertexIds).size!==face.vertexIds.length||face.vertexIds.some(id=>!vertexIds.has(id)))error(issues,"INVALID_FACE",`faces[${index}]`,`Face requires at least three distinct valid vertices.`);if(face.edgeIds.length!==face.vertexIds.length||face.edgeIds.some(id=>!edgeIds.has(id)))error(issues,"INVALID_FACE_VERTEX_ORDER",`faces[${index}].edgeIds`,`Face edge loop does not match its vertex loop.`);if(face.normal.some(n=>!Number.isFinite(n)))error(issues,"INVALID_FACE",`faces[${index}].normal`,`Face normal must be finite.`);});
+  topology.edges.forEach((edge,index)=>edge.incidentFaceIds.forEach(id=>{if(!faceIds.has(id))error(issues,"MISSING_FACE",`edges[${index}].incidentFaceIds`,`Incident face ${id} is missing.`);}));
+  topology.adjacency.forEach((adj,index)=>{if(adj.faceIds.some(id=>!faceIds.has(id))||!edgeIds.has(adj.sharedEdgeId))error(issues,"INVALID_TOPOLOGY",`adjacency[${index}]`,`Adjacency references missing topology.`);});
+  if(topology.vertices.length-topology.edges.length+topology.faces.length!==2)error(issues,"INVALID_TOPOLOGY","topology","Euler characteristic V-E+F must equal 2 for supported closed convex solids.");
+  return result(issues);
+}
+
+function orientation(a:Vec2,b:Vec2,c:Vec2){return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);}
+function properIntersection(a:Vec2,b:Vec2,c:Vec2,d:Vec2){const o1=orientation(a,b,c),o2=orientation(a,b,d),o3=orientation(c,d,a),o4=orientation(c,d,b);return o1*o2<-EPSILON&&o3*o4<-EPSILON;}
+function pointInside(point:Vec2,polygon:Vec2[]){let inside=false;for(let i=0,j=polygon.length-1;i<polygon.length;j=i++){const a=polygon[i],b=polygon[j];if(Math.abs(orientation(a,b,point))<EPSILON&&point[0]>=Math.min(a[0],b[0])-EPSILON&&point[0]<=Math.max(a[0],b[0])+EPSILON&&point[1]>=Math.min(a[1],b[1])-EPSILON&&point[1]<=Math.max(a[1],b[1])+EPSILON)return false;if((a[1]>point[1])!==(b[1]>point[1])&&point[0]<(b[0]-a[0])*(point[1]-a[1])/(b[1]-a[1])+a[0])inside=!inside;}return inside;}
+function overlap(a:Vec2[],b:Vec2[]){for(let i=0;i<a.length;i++)for(let j=0;j<b.length;j++)if(properIntersection(a[i],a[(i+1)%a.length],b[j],b[(j+1)%b.length]))return true;return a.some(p=>pointInside(p,b))||b.some(p=>pointInside(p,a));}
+
+export function validateNet(net:NetLayout,topology:FoldTopology):FoldValidationResult{
+  const issues=[...validateFoldTopology(topology).issues];const topologyFaces=new Set(topology.faces.map(face=>face.id)),netFaceIds=new Set<string>();
+  if(!topologyFaces.has(net.rootFaceId))error(issues,"INVALID_ROOT_FACE","rootFaceId","Root face does not exist in topology.");
+  net.faces.forEach((face,index)=>{if(netFaceIds.has(face.faceId))error(issues,"DUPLICATE_FACE",`faces[${index}].faceId`,`Duplicate net face ${face.faceId}.`);netFaceIds.add(face.faceId);if(!topologyFaces.has(face.faceId))error(issues,"MISSING_FACE",`faces[${index}]`,`Net face has no topology face.`);if(face.vertices.length<3||face.vertices.some(vertex=>vertex.position.some(n=>!Number.isFinite(n)||Math.abs(n)>1e6)))error(issues,"INVALID_FACE",`faces[${index}]`,`Net face coordinates must be finite and bounded.`);});
+  topologyFaces.forEach(id=>{if(!netFaceIds.has(id))error(issues,"MISSING_FACE","faces",`Required face ${id} is missing from net.`);});
+  const hingeIds=new Set<string>(),childIds=new Set<string>(),children=new Map<string,string[]>();
+  net.hinges.forEach((hinge,index)=>{if(hingeIds.has(hinge.id))error(issues,"INVALID_HINGE",`hinges[${index}].id`,`Duplicate hinge ID.`);hingeIds.add(hinge.id);if(!netFaceIds.has(hinge.parentFaceId)||!netFaceIds.has(hinge.childFaceId)||!topology.edges.some(edge=>edge.id===hinge.sharedEdgeId))error(issues,"MISSING_HINGE_REFERENCE",`hinges[${index}]`,`Hinge references missing face or edge.`);if(hinge.parentFaceId===hinge.childFaceId||childIds.has(hinge.childFaceId))error(issues,"INVALID_HINGE",`hinges[${index}]`,`A child face must have exactly one distinct parent.`);childIds.add(hinge.childFaceId);children.set(hinge.parentFaceId,[...(children.get(hinge.parentFaceId)??[]),hinge.childFaceId]);if(!Number.isFinite(hinge.targetAngleRadians))error(issues,"INVALID_HINGE",`hinges[${index}].targetAngleRadians`,`Hinge angle must be finite.`);});
+  const visiting=new Set<string>(),visited=new Set<string>();let cyclic=false;const walk=(id:string)=>{if(visiting.has(id)){cyclic=true;return;}if(visited.has(id))return;visiting.add(id);for(const child of children.get(id)??[])walk(child);visiting.delete(id);visited.add(id);};walk(net.rootFaceId);if(cyclic)error(issues,"CYCLIC_FOLD_TREE","hinges","Fold hierarchy contains a cycle.");if(visited.size!==netFaceIds.size)error(issues,"DISCONNECTED_NET","hinges","Fold tree does not connect every net face.");if(net.hinges.length!==Math.max(0,net.faces.length-1))error(issues,"INVALID_HINGE","hinges","Fold tree must contain F-1 hinges.");
+  for(let i=0;i<net.faces.length;i++)for(let j=i+1;j<net.faces.length;j++)if(overlap(net.faces[i].vertices.map(v=>v.position),net.faces[j].vertices.map(v=>v.position)))error(issues,"NET_FACE_OVERLAP",`faces[${i}],faces[${j}]`,`Net faces ${net.faces[i].faceId} and ${net.faces[j].faceId} overlap.`);
+  return result(issues);
+}
+
+export function validateFoldState(state:FoldState,net:NetLayout):FoldValidationResult{
+  const issues:FoldIssue[]=[];if(!Number.isFinite(state.progress)||state.progress<0||state.progress>1)error(issues,"INVALID_PROGRESS","progress","Fold progress must be finite and within [0,1].");const ids=new Set(net.faces.map(face=>face.faceId));state.faceTransforms.forEach((face,index)=>{if(!ids.has(face.faceId)||!finiteMatrix(face.matrix))error(issues,face.matrix.some(Number.isNaN)?"NAN_TRANSFORM":face.matrix.some(value=>!Number.isFinite(value))?"INFINITE_TRANSFORM":"INVALID_TRANSFORM",`faceTransforms[${index}]`,`Face transform is invalid.`);});if(state.faceTransforms.length!==net.faces.length)error(issues,"INVALID_TRANSFORM","faceTransforms","Every net face requires one transform.");return result(issues);
+}

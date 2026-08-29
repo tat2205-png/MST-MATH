@@ -1,0 +1,108 @@
+{
+  "name": "NA-MATH-LAYOUT-V1.3 + NA-MATH-GEOMETRY",
+  "version": "2.6.0",
+  "task": "GEO-9",
+  "status": "LOCKED",
+  "layout": {
+    "baseline": "NA-MATH-DESIGN-SYSTEM V1.3",
+    "status": "LOCKED",
+    "source": "NA_MATH_DESIGN_SYSTEM_V1_3_STARTER.zip",
+    "mutation_allowed": false
+  },
+  "geometry": {
+    "baseline": "NA-MATH-GEOMETRY-RULES V1.8",
+    "integration_mode": "FIGURE_SLOT_ONLY",
+    "regression_required": true
+  },
+  "outputs": [
+    "document / TÀI LIỆU HỌC TẬP",
+    "worksheet / PHIẾU HỌC TẬP",
+    "assessment / PHIẾU BÀI TẬP",
+    "video / VIDEO BÀI GIẢNG"
+  ],
+  "next": "VISUAL-GEO-2 — expand canonical KNTT figure library",
+  "qa": {
+    "v13_byte_identity": "PASS",
+    "four_layout_slots": "PASS",
+    "geometry_regression": "PASS",
+    "layout_preserved": "PASS"
+  },
+  "kntt_visual_baseline": {
+    "id": "KNTT_VISUAL_DEMO_V2",
+    "status": "LOCKED",
+    "regression": "PASS",
+    "minimum_necessary_geometry": true
+  },
+  "latest_locked_profile": "PYRAMID_PARALLELOGRAM_FRONT_TO_BACK_KNTT_LOCKED",
+  "parallelogram_pyramid_profile": {
+    "status": "LOCKED",
+    "dashed": [
+      "SA",
+      "AB",
+      "AD"
+    ],
+    "solid": [
+      "SB",
+      "SC",
+      "SD",
+      "BC",
+      "CD"
+    ],
+    "A_right_of_D": true,
+    "AB_horizontal": true,
+    "wide_faces": true,
+    "no_edge_overlap": true
+  },
+  "latest_locked_update": {
+    "id": "DISTANCE_AH_DASHED",
+    "AH": "dashed",
+    "right_angle_marker_at_H": "preserved",
+    "H_position": "preserved",
+    "layout_v1_3": "unchanged"
+  },
+  "math_notation_policy": {
+    "id": "GDPT2018_KNTT_MATH_NOTATION_POLICY",
+    "status": "LOCKED",
+    "renderer": "Math Engine",
+    "raw_unicode_math_symbols": "FORBIDDEN",
+    "regression": "PASS"
+  },
+  "canonical_symbol_registry": {
+    "id": "NA_MATH_KNTT_SYMBOL_STANDARD_V1_0",
+    "status": "LOCKED",
+    "resolver_contract": "NA_MATH_SYMBOL_RESOLVER_CONTRACT_V2_4",
+    "qa": "PASS",
+    "fonts": {
+      "body": "Libertinus Serif",
+      "math": "Libertinus Math",
+      "ui": "Source Sans 3",
+      "fallback_body_vi": "Noto Serif",
+      "fallback_ui_vi": "Noto Sans"
+    }
+  },
+  "math_pipeline": [
+    "SOURCE_MATH",
+    "SEMANTIC_PARSE",
+    "CANONICAL_SYMBOL_LOOKUP",
+    "GDPT2018_KNTT_NORMALIZATION",
+    "MATH_ENGINE_RENDER",
+    "SYMBOL_QA",
+    "OUTPUT"
+  ],
+  "output_color_system": {
+    "id": "NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0",
+    "status": "LOCKED",
+    "contracts": {
+      "learning_material": "#0C2D57",
+      "worksheet": "#2F8F68",
+      "exercise_sheet": "#6B4FA3",
+      "video": "#D9911B"
+    }
+  },
+  "system_core_lock": {
+    "policy": "NA_MATH_SYSTEM_CORE_LOCK_POLICY_V2_6",
+    "qa": "PASS",
+    "new_feature": "BLOCKED",
+    "new_geometry_profile": "REVIEW_REQUIRED"
+  }
+}

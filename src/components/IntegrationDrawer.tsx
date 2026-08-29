@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { MathProblemIR, MathSolution } from "../types/mathSchema.js";
 import { NotebookLMStudyGuide, OpenClawAgentTask } from "../../server/adapters/integrationAdapters.js";
+import { StudioEngineStatusPanel } from "./StudioEngineStatusPanel.js";
 
 interface IntegrationDrawerProps {
   isOpen: boolean;
@@ -27,7 +28,7 @@ export const IntegrationDrawer: React.FC<IntegrationDrawerProps> = ({
   problemIR,
   solution,
 }) => {
-  const [activeTab, setActiveTab] = useState<"notebooklm" | "openclaw" | "codex">("notebooklm");
+  const [activeTab, setActiveTab] = useState<"notebooklm" | "openclaw" | "codex" | "studio">("notebooklm");
   const [studyGuide, setStudyGuide] = useState<NotebookLMStudyGuide | null>(null);
   const [openClawTask, setOpenClawTask] = useState<OpenClawAgentTask | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -126,6 +127,18 @@ export const IntegrationDrawer: React.FC<IntegrationDrawerProps> = ({
           >
             <Cpu className="w-3.5 h-3.5" />
             <span>OpenClaw Worker</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("studio")}
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+              activeTab === "studio"
+                ? "bg-blue-600 text-white shadow-xs"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>Studio Status</span>
           </button>
         </div>
 
@@ -247,6 +260,8 @@ export const IntegrationDrawer: React.FC<IntegrationDrawerProps> = ({
               )}
             </div>
           )}
+
+          {!isLoading && activeTab === "studio" && <StudioEngineStatusPanel />}
         </div>
       </div>
     </div>

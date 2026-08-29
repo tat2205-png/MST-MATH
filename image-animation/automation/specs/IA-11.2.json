@@ -1,0 +1,59 @@
+{
+  "id": "IA-11.2",
+  "title": "V1.1 Depth Runtime",
+  "phase": "IA-11",
+  "goal": "Harden provider-neutral depth inference and 2.5D runtime integration.",
+  "allowedPaths": [
+    "image-animation/adapters/depth/**",
+    "image-animation/renderers/two-point-five-d/**",
+    "image-animation/runtime/depth/**",
+    "image-animation/tests/depth-runtime/**",
+    "image-animation/automation/specs/IA-11.2.json",
+    "image-animation/automation/state/project-state.json"
+  ],
+  "forbiddenPaths": [
+    "server/**",
+    "src/**",
+    "tests/**",
+    "openclaw-extension-windows-fix/**"
+  ],
+  "protectedPaths": [],
+  "architectureProtectedPaths": [
+    "image-animation/automation/**"
+  ],
+  "agentAllowedPaths": [
+    "image-animation/adapters/depth/**",
+    "image-animation/renderers/two-point-five-d/**",
+    "image-animation/runtime/depth/**",
+    "image-animation/tests/depth-runtime/**"
+  ],
+  "requirements": [
+    "Keep image coordinates, exact Scene Graph geometry, and estimated depth distinct.",
+    "Support layer depth, parallax, camera motion, separation, and object-plane transforms."
+  ],
+  "requiredTests": [
+    "npm run lint",
+    "npm run ia:task-test",
+    "npm run ia:qa",
+    "npm run ia:regression"
+  ],
+  "taskQa": [
+    "npm run lint",
+    "npm run ia:task-test"
+  ],
+  "passCriteria": [
+    "Task tests pass.",
+    "All deterministic gates pass.",
+    "Changes remain within allowed paths."
+  ],
+  "requiredGates": [
+    "IA-G0",
+    "IA-G1",
+    "IA-G2",
+    "IA-G3",
+    "IA-G9"
+  ],
+  "maxRepairAttempts": 3,
+  "architectureChangeAllowed": false,
+  "expectedBranch": "feature/image-animation-foundation"
+}

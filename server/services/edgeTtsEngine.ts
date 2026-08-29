@@ -124,7 +124,7 @@ export class EdgeTtsEngine {
         ];
 
         // Safe execution without shell: true
-        await execFileAsync("edge-tts", args, {
+        await execFileAsync("python", ["-m", "edge_tts", ...args], {
           timeout: 20000,
           windowsHide: true,
         });
@@ -171,9 +171,7 @@ export class EdgeTtsEngine {
       }
     }
 
-    // If edge-tts CLI is not installed locally in sandboxed container, generate a synthetic clean WAV/MP3 tone container
-    // with exact mathematical timing to allow full end-to-end sync testing.
-    return this.generateSyntheticAudioFallback(cueId, ttsText, audioFilePath);
+    return { ok: false, cueId, error: `Edge TTS generation failed after ${maxAttempts} attempts: ${lastError}` };
   }
 
   /**
@@ -198,72 +196,7 @@ export class EdgeTtsEngine {
       const parsed = parseFloat(stdout.trim());
       return isNaN(parsed) ? 0 : Number(parsed.toFixed(2));
     } catch {
-      // Fallback: estimate from MP3 byte rate or file size if ffprobe is unavailable
-      const stats = fs.statSync(filePath);
-      const estimatedSeconds = Number((stats.size / 4000).toFixed(2));
-      return Math.max(1.5, estimatedSeconds);
-    }
-  }
-
-  /**
-   * Synthetic audio generator fallback for environments without edge-tts CLI
-   * Creates a valid, audible spoken placeholder WAV/MP3 container with true duration.
-   */
-  private generateSyntheticAudioFallback(
-    cueId: string,
-    ttsText: string,
-    audioFilePath: string
-  ): TtsGenerationResult {
-    try {
-      // Estimate realistic Vietnamese speech duration: ~3.5 words per second
-      const wordCount = ttsText.trim().split(/\s+/).length;
-      const duration = Number(Math.max(2.0, wordCount / 3.2).toFixed(2));
-
-      // Generate a minimal valid MP3 / WAV audio container
-      const sampleRate = 44100;
-      const numSamples = Math.floor(sampleRate * duration);
-      const buffer = Buffer.alloc(44 + numSamples * 2);
-
-      // Write WAV header
-      buffer.write("RIFF", 0);
-      buffer.writeUInt32LE(36 + numSamples * 2, 4);
-      buffer.write("WAVE", 8);
-      buffer.write("fmt ", 12);
-      buffer.writeUInt32LE(16, 16); // Subchunk1Size
-      buffer.writeUInt16LE(1, 20); // PCM
-      buffer.writeUInt16LE(1, 22); // Mono
-      buffer.writeUInt32LE(sampleRate, 24);
-      buffer.writeUInt32LE(sampleRate * 2, 28);
-      buffer.writeUInt16LE(2, 32); // BlockAlign
-      buffer.writeUInt16LE(16, 34); // BitsPerSample
-      buffer.write("data", 36);
-      buffer.writeUInt32LE(numSamples * 2, 40);
-
-      // Fill with soft audible chime/harmonic frequency
-      for (let i = 0; i < numSamples; i++) {
-        const t = i / sampleRate;
-        const amplitude = 3000 * Math.exp(-t / duration);
-        const sample = Math.floor(amplitude * Math.sin(2 * Math.PI * 440 * t));
-        buffer.writeInt16LE(sample, 44 + i * 2);
-      }
-
-      fs.writeFileSync(audioFilePath, buffer);
-      const audioBase64 = `data:audio/wav;base64,${buffer.toString("base64")}`;
-
-      return {
-        ok: true,
-        cueId,
-        audioPath: `audio/${path.basename(audioFilePath)}`,
-        duration,
-        fileSizeBytes: buffer.length,
-        audioBase64,
-      };
-    } catch (err: any) {
-      return {
-        ok: false,
-        cueId,
-        error: `Synthetic audio fallback error: ${err.message}`,
-      };
+      return 0;
     }
   }
 }

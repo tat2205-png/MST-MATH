@@ -1,0 +1,19 @@
+PASS perp -> PASS
+PASS parallel -> PASS
+PASS membership -> PASS
+PASS sqrt -> PASS
+PASS frac -> PASS
+PASS vector -> PASS
+PASS angle -> PASS
+PASS coords_3d -> PASS
+PASS combination -> PASS
+PASS raw_perp -> BLOCKED
+PASS raw_parallel -> BLOCKED
+PASS raw_sqrt -> BLOCKED
+PASS raw_member -> BLOCKED
+PASS raw_angle -> BLOCKED
+PASS nPk_variant -> REVIEW_REQUIRED
+SYMBOL_REGISTRY_QA=PASS (15/15)
+CANONICAL_REGISTRY=NA_MATH_KNTT_SYMBOL_STANDARD_V1_0
+MATH_ENGINE=REQUIRED
+MATH_FONT=Libertinus Math

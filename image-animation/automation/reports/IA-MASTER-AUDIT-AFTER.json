@@ -1,0 +1,48 @@
+{
+  "audit": "IA-MASTER-AUDIT-RECOVERY-AUTOPILOT-V1",
+  "phase": "after",
+  "workspace": "D:/math-ai-image-animation",
+  "head": "bfd9a3e726fe642ac0c4e0c2aaecd9deb4979a59",
+  "branch": "feature/image-animation-foundation",
+  "architectureChanged": false,
+  "historicalAudit": {
+    "IA-0A.1": "IMPLEMENTED",
+    "IA-0A.2": "IMPLEMENTED",
+    "IA-0A.3": "IMPLEMENTED",
+    "IA-0A.4": "IMPLEMENTED",
+    "IA-0A.5": "PASS",
+    "IA-0A.5Finding": "Codex generated a structured canary edit; host validation and application produced deterministic AFTER content."
+  },
+  "freshValidation": {
+    "typescript": "PASS",
+    "gitPorcelainParser": "PASS",
+    "automationTests": "PASS",
+    "iaQa": "PASS",
+    "regression": "PASS",
+    "agentStatus": "PASS",
+    "doctor": "PASS",
+    "resume": "BLOCKED_AT_IA-0A.6_HUMAN_GATE",
+    "iaBuildEntrypoint": "PASS",
+    "realAgentCanary": "PASS"
+  },
+  "findings": [
+    "Git porcelain parsing previously used slice(3) and dropped the first path character; dedicated parser now preserves the two-character status prefix and exact paths.",
+    "build.ts previously selected a provider and exited before sandbox execution; the generic build path now reaches the sandbox and Codex adapter when explicitly selected.",
+    "TaskExecutionSandbox now records content fingerprints and derives agent deltas from before/after state rather than trusting model claims.",
+    "Codex instructions now explicitly require the IA-CANARY-001 file edit and exact AFTER content.",
+    "Codex output is bounded and redacted; last-message and execution metadata are captured before temporary files are removed.",
+    "ia-canary-output.txt is an operator-created root file outside historical IA-0A.1 scope, so ia:qa correctly fails closed.",
+    "The real Codex process generated a structured proposal; host-applied patch mode validated and applied it to the canary."
+  ],
+  "automation": [
+    "image-animation/automation/gates/gitStatusParser.ts",
+    "image-animation/automation/scripts/doctor.ts",
+    "image-animation/automation/scripts/resume.ts",
+    "image-animation/automation/state/project-state.json",
+    "image-animation/automation/ROADMAP.md"
+  ],
+  "currentTask": "IA-0A.6",
+  "nextTask": "IA-0A.6",
+  "stopReason": "IA-0A.6_REQUIRED",
+  "final": "PASS_WITH_HUMAN_GATE"
+}

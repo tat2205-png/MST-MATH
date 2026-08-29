@@ -1,0 +1,84 @@
+{
+  "id": "NA_MATH_SYSTEM_CORE_LOCK_POLICY",
+  "version": "2.6.0",
+  "status": "LOCKED",
+  "baseline_name": "NA-MATH-SYSTEM BASELINE V2.6 — DESIGN + MATH + GEOMETRY CORE LOCKED",
+  "locked_layers": [
+    {
+      "id": "layout",
+      "status": "HARD_LOCK",
+      "baseline": "NA-MATH-LAYOUT V1.3 CANONICAL",
+      "mutation": "BLOCKED"
+    },
+    {
+      "id": "color_system",
+      "status": "HARD_LOCK",
+      "baseline": "NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0",
+      "mutation": "BLOCKED"
+    },
+    {
+      "id": "typography",
+      "status": "HARD_LOCK",
+      "body": "Libertinus Serif",
+      "math": "Libertinus Math",
+      "ui": "Source Sans 3",
+      "fallback": [
+        "Noto Serif",
+        "Noto Sans"
+      ],
+      "mutation": "BLOCKED"
+    },
+    {
+      "id": "math_notation",
+      "status": "HARD_LOCK",
+      "standard": "GDPT 2018 + Kết nối tri thức",
+      "renderer": "Math Engine",
+      "raw_unicode_math": "BLOCKED"
+    },
+    {
+      "id": "symbol_registry",
+      "status": "HARD_LOCK",
+      "baseline": "NA_MATH_KNTT_SYMBOL_STANDARD_V1_0",
+      "unknown_symbol": "BLOCK_RENDER"
+    },
+    {
+      "id": "semantic_geometry",
+      "status": "HARD_LOCK",
+      "visual_inference": "FORBIDDEN",
+      "auto_auxiliary_geometry": "FORBIDDEN"
+    },
+    {
+      "id": "approved_geometry_profiles",
+      "status": "HARD_LOCK_PER_PROFILE",
+      "new_profile": "REVIEW_REQUIRED",
+      "approved_profile_mutation": "BLOCKED"
+    },
+    {
+      "id": "qa_gates",
+      "status": "HARD_LOCK",
+      "gates": [
+        "NO_TEXT_OVERFLOW",
+        "NO_CONTENT_OVERLAP",
+        "MATH_SYMBOL_QA",
+        "GEOMETRY_VISIBILITY_QA",
+        "LAYOUT_IDENTITY_QA",
+        "PALETTE_QA",
+        "FONT_QA"
+      ]
+    }
+  ],
+  "development_policy": {
+    "NEW_FEATURE": "BLOCKED",
+    "NEW_GEOMETRY_PROFILE": "REVIEW_REQUIRED",
+    "BUG_FIX": "ALLOWED",
+    "QA": "ALLOWED",
+    "CANONICALIZATION": "ALLOWED",
+    "DOCUMENTATION": "ALLOWED",
+    "RELEASE_PACKAGING": "ALLOWED"
+  },
+  "change_control": {
+    "explicit_user_request_required_for_locked_layer_change": true,
+    "default_on_violation": "BLOCK_CHANGE",
+    "preserve_existing_baselines": true
+  }
+}

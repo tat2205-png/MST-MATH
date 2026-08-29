@@ -1,0 +1,49 @@
+{
+  "audit": "IA-MASTER-AUDIT-RECOVERY-AUTOPILOT-V1",
+  "phase": "before",
+  "capturedAt": "2026-08-23",
+  "workspace": "D:/math-ai-image-animation",
+  "head": "bfd9a3e726fe642ac0c4e0c2aaecd9deb4979a59",
+  "branch": "feature/image-animation-foundation",
+  "changedFiles": [
+    "image-animation/automation/agents/instructionBuilder.ts",
+    "image-animation/automation/agents/taskSandbox.ts",
+    "image-animation/automation/orchestrator/orchestrator.ts",
+    "image-animation/automation/scripts/agent-status.ts",
+    "package.json"
+  ],
+  "untrackedFiles": [
+    "ia-canary-output.txt",
+    "image-animation/automation/agents/codexAgent.ts",
+    "image-animation/automation/agents/providerSelection.ts",
+    "image-animation/automation/agents/redaction.ts",
+    "image-animation/automation/schemas/",
+    "image-animation/automation/scripts/build.ts",
+    "image-animation/automation/scripts/canary.ts",
+    "image-animation/automation/specs/IA-0A.5.json",
+    "image-animation/automation/specs/IA-CANARY-001.json",
+    "image-animation/fixtures/",
+    "image-animation/tests/codex-integration.test.ts"
+  ],
+  "packageScripts": ["dev", "build", "start", "clean", "lint", "qa:quick", "qa:full", "qa:repair", "qa:math", "qa:regression", "ia:status", "ia:qa", "ia:regression", "ia:test-agent", "ia:agent-status", "ia:build", "ia:auto", "ia:test-repair", "qa:ci"],
+  "taskSpecsDiscovered": ["IA-0A.1.json", "IA-0A.2.json", "IA-0A.3.json", "IA-0A.4.json", "IA-0A.5.json", "IA-CANARY-001.json", "task-spec.schema.json"],
+  "testsDiscovered": ["agent-sandbox.test.ts", "codex-integration.test.ts", "orchestrator.test.ts", "repair-loop.test.ts", "repository-guard.test.ts"],
+  "reportsDiscovered": ["IA-0A.2.json", "IA-0A.3.json"],
+  "automationComponentsDiscovered": ["AGENTS policies", "task-spec schema", "Repository Guard", "QA runner", "regression runner", "orchestrator", "state machine", "RepairExecutor", "CodingAgent", "provider discovery", "provider selection", "instruction builder", "TaskExecutionSandbox", "Codex adapter", "redaction", "result schema", "agent-status", "build runner", "canary runner"],
+  "fingerprints": {
+    "image-animation/automation/agents/codexAgent.ts": "3EBC7F739B521BE80DCFFC71689446C2CD37537F68CDF5B219B394BBA8DC0756",
+    "image-animation/automation/agents/codingAgent.ts": "5B906061DDE3A498250895BBD2D91ECA394D9C95C3FB3900844C71E90FA53C16",
+    "image-animation/automation/agents/instructionBuilder.ts": "B2948E7240A45211A52B99179EE0BF244D9371513409011BBA6C202CE85AFF26",
+    "image-animation/automation/agents/providerDiscovery.ts": "5A8CAD3BDA74BF58BB4FB3C2DA96FA4407230B032C59F19B73B9D6A698F338D0",
+    "image-animation/automation/agents/providerSelection.ts": "B326855756FB93E323E6A8F73E80203A49F787FDCBE9C87DAAB4B965FD4BCCAF",
+    "image-animation/automation/agents/redaction.ts": "BDDBA16DDEAF43634AE3DFA7A3B2218E5227DB82E585206A11D",
+    "image-animation/automation/agents/taskSandbox.ts": "44D48A65C33606F54291934E7A35421A54944A846E958AD8AEBC56C0295B4379",
+    "image-animation/automation/gates/repositoryGuard.ts": "B52E3D6F9E3F2B2CA6737FA2B7BDCDDFABF979EEF30E4A3DDD10CF3913DD5AE1",
+    "image-animation/automation/orchestrator/orchestrator.ts": "4D525154D15472F9A66CF8F25D9F5FE9B6CD36FD92CDD4C728B182BDC78BBDE0",
+    "image-animation/automation/orchestrator/repairExecutor.ts": "601390192F6CB543A822E9FCDA880801255A0167838992CF2CCEEB6514BCD1D7",
+    "image-animation/automation/scripts/build.ts": "5A004C18AC26347B2C501D90013C43A59BC2448BE41B5E0DA7D80A4AD0F6F98A",
+    "image-animation/automation/scripts/canary.ts": "74801848A19036F9BDF772625B8EF6446B60F90AC800A02EE079A4DE6542ACAF",
+    "image-animation/automation/specs/IA-CANARY-001.json": "B863CF7032B9D69017BD9518BB927ECF50E129C2EEB9B31F08913AA50B86B543",
+    "image-animation/fixtures/agent-canary/canary.txt": "BE9351741A8155D01FD028D158546F1005E73CEEB0BB2D093335FEAC4144E450"
+  }
+}
