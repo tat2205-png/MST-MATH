@@ -26,6 +26,7 @@
     "qa:docx:1e": "node --import tsx tests/test-docx-1e.ts",
     "qa:docx:1f": "node --import tsx tests/test-docx-1f.ts",
     "qa:docx": "npm run qa:docx:1a && npm run qa:docx:1b && npm run qa:docx:1c && npm run qa:docx:1d && npm run qa:docx:1e && npm run qa:docx:1f && npm run qa:na-math-v2.6",
+    "qa:ingest": "node --import tsx tests/test-document-ingest-v1.ts",
     "golden:docx": "node --import tsx scripts/generate-docx-goldens.ts",
     "qa:luadraw": "python scripts/doctor_luadraw.py && node --import tsx tests/test-luadraw-contract.ts",
     "qa:luadraw:smoke": "node --import tsx scripts/run-luadraw-smoke.ts",
