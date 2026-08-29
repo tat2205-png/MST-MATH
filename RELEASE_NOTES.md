@@ -4,8 +4,7 @@
 
 The canonical `main` branch contains the validated release baseline
 `4b2ea1f91f85fad00baf2f321b086c02c7037032`, followed by this release-prep
-metadata commit. The approved final release version is `1.3.1`; the tag
-`v1.3.1` is reserved for the owner’s later publication action.
+metadata commit. The approved final release version is `1.3.1`.
 
 ## Included stabilization
 
@@ -46,7 +45,13 @@ metadata commit. The approved final release version is `1.3.1`; the tag
 - EXAM-QA-3, EXAM-QA-4, and EXAM-QA-5 remain deferred.
 - Optional Gemini visual QA remains unavailable without credentials.
 
-## Publication decision
+## Publication status
 
-Canonical main is technically validated and release metadata is synchronized.
-No tag, push, remote release, or production deployment was performed.
+Math AI Studio v1.3.1 has been published.
+
+- Canonical branch: `main`
+- Release tag: `v1.3.1`
+- Released source commit: `57956cd3d55482e8252d7ece1b2d617831c492f0`
+- GitHub Release: published
+- npm package publication: not performed
+- Production deployment: not performed
