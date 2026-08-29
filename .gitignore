@@ -1,4 +1,5 @@
 node_modules/
+.nls-review/
 build/
 dist/
 coverage/
