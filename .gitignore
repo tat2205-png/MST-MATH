@@ -17,3 +17,6 @@ render_output/
 
 .serena/
 .tmp/
+
+# Prevent accidental in-repository copies of the external NLS corpus only.
+/NA-MATH-NLS-AI-SOURCES/
