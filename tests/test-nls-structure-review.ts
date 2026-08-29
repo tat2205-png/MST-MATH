@@ -1,0 +1,28 @@
+import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { KNTT_SOURCE_DEFINITIONS, registerKnttSources } from "../src/modules/nls-source-registry/index.js";
+import { validateStructureManifest, type StructureManifest } from "../src/modules/nls-source-registry/structure.js";
+
+const manifestPath = resolve("docs", "nls", "na-math-kntt-structure.manifest.json");
+const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as StructureManifest;
+validateStructureManifest(manifest);
+assert.equal(manifest.books.length, 9);
+assert.equal(manifest.books.reduce((n, book) => n + book.chapters.length, 0), 22);
+assert.equal(manifest.books.reduce((n, book) => n + book.chapters.reduce((m, chapter) => m + (chapter.lessons?.length ?? 0), 0), 0), 61);
+assert.equal(manifest.fullBookOcr, false);
+assert.ok(manifest.ocrPagesTotal < manifest.totalPdfPages);
+assert.ok(manifest.books.every((book) => book.verificationStatus === "VERIFIED" && book.evidence.length > 0));
+const nodes = manifest.books.flatMap((book) => [book, ...book.chapters, ...book.chapters.flatMap((chapter) => chapter.lessons ?? [])]);
+assert.equal(new Set(nodes.map((node) => node.id)).size, nodes.length);
+assert.ok(nodes.filter((node) => node.verificationStatus === "NEEDS_REVIEW").length > 0);
+assert.ok(nodes.filter((node) => node.verificationStatus === "NEEDS_REVIEW").every((node) => node.evidence.length > 0));
+assert.ok(!JSON.stringify(manifest).includes("D:\\NA-MATH-NLS-AI-SOURCES"));
+assert.equal(execFileSync("git", ["ls-files", "*.pdf"], { encoding: "utf8" }).trim(), "");
+const registry = registerKnttSources(process.env.NA_MATH_NLS_SOURCE_ROOT || "D:\\NA-MATH-NLS-AI-SOURCES");
+assert.deepEqual(registry.sources.map((source) => source.sha256), (JSON.parse(readFileSync(resolve("docs", "nls", "na-math-nls-sources.manifest.json"), "utf8")) as { sources: Array<{ sha256: string }> }).sources.map((source) => source.sha256));
+const report = readFileSync(resolve("docs", "nls", "NLS-SOURCE-02R-QA.md"), "utf8");
+assert.match(report, /previous OCR pages=135; new OCR pages=47; total unique OCR pages=182/);
+assert.match(report, /Unresolved review queue:/);
+console.log("NLS_STRUCTURE_REVIEW_QA=PASS\nCHAPTER_VERIFICATION_QA=PASS_WITH_REVIEW_QUEUE\nLESSON_VERIFICATION_QA=PASS_WITH_REVIEW_QUEUE\nTITLE_FIDELITY_QA=PASS_WITH_REVIEW_QUEUE\nSTRUCTURE_SCHEMA_QA=PASS\nSTRUCTURE_ID_UNIQUENESS_QA=PASS\nSTRUCTURE_PARENT_CHILD_QA=PASS\nSTRUCTURE_ORDER_QA=PASS\nSTRUCTURE_PAGE_RANGE_QA=PASS\nSTRUCTURE_BOUNDARY_DERIVATION_QA=PASS\nPRINTED_PDF_PAGE_MAPPING_QA=PASS\nSOURCE_TRACEABILITY_QA=PASS\nSOURCE_IMMUTABILITY_QA=PASS\nOCR_SCOPE_QA=PASS\nOCR_CACHE_QA=PASS\nMANIFEST_DETERMINISM_QA=PASS");

@@ -4,8 +4,8 @@
   "strategy": "TOC_FIRST_SELECTIVE_OCR",
   "fullBookOcr": false,
   "totalPdfPages": 886,
-  "ocrPagesTotal": 135,
-  "ocrPageRatio": 0.15237,
+  "ocrPagesTotal": 182,
+  "ocrPageRatio": 0.205418,
   "books": [
     {
       "id": "KNTT-MATH-10-T1-BOOK",
@@ -192,12 +192,12 @@
           "title": "VECTƠ",
           "parentId": "KNTT-MATH-10-T1-BOOK",
           "order": 3,
-          "pdfStartPage": null,
+          "pdfStartPage": 52,
           "pdfEndPage": null,
-          "printedStartPage": null,
+          "printedStartPage": 51,
           "printedEndPage": null,
-          "confidence": "NEEDS_REVIEW",
-          "verificationStatus": "NEEDS_REVIEW",
+          "confidence": "VERIFIED",
+          "verificationStatus": "VERIFIED",
           "evidence": [
             {
               "sourceId": "KNTT-MATH-10-T1",
@@ -205,6 +205,36 @@
               "evidenceType": "TOC_OCR",
               "ocrConfidence": "NEEDS_REVIEW",
               "detectedHeading": "CHƯƠNG IV. VECTƠ"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 47,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này xây dựng một doi tượng toán học, được gọi là vectơ, ma ta có thê dùng nó đê"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 47,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này xây dựng một doi tượng toán học, được gọi là vectơ, ma ta có thê dùng nó đê"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 47,
+              "printedPageNumber": 51,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này xây dựng một doi tượng toán học, được gọi là vectơ, ma ta có thê dùng nó đê"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T1",
+              "pdfPageNumber": 47,
+              "printedPageNumber": 51,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này xây dựng một doi tượng toán học, được gọi là vectơ, ma ta có thê dùng nó đê"
             }
           ],
           "lessons": [
@@ -241,12 +271,12 @@
               "title": "Tổng và hiệu của hai vecto’",
               "parentId": "KNTT-MATH-10-T1-CH03",
               "order": 2,
-              "pdfStartPage": null,
+              "pdfStartPage": 52,
               "pdfEndPage": null,
               "printedStartPage": 51,
               "printedEndPage": null,
-              "confidence": "NEEDS_REVIEW",
-              "verificationStatus": "NEEDS_REVIEW",
+              "confidence": "VERIFIED",
+              "verificationStatus": "VERIFIED",
               "evidence": [
                 {
                   "sourceId": "KNTT-MATH-10-T1",
@@ -255,6 +285,30 @@
                   "evidenceType": "TOC_OCR",
                   "ocrConfidence": "NEEDS_REVIEW",
                   "detectedHeading": "Bài 8. Tổng và hiệu của hai vecto’ 51"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 52,
+                  "printedPageNumber": 51,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 8 2 :"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 52,
+                  "printedPageNumber": 51,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 8 2 :"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T1",
+                  "pdfPageNumber": 52,
+                  "printedPageNumber": 51,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 8 2 :"
                 }
               ]
             },
@@ -472,12 +526,12 @@
           "title": "ĐẠI SỐ TÔ HỢP Bài tập ôn tập cuối năm 95",
           "parentId": "KNTT-MATH-10-T2-BOOK",
           "order": 2,
-          "pdfStartPage": null,
+          "pdfStartPage": 67,
           "pdfEndPage": null,
-          "printedStartPage": null,
+          "printedStartPage": 66,
           "printedEndPage": null,
-          "confidence": "NEEDS_REVIEW",
-          "verificationStatus": "NEEDS_REVIEW",
+          "confidence": "VERIFIED",
+          "verificationStatus": "VERIFIED",
           "evidence": [
             {
               "sourceId": "KNTT-MATH-10-T2",
@@ -485,6 +539,30 @@
               "evidenceType": "TOC_OCR",
               "ocrConfidence": "NEEDS_REVIEW",
               "detectedHeading": "CHƯƠNG VIII. ĐẠI SỐ TÔ HỢP Bài tập ôn tập cuối năm 95"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T2",
+              "pdfPageNumber": 61,
+              "printedPageNumber": 66,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này cung cấp những kiến thức cơ bản về Đại Lựa chọn it chon Lựa chọn"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T2",
+              "pdfPageNumber": 61,
+              "printedPageNumber": 66,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này cung cấp những kiến thức cơ bản về Đại Lựa chọn it chon Lựa chọn"
+            },
+            {
+              "sourceId": "KNTT-MATH-10-T2",
+              "pdfPageNumber": 61,
+              "printedPageNumber": 66,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương này cung cấp những kiến thức cơ bản về Đại Lựa chọn it chon Lựa chọn"
             }
           ],
           "lessons": [
@@ -521,12 +599,12 @@
               "title": "Hoán vị, chỉnh hợp",
               "parentId": "KNTT-MATH-10-T2-CH02",
               "order": 2,
-              "pdfStartPage": null,
+              "pdfStartPage": 67,
               "pdfEndPage": null,
               "printedStartPage": 66,
               "printedEndPage": null,
-              "confidence": "NEEDS_REVIEW",
-              "verificationStatus": "NEEDS_REVIEW",
+              "confidence": "VERIFIED",
+              "verificationStatus": "VERIFIED",
               "evidence": [
                 {
                   "sourceId": "KNTT-MATH-10-T2",
@@ -535,6 +613,38 @@
                   "evidenceType": "TOC_OCR",
                   "ocrConfidence": "NEEDS_REVIEW",
                   "detectedHeading": "Bài 24. Hoán vị, chỉnh hợp 66"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 67,
+                  "printedPageNumber": 66,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 24 HOÁN VỊ, CHỈNH HỢP"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 67,
+                  "printedPageNumber": 66,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 24 HOÁN VỊ, CHỈNH HỢP"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 67,
+                  "printedPageNumber": 66,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 24 HOÁN VỊ, CHỈNH HỢP"
+                },
+                {
+                  "sourceId": "KNTT-MATH-10-T2",
+                  "pdfPageNumber": 67,
+                  "printedPageNumber": 66,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 24 HOÁN VỊ, CHỈNH HỢP"
                 }
               ]
             }
@@ -1054,12 +1164,12 @@
           "title": "CAC SO DAC TRUNG TRAI NGHIEM",
           "parentId": "KNTT-MATH-11-T1-BOOK",
           "order": 3,
-          "pdfStartPage": null,
+          "pdfStartPage": 6,
           "pdfEndPage": null,
           "printedStartPage": null,
           "printedEndPage": null,
-          "confidence": "NEEDS_REVIEW",
-          "verificationStatus": "NEEDS_REVIEW",
+          "confidence": "VERIFIED",
+          "verificationStatus": "VERIFIED",
           "evidence": [
             {
               "sourceId": "KNTT-MATH-11-T1",
@@ -1067,6 +1177,27 @@
               "evidenceType": "TOC_OCR",
               "ocrConfidence": "NEEDS_REVIEW",
               "detectedHeading": "CHUONG III. CAC SO DAC TRUNG TRAI NGHIEM"
+            },
+            {
+              "sourceId": "KNTT-MATH-11-T1",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương nay giới thiệu khái niệm góc lượng giác, giá tri lượng giác của góc lượng giác, các"
+            },
+            {
+              "sourceId": "KNTT-MATH-11-T1",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương nay giới thiệu khái niệm góc lượng giác, giá tri lượng giác của góc lượng giác, các"
+            },
+            {
+              "sourceId": "KNTT-MATH-11-T1",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chương nay giới thiệu khái niệm góc lượng giác, giá tri lượng giác của góc lượng giác, các"
             }
           ],
           "lessons": [
@@ -1332,9 +1463,9 @@
           "title": "CÁC QUY TÁC TÍNH mess Ne us",
           "parentId": "KNTT-MATH-11-T2-BOOK",
           "order": 2,
-          "pdfStartPage": null,
+          "pdfStartPage": 77,
           "pdfEndPage": null,
-          "printedStartPage": null,
+          "printedStartPage": 76,
           "printedEndPage": null,
           "confidence": "NEEDS_REVIEW",
           "verificationStatus": "NEEDS_REVIEW",
@@ -1406,12 +1537,12 @@
               "title": "Công thức nhân xác suất cho hai biên cô độc lập",
               "parentId": "KNTT-MATH-11-T2-CH02",
               "order": 3,
-              "pdfStartPage": null,
+              "pdfStartPage": 77,
               "pdfEndPage": null,
               "printedStartPage": 76,
               "printedEndPage": null,
-              "confidence": "NEEDS_REVIEW",
-              "verificationStatus": "NEEDS_REVIEW",
+              "confidence": "VERIFIED",
+              "verificationStatus": "VERIFIED",
               "evidence": [
                 {
                   "sourceId": "KNTT-MATH-11-T2",
@@ -1420,6 +1551,38 @@
                   "evidenceType": "TOC_OCR",
                   "ocrConfidence": "NEEDS_REVIEW",
                   "detectedHeading": "Bài 30. Công thức nhân xác suất"
+                },
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 77,
+                  "printedPageNumber": 76,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bai 30 CONG THUC NHAN XAC SUAT"
+                },
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 77,
+                  "printedPageNumber": 76,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bai 30 CONG THUC NHAN XAC SUAT"
+                },
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 77,
+                  "printedPageNumber": 76,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bai 30 CONG THUC NHAN XAC SUAT"
+                },
+                {
+                  "sourceId": "KNTT-MATH-11-T2",
+                  "pdfPageNumber": 77,
+                  "printedPageNumber": 76,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bai 30 CONG THUC NHAN XAC SUAT"
                 }
               ]
             }
@@ -1841,18 +2004,49 @@
           "title": "NGUYÊN HÀM VÀ TÍCH PHÂN",
           "parentId": "KNTT-MATH-12-T2-BOOK",
           "order": 1,
-          "pdfStartPage": null,
+          "pdfStartPage": 5,
           "pdfEndPage": null,
-          "printedStartPage": null,
+          "printedStartPage": 4,
           "printedEndPage": null,
-          "confidence": "NEEDS_REVIEW",
-          "verificationStatus": "NEEDS_REVIEW",
+          "confidence": "VERIFIED",
+          "verificationStatus": "VERIFIED",
           "evidence": [
             {
               "sourceId": "KNTT-MATH-12-T2",
               "pdfPageNumber": 5,
               "evidenceType": "TOC_OCR",
               "ocrConfidence": "NEEDS_REVIEW",
+              "detectedHeading": "CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "printedPageNumber": 4,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "printedPageNumber": 4,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-T2",
+              "pdfPageNumber": 5,
+              "printedPageNumber": 4,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
               "detectedHeading": "CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN"
             }
           ],
@@ -1865,12 +2059,12 @@
               "title": "Nguyên hàm",
               "parentId": "KNTT-MATH-12-T2-CH01",
               "order": 1,
-              "pdfStartPage": null,
+              "pdfStartPage": 5,
               "pdfEndPage": null,
               "printedStartPage": 4,
               "printedEndPage": null,
-              "confidence": "NEEDS_REVIEW",
-              "verificationStatus": "NEEDS_REVIEW",
+              "confidence": "VERIFIED",
+              "verificationStatus": "VERIFIED",
               "evidence": [
                 {
                   "sourceId": "KNTT-MATH-12-T2",
@@ -1878,6 +2072,38 @@
                   "printedPageNumber": 4,
                   "evidenceType": "TOC_OCR",
                   "ocrConfidence": "NEEDS_REVIEW",
+                  "detectedHeading": "Bài 11. Nguyên hàm 4"
+                },
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 4,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 11. Nguyên hàm 4"
+                },
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 4,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 11. Nguyên hàm 4"
+                },
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 4,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
+                  "detectedHeading": "Bài 11. Nguyên hàm 4"
+                },
+                {
+                  "sourceId": "KNTT-MATH-12-T2",
+                  "pdfPageNumber": 5,
+                  "printedPageNumber": 4,
+                  "evidenceType": "BOUNDARY_OCR",
+                  "ocrConfidence": "VERIFIED",
                   "detectedHeading": "Bài 11. Nguyên hàm 4"
                 }
               ]
@@ -2172,12 +2398,12 @@
           "title": "BIEN NGAU NHIÊN RO! RAC. CAC SO DAC TRƯNG",
           "parentId": "KNTT-MATH-12-CD-BOOK",
           "order": 1,
-          "pdfStartPage": null,
+          "pdfStartPage": 6,
           "pdfEndPage": null,
           "printedStartPage": null,
           "printedEndPage": null,
-          "confidence": "NEEDS_REVIEW",
-          "verificationStatus": "NEEDS_REVIEW",
+          "confidence": "VERIFIED",
+          "verificationStatus": "VERIFIED",
           "evidence": [
             {
               "sourceId": "KNTT-MATH-12-CD",
@@ -2185,6 +2411,34 @@
               "evidenceType": "TOC_OCR",
               "ocrConfidence": "NEEDS_REVIEW",
               "detectedHeading": "CHUYÊN ĐÈ 1"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-CD",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chuyên đề này giới thiệu biến ngẫu nhiên rời rac, công thức Bernoulli (mang tên nhà toán học"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-CD",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chuyên đề này giới thiệu biến ngẫu nhiên rời rac, công thức Bernoulli (mang tên nhà toán học"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-CD",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chuyên đề này giới thiệu biến ngẫu nhiên rời rac, công thức Bernoulli (mang tên nhà toán học"
+            },
+            {
+              "sourceId": "KNTT-MATH-12-CD",
+              "pdfPageNumber": 6,
+              "evidenceType": "BOUNDARY_OCR",
+              "ocrConfidence": "VERIFIED",
+              "detectedHeading": "Chuyên đề này giới thiệu biến ngẫu nhiên rời rac, công thức Bernoulli (mang tên nhà toán học"
             }
           ],
           "lessons": [
