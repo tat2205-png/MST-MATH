@@ -4,6 +4,26 @@
 
 ---
 
+## v1.4.0 — 2026-08-29
+
+### Completed
+
+- Teacher Golden Workflow E2E through Question Bank, Assessment, Game, video,
+  and export.
+- Document Converter coverage for DOCX, OMML, LaTeX, PDF, and native DOCX.
+- Approved deterministic PDF/image ingest with validation, asset mapping, and
+  source traceability.
+- Exam QA integration and Unicode-safe Question Bank PDF extraction.
+- Full regression closure: 70/70 suites passed.
+
+### Deferred / optional
+
+- NLS-SOURCE-02H remains deferred and preserved.
+- Optional Gemini visual AI remains non-blocking and was not required.
+- Architecture retains three non-blocking warnings and zero errors.
+
+---
+
 ## v1.3.1 — 2026-08-29
 
 ### Stabilized
