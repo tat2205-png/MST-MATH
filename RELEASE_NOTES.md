@@ -1,13 +1,12 @@
-# Math AI Studio 1.3.1
+# Math AI Studio 1.4.0
 
 ## Release status
 
-The canonical `main` branch contains the validated release baseline
-`4b2ea1f91f85fad00baf2f321b086c02c7037032`, followed by this release-prep
-metadata commit. The approved final release version is `1.3.1`; the tag
-`v1.3.1` is reserved for the owner’s later publication action.
+The v1.4.0 release candidate contains the verified teacher workflow, document
+converter, approved PDF/image ingest, Exam QA integration, and Unicode-safe
+Question Bank PDF export path.
 
-## Included stabilization
+## Completed scope
 
 - NLS source registry and deterministic structure validation.
 - Locked Python 3.14.7 runtime with Manim 0.21.0.
@@ -16,6 +15,10 @@ metadata commit. The approved final release version is `1.3.1`; the tag
 - Manim, document, and video pipeline validation.
 - Bounded auto-repair with deterministic START/KEY/END frame gating.
 - Real runtime Golden Path from verified question through MP4 and frame artifacts.
+- Teacher Golden Workflow E2E through export.
+- Deterministic PDF/image ingest with fail-closed validation and traceability.
+- Exam QA language, logic, symbol, reference, geometry, and scope gates.
+- Unicode-safe QB-2D PDF text extraction.
 
 ## Runtime requirements
 
@@ -37,16 +40,27 @@ metadata commit. The approved final release version is `1.3.1`; the tag
 - Optional Gemini visual analysis: SKIPPED because credentials are unavailable.
 - Architecture reported three non-blocking warnings and zero errors.
 
-## Known limitations and deferred work
+## Deferred and optional scope
 
 - NLS-SOURCE-02H remains excluded and deferred.
-- E2E-TEACHER-01 remains deferred.
-- Document Converter expansion remains deferred.
-- PDF/image ingestion remains deferred.
-- EXAM-QA-3, EXAM-QA-4, and EXAM-QA-5 remain deferred.
+- NLS-SOURCE-02H remains deferred and preserved.
 - Optional Gemini visual QA remains unavailable without credentials.
+- Optional visual AI is non-blocking.
 
-## Publication decision
+## QA status
 
-Canonical main is technically validated and release metadata is synchronized.
-No tag, push, remote release, or production deployment was performed.
+- TypeScript: PASS.
+- Build: PASS.
+- Architecture: PASS, 0 errors and 3 non-blocking warnings.
+- Global regression: 70/70 PASS.
+
+## Publication status
+
+Math AI Studio v1.3.1 has been published.
+
+- Canonical branch: `main`
+- Release tag: `v1.3.1`
+- Released source commit: `57956cd3d55482e8252d7ece1b2d617831c492f0`
+- GitHub Release: published
+- npm package publication: not performed
+- Production deployment: not performed

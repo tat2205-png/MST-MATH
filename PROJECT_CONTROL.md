@@ -75,13 +75,18 @@ POST_UX01_FINAL_CONVERGENCE_BASE=ab7d97894f4e76310b2898f9dc23a756ab093918
 POST_UX01_UX01_BASE=19f2763e821d6e93e4f03f1eb1310a05ac31711e
 
 FEATURE_FREEZE=ENABLED
-RC_VERSION=v1.3.1
-RC_TAG=v1.3.1
+RELEASE=v1.3.1
+STATUS=PUBLISHED_FROZEN
+TAG=v1.3.1
+RELEASE_HEAD=57956cd3d55482e8252d7ece1b2d617831c492f0
+MAINTENANCE_LINE=1.3.x
+MAIN_POLICY=RELEASE_STABLE
+MAINTENANCE_POLICY=HOTFIX_ONLY
 
 Release versions are authoritative through annotated Git tags. The npm package
-metadata is synchronized to the approved final release version (`1.3.1`). The
-annotated `v1.3.1` tag remains an owner publication action and has not been
-created in this task.
+metadata is synchronized to the published final release version (`1.3.1`).
+The annotated `v1.3.1` tag and GitHub Release are immutable publication
+records. No new product features should be committed directly to `main`.
 
 ## REL-01 VERIFIED RELEASE EVIDENCE
 
