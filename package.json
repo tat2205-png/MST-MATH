@@ -51,6 +51,7 @@
     "nls:review:prepare": "node --import tsx scripts/prepare-nls-human-review.ts",
     "nls:apply-review": "node --import tsx scripts/apply-nls-review-decisions.ts",
     "qa:nls:human-review": "node --import tsx tests/test-nls-human-review.ts",
+    "qa:nls:review-candidates": "node --import tsx tests/test-nls-review-candidates.ts",
     "arch:check": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type err-long",
     "arch:report": "depcruise src server server.ts --config .dependency-cruiser.cjs --output-type text",
     "release:gate": "npm run arch:check && pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
