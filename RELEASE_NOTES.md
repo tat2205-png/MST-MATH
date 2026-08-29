@@ -1,14 +1,11 @@
-# Math AI Studio — Validated Release Candidate
+# Math AI Studio 1.3.1
 
 ## Release status
 
-The canonical `main` branch contains the validated release commit
-`4b2ea1f91f85fad00baf2f321b086c02c7037032`.
-
-The release version is intentionally unresolved. The repository currently
-contains conflicting signals (`package.json` is `0.0.0`, the README identifies
-v1.3 RC 1, and existing tags include `v1.3-rc.2` and `v1.3.0`). An owner must
-select the RC/final version before tagging or publication.
+The canonical `main` branch contains the validated release baseline
+`4b2ea1f91f85fad00baf2f321b086c02c7037032`, followed by this release-prep
+metadata commit. The approved final release version is `1.3.1`; the tag
+`v1.3.1` is reserved for the owner’s later publication action.
 
 ## Included stabilization
 
@@ -51,6 +48,5 @@ select the RC/final version before tagging or publication.
 
 ## Publication decision
 
-Canonical main is technically validated. Publication remains blocked until the
-owner resolves the release version and tag naming convention. No tag, push,
-remote release, or production deployment was performed.
+Canonical main is technically validated and release metadata is synchronized.
+No tag, push, remote release, or production deployment was performed.

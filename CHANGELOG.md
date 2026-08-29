@@ -4,6 +4,32 @@
 
 ---
 
+## v1.3.1 — 2026-08-29
+
+### Stabilized
+
+- NLS source registry and deterministic structure validation.
+- Locked Python 3.14.7, Manim 0.21.0, and the validated math stack.
+- Question Bank, DOCX/export, Exam QA, teacher UX, Manim, document, and video
+  pipeline regression stability.
+- Bounded auto-repair, deterministic frame gating, and the real runtime Golden
+  Path.
+- Local Render Bridge release prerequisite and release-gate validation.
+
+### QA
+
+- Canonical promotion and versioned release gate: PASS.
+- Math regression: 60/60 PASS.
+- Optional Gemini visual analysis: SKIPPED; deterministic frame structure and
+  math provenance remained authoritative.
+
+### Deferred
+
+- NLS-SOURCE-02H, E2E-TEACHER-01, Document Converter expansion, PDF/image
+  ingestion, and EXAM-QA-3/4/5 remain deferred.
+
+---
+
 ## Post-UX-01 Final Convergence — MAS-INT-02 — 2026-08-29
 
 ### Integrated

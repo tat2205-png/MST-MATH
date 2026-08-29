@@ -75,12 +75,13 @@ POST_UX01_FINAL_CONVERGENCE_BASE=ab7d97894f4e76310b2898f9dc23a756ab093918
 POST_UX01_UX01_BASE=19f2763e821d6e93e4f03f1eb1310a05ac31711e
 
 FEATURE_FREEZE=ENABLED
-RC_VERSION=v1.3-rc.1
-RC_TAG=v1.3-rc.1
+RC_VERSION=v1.3.1
+RC_TAG=v1.3.1
 
 Release versions are authoritative through annotated Git tags. The npm package
-metadata remains the existing non-published application scaffold (`0.0.0`),
-consistent with the prior `v1.1` and `v1.2` release checkpoints.
+metadata is synchronized to the approved final release version (`1.3.1`). The
+annotated `v1.3.1` tag remains an owner publication action and has not been
+created in this task.
 
 ## REL-01 VERIFIED RELEASE EVIDENCE
 
