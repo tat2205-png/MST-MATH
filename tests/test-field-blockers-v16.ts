@@ -9,6 +9,11 @@ const FIELD_EVIDENCE_ENV = "MAS_FIELD_EVIDENCE_ROOT";
 const FIELD_EVIDENCE_RELATIVE_PATH = ["v1.6", "SELF-01", "PILOT-01", "source", "Full-Toán thực tế 10.docx"] as const;
 const LEGACY_WINDOWS_FIELD_EVIDENCE_ROOT = "D:/math-ai-video-studio/mas-field-evidence";
 
+const packageJson = JSON.parse(readFileSync("package.json", "utf8")) as { scripts?: Record<string, string> };
+assert.equal(packageJson.scripts?.["bridge:start"], "uv run python local_bridge/bridge.py");
+assert.match(readFileSync("local_bridge/bridge.py", "utf8"), /timeout=30,/);
+console.log("MACOS_BRIDGE_LAUNCHER_QA=PASS");
+
 function resolveFieldEvidenceSource(environment: NodeJS.ProcessEnv, platform: NodeJS.Platform, cwd: string): string {
   const path = platform === "win32" ? win32 : posix;
   const configuredRoot = environment[FIELD_EVIDENCE_ENV]?.trim();

@@ -33,7 +33,7 @@
     "golden:docx": "node --import tsx scripts/generate-docx-goldens.ts",
     "qa:luadraw": "python scripts/doctor_luadraw.py && node --import tsx tests/test-luadraw-contract.ts",
     "qa:luadraw:smoke": "node --import tsx scripts/run-luadraw-smoke.ts",
-    "bridge:start": "python local_bridge/bridge.py",
+    "bridge:start": "uv run python local_bridge/bridge.py",
     "qa:regression": "node scripts/run-regression.mjs",
     "qa:question-bank": "node --import tsx tests/test-question-bank-qb1a.ts && node --import tsx tests/test-question-bank-qb1b.ts && node --import tsx tests/test-question-bank-qb1c.ts",
     "qa:question-bank:persistence": "node --import tsx tests/test-question-bank-qb1d.ts",

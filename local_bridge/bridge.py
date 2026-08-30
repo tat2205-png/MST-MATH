@@ -28,7 +28,7 @@ def detect_capabilities() -> dict:
         capture_output=True,
         text=True,
         shell=False,
-        timeout=15,
+        timeout=30,
     )
     return {
         "python": {"installed": bool(sys.executable), "executable": sys.executable},
