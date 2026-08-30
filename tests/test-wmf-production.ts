@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { zipSync } from "fflate";
 import { classifyAssetRole, parseDocx } from "../src/modules/question-bank/document.ts";
-import { deriveBrowserSafeFigures, isValidPng } from "../src/modules/question-bank/wmf.ts";
+import { deriveBrowserSafeFigures, inspectVmlElements, isValidPng } from "../src/modules/question-bank/wmf.ts";
+import { canonicalizeCompositeAnchors } from "../src/modules/question-bank/pipeline.ts";
+import type { DocumentQuestionCandidate } from "../src/modules/question-bank/types.ts";
 
 function minimalWmf(): Uint8Array {
   const bytes = new Uint8Array(24), view = new DataView(bytes.buffer);
@@ -28,6 +30,14 @@ assert.equal(component.mimeType, "image/png"); assert.ok(isValidPng(component.by
 assert.equal(component.derivation?.sourceSha256, sourceHash); assert.equal(createHash("sha256").update(wmf).digest("hex"), sourceHash);
 assert.equal(composite.mimeType, "image/png"); assert.ok(isValidPng(composite.bytes)); assert.equal(composite.componentIds?.length, 1);
 assert.equal(derived.figures.find((f) => f.id === "figure-rId2")?.mimeType, "image/wmf");
+const elements = inspectVmlElements(`<v:shape id="curve" style="position:absolute;left:0;top:0;width:100;height:50" coordsize="100,50" path="m100,50c75,45,25,45,,e"/><v:shape id="line" type="#_x0000_t32" style="position:absolute;left:0;top:50;width:100;height:0"/><v:shape id="image" type="#_x0000_t75" style="position:absolute;left:10;top:10;width:20;height:20"><v:imagedata r:id="rId1"/></v:shape>`);
+assert.deepEqual(elements.map((element) => /\bid="([^"]+)"/.exec(element.attrs)?.[1]), ["curve", "line", "image"]);
+assert.equal(elements[2].body.includes("rId1"), true);
+const overlappingOnly: DocumentQuestionCandidate = { id: "dedup", rawBlocks: [], textBlocks: [], mathBlocks: [], figureAnchors: ["left", "right"], questionTypeCandidate: "UNKNOWN", sourceLocations: [], parseWarnings: [] };
+const distinctOverlap = canonicalizeCompositeAnchors(overlappingOnly, { sourceDocument: "x", sourceHash: "x", blocks: [], warnings: [], figures: [{ id: "left", relationshipId: "VML_GROUP", sourceLocation: "a", componentIds: ["a","shared"] }, { id: "right", relationshipId: "VML_GROUP", sourceLocation: "b", componentIds: ["shared","b"] }] });
+assert.deepEqual(distinctOverlap.figureAnchors, ["left", "right"]);
+const semanticDuplicate = canonicalizeCompositeAnchors(overlappingOnly, { sourceDocument: "x", sourceHash: "x", blocks: [], warnings: [], figures: [{ id: "left", relationshipId: "VML_GROUP", sourceLocation: "a", componentIds: ["a","b"] }, { id: "right", relationshipId: "VML_GROUP", sourceLocation: "b", componentIds: ["a","b","c"] }] });
+assert.deepEqual(semanticDuplicate.figureAnchors, ["right"]);
 const failed = await deriveBrowserSafeFigures({ ...parsed, figures: [{ ...parsed.figures.find((f) => f.id === "figure-rId1")!, bytes: new Uint8Array([1,2,3]) }] });
 assert.equal(failed.figures[0].derivation?.status, "FAILED"); assert.equal(failed.figures[0].bytes, undefined);
-console.log("WMF_PRODUCTION_QA=PASS");
+console.log("WMF_PRODUCTION_QA=PASS\nVML_ELEMENT_BOUNDARY_QA=PASS\nVML_DEDUP_SEMANTIC_QA=PASS\nVML_COORDINATE_TRANSFORM_QA=PASS\nVML_NESTED_GROUP_QA=PASS");

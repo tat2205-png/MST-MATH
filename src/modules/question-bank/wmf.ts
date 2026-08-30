@@ -46,16 +46,43 @@ async function deriveComponent(source: FigureRecord): Promise<FigureRecord> {
 }
 
 const styleNumber = (style: string, name: string) => Number.parseFloat(new RegExp(`(?:^|;)${name}:([^;]+)`, "i").exec(style)?.[1] ?? "0");
+type VmlElement = { tag: "shape" | "oval" | "line" | "rect" | "arc"; attrs: string; body: string; order: number };
+const vmlElements = (xml: string): VmlElement[] => [...xml.matchAll(/<v:(shape|oval|line|rect|arc)\b([^>]*?)(?:\/>|>([\s\S]*?)<\/v:\1>)/gi)]
+  .map((match) => ({ tag: match[1].toLowerCase() as VmlElement["tag"], attrs: match[2], body: match[3] ?? "", order: match.index }))
+  .sort((left, right) => left.order - right.order);
+const pair = (values: string[], offset: number) => [Number(values[offset] || 0), Number(values[offset + 1] || 0)] as const;
+function drawVmlPath(ctx: ReturnType<ReturnType<typeof createCanvas>["getContext"]>, path: string, attrs: string, rect: { x: number; y: number; w: number; h: number }): boolean {
+  const coord = (/\bcoordsize="([^"]+)"/i.exec(attrs)?.[1] ?? `${Math.abs(rect.w)},${Math.abs(rect.h)}`).split(",").map(Number);
+  const flip = /(?:^|;)flip:([^;]+)/i.exec(/\bstyle="([^"]*)"/i.exec(attrs)?.[1] ?? "")?.[1] ?? "";
+  const point = (x: number, y: number) => ({ x: rect.x + (flip.includes("x") ? coord[0] - x : x) / (coord[0] || 1) * rect.w, y: rect.y + (flip.includes("y") ? coord[1] - y : y) / (coord[1] || 1) * rect.h });
+  let drew = false;
+  for (const command of path.matchAll(/([mlc])([^mlce]*)/gi)) {
+    const values = command[2].trim().split(/[ ,]/).filter((_, index, all) => index < all.length).map((value) => value.trim());
+    if (command[1].toLowerCase() === "m" && values.length >= 2) { const p = point(...pair(values, 0)); ctx.moveTo(p.x, p.y); drew = true; }
+    else if (command[1].toLowerCase() === "l" && values.length >= 2) { const p = point(...pair(values, 0)); ctx.lineTo(p.x, p.y); drew = true; }
+    else if (command[1].toLowerCase() === "c" && values.length >= 6) { const a = point(...pair(values, 0)), b = point(...pair(values, 2)), c = point(...pair(values, 4)); ctx.bezierCurveTo(a.x, a.y, b.x, b.y, c.x, c.y); drew = true; }
+  }
+  return drew;
+}
 async function composeGroup(source: FigureRecord, components: Map<string, FigureRecord>): Promise<FigureRecord> {
   if (!source.componentIds?.length || !source.layout || !source.vmlGroupXml) return source;
   const width = source.dimensions?.widthPx ?? 800, height = source.dimensions?.heightPx ?? 600;
   const canvas = createCanvas(width, height), ctx = canvas.getContext("2d");
   ctx.fillStyle = "white"; ctx.fillRect(0, 0, width, height); ctx.strokeStyle = "#000099"; ctx.fillStyle = "white";
   const sx = width / source.layout.width, sy = height / source.layout.height, ox = source.layout.x, oy = source.layout.y;
-  const xywh = (attrs: string) => { const style = /\bstyle="([^"]*)"/i.exec(attrs)?.[1] ?? ""; return { x: (styleNumber(style,"left")-ox)*sx, y:(styleNumber(style,"top")-oy)*sy, w:styleNumber(style,"width")*sx, h:styleNumber(style,"height")*sy }; };
-  for (const oval of source.vmlGroupXml.matchAll(/<v:oval\b([^>]*)\/?>(?:[\s\S]*?<\/v:oval>)?/gi)) { const r=xywh(oval[1]); ctx.beginPath(); ctx.ellipse(r.x+r.w/2,r.y+r.h/2,Math.abs(r.w/2),Math.abs(r.h/2),0,0,Math.PI*2); ctx.fill(); ctx.stroke(); }
-  for (const shape of source.vmlGroupXml.matchAll(/<v:shape\b([^>]*)>([\s\S]*?)<\/v:shape>|<v:shape\b([^>]*)\/>/gi)) { const attrs=shape[1]??shape[3]??""; if (/type="#_x0000_t75"/i.test(attrs)) continue; const r=xywh(attrs); const path=/\bpath="([^"]+)"/i.exec(attrs)?.[1]; ctx.beginPath(); if (path) { const nums=(path.match(/-?\d+(?:\.\d+)?/g)??[]).map(Number); if(nums.length>=2)ctx.moveTo(r.x+nums[0]/1796*r.w,r.y+nums[1]/827*r.h); if(/c/i.test(path)&&nums.length>=8)ctx.bezierCurveTo(r.x+nums[2]/1796*r.w,r.y+nums[3]/827*r.h,r.x+nums[4]/1796*r.w,r.y+nums[5]/827*r.h,r.x+nums[6]/1796*r.w,r.y+nums[7]/827*r.h); else ctx.lineTo(r.x+r.w,r.y+r.h); } else { ctx.moveTo(r.x,r.y); ctx.lineTo(r.x+r.w,r.y+r.h); } ctx.stroke(); }
-  for (const shape of source.vmlGroupXml.matchAll(/<v:shape\b([^>]*)>[\s\S]*?<v:imagedata\b([^>]*)\/?>(?:[\s\S]*?<\/v:shape>)?/gi)) { const rid=/r:id="([^"]+)"/i.exec(shape[2])?.[1]; const item=rid?components.get(`figure-${rid}`):undefined; if(!item?.bytes||!isValidPng(item.bytes))continue; const image=await loadImage(Buffer.from(item.bytes)); const r=xywh(shape[1]); ctx.drawImage(image,r.x,r.y,r.w,r.h); }
+  const xywh = (attrs: string) => { const style = /\bstyle="([^"]*)"/i.exec(attrs)?.[1] ?? ""; return { x: (styleNumber(style,"left")-ox)*sx, y:(styleNumber(style,"top")-oy)*sy, w:styleNumber(style,"width")*sx, h:styleNumber(style,"height")*sy, flip: /(?:^|;)flip:([^;]+)/i.exec(style)?.[1] ?? "" }; };
+  for (const element of vmlElements(source.vmlGroupXml)) {
+    const r = xywh(element.attrs), imageRid = /<v:imagedata\b[^>]*r:id="([^"]+)"/i.exec(element.body)?.[1];
+    if (imageRid) {
+      const item = components.get(`figure-${imageRid}`); if (!item?.bytes || !isValidPng(item.bytes)) continue;
+      const image = await loadImage(Buffer.from(item.bytes)); ctx.save(); ctx.translate(r.x + (r.flip.includes("x") ? r.w : 0), r.y + (r.flip.includes("y") ? r.h : 0)); ctx.scale(r.flip.includes("x") ? -1 : 1, r.flip.includes("y") ? -1 : 1); ctx.drawImage(image, 0, 0, r.w, r.h); ctx.restore(); continue;
+    }
+    ctx.beginPath();
+    if (element.tag === "oval" || element.tag === "arc") ctx.ellipse(r.x+r.w/2,r.y+r.h/2,Math.abs(r.w/2),Math.abs(r.h/2),0,0,Math.PI*2);
+    else if (element.tag === "rect") ctx.rect(r.x, r.y, r.w, r.h);
+    else { const path=/\bpath="([^"]+)"/i.exec(element.attrs)?.[1]; if (!path || !drawVmlPath(ctx, path, element.attrs, r)) { ctx.moveTo(r.x,r.y); ctx.lineTo(r.x+r.w,r.y+r.h); } }
+    if (!/\bfilled="f"/i.test(element.attrs)) ctx.fill(); if (!/\bstroked="f"/i.test(element.attrs)) ctx.stroke();
+  }
   const bytes=canvas.toBuffer("image/png"); if(!isValidPng(bytes)) throw new Error("VML_COMPOSITE_INVALID_PNG"); const hash=createHash("sha256").update(bytes).digest("hex");
   return { ...source, mimeType:"image/png", bytes, dimensions:{...source.dimensions,widthPx:width,heightPx:height}, derivation:{ sourceAssetId:source.id, sourceFormat:"VML_GROUP", sourceMime:"application/vnd.openxmlformats-officedocument.vmlDrawing", semanticRole:"REAL_FIGURE", converter:{name:"emf-converter",version:"2.0.2",canvasVersion:"3.2.3"},derivedAssetId:`${source.id}-png-${hash.slice(0,12)}`,derivedFormat:"PNG",derivedMime:"image/png",derivedSha256:hash,status:"DERIVED" } };
 }
@@ -70,3 +97,4 @@ export async function deriveBrowserSafeFigures(document: DocumentIR): Promise<Do
 }
 
 export const isValidPng = (bytes?: Uint8Array) => Boolean(bytes && bytes.length >= 24 && Buffer.from(bytes.subarray(0, 8)).equals(PNG));
+export const inspectVmlElements = (xml: string) => vmlElements(xml).map(({ order: _order, ...element }) => element);
