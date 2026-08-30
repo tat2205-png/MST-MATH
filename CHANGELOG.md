@@ -4,6 +4,30 @@
 
 ---
 
+## v1.6.0 release candidate — 2026-08-30
+
+### Stabilized
+
+- Verified the immutable 158-question real DOCX through canonical import,
+  pagination, Teacher Workflow, assessment, and publication.
+- Closed human pagination and Q37 composite-figure validation.
+- Corrected semantic figure filtering and XeLaTeX-first publication.
+- Restored macOS Local Render Bridge startup through the locked `uv` runtime.
+- Reconciled two expected fail-closed EQARR constructs with zero unexpected
+  math regressions.
+
+### QA
+
+- Pilot-01, source immutability, and real Question-to-Manim runtime: PASS.
+- TypeScript, build, architecture, and 70/70 regression: PASS.
+- Convergence audit found zero still-required in-scope deltas.
+
+### Controls
+
+- Feature freeze enforced; no push, tag, publication, or deployment performed.
+
+---
+
 ## v1.4.0 — 2026-08-29
 
 ### Completed
