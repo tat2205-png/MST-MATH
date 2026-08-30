@@ -42,6 +42,14 @@ function convertNode(node: XmlNode, issues: DocumentEngineIssue[], path: string)
     case "sSup": return `{${wrappedArgument(firstChild(node, "e"), issues, `${path}/e`)}}^{${wrappedArgument(firstChild(node, "sup"), issues, `${path}/sup`)}}`;
     case "sSub": return `{${wrappedArgument(firstChild(node, "e"), issues, `${path}/e`)}}_{${wrappedArgument(firstChild(node, "sub"), issues, `${path}/sub`)}}`;
     case "sSubSup": return `{${wrappedArgument(firstChild(node, "e"), issues, `${path}/e`)}}_{${wrappedArgument(firstChild(node, "sub"), issues, `${path}/sub`)}}^{${wrappedArgument(firstChild(node, "sup"), issues, `${path}/sup`)}}`;
+    case "limUpp": return `${wrappedArgument(firstChild(node, "e"), issues, `${path}/e`)}^{${wrappedArgument(firstChild(node, "lim"), issues, `${path}/lim`)}}`;
+    case "acc": {
+      const chr = getAttribute(firstChild(firstChild(node, "accPr") ?? node, "chr"), "val");
+      const body = wrappedArgument(firstChild(node, "e"), issues, `${path}/e`);
+      return `${chr === "⃗" ? "\\vec" : "\\widehat"}{${body}}`;
+    }
+    case "bar": return `\\overline{${wrappedArgument(firstChild(node, "e"), issues, `${path}/e`)}}`;
+    case "box": case "groupChr": return wrappedArgument(firstChild(node, "e"), issues, `${path}/e`);
     case "rad": {
       const degree = wrappedArgument(firstChild(node, "deg"), issues, `${path}/deg`);
       const body = wrappedArgument(firstChild(node, "e"), issues, `${path}/e`);
