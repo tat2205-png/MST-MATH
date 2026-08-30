@@ -106,11 +106,11 @@ async function startServer() {
     res.json({ success: true, summary: teacherWorkflowService.summary() });
   });
 
-  app.post("/api/teacher-workflow/import", (req, res) => {
+  app.post("/api/teacher-workflow/import", async (req, res) => {
     try {
       const { base64, fileName } = req.body || {};
       if (typeof base64 !== "string" || typeof fileName !== "string") return res.status(400).json({ success: false, code: "INVALID_DOCUMENT", error: "Thiếu dữ liệu tệp DOCX." });
-      res.json({ success: true, result: teacherWorkflowService.importDocx(base64, fileName) });
+      res.json({ success: true, result: await teacherWorkflowService.importDocxForRuntime(base64, fileName) });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       const explicitCode = message.split(":", 1)[0];

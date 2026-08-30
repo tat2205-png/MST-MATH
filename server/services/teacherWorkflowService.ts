@@ -26,7 +26,7 @@ type StoredGame = { service: ClassroomGameService; session: GameSession };
 
 function figureForClient(figure: FigureRecord): TeacherQuestion["figures"][number] {
   const { bytes, ...safe } = figure;
-  const dataUrl = bytes?.length && figure.mimeType?.startsWith("image/")
+  const dataUrl = bytes?.length && ["image/png", "image/jpeg", "image/svg+xml", "image/gif"].includes(figure.mimeType ?? "")
     ? `data:${figure.mimeType};base64,${Buffer.from(bytes).toString("base64")}`
     : undefined;
   return { ...safe, dataUrl };
@@ -81,6 +81,12 @@ export class TeacherWorkflowService {
     if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
     const result = this.bank.importDocx(bytes, path.basename(fileName));
     return { imported: result.imported.map(questionForClient), diagnostics: result.diagnostics, summary: this.summary() };
+  }
+
+  async importDocxForRuntime(base64: string, fileName: string): Promise<ImportWorkflowResult> {
+    if (!fileName.toLocaleLowerCase().endsWith(".docx")) throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
+    const bytes = new Uint8Array(Buffer.from(base64, "base64")); if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
+    const result = await this.bank.importDocxForRuntime(bytes, path.basename(fileName)); return { imported: result.imported.map(questionForClient), diagnostics: result.diagnostics, summary: this.summary() };
   }
 
   approve(ids: string[]): WorkflowSummary {
