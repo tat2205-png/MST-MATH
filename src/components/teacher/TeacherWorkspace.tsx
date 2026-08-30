@@ -94,14 +94,23 @@ function StatusBadge({ status }: { status?: string }) {
   return <span className={`inline-flex rounded-full border px-2 py-0.5 text-[11px] font-bold ${tone}`}>{status || "CHƯA RÕ"}</span>;
 }
 
-function QuestionCard({ question, selected, onToggle, review }: { question: TeacherQuestion; selected?: boolean; onToggle?: () => void; review?: boolean; key?: React.Key }) {
+export function canonicalQuestionNumberLabel(question: Pick<TeacherQuestion, "index">): string | undefined {
+  return Number.isInteger(question.index) && question.index! > 0 ? `Câu ${question.index}` : undefined;
+}
+
+export function QuestionCard({ question, selected, onToggle, review }: { question: TeacherQuestion; selected?: boolean; onToggle?: () => void; review?: boolean; key?: React.Key }) {
   const confirmed = new Set(question.figureAssociations.filter((item) => item.status === "CONFIRMED" && item.questionId === question.id).map((item) => item.figureId));
+  const questionNumber = canonicalQuestionNumberLabel(question);
   return (
     <article className={`rounded-xl border bg-white p-4 shadow-sm ${selected ? "border-blue-400 ring-2 ring-blue-100" : "border-slate-200"}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex min-w-0 items-start gap-3">
           {onToggle && <input aria-label={`Chọn câu hỏi ${question.id}`} type="checkbox" checked={selected} onChange={onToggle} className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500" />}
           <div className="min-w-0">
+            <div className="mb-1 flex flex-wrap items-center gap-2">
+              <h2 className={`text-base font-bold ${questionNumber ? "text-slate-900" : "text-amber-800"}`}>{questionNumber ?? "Không xác định số câu hỏi"}</h2>
+              {!questionNumber && <StatusBadge status="REVIEW_REQUIRED" />}
+            </div>
             <div className="mb-2 flex flex-wrap items-center gap-2">
               <span className="font-mono text-[11px] text-slate-500">{question.id}</span>
               <StatusBadge status={question.bankStatus} />
