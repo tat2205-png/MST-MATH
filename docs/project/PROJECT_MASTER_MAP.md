@@ -8,6 +8,16 @@
 
 > IMPORTANT: This file is a reconstructed master inventory from the current conversation, retained project history, prior execution logs, and project artifacts found in the user's Library. It deliberately separates **confirmed/locked** facts from **needs revalidation** items. It must not silently promote an uncertain item to DONE/APPROVED.
 
+## PACKAGE VERSION METADATA REMEDIATION — V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01
+
+Completed on 2026-08-31 at source HEAD `eccc4cfb3d6a10c231cd01745adc86cfe3e659d1` on branch `fix/v1.6-package-version-metadata`. Repository and release-line evidence proved the active package target as plain SemVer `1.6.0`: the v1.6 master/release specifications and changelog identify the line as v1.6.0, while prior corrected package releases use plain semantic package versions rather than prerelease metadata.
+
+`package.json`, the `package-lock.json` top-level version, and the lockfile root-package mirror were changed from `1.4.0` to `1.6.0` using `npm version 1.6.0 --no-git-tag-version`. No dependency, script, package name, application source, Git tag, release, or deployment changed. Historical v1.4.0 and v1.5.0 references remain immutable.
+
+QA evidence: `npm run lint` PASS; `npm run build` PASS; `npm run qa:regression` PASS (70/70). Therefore `PACKAGE_VERSION_CONFLICT=RESOLVED`, `PACKAGE_VERSION_REMEDIATION_REQUIRED=NO`, and `V1_6_MACHINE_READY=YES`.
+
+This metadata correction does not establish human, field, pilot, or release acceptance. `HUMAN_UI_QA=NEEDS_REVALIDATION`, `EXTERNAL_FIELD_ACCEPTANCE=NOT_PROVEN`, `PILOT_SOLUTION_QA=BLOCKED`, `PILOT_VIDEO_QA=BLOCKED`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, and `V1_6_RELEASE_READY=NO` remain unchanged. `NEXT_EXECUTABLE_TASK=V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01`.
+
 ## AUTHORITATIVE RECONCILIATION SNAPSHOT — V1.6-FIELD-ACCEPTANCE-RECONCILIATION-01R
 
 This repository-forensic snapshot (2026-08-31) supersedes conflicting current-status conclusions, but does not alter or invalidate historical evidence. Baseline: branch `fix/v1.6-field-acceptance-reconciliation`, HEAD `9c4bd8428e9869ce893fc86bafdee50c7902fc02`; the expected master base is an ancestor and the initial worktree was clean.
@@ -47,9 +57,9 @@ The selected Pilot-01 MCQ has no machine-verified explicit answer. The adapter's
 | HUMAN_Q37_VISUAL_QA | YES | PASS | RC evidence at `7e10080` | NO | Human | None unless relevant code changes |
 | HUMAN_UI_QA | YES | NEEDS_REVALIDATION | No distinct complete approval | YES | Human | Perform and record complete UI acceptance |
 | EXTERNAL_FIELD_ACCEPTANCE | YES | PENDING_REAL_WORLD_EVIDENCE | Empty field template/KPI/issue records | YES | External teachers/classroom | Execute Levels 2 and 3 and preserve raw rows |
-| PACKAGE_VERSION_QA | YES | FAIL | manifests say `1.4.0` on v1.6 line | YES | Machine/release owner | Separate metadata remediation |
+| PACKAGE_VERSION_QA | YES | PASS | package and lockfile root metadata aligned at `1.6.0`; lint/build/regression 70/70 PASS | NO | Machine/release owner | None |
 
-Current aggregate state: `V1_6_MACHINE_READY=NO`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, `V1_6_RELEASE_READY=NO`.
+Current aggregate state: `V1_6_MACHINE_READY=YES`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, `V1_6_RELEASE_READY=NO`.
 
 ### Minimum legitimate acceptance checklist
 
@@ -61,7 +71,6 @@ Current aggregate state: `V1_6_MACHINE_READY=NO`, `V1_6_HUMAN_READY=NO`, `V1_6_F
 
 ### Next executable tasks
 
-- `V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01`: align package/release metadata without feature work and validate lockfile reproducibility.
 - `V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01`: obtain the required real source, complete HUMAN_UI_QA and Levels 2/3, and record unmanufactured field rows/KPIs.
 
 ## AUTHORITATIVE RECOVERY SNAPSHOT — PROJECT-MASTER-RECOVERY-01

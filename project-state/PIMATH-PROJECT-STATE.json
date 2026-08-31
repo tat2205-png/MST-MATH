@@ -1,9 +1,9 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-30",
-  "updated_at": "2026-08-31T10:22:08+07:00",
-  "current_branch": "fix/v1.6-field-acceptance-reconciliation",
-  "current_head": "9c4bd8428e9869ce893fc86bafdee50c7902fc02",
+  "updated_at": "2026-08-31T10:32:56+07:00",
+  "current_branch": "fix/v1.6-package-version-metadata",
+  "current_head": "eccc4cfb3d6a10c231cd01745adc86cfe3e659d1",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
   "head_transition": {
     "status": "DONE",
@@ -24,9 +24,10 @@
     "rc_scope": "CONTROLLED_SELF_PILOT_AND_MACHINE_CANDIDATE",
     "field_scope": "LEVEL_2_EXTERNAL_TEACHERS_AND_LEVEL_3_CLASSROOM",
     "package_version": {
-      "classification": "STALE_METADATA",
+      "classification": "RESOLVED",
       "observed": "1.4.0",
-      "remediation_required": true,
+      "current": "1.6.0",
+      "remediation_required": false,
       "runtime_display_found": false
     },
     "machine_qa": {
@@ -48,18 +49,29 @@
       "pagination_real_source_rerun": "NOT_RUN_SOURCE_PATH_NOT_AVAILABLE"
     },
     "readiness": {
-      "machine_ready": false,
+      "machine_ready": true,
       "human_ready": false,
       "field_ready": false,
       "release_ready": false
     },
     "minimum_blockers": [
-      "STALE_PACKAGE_VERSION_METADATA",
       "HUMAN_UI_QA_NEEDS_REVALIDATION",
       "PILOT_SOLUTION_AND_VIDEO_REQUIRE_ELIGIBLE_REAL_SOURCE",
       "LEVEL_2_EXTERNAL_TEACHER_EVIDENCE_ABSENT",
       "LEVEL_3_CLASSROOM_EVIDENCE_ABSENT"
     ]
+  },
+  "v1_6_package_version_metadata_remediation_01": {
+    "status": "COMPLETE",
+    "task_id": "V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01",
+    "source_head": "eccc4cfb3d6a10c231cd01745adc86cfe3e659d1",
+    "old_version": "1.4.0",
+    "new_version": "1.6.0",
+    "package_version_conflict": "RESOLVED",
+    "package_version_remediation_required": false,
+    "evidence": ["package.json", "package-lock.json", "specs/v1.6/MASTER_SPEC.md", "specs/v1.6/RELEASE_SPEC.md", "CHANGELOG.md"],
+    "qa": {"lint": "PASS", "build": "PASS", "regression": "PASS_70_OF_70"},
+    "source_code_immutability": "PASS"
   },
   "governance": {
     "identity_hierarchy": {"status": "LOCKED"},
@@ -139,7 +151,7 @@
     {"id": "HUMAN_PAGINATION_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"]},
     {"id": "HUMAN_Q37_VISUAL_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"]},
     {"id": "HUMAN_UI_QA", "status": "NEEDS_REVALIDATION", "reason": "No distinct complete UI approval recorded"},
-    {"id": "EXTERNAL_FIELD_ACCEPTANCE", "status": "PENDING_HUMAN_GATE", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]}
+    {"id": "EXTERNAL_FIELD_ACCEPTANCE", "status": "NOT_PROVEN", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]}
   ],
   "pilot_gates": [
     {"id": "PILOT_IMPORT_QA", "status": "PASS"},
@@ -155,7 +167,7 @@
   "blockers": [
     {"id": "V1_6_FIELD_EVIDENCE", "status": "BLOCKED", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]},
     {"id": "V1_6_EVIDENCE_CONFLICT", "status": "RESOLVED", "reason": "RC evidence is controlled self-pilot/machine scope; field report is separate external/classroom scope"},
-    {"id": "PACKAGE_VERSION_METADATA", "status": "BLOCKED", "reason": "package.json and package-lock root remain 1.4.0 on the v1.6 release line"},
+    {"id": "PACKAGE_VERSION_METADATA", "status": "RESOLVED", "reason": "package.json and package-lock root metadata aligned at 1.6.0 by V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01"},
     {"id": "PILOT_SOLUTION_UNSUPPORTED", "status": "BLOCKED"}
   ],
   "recovery_queue": [
@@ -177,9 +189,9 @@
     {"id": "REALWORLD-04", "status": "PLANNED"}
   ],
   "next_executable_task": {
-    "id": "V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01",
+    "id": "V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01",
     "status": "NOT_STARTED",
-    "description": "Align package and lockfile root version metadata without feature work, then rerun typecheck, build, and regression. External field execution remains a separate human task."
+    "description": "Obtain an authorized eligible real source, complete HUMAN_UI_QA and external teacher/classroom Levels 2 and 3, and preserve unmanufactured field rows and KPIs."
   },
   "next_priority": [
     "Create/preserve PROJECT_MASTER_MAP in canonical repo",
