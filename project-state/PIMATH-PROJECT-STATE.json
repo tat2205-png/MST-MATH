@@ -1,0 +1,149 @@
+{
+  "schema_version": "PROJECT-MASTER-RECOVERY-01",
+  "snapshot_date": "2026-08-30",
+  "updated_at": "2026-08-30T17:38:53+07:00",
+  "current_branch": "chore/project-master-recovery-01",
+  "current_head": "7e10080ebc8838238207c7331f9a6b9a91432c69",
+  "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
+  "head_transition": {
+    "status": "DONE",
+    "linear": true,
+    "commits": ["d9eb6aa45e40de993b6198ec9268d244321c9b9a", "262b661b26acd762dbda0e1862cff8bd0e4dc7ed", "7e10080ebc8838238207c7331f9a6b9a91432c69"],
+    "evidence": ["git merge-base --is-ancestor", "git log fa742d2..HEAD", "git diff fa742d2..HEAD"]
+  },
+  "project": {
+    "umbrella": "PiMath / MATH AI",
+    "implementation": "Math AI Studio",
+    "standards_layer": "NA-MATH",
+    "status": "IN_PROGRESS",
+    "mode": "ACTIVE DEVELOPMENT / FEATURE FREEZE / FINALIZATION"
+  },
+  "governance": {
+    "identity_hierarchy": {"status": "LOCKED"},
+    "authority_order": [
+      "SYSTEM-ARCHITECTURE-V1.0",
+      "AI-GOVERNANCE-AND-CHANGE-CONTROL-V1.0",
+      "PROJECT-DECISION-LOG-V1.0",
+      "PROJECT-ROADMAP-V1.0",
+      "PIMATH-AHP-V1.0",
+      "approved domain artifacts",
+      "PIMATH-PROJECT-STATE.json",
+      "current task"
+    ],
+    "cross_chat_protocol": {"artifact": "PIMATH-AHP-V1.0", "status": "APPROVED"},
+    "orchestrator": {
+      "artifact": "PIMATH-AUTONOMOUS-PROJECT-ORCHESTRATOR-V1.0",
+      "status": "NEEDS_REVALIDATION",
+      "autonomy_level": 3
+    }
+  },
+  "locked_baselines": [
+    "PiMath / MATH AI umbrella identity",
+    "00-99 governance hierarchy",
+    "feature freeze",
+    "NA-MATH SYSTEM V2.6",
+    "NA-MATH-LAYOUT V1.3",
+    "NA-MATH-TEXTBOOK-STYLE V1.0",
+    "NA-MATH STUDENT WORKSPACE V1.2",
+    "KNTT_VISUAL_DEMO_V2",
+    "NA-MATH DIGITAL & AI MATRIX V1.0"
+  ],
+  "releases": {
+    "v1.1": {"status": "DONE", "release_state": "RELEASED", "head": "9d6cda6"},
+    "v1.2": {"status": "DONE", "release_state": "RELEASED", "tag_head": "ceefd17"},
+    "v1.3-rc.1": {"status": "DONE", "release_state": "RC", "head": "e6edcfd"},
+    "v1.3.1": {"status": "DONE", "release_state": "RELEASED", "head": "57956cd3d55482e8252d7ece1b2d617831c492f0"},
+    "v1.4.0": {"status": "DONE", "release_state": "RELEASED", "head": "85d6ad2eb004d4e889f578c542df8b64cb08b02b"},
+    "v1.5.0": {"status": "DONE", "release_state": "RELEASED", "head": "39f22715a1aaef4159d50d01fe120506d5653b0f"},
+    "v1.6.0": {
+      "status": "BLOCKED",
+      "release_state": "DEVELOPMENT",
+      "branch": "develop/v1.6.0",
+      "head": "7e10080ebc8838238207c7331f9a6b9a91432c69",
+      "human_gates": ["pagination", "Q37 visual", "UI"],
+      "pilot_hard_gates": ["import", "exam", "question bank", "pagination", "selection", "assessment", "solution"]
+    }
+  },
+  "modules": {
+    "question_bank": {
+      "QB-0A_to_0K": "PASS",
+      "QB-1A_to_1F": "PASS",
+      "QB-2A": "PASS",
+      "QB-2B": "PASS",
+      "QB-2C": "PASS",
+      "QB-2D": "PASS"
+    },
+    "exam_qa": "PASS",
+    "docx_export_1A_to_1F": "PASS",
+    "document_converter_v1": "PLANNED",
+    "na_math_nls_sources": {"expected": 9, "registered": 9, "status": "PASS"},
+    "digital_ai_matrix": {
+      "lessons": 79,
+      "status": "NEEDS_REVALIDATION",
+      "AI_0": 14,
+      "AI_ASSIST": 47,
+      "AI_INTEGRATED": 18,
+      "AI_CREATION": 6,
+      "machine_readable_repo_integration": "PENDING"
+    },
+    "brand_system": {"BRAND-00": "UNKNOWN", "status": "UNKNOWN"},
+    "real_world_math": {"REALWORLD-00": "PLANNED", "status": "PLANNED"},
+    "agent_web": {"WEB-00_to_WEB-10": "UNKNOWN", "status": "UNKNOWN"},
+    "fold_unfold": "DONE",
+    "manim_video": "DONE"
+  },
+  "human_gates": [
+    {"id": "HUMAN_PAGINATION_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"]},
+    {"id": "HUMAN_Q37_VISUAL_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"]},
+    {"id": "HUMAN_UI_QA", "status": "NEEDS_REVALIDATION", "reason": "No distinct complete UI approval recorded"},
+    {"id": "EXTERNAL_FIELD_ACCEPTANCE", "status": "PENDING_HUMAN_GATE", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]}
+  ],
+  "pilot_gates": [
+    {"id": "PILOT_IMPORT_QA", "status": "PASS"},
+    {"id": "PILOT_EXAM_QA", "status": "PASS"},
+    {"id": "PILOT_QUESTION_BANK_QA", "status": "PASS"},
+    {"id": "PILOT_PAGINATION_QA", "status": "PASS"},
+    {"id": "PILOT_SELECTION_QA", "status": "PASS"},
+    {"id": "PILOT_ASSESSMENT_QA", "status": "PASS"},
+    {"id": "PILOT_SOLUTION_QA", "status": "BLOCKED", "reason": "UNSUPPORTED_SOLUTION_GENERATION for selected source item"}
+  ],
+  "blockers": [
+    {"id": "V1_6_FIELD_EVIDENCE", "status": "BLOCKED", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]},
+    {"id": "V1_6_EVIDENCE_CONFLICT", "status": "BLOCKED", "reason": "RC readiness YES conflicts with field readiness NO"},
+    {"id": "PILOT_SOLUTION_UNSUPPORTED", "status": "BLOCKED"}
+  ],
+  "recovery_queue": [
+    {"id": "RECOVER_GOVERNANCE_ARTIFACTS", "status": "NOT_STARTED"},
+    {"id": "RECONCILE_RC_AND_FIELD_GATES", "status": "NOT_STARTED"},
+    {"id": "OBTAIN_HUMAN_UI_APPROVAL", "status": "NOT_STARTED"},
+    {"id": "RECOVER_EXACT_MODULE_00_99_MAP", "status": "NOT_STARTED"}
+  ],
+  "planned_work": [
+    {"id": "NA-MATH-REAL-WORLD-MATHEMATICS-STANDARD-V1.0", "status": "PLANNED"},
+    {"id": "NA-MATH-REAL-WORLD-SOURCE-DATA-STANDARD-V1.0", "status": "PLANNED"},
+    {"id": "NA-MATH-REAL-WORLD-MATRIX-V1.0", "status": "PLANNED"},
+    {"id": "INTERNATIONAL-REFERENCE-CORPUS", "status": "PLANNED", "scope": ["PISA", "SAT", "Japan", "Korea", "China", "India", "Europe"]},
+    {"id": "VERIFIED-REAL-DATA-REGISTRY", "status": "PLANNED"},
+    {"id": "REALWORLD-00", "status": "PLANNED"},
+    {"id": "REALWORLD-01", "status": "PLANNED"},
+    {"id": "REALWORLD-02", "status": "PLANNED"},
+    {"id": "REALWORLD-03", "status": "PLANNED"},
+    {"id": "REALWORLD-04", "status": "PLANNED"}
+  ],
+  "next_executable_task": {
+    "id": "V1_6_FIELD_ACCEPTANCE_RECONCILIATION",
+    "status": "NOT_STARTED",
+    "description": "Reconcile controlled Pilot-01 with external field gates, obtain HUMAN_UI_QA, and issue an authority-approved release decision."
+  },
+  "next_priority": [
+    "Create/preserve PROJECT_MASTER_MAP in canonical repo",
+    "Read-only live repo recovery audit",
+    "Close v1.6 human QA gates",
+    "Close v1.6 pilot hard gates",
+    "Recover QB-2B/QB-2C/QB-2D status",
+    "Revalidate document/math/visual/WMF field issues",
+    "Freeze production-ready release",
+    "Integrate approved standards",
+    "Then start REALWORLD-00"
+  ]
+}
