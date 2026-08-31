@@ -8,10 +8,19 @@ const base: QuestionObject = {
   answer: [{ type: "text", value: "C" }], solution: [{ type: "text", value: "Chọn C. Kết luận theo lời giải nguồn." }], subquestions: [], figures: [], figureAssociations: [], metadata: {}, warnings: [], validationStatus: "VALID", bankStatus: "APPROVED", duplicateState: "UNIQUE",
 };
 const service = new QuestionBankStudioService();
+process.env.STUDIO_ORCHESTRATOR_V1 = "true";
 const sourceRequest = service.toSolutionRequest(base);
 assert.equal(sourceRequest.support, "SOURCE_SOLUTION_PRESERVED");
 assert.deepEqual(sourceRequest.sourceSolution, base.solution);
 assert.deepEqual(sourceRequest.sourceAnswer, base.answer);
+const sourceVideo = service.buildVideoJob(base);
+assert.equal(sourceVideo.ok, true);
+if (sourceVideo.ok) {
+  assert.equal(sourceVideo.job.solutionRequest.support, "SOURCE_SOLUTION_PRESERVED");
+  assert.equal(sourceVideo.job.visualRoute.routeId, "MATH");
+  assert.equal(sourceVideo.job.provenance.questionId, base.id);
+  assert.match(sourceVideo.job.renderTask.files[0].content, /SourceSolutionQuestion/);
+}
 const generated: QuestionObject = { ...base, type: "SHORT_ANSWER", answer: [{ type: "text", value: "x=3,y=2" }], solution: undefined, stem: [{ type: "text", value: "Giải hệ x+y=5;x-y=1" }] };
 assert.equal(service.toSolutionRequest(generated).support, "DETERMINISTIC_ENGINE_SUPPORTED");
 const unsupported: QuestionObject = { ...base, solution: undefined, type: "ESSAY", answer: undefined };
