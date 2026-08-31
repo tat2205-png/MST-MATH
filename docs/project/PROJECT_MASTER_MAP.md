@@ -96,6 +96,20 @@ Real repaired artifacts are retained under `render_output/teacher-workflow/expor
 
 ---
 
+## AGENCY BOOTSTRAP RESTORE — V1.6-AGENCY-BOOTSTRAP-RESTORE-01
+
+**Status:** COMPLETE — NO AUTHORIZED AGENCY ARTIFACTS RECOVERED
+**Execution date:** 2026-08-31
+**Baseline:** `5d634e54a53c23851d505580b50caf95fb76d378` on `fix/v1.6-field-acceptance-blockers`; clean worktree.
+
+The complete current-tree and reachable-Git-history search found no `AGENCY_TEAM.md`, `AGENCY_RUNTIME_CONTRACT.md`, `agency/manifest.json`, Agency workflow, or Agency role-definition artifact. The only recoverable baseline file is `AGENTS.md`, added at `4e32e5b6e9241e2256d3644ff14fb5e15587199b`; its current and historical SHA-256 values match (`55769e49f81bd5a55d4208babd02f5e67a6fbe0cb594037b756ed1204348f386`) and it contains no approved Agency model. No conflict exists because no competing contract was found. No Agency contract was reconstructed or restored.
+
+The canonical product direction remains a **multi-game system powered by the Question Bank**, with `GAME-01=OLYMPIA` as a proposed first template rather than the whole game subsystem. No authoritative Olympia reference, approved UI, screenshot, mockup, round specification, or user-approval evidence was recoverable. Matches in `HUMAN_UI_ACCEPTANCE_CHECKLIST.md` are current field-validation criteria, not historical approval. Therefore `GAME_01_STATUS=REFERENCE_REQUIRED` and `GAME_01_REFERENCE_STATUS=NEEDS_HUMAN_REFERENCE_CONFIRMATION`; no game implementation changed.
+
+The PDF/DOCX remediation at `5d634e5` and the video disposition remain preserved. This bootstrap task cannot certify Agency gates, machine readiness, human readiness, field readiness, or release readiness. `NEXT_EXECUTABLE_TASK=USER_SUPPLY_APPROVED_AGENCY_ARTIFACTS`.
+
+---
+
 ## PACKAGE VERSION METADATA REMEDIATION — V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01
 
 Completed on 2026-08-31 at source HEAD `eccc4cfb3d6a10c231cd01745adc86cfe3e659d1` on branch `fix/v1.6-package-version-metadata`. Repository and release-line evidence proved the active package target as plain SemVer `1.6.0`: the v1.6 master/release specifications and changelog identify the line as v1.6.0, while prior corrected package releases use plain semantic package versions rather than prerelease metadata.

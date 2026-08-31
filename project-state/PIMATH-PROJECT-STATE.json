@@ -1,7 +1,7 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-31",
-  "updated_at": "2026-08-31T19:00:00+07:00",
+  "updated_at": "2026-08-31T20:00:00+07:00",
   "current_branch": "fix/v1.6-package-version-metadata",
   "current_head": "eccc4cfb3d6a10c231cd01745adc86cfe3e659d1",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
@@ -524,5 +524,55 @@
       "LEVEL_3_CLASSROOM_EVIDENCE_ABSENT"
     ],
     "next_executable_task": "V1.6-HUMAN-UI-AND-FIELD-ACCEPTANCE-REVALIDATION-01"
+  },
+  "v1_6_agency_bootstrap_restore_01": {
+    "status": "COMPLETE_NO_AUTHORIZED_ARTIFACTS_RECOVERED",
+    "task_id": "V1.6-AGENCY-BOOTSTRAP-RESTORE-01",
+    "baseline": {
+      "branch": "fix/v1.6-field-acceptance-blockers",
+      "head": "5d634e54a53c23851d505580b50caf95fb76d378",
+      "worktree": "CLEAN"
+    },
+    "agency_artifacts": {
+      "agents_md": {
+        "status": "FOUND_CURRENT_AND_HISTORY",
+        "source_commit": "4e32e5b6e9241e2256d3644ff14fb5e15587199b",
+        "sha256": "55769e49f81bd5a55d4208babd02f5e67a6fbe0cb594037b756ed1204348f386",
+        "authority_reason": "Only historically tracked candidate; contains no Agency role or gate contract."
+      },
+      "agency_team": "MISSING",
+      "agency_runtime_contract": "MISSING",
+      "agency_manifest": "MISSING",
+      "agency_development_pipeline": "MISSING",
+      "agency_roles": "MISSING",
+      "contract_conflict": false,
+      "reachable_history_content_search": "NO_AGENCY_CONTRACT_CONTENT_IN_REACHABLE_HISTORY"
+    },
+    "agency_validation": {
+      "lead_reviewer_separation": "NOT_TESTABLE",
+      "gate_model_g0_to_g6": "NOT_TESTABLE",
+      "manifest": "NOT_TESTABLE",
+      "runtime": "NOT_TESTABLE"
+    },
+    "game_system": "MULTI_GAME_POWERED_BY_QUESTION_BANK",
+    "game_01": {
+      "name": "OLYMPIA",
+      "status": "REFERENCE_REQUIRED",
+      "reference_status": "NEEDS_HUMAN_REFERENCE_CONFIRMATION",
+      "reference_source": "NOT_RECOVERED",
+      "evidence": "No approved Olympia reference found in current tree or reachable Git history. Current checklist mentions are not approval evidence."
+    },
+    "prior_remediation_preserved": {
+      "pdf": "PRESERVED_AT_5D634E5",
+      "docx": "PRESERVED_AT_5D634E5",
+      "video": "PRESERVED_VIDEO_BLOCKED_BY_NO_VALID_SOLUTION_FOR_REAL_Q64"
+    },
+    "readiness": {
+      "V1_6_MACHINE_READY": false,
+      "V1_6_HUMAN_READY": false,
+      "V1_6_FIELD_READY": false,
+      "V1_6_RELEASE_READY": false
+    },
+    "next_executable_task": "USER_SUPPLY_APPROVED_AGENCY_ARTIFACTS"
   }
 }
