@@ -1,5 +1,6 @@
 import { ManimScene, MathProblemIR, MathSolution, MathVerification, VisualSpecification } from "../../src/types/mathSchema.js";
 import { evaluateMathGate, MathGateResult } from "./mathVerificationGate.js";
+import { NA_MATH_VIDEO_PROFILE } from "../../src/config/naMathStandardV26.js";
 
 export type GoldenStageStatus = "PASS" | "BLOCKED" | "PENDING" | "FAILED";
 
@@ -252,7 +253,37 @@ function buildNarrationPlan(x: string, y: string): GoldenNarrationPlan {
 }
 
 function buildRenderTask(source: string, scenePlan: GoldenScenePlan, narrationPlan: GoldenNarrationPlan, x: string, y: string): GoldenRenderTask {
-  const code = `from manim import *\n\nclass GoldenLinearSystem(Scene):\n    def construct(self):\n        title = Text("2x2 Linear System", font_size=32).to_edge(UP)\n        source = MathTex(r"x+y=5\\\\ x-y=1", font_size=34)\n        elimination = MathTex(r"2x=6\\\\ x=${x}", font_size=34)\n        y_result = MathTex(r"y=${y}", font_size=34)\n        answer = MathTex(r"x=${x},\\quad y=${y}", font_size=40)\n        self.play(Write(title), Write(source))\n        self.wait(2)\n        self.play(ReplacementTransform(source, elimination))\n        self.wait(2)\n        self.play(ReplacementTransform(elimination, y_result))\n        self.wait(2)\n        self.play(ReplacementTransform(y_result, answer))\n        self.wait(3)\n`;
+  const code = `from manim import *
+
+class GoldenLinearSystem(Scene):
+    def construct(self):
+        self.camera.background_color = "#FCFCFA"
+        # NA_MATH_VIDEO_QSG_V1: QUESTION_TOP / SOLUTION_LEFT / GEOMETRY_RIGHT
+        # Reuse the approved NA Math panel tokens; panels are containers only and
+        # do not modify the verified question, solution, or geometry source.
+        question_panel = RoundedRectangle(corner_radius=0.16, width=13.25, height=1.62, stroke_color="#D7DEE8", stroke_width=2, fill_color="#FFFFFF", fill_opacity=0.82).move_to([0, 2.78, 0])
+        solution_panel = RoundedRectangle(corner_radius=0.16, width=6.55, height=5.35, stroke_color="#D7DEE8", stroke_width=2, fill_color="#FFFFFF", fill_opacity=0.72).move_to([-3.42, -1.08, 0])
+        geometry_panel = RoundedRectangle(corner_radius=0.16, width=6.55, height=5.35, stroke_color="#D7DEE8", stroke_width=2, fill_color="#FFFFFF", fill_opacity=0.72).move_to([3.42, -1.08, 0])
+        question = VGroup(
+            Text("ĐỀ BÀI", font_size=23, color="#E57C38"),
+            MathTex(r"x+y=5\\ x-y=1", font_size=32, color="#111827")
+        ).arrange(DOWN, buff=0.12).move_to([0, 2.72, 0])
+        solution = VGroup(
+            Text("LỜI GIẢI", font_size=29, color="#E57C38"),
+            MathTex(r"(x+y)+(x-y)=5+1", font_size=27, color="#111827"),
+            MathTex(r"2x=6 \\Rightarrow x=${x}", font_size=27, color="#111827"),
+            MathTex(r"y=${y}", font_size=27, color="#111827"),
+            MathTex(r"\\boxed{x=${x},\\quad y=${y}}", font_size=36, color="#E57C38")
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.20).move_to([-3.42, -1.15, 0])
+        axes = Axes(x_range=[-1, 6, 1], y_range=[-1, 6, 1], x_length=5.1, y_length=3.5, axis_config={"color": "#6B7280", "include_numbers": True, "font_size": 16}).move_to([3.42, -1.15, 0])
+        point = Dot(axes.c2p(${x}, ${y}), color="#E57C38")
+        geometry = VGroup(axes, point)
+        self.play(Create(question_panel), Create(solution_panel), Create(geometry_panel))
+        self.play(Write(question))
+        self.wait(1)
+        self.play(Write(solution), Create(geometry))
+        self.wait(3)
+`;
   return {
     jobId: `golden_path_${Date.now()}`,
     projectId: "golden-path-v1",
@@ -262,7 +293,7 @@ function buildRenderTask(source: string, scenePlan: GoldenScenePlan, narrationPl
     quality: "preview",
     action: "render",
     files: [{ path: "main.py", content: code }],
-    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y } } },
+    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"] } },
     videoSpec: { video_title: "Golden Path: Hệ phương trình", total_duration_seconds: 28, target_aspect_ratio: "16:9", resolution: "720p", scenes: scenePlan.scenes.map((scene) => ({ scene_id: scene.id, scene_index: scene.index, title: scene.title, learning_goal: scene.title, math_content: { latex: scene.math, explanation: scene.visualAction }, visual_objects: [scene.visualAction], animations: [{ type: "Write" as const, target: scene.visualAction, duration: 2 }], narration: { text_vi: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.text || "", voice_tone: "step_by_step" as const, duration_hint_seconds: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.durationSeconds || 2 } })), manim_python_code: code },
     outputFormat: "mp4",
     resolution: "720p",
