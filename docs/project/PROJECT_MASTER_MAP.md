@@ -10,6 +10,35 @@
 
 ---
 
+## AGENCY SHELL GOVERNANCE CONFLICT RESOLUTION — HUMAN PRODUCT OWNER DECISION
+
+**Status:** APPROVED FOR REMEDIATION AND RE-TESTING
+**Decision date:** 2026-08-31
+
+`HOST_NATIVE_SHELL_POLICY=APPROVED`. On the current MacBook execution environment, `HOST_OS=macOS` and `PRIMARY_SHELL=zsh`. Windows PowerShell scripts remain valid Windows-specific operational artifacts, but they are not mandatory on macOS unless a specific task explicitly requires PowerShell. Cross-platform Node.js, TypeScript, and Python QA uses the native shell available on the active host.
+
+This human decision resolves the shell-selection conflict only. It does not override the prior Reality Checker BLOCK, authorize a fabricated PASS, weaken G2/G5/G6, or certify current Agency execution. The required sequence remains root cause → repair → Test Automation → Evidence Collector → independent Reality Checker. `NEXT_EXECUTABLE_TASK=V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R` after the authorized evidence checkpoint is clean.
+
+---
+
+## AGENCY EXECUTION ENVIRONMENT RESTORE — V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01-RESTART
+
+**Status:** OFFICIAL ROLES AND PROJECT ADAPTERS RESTORED | RUNTIME CANARY BLOCKED BY GOVERNANCE/SHELL CONFLICT
+**Execution date:** 2026-08-31
+**Baseline:** `2e8ef2f00264e6c81d9a4de52651892bf63c2f2d` on `fix/v1.6-field-acceptance-blockers`; initial worktree clean.
+
+`AGENCY_GOVERNANCE_CONTRACT=RESTORED`. The official `msitarzewski/agency-agents` source was cloned to `/Users/mac/Tools/agency-agents` and pinned at commit `3c9588880b7cafaec325a104899fd8bbe27e7d72`. Its current documented Codex converter/installer installed only the 14 approved upstream personas to `/Users/mac/.codex/agents`: Agents Orchestrator, Product Manager, Multi-Agent Systems Architect, UX Researcher, UI Designer, Frontend Developer, Backend Architect, AI Engineer, Security Architect, Test Automation Engineer, Evidence Collector, Reality Checker, Document Generator, and Corporate Training Designer. `OFFICIAL_AGENCY_AGENT_ROLES=AVAILABLE` and `AGENCY_EXECUTION_HOST=CODEX_CLI_0.151.0`.
+
+Six new, explicitly authorized PiMath v1.6 adapters were created under `agency/roles/`, each marked `STATUS=NEW_AUTHORIZED_V1_6_ADAPTER`: GDPT 2018 Curriculum Specialist, Math Solver & Independent Verifier, Probability & Statistics Specialist, Assessment & Psychometrics Specialist, STEM & Digital Competency Specialist, and Math Visualization Specialist. The new `agency/workflows/DEVELOPMENT_PIPELINE.md` preserves the approved command chain, G0–G6 ownership, mandatory G2/G5/G6, lead/reviewer separation, no self-certification, no silent fallback, and human authority. `PROJECT_LOCAL_MATH_ROLE_ADAPTERS=AVAILABLE`; `DEVELOPMENT_PIPELINE_CONTRACT=AVAILABLE`.
+
+The Agency-only Codex harness launched five distinct ephemeral read-only Codex threads with official role definitions and separate output/event artifacts for Product Manager, Multi-Agent Systems Architect, Test Automation Engineer, Evidence Collector, and Reality Checker. Separate invocation and output boundaries were proven. The negative missing-reviewer fixture returned BLOCK with no generic fallback. However, Evidence Collector returned BLOCK without collecting evidence because the preserved repository `AGENTS.md` requires Windows/PowerShell while the authoritative live task and host require macOS/zsh. Reality Checker ran independently, consumed prior artifacts, returned BLOCK, and refused certification because evidence collection was incomplete. Therefore `AGENCY_RUNTIME_CANARY_QA=BLOCK`, `CURRENT_AGENCY_EXECUTION_CERTIFIED=NO`, and the conflict must not be bypassed or converted to PASS.
+
+No Game, Question Bank, application, PDF, DOCX, video, or Manim source changed. Preserve `GAME_SYSTEM=MULTI_GAME_POWERED_BY_QUESTION_BANK`, `GAME_01=OLYMPIA`, and `GAME_01_REFERENCE_STATUS=NEEDS_HUMAN_REFERENCE_CONFIRMATION`. Existing PDF/DOCX remediation at `5d634e5` and the real-q64 video eligibility disposition remain unchanged.
+
+Current product readiness remains `V1_6_MACHINE_READY=NO`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, and `V1_6_RELEASE_READY=NO`. `NEXT_EXECUTABLE_TASK=HUMAN_AGENCY_GOVERNANCE_CONFLICT_REVIEW`.
+
+---
+
 ## APPROVED AGENCY ARTIFACT INTEGRATION — V1.6-AGENCY-APPROVED-ARTIFACTS-INTEGRATION-01-RESTART
 
 **Status:** GOVERNANCE CONTRACT RESTORED | CURRENT AGENCY EXECUTION NOT CERTIFIED

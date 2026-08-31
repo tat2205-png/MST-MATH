@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PiMath Agency runtime role output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "invocation_id",
+    "task_id",
+    "role_name",
+    "role_source",
+    "status",
+    "findings",
+    "evidence_refs",
+    "checks_performed",
+    "unresolved_risks",
+    "next_owner",
+    "gate_status"
+  ],
+  "properties": {
+    "schema": { "type": "string", "const": "MWS_AGENCY_ROLE_OUTPUT/1.0" },
+    "invocation_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string", "minLength": 1 },
+    "role_name": { "type": "string", "minLength": 1 },
+    "role_source": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["PASS", "REVIEW", "BLOCK"] },
+    "findings": { "type": "array", "items": { "type": "string" } },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "checks_performed": { "type": "array", "items": { "type": "string" } },
+    "unresolved_risks": { "type": "array", "items": { "type": "string" } },
+    "next_owner": { "type": ["string", "null"] },
+    "gate_status": { "type": "string", "enum": ["PASS", "REVIEW", "BLOCK", "NOT_APPLICABLE"] }
+  }
+}

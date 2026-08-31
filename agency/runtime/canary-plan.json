@@ -1,0 +1,45 @@
+{
+  "schema": "MWS_AGENCY_ENVELOPE/1.1",
+  "run_id": "V1_6_AGENCY_RUNTIME_CANARY_01",
+  "execution_mode": "CODEX_SEPARATE_PROCESS_INVOCATIONS",
+  "gate_ownership": {
+    "G0": "Product Manager",
+    "G1": "Multi-Agent Systems Architect",
+    "G6": ["Evidence Collector", "Reality Checker"]
+  },
+  "tasks": [
+    {
+      "task_id": "CANARY-TASK-01",
+      "lead": "Product Manager",
+      "reviewers": ["Multi-Agent Systems Architect"],
+      "output": "product-manager.json"
+    },
+    {
+      "task_id": "CANARY-TASK-02",
+      "lead": "Multi-Agent Systems Architect",
+      "reviewers": ["Test Automation Engineer"],
+      "output": "architecture-review.json"
+    },
+    {
+      "task_id": "CANARY-TASK-03",
+      "lead": "Test Automation Engineer",
+      "reviewers": ["Reality Checker"],
+      "output": "test-automation.json"
+    },
+    {
+      "task_id": "CANARY-TASK-04",
+      "lead": "Evidence Collector",
+      "reviewers": ["Reality Checker"],
+      "output": "evidence-index.json"
+    },
+    {
+      "task_id": "CANARY-TASK-05",
+      "lead": "Reality Checker",
+      "reviewers": ["Human Release Approver"],
+      "output": "reality-check.json"
+    }
+  ],
+  "required_release_gates": ["G2", "G5", "G6"],
+  "human_in_the_loop": true,
+  "no_silent_fallback": true
+}

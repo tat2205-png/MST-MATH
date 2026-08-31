@@ -1,7 +1,7 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-31",
-  "updated_at": "2026-08-31T13:02:18+07:00",
+  "updated_at": "2026-08-31T13:46:38+07:00",
   "current_branch": "fix/v1.6-field-acceptance-blockers",
   "current_head": "f2dd5a6d5207bc2363728a0bd5005b7a6dacc67a",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
@@ -384,9 +384,9 @@
     }
   ],
   "next_executable_task": {
-    "id": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01",
+    "id": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R",
     "status": "NOT_STARTED",
-    "description": "Restore and verify an executable Agency Agents environment with distinct lead/reviewer roles, separated outputs, representable gates, no silent fallback, and an independent Reality Checker."
+    "description": "Rerun Test Automation, Evidence Collector, and independent Reality Checker under the approved host-native macOS/zsh policy without overriding the prior BLOCK."
   },
   "next_priority": [
     "Create/preserve PROJECT_MASTER_MAP in canonical repo",
@@ -655,5 +655,109 @@
       "V1_6_RELEASE_READY": false
     },
     "next_executable_task": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01"
+  },
+  "v1_6_agency_execution_environment_restore_01_restart": {
+    "status": "OFFICIAL_ROLES_AND_ADAPTERS_AVAILABLE_RUNTIME_CANARY_BLOCKED",
+    "task_id": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01-RESTART",
+    "baseline": {
+      "branch": "fix/v1.6-field-acceptance-blockers",
+      "head": "2e8ef2f00264e6c81d9a4de52651892bf63c2f2d",
+      "worktree": "CLEAN"
+    },
+    "governance_contract": "RESTORED",
+    "execution_host": "CODEX_CLI_0.151.0",
+    "upstream": {
+      "source": "https://github.com/msitarzewski/agency-agents.git",
+      "commit": "3c9588880b7cafaec325a104899fd8bbe27e7d72",
+      "installation_method": "scripts/convert.sh --tool codex; scripts/install.sh --no-interactive --tool codex --agent <14-approved-role-slugs>",
+      "source_root": "/Users/mac/Tools/agency-agents",
+      "codex_agent_root": "/Users/mac/.codex/agents"
+    },
+    "official_agency_agent_roles": {
+      "status": "AVAILABLE",
+      "installed_count": 14,
+      "roles": [
+        "Agents Orchestrator",
+        "Product Manager",
+        "Multi-Agent Systems Architect",
+        "UX Researcher",
+        "UI Designer",
+        "Frontend Developer",
+        "Backend Architect",
+        "AI Engineer",
+        "Security Architect",
+        "Test Automation Engineer",
+        "Evidence Collector",
+        "Reality Checker",
+        "Document Generator",
+        "Corporate Training Designer"
+      ]
+    },
+    "project_local_math_role_adapters": {
+      "status": "AVAILABLE",
+      "provenance": "NEW_AUTHORIZED_V1_6_ADAPTER",
+      "count": 6,
+      "root": "agency/roles"
+    },
+    "development_pipeline_contract": {
+      "status": "AVAILABLE",
+      "provenance": "NEW_AUTHORIZED_V1_6_ADAPTER",
+      "path": "agency/workflows/DEVELOPMENT_PIPELINE.md"
+    },
+    "runtime_canary": {
+      "execution_mode": "CODEX_SEPARATE_PROCESS_INVOCATIONS",
+      "distinct_thread_count": 5,
+      "separate_role_invocation_qa": "PASS",
+      "lead_reviewer_separation_qa": "PASS",
+      "no_silent_fallback_qa": "PASS",
+      "evidence_collector_qa": "BLOCK",
+      "reality_checker_independence_qa": "PASS_BLOCK_RETURNED_INDEPENDENTLY",
+      "agency_runtime_canary_qa": "BLOCK",
+      "negative_canary": "PASS_EXPECTED_BLOCK_NO_GENERIC_FALLBACK",
+      "blocker": "PRESERVED_REPOSITORY_WINDOWS_POWERSHELL_RULE_CONFLICTS_WITH_AUTHORITATIVE_MACOS_ZSH_TASK_AND_HOST"
+    },
+    "current_agency_execution_certified": false,
+    "game_system": "MULTI_GAME_POWERED_BY_QUESTION_BANK",
+    "game_01": {
+      "id": "GAME-01",
+      "name": "OLYMPIA",
+      "reference_status": "NEEDS_HUMAN_REFERENCE_CONFIRMATION"
+    },
+    "prior_remediation_preserved": {
+      "pdf": "PRESERVED_AT_5D634E5",
+      "docx": "PRESERVED_AT_5D634E5",
+      "video": "VIDEO_BLOCKED_BY_NO_VALID_SOLUTION_FOR_REAL_Q64"
+    },
+    "readiness": {
+      "V1_6_MACHINE_READY": false,
+      "V1_6_HUMAN_READY": false,
+      "V1_6_FIELD_READY": false,
+      "V1_6_RELEASE_READY": false
+    },
+    "next_executable_task": "HUMAN_AGENCY_GOVERNANCE_CONFLICT_REVIEW"
+  },
+  "agency_shell_governance_conflict_resolution": {
+    "status": "APPROVED_FOR_REMEDIATION_AND_RETESTING",
+    "approved_by": "HUMAN_PRODUCT_OWNER",
+    "decision": "HOST_NATIVE_SHELL_POLICY_APPROVED",
+    "active_host": {
+      "os": "macOS",
+      "primary_shell": "zsh"
+    },
+    "policy": {
+      "windows_powershell_artifacts_remain_valid": true,
+      "powershell_mandatory_on_macos": false,
+      "task_specific_shell_requirement_remains_authoritative": true,
+      "cross_platform_qa_uses_active_host_native_shell": true
+    },
+    "reality_checker_block_override": false,
+    "required_retest_sequence": [
+      "root cause",
+      "repair",
+      "Test Automation Engineer",
+      "Evidence Collector",
+      "Reality Checker"
+    ],
+    "next_executable_task": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R"
   }
 }

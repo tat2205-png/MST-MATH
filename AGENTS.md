@@ -131,26 +131,25 @@ This is a starting point. Add your own conventions, style, and rules as you figu
 - [Heartbeat](/gateway/heartbeat)
 
 # ============================================================
-# MATH AI VIDEO STUDIO - WINDOWS PROJECT OVERRIDES
+# MATH AI VIDEO STUDIO - HOST-NATIVE PROJECT OVERRIDES
 # These rules override conflicting generic rules above.
 # ============================================================
 
 ## Operating System and Shell
 
-This project runs on native Windows.
+Use the native shell of the active host unless a task explicitly requires another shell.
 
-- OS: Windows.
-- Required shell: PowerShell.
-- Prefer PowerShell 7 (`pwsh`) when available.
-- Windows PowerShell 5.1 is acceptable when `pwsh` is unavailable.
-- Never assume Bash, sh, zsh, Linux, macOS, or WSL.
-- Never mix Bash syntax with PowerShell syntax.
-- Never wrap PowerShell commands inside Bash/sh commands.
-- Before executing a command, verify that its syntax is valid PowerShell.
+- On macOS, use `zsh`.
+- On Windows, use PowerShell; prefer PowerShell 7 (`pwsh`) when available, with Windows PowerShell 5.1 acceptable otherwise.
+- Windows PowerShell scripts remain valid Windows-specific operational artifacts and must not be deleted or rewritten merely because the active host is macOS.
+- Do not treat PowerShell as a mandatory macOS runtime requirement unless a specific task explicitly requires it.
+- Cross-platform Node.js, TypeScript, and Python QA should use the native shell available on the active host.
+- Never mix shell syntaxes in one command or wrap one shell inside another.
+- Before executing a command, verify that its syntax is valid for the selected host-native shell.
 
-## PowerShell Command Rules
+## PowerShell Command Rules (Windows hosts)
 
-Use native PowerShell equivalents:
+When the active host is Windows, use native PowerShell equivalents:
 
 - `Get-ChildItem` instead of `ls`
 - `Get-Content` instead of `cat`
@@ -187,7 +186,7 @@ Before starting any local server:
 6. Never kill a process until its PID and executable have been identified.
 7. Do not terminate unrelated user processes.
 
-For port 3000, prefer checks equivalent to:
+For port 3000 on Windows, prefer checks equivalent to:
 
 `Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue`
 

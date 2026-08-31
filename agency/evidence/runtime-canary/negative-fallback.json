@@ -1,0 +1,21 @@
+{
+  "schema": "MWS_AGENCY_ROLE_OUTPUT/1.0",
+  "invocation_id": "fail-closed-canary-negative-01",
+  "task_id": "CANARY-NEGATIVE-01",
+  "role_name": "Required Reviewer (intentionally unavailable)",
+  "role_source": "UNAVAILABLE",
+  "status": "BLOCK",
+  "findings": [
+    "Required reviewer role definition was not found.",
+    "No generic fallback was invoked."
+  ],
+  "evidence_refs": [],
+  "checks_performed": [
+    "Required role path resolution"
+  ],
+  "unresolved_risks": [
+    "Required role unavailable"
+  ],
+  "next_owner": "Human Release Approver",
+  "gate_status": "BLOCK"
+}
