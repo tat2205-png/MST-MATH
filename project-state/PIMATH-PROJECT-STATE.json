@@ -1,7 +1,7 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-31",
-  "updated_at": "2026-08-31T15:00:00+07:00",
+  "updated_at": "2026-08-31T19:00:00+07:00",
   "current_branch": "fix/v1.6-package-version-metadata",
   "current_head": "eccc4cfb3d6a10c231cd01745adc86cfe3e659d1",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
@@ -441,5 +441,88 @@
       ]
     },
     "next_executable_task": "HUMAN_FIELD_EXECUTION_PHASE (external teachers + classroom validation) in parallel with optional pilot source search"
+  },
+  "v1_6_field_acceptance_blocker_remediation_01": {
+    "status": "MACHINE_REMEDIATION_COMPLETE_HUMAN_REVALIDATION_REQUIRED",
+    "task_id": "V1.6-FIELD-ACCEPTANCE-BLOCKER-REMEDIATION-01",
+    "baseline": {
+      "branch": "fix/v1.6-field-acceptance-blockers",
+      "head": "9c51f78bc778e4ffccdb1939654847c5fc728f79"
+    },
+    "historical_machine_ready_claim": "SUPERSEDED_BY_REAL_WORKFLOW_EVIDENCE",
+    "real_workflow": {
+      "transport": "HTTP /api/teacher-workflow",
+      "question_id": "7f26811b8588-q64",
+      "source_document": "Full-Toán thực tế 10.docx",
+      "source_sha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d"
+    },
+    "pdf": {
+      "failure_reproduced": true,
+      "root_cause": "OMML conversion emits a cases/matrix expression with a trailing bare \\right; inline LaTeX serialization produced invalid TeX and XeLaTeX exited non-zero.",
+      "fix": "Canonical LaTeX serialization normalizes a trailing bare \\right to \\right.",
+      "qa": "PASS",
+      "artifact": {
+        "path": "render_output/teacher-workflow/exports/field-pdf-q64-repaired.pdf",
+        "sha256": "bf52bb27b6e93515327c2a5034c1cf66573c815f40b9a68b7ac07451ee8d9e3d",
+        "xelatex_exit_code": 0,
+        "content_verified": true
+      },
+      "asset_type_qa": "PASS_PNG_SIGNATURE_AND_EXTENSION_CONFIRMED"
+    },
+    "docx": {
+      "failure_reproduced": "COMBINED_EXPORT_BLOCKED_BY_PDF_FAILURE",
+      "root_cause": "Question-bank DOCX export placed LaTeX text inside OMML runs instead of preserving source OMML.",
+      "fix": "Preserve OMML-originated math and serialize non-OMML math through the canonical OMML serializer.",
+      "qa": "PASS_PACKAGE_TEXT_MATH_AND_ASSETS",
+      "artifact": {
+        "path": "render_output/teacher-workflow/exports/field-pdf-q64-repaired.docx",
+        "sha256": "acb808469f3b520b1e557efe12a6f62672b2f0d9cfbef8b5885c877ea6c8c9d0"
+      },
+      "microsoft_word_human_open_qa": "NOT_AVAILABLE_ON_MACOS"
+    },
+    "video": {
+      "real_question_result": "VIDEO_BLOCKED_BY_NO_VALID_SOLUTION",
+      "real_question_reason": "UNSUPPORTED_SOLUTION_GENERATION",
+      "pipeline_qa": "PASS",
+      "artifact": {
+        "path": "local_bridge/runs/golden_11b919b14c2e_wwyh6662/golden_path.mp4",
+        "sha256": "33bece009bc511a964d176d368c7383b7c2320dd2b149cfd5b693d73f884eaeb",
+        "duration_seconds": 14,
+        "video_stream_present": true
+      }
+    },
+    "game": {
+      "functional_qa": "PASS",
+      "reference_status": "NEEDS_HUMAN_REFERENCE_CONFIRMATION",
+      "reference_search": "No supplied or approved visual reference found in tracked history or repository artifacts; current implementation matches the sole integration commit 33f90d6.",
+      "reference_qa": "NOT_PROVEN",
+      "human_visual_qa": "PENDING"
+    },
+    "qa": {
+      "export": "PASS",
+      "docx": "PASS",
+      "game": "PASS",
+      "question_video": "PASS",
+      "question_video_runtime": "PASS",
+      "teacher_workflow": "PASS",
+      "lint": "PASS",
+      "build": "PASS",
+      "regression": "PASS_70_OF_70"
+    },
+    "readiness": {
+      "V1_6_MACHINE_READY": false,
+      "V1_6_HUMAN_READY": false,
+      "V1_6_FIELD_READY": false,
+      "V1_6_RELEASE_READY": false
+    },
+    "remaining_blockers": [
+      "GAME_REFERENCE_NEEDS_HUMAN_REFERENCE_CONFIRMATION",
+      "MICROSOFT_WORD_HUMAN_OPEN_QA_NOT_AVAILABLE_ON_MACOS",
+      "PILOT_SOLUTION_AND_VIDEO_REQUIRE_AN_ELIGIBLE_REAL_SOURCE",
+      "HUMAN_UI_QA_PENDING",
+      "LEVEL_2_EXTERNAL_TEACHER_EVIDENCE_ABSENT",
+      "LEVEL_3_CLASSROOM_EVIDENCE_ABSENT"
+    ],
+    "next_executable_task": "V1.6-HUMAN-UI-AND-FIELD-ACCEPTANCE-REVALIDATION-01"
   }
 }

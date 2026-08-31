@@ -69,6 +69,33 @@ All field validation artifacts created and ready for human input:
 
 ---
 
+## FIELD ACCEPTANCE BLOCKER REMEDIATION — V1.6-FIELD-ACCEPTANCE-BLOCKER-REMEDIATION-01
+
+**Status:** MACHINE REMEDIATION COMPLETE WITH HUMAN REVALIDATION REQUIRED
+**Execution date:** 2026-08-31
+**Baseline:** `9c51f78bc778e4ffccdb1939654847c5fc728f79` on `fix/v1.6-field-acceptance-blockers`
+
+The earlier `V1_6_MACHINE_READY=YES` conclusion is **SUPERSEDED_BY_REAL_WORKFLOW_EVIDENCE** for the current release decision. A real HTTP teacher workflow selected immutable imported question `7f26811b8588-q64` from `Full-Toán thực tế 10.docx` (source SHA-256 `7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d`) and reproduced `PDF_GENERATION_FAILED`.
+
+### Remediation Evidence
+
+- **PDF root cause:** OMML conversion supplied a cases/matrix expression ending in bare `\right`; the canonical LaTeX serializer added its inline-math closing delimiter without supplying the required right delimiter. XeLaTeX halted with `Missing delimiter (. inserted).`
+- **PDF fix:** `src/modules/question-bank/export.ts` normalizes a trailing bare `\right` to `\right.` before canonical LaTeX serialization. The focused production-export regression compiles PDF successfully and verifies `%PDF` plus extractable question content.
+- **DOCX finding and fix:** DOCX-only export was already generated through HTTP, but source LaTeX was written as literal text inside `<m:oMath>`. The canonical exporter now preserves source OMML directly for OMML-originated math and uses the canonical OMML serializer for other supported math. The repaired HTTP combined export produced a valid DOCX ZIP containing native OMML. Microsoft Word runtime was not available on macOS, so human-open QA remains pending.
+- **PDF asset type:** PASS. Published assets are PNG by signature and extension; XeTeX image messages did not indicate a mislabelled artifact.
+- **Video:** the real imported question correctly returns `UNSUPPORTED_SOLUTION_GENERATION` because it lacks an explicit answer for the verified deterministic $2 \times 2$ solution route. This is a source eligibility block, not a video engine defect. The canonical supported-item runtime completed a real Manim MP4 (`76,287` bytes, SHA-256 `33bece009bc511a964d176d368c7383b7c2320dd2b149cfd5b693d73f884eaeb`, 14 seconds, video stream confirmed by `ffprobe`).
+- **Classroom Game:** QB-2B functional checks and the live HTTP state smoke pass, including answer/solution isolation. Current game implementation is byte-identical to its sole integration commit (`33f90d6`), but no supplied/approved visual reference was recoverable from tracked history or artifacts. `GAME_REFERENCE_STATUS=NEEDS_HUMAN_REFERENCE_CONFIRMATION`; no speculative redesign was made.
+
+### Validation
+
+`npm run qa:export`, `npm run qa:docx`, `npm run qa:game`, `npm run qa:question-video`, `npm run qa:question-video:runtime`, and `npm run qa:ux-01`: PASS. `npm run lint`: PASS. `npm run build`: PASS (existing bundle-size warning only). `npm run qa:regression`: PASS (70/70 suites).
+
+Real repaired artifacts are retained under `render_output/teacher-workflow/exports/`: `field-pdf-q64-repaired.pdf` (SHA-256 `bf52bb27b6e93515327c2a5034c1cf66573c815f40b9a68b7ac07451ee8d9e3d`) and `field-pdf-q64-repaired.docx` (SHA-256 `acb808469f3b520b1e557efe12a6f62672b2f0d9cfbef8b5885c877ea6c8c9d0`).
+
+**Current aggregate state:** `V1_6_MACHINE_READY=NO`; `V1_6_HUMAN_READY=NO`; `V1_6_FIELD_READY=NO`; `V1_6_RELEASE_READY=NO`. Machine readiness is not restored while game-reference fidelity and Word human-open validation remain unproven. `NEXT_EXECUTABLE_TASK=V1.6-HUMAN-UI-AND-FIELD-ACCEPTANCE-REVALIDATION-01`.
+
+---
+
 ## PACKAGE VERSION METADATA REMEDIATION — V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01
 
 Completed on 2026-08-31 at source HEAD `eccc4cfb3d6a10c231cd01745adc86cfe3e659d1` on branch `fix/v1.6-package-version-metadata`. Repository and release-line evidence proved the active package target as plain SemVer `1.6.0`: the v1.6 master/release specifications and changelog identify the line as v1.6.0, while prior corrected package releases use plain semantic package versions rather than prerelease metadata.

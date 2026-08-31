@@ -43,7 +43,7 @@
     "qa:game": "node --import tsx tests/test-question-bank-qb2b.ts",
     "qa:question-video": "node --import tsx tests/test-question-bank-qb2c.ts",
     "qa:question-video:runtime": "node --import tsx scripts/run-question-video-runtime.ts",
-    "qa:export": "node --import tsx tests/test-question-bank-qb2d.ts",
+    "qa:export": "node --import tsx tests/test-question-bank-qb2d.ts && node --import tsx tests/test-question-bank-export-malformed-math.ts",
     "qa:ux-01": "node --import tsx tests/test-teacher-workflow-ux01.ts",
     "nls:sources:register": "node --import tsx scripts/register-nls-sources.ts",
     "qa:nls:sources": "node --import tsx tests/test-nls-source-registry.ts",

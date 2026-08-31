@@ -4,6 +4,7 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, w
 import { basename, extname, isAbsolute, join, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { zipSync } from "fflate";
+import { serializeMathNodeToOmml } from "../document-export/docx/omml.js";
 import type { Assessment, AssessmentAnswerManifest } from "./assessment.js";
 import type { ContentBlock, FigureRecord, QuestionBankRepository, QuestionObject, QuestionType, SourceProvenance } from "./types.js";
 
@@ -69,8 +70,10 @@ export function createCanonicalExportPackage(assessment: Assessment, answerManif
 const xml = (value: string) => value.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const latexEscape = (value: string) => value.replace(/\\/g,"\\textbackslash{}").replace(/([#$%&_{}])/g,"\\$1").replace(/~/g,"\\textasciitilde{}").replace(/\^/g,"\\textasciicircum{}");
 function plain(blocks?: ContentBlock[]): string { return (blocks ?? []).map((block) => block.type === "text" ? block.value : block.type === "math" ? block.math.latex ?? block.math.sourceRaw : block.type === "figure" ? `[FIGURE:${block.figureId}]` : block.cells.map((cell) => plain(cell)).join(" | ")).join(""); }
-function latexBlocks(blocks?: ContentBlock[]): string { return (blocks ?? []).map((block) => block.type === "text" ? latexEscape(block.value) : block.type === "math" ? `\\(${block.math.latex ?? latexEscape(block.math.sourceRaw)}\\)` : block.type === "figure" ? "" : block.cells.map((cell) => latexBlocks(cell)).join(" & ")).join(""); }
-function wordRuns(blocks?: ContentBlock[]): string { return (blocks ?? []).map((block) => block.type === "text" ? `<w:r><w:t xml:space="preserve">${xml(block.value)}</w:t></w:r>` : block.type === "math" ? `<m:oMath><m:r><m:t>${xml(block.math.latex ?? block.math.sourceRaw)}</m:t></m:r></m:oMath>` : block.type === "table" ? `<w:r><w:t>${xml(block.cells.map((cell) => plain(cell)).join(" | "))}</w:t></w:r>` : "").join(""); }
+function exportLatex(source: string): string { return source.trim().replace(/\\right\s*$/, "\\right."); }
+function latexBlocks(blocks?: ContentBlock[]): string { return (blocks ?? []).map((block) => block.type === "text" ? latexEscape(block.value) : block.type === "math" ? `\\(${exportLatex(block.math.latex ?? latexEscape(block.math.sourceRaw))}\\)` : block.type === "figure" ? "" : block.cells.map((cell) => latexBlocks(cell)).join(" & ")).join(""); }
+function wordMath(block: Extract<ContentBlock,{ type: "math" }>): string { const source = block.math.sourceRaw.trim(); return block.math.sourceType === "OMML" && /^<m:oMath(?:\s|>)/.test(source) ? source : serializeMathNodeToOmml(block.math); }
+function wordRuns(blocks?: ContentBlock[]): string { return (blocks ?? []).map((block) => block.type === "text" ? `<w:r><w:t xml:space="preserve">${xml(block.value)}</w:t></w:r>` : block.type === "math" ? wordMath(block) : block.type === "table" ? `<w:r><w:t>${xml(block.cells.map((cell) => plain(cell)).join(" | "))}</w:t></w:r>` : "").join(""); }
 const paragraph = (blocks?: ContentBlock[], prefix = "") => `<w:p><w:r><w:t xml:space="preserve">${xml(prefix)}</w:t></w:r>${wordRuns(blocks)}</w:p>`;
 
 export function serializeJsonPackage(pkg: CanonicalExportPackage, assetMode: ExportAssetMode = "REFERENCE"): string { const value = { ...pkg, assets: pkg.assets.map((asset) => { const { bytes,...reference } = asset; return assetMode === "EMBED" ? { ...reference, bytesBase64: Buffer.from(bytes).toString("base64") } : reference; }) }; return stableStringify(value); }
