@@ -1,0 +1,124 @@
+PROJECT=PIMATH_MATH_AI
+IMPLEMENTATION=MATH_AI_STUDIO
+TASK=FORCE-CANONICAL-LAYOUT-CONFORMANCE
+
+NON_NEGOTIABLE_AUTHORITY:
+MASTER > APPROVED ARTIFACT > ORCHESTRATOR > MODULE TASK
+AUTOMATE EXECUTION, NOT AUTHORITY.
+
+GOAL:
+Repair the current app so it conforms to the already-approved NA-MATH layout. This is a conformance repair, NOT a redesign.
+
+LOCKED/CANONICAL BASELINES:
+- NA-MATH SYSTEM BASELINE V2.6 = INTEGRATED / LOCKED
+- NA-MATH-LAYOUT V1.3 = CANONICAL / LOCKED
+- NA-MATH-TEXTBOOK-STYLE V1.0 = STYLE_LOCK=ON
+- NA-MATH STUDENT WORKSPACE V1.2 = ESTABLISHED
+- NA-MATH TYPOGRAPHY STANDARD V1.0 = LOCKED typography overlay only
+- Video approved layout = QUESTION TOP → SOLUTION LEFT → GEOMETRY RIGHT
+- Approved evidence:
+  - 04_demo_video_bai_giang_math_safe.pdf
+  - 04_demo_video_bai_giang_math_safe_v2.pdf
+
+ABSOLUTE PROHIBITIONS:
+- Do not redesign.
+- Do not invent a new layout, font system, palette, geometry convention, animation layout, or fallback template.
+- Do not let an adaptive/generic layout selector override the canonical video profile.
+- Do not shrink fonts below the locked readable minimum to hide layout bugs.
+- Do not add assumptions, auxiliary points, labels, edges, midpoints, symmetry, perpendicularity, or other geometry merely because it looks better.
+- Do not silently mark a missing historical V1.0/V1.1/V1.2 layout artifact as canonical.
+- Do not create a parallel renderer.
+
+DISCOVERY FIRST:
+1. cd to the actual repo root.
+2. Print:
+   git rev-parse --show-toplevel
+   git branch --show-current
+   git rev-parse HEAD
+   git status --short
+   git remote -v
+3. If unrelated user changes are dirty, STOP and report them without overwriting.
+4. Locate:
+   - NA-MATH V2.6 core lock
+   - NA-MATH-LAYOUT V1.3
+   - current video profile/layout resolver
+   - approved/canonical video profile or artifact wiring
+   - q28/video profile conformance code
+   - layout tokens
+   - frame/collision/overflow QA
+5. Search repository for:
+   "NA-MATH-LAYOUT"
+   "V2.6"
+   "Question top"
+   "Solution left"
+   "Geometry right"
+   "q28"
+   "video profile"
+   "layout profile"
+   "canonical"
+   "collision"
+   "overflow"
+
+REPAIR:
+A. Treat mismatch as CANONICAL_LAYOUT_CONFORMANCE_BUG.
+B. Reuse the existing canonical layout/profile architecture.
+C. Wire the teaching-video profile to:
+   QUESTION TOP
+   SOLUTION LEFT
+   GEOMETRY RIGHT
+D. Preserve source math and geometry provenance.
+E. Make overflow fail or reflow inside the canonical regions; never switch to another design.
+F. Preserve current locked typography role standard.
+G. Add deterministic conformance gates:
+   - LAYOUT_PROFILE_RESOLVED
+   - CANONICAL_LAYOUT_ID_MATCH
+   - QUESTION_TOP
+   - SOLUTION_LEFT
+   - GEOMETRY_RIGHT
+   - NO_REGION_OVERLAP
+   - NO_TEXT_TEXT_COLLISION
+   - NO_TEXT_FIGURE_COLLISION
+   - NO_TEXT_AXIS_COLLISION
+   - SAFE_BOUNDS_PASS
+   - TYPOGRAPHY_ROLE_PASS
+   - MIN_READABLE_SIZE_PASS
+   - GEOMETRY_PROVENANCE_PASS
+   - SOURCE_IMMUTABILITY_PASS
+
+ACCEPTANCE:
+1. Run existing relevant tests.
+2. Add focused regression tests for the canonical Q/S/G layout.
+3. Render one representative video using the real runtime.
+4. Export START / KEY / END frame evidence.
+5. The result is PASS only if:
+   - question is at top;
+   - solution is left;
+   - geometry is right;
+   - no collision/overflow;
+   - no invented geometry;
+   - no layout fallback;
+   - canonical profile ID is reported.
+6. Do not declare DONE without human visual acceptance.
+
+FINAL REPORT:
+PROJECT=
+TASK=
+BRANCH=
+INITIAL_HEAD=
+FINAL_HEAD=
+WORKTREE_FINAL=
+CANONICAL_LAYOUT_PROFILE=
+QUESTION_TOP=
+SOLUTION_LEFT=
+GEOMETRY_RIGHT=
+NO_REGION_OVERLAP=
+COLLISION_QA=
+SAFE_BOUNDS_QA=
+GEOMETRY_PROVENANCE_QA=
+SOURCE_IMMUTABILITY_QA=
+REAL_RENDER_QA=
+HUMAN_VISUAL_ACCEPTANCE=PENDING
+FILES_CHANGED=
+TESTS_RUN=
+COMMITS=
+UNRESOLVED_AUTHORITY=

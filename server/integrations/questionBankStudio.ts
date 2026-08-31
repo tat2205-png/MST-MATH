@@ -73,7 +73,7 @@ def prose_block(value, font_size, max_width, max_height, font=FONT_BODY):
 
 def solution_blocks(value):
     parts = []
-    for chunk in re.split(r"(\\(?\\d+\\s*(?:[+\\-]\\s*\\d+\\s*)+\\)?=\\s*\\d+)", value):
+    for chunk in re.split(r"(\\(?\\d+\\s*[+\\-]\\s*\\d+\\)?\\s*[+\\-]\\s*\\d+\\s*=\\s*\\d+|\\d+\\s*[+\\-]\\s*\\d+\\s*=\\s*\\d+)", value):
         parts.extend(part.strip() for part in re.split(r"(?<=[.:])\\s+", chunk) if part.strip())
     result = []
     for part in parts:

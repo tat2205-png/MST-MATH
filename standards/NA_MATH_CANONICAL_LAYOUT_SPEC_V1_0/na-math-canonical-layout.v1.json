@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "NA_MATH_CANONICAL_LAYOUT_SPEC_V1",
+  "status": "CANONICAL_RECOVERY_SPEC",
+  "authority": {
+    "order": [
+      "MASTER",
+      "APPROVED_ARTIFACT",
+      "ORCHESTRATOR",
+      "MODULE_TASK"
+    ],
+    "principle": "AUTOMATE EXECUTION, NOT AUTHORITY",
+    "failClosedOnUnresolvedAuthority": true
+  },
+  "versions": {
+    "systemBaseline": {
+      "id": "NA-MATH SYSTEM BASELINE V2.6",
+      "status": "INTEGRATED_LOCKED"
+    },
+    "layout": {
+      "id": "NA-MATH-LAYOUT V1.3",
+      "status": "CANONICAL_LOCKED"
+    },
+    "textbookStyle": {
+      "id": "NA-MATH-TEXTBOOK-STYLE V1.0",
+      "status": "STYLE_LOCK_ON"
+    },
+    "studentWorkspace": {
+      "id": "NA-MATH STUDENT WORKSPACE V1.2",
+      "status": "ESTABLISHED"
+    },
+    "typography": {
+      "id": "NA-MATH TYPOGRAPHY STANDARD V1.0",
+      "status": "LOCKED_OVERLAY"
+    }
+  },
+  "video": {
+    "canonicalProfileId": "NA_MATH_VIDEO_QSG_V1",
+    "semanticOrder": [
+      "QUESTION_TOP",
+      "SOLUTION_LEFT",
+      "GEOMETRY_RIGHT"
+    ],
+    "constraints": {
+      "questionAboveSolution": true,
+      "questionAboveGeometry": true,
+      "solutionLeftOfGeometry": true,
+      "regionOverlapAllowed": false,
+      "silentTemplateFallbackAllowed": false,
+      "geometryGuessingAllowed": false,
+      "fontShrinkToHideOverflowAllowed": false
+    },
+    "approvedEvidenceArtifacts": [
+      "04_demo_video_bai_giang_math_safe.pdf",
+      "04_demo_video_bai_giang_math_safe_v2.pdf"
+    ]
+  },
+  "document": {
+    "page": "A4",
+    "approxTextIllustrationRatioWhenAppropriate": "3/4:1/4",
+    "contentColors": {
+      "learning": "#1E63B5",
+      "worksheet": "#2F8F68",
+      "exerciseTest": "#6B4FA3",
+      "video": "#E57C38"
+    },
+    "overlapAllowed": false
+  },
+  "typography": {
+    "minStudentReadablePt": 9,
+    "roles": {
+      "documentTitle": {
+        "family": "STIX Two Text",
+        "weight": "Bold",
+        "sizePt": 20,
+        "lineHeightPt": 24
+      },
+      "chapter": {
+        "family": "STIX Two Text",
+        "weight": "Bold",
+        "sizePt": 16,
+        "lineHeightPt": 20
+      },
+      "section1": {
+        "family": "XCharter",
+        "weight": "Bold",
+        "sizePt": 13.5,
+        "lineHeightPt": 17
+      },
+      "section2": {
+        "family": "XCharter",
+        "weight": "Semibold",
+        "sizePt": 12,
+        "lineHeightPt": 15
+      },
+      "body": {
+        "family": "Libertinus Serif",
+        "sizePt": 11,
+        "lineHeightPt": 14
+      },
+      "question": {
+        "family": "Libertinus Serif",
+        "sizePt": 11,
+        "lineHeightPt": 14
+      },
+      "inlineMath": {
+        "family": "Libertinus Math",
+        "sizePt": 11
+      },
+      "displayMath": {
+        "family": "Libertinus Math",
+        "sizePtRange": [
+          11.5,
+          12
+        ]
+      },
+      "note": {
+        "family": "Libertinus Serif",
+        "sizePt": 10,
+        "lineHeightPt": 13
+      },
+      "dataTable": {
+        "family": "Libertinus Serif",
+        "sizePt": 10
+      },
+      "caption": {
+        "families": [
+          "Libertinus Serif",
+          "XCharter"
+        ],
+        "sizePt": 9.5,
+        "lineHeightPt": 12
+      },
+      "figureLabel": {
+        "families": [
+          "Libertinus Math",
+          "XCharter"
+        ],
+        "sizePt": 9.5
+      },
+      "header": {
+        "families": [
+          "XCharter",
+          "STIX Two Text"
+        ],
+        "sizePt": 9
+      },
+      "footer": {
+        "family": "XCharter",
+        "sizePt": 8.5
+      },
+      "answerKey": {
+        "family": "Libertinus Serif",
+        "sizePt": 9.5
+      }
+    }
+  },
+  "qa": {
+    "mandatoryGates": [
+      "LAYOUT_PROFILE_RESOLVED",
+      "CANONICAL_LAYOUT_ID_MATCH",
+      "QUESTION_TOP",
+      "SOLUTION_LEFT",
+      "GEOMETRY_RIGHT",
+      "NO_REGION_OVERLAP",
+      "NO_TEXT_TEXT_COLLISION",
+      "NO_TEXT_FIGURE_COLLISION",
+      "NO_TEXT_AXIS_COLLISION",
+      "NO_TEXT_TABLE_BORDER_COLLISION",
+      "SAFE_BOUNDS_PASS",
+      "TYPOGRAPHY_ROLE_PASS",
+      "MIN_READABLE_SIZE_PASS",
+      "GEOMETRY_PROVENANCE_PASS",
+      "SOURCE_IMMUTABILITY_PASS"
+    ],
+    "failurePolicy": "FAIL_CLOSED"
+  },
+  "history": {
+    "earlyLayoutVersions": {
+      "status": "UNVERIFIED",
+      "rule": "Do not invent V1.0/V1.1/V1.2 layout history without authoritative artifacts."
+    }
+  }
+}
