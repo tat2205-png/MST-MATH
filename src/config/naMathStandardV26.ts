@@ -9,6 +9,52 @@ import qaContracts from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
 
+export const NA_MATH_VIDEO_PROFILE = {
+  id: "NA_MATH_APPROVED_VIDEO_MAPPING_FINAL_V2" as const,
+  canvas: { width: 1920, height: 1080, aspectRatio: "16:9" as const, fps: 30 },
+  colors: {
+    background: "#FCFCFA",
+    video: "#E57C38",
+  },
+  typography: {
+    title: "STIX Two Text Bold",
+    section: "XCharter",
+    body: "Libertinus Serif",
+    question: "Libertinus Serif",
+    math: "Libertinus Math",
+    label: "XCharter",
+  },
+  regions: {
+    topSafe: [-6.25, 6.25, 2.18, 3.32] as const,
+    leftSafe: [-6.35, -0.25, -3.32, 1.08] as const,
+    rightSafe: [0.25, 6.35, -3.32, 1.08] as const,
+    topPanel: { width: 13.25, height: 1.62, center: [0, 2.78] as const },
+    leftPanel: { width: 6.55, height: 5.35, center: [-3.42, -1.08] as const },
+    rightPanel: { width: 6.55, height: 5.35, center: [3.42, -1.08] as const },
+    problem: { maxWidth: 12.1, maxHeight: 0.98, center: [0, 2.72] as const },
+    solution: { maxWidth: 5.75, maxHeight: 3.90, center: [-3.42, -1.15] as const },
+    visual: { maxWidth: 5.65, maxHeight: 3.90, center: [3.42, -1.15] as const },
+  },
+  sizes: {
+    panelTitle: 25,
+    questionTag: 23,
+    body: { min: 24, max: 26 },
+    stepTitle: 29,
+    math: { min: 27, max: 32 },
+    result: 36,
+    label: { min: 20, max: 24 },
+  },
+  spacing: {
+    questionBlockGap: 0.12,
+    solutionBlockGap: { min: 0.18, max: 0.24 },
+  },
+  animation: ["Write", "Create", "TransformMatchingTex", "Indicate", "Circumscribe", "Highlight", "light Camera zoom"] as const,
+  layout: "approved two-frame teacher-video mapping" as const,
+  noVisualPolicy: "KEEP_RIGHT_REGION_EMPTY" as const,
+  proseEngine: "Text/VText" as const,
+  mathEngine: "MathTex" as const,
+} as const;
+
 function deepFreeze<T>(value: T): Readonly<T> {
   if (value && typeof value === "object" && !Object.isFrozen(value)) {
     Object.freeze(value);
@@ -44,6 +90,7 @@ export const NA_MATH_STANDARD_V2_6 = deepFreeze({
     status: approvedGeometryProfiles.layout_contract.status,
     tokens: tokens.layout,
   },
+  video: NA_MATH_VIDEO_PROFILE,
   colorSystem,
   typography: tokens.typography,
   mathNotation,
