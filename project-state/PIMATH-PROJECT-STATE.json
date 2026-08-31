@@ -1,7 +1,7 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-31",
-  "updated_at": "2026-08-31T13:57:34+07:00",
+  "updated_at": "2026-08-31T14:10:34+07:00",
   "current_branch": "fix/v1.6-field-acceptance-blockers",
   "current_head": "f2dd5a6d5207bc2363728a0bd5005b7a6dacc67a",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
@@ -384,9 +384,9 @@
     }
   ],
   "next_executable_task": {
-    "id": "V1.6-GAME-01-REFERENCE-CAPTURE-01",
+    "id": "V1.6-GAME-01-OLYMPIA-COMPLETION-01",
     "status": "NOT_STARTED",
-    "description": "Obtain and record the human-approved Olympia reference before any GAME-01 implementation."
+    "description": "Implement the approved Math Challenge GAME-01 preset on ClassroomGameEngine using canonical Question Bank references and the approved reference artifact."
   },
   "next_priority": [
     "Create/preserve PROJECT_MASTER_MAP in canonical repo",
@@ -804,5 +804,45 @@
       "V1_6_RELEASE_READY": false
     },
     "next_executable_task": "V1.6-GAME-01-REFERENCE-CAPTURE-01"
+  },
+  "v1_6_game_01_reference_capture_01": {
+    "status": "COMPLETE_REFERENCE_APPROVED",
+    "task_id": "V1.6-GAME-01-REFERENCE-CAPTURE-01",
+    "baseline": {
+      "branch": "fix/v1.6-field-acceptance-blockers",
+      "head": "6c62029dc99f1f46cc489fce5206c50b79f73428",
+      "worktree": "CLEAN"
+    },
+    "canonical_artifact": "docs/game/GAME-01-OLYMPIA-REFERENCE-V1.0.md",
+    "human_reference_request": "docs/game/GAME-01-HUMAN-REFERENCE-REQUEST.md",
+    "reference_search": "INITIAL_REPOSITORY_SEARCH_NOT_FOUND_THEN_HUMAN_FINAL_REFERENCE_SUPPLIED",
+    "governing_standard": "NA-MATH_CLASSROOM_GAME_REFERENCE_OLYMPIA_STYLE_V1.0",
+    "game_system": "MULTI_GAME_POWERED_BY_QUESTION_BANK",
+    "game_01": {
+      "id": "GAME-01",
+      "name": "OLYMPIA",
+      "reference_status": "APPROVED",
+      "artifact_status": "APPROVED",
+      "approval_status": "APPROVED_BY_HUMAN_PRODUCT_OWNER",
+      "implementation_authorized": true
+    },
+    "locked_architecture": {
+      "game_registry_template": true,
+      "question_bank_is_canonical": true,
+      "separate_game_question_database_permitted": false
+    },
+    "approved_reference": {
+      "core_engine": "ClassroomGameEngine",
+      "default_preset": "MATH_CHALLENGE",
+      "rounds": ["WARMUP", "OBSTACLE", "SPEED", "FINISH"],
+      "question_source": "NA_MATH_QUESTION_BANK",
+      "audio_system": "EVENT_DRIVEN",
+      "audio_assets": "ORIGINAL_OR_PROPERLY_LICENSED_ONLY",
+      "exact_olympia_clone": false,
+      "copyrighted_olympia_branding_permitted": false,
+      "timer_and_score_values": "DETERMINISTIC_GAMESPEC_CONFIGURATION"
+    },
+    "source_immutability": "PASS_NO_APPLICATION_OR_GAME_SOURCE_CHANGED",
+    "next_executable_task": "V1.6-GAME-01-OLYMPIA-COMPLETION-01"
   }
 }

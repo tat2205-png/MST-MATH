@@ -10,6 +10,20 @@
 
 ---
 
+## GAME-01 OLYMPIA REFERENCE CAPTURE — V1.6-GAME-01-REFERENCE-CAPTURE-01
+
+**Status:** COMPLETE — HUMAN REFERENCE APPROVED
+**Execution date:** 2026-08-31
+**Baseline:** `6c62029dc99f1f46cc489fce5206c50b79f73428` on `fix/v1.6-field-acceptance-blockers`; initial worktree clean.
+
+The initial repository and history search found no authoritative Olympia reference. The Human Product Owner subsequently supplied `NA-MATH_CLASSROOM_GAME_REFERENCE_OLYMPIA_STYLE_V1.0`, explicitly marked FINAL / READY FOR INTEGRATION. General knowledge of the television program was not used.
+
+The approved canonical artifact `docs/game/GAME-01-OLYMPIA-REFERENCE-V1.0.md` records `ClassroomGameEngine`, the `MATH_CHALLENGE` preset, WARMUP/OBSTACLE/SPEED/FINISH, deterministic state/event contracts, TV/classroom layout, teacher/player/classroom isolation, Question Bank references, Math Engine rendering, configurable `TimePolicy` and `ScorePolicy`, purposeful animation, event-driven original audio, accessibility, QA gates, and explicit non-goals. It preserves `GAME_SYSTEM=MULTI_GAME_POWERED_BY_QUESTION_BANK`; GAME-01 remains one preset and no separate Game question database is permitted.
+
+`docs/game/GAME-01-HUMAN-REFERENCE-REQUEST.md` is closed and retained as provenance. Protected Olympia branding, audio, music, graphics, and exact UI remain prohibited; only original/licensed PiMath assets are permitted. No production Game, Question Bank, application, PDF, DOCX, video, or Manim source changed during capture. `GAME_01_REFERENCE_STATUS=APPROVED`. `NEXT_EXECUTABLE_TASK=V1.6-GAME-01-OLYMPIA-COMPLETION-01`.
+
+---
+
 ## AGENCY EXECUTION ENVIRONMENT RESTORE — V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R
 
 **Status:** PASS — CURRENT AGENCY EXECUTION CERTIFIED FOR APPROVED RUNTIME CONTRACT
