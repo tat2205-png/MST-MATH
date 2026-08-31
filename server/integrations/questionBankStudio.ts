@@ -4,6 +4,7 @@ import type { MathProblemIR, MathSolution, MathVerification } from "../../src/ty
 import { deterministicLinearSystemVerifier } from "../services/deterministicLinearSystemVerifier.js";
 import { buildGoldenPath, type GoldenRenderTask } from "../services/goldenPathService.js";
 import { StudioOrchestrator, type StudioExecutionPlan } from "../studio/studioOrchestrator.js";
+import { NA_MATH_VIDEO_PROFILE } from "../../src/config/naMathStandardV26.js";
 
 export interface QuestionSolutionRequest { questionId: string; source: QuestionObject["source"]; sourceStem: ContentBlock[]; sourceAnswer?: ContentBlock[]; sourceSolution?: ContentBlock[]; figures: FigureRecord[]; support: "SOURCE_SOLUTION_PRESERVED" | "DETERMINISTIC_ENGINE_SUPPORTED" | "UNSUPPORTED_SOLUTION_GENERATION"; reasons: string[] }
 export interface QuestionVideoJob { schemaVersion: 1; id: string; questionId: string; solutionRequest: QuestionSolutionRequest; mathGate: "VERIFIED_PASS"; visualRoute: StudioExecutionPlan; visualEngine: "MANIM"; renderTask: GoldenRenderTask; figures: FigureRecord[]; provenance: { questionId: string; sourceDocument: string; sourceLocations: string[]; sourceHash: string; solutionFingerprint: string; renderProjectId: string } }
@@ -21,11 +22,75 @@ function buildSourceSolutionRenderTask(question: QuestionObject, visualRoute: St
   const questionText = pythonText(blocksText(question.stem));
   const solutionText = pythonText(blocksText(question.solution));
   const answerText = pythonText(blocksText(question.answer));
-  const code = `from manim import *\n\nclass SourceSolutionQuestion(Scene):\n    def construct(self):\n        title = Text("Math AI Studio - Source Solution", font_size=30).to_edge(UP)\n        question = Text(${questionText}, font_size=20).scale_to_fit_width(11).next_to(title, DOWN, buff=0.6)\n        solution = Text(${solutionText}, font_size=19).scale_to_fit_width(11).next_to(question, DOWN, buff=0.7)\n        answer = Text("Đáp án: " + ${answerText}, font_size=28, color=GREEN).next_to(solution, DOWN, buff=0.8)\n        self.play(Write(title))\n        self.wait(1)\n        self.play(Write(question))\n        self.wait(2)\n        self.play(Write(solution))\n        self.wait(3)\n        self.play(Write(answer))\n        self.wait(3)\n`;
+  const profile = JSON.stringify(NA_MATH_VIDEO_PROFILE);
+  const code = `from manim import *
+import json
+import re
+
+PROFILE = json.loads(${pythonText(profile)})
+FONT_TITLE = PROFILE["typography"]["title"].replace(" Bold", "")
+FONT_BODY = PROFILE["typography"]["body"]
+VIDEO_COLOR = PROFILE["colors"]["video"]
+
+def point(center):
+    return [center[0], center[1], 0]
+
+def wrapped_lines(value, max_chars):
+    words = value.split()
+    lines, current = [], ""
+    for word in words:
+        candidate = (current + " " + word).strip()
+        if current and len(candidate) > max_chars:
+            lines.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        lines.append(current)
+    return lines or [""]
+
+def prose_block(value, font_size, max_width, max_height, font=FONT_BODY):
+    lines = wrapped_lines(value, max(18, int(max_width * 10)))
+    block = VGroup(*[Text(line, font=font, font_size=font_size, color=PROFILE["colors"]["video"]) for line in lines])
+    block.arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["questionBlockGap"])
+    return block.scale_to_fit_width(min(max_width, block.width)).scale_to_fit_height(min(max_height, block.height))
+
+def solution_blocks(value):
+    parts = [part.strip() for part in re.split(r"(?<=[.:])\\s+", value) if part.strip()]
+    result = []
+    for part in parts:
+        math_match = re.fullmatch(r"([0-9+\\-\\s=]+)", part)
+        if math_match:
+            result.append(MathTex(part.replace(" ", ""), font_size=PROFILE["sizes"]["math"]["max"], color=VIDEO_COLOR))
+        else:
+            result.append(prose_block(part, PROFILE["sizes"]["body"]["min"], PROFILE["regions"]["solution"]["maxWidth"], 0.8))
+    return VGroup(*result).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"])
+
+class SourceSolutionQuestion(Scene):
+    def construct(self):
+        self.camera.background_color = PROFILE["colors"]["background"]
+        title = Text("Lời giải", font=FONT_TITLE, weight=BOLD, font_size=PROFILE["sizes"]["panelTitle"], color=VIDEO_COLOR)
+        title.move_to(point(PROFILE["regions"]["topPanel"]["center"]))
+        question = prose_block(${questionText}, PROFILE["sizes"]["body"]["max"], PROFILE["regions"]["problem"]["maxWidth"], PROFILE["regions"]["problem"]["maxHeight"])
+        question.move_to(point(PROFILE["regions"]["problem"]["center"]))
+        solution = solution_blocks(${solutionText})
+        solution.scale_to_fit_width(PROFILE["regions"]["solution"]["maxWidth"])
+        solution.scale_to_fit_height(PROFILE["regions"]["solution"]["maxHeight"])
+        solution.move_to(point(PROFILE["regions"]["solution"]["center"]))
+        answer = Text("Đáp án: " + ${answerText}, font=FONT_TITLE, weight=BOLD, font_size=PROFILE["sizes"]["result"], color=VIDEO_COLOR)
+        answer.move_to(point((PROFILE["regions"]["solution"]["center"][0], -2.72)))
+        self.play(Write(title), Write(question))
+        self.wait(1)
+        self.play(Write(solution))
+        self.wait(2)
+        self.play(Indicate(answer, color=VIDEO_COLOR), run_time=0.8)
+        self.play(Write(answer))
+        self.wait(2)
+`;
   const files = [{ path: "main.py", content: code }];
   const projectId = `source-solution-${fingerprint({ questionId: question.id, sourceHash: question.source.sourceHash }).slice(0, 16)}`;
   const scenes = [{ scene_id: "scene_01_source_solution", scene_index: 1, title: "Lời giải từ nguồn", learning_goal: "Theo dõi lời giải được bảo toàn từ tài liệu nguồn", math_content: { latex: blocksText(question.solution), explanation: "Preserved authoritative source solution" }, visual_objects: ["question_text", "source_solution", "authoritative_answer"], animations: [{ type: "Write" as const, target: "source_solution", duration: 3 }], narration: { text_vi: "Lời giải và đáp án được giữ nguyên từ nguồn được ủy quyền.", voice_tone: "step_by_step" as const, duration_hint_seconds: 9 } }];
-  return { jobId: `source_solution_${Date.now()}`, projectId, projectName: "Source Solution Pilot", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, manifest: { projectId, projectName: "Source Solution Pilot", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, metadata: { questionId: question.id, sourceHash: question.source.sourceHash, sourceSolution: true, visualRoute: visualRoute.routeId } }, videoSpec: { video_title: "Lời giải từ nguồn", total_duration_seconds: 10, target_aspect_ratio: "16:9", resolution: "720p", scenes: scenes as never, manim_python_code: code }, outputFormat: "mp4", resolution: "720p", fps: 30, verifiedSource: `${question.source.document} | ${question.source.sourceHash} | ${question.source.sourceLocations[0]}`, requiredFrameNames: ["START", "KEY", "END"] };
+  return { jobId: `source_solution_${Date.now()}`, projectId, projectName: "Lời giải", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, manifest: { projectId, projectName: "Lời giải", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, metadata: { questionId: question.id, sourceHash: question.source.sourceHash, sourceSolution: true, visualRoute: visualRoute.routeId, videoProfile: NA_MATH_VIDEO_PROFILE.id, resolution: "1080p", fps: 30 } }, videoSpec: { video_title: "Lời giải", total_duration_seconds: 10, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenes as never, manim_python_code: code }, outputFormat: "mp4", resolution: "1080p", fps: 30, verifiedSource: `${question.source.document} | ${question.source.sourceHash} | ${question.source.sourceLocations[0]}`, requiredFrameNames: ["START", "KEY", "END"] };
 }
 export class QuestionBankStudioService {
   constructor(private readonly orchestrator: StudioOrchestrator = new StudioOrchestrator()) {}

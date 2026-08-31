@@ -57,12 +57,12 @@ export interface GoldenRenderTask {
     video_title: string;
     total_duration_seconds: number;
     target_aspect_ratio: "16:9";
-    resolution: "720p";
+    resolution: "720p" | "1080p";
     scenes: ManimScene[];
     manim_python_code: string;
   };
   outputFormat: "mp4";
-  resolution: "720p";
+  resolution: "720p" | "1080p";
   fps: number;
   verifiedSource: string;
   requiredFrameNames: ["START", "KEY", "END"];

@@ -67,7 +67,10 @@ def run_job(job_id: str, payload: dict, workspace: Path):
         script.parent.mkdir(parents=True, exist_ok=True)
         script.write_text(source, encoding="utf-8")
         media = workspace / "media"
-        command = [sys.executable, "-m", "manim", "-ql", "--disable_caching", "--media_dir", str(media), str(script), scene]
+        metadata = manifest.get("metadata", {})
+        quality = {"1080p": "-qh", "720p": "-qm", "480p": "-ql"}.get(metadata.get("resolution"), "-ql")
+        fps = str(metadata.get("fps", 30))
+        command = [sys.executable, "-m", "manim", quality, "--fps", fps, "--disable_caching", "--media_dir", str(media), str(script), scene]
         process = subprocess.run(command, cwd=workspace, capture_output=True, text=True, shell=False, timeout=180)
         output = (process.stdout + "\n" + process.stderr)[-12000:]
         videos = sorted(path for path in media.glob("videos/**/*.mp4") if "partial_movie_files" not in path.parts)
