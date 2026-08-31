@@ -31,6 +31,35 @@ assert.equal(treeHash, EXPECTED_TREE_SHA256);
 const standard = NA_MATH_STANDARD_V2_6;
 assert.equal(standard.id, "NA_MATH_STANDARD_V2_6");
 assert.equal(standard.layout.id, "NA-MATH-LAYOUT-V1.3-CANONICAL");
+assert.equal(standard.video.id, "NA_MATH_VIDEO_QSG_V1");
+assert.equal(standard.video.canonicalProfileId, "NA_MATH_VIDEO_QSG_V1");
+assert.equal(standard.video.canonicalLayoutId, "NA-MATH-LAYOUT-V1.3-CANONICAL");
+assert.deepEqual(standard.video.semanticOrder, ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"]);
+assert.deepEqual(standard.video.canvas, { width: 1920, height: 1080, aspectRatio: "16:9", fps: 30 });
+assert.deepEqual(standard.video.macroLayout, {
+  questionZone: { anchor: "TOP", heightRatio: 0.26 },
+  mainZone: { anchor: "BOTTOM", heightRatio: 0.74 },
+  solutionZone: { parent: "MAIN_ZONE", anchor: "LEFT", widthRatio: 0.6 },
+  figureZone: { parent: "MAIN_ZONE", anchor: "RIGHT", widthRatio: 0.4 },
+});
+assert.deepEqual(standard.video.behavior, {
+  questionAlwaysVisible: true,
+  solutionProgressiveReveal: true,
+  figureFixedAnchor: true,
+  figureAlwaysVisibleWhenExists: true,
+  crossZoneOverflow: false,
+  autoSwapColumns: false,
+  autoMoveFigure: false,
+  autoResizeMacroZones: false,
+  autoMutateLayout: false,
+});
+assert.equal(standard.video.visualLanguage.id, "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1.0");
+assert.equal(standard.video.visualLanguage.status, "LOCKED");
+assert.equal(standard.video.visualLanguage.canonical, true);
+assert.deepEqual(standard.video.visualLanguage.sectionTabs, ["ĐỀ BÀI", "LỜI GIẢI", "HÌNH VẼ"]);
+assert.equal(standard.video.goldenReference.id, "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1");
+assert.equal(standard.video.goldenReference.locked, true);
+assert.deepEqual(Object.keys(standard.video.goldenReference.states), ["START", "MID", "END"]);
 assert.deepEqual(standard.layout.tokens, {
   a4_margin_mm: 18,
   video_safe_margin_px: 72,

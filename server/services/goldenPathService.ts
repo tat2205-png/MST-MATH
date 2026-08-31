@@ -253,17 +253,23 @@ function buildNarrationPlan(x: string, y: string): GoldenNarrationPlan {
 }
 
 function buildRenderTask(source: string, scenePlan: GoldenScenePlan, narrationPlan: GoldenNarrationPlan, x: string, y: string): GoldenRenderTask {
+  const profile = JSON.stringify(NA_MATH_VIDEO_PROFILE);
   const code = `from manim import *
+import json
+
+PROFILE = json.loads(${JSON.stringify(profile)})
+MACRO_LAYOUT = PROFILE["macroLayout"]
+BEHAVIOR = PROFILE["behavior"]
 
 class GoldenLinearSystem(Scene):
     def construct(self):
-        self.camera.background_color = "#FCFCFA"
+        self.camera.background_color = PROFILE["colors"]["background"]
         # NA_MATH_VIDEO_QSG_V1: QUESTION_TOP / SOLUTION_LEFT / GEOMETRY_RIGHT
         # Reuse the approved NA Math panel tokens; panels are containers only and
         # do not modify the verified question, solution, or geometry source.
-        question_panel = RoundedRectangle(corner_radius=0.16, width=13.25, height=1.62, stroke_color="#D7DEE8", stroke_width=2, fill_color="#FFFFFF", fill_opacity=0.82).move_to([0, 2.78, 0])
-        solution_panel = RoundedRectangle(corner_radius=0.16, width=6.55, height=5.35, stroke_color="#D7DEE8", stroke_width=2, fill_color="#FFFFFF", fill_opacity=0.72).move_to([-3.42, -1.08, 0])
-        geometry_panel = RoundedRectangle(corner_radius=0.16, width=6.55, height=5.35, stroke_color="#D7DEE8", stroke_width=2, fill_color="#FFFFFF", fill_opacity=0.72).move_to([3.42, -1.08, 0])
+        question_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["topPanel"]["width"], height=PROFILE["regions"]["topPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.82).move_to([*PROFILE["regions"]["topPanel"]["center"], 0])
+        solution_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["leftPanel"]["width"], height=PROFILE["regions"]["leftPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["leftPanel"]["center"], 0])
+        geometry_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["rightPanel"]["width"], height=PROFILE["regions"]["rightPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["rightPanel"]["center"], 0])
         question = VGroup(
             Text("ĐỀ BÀI", font_size=23, color="#E57C38"),
             MathTex(r"x+y=5\\ x-y=1", font_size=32, color="#111827")
@@ -281,7 +287,9 @@ class GoldenLinearSystem(Scene):
         self.play(Create(question_panel), Create(solution_panel), Create(geometry_panel))
         self.play(Write(question))
         self.wait(1)
-        self.play(Write(solution), Create(geometry))
+        for part in solution:
+            self.play(Write(part))
+        self.play(Create(geometry))
         self.wait(3)
 `;
   return {
@@ -293,10 +301,10 @@ class GoldenLinearSystem(Scene):
     quality: "preview",
     action: "render",
     files: [{ path: "main.py", content: code }],
-    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"] } },
-    videoSpec: { video_title: "Golden Path: Hệ phương trình", total_duration_seconds: 28, target_aspect_ratio: "16:9", resolution: "720p", scenes: scenePlan.scenes.map((scene) => ({ scene_id: scene.id, scene_index: scene.index, title: scene.title, learning_goal: scene.title, math_content: { latex: scene.math, explanation: scene.visualAction }, visual_objects: [scene.visualAction], animations: [{ type: "Write" as const, target: scene.visualAction, duration: 2 }], narration: { text_vi: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.text || "", voice_tone: "step_by_step" as const, duration_hint_seconds: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.durationSeconds || 2 } })), manim_python_code: code },
+    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], resolution: "1080p", fps: 30 } },
+    videoSpec: { video_title: "Golden Path: Hệ phương trình", total_duration_seconds: 28, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenePlan.scenes.map((scene) => ({ scene_id: scene.id, scene_index: scene.index, title: scene.title, learning_goal: scene.title, math_content: { latex: scene.math, explanation: scene.visualAction }, visual_objects: [scene.visualAction], animations: [{ type: "Write" as const, target: scene.visualAction, duration: 2 }], narration: { text_vi: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.text || "", voice_tone: "step_by_step" as const, duration_hint_seconds: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.durationSeconds || 2 } })), manim_python_code: code },
     outputFormat: "mp4",
-    resolution: "720p",
+    resolution: "1080p",
     fps: 30,
     verifiedSource: source,
     requiredFrameNames: ["START", "KEY", "END"],

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "NA_MATH_CANONICAL_LAYOUT_SPEC_V1_1",
+  "status": "CANONICAL_LOCKED",
+  "supersedes": "NA_MATH_CANONICAL_LAYOUT_SPEC_V1",
+  "sourceOfTruth": "standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0/na-math-canonical-layout.v1.1.json",
+  "video": {
+    "canonicalProfileId": "NA_MATH_VIDEO_QSG_V1",
+    "canonicalLayoutId": "NA-MATH-LAYOUT-V1.3-CANONICAL",
+    "semanticOrder": ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"],
+    "canvas": { "width": 1920, "height": 1080, "aspectRatio": "16:9" },
+    "macroLayout": {
+      "questionZone": { "anchor": "TOP", "heightRatio": 0.26 },
+      "mainZone": { "anchor": "BOTTOM", "heightRatio": 0.74 },
+      "solutionZone": { "parent": "MAIN_ZONE", "anchor": "LEFT", "widthRatio": 0.6 },
+      "figureZone": { "parent": "MAIN_ZONE", "anchor": "RIGHT", "widthRatio": 0.4 }
+    },
+    "behavior": {
+      "questionAlwaysVisible": true,
+      "solutionProgressiveReveal": true,
+      "figureFixedAnchor": true,
+      "figureAlwaysVisibleWhenExists": true,
+      "crossZoneOverflow": false,
+      "autoSwapColumns": false,
+      "autoMoveFigure": false,
+      "autoResizeMacroZones": false,
+      "autoMutateLayout": false
+    }
+  }
+}

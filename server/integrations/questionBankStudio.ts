@@ -32,10 +32,13 @@ function buildSourceSolutionRenderTask(question: QuestionObject, visualRoute: St
   const questionText = pythonText(blocksText(question.stem));
   const solutionText = pythonText(blocksText(question.solution));
   const answerText = pythonText(sourceAnswer(question));
+  const figure = question.figures.find((candidate) => question.figureAssociations.some((association) => association.figureId === candidate.id && association.status === "CONFIRMED" && candidate.bytes));
+  const figureData = figure?.bytes ? pythonText(Buffer.from(figure.bytes).toString("base64")) : "null";
   const profile = JSON.stringify(NA_MATH_VIDEO_PROFILE);
   const code = `from manim import *
 import json
 import re
+import base64
 
 PROFILE = json.loads(${pythonText(profile)})
 FONT_TITLE = PROFILE["typography"]["title"].replace(" Bold", "")
@@ -84,16 +87,40 @@ def solution_blocks(value):
             result.append(prose_block(part, PROFILE["sizes"]["body"]["min"], PROFILE["regions"]["solution"]["maxWidth"], 0.8))
     return VGroup(*result).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"])
 
+def source_figure(value):
+    if not value:
+        return None
+    path = "/tmp/na_math_source_figure.png"
+    with open(path, "wb") as handle:
+        handle.write(base64.b64decode(value))
+    figure = ImageMobject(path)
+    return fit_block(figure, PROFILE["regions"]["visual"]["maxWidth"], PROFILE["regions"]["visual"]["maxHeight"])
+
 class SourceSolutionQuestion(Scene):
     def construct(self):
         self.camera.background_color = PROFILE["colors"]["background"]
+        # NA_MATH_VIDEO_QSG_V1: QUESTION_TOP / SOLUTION_LEFT / GEOMETRY_RIGHT
+        # These are canonical containers only. They do not alter source text,
+        # source solution, or geometry provenance.
+        question_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["topPanel"]["width"], height=PROFILE["regions"]["topPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.82).move_to(point(PROFILE["regions"]["topPanel"]["center"]))
+        solution_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["leftPanel"]["width"], height=PROFILE["regions"]["leftPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to(point(PROFILE["regions"]["leftPanel"]["center"]))
+        geometry_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["rightPanel"]["width"], height=PROFILE["regions"]["rightPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to(point(PROFILE["regions"]["rightPanel"]["center"]))
         question = prose_block(${questionText}, PROFILE["sizes"]["body"]["max"], PROFILE["regions"]["problem"]["maxWidth"], PROFILE["regions"]["problem"]["maxHeight"])
+        question.move_to(point(PROFILE["regions"]["problem"]["center"]))
+        question = VGroup(Text("Đề bài", font=FONT_TITLE, weight=BOLD, font_size=PROFILE["sizes"]["questionTag"], color=VIDEO_COLOR), question).arrange(DOWN, buff=PROFILE["spacing"]["questionBlockGap"])
+        fit_block(question, PROFILE["regions"]["problem"]["maxWidth"], PROFILE["regions"]["problem"]["maxHeight"])
         question.move_to(point(PROFILE["regions"]["problem"]["center"]))
         solution = solution_blocks(${solutionText})
         answer = Text("Đáp án: " + ${answerText}, font=FONT_TITLE, weight=BOLD, font_size=PROFILE["sizes"]["result"], color=VIDEO_COLOR)
         solution = VGroup(Text("Lời giải", font=FONT_TITLE, weight=BOLD, font_size=PROFILE["sizes"]["stepTitle"], color=VIDEO_COLOR), solution, answer).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"])
         fit_block(solution, PROFILE["regions"]["solution"]["maxWidth"], PROFILE["regions"]["solution"]["maxHeight"])
         solution.move_to(point(PROFILE["regions"]["solution"]["center"]))
+        figure = source_figure(${figureData})
+        if figure is not None:
+            figure.move_to(point(PROFILE["regions"]["visual"]["center"]))
+        self.play(Create(question_panel), Create(solution_panel), Create(geometry_panel))
+        if figure is not None:
+            self.play(FadeIn(figure))
         self.play(Write(question))
         self.wait(1)
         self.play(Write(solution))
@@ -104,7 +131,7 @@ class SourceSolutionQuestion(Scene):
   const files = [{ path: "main.py", content: code }];
   const projectId = `source-solution-${fingerprint({ questionId: question.id, sourceHash: question.source.sourceHash }).slice(0, 16)}`;
   const scenes = [{ scene_id: "scene_01_source_solution", scene_index: 1, title: "Lời giải từ nguồn", learning_goal: "Theo dõi lời giải được bảo toàn từ tài liệu nguồn", math_content: { latex: blocksText(question.solution), explanation: "Preserved authoritative source solution" }, visual_objects: ["question_text", "source_solution", "authoritative_answer"], animations: [{ type: "Write" as const, target: "source_solution", duration: 3 }], narration: { text_vi: "Lời giải và đáp án được giữ nguyên từ nguồn được ủy quyền.", voice_tone: "step_by_step" as const, duration_hint_seconds: 9 } }];
-  return { jobId: `source_solution_${Date.now()}`, projectId, projectName: "Lời giải", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, manifest: { projectId, projectName: "Lời giải", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, metadata: { questionId: question.id, sourceHash: question.source.sourceHash, sourceSolution: true, visualRoute: visualRoute.routeId, videoProfile: NA_MATH_VIDEO_PROFILE.id, resolution: "1080p", fps: 30, regionContract: "TOP_QUESTION_BOTTOM_SPLIT" } }, videoSpec: { video_title: "Lời giải", total_duration_seconds: 10, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenes as never, manim_python_code: code, regionContract: "TOP_QUESTION_BOTTOM_SPLIT" } as never, outputFormat: "mp4", resolution: "1080p", fps: 30, verifiedSource: `${question.source.document} | ${question.source.sourceHash} | ${question.source.sourceLocations[0]}`, requiredFrameNames: ["START", "KEY", "END"] };
+  return { jobId: `source_solution_${Date.now()}`, projectId, projectName: "Lời giải", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, manifest: { projectId, projectName: "Lời giải", entryFile: "main.py", sceneName: "SourceSolutionQuestion", quality: "preview", action: "render", files, metadata: { questionId: question.id, sourceHash: question.source.sourceHash, sourceSolution: true, visualRoute: visualRoute.routeId, videoProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], resolution: "1080p", fps: 30, regionContract: "QUESTION_TOP_SOLUTION_LEFT_GEOMETRY_RIGHT" } }, videoSpec: { video_title: "Lời giải", total_duration_seconds: 10, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenes as never, manim_python_code: code, regionContract: "QUESTION_TOP_SOLUTION_LEFT_GEOMETRY_RIGHT" } as never, outputFormat: "mp4", resolution: "1080p", fps: 30, verifiedSource: `${question.source.document} | ${question.source.sourceHash} | ${question.source.sourceLocations[0]}`, requiredFrameNames: ["START", "KEY", "END"] };
 }
 export class QuestionBankStudioService {
   constructor(private readonly orchestrator: StudioOrchestrator = new StudioOrchestrator()) {}

@@ -31,7 +31,7 @@ export class PythonManimRendererAdapter {
     const source = request.videoSpec?.manim_python_code;
     const scene = typeof source === "string" ? source.match(/class\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(\s*Scene\s*\)/)?.[1] : undefined;
     if (!source || source.length > 500_000 || !scene) throw new TypeError("Invalid Manim render request.");
-    const body = { manifest: { projectId: request.jobId, projectName: "Studio Local Render", entryFile: "main.py", sceneName: scene, quality: "preview", action: "render", files: [{ path: "main.py", content: source }] } };
+    const body = { manifest: { projectId: request.jobId, projectName: "Studio Local Render", entryFile: "main.py", sceneName: scene, quality: "preview", action: "render", files: [{ path: "main.py", content: source }], metadata: { resolution: request.resolution, fps: request.fps } } };
     const response = await fetch(`${this.serviceUrl}/api/jobs`, { method: "POST", headers: { "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(210_000) });
     if (!response.ok) throw new Error("REAL_RENDER_SUBMISSION_FAILED");
     return this.normalize(await response.json() as Record<string, unknown>, request.jobId);

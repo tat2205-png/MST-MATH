@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1.0",
+  "status": "LOCKED",
+  "canonical": true,
+  "approved": true,
+  "scope": "VIDEO_VISUAL_LANGUAGE_ONLY",
+  "references": {
+    "typography": "NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/na_math_design_system_v1_3/src/modules/design-system/tokens/tokens.json#/typography",
+    "colors": "NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/color-system/NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0.json",
+    "layoutTokens": "NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/na_math_design_system_v1_3/src/modules/design-system/tokens/tokens.json#/layout",
+    "geometry": "NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8"
+  },
+  "sectionTabs": ["ĐỀ BÀI", "LỜI GIẢI", "HÌNH VẼ"],
+  "icons": { "question": "document/problem", "solution": "idea/reasoning", "figure": "geometry/drawing", "styleFamily": "consistent" },
+  "typographyRoles": ["TITLE_ROLE", "SECTION_HEADER_ROLE", "BODY_ROLE", "MATH_ROLE", "FIGURE_LABEL_ROLE", "CONCLUSION_ROLE"],
+  "panel": { "rounded": true, "visibleBoundary": true, "safeInternalPadding": true, "stableGutter": true, "background": "clean_light" },
+  "colorRoles": ["PRIMARY_UI", "PRIMARY_TEXT", "MATH_DEFAULT", "EMPHASIS", "SUCCESS", "ERROR", "SUBTLE_BORDER"],
+  "animation": { "purpose": "PEDAGOGICAL", "cameraStability": true, "macroLayoutStability": true, "forbidden": ["DECORATIVE_SPIN", "RANDOM_MOTION", "EXCESSIVE_ZOOM"] },
+  "geometry": { "figureBaseAnchor": "FIXED", "semanticsMutation": "FORBIDDEN" },
+  "formula": { "noClippedMath": true, "noDanglingMathOperator": true, "oneActivePrimaryEmphasisPreferred": true },
+  "conclusion": { "preferred": true, "location": "INSIDE_SOLUTION_ZONE", "compact": true, "visuallyDistinct": true }
+}

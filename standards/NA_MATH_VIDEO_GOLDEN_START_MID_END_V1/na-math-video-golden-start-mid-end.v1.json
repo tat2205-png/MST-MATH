@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1",
+  "status": "APPROVED",
+  "locked": true,
+  "invariant": ["MACRO_LAYOUT", "PANEL_GEOMETRY", "SECTION_HEADER_LANGUAGE", "ICON_LANGUAGE", "TYPOGRAPHY_ROLES", "COLOR_ROLE_SYSTEM", "FIGURE_BASE_ANCHOR"],
+  "states": {
+    "START": { "question": "VISIBLE", "solution": "INITIAL_REASONING", "figure": "BASE_STATE_WHEN_PRESENT" },
+    "MID": { "question": "VISIBLE", "solution": "PROGRESSIVE", "figure": "SAME_BASE_ANCHOR", "semanticHighlights": "ALLOWED" },
+    "END": { "question": "VISIBLE", "solution": "FINAL_REASONING", "conclusion": "VISIBLE_WHEN_APPLICABLE", "figure": "SAME_BASE_ANCHOR" }
+  },
+  "evolvable": ["SOLUTION_CONTENT_STATE", "SEMANTIC_HIGHLIGHT", "FORMULA_EMPHASIS", "AUTHORIZED_GEOMETRY_ANNOTATION", "CONCLUSION_STATE"]
+}

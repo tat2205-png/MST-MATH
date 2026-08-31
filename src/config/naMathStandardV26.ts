@@ -5,16 +5,30 @@ import mathNotation from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK
 import approvedGeometryProfiles from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/view-profile-registry.json";
 import symbolRegistry from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/symbol-registry/NA_MATH_KNTT_SYMBOL_STANDARD_V1_0.json";
 import qaContracts from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/system-lock/NA_MATH_SYSTEM_CORE_LOCK_POLICY_V2_6.json";
+import canonicalVideoLayout from "../../standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0/na-math-canonical-layout.v1.1.json";
+import videoVisualLanguage from "../../standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0/na-math-video-visual-language.v1.0.json";
+import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1/na-math-video-golden-start-mid-end.v1.json";
 
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
 
+const canonicalVideo = canonicalVideoLayout.video;
+
 export const NA_MATH_VIDEO_PROFILE = {
-  id: "NA_MATH_APPROVED_VIDEO_MAPPING_FINAL_V2" as const,
-  canvas: { width: 1920, height: 1080, aspectRatio: "16:9" as const, fps: 30 },
+  id: canonicalVideo.canonicalProfileId,
+  canonicalProfileId: canonicalVideo.canonicalProfileId,
+  canonicalLayoutId: canonicalVideo.canonicalLayoutId,
+  semanticOrder: canonicalVideo.semanticOrder,
+  canvas: { ...canonicalVideo.canvas, fps: 30 },
+  macroLayout: canonicalVideo.macroLayout,
+  behavior: canonicalVideo.behavior,
+  visualLanguage: videoVisualLanguage,
+  goldenReference: goldenVideoReference,
   colors: {
     background: "#FCFCFA",
     video: "#E57C38",
+    panelStroke: tokens.color.neutral.line,
+    panelFill: tokens.color.neutral.paper,
   },
   typography: {
     title: "STIX Two Text Bold",
