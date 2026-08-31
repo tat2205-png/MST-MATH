@@ -1,12 +1,73 @@
 # PROJECT MASTER MAP — PiMath / MATH AI
 
-**Snapshot date:** 2026-08-30  
+**Snapshot date:** 2026-08-31 (Updated with field acceptance findings)  
 **Umbrella project:** `PiMath / MATH AI`  
 **Primary software implementation:** `Math AI Studio`  
 **Standards / publishing layer:** `NA-MATH`  
 **Purpose:** Single human-readable source of truth to prevent loss of prior decisions, completed work, unfinished work, deferred work, version names, gates, and project relationships.
 
 > IMPORTANT: This file is a reconstructed master inventory from the current conversation, retained project history, prior execution logs, and project artifacts found in the user's Library. It deliberately separates **confirmed/locked** facts from **needs revalidation** items. It must not silently promote an uncertain item to DONE/APPROVED.
+
+---
+
+## EXTERNAL FIELD ACCEPTANCE EXECUTION — V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01
+
+**Status:** PHASES 0–5 COMPLETE | PHASES 6–18 READY FOR HUMAN EXECUTION  
+**Execution date:** 2026-08-31  
+**Build HEAD:** 44ac24e6d4be8b6a5d19dba2d5eaa31949906149  
+**Build version:** 1.6.0  
+**Repository branch:** validation/v1.6-external-field-acceptance  
+
+### Execution Summary
+
+**PHASE 0 — Repository Guard:** ✓ PASS (worktree clean, correct branch/HEAD)  
+**PHASE 1 — Project State Loading:** ✓ COMPLETE (PROJECT_MASTER_MAP.md + PIMATH-PROJECT-STATE.json loaded)  
+**PHASE 2 — Field Validation Audit:** ✓ COMPLETE (existing templates confirmed, no human evidence found)  
+**PHASE 3 — Acceptance Levels:** ✓ DEFINED (Level 1: RC pilot, Level 2: external teachers, Level 3: classroom)  
+**PHASE 4 — Human UI Checklist:** ✓ CREATED (HUMAN_UI_ACCEPTANCE_CHECKLIST.md: 114 comprehensive items)  
+**PHASE 5 — Pilot Source Selection:** ⚠️ BLOCKED (search complete, no eligible real source with explicit answer found)  
+
+### Critical Finding: Pilot Source Blocker
+
+**Investigation result:** Pilot-01 source (SHA256: `7f268...`) contains 158 questions. Machine analysis found **zero questions with explicit answers**. Test fixture "bank-linear-system-q1" passed technical validation but is **synthetic**, not an immutable real source from authorized KNTT corpus.
+
+**Decision point:** Per specification, cannot fabricate alternate source. Recommendation:
+1. If eligible real source with explicit answer exists in archives → locate and use it
+2. If no such source exists → document blocker, mark PILOT_SOLUTION_QA = BLOCKED, defer pilot video execution
+
+**Current status:** PILOT_SOLUTION_QA = **BLOCKED** | PILOT_VIDEO_QA = **BLOCKED**
+
+### Templates Created
+
+All field validation artifacts created and ready for human input:
+- `HUMAN_UI_ACCEPTANCE_CHECKLIST.md` — 114 UI acceptance items
+- `EXTERNAL_TEACHER_ACCEPTANCE_TEMPLATE.md` — Level 2 teacher workflow
+- `CLASSROOM_VALIDATION_TEMPLATE.md` — Level 3 classroom evidence
+- `FIELD_ACCEPTANCE_CRITERIA_TRUTH_TABLE.md` — Complete gate matrix with evidence requirements
+
+### Release Readiness Reassessment
+
+| Gate | Status | Blocker |
+|------|--------|---------|
+| V1_6_MACHINE_READY | ✓ YES | NO |
+| V1_6_HUMAN_READY | ❌ NO | HUMAN_UI_QA pending |
+| V1_6_FIELD_READY | ❌ NO | LEVEL_2 & LEVEL_3 pending |
+| V1_6_RELEASE_READY | ❌ NO | 5 hard blockers (see FIELD_ACCEPTANCE_CRITERIA_TRUTH_TABLE.md) |
+
+**Blockers preventing release:**
+1. PILOT_SOLUTION_QA = BLOCKED (no real source with explicit answer)
+2. PILOT_VIDEO_QA = BLOCKED (depends on solution)
+3. HUMAN_UI_QA = PENDING_HUMAN_GATE (needs validator)
+4. LEVEL_2 = PENDING_HUMAN_GATE (needs 2–3 external teachers)
+5. LEVEL_3 = PENDING_HUMAN_GATE (needs classroom session)
+
+### Recommended Next Steps
+
+1. **Parallel path A (Search):** If eligible Pilot source exists in archives, locate it → execute PILOT-06/09
+2. **Parallel path B (Human gates):** Recruit external teachers, schedule classroom session, begin human UI validation
+3. **Integration:** Once human field data collected, recalculate FIELD_READY and RELEASE_READY
+
+---
 
 ## PACKAGE VERSION METADATA REMEDIATION — V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01
 

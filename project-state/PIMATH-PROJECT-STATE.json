@@ -1,15 +1,23 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
-  "snapshot_date": "2026-08-30",
-  "updated_at": "2026-08-31T10:32:56+07:00",
+  "snapshot_date": "2026-08-31",
+  "updated_at": "2026-08-31T15:00:00+07:00",
   "current_branch": "fix/v1.6-package-version-metadata",
   "current_head": "eccc4cfb3d6a10c231cd01745adc86cfe3e659d1",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
   "head_transition": {
     "status": "DONE",
     "linear": true,
-    "commits": ["d9eb6aa45e40de993b6198ec9268d244321c9b9a", "262b661b26acd762dbda0e1862cff8bd0e4dc7ed", "7e10080ebc8838238207c7331f9a6b9a91432c69"],
-    "evidence": ["git merge-base --is-ancestor", "git log fa742d2..HEAD", "git diff fa742d2..HEAD"]
+    "commits": [
+      "d9eb6aa45e40de993b6198ec9268d244321c9b9a",
+      "262b661b26acd762dbda0e1862cff8bd0e4dc7ed",
+      "7e10080ebc8838238207c7331f9a6b9a91432c69"
+    ],
+    "evidence": [
+      "git merge-base --is-ancestor",
+      "git log fa742d2..HEAD",
+      "git diff fa742d2..HEAD"
+    ]
   },
   "project": {
     "umbrella": "PiMath / MATH AI",
@@ -69,12 +77,24 @@
     "new_version": "1.6.0",
     "package_version_conflict": "RESOLVED",
     "package_version_remediation_required": false,
-    "evidence": ["package.json", "package-lock.json", "specs/v1.6/MASTER_SPEC.md", "specs/v1.6/RELEASE_SPEC.md", "CHANGELOG.md"],
-    "qa": {"lint": "PASS", "build": "PASS", "regression": "PASS_70_OF_70"},
+    "evidence": [
+      "package.json",
+      "package-lock.json",
+      "specs/v1.6/MASTER_SPEC.md",
+      "specs/v1.6/RELEASE_SPEC.md",
+      "CHANGELOG.md"
+    ],
+    "qa": {
+      "lint": "PASS",
+      "build": "PASS",
+      "regression": "PASS_70_OF_70"
+    },
     "source_code_immutability": "PASS"
   },
   "governance": {
-    "identity_hierarchy": {"status": "LOCKED"},
+    "identity_hierarchy": {
+      "status": "LOCKED"
+    },
     "authority_order": [
       "SYSTEM-ARCHITECTURE-V1.0",
       "AI-GOVERNANCE-AND-CHANGE-CONTROL-V1.0",
@@ -85,7 +105,10 @@
       "PIMATH-PROJECT-STATE.json",
       "current task"
     ],
-    "cross_chat_protocol": {"artifact": "PIMATH-AHP-V1.0", "status": "APPROVED"},
+    "cross_chat_protocol": {
+      "artifact": "PIMATH-AHP-V1.0",
+      "status": "APPROVED"
+    },
     "orchestrator": {
       "artifact": "PIMATH-AUTONOMOUS-PROJECT-ORCHESTRATOR-V1.0",
       "status": "NEEDS_REVALIDATION",
@@ -104,19 +127,55 @@
     "NA-MATH DIGITAL & AI MATRIX V1.0"
   ],
   "releases": {
-    "v1.1": {"status": "DONE", "release_state": "RELEASED", "head": "9d6cda6"},
-    "v1.2": {"status": "DONE", "release_state": "RELEASED", "tag_head": "ceefd17"},
-    "v1.3-rc.1": {"status": "DONE", "release_state": "RC", "head": "e6edcfd"},
-    "v1.3.1": {"status": "DONE", "release_state": "RELEASED", "head": "57956cd3d55482e8252d7ece1b2d617831c492f0"},
-    "v1.4.0": {"status": "DONE", "release_state": "RELEASED", "head": "85d6ad2eb004d4e889f578c542df8b64cb08b02b"},
-    "v1.5.0": {"status": "DONE", "release_state": "RELEASED", "head": "39f22715a1aaef4159d50d01fe120506d5653b0f"},
+    "v1.1": {
+      "status": "DONE",
+      "release_state": "RELEASED",
+      "head": "9d6cda6"
+    },
+    "v1.2": {
+      "status": "DONE",
+      "release_state": "RELEASED",
+      "tag_head": "ceefd17"
+    },
+    "v1.3-rc.1": {
+      "status": "DONE",
+      "release_state": "RC",
+      "head": "e6edcfd"
+    },
+    "v1.3.1": {
+      "status": "DONE",
+      "release_state": "RELEASED",
+      "head": "57956cd3d55482e8252d7ece1b2d617831c492f0"
+    },
+    "v1.4.0": {
+      "status": "DONE",
+      "release_state": "RELEASED",
+      "head": "85d6ad2eb004d4e889f578c542df8b64cb08b02b"
+    },
+    "v1.5.0": {
+      "status": "DONE",
+      "release_state": "RELEASED",
+      "head": "39f22715a1aaef4159d50d01fe120506d5653b0f"
+    },
     "v1.6.0": {
       "status": "BLOCKED",
       "release_state": "DEVELOPMENT",
       "branch": "develop/v1.6.0",
       "head": "9c4bd8428e9869ce893fc86bafdee50c7902fc02",
-      "human_gates": ["pagination", "Q37 visual", "UI"],
-      "pilot_hard_gates": ["import", "exam", "question bank", "pagination", "selection", "assessment", "solution"]
+      "human_gates": [
+        "pagination",
+        "Q37 visual",
+        "UI"
+      ],
+      "pilot_hard_gates": [
+        "import",
+        "exam",
+        "question bank",
+        "pagination",
+        "selection",
+        "assessment",
+        "solution"
+      ]
     }
   },
   "modules": {
@@ -131,7 +190,11 @@
     "exam_qa": "PASS",
     "docx_export_1A_to_1F": "PASS",
     "document_converter_v1": "PLANNED",
-    "na_math_nls_sources": {"expected": 9, "registered": 9, "status": "PASS"},
+    "na_math_nls_sources": {
+      "expected": 9,
+      "registered": 9,
+      "status": "PASS"
+    },
     "digital_ai_matrix": {
       "lessons": 79,
       "status": "NEEDS_REVALIDATION",
@@ -141,52 +204,184 @@
       "AI_CREATION": 6,
       "machine_readable_repo_integration": "PENDING"
     },
-    "brand_system": {"BRAND-00": "UNKNOWN", "status": "UNKNOWN"},
-    "real_world_math": {"REALWORLD-00": "PLANNED", "status": "PLANNED"},
-    "agent_web": {"WEB-00_to_WEB-10": "UNKNOWN", "status": "UNKNOWN"},
+    "brand_system": {
+      "BRAND-00": "UNKNOWN",
+      "status": "UNKNOWN"
+    },
+    "real_world_math": {
+      "REALWORLD-00": "PLANNED",
+      "status": "PLANNED"
+    },
+    "agent_web": {
+      "WEB-00_to_WEB-10": "UNKNOWN",
+      "status": "UNKNOWN"
+    },
     "fold_unfold": "DONE",
     "manim_video": "DONE"
   },
   "human_gates": [
-    {"id": "HUMAN_PAGINATION_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"]},
-    {"id": "HUMAN_Q37_VISUAL_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"]},
-    {"id": "HUMAN_UI_QA", "status": "NEEDS_REVALIDATION", "reason": "No distinct complete UI approval recorded"},
-    {"id": "EXTERNAL_FIELD_ACCEPTANCE", "status": "NOT_PROVEN", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]}
+    {
+      "id": "HUMAN_PAGINATION_QA",
+      "status": "PASS",
+      "evidence": [
+        "docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"
+      ]
+    },
+    {
+      "id": "HUMAN_Q37_VISUAL_QA",
+      "status": "PASS",
+      "evidence": [
+        "docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md"
+      ]
+    },
+    {
+      "id": "HUMAN_UI_QA",
+      "status": "NEEDS_REVALIDATION",
+      "reason": "No distinct complete UI approval recorded"
+    },
+    {
+      "id": "EXTERNAL_FIELD_ACCEPTANCE",
+      "status": "NOT_PROVEN",
+      "evidence": [
+        "field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"
+      ]
+    }
   ],
   "pilot_gates": [
-    {"id": "PILOT_IMPORT_QA", "status": "PASS"},
-    {"id": "PILOT_EXAM_QA", "status": "PASS"},
-    {"id": "PILOT_QUESTION_BANK_QA", "status": "PASS"},
-    {"id": "PILOT_PAGINATION_QA", "status": "PASS"},
-    {"id": "PILOT_SELECTION_QA", "status": "PASS"},
-    {"id": "PILOT_ASSESSMENT_QA", "status": "PASS"},
-    {"id": "PILOT_SOLUTION_QA", "status": "BLOCKED", "reason": "Selected real-source MCQ has no machine-verified explicit answer; PILOT-06 is required"},
-    {"id": "PILOT_VIDEO_QA", "status": "BLOCKED", "reason": "Selected real-source item cannot produce the required solution video; PILOT-09 is required"},
-    {"id": "PILOT_DOCX_QA", "status": "PASS", "evidence": ["docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md", "render_output/teacher-workflow/exports/pilot-01-v1-6-student.docx"]}
+    {
+      "id": "PILOT_IMPORT_QA",
+      "status": "PASS"
+    },
+    {
+      "id": "PILOT_EXAM_QA",
+      "status": "PASS"
+    },
+    {
+      "id": "PILOT_QUESTION_BANK_QA",
+      "status": "PASS"
+    },
+    {
+      "id": "PILOT_PAGINATION_QA",
+      "status": "PASS"
+    },
+    {
+      "id": "PILOT_SELECTION_QA",
+      "status": "PASS"
+    },
+    {
+      "id": "PILOT_ASSESSMENT_QA",
+      "status": "PASS"
+    },
+    {
+      "id": "PILOT_SOLUTION_QA",
+      "status": "BLOCKED",
+      "reason": "Selected real-source MCQ has no machine-verified explicit answer; PILOT-06 is required"
+    },
+    {
+      "id": "PILOT_VIDEO_QA",
+      "status": "BLOCKED",
+      "reason": "Selected real-source item cannot produce the required solution video; PILOT-09 is required"
+    },
+    {
+      "id": "PILOT_DOCX_QA",
+      "status": "PASS",
+      "evidence": [
+        "docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md",
+        "render_output/teacher-workflow/exports/pilot-01-v1-6-student.docx"
+      ]
+    }
   ],
   "blockers": [
-    {"id": "V1_6_FIELD_EVIDENCE", "status": "BLOCKED", "evidence": ["field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"]},
-    {"id": "V1_6_EVIDENCE_CONFLICT", "status": "RESOLVED", "reason": "RC evidence is controlled self-pilot/machine scope; field report is separate external/classroom scope"},
-    {"id": "PACKAGE_VERSION_METADATA", "status": "RESOLVED", "reason": "package.json and package-lock root metadata aligned at 1.6.0 by V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01"},
-    {"id": "PILOT_SOLUTION_UNSUPPORTED", "status": "BLOCKED"}
+    {
+      "id": "V1_6_FIELD_EVIDENCE",
+      "status": "BLOCKED",
+      "evidence": [
+        "field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md"
+      ]
+    },
+    {
+      "id": "V1_6_EVIDENCE_CONFLICT",
+      "status": "RESOLVED",
+      "reason": "RC evidence is controlled self-pilot/machine scope; field report is separate external/classroom scope"
+    },
+    {
+      "id": "PACKAGE_VERSION_METADATA",
+      "status": "RESOLVED",
+      "reason": "package.json and package-lock root metadata aligned at 1.6.0 by V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01"
+    },
+    {
+      "id": "PILOT_SOLUTION_UNSUPPORTED",
+      "status": "BLOCKED"
+    }
   ],
   "recovery_queue": [
-    {"id": "RECOVER_GOVERNANCE_ARTIFACTS", "status": "NOT_STARTED"},
-    {"id": "RECONCILE_RC_AND_FIELD_GATES", "status": "DONE"},
-    {"id": "OBTAIN_HUMAN_UI_APPROVAL", "status": "NOT_STARTED"},
-    {"id": "RECOVER_EXACT_MODULE_00_99_MAP", "status": "NOT_STARTED"}
+    {
+      "id": "RECOVER_GOVERNANCE_ARTIFACTS",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "RECONCILE_RC_AND_FIELD_GATES",
+      "status": "DONE"
+    },
+    {
+      "id": "OBTAIN_HUMAN_UI_APPROVAL",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "RECOVER_EXACT_MODULE_00_99_MAP",
+      "status": "NOT_STARTED"
+    }
   ],
   "planned_work": [
-    {"id": "NA-MATH-REAL-WORLD-MATHEMATICS-STANDARD-V1.0", "status": "PLANNED"},
-    {"id": "NA-MATH-REAL-WORLD-SOURCE-DATA-STANDARD-V1.0", "status": "PLANNED"},
-    {"id": "NA-MATH-REAL-WORLD-MATRIX-V1.0", "status": "PLANNED"},
-    {"id": "INTERNATIONAL-REFERENCE-CORPUS", "status": "PLANNED", "scope": ["PISA", "SAT", "Japan", "Korea", "China", "India", "Europe"]},
-    {"id": "VERIFIED-REAL-DATA-REGISTRY", "status": "PLANNED"},
-    {"id": "REALWORLD-00", "status": "PLANNED"},
-    {"id": "REALWORLD-01", "status": "PLANNED"},
-    {"id": "REALWORLD-02", "status": "PLANNED"},
-    {"id": "REALWORLD-03", "status": "PLANNED"},
-    {"id": "REALWORLD-04", "status": "PLANNED"}
+    {
+      "id": "NA-MATH-REAL-WORLD-MATHEMATICS-STANDARD-V1.0",
+      "status": "PLANNED"
+    },
+    {
+      "id": "NA-MATH-REAL-WORLD-SOURCE-DATA-STANDARD-V1.0",
+      "status": "PLANNED"
+    },
+    {
+      "id": "NA-MATH-REAL-WORLD-MATRIX-V1.0",
+      "status": "PLANNED"
+    },
+    {
+      "id": "INTERNATIONAL-REFERENCE-CORPUS",
+      "status": "PLANNED",
+      "scope": [
+        "PISA",
+        "SAT",
+        "Japan",
+        "Korea",
+        "China",
+        "India",
+        "Europe"
+      ]
+    },
+    {
+      "id": "VERIFIED-REAL-DATA-REGISTRY",
+      "status": "PLANNED"
+    },
+    {
+      "id": "REALWORLD-00",
+      "status": "PLANNED"
+    },
+    {
+      "id": "REALWORLD-01",
+      "status": "PLANNED"
+    },
+    {
+      "id": "REALWORLD-02",
+      "status": "PLANNED"
+    },
+    {
+      "id": "REALWORLD-03",
+      "status": "PLANNED"
+    },
+    {
+      "id": "REALWORLD-04",
+      "status": "PLANNED"
+    }
   ],
   "next_executable_task": {
     "id": "V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01",
@@ -203,5 +398,48 @@
     "Freeze production-ready release",
     "Integrate approved standards",
     "Then start REALWORLD-00"
-  ]
+  ],
+  "v1_6_external_field_acceptance_execution_01": {
+    "status": "PHASES_0_5_COMPLETE_PHASES_6_18_READY",
+    "execution_date": "2026-08-31",
+    "build_head": "44ac24e6d4be8b6a5d19dba2d5eaa31949906149",
+    "build_version": "1.6.0",
+    "repository_branch": "validation/v1.6-external-field-acceptance",
+    "phases": {
+      "phase_0_repository_guard": "PASS",
+      "phase_1_project_state_loading": "PASS",
+      "phase_2_field_validation_audit": "PASS",
+      "phase_3_acceptance_levels_defined": "PASS",
+      "phase_4_human_ui_checklist": "CREATED",
+      "phase_5_pilot_source_selection": "BLOCKED_NO_ELIGIBLE_SOURCE_FOUND"
+    },
+    "critical_finding_pilot_source": {
+      "pilot_01_source": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+      "pilot_01_question_count": 158,
+      "pilot_01_questions_with_explicit_answers": 0,
+      "status": "NO_REAL_SOURCE_WITH_EXPLICIT_ANSWER_FOUND",
+      "test_fixture_found": "bank-linear-system-q1 (synthetic, not real source)",
+      "disposition": "PILOT_SOLUTION_QA = BLOCKED, PILOT_VIDEO_QA = BLOCKED"
+    },
+    "templates_created": [
+      "HUMAN_UI_ACCEPTANCE_CHECKLIST.md",
+      "EXTERNAL_TEACHER_ACCEPTANCE_TEMPLATE.md",
+      "CLASSROOM_VALIDATION_TEMPLATE.md",
+      "FIELD_ACCEPTANCE_CRITERIA_TRUTH_TABLE.md"
+    ],
+    "release_readiness": {
+      "V1_6_MACHINE_READY": true,
+      "V1_6_HUMAN_READY": false,
+      "V1_6_FIELD_READY": false,
+      "V1_6_RELEASE_READY": false,
+      "hard_blockers": [
+        "PILOT_SOLUTION_QA = BLOCKED",
+        "PILOT_VIDEO_QA = BLOCKED",
+        "HUMAN_UI_QA = PENDING_HUMAN_GATE",
+        "LEVEL_2_EXTERNAL_TEACHER_ACCEPTANCE = PENDING_HUMAN_GATE",
+        "LEVEL_3_CLASSROOM_ACCEPTANCE = PENDING_HUMAN_GATE"
+      ]
+    },
+    "next_executable_task": "HUMAN_FIELD_EXECUTION_PHASE (external teachers + classroom validation) in parallel with optional pilot source search"
+  }
 }
