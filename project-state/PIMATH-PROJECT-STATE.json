@@ -1,7 +1,7 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-31",
-  "updated_at": "2026-08-31T13:46:38+07:00",
+  "updated_at": "2026-08-31T13:57:34+07:00",
   "current_branch": "fix/v1.6-field-acceptance-blockers",
   "current_head": "f2dd5a6d5207bc2363728a0bd5005b7a6dacc67a",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
@@ -384,9 +384,9 @@
     }
   ],
   "next_executable_task": {
-    "id": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R",
+    "id": "V1.6-GAME-01-REFERENCE-CAPTURE-01",
     "status": "NOT_STARTED",
-    "description": "Rerun Test Automation, Evidence Collector, and independent Reality Checker under the approved host-native macOS/zsh policy without overriding the prior BLOCK."
+    "description": "Obtain and record the human-approved Olympia reference before any GAME-01 implementation."
   },
   "next_priority": [
     "Create/preserve PROJECT_MASTER_MAP in canonical repo",
@@ -759,5 +759,50 @@
       "Reality Checker"
     ],
     "next_executable_task": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R"
+  },
+  "v1_6_agency_execution_environment_restore_01r": {
+    "status": "PASS_CURRENT_AGENCY_EXECUTION_CERTIFIED",
+    "task_id": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R",
+    "baseline": {
+      "branch": "fix/v1.6-field-acceptance-blockers",
+      "head": "1d98e7500c778c1d91fc5cb0f434f281bf883193",
+      "worktree": "CLEAN"
+    },
+    "host_native_shell_policy": {
+      "status": "APPROVED",
+      "host_os": "macOS",
+      "primary_shell": "zsh"
+    },
+    "official_agency_agent_roles": "AVAILABLE",
+    "project_local_math_role_adapters": "AVAILABLE",
+    "development_pipeline_contract": "AVAILABLE",
+    "runtime_canary": {
+      "evidence_root": "agency/evidence/runtime-canary-01r",
+      "execution_mode": "CODEX_SEPARATE_PROCESS_INVOCATIONS",
+      "separate_role_invocation_qa": "PASS",
+      "lead_reviewer_separation_qa": "PASS",
+      "test_automation_qa": "PASS",
+      "evidence_collector_qa": "PASS",
+      "negative_no_silent_fallback_qa": "PASS_EXPECTED_BLOCK",
+      "reality_checker_independence_qa": "PASS",
+      "agency_runtime_canary_qa": "PASS",
+      "historical_block_overridden": false,
+      "historical_block_resolution": "RESOLVED_BY_NEW_INDEPENDENT_EVIDENCE"
+    },
+    "current_agency_execution_certified": true,
+    "certification_scope": "APPROVED_AGENCY_RUNTIME_CONTRACT_ONLY",
+    "game_system": "MULTI_GAME_POWERED_BY_QUESTION_BANK",
+    "game_01": {
+      "id": "GAME-01",
+      "name": "OLYMPIA",
+      "reference_status": "NEEDS_HUMAN_REFERENCE_CONFIRMATION"
+    },
+    "readiness": {
+      "V1_6_MACHINE_READY": false,
+      "V1_6_HUMAN_READY": false,
+      "V1_6_FIELD_READY": false,
+      "V1_6_RELEASE_READY": false
+    },
+    "next_executable_task": "V1.6-GAME-01-REFERENCE-CAPTURE-01"
   }
 }

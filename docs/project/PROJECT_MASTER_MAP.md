@@ -10,6 +10,24 @@
 
 ---
 
+## AGENCY EXECUTION ENVIRONMENT RESTORE — V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01R
+
+**Status:** PASS — CURRENT AGENCY EXECUTION CERTIFIED FOR APPROVED RUNTIME CONTRACT
+**Execution date:** 2026-08-31
+**Baseline:** `1d98e7500c778c1d91fc5cb0f434f281bf883193` on `fix/v1.6-field-acceptance-blockers`; initial worktree clean.
+
+The human-approved host-native policy resolved the earlier Windows/PowerShell versus macOS/zsh conflict without overriding the historical Reality Checker BLOCK. The prior evidence under `agency/evidence/runtime-canary/` remains immutable. Remediation evidence is stored separately under `agency/evidence/runtime-canary-01r/`.
+
+The 01R canary produced distinct official-role Codex threads and separate JSON/JSONL artifacts for Product Manager, Multi-Agent Systems Architect, Test Automation Engineer, Evidence Collector, and Reality Checker. Test Automation passed schema, identity, artifact-separation, and event-to-output equality checks. Evidence Collector independently recorded role identities, thread identities, hashes, paths, and evidence correspondence. The isolated unavailable-reviewer fixture returned BLOCK through the explicit fail-closed path with no generic substitution.
+
+The first 01R Reality Checker attempt returned BLOCK because the negative fixture was not yet supplied; that artifact is preserved as `reality-check-pre-negative.json`. After the actual negative evidence was included, a fresh Reality Checker thread independently returned PASS for separate invocations, lead/reviewer separation, evidence collection, no self-certification, no silent fallback, and independent certification. No BLOCK was overridden; new evidence resolved it.
+
+`OFFICIAL_AGENCY_AGENT_ROLES=AVAILABLE`, `PROJECT_LOCAL_MATH_ROLE_ADAPTERS=AVAILABLE`, `DEVELOPMENT_PIPELINE_CONTRACT=AVAILABLE`, `AGENCY_RUNTIME_CANARY_QA=PASS`, and `CURRENT_AGENCY_EXECUTION_CERTIFIED=YES`. This certification is limited to the approved Agency execution contract and does not certify product release, GAME-01 fidelity, broader architecture completeness, or Question Bank non-mutation.
+
+Preserve `GAME_SYSTEM=MULTI_GAME_POWERED_BY_QUESTION_BANK`, `GAME_01=OLYMPIA`, and `GAME_01_REFERENCE_STATUS=NEEDS_HUMAN_REFERENCE_CONFIRMATION`. No GAME-01 implementation is authorized before reference capture. Product readiness remains `V1_6_MACHINE_READY=NO`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, and `V1_6_RELEASE_READY=NO`. `NEXT_EXECUTABLE_TASK=V1.6-GAME-01-REFERENCE-CAPTURE-01`.
+
+---
+
 ## AGENCY SHELL GOVERNANCE CONFLICT RESOLUTION — HUMAN PRODUCT OWNER DECISION
 
 **Status:** APPROVED FOR REMEDIATION AND RE-TESTING
