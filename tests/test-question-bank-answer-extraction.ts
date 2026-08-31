@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { extractExplicitSourceMcqAnswer, normalizeCandidate } from "../src/modules/question-bank/extraction.ts";
+import { toExamQuestion } from "../src/modules/question-bank/examAdapter.ts";
 import type { DocumentIR, DocumentQuestionCandidate } from "../src/modules/question-bank/types.ts";
 
 const cases: Array<[string, "A" | "B" | "C" | "D" | undefined]> = [
@@ -22,4 +23,10 @@ assert.match(JSON.stringify(normalized.solution), /Chọn A/);
 assert.equal(normalized.id, "source-hash-q1");
 assert.equal(normalized.source.sourceHash, "source-hash");
 assert.deepEqual(normalized.source.sourceLocations, ["word/document.xml:p:3"]);
+for (const answer of ["A", "B", "C", "D"] as const) {
+  assert.equal(toExamQuestion({ ...normalized, answer: [{ type: "text", value: answer }] }).expectedAnswer, answer);
+}
+const unresolved = { ...normalized, answer: undefined };
+assert.equal(toExamQuestion(unresolved).expectedAnswer, undefined);
+assert.equal(JSON.stringify(toExamQuestion(normalized).metadata), JSON.stringify({ documentSource: normalized.source, validationStatus: normalized.validationStatus, warnings: normalized.warnings }));
 console.log("EXPLICIT_SOURCE_MCQ_ANSWER_EXTRACTION_QA=PASS\nNON_INFERENCE_QA=PASS\nCONFLICT_FAIL_CLOSED_QA=PASS\nSOLUTION_PRESERVATION_QA=PASS\nQUESTION_ID_STABILITY_QA=PASS\nSOURCE_PROVENANCE_QA=PASS");
