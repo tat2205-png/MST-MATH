@@ -26,7 +26,8 @@ assert.equal(service.toSolutionRequest(generated).support, "DETERMINISTIC_ENGINE
 const unsupported: QuestionObject = { ...base, solution: undefined, type: "ESSAY", answer: undefined };
 assert.equal(service.toSolutionRequest(unsupported).support, "UNSUPPORTED_SOLUTION_GENERATION");
 const unresolved: QuestionObject = { ...base, answer: undefined };
-assert.equal(service.toSolutionRequest(unresolved).support, "UNSUPPORTED_SOLUTION_GENERATION");
+assert.equal(service.toSolutionRequest(unresolved).support, "SOURCE_SOLUTION_PRESERVED");
+assert.equal(service.buildVideoJob(unresolved).ok, true);
 const missingProvenance: QuestionObject = { ...base, source: { ...base.source, sourceLocations: [] } };
 assert.equal(service.toSolutionRequest(missingProvenance).support, "UNSUPPORTED_SOLUTION_GENERATION");
 assert.equal(JSON.stringify(sourceRequest.sourceSolution), JSON.stringify(base.solution));
