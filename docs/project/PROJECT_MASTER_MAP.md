@@ -10,6 +10,24 @@
 
 ---
 
+## APPROVED AGENCY ARTIFACT INTEGRATION — V1.6-AGENCY-APPROVED-ARTIFACTS-INTEGRATION-01-RESTART
+
+**Status:** GOVERNANCE CONTRACT RESTORED | CURRENT AGENCY EXECUTION NOT CERTIFIED
+**Execution date:** 2026-08-31
+**Baseline:** `f2dd5a6d5207bc2363728a0bd5005b7a6dacc67a` on `fix/v1.6-field-acceptance-blockers`; initial worktree clean.
+
+The prior repository-local forensic result remains authoritative for its scope: `REPO_AGENCY_RECOVERY=NOT_FOUND_IN_PRIOR_FORENSIC_SEARCH`. Separately, the approved external bundle `PIMATH_AGENCY_APPROVED_RECOVERY_V3_1` was validated from ZIP SHA-256 `6fb83ed450f7f2880d8b428f6a356cf94faaec5a151c5e20f556b1190d48dc9f` and integrated as `EXTERNAL_APPROVED_AGENCY_ARTIFACTS=AVAILABLE_AND_INTEGRATED`. Therefore `AGENCY_GOVERNANCE_CONTRACT=RESTORED` without rewriting the preserved historical manifest package version `3.0.0`.
+
+The restored contract declares Agents Orchestrator, Product Manager, Multi-Agent Systems Architect, specialist leads, independent reviewers, Test Automation Engineer, Evidence Collector, Reality Checker, G0–G6, mandatory G2/G5/G6, human review for mandatory REVIEW/BLOCK, and no silent fallback. The approved gate model is preserved as G0 Requirements, G1 Architecture, G2 Curriculum & Mathematics, G3 Assessment & Learning, G4 UX & Build, G5 Security & Data, and G6 Evidence & Release. Standalone exact historical `agency/workflows/DEVELOPMENT_PIPELINE.md` and `agency/roles/**` were not recovered and were not invented.
+
+Machine discovery found Codex and Continue available, Serena configuration present, and an Ollama client present without a running service. Cline and OpenClaw were not found. No installed Agency Agents role definitions or separately invocable approved role runtime were found. Accordingly `AGENCY_RUNTIME_EXECUTION=NOT_CURRENTLY_CERTIFIED`; contracts and historical QA evidence do not certify a current multi-agent run or any current G2/G5/G6 PASS.
+
+The locked product direction remains `GAME_SYSTEM=MULTI_GAME_POWERED_BY_QUESTION_BANK`, `GAME_01=OLYMPIA`, and `GAME_01_REFERENCE_STATUS=NEEDS_HUMAN_REFERENCE_CONFIRMATION`. No game, PDF, DOCX, video, or application source changed. Existing PDF/DOCX remediation provenance and the real-q64 video eligibility disposition remain preserved.
+
+Current aggregate readiness remains `V1_6_MACHINE_READY=NO`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, and `V1_6_RELEASE_READY=NO`. `NEXT_EXECUTABLE_TASK=V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01`.
+
+---
+
 ## EXTERNAL FIELD ACCEPTANCE EXECUTION — V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01
 
 **Status:** PHASES 0–5 COMPLETE | PHASES 6–18 READY FOR HUMAN EXECUTION  

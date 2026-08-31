@@ -1,9 +1,9 @@
 {
   "schema_version": "PROJECT-MASTER-RECOVERY-01",
   "snapshot_date": "2026-08-31",
-  "updated_at": "2026-08-31T20:00:00+07:00",
-  "current_branch": "fix/v1.6-package-version-metadata",
-  "current_head": "eccc4cfb3d6a10c231cd01745adc86cfe3e659d1",
+  "updated_at": "2026-08-31T13:02:18+07:00",
+  "current_branch": "fix/v1.6-field-acceptance-blockers",
+  "current_head": "f2dd5a6d5207bc2363728a0bd5005b7a6dacc67a",
   "historical_finalization_head": "fa742d2a14c82e1eb7153e9d89cb7edfe849d51e",
   "head_transition": {
     "status": "DONE",
@@ -384,9 +384,9 @@
     }
   ],
   "next_executable_task": {
-    "id": "V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01",
+    "id": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01",
     "status": "NOT_STARTED",
-    "description": "Obtain an authorized eligible real source, complete HUMAN_UI_QA and external teacher/classroom Levels 2 and 3, and preserve unmanufactured field rows and KPIs."
+    "description": "Restore and verify an executable Agency Agents environment with distinct lead/reviewer roles, separated outputs, representable gates, no silent fallback, and an independent Reality Checker."
   },
   "next_priority": [
     "Create/preserve PROJECT_MASTER_MAP in canonical repo",
@@ -574,5 +574,86 @@
       "V1_6_RELEASE_READY": false
     },
     "next_executable_task": "USER_SUPPLY_APPROVED_AGENCY_ARTIFACTS"
+  },
+  "v1_6_agency_approved_artifacts_integration_01_restart": {
+    "status": "GOVERNANCE_RESTORED_RUNTIME_NOT_CERTIFIED",
+    "task_id": "V1.6-AGENCY-APPROVED-ARTIFACTS-INTEGRATION-01-RESTART",
+    "baseline": {
+      "branch": "fix/v1.6-field-acceptance-blockers",
+      "head": "f2dd5a6d5207bc2363728a0bd5005b7a6dacc67a",
+      "worktree": "CLEAN"
+    },
+    "recovery_provenance": {
+      "repository_local_recovery": "NOT_FOUND_IN_PRIOR_FORENSIC_SEARCH",
+      "external_approved_bundle": "/Users/mac/Downloads/PIMATH_AGENCY_APPROVED_RECOVERY_V3_1",
+      "external_approved_zip_sha256": "6fb83ed450f7f2880d8b428f6a356cf94faaec5a151c5e20f556b1190d48dc9f",
+      "external_approved_artifacts": "AVAILABLE_AND_INTEGRATED",
+      "manifest_version_alignment": "PRESERVED_HISTORICAL_PACKAGE_VERSION"
+    },
+    "agency_governance": {
+      "contract": "RESTORED",
+      "envelope": "MWS_AGENCY_ENVELOPE/1.1",
+      "lead_reviewer_separation": true,
+      "no_self_certification": true,
+      "gate_model": {
+        "G0": "Requirements",
+        "G1": "Architecture",
+        "G2": "Curriculum & Mathematics",
+        "G3": "Assessment & Learning",
+        "G4": "UX & Build",
+        "G5": "Security & Data",
+        "G6": "Evidence & Release"
+      },
+      "required_release_gates": [
+        "G2",
+        "G5",
+        "G6"
+      ],
+      "human_in_the_loop": true,
+      "no_silent_fallback": true,
+      "historical_qa_current_certification": false
+    },
+    "missing_execution_artifacts": {
+      "development_pipeline_contract": "MISSING",
+      "official_agency_agent_roles": "MISSING",
+      "project_local_math_role_adapters": "MISSING"
+    },
+    "machine_support": {
+      "codex": "AVAILABLE_CLI_0.151.0",
+      "continue": "AVAILABLE_VSCODE_EXTENSION_2.0.0",
+      "cline": "NOT_FOUND",
+      "serena": "AVAILABLE_CONFIGURATION",
+      "ollama": "PARTIAL_CLIENT_0.33.2_SERVICE_NOT_RUNNING",
+      "openclaw": "NOT_FOUND",
+      "agency_agents_installation": "NOT_FOUND"
+    },
+    "agency_execution": {
+      "currently_certified": false,
+      "blockers": [
+        "OFFICIAL_AGENCY_AGENT_ROLE_DEFINITIONS_NOT_FOUND",
+        "PROJECT_LOCAL_MATH_ROLE_ADAPTERS_NOT_FOUND",
+        "DEVELOPMENT_PIPELINE_CONTRACT_NOT_FOUND",
+        "SEPARATELY_INVOKABLE_LEAD_AND_REVIEWER_RUNTIME_NOT_PROVEN",
+        "INDEPENDENT_REALITY_CHECKER_RUNTIME_NOT_PROVEN"
+      ]
+    },
+    "game_system": "MULTI_GAME_POWERED_BY_QUESTION_BANK",
+    "game_01": {
+      "id": "GAME-01",
+      "name": "OLYMPIA",
+      "reference_status": "NEEDS_HUMAN_REFERENCE_CONFIRMATION"
+    },
+    "prior_remediation_preserved": {
+      "pdf": "PRESERVED_AT_5D634E5",
+      "docx": "PRESERVED_AT_5D634E5",
+      "video": "PRESERVED_VIDEO_BLOCKED_BY_NO_VALID_SOLUTION_FOR_REAL_Q64"
+    },
+    "readiness": {
+      "V1_6_MACHINE_READY": false,
+      "V1_6_HUMAN_READY": false,
+      "V1_6_FIELD_READY": false,
+      "V1_6_RELEASE_READY": false
+    },
+    "next_executable_task": "V1.6-AGENCY-EXECUTION-ENVIRONMENT-RESTORE-01"
   }
 }

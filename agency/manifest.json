@@ -1,0 +1,14 @@
+{
+  "schema": "MWS_AGENCY_MANIFEST/1.0",
+  "project": "Math Workflow Studio",
+  "version": "3.0.0",
+  "mode": "AGENCY_AGENTS_PRIMARY",
+  "upstream": {
+    "project": "msitarzewski/agency-agents",
+    "usage": "Official role names are referenced; project-local roles extend the same specialist/handoff model."
+  },
+  "orchestrator": "agents-orchestrator",
+  "required_release_gates": ["G2", "G5", "G6"],
+  "human_in_the_loop": true,
+  "no_silent_fallback": true
+}

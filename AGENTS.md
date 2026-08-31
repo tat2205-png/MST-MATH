@@ -291,3 +291,30 @@ At the end of an audit or repair task, report:
 
 Use PASS / FAIL / BLOCKED / NOT_TESTED honestly.
 
+# ============================================================
+# RESTORED APPROVED AGENCY OPERATING INSTRUCTIONS — V3.1
+# The following section preserves the recovered Agency contract.
+# Existing repository-specific rules above remain authoritative.
+# ============================================================
+
+# AGENTS.md — Mandatory Project Rules (V3.1)
+
+## Primary operating model
+Agency Agents are the primary coordination/development team. Math/GDPT specialists are mandatory domain authorities for mathematical, curriculum, assessment, probability/statistics, STEM/digital, and visualization decisions.
+
+## Non-negotiable rules
+1. Read the user requirement before proposing architecture.
+2. Preserve the compact teacher UI: **Đầu vào → Lựa chọn → Đầu ra**.
+3. Never let a single agent implement and self-certify a production change.
+4. Mathematical/curriculum changes require G2 review.
+5. Student/cloud/privacy/auth changes require G5 review.
+6. Production release requires G6 evidence review.
+7. Do not silently replace a failed specialist with a generic model.
+8. Local orchestration simulation must be labeled as simulation.
+9. Do not invent psychometric statistics without learner response data.
+10. Do not expose server/service-role/model secrets in browser code.
+11. OCR/math extraction must remain reviewable by the teacher.
+12. SGK KNTT is an instructional routing layer; GDPT 2018 is the governing curriculum layer.
+
+## Runtime protocol
+Every workflow request should carry `agency_runtime` using `MWS_AGENCY_ENVELOPE/1.1`. Backend results should retain separate lead output, independent reviews, gate evidence, and a release decision.
