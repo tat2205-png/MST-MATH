@@ -8,6 +8,62 @@
 
 > IMPORTANT: This file is a reconstructed master inventory from the current conversation, retained project history, prior execution logs, and project artifacts found in the user's Library. It deliberately separates **confirmed/locked** facts from **needs revalidation** items. It must not silently promote an uncertain item to DONE/APPROVED.
 
+## AUTHORITATIVE RECONCILIATION SNAPSHOT — V1.6-FIELD-ACCEPTANCE-RECONCILIATION-01R
+
+This repository-forensic snapshot (2026-08-31) supersedes conflicting current-status conclusions, but does not alter or invalidate historical evidence. Baseline: branch `fix/v1.6-field-acceptance-reconciliation`, HEAD `9c4bd8428e9869ce893fc86bafdee50c7902fc02`; the expected master base is an ancestor and the initial worktree was clean.
+
+### Current authoritative conclusion
+
+The v1.6 RC document and field report cover different gates and stages. `docs/releases/v1.6.0/RELEASE_CANDIDATE_EVIDENCE.md` records a controlled self-pilot plus machine/targeted closure at `7e10080`; `field-validation/v1.6/FIELD_ACCEPTANCE_REPORT.md` applies the separately specified Level 2 external-teacher and Level 3 classroom gate. The field dataset is empty. Therefore the RC document is valid for its controlled scope, the field report is valid for external acceptance, and neither establishes production release readiness. `READY_FOR_V1_6_RC=YES` is superseded as a current aggregate decision by `V1_6_RELEASE_READY=NO`.
+
+No application code changed after the two recorded human visual checks; only the RC evidence and project-state documentation followed the relevant Q37/pagination fixes. `HUMAN_PAGINATION_QA=PASS` and `HUMAN_Q37_VISUAL_QA=PASS` therefore remain current. A distinct complete `HUMAN_UI_QA` approval was not found and remains `NEEDS_REVALIDATION`.
+
+The selected Pilot-01 MCQ has no machine-verified explicit answer. The adapter's `UNSUPPORTED_SOLUTION_GENERATION` is correct fail-closed behavior, but the field contract requires PILOT-06 and PILOT-09. Consequently the selected source cannot close those required field tasks: `PILOT_SOLUTION_QA=BLOCKED` and `PILOT_VIDEO_QA=BLOCKED`. No alternate authorized real source with a verified explicit answer was proven in this reconciliation.
+
+`package.json` and the root of `package-lock.json` both report `1.4.0`; the same value exists at the v1.5.0 tag, while v1.5.0 is a released Git version and v1.6.0 is the active release line. No separate public runtime version display was found. This is stale package/release metadata, not an intentional independent version axis. It must be corrected in a separate feature-freeze-safe packaging task together with the lockfile root metadata.
+
+### Current release truth table
+
+| Gate | Required | Current status | Evidence | Blocking | Owner | Next action |
+|---|---:|---|---|---:|---|---|
+| ARCHITECTURE_QA | YES | PASS | `npm run arch:check`: 0 errors, 3 documented warnings | NO | Machine | Retain warnings for review |
+| BUILD_QA | YES | PASS | `npm run lint`; `npm run build` | NO | Machine | None |
+| REGRESSION_QA | YES | PASS | `npm run qa:regression`: 70/70 | NO | Machine | None |
+| NA_MATH_V2_6_QA | YES | PASS | `npm run qa:na-math-v2.6` via `qa:docx` | NO | Machine | None |
+| IMPORT_QA | YES | PASS | `npm run qa:ingest`; RC Pilot-01 | NO | Machine | External observation still required |
+| EXAM_QA | YES | PASS | RC Pilot-01 and Question Bank adapter evidence | NO | Machine | External observation still required |
+| QUESTION_BANK_QA | YES | PASS | QB-1A–1F targeted QA | NO | Machine | External observation still required |
+| PAGINATION_QA | YES | PASS | QB-1F and RC real-source evidence; direct rerun lacked source path | NO | Machine | Preserve source-path evidence |
+| SELECTION_QA | YES | PASS | QB-2A and UX-01 | NO | Machine | External observation still required |
+| ASSESSMENT_QA | YES | PASS | `npm run qa:assessment` | NO | Machine | External observation still required |
+| GAME_QA | YES | PASS | `npm run qa:game` | NO | Machine | None |
+| SOLUTION_QA | YES | PASS_CONTRACT / BLOCKED_PILOT | QB-2C passes; selected real item unsupported | YES | Human/source owner | Select an authorized real item with verified answer |
+| VIDEO_QA | YES | PASS_CONTRACT / BLOCKED_PILOT | QB-2C passes; selected item cannot create solution video | YES | Human/source owner | Exercise PILOT-09 with eligible real item |
+| EXPORT_QA | YES | PASS | `npm run qa:export` | NO | Machine | External visual review still required |
+| DOCX_QA | YES | PASS | DOCX-1A–1F and Pilot artifact evidence | NO | Machine | Word runtime/human field review remains separate |
+| WMF_QA | YES | PASS | `npm run qa:wmf` | NO | Machine | None |
+| Q37_QA | YES | PASS | RC source/render/human evidence; no later application change | NO | Machine/Human | Preserve source-path evidence |
+| HUMAN_PAGINATION_QA | YES | PASS | RC evidence at `7e10080` | NO | Human | None unless relevant code changes |
+| HUMAN_Q37_VISUAL_QA | YES | PASS | RC evidence at `7e10080` | NO | Human | None unless relevant code changes |
+| HUMAN_UI_QA | YES | NEEDS_REVALIDATION | No distinct complete approval | YES | Human | Perform and record complete UI acceptance |
+| EXTERNAL_FIELD_ACCEPTANCE | YES | PENDING_REAL_WORLD_EVIDENCE | Empty field template/KPI/issue records | YES | External teachers/classroom | Execute Levels 2 and 3 and preserve raw rows |
+| PACKAGE_VERSION_QA | YES | FAIL | manifests say `1.4.0` on v1.6 line | YES | Machine/release owner | Separate metadata remediation |
+
+Current aggregate state: `V1_6_MACHINE_READY=NO`, `V1_6_HUMAN_READY=NO`, `V1_6_FIELD_READY=NO`, `V1_6_RELEASE_READY=NO`.
+
+### Minimum legitimate acceptance checklist
+
+1. `MACHINE_GENERATABLE`: preserve the green build, architecture, regression, ingest, Question Bank, assessment, game, solution/video contract, export, DOCX, WMF, and NA-MATH evidence; rerun Q37/pagination only with the immutable real-source path and matching SHA-256.
+2. `REAL_SOURCE_REQUIRED`: use an authorized immutable real item with a machine-verifiable explicit answer for PILOT-06 and PILOT-09; do not silently replace Pilot-01 or invent an answer.
+3. `HUMAN_REQUIRED`: record distinct complete UI acceptance, external teacher task results, corrections, output acceptance, visual/export review, and teacher acceptance.
+4. `EXTERNAL_ENVIRONMENT_REQUIRED`: complete Level 2 with 2–3 external teachers and Level 3 supervised classroom validation; calculate KPIs only from recorded rows and retain zero open F3/F4 issues.
+5. `MACHINE_GENERATABLE`: correct the package and lockfile root version metadata in a separate remediation task, then rerun typecheck, build, and regression.
+
+### Next executable tasks
+
+- `V1.6-PACKAGE-VERSION-METADATA-REMEDIATION-01`: align package/release metadata without feature work and validate lockfile reproducibility.
+- `V1.6-EXTERNAL-FIELD-ACCEPTANCE-EXECUTION-01`: obtain the required real source, complete HUMAN_UI_QA and Levels 2/3, and record unmanufactured field rows/KPIs.
+
 ## AUTHORITATIVE RECOVERY SNAPSHOT — PROJECT-MASTER-RECOVERY-01
 
 This repository-forensic snapshot (2026-08-30) supersedes conflicting status claims in the older reconstructed material below. Git and tracked repository artifacts are authoritative; the older material remains as recovery context only.
