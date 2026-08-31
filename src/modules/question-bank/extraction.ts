@@ -2,6 +2,12 @@ import { normalizeBlocks } from "./normalization.js";
 import { validateQuestion } from "./schema.js";
 import type { ContentBlock, DocumentIR, DocumentQuestionCandidate, FigureAssociation, QuestionObject } from "./types.js";
 const textOf = (block: ContentBlock) => block.type === "text" ? block.value : "";
+export function extractExplicitSourceMcqAnswer(solutionText: string): "A" | "B" | "C" | "D" | undefined {
+  const marker = /(?:^\s*|[.!?;]\s*|\b(?:vậy|do\s+đó)\s+)(?:đáp\s+án(?:\s+đúng)?|chọn)\s*[:\-]?\s*([ABCD])(?=$|[\s.)!,;:])(?!\s*(?:thì|là)\b)/giu;
+  const answers = [...solutionText.matchAll(marker)].map((match) => match[1].toUpperCase() as "A" | "B" | "C" | "D");
+  if (!answers.length || new Set(answers).size > 1) return undefined;
+  return answers[0];
+}
 const splitLabels = (blocks: ContentBlock[], pattern: RegExp): Array<{ label: string; content: ContentBlock[] }> => {
   const result: Array<{ label: string; content: ContentBlock[] }> = [];
   for (const block of blocks) {
@@ -25,6 +31,8 @@ export function normalizeCandidate(candidate: DocumentQuestionCandidate, documen
   const firstOptionIndex = content.findIndex((block) => block.type === "text" && /[A-H][.)](?:\s|$)/u.test(block.value));
   const stem = content.slice(0, firstOptionIndex < 0 ? content.length : firstOptionIndex).filter((block) => block.type !== "figure").map((block) => block.type === "text" ? { ...block, value: block.value.replace(/^(?:(?:Câu|Bài)\s*)?\d+\s*[.:)]\s*/iu, "") } : block).filter((b) => b.type !== "text" || b.value.trim());
   const id = `${document.sourceHash.slice(0, 12)}-q${candidate.questionIndex ?? candidate.id}`; const associations: FigureAssociation[] = candidate.figureAnchors.map((figureId) => ({ figureId, questionId: id, status: "CONFIRMED", confidence: 1, evidence: ["QUESTION_BLOCK_CONTAINMENT", document.figures.find((f) => f.id === figureId)?.tableCell ? "SAME_TABLE_CELL" : "PARAGRAPH_ANCHOR_OWNERSHIP"] }));
-  const result: QuestionObject = { id, source: { document: document.sourceDocument, sourceHash: document.sourceHash, blockIds: candidate.rawBlocks.map((b) => b.id), sourceLocations: candidate.sourceLocations }, section: candidate.section, index: candidate.questionIndex, type: candidate.questionTypeCandidate, stem, options: candidate.questionTypeCandidate === "MULTIPLE_CHOICE" ? options : [], trueFalseItems: statements, solution: solutionSource.map((block) => block.type === "text" ? { ...block, value: block.value.replace(/^(?:Lời\s*giải|Hướng\s*dẫn\s*giải)\s*:?\s*/iu, "") } : block).filter((block) => block.type !== "text" || block.value.trim()), subquestions: candidate.questionTypeCandidate === "ESSAY" ? splitLabels(content, /(?:^|\s)([a-h])[.)]\s*/gu) : [], figures: document.figures.filter((f) => candidate.figureAnchors.includes(f.id)), figureAssociations: associations, metadata: { questionLabel: candidate.questionLabel ?? "UNRESOLVED" }, warnings: [...candidate.parseWarnings], validationStatus: "VALID" };
+  const solution = solutionSource.map((block) => block.type === "text" ? { ...block, value: block.value.replace(/^(?:Lời\s*giải|Hướng\s*dẫn\s*giải)\s*:?\s*/iu, "") } : block).filter((block) => block.type !== "text" || block.value.trim());
+  const extractedAnswer = candidate.questionTypeCandidate === "MULTIPLE_CHOICE" ? extractExplicitSourceMcqAnswer(solution.map(textOf).join(" ")) : undefined;
+  const result: QuestionObject = { id, source: { document: document.sourceDocument, sourceHash: document.sourceHash, blockIds: candidate.rawBlocks.map((b) => b.id), sourceLocations: candidate.sourceLocations }, section: candidate.section, index: candidate.questionIndex, type: candidate.questionTypeCandidate, stem, options: candidate.questionTypeCandidate === "MULTIPLE_CHOICE" ? options : [], trueFalseItems: statements, ...(extractedAnswer ? { answer: [{ type: "text", value: extractedAnswer }] } : {}), solution, subquestions: candidate.questionTypeCandidate === "ESSAY" ? splitLabels(content, /(?:^|\s)([a-h])[.)]\s*/gu) : [], figures: document.figures.filter((f) => candidate.figureAnchors.includes(f.id)), figureAssociations: associations, metadata: { questionLabel: candidate.questionLabel ?? "UNRESOLVED" }, warnings: [...candidate.parseWarnings], validationStatus: "VALID" };
   const qa = validateQuestion(result); result.warnings.push(...qa.filter((x) => x.level !== "PASS").map((x) => x.code)); result.validationStatus = qa.some((x) => x.level === "FAIL") ? "INVALID" : qa.some((x) => x.level === "WARNING") ? "REVIEW_REQUIRED" : "VALID"; return result;
 }
