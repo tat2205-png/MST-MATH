@@ -14,3 +14,4 @@ export * from "./search.js";
 export * from "./assessment.js";
 export * from "./standardsAdapter.js";
 export * from "./export.js";
+export * from "./contracts.js";
