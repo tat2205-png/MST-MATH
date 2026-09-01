@@ -1,5 +1,5 @@
 import { DependencyGraph, type MathConstraint, type MathEntity, type MathScene } from "../math-ir/index.js";
-import { CONSTRUCTION_TOOLS, applySessionCommand, createConstructionSession, deserializeConstructionSession, eligibleTools, inferSnaps, redoSession, serializeConstructionSession, undoSession, type ConstructionCommand, type ConstructionCommandId, type ConstructionSession, type SnapCandidate, type Vec2, type Vec3 } from "../dynamic-geometry/index.js";
+import { CONSTRUCTION_TOOLS, applySessionCommand, createConstructionSession, deserializeConstructionSession, eligibleTools, inferSnaps, redoSession, serializeConstructionSession, undoSession, type ConstructionCommand, type ConstructionCommandId, type ConstructionSession, type SnapCandidate, type Vec2, type Vec3 } from "../dynamic-geometry/construction-engine.js";
 import { adaptRenderSnapshot, analyzeDegreesOfFreedom, createRenderSnapshot, orchestrateConstraints, type AdapterKind, type ConstraintDiagnostic, type RenderSnapshot } from "../constraint-orchestration/index.js";
 
 export type WorkspaceMode="2D"|"3D"|"LINKED"|"FOLD";
