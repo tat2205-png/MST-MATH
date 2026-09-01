@@ -1,0 +1,43 @@
+﻿diff --git a/package.json b/package.json
+index 3493f95..e6d9231 100644
+--- a/package.json
++++ b/package.json
+@@ -7,25 +7,18 @@
+     "dev": "tsx -r dotenv/config server.ts",
+     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+     "start": "node dist/server.cjs",
++    "studio": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\start-studio.ps1",
+     "clean": "node -e \"const fs=require('fs');for(const p of ['dist','server.js'])fs.rmSync(p,{recursive:true,force:true})\"",
+     "lint": "tsc --noEmit",
+     "qa:quick": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Quick",
+     "qa:full": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Full",
+     "qa:repair": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode RepairSmoke",
+     "qa:math": "npx tsx tests/math-regression.ts",
++    "qa:luadraw": "python scripts/doctor_luadraw.py && node --import tsx tests/test-luadraw-contract.ts",
++    "qa:luadraw:smoke": "node --import tsx scripts/run-luadraw-smoke.ts",
++    "bridge:start": "python local_bridge/bridge.py",
+     "qa:regression": "node scripts/run-regression.mjs",
+-    "ia:status": "tsx image-animation/automation/scripts/status.ts",
+-    "ia:qa": "tsx image-animation/automation/scripts/qa.ts",
+-    "ia:regression": "tsx image-animation/automation/scripts/regression.ts",
+-    "ia:test-agent": "tsx image-animation/tests/agent-sandbox.test.ts",
+-    "ia:agent-status": "tsx image-animation/automation/scripts/agent-status.ts",
+-    "ia:build": "tsx image-animation/automation/scripts/build.ts",
+-    "ia:doctor": "tsx image-animation/automation/scripts/doctor.ts",
+-    "ia:resume": "tsx image-animation/automation/scripts/resume.ts",
+-    "ia:task-test": "tsx image-animation/automation/scripts/task-test.ts",
+-    "ia:self-build": "tsx image-animation/automation/scripts/self-build.ts",
+-    "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
+-    "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
++    "release:gate": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\release-gate.ps1",
+     "qa:ci": "npm run lint && npm run build && npm run qa:regression"
+   },
+   "dependencies": {
+@@ -40,6 +33,7 @@
+     "motion": "^12.23.24",
+     "react": "^19.0.1",
+     "react-dom": "^19.0.1",
++    "three": "^0.185.1",
+     "vite": "^6.2.3"
+   },
+   "devDependencies": {

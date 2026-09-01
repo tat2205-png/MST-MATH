@@ -1,0 +1,20 @@
+﻿29df243 (HEAD -> integration/mas-final-convergence, tag: checkpoint-mas-before-studio4-20260828, tag: checkpoint-mas-after-mv5-20260828, checkpoint/mas-before-studio4-20260828) merge(integration): integrate MV5 math engine into final convergence
+cbb6233 (tag: checkpoint-mv5-clean-20260828, feature/mv-5-intelligent-authoring-verification) feat(mv5): checkpoint authoring verification and fold integration
+c848cf5 (integration/mas-int-01-post-qb, integration/mas-int-01-finalize, checkpoint/mas-final-convergence-base-20260828) merge(integration): combine frozen question bank with Studio DOCX line
+1c4e289 (feature/docx-export-v1) test(docx): add Word export QA and regression
+99c08b6 fix(docx): stabilize Word layout and pagination
+7d29507 feat(docx): add deterministic SVG geometry export
+890a5aa feat(docx): add native OMML math export
+22df130 feat(docx): add NA-MATH V2.6 Word styles
+53610ec feat(docx): establish Word export foundation
+9431863 (origin/feature/qb-document-pipeline, feature/qb-document-pipeline) docs(question-bank): align project control with frozen baseline
+65e5cdb docs(question-bank): freeze accepted development baseline
+d180f66 docs(question-bank): correct acceptance checkpoint metadata
+7c1d1c1 chore(question-bank): record final program acceptance
+7fe8fe5 (chore/na-math-v2-6-standards-integration) chore(standards): integrate NA-MATH system baseline v2.6
+a5d3d1c feat(export): integrate question-bank assessment delivery pipeline
+e281f4c test(integration): verify shared question application traceability
+af3dd8d feat(studio): integrate question-bank solution and video workflow
+33f90d6 feat(game): integrate assessment-backed classroom sessions
+d3b37eb feat(assessment): add deterministic question-bank assessment generation
+3dd00e5 feat(question-bank): add deterministic search and filtering
