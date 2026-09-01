@@ -10,7 +10,7 @@ export const PIMATH_DNA = brandRoot as typeof brandRoot;
 export const NA_MATH_BRAND_ROOT = PIMATH_DNA;
 export const NA_MATH_OUTPUT_PROFILES = outputProfiles.profiles.map((profile) => ({ ...profile, parentBrandId: outputProfiles.parentBrandId }));
 export type NaMathOutputProfileId = (typeof NA_MATH_OUTPUT_PROFILES)[number]["profileId"];
-export type PiMathConsumer = "APP_UI" | "DOCUMENT" | "DOCX" | "PDF_LATEX" | "ASSESSMENT" | "VIDEO" | "GEOGEBRA" | "FOLD" | "GAME";
+export type PiMathConsumer = "APP_UI" | "DOCUMENT" | "DOCX" | "PDF_LATEX" | "ASSESSMENT" | "EXAM_THPTQG" | "EXAM_DGNL" | "EXAM_SAT" | "EXAM_VSAT" | "VIDEO" | "GEOGEBRA" | "FOLD" | "GAME";
 
 const consumerProfiles: Partial<Record<PiMathConsumer, NaMathOutputProfileId>> = {
   APP_UI: "P12_APP_UI",
@@ -18,6 +18,10 @@ const consumerProfiles: Partial<Record<PiMathConsumer, NaMathOutputProfileId>> =
   DOCX: undefined,
   PDF_LATEX: undefined,
   ASSESSMENT: "P05_TEST",
+  EXAM_THPTQG: "P06_EXAM_THPTQG",
+  EXAM_DGNL: "P06_EXAM_DGNL",
+  EXAM_SAT: "P06_EXAM_SAT",
+  EXAM_VSAT: "P06_EXAM_VSAT",
   VIDEO: "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0",
   GEOGEBRA: "P08_GEOGEBRA",
   FOLD: "P09_FOLD",
@@ -63,6 +67,25 @@ export function resolveConsumerProfile(consumer: PiMathConsumer, profileId?: str
   const profile = resolveOutputProfile(requireProfileId(consumer, profileId ?? consumerProfiles[consumer]));
   if (profile.parentBrandId !== resolveBrand().standardId) fail(`parent:${consumer}`);
   return profile;
+}
+export type PiMathExamProfile = "THPTQG" | "DGNL" | "SAT" | "VSAT";
+const examConsumer: Record<PiMathExamProfile, Extract<PiMathConsumer, `EXAM_${string}`>> = {
+  THPTQG: "EXAM_THPTQG",
+  DGNL: "EXAM_DGNL",
+  SAT: "EXAM_SAT",
+  VSAT: "EXAM_VSAT",
+};
+export function resolveExamRuntimeAuthority(exam: PiMathExamProfile) {
+  const consumer = examConsumer[exam];
+  const profile = resolveConsumerProfile(consumer);
+  return {
+    exam,
+    profile,
+    authority: "PIMATH-DNA-V1.0" as const,
+    renderer: "EXISTING_EXAM_RENDERER" as const,
+    canOverridePiMathDna: false as const,
+    provenance: "PiMath DNA Core → Output Profile Registry → Canonical Exam Profile → Runtime Resolver → Existing Renderer" as const,
+  } as const;
 }
 export function resolvePdfLatexAuthority(profileId?: string) {
   requireProfileId("PDF_LATEX", profileId);
