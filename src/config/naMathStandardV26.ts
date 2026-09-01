@@ -7,6 +7,7 @@ import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID
 import iconAuthority from "../../registry/pimath-dna-icons.json";
 import canonicalVideoV2 from "../../standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json";
 import { resolveMathNotationAuthority, resolveSemanticGeometryAuthority } from "./naMathBrandRoot.js";
+import { resolveRendererColor, resolveRendererTypography } from "./pimathRendererProvenance.js";
 
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
@@ -28,17 +29,17 @@ export const NA_MATH_VIDEO_PROFILE = {
   iconAuthority,
   iconRoles: { question: "QUESTION_SOURCE", solution: "SOLUTION_REASONING", figure: "GEOMETRY_FIGURE", result: "RESULT_SUCCESS" } as const,
   colors: {
-    background: "#FCFCFA",
-    video: "#E57C38",
+    background: resolveRendererColor("paper").value,
+    video: resolveRendererColor("amber").value,
     panelStroke: tokens.color.neutral.line,
     panelFill: tokens.color.neutral.paper,
   },
   typography: {
     title: "STIX Two Text Bold",
     section: "XCharter",
-    body: "Libertinus Serif",
-    question: "Libertinus Serif",
-    math: "Libertinus Math",
+    body: resolveRendererTypography("body").value,
+    question: resolveRendererTypography("body").value,
+    math: resolveRendererTypography("math").value,
     label: "XCharter",
   },
   regions: {

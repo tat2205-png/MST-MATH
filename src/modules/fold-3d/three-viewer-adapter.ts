@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import type { FoldScene, Mat4 } from "./types.js";
+import { getNAMathVisualStyle } from "../../config/naMathFoldVisualStandardV1.js";
+const hexNumber=(hex:string)=>Number.parseInt(hex.slice(1),16);
 
 export interface FoldThreeMapping {
   group: THREE.Group;
@@ -30,10 +32,10 @@ export function createFoldThreeMapping(scene: FoldScene): FoldThreeMapping {
     }
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3)); geometry.computeVertexNormals();
-    const material = new THREE.MeshStandardMaterial({ color: 0x60a5fa, side: THREE.DoubleSide, transparent: true, opacity: 0.88 });
+    const material = new THREE.MeshStandardMaterial({ color: hexNumber(getNAMathVisualStyle("base-face").color), side: THREE.DoubleSide, transparent: true, opacity: 0.88 });
     const mesh = new THREE.Mesh(geometry, material); mesh.name = face.faceId; mesh.userData.faceId = face.faceId;
     const edgeGeometry = new THREE.BufferGeometry().setFromPoints(face.vertices.map((vertex) => new THREE.Vector3(vertex.position[0], vertex.position[1], 0)));
-    const edge = new THREE.LineLoop(edgeGeometry, new THREE.LineBasicMaterial({ color: 0x172554 })); edge.name = `${face.faceId}:edges`; edge.userData.foldEdgeDisplay = true;
+    const edge = new THREE.LineLoop(edgeGeometry, new THREE.LineBasicMaterial({ color: hexNumber(getNAMathVisualStyle("visible-edge").color) })); edge.name = `${face.faceId}:edges`; edge.userData.foldEdgeDisplay = true;
     const faceGroup = new THREE.Group(); faceGroup.name = face.faceId; faceGroup.userData.faceId = face.faceId; faceGroup.add(mesh, edge);
     setMatrix(faceGroup, transforms.get(face.faceId)!); group.add(faceGroup); faces.set(face.faceId, faceGroup); meshes.set(face.faceId, mesh);
   }
@@ -52,5 +54,5 @@ export function createFoldThreeMapping(scene: FoldScene): FoldThreeMapping {
 }
 
 export function setFoldFaceHighlighted(mapping: FoldThreeMapping, faceId?: string) {
-  mapping.meshes.forEach((mesh, id) => { const material = mesh.material as THREE.MeshStandardMaterial; material.color.setHex(id === faceId ? 0xf59e0b : 0x60a5fa); material.opacity = id === faceId ? 1 : 0.88; });
+  mapping.meshes.forEach((mesh, id) => { const material = mesh.material as THREE.MeshStandardMaterial; material.color.setHex(hexNumber(getNAMathVisualStyle(id === faceId ? "important-vertex" : "base-face").color)); material.opacity = id === faceId ? 1 : 0.88; });
 }
