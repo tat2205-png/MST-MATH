@@ -100,16 +100,108 @@ function atomicWrite(path: string, bytes: Uint8Array | string): void { mkdirSync
 function artifact(format: ExportFormat, path: string): ExportArtifact { const bytes = readFileSync(path); if (!bytes.length) throw new Error(`EMPTY_EXPORT_ARTIFACT:${format}`); return { format,path,bytes: bytes.length,sha256: digest(bytes) }; }
 function writeAssets(directory: string, assets: ExportAsset[]): void { mkdirSync(directory,{ recursive: true }); for (const asset of assets) atomicWrite(join(directory,asset.filename),asset.bytes); }
 function latexEngine(): "xelatex" | "lualatex" | undefined {
-  for (const command of ["xelatex", "lualatex"] as const) if (spawnSync(command,["--version"],{ stdio: "ignore",windowsHide: true }).status === 0) return command;
+  for (const command of ["xelatex", "lualatex"] as const) {
+    if (
+      spawnSync(command, ["--version"], {
+        stdio: "ignore",
+        windowsHide: true,
+      }).status === 0
+    ) {
+      return command;
+    }
+  }
   return undefined;
 }
-export function latexRuntimeAvailable(): boolean { return latexEngine() !== undefined; }
+
+export function latexRuntimeAvailable(): boolean {
+  return latexEngine() !== undefined;
+}
+
+export function latexCompileArguments(
+  outputDirectory: string,
+  texPath: string,
+  platform = process.platform,
+): string[] {
+  const installerPolicy =
+    platform === "win32" ? ["--disable-installer"] : [];
+
+  return [
+    ...installerPolicy,
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-output-directory",
+    outputDirectory,
+    texPath,
+  ];
+}
 
 export class QuestionBankExportService {
   deliver(assessment: Assessment, answerManifest: AssessmentAnswerManifest, repository: QuestionBankRepository, spec: ExportSpec): ExportDeliveryResult {
     const created = createCanonicalExportPackage(assessment,answerManifest,repository,spec); if ("diagnostics" in created) return { ok: false, diagnostics: created.diagnostics }; const pkg = created.package; const outputRoot = resolve(spec.outputDirectory); mkdirSync(outputRoot,{ recursive: true }); const base = sanitizeExportFilename(spec.filename ?? assessment.title ?? assessment.id); const artifacts: ExportArtifact[] = []; const temp = mkdtempSync(join(tmpdir(),"math-ai-export-"));
     try { writeAssets(join(temp,"assets"),pkg.assets); const pending: Array<{ format: ExportFormat; temporary: string; final: string }> = []; for (const format of spec.formats) { const extensionName = format === "JSON" ? ".json" : format === "LATEX" ? ".tex" : format === "DOCX" ? ".docx" : ".pdf"; const finalPath = join(outputRoot,`${base}${extensionName}`); const temporaryPath = join(temp,`export${extensionName}`); if (!inside(outputRoot,finalPath)) return { ok: false, diagnostics: [{ code: "INVALID_EXPORT_SPEC", message: "Resolved output path escaped the requested directory." }] };
-        try { if (format === "JSON") writeFileSync(temporaryPath,serializeJsonPackage(pkg,spec.assetMode)); else if (format === "LATEX") writeFileSync(temporaryPath,renderLatex(pkg)); else if (format === "DOCX") writeFileSync(temporaryPath,renderDocx(pkg)); else { const engine = latexEngine(); if (!engine) return { ok: false, diagnostics: [{ code: "LATEX_COMPILE_FAILED", message: "XeLaTeX or LuaLaTeX is not available for the authoritative PDF path." }] }; const texPath = join(temp,"assessment.tex"); writeFileSync(texPath,renderLatex(pkg),"utf8"); const installerFlag = process.platform === "win32" ? ["--disable-installer"] : []; execFileSync(engine,[...installerFlag,"-interaction=nonstopmode","-halt-on-error","-output-directory",temp,texPath],{ cwd: temp,stdio: "pipe",windowsHide: true }); const generated = join(temp,"assessment.pdf"); if (!existsSync(generated) || !readFileSync(generated).subarray(0,4).equals(Buffer.from("%PDF"))) throw new Error("PDF_SIGNATURE_INVALID"); writeFileSync(temporaryPath,readFileSync(generated)); }
+        try {
+          if (format === "JSON") {
+            writeFileSync(
+              temporaryPath,
+              serializeJsonPackage(pkg, spec.assetMode),
+            );
+          } else if (format === "LATEX") {
+            writeFileSync(temporaryPath, renderLatex(pkg));
+          } else if (format === "DOCX") {
+            writeFileSync(temporaryPath, renderDocx(pkg));
+          } else {
+            const engine = latexEngine();
+
+            if (!engine) {
+              return {
+                ok: false,
+                diagnostics: [
+                  {
+                    code: "LATEX_COMPILE_FAILED",
+                    message:
+                      "XeLaTeX or LuaLaTeX is not available for the authoritative PDF path.",
+                  },
+                ],
+              };
+            }
+
+            const texPath = join(temp, "assessment.tex");
+            const texCache = join(temp, "tex-cache");
+
+            mkdirSync(texCache, { recursive: true });
+            writeFileSync(texPath, renderLatex(pkg), "utf8");
+
+            execFileSync(
+              engine,
+              latexCompileArguments(temp, texPath),
+              {
+                cwd: temp,
+                stdio: "pipe",
+                windowsHide: true,
+                env: {
+                  ...process.env,
+                  TEXMFCACHE: texCache,
+                  TEXMFVAR: texCache,
+                },
+              },
+            );
+
+            const generated = join(temp, "assessment.pdf");
+
+            if (
+              !existsSync(generated) ||
+              !readFileSync(generated)
+                .subarray(0, 4)
+                .equals(Buffer.from("%PDF"))
+            ) {
+              throw new Error("PDF_SIGNATURE_INVALID");
+            }
+
+            writeFileSync(
+              temporaryPath,
+              readFileSync(generated),
+            );
+          }
           if (!readFileSync(temporaryPath).length) throw new Error(`EMPTY_EXPORT_ARTIFACT:${format}`); pending.push({ format,temporary: temporaryPath,final: finalPath });
         } catch (error) { const code: ExportDiagnosticCode = format === "DOCX" ? "DOCX_GENERATION_FAILED" : format === "PDF" ? "PDF_GENERATION_FAILED" : format === "LATEX" ? "LATEX_COMPILE_FAILED" : "INVALID_EXPORT_SPEC"; const logPath = join(temp,"assessment.log"); const log = existsSync(logPath) ? readFileSync(logPath,"utf8").slice(-4000) : ""; return { ok: false, diagnostics: [{ code,message: `${error instanceof Error ? error.message : String(error)}${log ? `\n${log}` : ""}` }] }; }
       } for (const item of pending) { atomicWrite(item.final,readFileSync(item.temporary)); artifacts.push(artifact(item.format,item.final)); } if (spec.formats.includes("LATEX")) writeAssets(join(outputRoot,"assets"),pkg.assets); return { ok: true,package: pkg,artifacts };

@@ -7,12 +7,14 @@ import { unzipSync } from "fflate";
 import { AssessmentService, type AssessmentSpec } from "../src/modules/question-bank/assessment.ts";
 import { QuestionBankService } from "../src/modules/question-bank/bankService.ts";
 import { parseDocx } from "../src/modules/question-bank/document.ts";
-import { createCanonicalExportPackage, deserializeJsonPackage, latexRuntimeAvailable, QuestionBankExportService, renderDocx, renderLatex, sanitizeExportFilename, serializeJsonPackage, stableStringify, validateExportSpec, type ExportSpec } from "../src/modules/question-bank/export.ts";
+import { createCanonicalExportPackage, deserializeJsonPackage, latexCompileArguments, latexRuntimeAvailable, QuestionBankExportService, renderDocx, renderLatex, sanitizeExportFilename, serializeJsonPackage, stableStringify, validateExportSpec, type ExportSpec } from "../src/modules/question-bank/export.ts";
 import { MemoryQuestionBankRepository, serializeSnapshot } from "../src/modules/question-bank/repository.ts";
 import type { ContentBlock, QuestionObject } from "../src/modules/question-bank/types.ts";
 import { createQuestionDocx } from "./question-bank-fixture.ts";
 
 const png = new Uint8Array(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=","base64"));
+assert.equal(latexCompileArguments("out","input.tex","darwin").includes("--disable-installer"),false);
+assert.equal(latexCompileArguments("out","input.tex","win32").includes("--disable-installer"),true);
 const repository = new MemoryQuestionBankRepository();
 new QuestionBankService(repository).importDocx(createQuestionDocx(),"đề kiểm tra tích phân.docx");
 const snapshot = repository.load();

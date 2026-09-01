@@ -66,7 +66,8 @@
     "ia:self-build": "tsx image-animation/automation/scripts/self-build.ts",
     "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
     "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
-    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression"
+    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression",
+    "qa:visual-pedagogy": "node --import tsx tests/test-visual-pedagogy-convergence.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

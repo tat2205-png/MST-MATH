@@ -1,9 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { createRequire } from "node:module";
 import process from "node:process";
-
-const require = createRequire(import.meta.url);
-const tsxCli = require.resolve("tsx/cli");
 
 const suites = [
   "tests/test-mv2-constraint-orchestration.ts",
@@ -85,7 +81,7 @@ for (const suite of suites) {
   console.log(` REGRESSION: ${suite}`);
   console.log(`============================================================`);
 
-  const result = spawnSync(process.execPath, [tsxCli, suite], {
+  const result = spawnSync(process.execPath, ["--import", "tsx", suite], {
     cwd: process.cwd(),
     stdio: "inherit",
     shell: false,
