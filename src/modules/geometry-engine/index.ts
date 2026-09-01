@@ -6,3 +6,4 @@ export * from "./capabilities.js";
 export * from "./adapters.js";
 export * from "./router.js";
 export * from "./fixtures.js";
+export * from "./planar.js";

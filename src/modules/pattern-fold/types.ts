@@ -1,7 +1,7 @@
 import type { Mat4, Vec2, Vec3 } from "../fold-3d/types.js";
 
 export type PatternOuterKind = "circle" | "triangle" | "square" | "rectangle" | "convex_polygon";
-export type PatternShapeRole = "CUT_OUT" | "HOLE" | "FOLD_FLAP" | "FOLD_REGION" | "MARKED_REGION" | "REFERENCE_SHAPE";
+export type PatternShapeRole = "CUT_OUT" | "HOLE" | "FOLD_FLAP" | "FOLD_REGION" | "MARKED_REGION" | "REFERENCE_SHAPE" | "CUT_PIECE";
 export type CutType = "FULL" | "PARTIAL";
 export type FoldAssignment = "MOUNTAIN" | "VALLEY" | "UNASSIGNED";
 export type PatternGeometry = { kind: "polygon"; vertices: Vec2[] } | { kind: "circle"; center: Vec2; radius: number };
@@ -29,7 +29,7 @@ export interface PatternCut { id: string; points: Vec2[]; cutType: CutType; }
 export interface PatternCrease { id: string; points: [Vec2, Vec2]; assignment: FoldAssignment; regionIds: [string, string]; fixedRegionId?: string; movingRegionId?: string; foldSide?: "A" | "B"; targetAngleRadians?: number; order?: number; symmetryPairId?: string; }
 export type PatternBoundarySegment={kind:"line";start:Vec2;end:Vec2}|{kind:"arc";center:Vec2;radius:number;startAngle:number;endAngle:number;counterclockwise:boolean};
 export interface PatternRegion { id: string; vertices: Vec2[]; boundarySegments?:PatternBoundarySegment[]; holeShapeIds?: string[]; role?: "BASE" | "PANEL" | "FLAP"; status?: "KEEP" | "DISCARD_PREVIEW"; }
-export interface PatternSheet { id: string; sourceShape?: PatternSourceShape; boundary: PatternBoundary; shapes: PatternShape[]; cuts: PatternCut[]; creases: PatternCrease[]; regions: PatternRegion[]; rootRegionId: string; construction?: PatternConstruction; removedRegions?: RemovedPatternRegion[]; }
+export interface PatternSheet { id: string; sourceShape?: PatternSourceShape; motionModel?: "APPROVED_V3_FRUSTUM"; boundary: PatternBoundary; shapes: PatternShape[]; cuts: PatternCut[]; creases: PatternCrease[]; regions: PatternRegion[]; rootRegionId: string; construction?: PatternConstruction; removedRegions?: RemovedPatternRegion[]; }
 export interface PatternIssue { code: string; severity: "error" | "warning"; path: string; message: string; }
 export interface PatternResult<T> { status: "PASS" | "FAIL" | "UNSUPPORTED"; value?: T; issues: PatternIssue[]; }
 export interface PatternAdjacency { regionIds: [string, string]; creaseId: string; }

@@ -6,4 +6,6 @@ export * from "./three-adapter.js";
 export * from "./partition.js";
 export * from "./authoring.js";
 export * from "./studio-authoring.js";
-export * from "../dynamic-geometry/index.js";
+export * from "./teaching-state.js";
+export * from "./canonical-frustum-fixture.js";
+export * from "./v3-fold-model.js";

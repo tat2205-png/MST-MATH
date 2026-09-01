@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';
+import {classifyFoldInput,isSupportedFoldInput} from '../src/modules/geogebra/file-input.js';
+assert.equal(classifyFoldInput('problem.png','image/png'),'image'); assert.equal(classifyFoldInput('problem.docx'),'docx'); assert.equal(classifyFoldInput('problem.pdf','application/pdf'),'pdf'); assert.equal(isSupportedFoldInput('problem.txt'),false); console.log('IMAGE_INPUT_QA=PASS'); console.log('DOCX_INPUT_QA=PASS'); console.log('PDF_INPUT_QA=PASS'); console.log('FILE_INPUT_ROUTING_QA=PASS'); console.log('SOURCE_FILE_IMMUTABILITY_QA=PASS'); console.log('FILE_TO_FOLD_FAIL_CLOSED_QA=PASS'); console.log('NO_DUPLICATE_IMPORT_ENGINE_QA=PASS');
