@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import { createPatternFoldScene, createSquareSheetRegularSquareFrustum, SQUARE_SHEET_TO_REGULAR_SQUARE_FRUSTUM, updatePatternFoldScene } from "../src/modules/pattern-fold/index.js";
+import { V3_FOLD_MODEL, v3H, v3Q } from "../src/modules/pattern-fold/v3-fold-model.js";
+assert.equal(V3_FOLD_MODEL.sheetSide, 8); assert.equal(V3_FOLD_MODEL.cornerOffset, 1); assert.equal(V3_FOLD_MODEL.outerEdge, 6); assert.equal(V3_FOLD_MODEL.trapezoidWidth, 2.5); assert.equal(v3Q(0), 2.5); assert.equal(v3Q(1), 1.5); assert.equal(v3H(0), 0); assert.equal(v3H(1), 2);
+const a = createSquareSheetRegularSquareFrustum();
+assert.equal(a.sourceShape?.type, "SQUARE"); assert.equal(a.sourceShape?.side, 8); assert.equal(a.regions.length, 5); assert.equal(a.creases.length, 4); assert.equal(a.shapes.filter(x => x.role === "CUT_PIECE").length, 4);
+const ids = [...a.regions.map(x => x.id), ...a.creases.map(x => x.id), ...a.shapes.filter(x => x.role === "CUT_PIECE").map(x => x.id)];
+assert.equal(new Set(ids).size, ids.length);
+const scene = createPatternFoldScene(a, 0).value!; const folded = updatePatternFoldScene(scene, 3, .5).value!;
+assert.deepEqual(folded.sheet.shapes.filter(x => x.role === "CUT_PIECE").map(x => x.id), a.shapes.filter(x => x.role === "CUT_PIECE").map(x => x.id));
+assert.equal(SQUARE_SHEET_TO_REGULAR_SQUARE_FRUSTUM.validBaseSide(3.1), true); assert.equal(SQUARE_SHEET_TO_REGULAR_SQUARE_FRUSTUM.validBaseSide(6), false);
+console.log("CANONICAL_FRUSTUM_FIXTURE_TESTS=PASS");

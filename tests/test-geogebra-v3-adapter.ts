@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {createV3GeoGebraConstruction} from '../src/modules/geogebra/adapter.js';
+import {getNAMathVisualStyle} from '../src/config/naMathFoldVisualStandardV1.js';
+
+const commands: string[] = [], values: Record<string, number> = {};
+const api = { evalCommand: (c: string) => (commands.push(c), true), setValue: (n: string, v: number) => { values[n] = v; }, deleteObject() {}, setVisible() {}, setColor() {}, registerUpdateListener() {}, registerAddListener() {}, registerRemoveListener() {}, registerRenameListener() {}, registerClickListener() {} };
+const adapter = createV3GeoGebraConstruction(api);
+assert.equal(adapter.mappings.length, 21);
+for (const id of ['v3:base:polygon', 'v3:face:north', 'v3:face:east', 'v3:face:south', 'v3:face:west', 'v3:cut:ne', 'v3:cut:se', 'v3:cut:sw', 'v3:cut:nw', 'v3:hinge:AB', 'v3:hinge:BC', 'v3:hinge:CD', 'v3:hinge:DA']) assert.ok(adapter.mappings.some((m) => m.canonicalId === id));
+assert.ok(commands.some((c) => c.includes('v3_base = Polygon')));
+assert.ok(commands.some((c) => c.includes('v3_hinge_AB = Segment')));
+adapter.update(.5, 3); assert.equal(values.v3_t, .5); assert.equal(values.v3_a, 3);
+assert.equal(adapter.guard.run('CANONICAL', () => adapter.guard.current), 'CANONICAL');
+adapter.reset(); assert.equal(values.v3_t, 0); assert.equal(values.v3_a, 3);
+assert.equal(adapter.styles.base.color, getNAMathVisualStyle('base-face').color);
+assert.ok(commands.some((c) => c.includes('v3_dim_sheet = Segment')));
+assert.ok(commands.every((c) => !c.includes('v3_cut_') || c.includes('SetFilling') || c.includes('SetLayer') || c.includes('Polygon')));
+console.log('GEOGEBRA_V3_ADAPTER_QA=PASS');
+console.log('V3_MAPPING_QA=PASS');
+console.log('V3_T_PROPAGATION_QA=PASS');
+console.log('CUT_PIECES_FIXED_Z0_QA=PASS');

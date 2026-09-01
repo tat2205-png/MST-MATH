@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createMidpoint, describeDynamicGeometry, evaluateSelection, normalizeDynamicGeometry, renameDynamicObject } from "../../modules/dynamic-geometry/index.js";
 import {
   addConstructionCircle,
   addConstructionPoint,
@@ -12,20 +13,15 @@ import {
   applyDiscard,
   assignSegmentSemantic,
   cancelDiscard,
-  createMidpoint,
   createPatternFoldScene,
   createPatternThreeMapping,
   createPlanarPattern,
   deleteAuthoredCrease,
-  describeDynamicGeometry,
-  evaluateSelection,
   geometryContainsPoint,
   mirrorConstructionPoint,
   mirrorConstructionSegment,
   moveSequenceItem,
-  normalizeDynamicGeometry,
   previewDiscardRegion,
-  renameDynamicObject,
   resolveGridType,
   snapConstructionPoint,
   updateAuthoredCrease,

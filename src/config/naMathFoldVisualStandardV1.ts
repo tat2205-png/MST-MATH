@@ -1,0 +1,6 @@
+export type NAMathVisualRole = "source-sheet" | "base-face" | "folding-face" | "cut-piece" | "cut-edge" | "fold-edge" | "visible-edge" | "hidden-edge" | "construction-edge" | "important-vertex" | "dimension" | "label";
+export interface NAMathVisualStyle { color: string; opacity: number; lineStyle?: "solid" | "dashed"; lineWidth?: number; }
+export const NA_MATH_FOLD_VISUAL_V1: Readonly<Record<NAMathVisualRole, NAMathVisualStyle>> = {
+  "source-sheet": { color: "#AAB4C8", opacity: .24, lineStyle: "dashed" }, "base-face": { color: "#4EA8DE", opacity: .86 }, "folding-face": { color: "#FFD166", opacity: .74 }, "cut-piece": { color: "#FF5A5F", opacity: .28 }, "cut-edge": { color: "#FF5A5F", opacity: 1, lineStyle: "solid" }, "fold-edge": { color: "#4DE3FF", opacity: 1, lineStyle: "dashed" }, "visible-edge": { color: "#E8EDF6", opacity: 1, lineStyle: "solid" }, "hidden-edge": { color: "#8E99AA", opacity: .7, lineStyle: "dashed" }, "construction-edge": { color: "#B8A1FF", opacity: .55, lineStyle: "dashed", lineWidth: 1 }, "important-vertex": { color: "#FFE45E", opacity: 1 }, "dimension": { color: "#D5DCE8", opacity: .95 }, "label": { color: "#F3F6FB", opacity: 1 },
+};
+export const getNAMathVisualStyle = (role: NAMathVisualRole) => NA_MATH_FOLD_VISUAL_V1[role];

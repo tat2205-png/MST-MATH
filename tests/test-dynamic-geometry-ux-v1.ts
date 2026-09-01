@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { addConstructionCircle, addConstructionPoint, addConstructionSegment, createMidpoint, createPlanarPattern, createPointOnCircle, deleteDynamicObject, describeDynamicGeometry, evaluateSelection, moveDynamicPoint, normalizeDynamicGeometry, renameDynamicObject, validateDependencyGraph } from "../src/modules/pattern-fold/index.js";
+import { addConstructionCircle, addConstructionPoint, addConstructionSegment, createPlanarPattern } from "../src/modules/pattern-fold/index.js";
+import { createMidpoint, createPointOnCircle, deleteDynamicObject, describeDynamicGeometry, evaluateSelection, moveDynamicPoint, normalizeDynamicGeometry, renameDynamicObject, validateDependencyGraph } from "../src/modules/dynamic-geometry/index.js";
 
 let sheet=createPlanarPattern({kind:"square",side:10}).value!;
 sheet=normalizeDynamicGeometry(addConstructionPoint(sheet,[-2,0]).value!);
