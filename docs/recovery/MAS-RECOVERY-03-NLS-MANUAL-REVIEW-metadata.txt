@@ -1,0 +1,8 @@
+repository=D:\math-ai-video-studio\math-ai-video-studio-github
+branch=integration/mas-runtime-lock-post-nls
+head=1bf5d57bf62650859464477015de1f256be93f00
+timestamp=2026-08-29T21:14:58.3896506+07:00
+structure_dirty_sha256=DD52A235DE1B02489FD6EE1524B664290F431A1152E32D1A2FA470B96DD4BAC2
+structure_head_sha256=8a201d0d200df81ca17dc04cbdb42e66bf3d2521279ad070a962ac67c2241f68
+manual_review_sha256=8F683EF7E54A913F73EA3636EA4186C7C3D6FE71C194D8207776F8C0464E36DF
+status=unclassified before forensic routing
