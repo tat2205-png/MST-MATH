@@ -282,7 +282,19 @@ def semantic_icon(role, color=BRAND_NAVY):
     path = "/tmp/pimath_icon_" + role + ".svg"
     with open(path, "w", encoding="utf-8") as handle:
         handle.write(ICON_SVG[role].replace("currentColor", color))
-    return SVGMobject(path).scale(0.18)
+    return SVGMobject(path).scale(0.12)
+
+def section_tab(label, role, color=BRAND_NAVY):
+    icon = semantic_icon(role, "#FFFFFF")
+    title = Text(label, font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["questionTag"], color="#FFFFFF", weight=BOLD)
+    content = VGroup(icon, title).arrange(RIGHT, buff=0.12)
+    tab = RoundedRectangle(corner_radius=0.06, width=content.width + 0.28, height=content.height + 0.14, stroke_color=color, stroke_width=1.5, fill_color=color, fill_opacity=1)
+    return VGroup(tab, content)
+
+def anchor_section_tab(tab, panel, padding=0.22):
+    tab.align_to(panel, LEFT).align_to(panel, UP)
+    tab.shift(RIGHT * padding + DOWN * padding)
+    return tab
 
 class GoldenLinearSystem(Scene):
     def construct(self):
@@ -293,21 +305,25 @@ class GoldenLinearSystem(Scene):
         question_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["topPanel"]["width"], height=PROFILE["regions"]["topPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.82).move_to([*PROFILE["regions"]["topPanel"]["center"], 0])
         solution_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["leftPanel"]["width"], height=PROFILE["regions"]["leftPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["leftPanel"]["center"], 0])
         geometry_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["rightPanel"]["width"], height=PROFILE["regions"]["rightPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["rightPanel"]["center"], 0])
-        question = VGroup(
-            VGroup(semantic_icon("QUESTION_SOURCE"), Text("ĐỀ BÀI", font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["questionTag"], color=BRAND_NAVY, weight=BOLD)).arrange(RIGHT, buff=0.12),
-            MathTex(r"\\begin{cases}" + EQUATION_SYSTEM["equations"][0] + r"\\\\" + EQUATION_SYSTEM["equations"][1] + r"\\end{cases}", font_size=PROFILE["sizes"]["math"]["max"], color=INK)
-        ).arrange(DOWN, buff=PROFILE["spacing"]["questionBlockGap"]).move_to([*PROFILE["regions"]["problem"]["center"], 0])
-        solution = VGroup(
-            VGroup(semantic_icon("SOLUTION_REASONING"), Text("LỜI GIẢI", font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["stepTitle"], color=BRAND_NAVY, weight=BOLD)).arrange(RIGHT, buff=0.12),
+        question_header = anchor_section_tab(section_tab("ĐỀ BÀI", "QUESTION_SOURCE"), question_panel)
+        question_math = MathTex(r"\\begin{cases}" + EQUATION_SYSTEM["equations"][0] + r"\\\\" + EQUATION_SYSTEM["equations"][1] + r"\\end{cases}", font_size=PROFILE["sizes"]["math"]["max"], color=INK)
+        question_math.next_to(question_header, DOWN, buff=PROFILE["spacing"]["questionBlockGap"]).align_to(question_header, LEFT)
+        question = VGroup(question_header, question_math)
+        solution_header = anchor_section_tab(section_tab("LỜI GIẢI", "SOLUTION_REASONING"), solution_panel)
+        solution_content = VGroup(
             MathTex(r"(x+y)+(x-y)=5+1", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
             MathTex(r"2x=6 \\Rightarrow x=${x}", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
             MathTex(r"y=${y}", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
             VGroup(semantic_icon("RESULT_SUCCESS", VIDEO_ACCENT), MathTex(r"\\boxed{x=${x},\\quad y=${y}}", font_size=PROFILE["sizes"]["result"], color=VIDEO_ACCENT)).arrange(RIGHT, buff=0.12)
-        ).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"]).move_to([*PROFILE["regions"]["solution"]["center"], 0])
-        geometry_header = VGroup(semantic_icon("GEOMETRY_FIGURE"), Text("HÌNH VẼ", font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["stepTitle"], color=BRAND_NAVY, weight=BOLD)).arrange(RIGHT, buff=0.12)
+        ).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"])
+        solution_content.next_to(solution_header, DOWN, buff=PROFILE["spacing"]["solutionBlockGap"]["min"]).align_to(solution_header, LEFT)
+        solution = VGroup(solution_header, solution_content)
+        geometry_header = anchor_section_tab(section_tab("HÌNH VẼ", "GEOMETRY_FIGURE"), geometry_panel)
         axes = Axes(x_range=[-1, 6, 1], y_range=[-1, 6, 1], x_length=5.1, y_length=3.5, axis_config={"color": MUTED, "include_numbers": True, "font_size": 16}).move_to([3.42, -1.35, 0])
         point = Dot(axes.c2p(${x}, ${y}), color=VIDEO_ACCENT)
-        geometry = VGroup(geometry_header, VGroup(axes, point)).arrange(DOWN, buff=0.18).move_to([*PROFILE["regions"]["visual"]["center"], 0])
+        geometry_content = VGroup(axes, point)
+        geometry_content.next_to(geometry_header, DOWN, buff=0.18).align_to(geometry_header, LEFT)
+        geometry = VGroup(geometry_header, geometry_content)
         self.play(Create(question_panel), Create(solution_panel), Create(geometry_panel))
         self.play(Write(question))
         self.wait(1)
