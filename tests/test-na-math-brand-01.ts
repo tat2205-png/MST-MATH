@@ -5,7 +5,7 @@ assert.equal(PIMATH_DNA.standardId, "PIMATH-DNA-V1.0");
 assert.equal(PIMATH_DNA.displayName, "PiDNA");
 assert.equal(PIMATH_DNA.codeRoot, "PIMATH_DNA");
 assert.equal(PIMATH_DNA.canonical, true); assert.equal(PIMATH_DNA.singleSourceOfTruth, true);
-assert.equal(NA_MATH_OUTPUT_PROFILES.length, 15);
+assert.equal(NA_MATH_OUTPUT_PROFILES.length, 16);
 assert.ok(NA_MATH_OUTPUT_PROFILES.every((profile) => profile.parentBrandId === "PIMATH-DNA-V1.0"));
 assert.equal(resolveBrand().architecture.application, "Math AI Studio");
 assert.equal(resolveOutputProfile("P12_APP_UI").parentBrandId, PIMATH_DNA.standardId);
@@ -16,16 +16,16 @@ for (const consumer of ["APP_UI", "ASSESSMENT", "VIDEO", "GEOGEBRA", "FOLD", "GA
 }
 assert.equal(resolvePdfLatexAuthority("P03_WORKSHEET").profile.profileId, "P03_WORKSHEET");
 assert.equal(resolvePdfLatexAuthority("P05_TEST").profile.profileId, "P05_TEST");
-assert.equal(resolvePdfLatexAuthority("P06_EXAM_THPT").profile.profileId, "P06_EXAM_THPT");
+assert.equal(resolvePdfLatexAuthority("P06_EXAM_THPTQG").profile.profileId, "P06_EXAM_THPTQG");
 assert.throws(() => resolvePdfLatexAuthority(), /PIMATH_DNA_OUTPUT_PROFILE_REQUIRED/);
 assert.equal(resolveOutputProfile("P02_LESSON_PLAN").profileId, "P02_LESSON_PLAN");
 assert.deepEqual(resolveOutputProfile("P07_VIDEO").canonicalReferences, ["NA_MATH_CANONICAL_LAYOUT_V1_3", "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0", "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"]);
 assert.ok(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences.includes("NA-MATH-BRAND-DRIVEN-GEOGEBRA-UI-SYSTEM-V1.0"));
 assert.notDeepEqual(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences, resolveOutputProfile("P09_FOLD").canonicalReferences);
-for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPT", "P06_EXAM_VSAT", "P06_EXAM_SAT"]) {
+for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"]) {
   const profile = resolveOutputProfile(profileId);
   assert.ok(profile.semanticReferences?.includes("NA_MATH_QUESTION_BANK_V1"));
-  assert.ok(profile.unresolved?.includes("PIMATH_DNA_EXAM_VISUAL_PROFILE") || profile.unresolved?.includes("PIMATH_DNA_TEST_VISUAL_PROFILE"));
+  assert.ok(["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT"].includes(profile.profileId) || profile.unresolved?.includes("PIMATH_DNA_EXAM_VISUAL_PROFILE") || profile.unresolved?.includes("PIMATH_DNA_TEST_VISUAL_PROFILE"));
 }
 assert.throws(() => resolveIcon("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
 assert.throws(() => resolveComponent("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);

@@ -25,7 +25,13 @@ function requireProfileId(consumer: PiMathConsumer, profileId: string | undefine
   return profileId as NaMathOutputProfileId;
 }
 export function resolveBrand() { if (PIMATH_DNA.standardId !== "PIMATH-DNA-V1.0" || !PIMATH_DNA.canonical || !PIMATH_DNA.singleSourceOfTruth) fail("root"); return PIMATH_DNA; }
-export function resolveOutputProfile(profileId: string) { const profile = NA_MATH_OUTPUT_PROFILES.find((p) => p.profileId === profileId); return profile ?? fail(`profile:${profileId}`); }
+export function resolveOutputProfile(profileId: string) {
+  const profile = NA_MATH_OUTPUT_PROFILES.find((p) => p.profileId === profileId);
+  if (profile) return profile;
+  const alias = outputProfiles.aliases?.[profileId as keyof typeof outputProfiles.aliases];
+  if (alias?.status === "COMPATIBILITY_ALIAS") return resolveOutputProfile(alias.aliasOf);
+  return fail(`profile:${profileId}`);
+}
 export function resolveCanonicalReference(name: keyof typeof PIMATH_DNA.references) { const value = resolveBrand().references[name]; return value ?? fail(`reference:${name}`); }
 export function resolveConsumerProfile(consumer: PiMathConsumer, profileId?: string) {
   const profile = resolveOutputProfile(requireProfileId(consumer, profileId ?? consumerProfiles[consumer]));
