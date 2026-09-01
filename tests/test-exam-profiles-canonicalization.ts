@@ -7,7 +7,31 @@ const thpt = resolveOutputProfile("P06_EXAM_THPTQG") as any;
 const dgnl = resolveOutputProfile("P06_EXAM_DGNL") as any;
 const sat = resolveOutputProfile("P06_EXAM_SAT") as any;
 
-assert.equal(registry.profiles.length, 16);
+const expectedProfileIds = [
+  "P01_LEARNING_MATERIAL",
+  "P02_LESSON_PLAN",
+  "P03_WORKSHEET",
+  "P04_EXERCISE_SHEET",
+  "P05_TEST",
+  "P06_EXAM_SCHOOL",
+  "P06_EXAM_THPTQG",
+  "P06_EXAM_DGNL",
+  "P06_EXAM_VSAT",
+  "P06_EXAM_SAT",
+  "P07_VIDEO",
+  "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0",
+  "P08_GEOGEBRA",
+  "P09_FOLD",
+  "P10_GAME",
+  "P11_DIGITAL_AI_LESSON",
+  "P12_APP_UI",
+] as const;
+const actualProfileIds = registry.profiles.map((profile) => profile.profileId);
+assert.equal(new Set(actualProfileIds).size, actualProfileIds.length, "Profile IDs must be unique");
+assert.deepEqual(actualProfileIds, expectedProfileIds, "Profile registry membership/order changed unexpectedly");
+assert.equal(actualProfileIds.includes("PIMATH_VIDEO_VISUAL_CANONICAL_V2.0"), true);
+assert.equal(registry.profiles.find((profile) => profile.profileId === "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0")?.canonical, true);
+assert.equal(registry.profiles.find((profile) => profile.profileId === "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0")?.approved, true);
 assert.deepEqual(["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"], registry.profiles.filter(p => p.profileId.startsWith("P06_EXAM_")).map(p => p.profileId));
 assert.equal(registry.aliases.P06_EXAM_THPT.aliasOf, "P06_EXAM_THPTQG");
 assert.equal(registry.aliases.P06_EXAM_THPT.status, "COMPATIBILITY_ALIAS");
