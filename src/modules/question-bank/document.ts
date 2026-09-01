@@ -6,11 +6,20 @@ const decode = (s: string) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").repl
 const mime = (path?: string) => path?.endsWith(".png") ? "image/png" : path?.match(/\.jpe?g$/i) ? "image/jpeg" : path?.endsWith(".svg") ? "image/svg+xml" : path?.endsWith(".wmf") ? "image/wmf" : "application/octet-stream";
 function relationships(xml: string): Map<string, string> { return new Map([...xml.matchAll(/<Relationship\b[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"[^>]*\/?\s*>/gi)].map((m) => [m[1], m[2]])); }
 function paragraphContent(xml: string, location: string, rels: Map<string, string>, files: Record<string, Uint8Array>, figures: FigureRecord[], paragraphIndex: number, tableCell?: string): ContentBlock[] {
-  const content: ContentBlock[] = []; const token = /<m:oMath(?:Para)?\b[\s\S]*?<\/m:oMath(?:Para)?>|<w:t\b[^>]*>[\s\S]*?<\/w:t>|<(?:a:blip|v:imagedata)\b[^>]*>/gi; let match;
+  const content: ContentBlock[] = []; const token = /<m:oMathPara\b[\s\S]*?<\/m:oMathPara>|<m:oMath\b[\s\S]*?<\/m:oMath>|<w:t\b[^>]*>[\s\S]*?<\/w:t>|<(?:a:blip|v:imagedata)\b[^>]*>/gi; let match;
   while ((match = token.exec(xml))) { const raw = match[0]; if (/^<w:t/i.test(raw)) { const value = decode(raw.replace(/^<w:t\b[^>]*>|<\/w:t>$/gi, "")); if (value) content.push({ type: "text", value, sourceLocation: location }); }
     else if (/^<m:oMath/i.test(raw)) content.push({ type: "math", math: parseOmml(raw, `${location}:math:${content.length}`), sourceLocation: location });
     else { const rid = /r:(?:embed|id)="([^"]+)"/i.exec(raw)?.[1]; if (!rid) continue; const target = rels.get(rid); const path = target ? `word/${target.replace(/^\.\.\//, "")}` : undefined; const id = `figure-${rid}`; const extent = /<wp:extent\b[^>]*cx="(\d+)"[^>]*cy="(\d+)"/i.exec(xml); if (!figures.some((x) => x.id === id)) figures.push({ id, relationshipId: rid, mediaPath: path, mimeType: mime(path), bytes: path ? files[path] : undefined, sourceLocation: location, paragraphIndex, tableCell, dimensions: extent ? { widthEmu: Number(extent[1]), heightEmu: Number(extent[2]) } : undefined }); content.push({ type: "figure", figureId: id, sourceLocation: location }); }
-  } return content;
+  }
+  return content.reduce<ContentBlock[]>((result, block) => {
+    const previous = result.at(-1);
+    if (previous?.type === "text" && block.type === "text") {
+      previous.value += block.value;
+    } else {
+      result.push(block);
+    }
+    return result;
+  }, []);
 }
 export function parseDocx(bytes: Uint8Array, sourceDocument: string): DocumentIR {
   const files = unzipSync(bytes); const raw = files["word/document.xml"]; if (!raw) throw new Error("INVALID_DOCX_DOCUMENT_XML_MISSING"); const xml = new TextDecoder().decode(raw); const relRaw = files["word/_rels/document.xml.rels"]; const rels = relationships(relRaw ? new TextDecoder().decode(relRaw) : "");
