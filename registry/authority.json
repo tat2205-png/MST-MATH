@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "PIMATH_AUTHORITY_REGISTRY_V1",
+  "status": "CANONICAL",
+  "authorityOrder": [
+    "MASTER",
+    "APPROVED_ARTIFACT",
+    "ORCHESTRATOR",
+    "MODULE_TASK"
+  ],
+  "masterSources": [
+    "docs/project/PROJECT_MASTER_MAP.md",
+    "project-state/PIMATH-PROJECT-STATE.json"
+  ],
+  "rules": [
+    "A lower authority may not override a higher authority.",
+    "LOCKED, CANONICAL, APPROVED, MASTER and DONE artifacts are immutable unless explicitly reopened by the human product owner.",
+    "Historical roadmaps and release documents are reference material unless explicitly named current authority.",
+    "Renderers and adapters never become mathematical source of truth."
+  ]
+}

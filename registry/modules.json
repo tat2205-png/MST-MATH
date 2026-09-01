@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {"id":"QUESTION_BANK","role":"SOURCE_ASSESSMENT_CORE"},
+    {"id":"DOCUMENT_ENGINE","role":"DOCUMENT_PROCESSING_AND_OUTPUT"},
+    {"id":"MATH_ENGINE","role":"MATHEMATICAL_AUTHORITY"},
+    {"id":"GEOMETRY_ENGINE","role":"SEMANTIC_GEOMETRY_AUTHORITY"},
+    {"id":"VISUAL_PEDAGOGY","role":"PLANNING_AND_VALIDATION"},
+    {"id":"GEOGEBRA","role":"INTERACTIVE_OUTPUT_ADAPTER"},
+    {"id":"FOLD","role":"GEOMETRY_DOMAIN_AND_OUTPUT"},
+    {"id":"VIDEO","role":"VIDEO_OUTPUT"},
+    {"id":"CLASSROOM_GAME","role":"GAME_OUTPUT"},
+    {"id":"NLS_SOURCE_REGISTRY","role":"CURRICULUM_SOURCE_INDEX"}
+  ]
+}

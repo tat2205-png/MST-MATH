@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "PIMATH_OUTPUT_REGISTRY_V1",
+  "status": "CANONICAL",
+  "rules": {
+    "scopeStatusMeaning": "Defines whether an output belongs to the locked PiMath product architecture.",
+    "repoStatusMeaning": "Describes only verified implementation/artifact state in the repository.",
+    "noInferenceRule": "PRODUCT_SCOPE_LOCKED must never be interpreted as IMPLEMENTED."
+  },
+  "outputs": [
+    {"id":"LECTURE","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"TO_BE_AUDITED"},
+    {"id":"WORKSHEET","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"TO_BE_AUDITED"},
+    {"id":"LESSON_PLAN","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"TO_BE_AUDITED"},
+    {"id":"TEACHER_PLAN","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"TO_BE_AUDITED"},
+    {"id":"DIGITAL_COMPETENCY","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"TO_BE_AUDITED"},
+    {"id":"GEOGEBRA_2D","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"INTEGRATED_NEEDS_FINAL_STANDARDIZATION"},
+    {"id":"GEOGEBRA_3D","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"INTEGRATED_NEEDS_FINAL_STANDARDIZATION"},
+    {"id":"FOLD_UNFOLD","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"INTEGRATED_NEEDS_FINAL_STANDARDIZATION"},
+    {"id":"VIDEO","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"IMPLEMENTED_WITH_LOCKED_CANONICAL_BASELINE"},
+    {
+      "id":"ASSESSMENT",
+      "scopeStatus":"PRODUCT_SCOPE_LOCKED",
+      "repoStatus":"ASSESSMENT_ENGINE_IMPLEMENTED",
+      "variants":[
+        {"id":"SCHOOL_TEST","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"TO_BE_AUDITED"},
+        {"id":"THPTQG","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"NOT_YET_CANONICALLY_VERIFIED"},
+        {"id":"VSAT","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"NOT_YET_CANONICALLY_VERIFIED"},
+        {"id":"SAT","scopeStatus":"PRODUCT_SCOPE_LOCKED","repoStatus":"NOT_YET_CANONICALLY_VERIFIED"}
+      ]
+    },
+    {
+      "id":"GAME",
+      "scopeStatus":"PRODUCT_SCOPE_LOCKED",
+      "repoStatus":"GAME_ENGINE_IMPLEMENTED",
+      "variants":[
+        {
+          "id":"OLYMPIA",
+          "scopeStatus":"PRODUCT_SCOPE_LOCKED",
+          "repoStatus":"APPROVED_IMPLEMENTED",
+          "authorityArtifact":"docs/game/GAME-01-OLYMPIA-REFERENCE-V1.0.md"
+        },
+        {
+          "id":"CROSSWORD",
+          "scopeStatus":"PRODUCT_SCOPE_LOCKED",
+          "repoStatus":"NOT_YET_CANONICAL_ARTIFACT"
+        }
+      ]
+    }
+  ],
+  "languageModes":["VI","EN","BILINGUAL"]
+}
