@@ -64,6 +64,12 @@ export function resolveSemanticGeometryAuthority() {
     provenance: { root: brand.standardId, source: "PiMath DNA Core → Semantic Geometry Authority" as const, binding: "CANONICAL_BINDING" as const },
   } as const;
 }
+export function resolveGeoGebraCanonicalBinding() {
+  const brand = resolveBrand();
+  const binding = brand.references.geogebra;
+  if (!binding || binding.kind !== "ADAPTER_BOUNDARY" || binding.geometryAuthority !== "NA_MATH_GEOMETRY_RULES_V1_8_GEO8" || binding.authoritySource !== "PIMATH_DNA" || binding.runtimeRole !== "ADAPTER_BOUNDARY" || binding.authoritative !== false || !binding.adapter) fail("geogebra:binding");
+  return { ...binding, provenance: { root: brand.standardId, binding: "CANONICAL_BINDING" as const } } as const;
+}
 export function resolveConsumerProfile(consumer: PiMathConsumer, profileId?: string) {
   const profile = resolveOutputProfile(requireProfileId(consumer, profileId ?? consumerProfiles[consumer]));
   if (profile.parentBrandId !== resolveBrand().standardId) fail(`parent:${consumer}`);

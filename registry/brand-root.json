@@ -28,7 +28,14 @@
     "studentWorkspace": "NA_MATH_STUDENT_WORKSPACE_V1_2",
     "icons": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
     "components": "NA_MATH_DESIGN_SYSTEM_V1_3",
-    "geogebra": null,
+    "geogebra": {
+      "kind": "ADAPTER_BOUNDARY",
+      "geometryAuthority": "NA_MATH_GEOMETRY_RULES_V1_8_GEO8",
+      "authoritySource": "PIMATH_DNA",
+      "runtimeRole": "ADAPTER_BOUNDARY",
+      "authoritative": false,
+      "adapter": "src/modules/geogebra/adapter.ts"
+    },
     "fold": "NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1",
     "assessment": "NA_MATH_QUESTION_BANK_V1",
     "voice": null,
@@ -38,7 +45,11 @@
     "qa": "NA_MATH_SYSTEM_CORE_LOCK_POLICY_V2_6"
   },
   "legacyAliases": [{ "id": "NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0", "action": "COMPATIBILITY_ALIAS_TO_PIMATH_DNA" }],
-  "unresolved": ["VOICE_AUTHORITY", "GEOGEBRA_CANONICAL_CHILD_ARTIFACT", "ACCESSIBILITY_AUTHORITY", "EXAM_VISUAL_PROFILE"],
+  "legacyBindings": [
+    { "id": "NA-MATH-BRAND-DRIVEN-GEOGEBRA-UI-SYSTEM-V1.0", "classification": "COMPATIBILITY_ALIAS", "aliasOf": "PIMATH-DNA-V1.0", "authority": false },
+    { "id": "NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1", "classification": "ADAPTER_BOUNDARY", "authority": false, "adapter": "src/modules/pattern-fold/geogebra/v3-adapter.ts" }
+  ],
+  "unresolved": ["VOICE_AUTHORITY", "ACCESSIBILITY_AUTHORITY", "EXAM_VISUAL_PROFILE"],
   "overridePolicy": { "allowed": ["output-specific semantic structure", "renderer adapter mapping"], "forbidden": ["canonical fonts", "canonical colors", "canonical spacing", "canonical icons", "canonical components", "math semantics", "geometry semantics", "legacy fallback"] },
   "consumerTraceability": { "app": "src/components", "document": "src/modules/document-engine", "docx": "src/modules/document-export/docx", "assessment": "src/modules/question-bank", "video": "server/services/videoPlanner.ts", "geogebra": "src/modules/geogebra", "fold": "src/modules/fold-3d", "game": "src/modules/classroom-game" }
 }
