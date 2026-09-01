@@ -1,6 +1,7 @@
 import type { NaMathOutputIdentity } from "../../../config/naMathStandardV26.js";
 
 export interface DocxRenderOptions {
+  profileId?: string;
   outputIdentity?: NaMathOutputIdentity;
   title?: string;
   creator?: string;

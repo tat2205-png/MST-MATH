@@ -7,11 +7,11 @@ export const NA_MATH_OUTPUT_PROFILES = outputProfiles.profiles.map((profile) => 
 export type NaMathOutputProfileId = (typeof NA_MATH_OUTPUT_PROFILES)[number]["profileId"];
 export type PiMathConsumer = "APP_UI" | "DOCUMENT" | "DOCX" | "PDF_LATEX" | "ASSESSMENT" | "VIDEO" | "GEOGEBRA" | "FOLD" | "GAME";
 
-const consumerProfiles: Record<PiMathConsumer, NaMathOutputProfileId> = {
+const consumerProfiles: Partial<Record<PiMathConsumer, NaMathOutputProfileId>> = {
   APP_UI: "P12_APP_UI",
-  DOCUMENT: "P01_LEARNING_MATERIAL",
-  DOCX: "P01_LEARNING_MATERIAL",
-  PDF_LATEX: "P01_LEARNING_MATERIAL",
+  DOCUMENT: undefined,
+  DOCX: undefined,
+  PDF_LATEX: undefined,
   ASSESSMENT: "P05_TEST",
   VIDEO: "P07_VIDEO",
   GEOGEBRA: "P08_GEOGEBRA",
@@ -20,15 +20,20 @@ const consumerProfiles: Record<PiMathConsumer, NaMathOutputProfileId> = {
 };
 
 function fail(message: string): never { throw new Error(`PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED:${message}`); }
+function requireProfileId(consumer: PiMathConsumer, profileId: string | undefined): NaMathOutputProfileId {
+  if (!profileId) throw new Error(`PIMATH_DNA_OUTPUT_PROFILE_REQUIRED:${consumer}`);
+  return profileId as NaMathOutputProfileId;
+}
 export function resolveBrand() { if (PIMATH_DNA.standardId !== "PIMATH-DNA-V1.0" || !PIMATH_DNA.canonical || !PIMATH_DNA.singleSourceOfTruth) fail("root"); return PIMATH_DNA; }
 export function resolveOutputProfile(profileId: string) { const profile = NA_MATH_OUTPUT_PROFILES.find((p) => p.profileId === profileId); return profile ?? fail(`profile:${profileId}`); }
 export function resolveCanonicalReference(name: keyof typeof PIMATH_DNA.references) { const value = resolveBrand().references[name]; return value ?? fail(`reference:${name}`); }
-export function resolveConsumerProfile(consumer: PiMathConsumer) {
-  const profile = resolveOutputProfile(consumerProfiles[consumer]);
+export function resolveConsumerProfile(consumer: PiMathConsumer, profileId?: string) {
+  const profile = resolveOutputProfile(requireProfileId(consumer, profileId ?? consumerProfiles[consumer]));
   if (profile.parentBrandId !== resolveBrand().standardId) fail(`parent:${consumer}`);
   return profile;
 }
-export function resolvePdfLatexAuthority(profileId = "P01_LEARNING_MATERIAL") {
+export function resolvePdfLatexAuthority(profileId?: string) {
+  requireProfileId("PDF_LATEX", profileId);
   const profile = resolveOutputProfile(profileId);
   return { profile, brand: resolveBrand(), layout: resolveCanonicalReference("layout"), typography: resolveCanonicalReference("typography"), color: resolveCanonicalReference("color"), renderer: "LATEX_PDF_ADAPTER" as const, canOverridePiMathDna: false as const };
 }

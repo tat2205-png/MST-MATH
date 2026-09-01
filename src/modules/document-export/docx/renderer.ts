@@ -112,9 +112,10 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
 
 export function renderDocumentToDocx(document: DocumentIR, options: DocxRenderOptions = {}): DocxRenderResult {
   try {
-    resolveConsumerProfile("DOCX");
     const warnings = [...document.warnings];
     const outputIdentity = options.outputIdentity ?? "learning_material";
+    const profileId = options.profileId ?? ({ learning_material: "P01_LEARNING_MATERIAL", worksheet: "P03_WORKSHEET", exercise_sheet: "P04_EXERCISE_SHEET", video: "P07_VIDEO" } as const)[outputIdentity];
+    resolveConsumerProfile("DOCX", profileId);
     const parts = packageParts(document, options, warnings);
     const bytes = zipSync(parts as Zippable, { level: 6 });
     return { bytes, warnings: [...new Set(warnings)], qa: { format: "docx", packageParts: Object.keys(parts).sort(), standardId: NA_MATH_STANDARD_V2_6.id, outputIdentity }, rendererVersion: "DOCX_EXPORT_V1", standardVersion: NA_MATH_STANDARD_V2_6.id };

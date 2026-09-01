@@ -18,8 +18,9 @@ const outputIdentityMap: Record<ExistingDocumentIdentity, NaMathOutputIdentity> 
 };
 
 export function adaptQuestionBankDocumentStandard(document: DocumentIR, identity: ExistingDocumentIdentity) {
-  const consumerProfile = resolveConsumerProfile(identity === "assessment" ? "ASSESSMENT" : "DOCUMENT");
   const outputIdentity = outputIdentityMap[identity];
+  const profileId = identity === "assessment" ? "P04_EXERCISE_SHEET" : identity === "worksheet" ? "P03_WORKSHEET" : identity === "video" ? "P07_VIDEO" : identity === "exercise_sheet" ? "P04_EXERCISE_SHEET" : "P01_LEARNING_MATERIAL";
+  const consumerProfile = resolveConsumerProfile(identity === "assessment" ? "ASSESSMENT" : "DOCUMENT", profileId);
   return {
     document,
     outputIdentity,
