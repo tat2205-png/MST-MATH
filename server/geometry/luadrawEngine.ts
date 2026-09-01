@@ -9,6 +9,13 @@ import { validateGeometrySpec } from "./geometryValidator.js";
 const run = promisify(execFile);
 const safeText = (value: string) => value.replace(/[^A-Za-z0-9 .,:;()+\-=]/g, "").slice(0, 80);
 const luaNumber = (value: number) => Number(value.toFixed(8)).toString();
+export const luaLatexArguments = (outputDirectory: string, texPath: string, platform = process.platform): string[] => [
+  ...(platform === "win32" ? ["--disable-installer"] : []),
+  "--interaction=nonstopmode",
+  "--halt-on-error",
+  `--output-directory=${outputDirectory}`,
+  texPath,
+];
 
 export class LuaDrawEngine implements GeometryEngine {
   readonly name = "LUADRAW";
@@ -31,7 +38,9 @@ export class LuaDrawEngine implements GeometryEngine {
     await fs.writeFile(metadataPath, JSON.stringify(spec, null, 2), "utf8");
     await fs.writeFile(qaPath, JSON.stringify(qa, null, 2), "utf8");
     try {
-      await run("lualatex", ["--disable-installer", "--interaction=nonstopmode", "--halt-on-error", `--output-directory=${resolved}`, texPath], { cwd: resolved, timeout: 60_000, windowsHide: true });
+      const texCache = path.join(resolved, ".tex-cache");
+      await fs.mkdir(texCache, { recursive: true });
+      await run("lualatex", luaLatexArguments(resolved, texPath), { cwd: resolved, timeout: 60_000, windowsHide: true, env: { ...process.env, TEXMFCACHE: texCache, TEXMFVAR: texCache } });
       await run("dvisvgm", ["--pdf", pdfPath, `--output=${svgPath}`], { cwd: resolved, timeout: 60_000, windowsHide: true });
       const [pdf, svg] = await Promise.all([fs.stat(pdfPath), fs.stat(svgPath)]);
       if (!pdf.size || !svg.size) throw new Error("LuaDraw produced an empty artifact.");

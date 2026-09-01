@@ -5,6 +5,7 @@ export interface StudioFeatureFlags {
   readonly depthTwoPointFiveD: boolean;
   readonly blender: boolean;
   readonly generativeMotion: boolean;
+  readonly visualPedagogy?: boolean;
 }
 
 function enabled(value: string | undefined): boolean {
@@ -19,5 +20,6 @@ export function readStudioFeatureFlags(environment: NodeJS.ProcessEnv = process.
     depthTwoPointFiveD: enabled(environment.STUDIO_DEPTH_2_5D),
     blender: enabled(environment.STUDIO_BLENDER),
     generativeMotion: enabled(environment.STUDIO_GENERATIVE_MOTION),
+    visualPedagogy: enabled(environment.STUDIO_VISUAL_PEDAGOGY),
   });
 }

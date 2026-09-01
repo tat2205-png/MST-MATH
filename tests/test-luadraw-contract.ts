@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import path from "node:path";
 import { buildGoldenCubeNet } from "../server/geometry/goldenCube.js";
-import { LuaDrawEngine } from "../server/geometry/luadrawEngine.js";
+import { luaLatexArguments, LuaDrawEngine } from "../server/geometry/luadrawEngine.js";
 import { luaDrawFlags, routeGeometry } from "../server/geometry/geometryRouter.js";
 import { validateGeometrySpec } from "../server/geometry/geometryValidator.js";
 
 const cube = buildGoldenCubeNet();
+assert.equal(luaLatexArguments("out","input.tex","darwin").includes("--disable-installer"),false);
+assert.equal(luaLatexArguments("out","input.tex","win32").includes("--disable-installer"),true);
 const report = validateGeometrySpec(cube);
 assert.equal(report.status, "PASS");
 for (const gate of ["VERTEX_QA","EDGE_QA","FACE_QA","FACE_ADJACENCY_QA","DIMENSION_QA","LABEL_QA","NET_CONNECTED","NET_FACE_COUNT","NET_EDGE_MATCH","NET_OVERLAP","MANIFOLD_QA","SOURCE_PROVENANCE_QA"]) assert.equal(report.checks[gate], "PASS", gate);

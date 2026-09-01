@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import os
+import sys
 import tempfile
 from pathlib import Path
 
@@ -33,7 +35,14 @@ tex.print([[\begin{tikzpicture}
 \end{document}
 """, encoding="utf-8")
             try:
-                result = subprocess.run(["lualatex", "--disable-installer", "--interaction=nonstopmode", "--halt-on-error", source.name], cwd=root, capture_output=True, text=True, shell=False, timeout=60)
+                cache = root / "tex-cache"
+                cache.mkdir()
+                arguments = ["lualatex"]
+                if sys.platform == "win32":
+                    arguments.append("--disable-installer")
+                arguments.extend(["--interaction=nonstopmode", "--halt-on-error", source.name])
+                environment = {**os.environ, "TEXMFCACHE": str(cache), "TEXMFVAR": str(cache)}
+                result = subprocess.run(arguments, cwd=root, capture_output=True, text=True, shell=False, timeout=60, env=environment)
                 smoke = result.returncode == 0 and (root / "smoke.pdf").is_file() and (root / "smoke.pdf").stat().st_size > 0
                 if not smoke:
                     smoke_error = (result.stdout + "\n" + result.stderr)[-2000:].replace("\n", " | ")
