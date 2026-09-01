@@ -5,10 +5,11 @@ assert.equal(PIMATH_DNA.standardId, "PIMATH-DNA-V1.0");
 assert.equal(PIMATH_DNA.displayName, "PiDNA");
 assert.equal(PIMATH_DNA.codeRoot, "PIMATH_DNA");
 assert.equal(PIMATH_DNA.canonical, true); assert.equal(PIMATH_DNA.singleSourceOfTruth, true);
-assert.equal(NA_MATH_OUTPUT_PROFILES.length, 16);
+assert.equal(NA_MATH_OUTPUT_PROFILES.length, 17);
 assert.ok(NA_MATH_OUTPUT_PROFILES.every((profile) => profile.parentBrandId === "PIMATH-DNA-V1.0"));
 assert.equal(resolveBrand().architecture.application, "Math AI Studio");
 assert.equal(resolveOutputProfile("P12_APP_UI").parentBrandId, PIMATH_DNA.standardId);
+assert.equal(resolveConsumerProfile("VIDEO").profileId, "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0");
 assert.equal(resolveCanonicalReference("system"), "NA_MATH_SYSTEM_BASELINE_V2_6");
 assert.throws(() => resolveOutputProfile("UNKNOWN"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
 for (const consumer of ["APP_UI", "ASSESSMENT", "VIDEO", "GEOGEBRA", "FOLD", "GAME"] as const) {

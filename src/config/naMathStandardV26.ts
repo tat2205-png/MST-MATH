@@ -9,6 +9,7 @@ import canonicalVideoLayout from "../../standards/NA_MATH_CANONICAL_LAYOUT_SPEC_
 import videoVisualLanguage from "../../standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0/na-math-video-visual-language.v1.0.json";
 import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1/na-math-video-golden-start-mid-end.v1.json";
 import iconAuthority from "../../registry/pimath-dna-icons.json";
+import canonicalVideoV2 from "../../standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json";
 
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
@@ -16,8 +17,8 @@ export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
 const canonicalVideo = canonicalVideoLayout.video;
 
 export const NA_MATH_VIDEO_PROFILE = {
-  id: canonicalVideo.canonicalProfileId,
-  canonicalProfileId: canonicalVideo.canonicalProfileId,
+  id: canonicalVideoV2.id,
+  canonicalProfileId: canonicalVideoV2.id,
   canonicalLayoutId: canonicalVideo.canonicalLayoutId,
   semanticOrder: canonicalVideo.semanticOrder,
   canvas: { ...canonicalVideo.canvas, fps: 30 },

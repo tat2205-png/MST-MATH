@@ -14,7 +14,7 @@ const consumerProfiles: Partial<Record<PiMathConsumer, NaMathOutputProfileId>> =
   DOCX: undefined,
   PDF_LATEX: undefined,
   ASSESSMENT: "P05_TEST",
-  VIDEO: "P07_VIDEO",
+  VIDEO: "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0",
   GEOGEBRA: "P08_GEOGEBRA",
   FOLD: "P09_FOLD",
   GAME: "P10_GAME",

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0",
+  "status": "LOCKED",
+  "canonical": true,
+  "approved": true,
+  "inherits": "PIMATH_DNA_CORE",
+  "overrideCoreDna": false,
+  "authorityRuntimeBaseline": "fab0743",
+  "derivesFrom": ["NA_MATH_VIDEO_QSG_V1", "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1.0", "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"],
+  "coreBindings": {"typography":"PIMATH-DNA-V1.0.references.typography","color":"PIMATH-DNA-V1.0.references.color","mathematicalNotation":"PIMATH-DNA-V1.0.references.math","semanticGeometry":"PIMATH-DNA-V1.0.references.system","iconLanguage":"PIMATH-DNA-V1.0.references.icons","governanceQa":"PIMATH-DNA-V1.0.references.qa"},
+  "videoSpec": {"resolution":"1920x1080","aspectRatio":"16:9","macroLayout":{"QUESTION_TOP":0.26,"MAIN":0.74},"mainLayout":{"SOLUTION_LEFT":0.6,"GEOMETRY_RIGHT":0.4},"figureAnchor":"FIXED","solutionReveal":"PROGRESSIVE","cameraStability":true,"macroLayoutStability":true,"forbidden":["AUTO_SWAP_COLUMNS","AUTO_MOVE_FIGURE","AUTO_RESIZE_MACRO_ZONES","AUTO_LAYOUT_MUTATION","CROSS_ZONE_OVERFLOW","DECORATIVE_SPIN","RANDOM_MOTION","EXCESSIVE_ZOOM"],"semanticOrder":["QUESTION_TOP","SOLUTION_LEFT","GEOMETRY_RIGHT"]}
+}
