@@ -1,21 +1,25 @@
 import assert from "node:assert/strict";
-import baseline from "../registry/pimath-dna-global-baseline-v1.0.json";
+import previousBaseline from "../registry/pimath-dna-global-baseline-v1.0.json";
+import baseline from "../registry/pimath-dna-global-baseline-v1.1.json";
 import standards from "../registry/standards.json";
 import brandRoot from "../registry/brand-root.json";
 
 assert.equal(brandRoot.globalBaseline, baseline.id);
-assert.equal(standards.standards.find((standard) => standard.id === baseline.id)?.path, "registry/pimath-dna-global-baseline-v1.0.json");
+assert.equal(standards.standards.find((standard) => standard.id === baseline.id)?.path, "registry/pimath-dna-global-baseline-v1.1.json");
+assert.equal(previousBaseline.id, "PIMATH_DNA_GLOBAL_BASELINE_V1.0");
+assert.equal(previousBaseline.status, "LOCKED");
+assert.equal(baseline.inherits, previousBaseline.id);
 assert.equal(baseline.status, "LOCKED");
 assert.equal(baseline.canonical, true);
 assert.equal(baseline.approved, true);
 assert.equal(baseline.root, "PIMATH-DNA-V1.0");
-assert.deepEqual(baseline.authorityReferences.exam, ["P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT", "P06_EXAM_VSAT"]);
+assert.deepEqual(previousBaseline.authorityReferences.exam, ["P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT", "P06_EXAM_VSAT"]);
 assert.equal(baseline.closureCertification.missingConnections, "NONE");
 assert.equal(baseline.closureCertification.unresolvedReferences, "NONE");
 assert.equal(baseline.closureCertification.directRendererColorAuthority, 0);
 assert.equal(baseline.closureCertification.directRendererFontAuthority, 0);
-assert.equal(baseline.videoLock.canonicalTag, "pimath-dna-video-canonical-v2.0");
-assert.equal(baseline.lineage.globalClosureReadyCommit, "a7f8a9e");
+assert.equal(previousBaseline.videoLock.canonicalTag, "pimath-dna-video-canonical-v2.0");
+assert.equal(previousBaseline.lineage.globalClosureReadyCommit, "a7f8a9e");
 
 console.log("GLOBAL_BASELINE_REGISTERED=PASS");
 console.log("GLOBAL_BASELINE_ID_MATCH=PASS");
