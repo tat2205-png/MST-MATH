@@ -1,5 +1,5 @@
 import { NA_MATH_STANDARD_V2_6 } from "../../../config/naMathStandardV26.js";
-import type { MathNode } from "../../question-bank/types.js";
+import type { MathNode } from "../../document-engine/document-ir.js";
 import { DocxRenderError } from "./types.js";
 import { escapeXml } from "./xml.js";
 

@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { basename } from "node:path";
 import { NA_MATH_STANDARD_V2_6 } from "../../../config/naMathStandardV26.js";
 import type { GeometryArtifactResult } from "../../../types/geometrySpec.js";
-import type { FigureRecord } from "../../question-bank/types.js";
+import type { FigureRecord } from "../../document-engine/document-ir.js";
 import { DocxRenderError, type DocxFigureMetadata } from "./types.js";
 
 export interface GeometryFigureAdapterInput {

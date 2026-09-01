@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 import { mkdir } from "node:fs/promises";
 import { zipSync, type Zippable } from "fflate";
 import { NA_MATH_STANDARD_V2_6 } from "../../../config/naMathStandardV26.js";
-import type { ContentBlock, DocumentBlock, DocumentIR, FigureRecord } from "../../question-bank/types.js";
+import type { ContentBlock, DocumentBlock, DocumentIR, FigureRecord } from "../../document-engine/document-ir.js";
 import { DocxRenderError, type DocxRenderOptions, type DocxRenderResult } from "./types.js";
 import { escapeXml, xmlDocument } from "./xml.js";
 import { createWordStylesXml } from "./styles.js";

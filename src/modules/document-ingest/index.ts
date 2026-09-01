@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import type { DocumentIR, FigureRecord } from "../question-bank/types.js";
+import type { DocumentIR, FigureRecord } from "../document-engine/document-ir.js";
 
 export type IngestKind = "PDF" | "IMAGE";
 

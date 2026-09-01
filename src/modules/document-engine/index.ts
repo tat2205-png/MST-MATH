@@ -1,3 +1,4 @@
+export * from "./document-ir.js";
 import type { DocxConversionResult, DocxToMathIRResult } from "./types.js";
 import { parseDocx } from "./docx/parser.js";
 import { docxAstToMathIR } from "./normalize/math-ir-mapper.js";
