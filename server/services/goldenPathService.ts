@@ -1,7 +1,9 @@
 import { ManimScene, MathProblemIR, MathSolution, MathVerification, VisualSpecification } from "../../src/types/mathSchema.js";
+import { readFileSync } from "node:fs";
+import { resolve as resolvePath } from "node:path";
 import { evaluateMathGate, MathGateResult } from "./mathVerificationGate.js";
 import { NA_MATH_VIDEO_PROFILE } from "../../src/config/naMathStandardV26.js";
-import { resolveConsumerProfile } from "../../src/config/naMathBrandRoot.js";
+import { resolveConsumerProfile, resolveIcon } from "../../src/config/naMathBrandRoot.js";
 
 export type GoldenStageStatus = "PASS" | "BLOCKED" | "PENDING" | "FAILED";
 
@@ -23,6 +25,7 @@ export interface GoldenScene {
 export interface GoldenScenePlan {
   scenes: GoldenScene[];
   verifiedValues: { x: string; y: string };
+  equationSystem: { variables: ["x", "y"]; equations: ["x+y=5", "x-y=1"] };
 }
 
 export interface GoldenNarrationCue {
@@ -131,6 +134,7 @@ export function buildGoldenPath(
   verification: MathVerification | null | undefined,
 ): GoldenPathResult {
   resolveConsumerProfile("VIDEO");
+  for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const) resolveIcon(role);
   const problemText = problemIR?.latex || problemIR?.problem || "";
   const mathGate = evaluateMathGate(problemIR, solution, verification);
   const base = {
@@ -214,6 +218,7 @@ export function finalizeGoldenPath(result: GoldenPathResult, render: { status: "
 function buildScenePlan(x: string, y: string): GoldenScenePlan {
   return {
     verifiedValues: { x, y },
+    equationSystem: { variables: ["x", "y"], equations: ["x+y=5", "x-y=1"] },
     scenes: [
       { id: "scene_01_problem", index: 1, title: "Đề bài", math: "x + y = 5;\\quad x - y = 1", visualAction: "show two source equations", narrationCueId: "cue_01" },
       { id: "scene_02_analyze", index: 2, title: "Phân tích hệ", math: "a_1=1, b_1=1, c_1=5;\\quad a_2=1, b_2=-1, c_2=1", visualAction: "highlight coefficients", narrationCueId: "cue_02" },
@@ -256,12 +261,28 @@ function buildNarrationPlan(x: string, y: string): GoldenNarrationPlan {
 
 function buildRenderTask(source: string, scenePlan: GoldenScenePlan, narrationPlan: GoldenNarrationPlan, x: string, y: string): GoldenRenderTask {
   const profile = JSON.stringify(NA_MATH_VIDEO_PROFILE);
+  const equationSystem = JSON.stringify(scenePlan.equationSystem);
+  const iconRoles = Object.fromEntries((["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const).map((role) => [role, resolveIcon(role).resource]));
+  const iconSvg = Object.fromEntries(Object.entries(iconRoles).map(([role, resource]) => [role, readFileSync(resolvePath(process.cwd(), resource), "utf8")]));
   const code = `from manim import *
 import json
 
 PROFILE = json.loads(${JSON.stringify(profile)})
 MACRO_LAYOUT = PROFILE["macroLayout"]
 BEHAVIOR = PROFILE["behavior"]
+EQUATION_SYSTEM = json.loads(${JSON.stringify(equationSystem)})
+ICON_SVG = json.loads(${JSON.stringify(JSON.stringify(iconSvg))})
+VIDEO_ACCENT = "#D9911B"
+BRAND_NAVY = "#0C2D57"
+INK = "#18212B"
+MUTED = "#66717D"
+LINE = "#D8E0E6"
+
+def semantic_icon(role, color=BRAND_NAVY):
+    path = "/tmp/pimath_icon_" + role + ".svg"
+    with open(path, "w", encoding="utf-8") as handle:
+        handle.write(ICON_SVG[role].replace("currentColor", color))
+    return SVGMobject(path).scale(0.18)
 
 class GoldenLinearSystem(Scene):
     def construct(self):
@@ -273,19 +294,20 @@ class GoldenLinearSystem(Scene):
         solution_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["leftPanel"]["width"], height=PROFILE["regions"]["leftPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["leftPanel"]["center"], 0])
         geometry_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["rightPanel"]["width"], height=PROFILE["regions"]["rightPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["rightPanel"]["center"], 0])
         question = VGroup(
-            Text("ĐỀ BÀI", font_size=23, color="#E57C38"),
-            MathTex(r"x+y=5\\ x-y=1", font_size=32, color="#111827")
-        ).arrange(DOWN, buff=0.12).move_to([0, 2.72, 0])
+            VGroup(semantic_icon("QUESTION_SOURCE"), Text("ĐỀ BÀI", font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["questionTag"], color=BRAND_NAVY, weight=BOLD)).arrange(RIGHT, buff=0.12),
+            MathTex(r"\\begin{cases}" + EQUATION_SYSTEM["equations"][0] + r"\\\\" + EQUATION_SYSTEM["equations"][1] + r"\\end{cases}", font_size=PROFILE["sizes"]["math"]["max"], color=INK)
+        ).arrange(DOWN, buff=PROFILE["spacing"]["questionBlockGap"]).move_to([*PROFILE["regions"]["problem"]["center"], 0])
         solution = VGroup(
-            Text("LỜI GIẢI", font_size=29, color="#E57C38"),
-            MathTex(r"(x+y)+(x-y)=5+1", font_size=27, color="#111827"),
-            MathTex(r"2x=6 \\Rightarrow x=${x}", font_size=27, color="#111827"),
-            MathTex(r"y=${y}", font_size=27, color="#111827"),
-            MathTex(r"\\boxed{x=${x},\\quad y=${y}}", font_size=36, color="#E57C38")
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.20).move_to([-3.42, -1.15, 0])
-        axes = Axes(x_range=[-1, 6, 1], y_range=[-1, 6, 1], x_length=5.1, y_length=3.5, axis_config={"color": "#6B7280", "include_numbers": True, "font_size": 16}).move_to([3.42, -1.15, 0])
-        point = Dot(axes.c2p(${x}, ${y}), color="#E57C38")
-        geometry = VGroup(axes, point)
+            VGroup(semantic_icon("SOLUTION_REASONING"), Text("LỜI GIẢI", font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["stepTitle"], color=BRAND_NAVY, weight=BOLD)).arrange(RIGHT, buff=0.12),
+            MathTex(r"(x+y)+(x-y)=5+1", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
+            MathTex(r"2x=6 \\Rightarrow x=${x}", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
+            MathTex(r"y=${y}", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
+            VGroup(semantic_icon("RESULT_SUCCESS", VIDEO_ACCENT), MathTex(r"\\boxed{x=${x},\\quad y=${y}}", font_size=PROFILE["sizes"]["result"], color=VIDEO_ACCENT)).arrange(RIGHT, buff=0.12)
+        ).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"]).move_to([*PROFILE["regions"]["solution"]["center"], 0])
+        geometry_header = VGroup(semantic_icon("GEOMETRY_FIGURE"), Text("HÌNH VẼ", font=PROFILE["typography"]["label"], font_size=PROFILE["sizes"]["stepTitle"], color=BRAND_NAVY, weight=BOLD)).arrange(RIGHT, buff=0.12)
+        axes = Axes(x_range=[-1, 6, 1], y_range=[-1, 6, 1], x_length=5.1, y_length=3.5, axis_config={"color": MUTED, "include_numbers": True, "font_size": 16}).move_to([3.42, -1.35, 0])
+        point = Dot(axes.c2p(${x}, ${y}), color=VIDEO_ACCENT)
+        geometry = VGroup(geometry_header, VGroup(axes, point)).arrange(DOWN, buff=0.18).move_to([*PROFILE["regions"]["visual"]["center"], 0])
         self.play(Create(question_panel), Create(solution_panel), Create(geometry_panel))
         self.play(Write(question))
         self.wait(1)
@@ -303,7 +325,7 @@ class GoldenLinearSystem(Scene):
     quality: "preview",
     action: "render",
     files: [{ path: "main.py", content: code }],
-    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], resolution: "1080p", fps: 30 } },
+    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], iconAuthority: "PIMATH-DNA-SEMANTIC-ICONS-V1.0", iconRoles, resolution: "1080p", fps: 30 } },
     videoSpec: { video_title: "Golden Path: Hệ phương trình", total_duration_seconds: 28, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenePlan.scenes.map((scene) => ({ scene_id: scene.id, scene_index: scene.index, title: scene.title, learning_goal: scene.title, math_content: { latex: scene.math, explanation: scene.visualAction }, visual_objects: [scene.visualAction], animations: [{ type: "Write" as const, target: scene.visualAction, duration: 2 }], narration: { text_vi: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.text || "", voice_tone: "step_by_step" as const, duration_hint_seconds: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.durationSeconds || 2 } })), manim_python_code: code },
     outputFormat: "mp4",
     resolution: "1080p",

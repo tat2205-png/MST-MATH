@@ -8,6 +8,12 @@
       "implementation": "src/config/naMathBrandRoot.ts"
     },
     {
+      "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
+      "status": "LOCKED_CANONICAL_GLOBAL",
+      "path": "registry/pimath-dna-icons.json",
+      "implementation": "src/config/naMathBrandRoot.ts"
+    },
+    {
       "id": "NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0",
       "status": "COMPATIBILITY_ALIAS",
       "aliasOf": "PIMATH-DNA-V1.0",

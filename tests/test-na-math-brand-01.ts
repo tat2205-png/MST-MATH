@@ -19,7 +19,7 @@ assert.equal(resolvePdfLatexAuthority("P05_TEST").profile.profileId, "P05_TEST")
 assert.equal(resolvePdfLatexAuthority("P06_EXAM_THPTQG").profile.profileId, "P06_EXAM_THPTQG");
 assert.throws(() => resolvePdfLatexAuthority(), /PIMATH_DNA_OUTPUT_PROFILE_REQUIRED/);
 assert.equal(resolveOutputProfile("P02_LESSON_PLAN").profileId, "P02_LESSON_PLAN");
-assert.deepEqual(resolveOutputProfile("P07_VIDEO").canonicalReferences, ["NA_MATH_CANONICAL_LAYOUT_V1_3", "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0", "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"]);
+assert.deepEqual(resolveOutputProfile("P07_VIDEO").canonicalReferences, ["NA_MATH_CANONICAL_LAYOUT_V1_3", "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0", "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1", "PIMATH-DNA-SEMANTIC-ICONS-V1.0"]);
 assert.ok(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences.includes("NA-MATH-BRAND-DRIVEN-GEOGEBRA-UI-SYSTEM-V1.0"));
 assert.notDeepEqual(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences, resolveOutputProfile("P09_FOLD").canonicalReferences);
 for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"]) {
@@ -28,6 +28,10 @@ for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_
   assert.ok(["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT"].includes(profile.profileId) || profile.unresolved?.includes("PIMATH_DNA_EXAM_VISUAL_PROFILE") || profile.unresolved?.includes("PIMATH_DNA_TEST_VISUAL_PROFILE"));
 }
 assert.throws(() => resolveIcon("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
+for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const) {
+  assert.equal(resolveIcon(role).authority, "PIMATH-DNA-SEMANTIC-ICONS-V1.0");
+  assert.match(resolveIcon(role).resource, /^assets\/pimath-icons\/.*\.svg$/);
+}
 assert.throws(() => resolveComponent("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
 assert.equal(resolvePdfLatexAuthority("P03_WORKSHEET").canOverridePiMathDna, false);
 const exportTeX = new ExportService().generateStandaloneTeX({ domain: "Algebra", topic: "Test", grade: "10", problem: "x=1", given: [], find: [] } as never, { section_1_analysis: { problem_essence: "", identified_pattern: "", pitfalls_and_traps: [], core_theorems: [] }, section_2_approach: { strategy_overview: "", roadmap_steps: [], formulas_needed: [] }, section_3_detailed_steps: [], final_answer: { value: "1", summary_text: "" } } as never, null, null, "P03_WORKSHEET");

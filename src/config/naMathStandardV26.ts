@@ -8,6 +8,7 @@ import qaContracts from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/
 import canonicalVideoLayout from "../../standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0/na-math-canonical-layout.v1.1.json";
 import videoVisualLanguage from "../../standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0/na-math-video-visual-language.v1.0.json";
 import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1/na-math-video-golden-start-mid-end.v1.json";
+import iconAuthority from "../../registry/pimath-dna-icons.json";
 
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
@@ -24,6 +25,8 @@ export const NA_MATH_VIDEO_PROFILE = {
   behavior: canonicalVideo.behavior,
   visualLanguage: videoVisualLanguage,
   goldenReference: goldenVideoReference,
+  iconAuthority,
+  iconRoles: { question: "QUESTION_SOURCE", solution: "SOLUTION_REASONING", figure: "GEOMETRY_FIGURE", result: "RESULT_SUCCESS" } as const,
   colors: {
     background: "#FCFCFA",
     video: "#E57C38",

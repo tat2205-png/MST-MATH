@@ -1,5 +1,6 @@
 import brandRoot from "../../registry/brand-root.json";
 import outputProfiles from "../../registry/output-profiles.json";
+import iconAuthority from "../../registry/pimath-dna-icons.json";
 
 export const PIMATH_DNA = brandRoot as typeof brandRoot;
 export const NA_MATH_BRAND_ROOT = PIMATH_DNA;
@@ -52,5 +53,10 @@ export function resolveSemanticColor(name: string) {
   if (!name.trim()) fail("color");
   return { authority: resolveCanonicalReference("color"), name } as const;
 }
-export function resolveIcon(name: string): never { return fail(`icon:${name}`); }
+export type PiMathIconRole = keyof typeof iconAuthority.roles;
+export function resolveIcon(name: string) {
+  if (!(name in iconAuthority.roles)) return fail(`icon:${name}`);
+  const role = name as PiMathIconRole;
+  return { authority: iconAuthority.standardId, role, resource: iconAuthority.roles[role].resource, style: iconAuthority.style } as const;
+}
 export function resolveComponent(name: string): never { return fail(`component:${name}`); }
