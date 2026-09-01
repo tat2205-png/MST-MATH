@@ -4,6 +4,7 @@ import {
   type NaMathOutputIdentity,
 } from "../../config/naMathStandardV26.js";
 import type { DocumentIR } from "./types.js";
+import { resolveConsumerProfile } from "../../config/naMathBrandRoot.js";
 
 export type ExistingDocumentIdentity = NaMathOutputIdentity | "document" | "assessment";
 
@@ -17,10 +18,12 @@ const outputIdentityMap: Record<ExistingDocumentIdentity, NaMathOutputIdentity> 
 };
 
 export function adaptQuestionBankDocumentStandard(document: DocumentIR, identity: ExistingDocumentIdentity) {
+  const consumerProfile = resolveConsumerProfile(identity === "assessment" ? "ASSESSMENT" : "DOCUMENT");
   const outputIdentity = outputIdentityMap[identity];
   return {
     document,
     outputIdentity,
+    consumerProfile,
     outputContract: getNaMathOutputContract(outputIdentity),
     standard: NA_MATH_STANDARD_V2_6,
   } as const;

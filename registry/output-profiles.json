@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "PIMATH_DNA_OUTPUT_PROFILE_REGISTRY_V1",
+  "status": "CANONICAL",
+  "parentBrandId": "PIMATH-DNA-V1.0",
+  "profiles": [
+    {"profileId":"P01_LEARNING_MATERIAL","name":"Learning Material","canonicalReferences":["NA_MATH_TEXTBOOK_STYLE_V1_0","NA_MATH_LAYOUT_V1_3"]},
+    {"profileId":"P02_LESSON_PLAN","name":"Lesson Plan","canonicalReferences":["NA_MATH_LAYOUT_V1_3"]},
+    {"profileId":"P03_WORKSHEET","name":"Worksheet","canonicalReferences":["NA_MATH_STUDENT_WORKSPACE_V1_2"]},
+    {"profileId":"P04_EXERCISE_SHEET","name":"Exercise Sheet","canonicalReferences":["NA_MATH_TEXTBOOK_STYLE_V1_0"]},
+    {"profileId":"P05_TEST","name":"Test","canonicalReferences":["NA_MATH_QUESTION_BANK_V1"]},
+    {"profileId":"P06_EXAM_SCHOOL","name":"Exam School","canonicalReferences":["NA_MATH_QUESTION_BANK_V1"]},
+    {"profileId":"P06_EXAM_THPT","name":"Exam THPT","canonicalReferences":["NA_MATH_QUESTION_BANK_V1"]},
+    {"profileId":"P06_EXAM_VSAT","name":"Exam VSAT","canonicalReferences":["NA_MATH_QUESTION_BANK_V1"]},
+    {"profileId":"P06_EXAM_SAT","name":"Exam SAT","canonicalReferences":["NA_MATH_QUESTION_BANK_V1"]},
+    {"profileId":"P07_VIDEO","name":"Video","canonicalReferences":["NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0","NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"]},
+    {"profileId":"P08_GEOGEBRA","name":"GeoGebra","canonicalReferences":["NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1"]},
+    {"profileId":"P09_FOLD","name":"Fold","canonicalReferences":["NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1"]},
+    {"profileId":"P10_GAME","name":"Game","canonicalReferences":["GAME_01_OLYMPIA_REFERENCE_V1"]},
+    {"profileId":"P11_DIGITAL_AI_LESSON","name":"Digital AI Lesson","canonicalReferences":["NA_MATH_DIGITAL_AI_MATRIX_V1_0"]},
+    {"profileId":"P12_APP_UI","name":"App UI","canonicalReferences":["NA_MATH_LAYOUT_V1_3"]}
+  ],
+  "profilePolicy": {"allowedOverrides":["output-specific semantic structure","renderer adapter"],"forbiddenOverrides":["global canonical tokens","math semantics","geometry semantics"]}
+}

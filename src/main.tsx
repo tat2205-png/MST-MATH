@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import {resolveFoldGeoGebraRoute} from './routing/foldGeogebraRoute.js';
+import { resolveConsumerProfile } from './config/naMathBrandRoot.js';
 
 const Fold3DViewer = lazy(() => import('./components/dev/Fold3DViewer.js'));
 const DynamicGeometryDevPanel = lazy(() => import('./components/dev/DynamicGeometryDevPanel.js'));
@@ -16,6 +17,7 @@ const isDynamicMathWorkspace = window.location.pathname === '/dev/dynamic-worksp
 const isFoldTeaching = window.location.pathname === '/fold-teaching';
 const foldGeoGebraRoute = resolveFoldGeoGebraRoute(window.location.pathname, env.VITE_FOLD_GEOGEBRA_DEV === 'true');
 const isFoldGeoGebra = foldGeoGebraRoute === 'geogebra';
+resolveConsumerProfile('APP_UI');
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

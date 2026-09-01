@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import type { Assessment, AssessmentAnswerManifest, AssessmentQuestionRef } from "../question-bank/assessment.js";
 import type { ContentBlock, QuestionBankRepository, QuestionObject } from "../question-bank/types.js";
+import { resolveConsumerProfile } from "../../config/naMathBrandRoot.js";
 import { QuestionSearchService } from "../question-bank/search.js";
 
 export type GameMode = "QUIZ" | "ROUND_BASED" | "SPEED_ROUND" | "SEQUENTIAL";
@@ -19,6 +20,7 @@ function shuffle<T>(values: T[], seed: string): T[] { let state = Number.parseIn
 const text = (blocks?: ContentBlock[]) => blocks?.map((block) => block.type === "text" ? block.value : block.type === "math" ? block.math.latex ?? block.math.sourceRaw : "").join(" ").normalize("NFC").trim() ?? "";
 const transitions: Record<GameState,GameState[]> = { CREATED: ["READY"], READY: ["ACTIVE"], ACTIVE: ["QUESTION_OPEN","ROUND_COMPLETE","COMPLETE"], QUESTION_OPEN: ["QUESTION_CLOSED"], QUESTION_CLOSED: ["QUESTION_OPEN","ROUND_COMPLETE","COMPLETE"], ROUND_COMPLETE: ["ACTIVE","COMPLETE"], COMPLETE: [] };
 export class ClassroomGameService {
+  readonly outputProfile = resolveConsumerProfile("GAME");
   private readonly search: QuestionSearchService;
   private readonly answers = new Map<string,ContentBlock[]>();
   constructor(private readonly repository: QuestionBankRepository, manifest: AssessmentAnswerManifest) { this.search = new QuestionSearchService(repository); manifest.entries.forEach((entry) => { if (entry.answer) this.answers.set(entry.questionId,structuredClone(entry.answer)); }); }

@@ -11,6 +11,7 @@ import { getProvider } from "../providers/index.js";
 import { buildSystemSkillInstruction } from "./skillContextBuilder.js";
 import { resolveVideoTaskMode } from "./videoTaskResolver.js";
 import { VideoTaskMode } from "./skillRouter.js";
+import { resolveConsumerProfile } from "../../src/config/naMathBrandRoot.js";
 
 export interface VideoPlannerOptions {
   providerId?: string;
@@ -27,6 +28,7 @@ export class VideoPlannerService {
     visualSpec: VisualSpecification,
     optionsOrProviderId?: string | VideoPlannerOptions
   ): Promise<VideoSpecification> {
+    resolveConsumerProfile("VIDEO");
     const options: VideoPlannerOptions =
       typeof optionsOrProviderId === "string"
         ? { providerId: optionsOrProviderId }

@@ -2,6 +2,18 @@
   "schemaVersion": 1,
   "standards": [
     {
+      "id": "PIMATH-DNA-V1.0",
+      "status": "LOCKED_CANONICAL_GLOBAL",
+      "path": "registry/brand-root.json",
+      "implementation": "src/config/naMathBrandRoot.ts"
+    },
+    {
+      "id": "NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0",
+      "status": "COMPATIBILITY_ALIAS",
+      "aliasOf": "PIMATH-DNA-V1.0",
+      "path": "registry/brand-root.json"
+    },
+    {
       "id": "NA_MATH_SYSTEM_BASELINE_V2_6",
       "status": "LOCKED",
       "path": "standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK"

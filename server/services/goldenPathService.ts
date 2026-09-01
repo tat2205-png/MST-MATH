@@ -1,6 +1,7 @@
 import { ManimScene, MathProblemIR, MathSolution, MathVerification, VisualSpecification } from "../../src/types/mathSchema.js";
 import { evaluateMathGate, MathGateResult } from "./mathVerificationGate.js";
 import { NA_MATH_VIDEO_PROFILE } from "../../src/config/naMathStandardV26.js";
+import { resolveConsumerProfile } from "../../src/config/naMathBrandRoot.js";
 
 export type GoldenStageStatus = "PASS" | "BLOCKED" | "PENDING" | "FAILED";
 
@@ -129,6 +130,7 @@ export function buildGoldenPath(
   solution: MathSolution | null | undefined,
   verification: MathVerification | null | undefined,
 ): GoldenPathResult {
+  resolveConsumerProfile("VIDEO");
   const problemText = problemIR?.latex || problemIR?.problem || "";
   const mathGate = evaluateMathGate(problemIR, solution, verification);
   const base = {

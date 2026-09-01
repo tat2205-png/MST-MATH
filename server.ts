@@ -449,8 +449,8 @@ async function startServer() {
   // Export TeX
   app.post("/api/export/latex", (req, res) => {
     try {
-      const { problemIR, solution, visualSpec, verification } = req.body;
-      const texCode = exportService.generateStandaloneTeX(problemIR, solution, visualSpec, verification);
+      const { problemIR, solution, visualSpec, verification, profileId, outputProfile } = req.body;
+      const texCode = exportService.generateStandaloneTeX(problemIR, solution, visualSpec, verification, profileId || outputProfile || "P01_LEARNING_MATERIAL");
       res.json({ success: true, texCode });
     } catch (err: any) {
       res.status(500).json({ success: false, error: err.message });

@@ -5,17 +5,21 @@ import {
   VideoSpecification,
   VisualSpecification,
 } from "../../src/types/mathSchema.js";
+import { resolvePdfLatexAuthority } from "../../src/config/naMathBrandRoot.js";
 
 export class ExportService {
   generateStandaloneTeX(
     problemIR: MathProblemIR,
     solution: MathSolution,
     visualSpec?: VisualSpecification | null,
-    verification?: MathVerification | null
+    verification?: MathVerification | null,
+    profileId = "P01_LEARNING_MATERIAL"
   ): string {
+    const authority = resolvePdfLatexAuthority(profileId);
     const dateStr = new Date().toLocaleDateString("vi-VN");
     
     return `% ====================================================================
+% PiMath / ${authority.brand.standardId} / ${authority.profile.profileId}
 % MATH AI VIDEO STUDIO - High-School Mathematics Document
 % Generated on: ${dateStr}
 % Domain: ${problemIR.domain} | Topic: ${problemIR.topic} | Grade: ${problemIR.grade}

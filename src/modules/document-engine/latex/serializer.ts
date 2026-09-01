@@ -1,5 +1,6 @@
 import { validateMathIR, type MathDocument, type MathExpression, type MathMetadata } from "../../math-ir/index.js";
 import type { DocumentConversionReport, DocumentEngineIssue, LatexSerializationResult } from "../types.js";
+import { resolvePdfLatexAuthority } from "../../../config/naMathBrandRoot.js";
 
 interface Fragment { type: "text" | "math"; text?: string; expressionId?: string; }
 
@@ -46,7 +47,8 @@ function tableLatex(metadata: MathMetadata | undefined, expressions: Map<string,
   return `\\begin{center}\n\\begin{tabular}{|${"c|".repeat(width)}}\n\\hline\n${rendered} \\\\ \n\\hline\n\\end{tabular}\n\\end{center}`;
 }
 
-export function mathIRToLatex(document: MathDocument): LatexSerializationResult {
+export function mathIRToLatex(document: MathDocument, options: { profileId?: string } = {}): LatexSerializationResult {
+  const authority = resolvePdfLatexAuthority(options.profileId);
   const issues: DocumentEngineIssue[] = [];
   const validation = validateMathIR(document);
   if (validation.status === "FAIL") {
@@ -85,6 +87,8 @@ export function mathIRToLatex(document: MathDocument): LatexSerializationResult 
     }
   }
   closeList();
+  body.unshift(`% PiMath / ${authority.brand.standardId} / ${authority.profile.profileId}`);
+  body.unshift(`% Canonical references: ${authority.layout}, ${authority.typography}, ${authority.color}`);
   const latex = `\\documentclass[12pt,a4paper]{article}\n\n\\usepackage[utf8]{inputenc}\n\\usepackage[T5]{fontenc}\n\\usepackage[vietnamese]{babel}\n\\usepackage{amsmath,amssymb}\n\\usepackage{graphicx}\n\\usepackage{array}\n\n\\title{${escapeText(document.title ?? "Math AI Studio Document")}}\n\n\\begin{document}\n\\maketitle\n\n${body.join("\n\n")}\n\n\\end{document}\n`;
   const status = issues.some((issue) => issue.severity === "error") ? "FAIL" : issues.length ? "PARTIAL" : "PASS";
   return { status, ...(status !== "FAIL" ? { latex } : {}), report: report(document, status, issues) };
