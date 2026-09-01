@@ -1,20 +1,19 @@
 import colorSystem from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/color-system/NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0.json";
 import tokens from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/na_math_design_system_v1_3/src/modules/design-system/tokens/tokens.json";
-import geometryManifest from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/geometry.manifest.json";
-import mathNotation from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/gdpt2018-kntt-math-notation-policy-v2_3.json";
-import approvedGeometryProfiles from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/view-profile-registry.json";
-import symbolRegistry from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/symbol-registry/NA_MATH_KNTT_SYMBOL_STANDARD_V1_0.json";
 import qaContracts from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/system-lock/NA_MATH_SYSTEM_CORE_LOCK_POLICY_V2_6.json";
 import canonicalVideoLayout from "../../standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0/na-math-canonical-layout.v1.1.json";
 import videoVisualLanguage from "../../standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0/na-math-video-visual-language.v1.0.json";
 import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1/na-math-video-golden-start-mid-end.v1.json";
 import iconAuthority from "../../registry/pimath-dna-icons.json";
 import canonicalVideoV2 from "../../standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json";
+import { resolveMathNotationAuthority, resolveSemanticGeometryAuthority } from "./naMathBrandRoot.js";
 
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
 
 const canonicalVideo = canonicalVideoLayout.video;
+const mathNotationAuthority = resolveMathNotationAuthority();
+const semanticGeometryAuthority = resolveSemanticGeometryAuthority();
 
 export const NA_MATH_VIDEO_PROFILE = {
   id: canonicalVideoV2.id,
@@ -82,14 +81,14 @@ function deepFreeze<T>(value: T): Readonly<T> {
 }
 
 const canonicalCommands = new Set(
-  Object.values(symbolRegistry.categories)
+  Object.values(mathNotationAuthority.symbolRegistry.categories)
     .flat()
     .flatMap((entry) => `${entry[1]} ${entry[2]}`.match(/\\[A-Za-z]+/g) ?? []),
 );
 
 function validateMathSource(source: string): { status: CanonicalMathStatus; reasons: string[] } {
   const reasons: string[] = [];
-  const rawSymbols = symbolRegistry.forbidden_raw_unicode_examples.filter((symbol) => source.includes(symbol));
+  const rawSymbols = mathNotationAuthority.symbolRegistry.forbidden_raw_unicode_examples.filter((symbol) => source.includes(symbol));
   if (rawSymbols.length) reasons.push(`RAW_UNICODE_MATH:${rawSymbols.join(",")}`);
   const unknownCommands = [...new Set(source.match(/\\[A-Za-z]+/g) ?? [])].filter(
     (command) => !canonicalCommands.has(command),
@@ -104,20 +103,20 @@ export const NA_MATH_STANDARD_V2_6 = deepFreeze({
   status: qaContracts.status,
   canonicalAssetRoot: "standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK" as const,
   layout: {
-    id: approvedGeometryProfiles.layout_contract.layout_id,
-    status: approvedGeometryProfiles.layout_contract.status,
+    id: semanticGeometryAuthority.profiles.layout_contract.layout_id,
+    status: semanticGeometryAuthority.profiles.layout_contract.status,
     tokens: tokens.layout,
   },
   video: NA_MATH_VIDEO_PROFILE,
   colorSystem,
   typography: tokens.typography,
-  mathNotation,
-  symbolRegistry,
+  mathNotation: mathNotationAuthority.policy,
+  symbolRegistry: mathNotationAuthority.symbolRegistry,
   semanticGeometry: {
-    pipeline: geometryManifest.core_pipeline,
-    rules: approvedGeometryProfiles.rules,
+    pipeline: semanticGeometryAuthority.manifest.core_pipeline,
+    rules: semanticGeometryAuthority.profiles.rules,
   },
-  approvedGeometryProfiles,
+  approvedGeometryProfiles: semanticGeometryAuthority.profiles,
   qaContracts,
   validateMathSource,
 });
