@@ -5,6 +5,7 @@ import geometryManifest from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_
 import mathNotation from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/gdpt2018-kntt-math-notation-policy-v2_3.json";
 import approvedGeometryProfiles from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/view-profile-registry.json";
 import symbolRegistry from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/symbol-registry/NA_MATH_KNTT_SYMBOL_STANDARD_V1_0.json";
+import { componentRegistry } from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/na_math_design_system_v1_3/src/modules/design-system/components/component-registry.js";
 
 export const PIMATH_DNA = brandRoot as typeof brandRoot;
 export const NA_MATH_BRAND_ROOT = PIMATH_DNA;
@@ -107,4 +108,14 @@ export function resolveIcon(name: string) {
   const role = name as PiMathIconRole;
   return { authority: iconAuthority.standardId, role, resource: iconAuthority.roles[role].resource, style: iconAuthority.style } as const;
 }
-export function resolveComponent(name: string): never { return fail(`component:${name}`); }
+export function resolveComponent(name: string) {
+  const brand = resolveBrand();
+  if (brand.references.components !== "NA_MATH_DESIGN_SYSTEM_V1_3") fail("component:reference");
+  const component = componentRegistry[name as keyof typeof componentRegistry];
+  if (!component) return fail(`component:${name}`);
+  return {
+    authority: brand.references.components,
+    component,
+    provenance: "Component Runtime → Component Authority → PiMath DNA Core" as const,
+  } as const;
+}

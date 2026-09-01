@@ -33,7 +33,7 @@ for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", 
   assert.equal(resolveIcon(role).authority, "PIMATH-DNA-SEMANTIC-ICONS-V1.0");
   assert.match(resolveIcon(role).resource, /^assets\/pimath-icons\/.*\.svg$/);
 }
-assert.throws(() => resolveComponent("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
+assert.equal(resolveComponent("worked-example").authority, "NA_MATH_DESIGN_SYSTEM_V1_3");
 assert.equal(resolvePdfLatexAuthority("P03_WORKSHEET").canOverridePiMathDna, false);
 const exportTeX = new ExportService().generateStandaloneTeX({ domain: "Algebra", topic: "Test", grade: "10", problem: "x=1", given: [], find: [] } as never, { section_1_analysis: { problem_essence: "", identified_pattern: "", pitfalls_and_traps: [], core_theorems: [] }, section_2_approach: { strategy_overview: "", roadmap_steps: [], formulas_needed: [] }, section_3_detailed_steps: [], final_answer: { value: "1", summary_text: "" } } as never, null, null, "P03_WORKSHEET");
 assert.match(exportTeX, /PIMATH-DNA-V1\.0 \/ P03_WORKSHEET/);
