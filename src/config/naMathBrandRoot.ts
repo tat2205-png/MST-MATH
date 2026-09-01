@@ -5,6 +5,8 @@ import geometryManifest from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_
 import mathNotation from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/gdpt2018-kntt-math-notation-policy-v2_3.json";
 import approvedGeometryProfiles from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/view-profile-registry.json";
 import symbolRegistry from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/symbol-registry/NA_MATH_KNTT_SYMBOL_STANDARD_V1_0.json";
+import accessibilityAuthority from "../../standards/PIMATH_ACCESSIBILITY_CANONICAL_V1_0/pimath-accessibility-canonical-v1.0.json";
+import voiceNarrationAuthority from "../../standards/PIMATH_VOICE_NARRATION_CANONICAL_V1_0/pimath-voice-narration-canonical-v1.0.json";
 import { componentRegistry } from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/design-system/na_math_design_system_v1_3/src/modules/design-system/components/component-registry.js";
 
 export const PIMATH_DNA = brandRoot as typeof brandRoot;
@@ -43,6 +45,13 @@ export function resolveOutputProfile(profileId: string) {
   return fail(`profile:${profileId}`);
 }
 export function resolveCanonicalReference(name: keyof typeof PIMATH_DNA.references) { const value = resolveBrand().references[name]; return value ?? fail(`reference:${name}`); }
+function resolveChildAuthority(authority: typeof accessibilityAuthority | typeof voiceNarrationAuthority, reference: string) {
+  const brand = resolveBrand();
+  if (brand.references[reference as keyof typeof brand.references] !== authority.id || authority.status !== "LOCKED" || !authority.canonical || !authority.approved || authority.inherits !== "PIMATH_DNA_CORE" || authority.overrideCoreDna) fail(`child:${authority.id}`);
+  return { authority, provenance: { root: brand.standardId, source: `${authority.id} → PiMath DNA Core` as const, binding: "CANONICAL_BINDING" as const } } as const;
+}
+export function resolveAccessibilityAuthority() { return resolveChildAuthority(accessibilityAuthority, "accessibility"); }
+export function resolveVoiceNarrationAuthority() { return resolveChildAuthority(voiceNarrationAuthority, "voice"); }
 export function resolveMathNotationAuthority() {
   const brand = resolveBrand();
   if (brand.references.math !== "NA_MATH_SYSTEM_BASELINE_V2_6") fail("math:reference");
