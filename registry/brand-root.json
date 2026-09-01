@@ -9,6 +9,7 @@
   "global": true,
   "singleSourceOfTruth": true,
   "authorityScope": "ENTIRE_PIMATH",
+  "globalBaseline": "PIMATH_DNA_GLOBAL_BASELINE_V1.0",
   "architecture": { "product": "PIMATH", "application": "Math AI Studio", "role": "GLOBAL_IDENTITY_ROOT" },
   "authorityOrder": ["USER_LOCK", "PIMATH", "PIMATH-DNA-V1.0", "REFERENCED_LOCKED_CHILD_STANDARDS", "OUTPUT_PROFILE", "MODULE_ADAPTER", "RENDERER", "HEURISTIC_AI"],
   "governance": { "singleBrandSource": true, "noParallelDesignSystem": true, "noLocalCanonicalBrand": true, "noLocalCanonicalColor": true, "noLocalCanonicalFont": true, "noLocalCanonicalSpacing": true, "noLocalCanonicalIconStyle": true, "noLocalCanonicalComponentStyle": true, "noLocalCanonicalLayoutStyle": true, "noLocalCanonicalVideoStyle": true, "noLocalCanonicalDocumentStyle": true, "noLocalCanonicalGeoGebraStyle": true, "noLocalCanonicalFoldStyle": true, "noLocalCanonicalGameStyle": true, "silentLegacyFallbackAllowed": false, "heuristicCanonicalOverrideAllowed": false, "rendererCanonicalOverrideAllowed": false, "failClosedIfAuthoritativeTokenMissing": true, "failureCode": "PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED" },

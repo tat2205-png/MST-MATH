@@ -8,6 +8,14 @@
       "implementation": "src/config/naMathBrandRoot.ts"
     },
     {
+      "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.0",
+      "status": "LOCKED",
+      "canonical": true,
+      "approved": true,
+      "path": "registry/pimath-dna-global-baseline-v1.0.json",
+      "root": "PIMATH-DNA-V1.0"
+    },
+    {
       "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
       "status": "LOCKED_CANONICAL_GLOBAL",
       "path": "registry/pimath-dna-icons.json",
