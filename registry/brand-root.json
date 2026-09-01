@@ -49,7 +49,7 @@
     { "id": "NA-MATH-BRAND-DRIVEN-GEOGEBRA-UI-SYSTEM-V1.0", "classification": "COMPATIBILITY_ALIAS", "aliasOf": "PIMATH-DNA-V1.0", "authority": false },
     { "id": "NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1", "classification": "ADAPTER_BOUNDARY", "authority": false, "adapter": "src/modules/pattern-fold/geogebra/v3-adapter.ts" }
   ],
-  "unresolved": ["EXAM_VISUAL_PROFILE"],
+  "unresolved": [],
   "overridePolicy": { "allowed": ["output-specific semantic structure", "renderer adapter mapping"], "forbidden": ["canonical fonts", "canonical colors", "canonical spacing", "canonical icons", "canonical components", "math semantics", "geometry semantics", "legacy fallback"] },
   "consumerTraceability": { "app": "src/components", "document": "src/modules/document-engine", "docx": "src/modules/document-export/docx", "assessment": "src/modules/question-bank", "video": "server/services/videoPlanner.ts", "geogebra": "src/modules/geogebra", "fold": "src/modules/fold-3d", "game": "src/modules/classroom-game" }
 }

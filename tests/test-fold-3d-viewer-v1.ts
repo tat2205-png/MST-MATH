@@ -10,7 +10,7 @@ for (const source of Object.values(FOLD_FIXTURES)) {
   const folded = updateFoldScene(flat, 1).value!; mapping.apply(folded);
   for (const face of folded.state.faceTransforms) assert.deepEqual(mapping.faces.get(face.faceId)?.matrix.toArray(), new THREE.Matrix4().set(...face.matrix).toArray());
   mapping.setEdgesVisible(false); assert.equal([...mapping.faces.values()].every((face) => face.children.find((child) => child.userData.foldEdgeDisplay)?.visible === false), true);
-  const selected = flat.net.faces[0].faceId; setFoldFaceHighlighted(mapping, selected); assert.equal((mapping.meshes.get(selected)?.material as THREE.MeshStandardMaterial).color.getHex(), 0xf59e0b);
+  const selected = flat.net.faces[0].faceId; setFoldFaceHighlighted(mapping, selected); assert.equal((mapping.meshes.get(selected)?.material as THREE.MeshStandardMaterial).color.getHex(), 0xffe45e);
   mapping.dispose(); assert.equal(mapping.faces.size, 0); assert.equal(mapping.group.children.length, 0);
 }
 const invalid = structuredClone(createFoldScene(FOLD_FIXTURES.cube, 0).value!); invalid.state.faceTransforms.pop();

@@ -26,7 +26,7 @@ assert.notDeepEqual(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences, re
 for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"]) {
   const profile = resolveOutputProfile(profileId);
   assert.ok(profile.semanticReferences?.includes("NA_MATH_QUESTION_BANK_V1"));
-  assert.ok(["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT"].includes(profile.profileId) || profile.unresolved?.includes("PIMATH_DNA_EXAM_VISUAL_PROFILE") || profile.unresolved?.includes("PIMATH_DNA_TEST_VISUAL_PROFILE"));
+  assert.ok(["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT", "P02_LESSON_PLAN", "P05_TEST"].includes(profile.profileId));
 }
 assert.throws(() => resolveIcon("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
 for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const) {
