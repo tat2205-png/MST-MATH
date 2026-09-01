@@ -3,31 +3,33 @@ import { validateMathIR } from "../src/modules/math-ir/index.js";
 import { convertDocxToLatex, docxToMathIR, parseDocx } from "../src/modules/document-engine/index.js";
 import { createStoredZip, DOCX_FIXTURES } from "../src/modules/document-engine/fixtures.js";
 
-const plain = convertDocxToLatex(DOCX_FIXTURES.plainText, { sourceName: "DOCX-01.docx" });
+const documentProfile = { profileId: "P01_LEARNING_MATERIAL" };
+
+const plain = convertDocxToLatex(DOCX_FIXTURES.plainText, { sourceName: "DOCX-01.docx", ...documentProfile });
 assert.equal(plain.status, "PASS");
 assert.ok(plain.document && validateMathIR(plain.document).status === "PASS");
 assert.match(plain.latex!, /Bài 1\. Giải phương trình x² - 5x \+ 6 = 0\./u);
 assert.equal(plain.document!.problems.length, 1);
 
-const inline = convertDocxToLatex(DOCX_FIXTURES.inlineEquation);
+const inline = convertDocxToLatex(DOCX_FIXTURES.inlineEquation, documentProfile);
 assert.equal(inline.status, "PASS");
 assert.match(inline.latex!, /\$\{x\}\^\{2\}-5x\+6=0\$/);
 
-const display = convertDocxToLatex(DOCX_FIXTURES.displayEquation);
+const display = convertDocxToLatex(DOCX_FIXTURES.displayEquation, documentProfile);
 assert.equal(display.status, "PASS");
 assert.match(display.latex!, /\\\[/);
 assert.match(display.latex!, /\{x\}\^\{2\}-5x\+6=0/);
 
-const fraction = convertDocxToLatex(DOCX_FIXTURES.fractionsRadicals);
+const fraction = convertDocxToLatex(DOCX_FIXTURES.fractionsRadicals, documentProfile);
 assert.equal(fraction.status, "PASS");
 assert.match(fraction.latex!, /\\frac\{1\}\{2\}/);
 assert.match(fraction.latex!, /\\sqrt\{x\}/);
 
-const vietnamese = convertDocxToLatex(DOCX_FIXTURES.vietnameseMath);
+const vietnamese = convertDocxToLatex(DOCX_FIXTURES.vietnameseMath, documentProfile);
 assert.equal(vietnamese.status, "PASS");
 assert.match(vietnamese.latex!, /Cho α ∈ A, a ⊥ b, d ∥ \(P\), x ≤ π và Δ ≠ 0\./u);
 
-const image = convertDocxToLatex(DOCX_FIXTURES.image);
+const image = convertDocxToLatex(DOCX_FIXTURES.image, documentProfile);
 assert.equal(image.status, "PARTIAL");
 assert.equal(image.report.statistics.images, 1);
 assert.equal(image.report.assets[0].relationshipId, "rIdImage1");
@@ -36,7 +38,7 @@ assert.equal(image.report.assets[0].widthEmu, 914400);
 assert.match(image.latex!, /\\includegraphics/);
 assert.ok(image.report.unsupported.some((issue) => issue.code === "IMAGE_MATH_NOT_PARSED"));
 
-const table = convertDocxToLatex(DOCX_FIXTURES.table);
+const table = convertDocxToLatex(DOCX_FIXTURES.table, documentProfile);
 assert.equal(table.status, "PASS");
 assert.equal(table.report.statistics.tables, 1);
 assert.match(table.latex!, /\\begin\{tabular\}/);
@@ -47,7 +49,7 @@ assert.equal(multiple.status, "PASS");
 assert.equal(multiple.document?.problems.length, 2);
 assert.match(multiple.document!.problems[0].statement, /Lời dẫn cho bài một/u);
 
-const unsupported = convertDocxToLatex(DOCX_FIXTURES.unsupportedOmml);
+const unsupported = convertDocxToLatex(DOCX_FIXTURES.unsupportedOmml, documentProfile);
 assert.equal(unsupported.status, "PARTIAL");
 assert.ok(unsupported.report.unsupported.some((issue) => issue.code === "UNSUPPORTED_OMML_CONSTRUCT"));
 assert.match(unsupported.latex!, /unsupported OMML/);
@@ -56,12 +58,12 @@ const broken = parseDocx(DOCX_FIXTURES.broken);
 assert.equal(broken.status, "FAIL");
 assert.ok(broken.report.errors.some((issue) => issue.code === "INVALID_DOCX_ARCHIVE"));
 
-const legacy = convertDocxToLatex(DOCX_FIXTURES.legacyMathType);
+const legacy = convertDocxToLatex(DOCX_FIXTURES.legacyMathType, documentProfile);
 assert.equal(legacy.status, "PARTIAL");
 assert.ok(legacy.report.unsupported.some((issue) => issue.code === "LEGACY_MATHTYPE_NEEDS_FALLBACK"));
 assert.match(legacy.latex!, /LEGACY\\_MATHTYPE\\_UNSUPPORTED/);
 
-const structured = convertDocxToLatex(DOCX_FIXTURES.structured);
+const structured = convertDocxToLatex(DOCX_FIXTURES.structured, documentProfile);
 assert.equal(structured.status, "PASS");
 assert.equal(structured.document?.sections.length, 3);
 assert.equal(structured.document?.sections[0].blocks[0].type, "heading");
@@ -71,7 +73,7 @@ assert.match(structured.latex!, /\\section\{Chương 1\}/u);
 assert.match(structured.latex!, /\\begin\{enumerate\}/);
 assert.match(structured.latex!, /\\newpage/);
 
-const deflated = convertDocxToLatex(DOCX_FIXTURES.deflatedPlain);
+const deflated = convertDocxToLatex(DOCX_FIXTURES.deflatedPlain, documentProfile);
 assert.equal(deflated.status, "PASS");
 assert.match(deflated.latex!, /DOCX nén Deflate/u);
 
