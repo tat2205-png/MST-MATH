@@ -1,5 +1,8 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
+import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import type { DocumentIR, FigureRecord } from "../document-engine/document-ir.js";
 import { ingestDocx } from "../document-engine/docx/ingestion.js";
 import { INPUT_DIAGNOSTIC_CODES, INPUT_LIMITS, INPUT_PIPELINE_VERSION, type InputDiagnosticCode } from "./contracts.js";
@@ -25,6 +28,43 @@ export interface InputAcceptanceResult {
 }
 export interface SourceInput { readonly name: string; readonly bytes: Uint8Array; readonly mimeType?: string }
 
+export interface ImageOrientationEvidence { readonly exifOrientation: number; readonly rotationDegrees: 0 | 90 | 180 | 270; readonly mirrored: boolean }
+export function inspectImageOrientation(bytes: Uint8Array): ImageOrientationEvidence {
+  let orientation = 1;
+  for (let offset = 2; offset + 14 < bytes.length && bytes[0] === 0xff && bytes[1] === 0xd8;) {
+    if (bytes[offset] !== 0xff) break;
+    const marker = bytes[offset + 1], length = (bytes[offset + 2] << 8) | bytes[offset + 3];
+    if (marker === 0xe1 && Buffer.from(bytes.subarray(offset + 4, offset + 10)).toString("ascii") === "Exif\0\0") {
+      const tiff = offset + 10, little = bytes[tiff] === 0x49;
+      const u16 = (at:number) => little ? bytes[at] | bytes[at + 1] << 8 : bytes[at] << 8 | bytes[at + 1];
+      const u32 = (at:number) => little ? (bytes[at] | bytes[at + 1] << 8 | bytes[at + 2] << 16 | bytes[at + 3] << 24) >>> 0 : (bytes[at] << 24 | bytes[at + 1] << 16 | bytes[at + 2] << 8 | bytes[at + 3]) >>> 0;
+      const ifd = tiff + u32(tiff + 4), count = u16(ifd);
+      for (let i = 0; i < count; i++) { const entry = ifd + 2 + i * 12; if (u16(entry) === 0x0112) orientation = u16(entry + 8); }
+      break;
+    }
+    if (length < 2) break; offset += 2 + length;
+  }
+  const rotations:Record<number,0|90|180|270>={3:180,4:180,5:90,6:90,7:270,8:270};
+  return { exifOrientation: orientation, rotationDegrees: rotations[orientation]??0, mirrored: [2,4,5,7].includes(orientation) };
+}
+
+export interface SourceGroupEvidence { readonly name: string; readonly sourceHash: string; readonly role: string; readonly examIdentity?: string }
+export function classifySourceGroup(left: SourceGroupEvidence, right: SourceGroupEvidence): "SAME_SOURCE_GROUP" | "DIFFERENT_SOURCE_GROUP" {
+  return left.examIdentity !== undefined && left.examIdentity === right.examIdentity ? "SAME_SOURCE_GROUP" : "DIFFERENT_SOURCE_GROUP";
+}
+export interface ReconciliationEvidence { readonly native?: string; readonly ocr?: string; readonly ai?: string }
+export interface ReconciliationDecision { readonly status: "AGREE" | "FORMAT_EQUIVALENT" | "CONFLICT_REVIEW_REQUIRED"; readonly authoritativeValue?: string; readonly automaticWinner: "NATIVE" | "NONE"; readonly disagreements: readonly string[] }
+const comparableMath = (value: string) => value.normalize("NFC").replaceAll("<=", "≤").replace(/\s+/g, " ").trim();
+export function reconcileExtractionEvidence(evidence: ReconciliationEvidence): ReconciliationDecision {
+  const native = evidence.native;
+  const comparisons = [["OCR", evidence.ocr], ["AI", evidence.ai]] as const;
+  const disagreements = comparisons.filter(([, value]) => value !== undefined && native !== undefined && comparableMath(value) !== comparableMath(native)).map(([provider]) => `${provider}_DISAGREES_WITH_NATIVE`);
+  if (native === undefined) return { status: "CONFLICT_REVIEW_REQUIRED", automaticWinner: "NONE", disagreements: comparisons.filter(([, value]) => value !== undefined).map(([provider]) => `${provider}_WITHOUT_NATIVE_AUTHORITY`) };
+  if (disagreements.length) return { status: "CONFLICT_REVIEW_REQUIRED", authoritativeValue: native, automaticWinner: "NONE", disagreements };
+  const rawDifference = comparisons.some(([, value]) => value !== undefined && value !== native);
+  return { status: rawDifference ? "FORMAT_EQUIVALENT" : "AGREE", authoritativeValue: native, automaticWinner: "NATIVE", disagreements: [] };
+}
+
 export type IngestResult =
   | { readonly ok: true; readonly kind: IngestKind; readonly document: DocumentIR; readonly sourceHash: string; readonly assetIds: string[] }
   | { readonly ok: false; readonly diagnostics: IngestDiagnostic[] };
@@ -40,12 +80,17 @@ function pdfPages(bytes: Uint8Array): number {
 
 function pdfDocument(source: IngestSource, sourceHash: string): DocumentIR {
   const pages = pdfPages(source.bytes); const blocks: DocumentIR["blocks"] = []; const issues: DocumentIR["extractionIssues"] = [];
-  for (let page = 1; page <= pages; page++) {
+  const tempRoot = mkdtempSync(join(tmpdir(), "pimath-input-")); const tempPdf = join(tempRoot, "source.pdf"); writeFileSync(tempPdf, Buffer.from(source.bytes));
+  try { for (let page = 1; page <= pages; page++) {
     let text = "";
-    try { text = execFileSync("pdftotext", ["-f", String(page), "-l", String(page), "-enc", "UTF-8", "-layout", "-", "-"], { input: Buffer.from(source.bytes), encoding: "utf8", windowsHide: true }); } catch { text = ""; }
+    try { text = execFileSync("pdftotext", ["-f", String(page), "-l", String(page), "-enc", "UTF-8", "-layout", tempPdf, "-"], { encoding: "utf8", windowsHide: true }); } catch { text = ""; }
     if (text.trim()) blocks.push({ id: `pdf-page-${page}`, kind: "PARAGRAPH", order: page - 1, paragraphIndex: page - 1, content: [{ type: "text", value: text, sourceLocation: `${source.name}:page:${page}` }], sourceLocation: `${source.name}:page:${page}` });
-    else issues.push({ code: "PDF_PAGE_TEXT_UNAVAILABLE", severity: "WARNING", message: `No native text evidence for page ${page}. OCR/layout review is required.`, status: "REVIEW", sourceAnchor: { sourceDocumentId: sourceHash, objectIndex: page - 1 } });
-  }
+    else {
+      const sourceLocation = `${source.name}:page:${page}`;
+      blocks.push({ id: `pdf-page-${page}`, kind: "SECTION", order: page - 1, style: "PDF_PAGE_EVIDENCE_ONLY", content: [{ type: "text", value: "", sourceLocation }], sourceLocation });
+      issues.push({ code: "PDF_PAGE_TEXT_UNAVAILABLE", severity: "WARNING", message: `No native text evidence for page ${page}. OCR/layout review is required.`, status: "REVIEW", sourceAnchor: { sourceDocumentId: sourceHash, objectIndex: page - 1 } });
+    }
+  } } finally { rmSync(tempRoot, { recursive: true, force: true }); }
   return { sourceDocument: source.name, sourceHash, blocks, figures: [], warnings: issues.length ? ["PDF_READING_ORDER_STATUS=REVIEW_REQUIRED", "PDF_SCAN_REQUIRES_LAYOUT_OCR"] : [], extractionIssues: issues, provenance: { sourceFile: source.name, sourceSha256: sourceHash, sourceKind: "PDF", parser: "native-pdf", parserVersion: "pdftotext-layout", transformationHistory: ["SOURCE_FINGERPRINT", "NATIVE_PAGE_EXTRACTION", "DETERMINISTIC_EVIDENCE_RECONCILIATION"] } };
 }
 
@@ -54,7 +99,18 @@ function extension(name: string): string { const dot = name.lastIndexOf("."); re
 const zipSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0x50 && b[1] === 0x4b && (b[2] === 3 || b[2] === 5 || b[2] === 7) && (b[3] === 4 || b[3] === 6 || b[3] === 8);
 function isDocxPackage(bytes: Uint8Array): boolean {
   if (!zipSignature(bytes)) return false;
-  try { const listing = execFileSync("tar", ["-tf", "-"], { input: Buffer.from(bytes), encoding: "utf8", windowsHide: true, maxBuffer: 2 * 1024 * 1024 }); const entries = listing.split(/\r?\n/).filter(Boolean); return entries.length <= INPUT_LIMITS.maxArchiveEntries && entries.includes("[Content_Types].xml") && entries.includes("word/document.xml") && entries.some(x => x === "_rels/.rels" || x === "word/_rels/document.xml.rels"); } catch { return false; }
+  let archiveEntries = 0, embeddedAssets = 0, decompressedBytes = 0;
+  for (let offset = 0; offset + 46 <= bytes.length; offset++) {
+    if (bytes[offset] !== 0x50 || bytes[offset + 1] !== 0x4b || bytes[offset + 2] !== 0x01 || bytes[offset + 3] !== 0x02) continue;
+    const view = new DataView(bytes.buffer, bytes.byteOffset + offset, Math.min(46, bytes.length - offset));
+    const nameLength = view.getUint16(28, true), extraLength = view.getUint16(30, true), commentLength = view.getUint16(32, true);
+    const name = Buffer.from(bytes.subarray(offset + 46, offset + 46 + nameLength)).toString("utf8");
+    archiveEntries++; decompressedBytes += view.getUint32(24, true); if (/^word\/(?:media|embeddings)\//i.test(name)) embeddedAssets++;
+    if (archiveEntries > INPUT_LIMITS.maxArchiveEntries || decompressedBytes > INPUT_LIMITS.maxDecompressedBytes || embeddedAssets > INPUT_LIMITS.maxEmbeddedAssets) return false;
+    offset += 45 + nameLength + extraLength + commentLength;
+  }
+  const root = mkdtempSync(join(tmpdir(), "pimath-docx-check-")); const path = join(root, "package.docx");
+  try { writeFileSync(path, Buffer.from(bytes)); const listing = execFileSync("tar", ["-tf", path], { encoding: "utf8", windowsHide: true, maxBuffer: 2 * 1024 * 1024 }); const entries = listing.split(/\r?\n/).filter(Boolean); return entries.length <= INPUT_LIMITS.maxArchiveEntries && entries.includes("[Content_Types].xml") && entries.includes("word/document.xml") && entries.some(x => x === "_rels/.rels" || x === "word/_rels/document.xml.rels"); } catch { return false; } finally { rmSync(root, { recursive: true, force: true }); }
 }
 const pdfSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 5)).toString("ascii") === "%PDF-";
 const pngSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 8)).equals(Buffer.from([137,80,78,71,13,10,26,10]));
@@ -68,6 +124,7 @@ export function validateInputSource(source: SourceInput): InputAcceptanceResult 
   const sig = pdfSignature(bytes) ? "PDF" : pngSignature(bytes) ? "PNG" : jpegSignature(bytes) ? "JPEG" : zipSignature(bytes) ? "ZIP" : "UNKNOWN";
   const byExt: Record<string, InputSourceType> = { ".docx": "DOCX", ".doc": "DOC", ".pdf": "PDF", ".png": "PNG", ".jpg": "JPEG", ".jpeg": "JPEG" };
   const type = byExt[ext] ?? "UNSUPPORTED";
+  if (type === "PDF" && /\/Encrypt\b/.test(Buffer.from(bytes).toString("latin1"))) return { sourceType: "PDF", fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "ENCRYPTED_PDF", message: "Encrypted PDF input requires a teacher-supplied decrypted source." }] };
   const expected = type === "DOCX" ? isDocxPackage(bytes) : type === "PDF" ? sig === "PDF" : type === "PNG" ? sig === "PNG" : type === "JPEG" ? sig === "JPEG" : type === "DOC" ? false : false;
   const mismatch = type !== "UNSUPPORTED" && type !== "DOC" && !expected;
   const detected = sig === "ZIP" ? "DOCX" : sig === "PDF" || sig === "PNG" || sig === "JPEG" ? sig : type;
