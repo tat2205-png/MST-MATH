@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import type { Express, Request, Response } from "express";
+import { registerWordPreflightRoutes } from "../word-preflight/api.js";
 import { StudioApiError } from "./apiErrors.js";
 import { createStudio } from "./createStudio.js";
 import { readStudioFeatureFlags, type StudioFeatureFlags } from "./featureFlags.js";
@@ -103,6 +104,7 @@ function sendError(response: Response, error: unknown): void {
 }
 
 export function registerStudioRoutes(app: Pick<Express, "get" | "post">, dependencies: StudioApiDependencies = {}): void {
+  registerWordPreflightRoutes(app);
   const flagsProvider = dependencies.flags ?? (() => readStudioFeatureFlags());
   const probe = dependencies.runtimeProbe ?? systemRuntimeProbe;
   app.get("/api/studio/status", (_request: Request, response: Response) => {
