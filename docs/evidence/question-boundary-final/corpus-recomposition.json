@@ -1473,8 +1473,9 @@
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-38",
@@ -1488,8 +1489,9 @@
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-41",
@@ -1538,13 +1540,15 @@
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-52",
@@ -1553,13 +1557,15 @@
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-55",
@@ -1578,13 +1584,15 @@
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-59",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
     },
     {
       "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-60",
@@ -3093,13 +3101,15 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-15",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-16",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-17",
@@ -3113,13 +3123,15 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-19",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-20",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-21",
@@ -3128,8 +3140,9 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-22",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-23",
@@ -3138,23 +3151,27 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-24",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-25",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-26",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-27",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-28",
@@ -3163,23 +3180,27 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-29",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-30",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-31",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-32",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-33",
@@ -3193,8 +3214,9 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-35",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-36",
@@ -3213,8 +3235,9 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-39",
-      "state": "REVIEW",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-40",
@@ -3563,5 +3586,12 @@
       "merge_previous": 0,
       "merge_next": 0
     }
-  ]
+  ],
+  "counts": {
+    "CONFIRMED": 670,
+    "REVIEW": 0,
+    "REJECTED_FALSE": 1,
+    "MERGE_PREVIOUS": 18,
+    "MERGE_NEXT": 1
+  }
 }
