@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import { normalizeExamDocument, validateNormalizedExamDocument } from "../src/modules/exam-normalization/index.js";
+import type { QuestionObject } from "../src/modules/question-bank/types.js";
+const q = (type: QuestionObject["type"], id: string, index: number): QuestionObject => ({ id, source: { document: "fixture.docx", sourceHash: id, blockIds: [`b-${id}`], sourceLocations: [`fixture:${index}`] }, index, type, stem: [{ type: "text", value: "Tính giá trị biểu thức." }], options: type === "MULTIPLE_CHOICE" ? ["A", "B", "C", "D"].map(label => ({ label, content: [{ type: "text", value: label }] })) : [], trueFalseItems: type === "TRUE_FALSE" ? ["a", "b", "c", "d"].map(label => ({ label, content: [{ type: "text", value: label }] })) : [], shortAnswer: type === "SHORT_ANSWER" ? [{ type: "text", value: "Điền đáp số." }] : undefined, subquestions: [], figures: [], figureAssociations: [], metadata: {}, warnings: [], validationStatus: "VALID" });
+const result = normalizeExamDocument([q("MULTIPLE_CHOICE", "q1", 1), q("TRUE_FALSE", "q2", 1), q("SHORT_ANSWER", "q3", 1)], { exam: "THPTQG" });
+assert.equal(result.profileId, "P06_EXAM_THPTQG");
+assert.equal(result.document.blocks.length, 12);
+assert.equal(result.pagination.keepQuestionTogether, true);
+assert.deepEqual(result.answerRegions.map(region => region.type), ["CHOICE", "TRUE_FALSE", "SHORT_ANSWER"]);
+assert.deepEqual(validateNormalizedExamDocument(result), []);
+assert.equal(result.document.blocks.some(block => block.content.some(content => content.type === "text" && /answer|solution/i.test(content.value))), false);
+console.log("EXAM_NORMALIZATION_V1_QA=PASS");
