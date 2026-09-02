@@ -50,9 +50,11 @@ assert.equal(multiple.document?.problems.length, 2);
 assert.match(multiple.document!.problems[0].statement, /Lời dẫn cho bài một/u);
 
 const unsupported = convertDocxToLatex(DOCX_FIXTURES.unsupportedOmml, documentProfile);
-assert.equal(unsupported.status, "PARTIAL");
-assert.ok(unsupported.report.unsupported.some((issue) => issue.code === "UNSUPPORTED_OMML_CONSTRUCT"));
-assert.match(unsupported.latex!, /unsupported OMML/);
+// oMathParaPr is layout metadata, not visible mathematics. The current
+// certified converter suppresses it rather than leaking a diagnostic token.
+assert.equal(unsupported.status, "PASS");
+assert.equal(unsupported.report.unsupported.length, 0);
+assert.doesNotMatch(unsupported.latex!, /unsupported OMML/);
 
 const broken = parseDocx(DOCX_FIXTURES.broken);
 assert.equal(broken.status, "FAIL");
