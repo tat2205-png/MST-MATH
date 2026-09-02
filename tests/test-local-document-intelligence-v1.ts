@@ -1,0 +1,18 @@
+import assert from "node:assert/strict";
+import { DoclingProvider, LibreOfficeProvider, OllamaQwen3VlProvider, PaddleOcrProvider, collectEvidence, selectProviders } from "../src/modules/local-document-intelligence/index.ts";
+const request = { sourceDocument: "scan.png", bytes: new Uint8Array([1, 2, 3]) };
+const fake = async (command: string, args: string[]) => command === "ollama" && args[0] === "list" ? { stdout: "qwen3-vl:latest\n", stderr: "" } : { stdout: JSON.stringify({ payload: { text: "evidence", bbox: [1, 2, 3, 4] }, confidence: 0.7 }), stderr: "" };
+const unavailable = async () => { throw new Error("missing"); };
+assert.deepEqual(selectProviders({ sourceDocument: "x.docx" }), ["native-pimath"]);
+assert.deepEqual(selectProviders({ sourceDocument: "x.doc" }), ["libreoffice", "native-pimath"]);
+assert.deepEqual(selectProviders(request), ["docling", "paddleocr", "ollama-qwen3-vl"]);
+const evidence = await collectEvidence(request, [new DoclingProvider(fake), new PaddleOcrProvider(fake), new OllamaQwen3VlProvider(fake)]);
+assert.equal(evidence.length, 3);
+assert.equal(evidence[0].reviewStatus, "REVIEW");
+assert.equal(evidence[0].provenance.authority, "EVIDENCE_ONLY");
+assert.equal(evidence[2].issues[0], "AI_SEMANTIC_AUTHORITY=NO");
+const missing = await new DoclingProvider(unavailable).extractEvidence(request);
+assert.equal(missing[0].reviewStatus, "UNAVAILABLE");
+assert.equal(missing[0].issues[0], "DOCLING_RUNTIME_STATUS=UNAVAILABLE");
+assert.equal((await new OllamaQwen3VlProvider(unavailable).availability()).status, "UNAVAILABLE");
+console.log("local document intelligence v1: PASS");
