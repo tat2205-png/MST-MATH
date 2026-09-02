@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import type { DocumentIR, FigureRecord } from "../document-engine/document-ir.js";
+import { ingestDocx } from "../document-engine/docx/ingestion.js";
 
 export type IngestKind = "PDF" | "IMAGE";
 
@@ -12,6 +13,16 @@ export interface IngestSource {
 
 export interface IngestDiagnostic { readonly code: string; readonly message: string }
 
+export type InputSourceType = "DOCX" | "DOC" | "PDF" | "PNG" | "JPEG" | "UNSUPPORTED";
+export type InputQuality = "A" | "B" | "C" | "REVIEW";
+export interface InputAcceptanceResult {
+  readonly sourceType: InputSourceType; readonly sourceHash?: string; readonly fileIntegrity: "VALID" | "INVALID";
+  readonly readability: "READABLE" | "UNREADABLE"; readonly inputQuality: InputQuality;
+  readonly autoProcessAllowed: boolean; readonly teacherReviewRequired: boolean;
+  readonly issues: readonly IngestDiagnostic[]; readonly provenance?: DocumentIR["provenance"];
+}
+export interface SourceInput { readonly name: string; readonly bytes: Uint8Array; readonly mimeType?: string }
+
 export type IngestResult =
   | { readonly ok: true; readonly kind: IngestKind; readonly document: DocumentIR; readonly sourceHash: string; readonly assetIds: string[] }
   | { readonly ok: false; readonly diagnostics: IngestDiagnostic[] };
@@ -22,6 +33,41 @@ const imageTypes = new Map([[".png", "image/png"], [".jpg", "image/jpeg"], [".jp
 function failure(code: string, message: string): IngestResult { return { ok: false, diagnostics: [{ code, message }] }; }
 
 function extension(name: string): string { const dot = name.lastIndexOf("."); return dot < 0 ? "" : name.slice(dot).toLowerCase(); }
+
+const zipSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0x50 && b[1] === 0x4b && (b[2] === 3 || b[2] === 5 || b[2] === 7) && (b[3] === 4 || b[3] === 6 || b[3] === 8);
+const pdfSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 5)).toString("ascii") === "%PDF-";
+const pngSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 8)).equals(Buffer.from([137,80,78,71,13,10,26,10]));
+const jpegSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0xff && b[1] === 0xd8 && b.at(-2) === 0xff && b.at(-1) === 0xd9;
+
+export function validateInputSource(source: SourceInput): InputAcceptanceResult {
+  const ext = source && typeof source.name === "string" ? extension(source.name) : "";
+  const bytes = source?.bytes;
+  if (!(bytes instanceof Uint8Array) || bytes.length === 0) return { sourceType: "UNSUPPORTED", fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "EMPTY_SOURCE", message: "The source is empty." }] };
+  const sig = pdfSignature(bytes) ? "PDF" : pngSignature(bytes) ? "PNG" : jpegSignature(bytes) ? "JPEG" : zipSignature(bytes) ? "ZIP" : "UNKNOWN";
+  const byExt: Record<string, InputSourceType> = { ".docx": "DOCX", ".doc": "DOC", ".pdf": "PDF", ".png": "PNG", ".jpg": "JPEG", ".jpeg": "JPEG" };
+  const type = byExt[ext] ?? "UNSUPPORTED";
+  const expected = type === "DOCX" ? sig === "ZIP" : type === "PDF" ? sig === "PDF" : type === "PNG" ? sig === "PNG" : type === "JPEG" ? sig === "JPEG" : type === "DOC" ? false : false;
+  const mismatch = type !== "UNSUPPORTED" && type !== "DOC" && !expected;
+  const detected = sig === "ZIP" ? "DOCX" : sig === "PDF" || sig === "PNG" || sig === "JPEG" ? sig : type;
+  const sourceType = type === "UNSUPPORTED" && detected !== "DOCX" && detected !== "PDF" && detected !== "PNG" && detected !== "JPEG" ? "UNSUPPORTED" : type;
+  if (mismatch || sourceType === "UNSUPPORTED") return { sourceType, fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: mismatch ? "EXTENSION_SIGNATURE_MISMATCH" : "UNSUPPORTED_INPUT", message: mismatch ? "The extension does not match the file signature." : "The input type is unsupported." }] };
+  if (type === "DOC") return { sourceType: "DOC", fileIntegrity: "VALID", readability: "READABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "REQUIRES_LEGACY_CONVERSION", message: "Legacy DOC requires controlled external conversion." }] };
+  const sourceHash = hash(bytes);
+  let readable = true;
+  if (type === "DOCX") { try { ingestDocx({ name: source.name, bytes }); } catch { readable = false; } }
+  const issues = readable ? [] : [{ code: "SOURCE_UNREADABLE", message: "The source could not be read by the canonical parser." }];
+  return { sourceType: type, sourceHash, fileIntegrity: readable ? "VALID" : "INVALID", readability: readable ? "READABLE" : "UNREADABLE", inputQuality: type === "DOCX" ? "A" : type === "PDF" ? "B" : "C", autoProcessAllowed: readable, teacherReviewRequired: !readable || type === "PDF" || type === "PNG" || type === "JPEG", issues, provenance: { sourceFile: source.name, sourceSha256: sourceHash, sourceKind: type, parser: "document-ingest/acceptance-gate", parserVersion: "1.0", transformationHistory: ["SOURCE_FINGERPRINT", "SIGNATURE_VALIDATION", "READABILITY_CHECK"] } };
+}
+
+export function ingestToDocumentIR(source: SourceInput): DocumentIR {
+  const accepted = validateInputSource(source);
+  if (accepted.sourceType === "DOC") throw new Error("REQUIRES_LEGACY_CONVERSION");
+  if (!accepted.sourceHash || !accepted.autoProcessAllowed) throw new Error(accepted.issues[0]?.code ?? "INPUT_REJECTED");
+  if (accepted.sourceType === "DOCX") { const result = ingestDocx({ name: source.name, bytes: source.bytes }); if (!result.document) throw new Error("DOCX_UNREADABLE"); return result.document; }
+  const result = ingestApprovedSource(source);
+  if (result.ok === false) throw new Error(result.diagnostics[0].code);
+  return { ...result.document, provenance: accepted.provenance };
+}
 
 export function ingestApprovedSource(source: IngestSource): IngestResult {
   if (!source || typeof source.name !== "string" || !source.name.trim()) return failure("SOURCE_METADATA_REQUIRED", "A source filename is required.");
