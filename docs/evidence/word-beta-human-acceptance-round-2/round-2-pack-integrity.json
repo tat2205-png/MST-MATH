@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V1",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalBoundaryCount": 668,
+  "caseCount": 40,
+  "manifestCount": 40,
+  "uniqueReviewCaseIds": 40,
+  "missingArtifacts": 0,
+  "brokenReferences": 0,
+  "unknownQuestionIds": 0,
+  "stale670Identities": 0,
+  "selfReferentialSources": 0,
+  "stalePackageReferences": 0,
+  "brokenMathReferences": 0,
+  "brokenAssetReferences": 0,
+  "absoluteMachinePaths": 0,
+  "artifactHashMismatches": 0,
+  "sourceReviewQA": "PASS",
+  "finalReviewQA": "PASS",
+  "pathPortabilityQA": "PASS",
+  "artifactHashQA": "PASS",
+  "qa": "PASS"
+}

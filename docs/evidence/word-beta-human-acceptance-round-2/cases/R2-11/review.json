@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "reviewCaseId": "R2-11",
+  "questionId": "1ffa795691ed-qcandidate-11",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-117",
+      "paragraph-118",
+      "paragraph-119",
+      "paragraph-120",
+      "paragraph-121",
+      "paragraph-122",
+      "paragraph-123",
+      "paragraph-124"
+    ]
+  },
+  "questionType": "UNKNOWN",
+  "previousDefectCategory": null,
+  "sourceRepresentation": {
+    "text": "",
+    "mathObjectIds": [],
+    "assetIds": [
+      "asset-98259a6d1077"
+    ],
+    "math": [],
+    "assets": [
+      {
+        "assetId": "asset-98259a6d1077",
+        "kind": "IMAGE",
+        "relationshipId": "rId152",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 117,
+          "relationshipId": "rId152"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "questionIrId": "1ffa795691ed-qcandidate-11",
+    "packageId": "question-1ffa795691ed-qcandidate-11",
+    "text": "",
+    "mathObjectIds": [],
+    "assetIds": [
+      "asset-98259a6d1077"
+    ]
+  },
+  "automatedQa": "PASS",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "TEXT_ONLY",
+    "ASSET_BEARING"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

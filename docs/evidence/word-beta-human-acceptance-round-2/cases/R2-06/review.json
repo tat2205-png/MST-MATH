@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "reviewCaseId": "R2-06",
+  "questionId": "1ffa795691ed-qcandidate-6",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-85",
+      "paragraph-86",
+      "paragraph-87",
+      "paragraph-88",
+      "paragraph-89"
+    ]
+  },
+  "questionType": "UNKNOWN",
+  "previousDefectCategory": null,
+  "sourceRepresentation": {
+    "text": "",
+    "mathObjectIds": [],
+    "assetIds": [
+      "asset-6ba07c02f5c0",
+      "asset-4abcdf15ddd9",
+      "asset-67f3f0799575",
+      "asset-e5c7d88fb2a6",
+      "asset-fd7701315346",
+      "asset-eb2e2faf05c7",
+      "asset-d95d61d32220",
+      "asset-3eea3c164ca0",
+      "asset-629cf62d0286"
+    ],
+    "math": [],
+    "assets": [
+      {
+        "assetId": "asset-6ba07c02f5c0",
+        "kind": "IMAGE",
+        "relationshipId": "rId95",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 85,
+          "relationshipId": "rId95"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-4abcdf15ddd9",
+        "kind": "IMAGE",
+        "relationshipId": "rId96",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 2,
+          "paragraphIndex": 85,
+          "relationshipId": "rId96"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-67f3f0799575",
+        "kind": "IMAGE",
+        "relationshipId": "rId97",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 4,
+          "paragraphIndex": 85,
+          "relationshipId": "rId97"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-e5c7d88fb2a6",
+        "kind": "IMAGE",
+        "relationshipId": "rId98",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 6,
+          "paragraphIndex": 85,
+          "relationshipId": "rId98"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-67f3f0799575",
+        "kind": "IMAGE",
+        "relationshipId": "rId97",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 85,
+          "relationshipId": "rId97"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-fd7701315346",
+        "kind": "IMAGE",
+        "relationshipId": "rId99",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 10,
+          "paragraphIndex": 85,
+          "relationshipId": "rId99"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-eb2e2faf05c7",
+        "kind": "IMAGE",
+        "relationshipId": "rId100",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 12,
+          "paragraphIndex": 85,
+          "relationshipId": "rId100"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-d95d61d32220",
+        "kind": "IMAGE",
+        "relationshipId": "rId101",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 14,
+          "paragraphIndex": 85,
+          "relationshipId": "rId101"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-3eea3c164ca0",
+        "kind": "IMAGE",
+        "relationshipId": "rId102",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 16,
+          "paragraphIndex": 85,
+          "relationshipId": "rId102"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-629cf62d0286",
+        "kind": "IMAGE",
+        "relationshipId": "rId103",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 85,
+          "relationshipId": "rId103"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "questionIrId": "1ffa795691ed-qcandidate-6",
+    "packageId": "question-1ffa795691ed-qcandidate-6",
+    "text": "",
+    "mathObjectIds": [],
+    "assetIds": [
+      "asset-6ba07c02f5c0",
+      "asset-4abcdf15ddd9",
+      "asset-67f3f0799575",
+      "asset-e5c7d88fb2a6",
+      "asset-fd7701315346",
+      "asset-eb2e2faf05c7",
+      "asset-d95d61d32220",
+      "asset-3eea3c164ca0",
+      "asset-629cf62d0286"
+    ]
+  },
+  "automatedQa": "PASS",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "TEXT_ONLY",
+    "ASSET_BEARING"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

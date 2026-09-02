@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "reviewCaseId": "R2-24",
+  "questionId": "1ffa795691ed-qcandidate-24",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-202",
+      "paragraph-203",
+      "paragraph-204",
+      "paragraph-205",
+      "paragraph-206",
+      "paragraph-207",
+      "paragraph-208",
+      "paragraph-209",
+      "paragraph-210"
+    ]
+  },
+  "questionType": "MULTIPLE_CHOICE",
+  "previousDefectCategory": null,
+  "sourceRepresentation": {
+    "text": "",
+    "mathObjectIds": [
+      "mtef-18ef06f35780cf98",
+      "mtef-8149646492a3ae29",
+      "mtef-e7ac90e85afd8261",
+      "mtef-1d5cd681fe139f96"
+    ],
+    "assetIds": [
+      "asset-d89f3f5f2749"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-18ef06f35780cf98",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 2,
+          "paragraphIndex": 203
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-8149646492a3ae29",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 204
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e7ac90e85afd8261",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 205
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-1d5cd681fe139f96",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 206
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-d89f3f5f2749",
+        "kind": "IMAGE",
+        "relationshipId": "rId349",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 203,
+          "relationshipId": "rId349"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "questionIrId": "1ffa795691ed-qcandidate-24",
+    "packageId": "question-1ffa795691ed-qcandidate-24",
+    "text": "",
+    "mathObjectIds": [
+      "mtef-18ef06f35780cf98",
+      "mtef-8149646492a3ae29",
+      "mtef-e7ac90e85afd8261",
+      "mtef-1d5cd681fe139f96"
+    ],
+    "assetIds": [
+      "asset-d89f3f5f2749"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "MATH",
+    "ASSET_BEARING"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "reviewCaseId": "R2-36",
+  "questionId": "633e6a37a7bf-qcandidate-7",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-633e6a37a7bfd1d9",
+    "documentPath": "1.1.docx",
+    "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+    "sourceObjectIds": [
+      "paragraph-18",
+      "paragraph-19"
+    ]
+  },
+  "questionType": "UNKNOWN",
+  "previousDefectCategory": null,
+  "sourceRepresentation": {
+    "text": "",
+    "mathObjectIds": [],
+    "assetIds": [
+      "asset-4f38aa0a1c38"
+    ],
+    "math": [],
+    "assets": [
+      {
+        "assetId": "asset-4f38aa0a1c38",
+        "kind": "IMAGE",
+        "relationshipId": "rId118",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 19,
+          "relationshipId": "rId118"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "questionIrId": "633e6a37a7bf-qcandidate-7",
+    "packageId": "question-633e6a37a7bf-qcandidate-7",
+    "text": "",
+    "mathObjectIds": [],
+    "assetIds": [
+      "asset-4f38aa0a1c38"
+    ]
+  },
+  "automatedQa": "PASS",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "TEXT_ONLY",
+    "ASSET_BEARING"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}
