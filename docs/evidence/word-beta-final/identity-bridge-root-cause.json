@@ -1,0 +1,9 @@
+{
+  "missingFrozenQuestionId": "1.1.docx::candidate-65",
+  "sourceDocument": "1.1.docx",
+  "failure": "candidate ordinal/index lookup was performed against a differently constructed DocumentIR candidate sequence",
+  "mechanism": "ID_NAMESPACE_MISMATCH",
+  "resolution": "sourceDocumentId plus sourceObjectIds/anchors; no ordinal authority",
+  "before": {"frozenBoundaryQuestionCount": 670, "questionIRCount": 669},
+  "after": {"frozenBoundaryQuestionCount": 670, "questionIRCount": 670}
+}

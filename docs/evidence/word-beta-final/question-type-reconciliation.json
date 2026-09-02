@@ -1,0 +1,9 @@
+{
+  "types": {
+    "MULTIPLE_CHOICE": 271,
+    "TRUE_FALSE": 0,
+    "SHORT_ANSWER": 60,
+    "ESSAY": 0,
+    "UNKNOWN": 339
+  }
+}

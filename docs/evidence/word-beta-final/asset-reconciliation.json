@@ -1,0 +1,20 @@
+{
+  "sourceFileCount": 11,
+  "hashMatchCount": 11,
+  "hashMismatchCount": 0,
+  "questionCount": 670,
+  "questionIRCount": 670,
+  "packageCount": 670,
+  "mathCount": 3240,
+  "assetLinkCount": 581,
+  "answerCount": 117,
+  "solutionCount": 143,
+  "types": {
+    "MULTIPLE_CHOICE": 271,
+    "TRUE_FALSE": 0,
+    "SHORT_ANSWER": 60,
+    "ESSAY": 0,
+    "UNKNOWN": 339
+  },
+  "unaccounted": 0
+}
