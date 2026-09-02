@@ -1,0 +1,48 @@
+import assert from "node:assert/strict";
+import { unzipSync, zipSync } from "fflate";
+import { createQuestionDocx } from "./question-bank-fixture.ts";
+import { ingestDocxQuestions } from "../src/modules/question-bank/pipeline.ts";
+import { analyzeRelation, relationFingerprint, relationTypesForQuestion } from "../src/modules/question-bank/relations.ts";
+import { QuestionBankService } from "../src/modules/question-bank/bankService.ts";
+import { MemoryQuestionBankRepository, deserializeSnapshot } from "../src/modules/question-bank/repository.ts";
+import { QuestionSearchService } from "../src/modules/question-bank/search.ts";
+import type { QuestionObject } from "../src/modules/question-bank/types.ts";
+
+const base = ingestDocxQuestions(createQuestionDocx(), "nguồn.docx").questions[0];
+const variantDocx = (numerator: string) => { const files = unzipSync(createQuestionDocx()); const xml = new TextDecoder().decode(files["word/document.xml"]); files["word/document.xml"] = new TextEncoder().encode(xml.replace("x+1", numerator)); return zipSync(files); };
+const copy = (suffix: string, value = base): QuestionObject => ({ ...structuredClone(value), id: `${value.id}-${suffix}`, source: { ...value.source, document: `${suffix}.pdf`, sourceHash: `${suffix}-hash` } });
+const changed = (suffix: string, text: string) => { const q = copy(suffix); q.stem = [{ type: "text", value: text, sourceLocation: `source:${suffix}` } as never]; return q; };
+
+assert.equal(analyzeRelation(base, copy("pdf")).relations[0], "EXACT_DUPLICATE");
+const variant = changed("variant", "Giá trị của x+4 là");
+assert.ok(analyzeRelation(base, variant).relations.includes("PARAMETRIC_VARIANT") === false);
+const mathVariant = copy("math-variant"); mathVariant.stem = structuredClone(base.stem); const mathBlock = mathVariant.stem.find(block => block.type === "math"); if (mathBlock?.type === "math") { mathBlock.math = { ...mathBlock.math, latex: "\\frac{x+2}{2}", normalized: "\\frac{x+2}{2}", sourceLocation: "other" }; }
+assert.ok(analyzeRelation(base, mathVariant).relations.includes("PARAMETRIC_VARIANT"));
+const mathShape = (latex: string) => { const q = copy(`shape-${latex}`); const block = q.stem.find(item => item.type === "math"); if (block?.type === "math") block.math = { ...block.math, latex, normalized: latex, sourceLocation: latex }; return q; };
+assert.ok(!analyzeRelation(mathShape("x+3"), mathShape("\\sin(x)")).relations.includes("PARAMETRIC_VARIANT"));
+assert.ok(!analyzeRelation(mathShape("x<2"), mathShape("x<=2")).relations.includes("PARAMETRIC_VARIANT"));
+assert.ok(!analyzeRelation(mathShape("x^2"), mathShape("\\sqrt{x}")).relations.includes("PARAMETRIC_VARIANT"));
+const figureVariant = copy("figure"); figureVariant.stem = [{ type: "text", value: "Câu hỏi khác với hình" }]; figureVariant.figureAssociations = structuredClone(base.figureAssociations);
+assert.ok(analyzeRelation(base, figureVariant).relations.includes("SHARED_FIGURE"));
+const optionConflict = copy("options"); optionConflict.options[0].content = [{ type: "text", value: "999" }];
+assert.ok(analyzeRelation(base, optionConflict).relations.includes("SOURCE_CONFLICT"));
+const answerConflict = copy("answer"); answerConflict.answer = [{ type: "text", value: "khác" }];
+assert.ok(analyzeRelation(base, answerConflict).relations.includes("SOURCE_CONFLICT"));
+assert.equal(relationFingerprint(copy("vi")), relationFingerprint(copy("vi")));
+assert.notEqual(relationFingerprint(base), relationFingerprint(changed("sign", "Giá trị của -3 là")));
+
+const repository = new MemoryQuestionBankRepository(); const service = new QuestionBankService(repository);
+service.importDocx(createQuestionDocx(), "nguồn.docx"); service.importDocx(createQuestionDocx(), "bản-sao.pdf");
+const snapshot = repository.load(); assert.equal(snapshot.questions.length, 4); assert.equal(snapshot.relations?.duplicateAudit.length, 4);
+assert.deepEqual(snapshot.questions.map(q => q.index), [1, 2, 3, 4]);
+assert.equal(snapshot.relations?.relations.filter(r => r.relations.includes("EXACT_DUPLICATE")).length, 4);
+const familiesRepository = new MemoryQuestionBankRepository(); const familiesService = new QuestionBankService(familiesRepository);
+familiesService.importDocx(variantDocx("x+1"), "x-a.docx"); familiesService.importDocx(variantDocx("x+2"), "x-b.docx"); familiesService.importDocx(variantDocx("y+1"), "y-a.docx"); familiesService.importDocx(variantDocx("y+2"), "y-b.docx");
+const familySnapshot = familiesRepository.load(); const q1s = familySnapshot.questions.filter(q => q.index === 1); assert.equal(q1s.length, 4); const variantRelations = familySnapshot.relations?.relations.filter(r => r.relations.includes("PARAMETRIC_VARIANT")) ?? []; assert.equal(variantRelations.length, 2);
+const familyIds = familySnapshot.relations?.families ?? []; assert.equal(familyIds.length, 2); assert.notEqual(familyIds[0].familyId, familyIds[1].familyId); assert.deepEqual(familyIds.map(f => f.memberQuestionIds.length), [2, 2]); assert.equal(new Set(familyIds.flatMap(f => f.memberQuestionIds)).size, 4);
+const relationIndex = { schemaVersion: 1 as const, relations: [{ sourceQuestionId: base.id, targetQuestionId: variant.id, relations: ["DEPENDENT_ON" as const], evidence: [] }], families: [{ familyId: "FAMILY_x", memberQuestionIds: [base.id, variant.id], relationEvidence: [], schemaVersion: 1 as const }], duplicateAudit: [] };
+assert.ok(relationTypesForQuestion(relationIndex, base.id).includes("DEPENDENT_ON"));
+repository.replace({ schemaVersion: 1, questions: [base, variant], orphanFigures: [], relations: relationIndex });
+assert.equal(new QuestionSearchService(repository).query({ relationTypes: ["DEPENDENT_ON"] }).total, 2);
+assert.equal(deserializeSnapshot(JSON.stringify({ schemaVersion: 1, questions: [], orphanFigures: [] })).questions.length, 0);
+console.log("QUESTION_BANK_RELATIONS_V1_QA=PASS\nEXACT_DUPLICATE_QA=PASS\nPARAMETRIC_VARIANT_QA=PASS\nSHARED_FIGURE_QA=PASS\nSOURCE_CONFLICT_QA=PASS\nPROVENANCE_QA=PASS\nLEGACY_COMPATIBILITY_QA=PASS\nRELATION_SEARCH_QA=PASS");

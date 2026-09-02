@@ -8,6 +8,7 @@ export * from "./pipeline.js";
 export * from "./schema.js";
 export * from "./examAdapter.js";
 export * from "./duplicate.js";
+export * from "./relations.js";
 export * from "./repository.js";
 export * from "./bankService.js";
 export * from "./search.js";

@@ -15,5 +15,7 @@ export function canonicalizeCompositeAnchors(candidate: DocumentQuestionCandidat
   return discarded.size ? { ...candidate, figureAnchors: candidate.figureAnchors.filter((id) => !discarded.has(id)), parseWarnings: [...candidate.parseWarnings, "OVERLAPPING_VML_GROUP_DEDUPLICATED"] } : candidate;
 }
 function finish(document: DocumentIR) { const candidates = segmentQuestions(document).map((c) => canonicalizeCompositeAnchors(c, document)); const questions = candidates.map((c) => normalizeCandidate(c, document)); const figureAssociations = associateFigures(document, questions); return { document, candidates, questions, figureAssociations, warnings: [...document.warnings, ...candidates.flatMap((c) => c.parseWarnings)] }; }
+/** Source-independent Question Bank extraction from the canonical DocumentIR. */
+export function extractQuestionsFromDocumentIR(document: DocumentIR) { return finish(document); }
 export function ingestDocxQuestions(bytes: Uint8Array, name: string) { return finish(parseDocx(bytes, name)); }
 export async function ingestDocxQuestionsForRuntime(bytes: Uint8Array, name: string) { return finish(await deriveBrowserSafeFigures(parseDocx(bytes, name, { canonicalVml: true }))); }

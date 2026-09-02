@@ -1,0 +1,3707 @@
+{
+  "version": "PIMATH_UNIFIED_INPUT_V1",
+  "executedAt": "2026-09-02T20:48:01.417Z",
+  "metricDenominatorLockedBeforeRun": true,
+  "results": [
+    {
+      "requirementId": "R0",
+      "verificationId": "INPUT-R0-TRACEABILITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "matrix rows",
+          "expected": 64,
+          "actual": 64,
+          "passed": true
+        },
+        {
+          "assertion": "ordered ids",
+          "expected": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6",
+            "R7",
+            "R8",
+            "R9",
+            "R10",
+            "R11",
+            "R12",
+            "R13",
+            "R14",
+            "R15",
+            "R16",
+            "R17",
+            "R18",
+            "R19",
+            "R20",
+            "R21",
+            "R22",
+            "R23",
+            "R24",
+            "R25",
+            "R26",
+            "R27",
+            "R28",
+            "R29",
+            "R30",
+            "R31",
+            "R32",
+            "R33",
+            "R34",
+            "R35",
+            "R36",
+            "R37",
+            "R38",
+            "R39",
+            "R40",
+            "R41",
+            "R42",
+            "R43",
+            "R44",
+            "R45",
+            "R46",
+            "R47",
+            "R48",
+            "R49",
+            "R50",
+            "R51",
+            "R52",
+            "R53",
+            "R54",
+            "R55",
+            "R56",
+            "R57",
+            "R58",
+            "R59",
+            "R60",
+            "R61",
+            "R62",
+            "R63"
+          ],
+          "actual": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6",
+            "R7",
+            "R8",
+            "R9",
+            "R10",
+            "R11",
+            "R12",
+            "R13",
+            "R14",
+            "R15",
+            "R16",
+            "R17",
+            "R18",
+            "R19",
+            "R20",
+            "R21",
+            "R22",
+            "R23",
+            "R24",
+            "R25",
+            "R26",
+            "R27",
+            "R28",
+            "R29",
+            "R30",
+            "R31",
+            "R32",
+            "R33",
+            "R34",
+            "R35",
+            "R36",
+            "R37",
+            "R38",
+            "R39",
+            "R40",
+            "R41",
+            "R42",
+            "R43",
+            "R44",
+            "R45",
+            "R46",
+            "R47",
+            "R48",
+            "R49",
+            "R50",
+            "R51",
+            "R52",
+            "R53",
+            "R54",
+            "R55",
+            "R56",
+            "R57",
+            "R58",
+            "R59",
+            "R60",
+            "R61",
+            "R62",
+            "R63"
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R1",
+      "verificationId": "INPUT-R1-PUBLIC_API",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "public functions",
+          "expected": [
+            "function",
+            "function",
+            "function",
+            "function"
+          ],
+          "actual": [
+            "function",
+            "function",
+            "function",
+            "function"
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R2",
+      "verificationId": "INPUT-R2-DIAGNOSTICS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "diagnostics unique",
+          "expected": 28,
+          "actual": 28,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R3",
+      "verificationId": "INPUT-R3-FORMAT_MATRIX",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "formats",
+          "expected": [
+            "DOCX",
+            "DOC",
+            "PDF",
+            "PNG",
+            "JPEG"
+          ],
+          "actual": [
+            "DOCX",
+            "DOC",
+            "PDF",
+            "PNG",
+            "JPEG"
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R4",
+      "verificationId": "INPUT-R4-SIGNATURE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "signature mismatch",
+          "expected": "EXTENSION_SIGNATURE_MISMATCH",
+          "actual": "EXTENSION_SIGNATURE_MISMATCH",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R5",
+      "verificationId": "INPUT-R5-HOSTILE_INPUT",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "assertion": "oversize rejected",
+          "expected": "RESOURCE_LIMIT_EXCEEDED",
+          "actual": "RESOURCE_LIMIT_EXCEEDED",
+          "passed": true
+        },
+        {
+          "assertion": "archive entry limit",
+          "expected": "CORRUPT_DOCX",
+          "actual": "EXTENSION_SIGNATURE_MISMATCH",
+          "passed": false
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify",
+      "failureReason": "archive entry limit"
+    },
+    {
+      "requirementId": "R6",
+      "verificationId": "INPUT-R6-PROCESS_SECURITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "execFile only",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "assertion": "no cloud",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R7",
+      "verificationId": "INPUT-R7-PATH_CORRECTNESS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "temp root API",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R8",
+      "verificationId": "INPUT-R8-IDENTITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "sha identity",
+          "expected": "4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6",
+          "actual": "4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R9",
+      "verificationId": "INPUT-R9-IDEMPOTENCY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "same result",
+          "expected": "{\"sourceDocument\":\"a.png\",\"sourceHash\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"blocks\":[{\"id\":\"image-0\",\"kind\":\"PARAGRAPH\",\"order\":0,\"content\":[{\"type\":\"figure\",\"figureId\":\"asset-4c4b6a3be1314ab8\",\"sourceLocation\":\"a.png:region:full\"}],\"sourceLocation\":\"a.png:region:full\"}],\"figures\":[{\"id\":\"asset-4c4b6a3be1314ab8\",\"relationshipId\":\"asset-4c4b6a3be1314ab8\",\"mediaPath\":\"a.png\",\"mimeType\":\"image/png\",\"bytes\":{\"0\":137,\"1\":80,\"2\":78,\"3\":71,\"4\":13,\"5\":10,\"6\":26,\"7\":10},\"sourceLocation\":\"a.png\",\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"native-image\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"FIGURE_IDENTITY_PRESERVED\"]},\"status\":\"REVIEW\",\"issues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}]}],\"warnings\":[\"IMAGE_SEMANTIC_RECONSTRUCTION=REVIEW_REQUIRED\"],\"extractionIssues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}],\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"document-ingest/acceptance-gate\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"SIGNATURE_VALIDATION\",\"READABILITY_CHECK\"]}}",
+          "actual": "{\"sourceDocument\":\"a.png\",\"sourceHash\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"blocks\":[{\"id\":\"image-0\",\"kind\":\"PARAGRAPH\",\"order\":0,\"content\":[{\"type\":\"figure\",\"figureId\":\"asset-4c4b6a3be1314ab8\",\"sourceLocation\":\"a.png:region:full\"}],\"sourceLocation\":\"a.png:region:full\"}],\"figures\":[{\"id\":\"asset-4c4b6a3be1314ab8\",\"relationshipId\":\"asset-4c4b6a3be1314ab8\",\"mediaPath\":\"a.png\",\"mimeType\":\"image/png\",\"bytes\":{\"0\":137,\"1\":80,\"2\":78,\"3\":71,\"4\":13,\"5\":10,\"6\":26,\"7\":10},\"sourceLocation\":\"a.png\",\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"native-image\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"FIGURE_IDENTITY_PRESERVED\"]},\"status\":\"REVIEW\",\"issues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}]}],\"warnings\":[\"IMAGE_SEMANTIC_RECONSTRUCTION=REVIEW_REQUIRED\"],\"extractionIssues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}],\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"document-ingest/acceptance-gate\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"SIGNATURE_VALIDATION\",\"READABILITY_CHECK\"]}}",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R10",
+      "verificationId": "INPUT-R10-PROVIDER_PROVENANCE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "source:0:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "provenance metric",
+          "expected": 30,
+          "actual": 30,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R11",
+      "verificationId": "INPUT-R11-FALLBACK",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "image review",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R12",
+      "verificationId": "INPUT-R12-TIMEOUT",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "timeout locked",
+          "expected": 120000,
+          "actual": 120000,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R13",
+      "verificationId": "INPUT-R13-TEMPORARY_FILES",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "cleanup finally",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R14",
+      "verificationId": "INPUT-R14-DERIVATION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "history present",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R15",
+      "verificationId": "INPUT-R15-LEGACY_DOC",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "legacy review",
+          "expected": "REQUIRES_LEGACY_CONVERSION",
+          "actual": "REQUIRES_LEGACY_CONVERSION",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R16",
+      "verificationId": "INPUT-R16-ENCRYPTED_PDF",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "encrypted fail closed",
+          "expected": "ENCRYPTED_PDF",
+          "actual": "ENCRYPTED_PDF",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R17",
+      "verificationId": "INPUT-R17-PAGE_SEMANTICS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "CP01:count",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q1-pages",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q2-page",
+          "expected": [
+            2
+          ],
+          "actual": [
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP02:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R18",
+      "verificationId": "INPUT-R18-ROTATION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "EXIF rotation",
+          "expected": 90,
+          "actual": 90,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R19",
+      "verificationId": "INPUT-R19-ORIENTATION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "EXIF orientation",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R20",
+      "verificationId": "INPUT-R20-QUALITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "quality routing",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R21",
+      "verificationId": "INPUT-R21-VIETNAMESE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "Vietnamese preserved",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R22",
+      "verificationId": "INPUT-R22-MATH_FIDELITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "MF01:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF02:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF03:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF04:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF05:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF06:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF07:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF08:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF09:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF10:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF11:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF12:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF13:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF14:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF15:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R23",
+      "verificationId": "INPUT-R23-TABLES",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "TB01:rows",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB01:columns",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB01:row:0",
+          "expected": [
+            "x",
+            "x+1"
+          ],
+          "actual": [
+            "x",
+            "x+1"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB01:row:1",
+          "expected": [
+            "1",
+            "2"
+          ],
+          "actual": [
+            "1",
+            "2"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB01:order",
+          "expected": [
+            "x",
+            "x+1",
+            "1",
+            "2"
+          ],
+          "actual": [
+            "x",
+            "x+1",
+            "1",
+            "2"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:rows",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB02:columns",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "assertion": "TB02:row:0",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:row:1",
+          "expected": [
+            "1",
+            "2",
+            "3"
+          ],
+          "actual": [
+            "1",
+            "2",
+            "3"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:order",
+          "expected": [
+            "A",
+            "B",
+            "C",
+            "1",
+            "2",
+            "3"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C",
+            "1",
+            "2",
+            "3"
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R24",
+      "verificationId": "INPUT-R24-FURNITURE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "section context",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R25",
+      "verificationId": "INPUT-R25-NUMBERING",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "question boundaries",
+          "expected": 8,
+          "actual": 8,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R26",
+      "verificationId": "INPUT-R26-CROSS_PAGE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "CP01:count",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q1-pages",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q2-page",
+          "expected": [
+            2
+          ],
+          "actual": [
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP02:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R27",
+      "verificationId": "INPUT-R27-ANSWER_KEY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "conflict unresolved",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R28",
+      "verificationId": "INPUT-R28-GROUPING",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "SG01",
+          "expected": "SAME_SOURCE_GROUP",
+          "actual": "SAME_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG02",
+          "expected": "SAME_SOURCE_GROUP",
+          "actual": "SAME_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG03",
+          "expected": "DIFFERENT_SOURCE_GROUP",
+          "actual": "DIFFERENT_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG04",
+          "expected": "DIFFERENT_SOURCE_GROUP",
+          "actual": "DIFFERENT_SOURCE_GROUP",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R29",
+      "verificationId": "INPUT-R29-FIELD_PROVENANCE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "DOCX:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:figure:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:figure:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R30",
+      "verificationId": "INPUT-R30-CONFLICT_LEDGER",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "all disagreements logged",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R31",
+      "verificationId": "INPUT-R31-REVIEW_CONTRACT",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "no automatic conflict winner",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R32",
+      "verificationId": "INPUT-R32-ORDERING",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "ordered questions",
+          "expected": [
+            1,
+            2,
+            3
+          ],
+          "actual": [
+            1,
+            2,
+            3
+          ],
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R33",
+      "verificationId": "INPUT-R33-CONCURRENCY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "independent concurrent results",
+          "expected": 8,
+          "actual": 8,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R34",
+      "verificationId": "INPUT-R34-CRASH_CONSISTENCY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "valid after invalid",
+          "expected": "4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6",
+          "actual": "4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R35",
+      "verificationId": "INPUT-R35-BANK_ATOMICITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "unchanged",
+          "expected": "{\"schemaVersion\":1,\"questions\":[],\"orphanFigures\":[],\"relations\":{\"schemaVersion\":1,\"relations\":[],\"families\":[],\"duplicateAudit\":[]}}",
+          "actual": "{\"schemaVersion\":1,\"questions\":[],\"orphanFigures\":[],\"relations\":{\"schemaVersion\":1,\"relations\":[],\"families\":[],\"duplicateAudit\":[]}}",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R36",
+      "verificationId": "INPUT-R36-DUPLICATE_SOURCE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "different content hash",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R37",
+      "verificationId": "INPUT-R37-VERSIONING",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "version",
+          "expected": "PIMATH_UNIFIED_INPUT_V1",
+          "actual": "PIMATH_UNIFIED_INPUT_V1",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R38",
+      "verificationId": "INPUT-R38-TIMESTAMP_IDENTITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "timestamp free",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R39",
+      "verificationId": "INPUT-R39-CORPUS_MANIFEST",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "manifest hashes",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R40",
+      "verificationId": "INPUT-R40-HUMAN_REFERENCE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "human pages",
+          "expected": 4,
+          "actual": 4,
+          "passed": true
+        },
+        {
+          "assertion": "approved page anchors",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "reference sources bound",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R41",
+      "verificationId": "INPUT-R41-CLASSIFICATION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "QB01:type:0",
+          "expected": "MULTIPLE_CHOICE",
+          "actual": "MULTIPLE_CHOICE",
+          "passed": true
+        },
+        {
+          "assertion": "QB01:type:1",
+          "expected": "MULTIPLE_CHOICE",
+          "actual": "MULTIPLE_CHOICE",
+          "passed": true
+        },
+        {
+          "assertion": "QB02:type:0",
+          "expected": "TRUE_FALSE",
+          "actual": "TRUE_FALSE",
+          "passed": true
+        },
+        {
+          "assertion": "QB03:type:0",
+          "expected": "SHORT_ANSWER",
+          "actual": "SHORT_ANSWER",
+          "passed": true
+        },
+        {
+          "assertion": "QB04:type:0",
+          "expected": "ESSAY",
+          "actual": "ESSAY",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R42",
+      "verificationId": "INPUT-R42-TEST_BALANCE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "fixture families",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R43",
+      "verificationId": "INPUT-R43-SNAPSHOT_SAFETY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "static authority",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R44",
+      "verificationId": "INPUT-R44-ARCHITECTURE_BUDGET",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "CANONICAL_DOCUMENT_IR_REUSED",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "assertion": "PARALLEL_IR_COUNT",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "assertion": "PARALLEL_QUESTION_PIPELINE_COUNT",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "assertion": "PARALLEL_QB_COUNT",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "assertion": "PIMATH_DNA_MUTATION_COUNT",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R45",
+      "verificationId": "INPUT-R45-DEPENDENCY_AUDIT",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "cert script",
+          "expected": "node --import tsx tests/test-pimath-unified-input-certification-v1.ts",
+          "actual": "node --import tsx tests/test-pimath-unified-input-certification-v1.ts",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R46",
+      "verificationId": "INPUT-R46-IMMUTABILITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "input unchanged",
+          "expected": "89504e470d0a1a0a",
+          "actual": "89504e470d0a1a0a",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R47",
+      "verificationId": "INPUT-R47-REPEATABILITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "repeatable",
+          "expected": "{\"sourceDocument\":\"a.png\",\"sourceHash\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"blocks\":[{\"id\":\"image-0\",\"kind\":\"PARAGRAPH\",\"order\":0,\"content\":[{\"type\":\"figure\",\"figureId\":\"asset-4c4b6a3be1314ab8\",\"sourceLocation\":\"a.png:region:full\"}],\"sourceLocation\":\"a.png:region:full\"}],\"figures\":[{\"id\":\"asset-4c4b6a3be1314ab8\",\"relationshipId\":\"asset-4c4b6a3be1314ab8\",\"mediaPath\":\"a.png\",\"mimeType\":\"image/png\",\"bytes\":{\"0\":137,\"1\":80,\"2\":78,\"3\":71,\"4\":13,\"5\":10,\"6\":26,\"7\":10},\"sourceLocation\":\"a.png\",\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"native-image\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"FIGURE_IDENTITY_PRESERVED\"]},\"status\":\"REVIEW\",\"issues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}]}],\"warnings\":[\"IMAGE_SEMANTIC_RECONSTRUCTION=REVIEW_REQUIRED\"],\"extractionIssues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}],\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"document-ingest/acceptance-gate\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"SIGNATURE_VALIDATION\",\"READABILITY_CHECK\"]}}",
+          "actual": "{\"sourceDocument\":\"a.png\",\"sourceHash\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"blocks\":[{\"id\":\"image-0\",\"kind\":\"PARAGRAPH\",\"order\":0,\"content\":[{\"type\":\"figure\",\"figureId\":\"asset-4c4b6a3be1314ab8\",\"sourceLocation\":\"a.png:region:full\"}],\"sourceLocation\":\"a.png:region:full\"}],\"figures\":[{\"id\":\"asset-4c4b6a3be1314ab8\",\"relationshipId\":\"asset-4c4b6a3be1314ab8\",\"mediaPath\":\"a.png\",\"mimeType\":\"image/png\",\"bytes\":{\"0\":137,\"1\":80,\"2\":78,\"3\":71,\"4\":13,\"5\":10,\"6\":26,\"7\":10},\"sourceLocation\":\"a.png\",\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"native-image\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"FIGURE_IDENTITY_PRESERVED\"]},\"status\":\"REVIEW\",\"issues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}]}],\"warnings\":[\"IMAGE_SEMANTIC_RECONSTRUCTION=REVIEW_REQUIRED\"],\"extractionIssues\":[{\"code\":\"IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE\",\"severity\":\"WARNING\",\"message\":\"Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.\",\"status\":\"REVIEW\",\"sourceAnchor\":{\"sourceDocumentId\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"objectIndex\":0}}],\"provenance\":{\"sourceFile\":\"a.png\",\"sourceSha256\":\"4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6\",\"sourceKind\":\"PNG\",\"parser\":\"document-ingest/acceptance-gate\",\"parserVersion\":\"1.0\",\"transformationHistory\":[\"SOURCE_FINGERPRINT\",\"SIGNATURE_VALIDATION\",\"READABILITY_CHECK\"]}}",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R48",
+      "verificationId": "INPUT-R48-FAILURE_INJECTION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "invalid rejected",
+          "expected": "INVALID",
+          "actual": "INVALID",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R49",
+      "verificationId": "INPUT-R49-BACKWARD_COMPATIBILITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "canonical question pipeline",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R50",
+      "verificationId": "INPUT-R50-FALLBACK_TRACEABILITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "fallback code",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R51",
+      "verificationId": "INPUT-R51-NO_DATA_LOSS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "figure bytes",
+          "expected": "89504e470d0a1a0a",
+          "actual": "89504e470d0a1a0a",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R52",
+      "verificationId": "INPUT-R52-FAILURE_CLASSIFICATION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "known codes",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R53",
+      "verificationId": "INPUT-R53-DENOMINATORS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "QB01:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB01:question:2",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB02:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB03:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB04:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB05:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB05:question:2",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB05:question:3",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB01:type:0",
+          "expected": "MULTIPLE_CHOICE",
+          "actual": "MULTIPLE_CHOICE",
+          "passed": true
+        },
+        {
+          "assertion": "QB01:type:1",
+          "expected": "MULTIPLE_CHOICE",
+          "actual": "MULTIPLE_CHOICE",
+          "passed": true
+        },
+        {
+          "assertion": "QB02:type:0",
+          "expected": "TRUE_FALSE",
+          "actual": "TRUE_FALSE",
+          "passed": true
+        },
+        {
+          "assertion": "QB03:type:0",
+          "expected": "SHORT_ANSWER",
+          "actual": "SHORT_ANSWER",
+          "passed": true
+        },
+        {
+          "assertion": "QB04:type:0",
+          "expected": "ESSAY",
+          "actual": "ESSAY",
+          "passed": true
+        },
+        {
+          "assertion": "SC01:q1:section",
+          "expected": "TRẮC NGHIỆM",
+          "actual": "TRẮC NGHIỆM",
+          "passed": true
+        },
+        {
+          "assertion": "SC01:q2:section",
+          "expected": "TRẮC NGHIỆM",
+          "actual": "TRẮC NGHIỆM",
+          "passed": true
+        },
+        {
+          "assertion": "SC02:q1:section",
+          "expected": "TỰ LUẬN",
+          "actual": "TỰ LUẬN",
+          "passed": true
+        },
+        {
+          "assertion": "SC02:q2:section",
+          "expected": "TỰ LUẬN",
+          "actual": "TỰ LUẬN",
+          "passed": true
+        },
+        {
+          "assertion": "plainText",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "inlineEquation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "displayEquation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "fractionsRadicals",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "vietnameseMath",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "image",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "table",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "multipleProblems",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "unsupportedOmml",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "structured",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN01:answer",
+          "expected": "B",
+          "actual": "B",
+          "passed": true
+        },
+        {
+          "assertion": "AN02:answer",
+          "expected": "B",
+          "actual": "B",
+          "passed": true
+        },
+        {
+          "assertion": "AN03:answer",
+          "expected": "B",
+          "actual": "B",
+          "passed": true
+        },
+        {
+          "assertion": "AN04:answer",
+          "passed": true
+        },
+        {
+          "assertion": "AN05:answer",
+          "passed": true
+        },
+        {
+          "assertion": "AN01:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN02:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN03:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN04:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN05:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "FG01:F1",
+          "expected": {
+            "owner": "FG0100000000-q1",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0100000000-q1",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG02:F2",
+          "expected": {
+            "owner": "FG0200000000-q2",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0200000000-q2",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG03:F3",
+          "expected": {
+            "status": "UNASSIGNED"
+          },
+          "actual": {
+            "status": "UNASSIGNED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG04:F4",
+          "expected": {
+            "owner": "FG0400000000-q1",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0400000000-q1",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG05:F5",
+          "expected": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG05:F6",
+          "expected": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "SG01",
+          "expected": "SAME_SOURCE_GROUP",
+          "actual": "SAME_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG02",
+          "expected": "SAME_SOURCE_GROUP",
+          "actual": "SAME_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG03",
+          "expected": "DIFFERENT_SOURCE_GROUP",
+          "actual": "DIFFERENT_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG04",
+          "expected": "DIFFERENT_SOURCE_GROUP",
+          "actual": "DIFFERENT_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "TB01:rows",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB01:columns",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB01:row:0",
+          "expected": [
+            "x",
+            "x+1"
+          ],
+          "actual": [
+            "x",
+            "x+1"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB01:row:1",
+          "expected": [
+            "1",
+            "2"
+          ],
+          "actual": [
+            "1",
+            "2"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB01:order",
+          "expected": [
+            "x",
+            "x+1",
+            "1",
+            "2"
+          ],
+          "actual": [
+            "x",
+            "x+1",
+            "1",
+            "2"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:rows",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB02:columns",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "assertion": "TB02:row:0",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:row:1",
+          "expected": [
+            "1",
+            "2",
+            "3"
+          ],
+          "actual": [
+            "1",
+            "2",
+            "3"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:order",
+          "expected": [
+            "A",
+            "B",
+            "C",
+            "1",
+            "2",
+            "3"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C",
+            "1",
+            "2",
+            "3"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:count",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q1-pages",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q2-page",
+          "expected": [
+            2
+          ],
+          "actual": [
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP02:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "RC01",
+          "expected": "AGREE",
+          "actual": "AGREE",
+          "passed": true
+        },
+        {
+          "assertion": "RC02",
+          "expected": "FORMAT_EQUIVALENT",
+          "actual": "FORMAT_EQUIVALENT",
+          "passed": true
+        },
+        {
+          "assertion": "RC03",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC04",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC05",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC06",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF01:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF02:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF03:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF04:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF05:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF06:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF07:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF08:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF09:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF10:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF11:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF12:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF13:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF14:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF15:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:figure:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:figure:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "locked unchanged",
+          "expected": "{\n  \"version\": \"PIMATH_UNIFIED_INPUT_V1\",\n  \"authority\": \"HUMAN_AUTHORIZED_SPECIFICATION\",\n  \"lockedBeforeMeasurement\": true,\n  \"denominators\": {\n    \"QUESTION_BOUNDARY\": 8,\n    \"QUESTION_TYPE\": 5,\n    \"SHARED_CONTEXT\": 4,\n    \"DOCX_COMPLEX_FIDELITY\": 10,\n    \"ANSWER_LINK\": 5,\n    \"SOLUTION_LINK\": 5,\n    \"FIGURE_LINK\": 6,\n    \"SOURCE_GROUP\": 4,\n    \"TABLE_STRUCTURE\": 10,\n    \"CROSS_PAGE_QUESTION\": 5,\n    \"RECONCILIATION\": 6,\n    \"MATH_FIDELITY\": 15,\n    \"PROVENANCE\": 30,\n    \"FIELD_LEVEL_PROVENANCE\": 20\n  }\n}\n",
+          "actual": "{\n  \"version\": \"PIMATH_UNIFIED_INPUT_V1\",\n  \"authority\": \"HUMAN_AUTHORIZED_SPECIFICATION\",\n  \"lockedBeforeMeasurement\": true,\n  \"denominators\": {\n    \"QUESTION_BOUNDARY\": 8,\n    \"QUESTION_TYPE\": 5,\n    \"SHARED_CONTEXT\": 4,\n    \"DOCX_COMPLEX_FIDELITY\": 10,\n    \"ANSWER_LINK\": 5,\n    \"SOLUTION_LINK\": 5,\n    \"FIGURE_LINK\": 6,\n    \"SOURCE_GROUP\": 4,\n    \"TABLE_STRUCTURE\": 10,\n    \"CROSS_PAGE_QUESTION\": 5,\n    \"RECONCILIATION\": 6,\n    \"MATH_FIDELITY\": 15,\n    \"PROVENANCE\": 30,\n    \"FIELD_LEVEL_PROVENANCE\": 20\n  }\n}\n",
+          "passed": true
+        },
+        {
+          "assertion": "mtime unchanged",
+          "expected": 1788379398467.4607,
+          "actual": 1788379398467.4607,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R54",
+      "verificationId": "INPUT-R54-REVIEW_PRECISION",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "RC01",
+          "expected": "AGREE",
+          "actual": "AGREE",
+          "passed": true
+        },
+        {
+          "assertion": "RC02",
+          "expected": "FORMAT_EQUIVALENT",
+          "actual": "FORMAT_EQUIVALENT",
+          "passed": true
+        },
+        {
+          "assertion": "RC03",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC04",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC05",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC06",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R55",
+      "verificationId": "INPUT-R55-NON_GOALS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "no MultiSourceIR/cloud",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R56",
+      "verificationId": "INPUT-R56-CODE_QUALITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "structured evidence",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R57",
+      "verificationId": "INPUT-R57-EXECUTION_ORDER",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "denominators loaded before metrics",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R58",
+      "verificationId": "INPUT-R58-STOP_CONDITIONS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "failure preserved",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R59",
+      "verificationId": "INPUT-R59-COMMIT_GATE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "feature branch",
+          "expected": "feature/pimath-unified-input-v1",
+          "actual": "feature/pimath-unified-input-v1",
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R60",
+      "verificationId": "INPUT-R60-CLOSURE_GATE",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "assertion": "prior requirements pass",
+          "expected": 60,
+          "actual": 59,
+          "passed": false
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify",
+      "failureReason": "prior requirements pass"
+    },
+    {
+      "requirementId": "R61",
+      "verificationId": "INPUT-R61-REPORT_CONTRACT",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "result fields",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R62",
+      "verificationId": "INPUT-R62-ANTI_FAKE_PASS",
+      "status": "PASS",
+      "evidence": [
+        {
+          "assertion": "every pass has successful evidence",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify"
+    },
+    {
+      "requirementId": "R63",
+      "verificationId": "INPUT-R63-FINAL_PRINCIPLE",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "assertion": "all prior pass",
+          "expected": 63,
+          "actual": 61,
+          "passed": false
+        }
+      ],
+      "testCommand": "npm run qa:unified-input:certify",
+      "failureReason": "all prior pass"
+    }
+  ],
+  "metrics": {
+    "QUESTION_BOUNDARY": {
+      "numerator": 8,
+      "denominator": 8,
+      "ratio": "8/8",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "QB01:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB01:question:2",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB02:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB03:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB04:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB05:question:1",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB05:question:2",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "QB05:question:3",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    },
+    "QUESTION_TYPE": {
+      "numerator": 5,
+      "denominator": 5,
+      "ratio": "5/5",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "QB01:type:0",
+          "expected": "MULTIPLE_CHOICE",
+          "actual": "MULTIPLE_CHOICE",
+          "passed": true
+        },
+        {
+          "assertion": "QB01:type:1",
+          "expected": "MULTIPLE_CHOICE",
+          "actual": "MULTIPLE_CHOICE",
+          "passed": true
+        },
+        {
+          "assertion": "QB02:type:0",
+          "expected": "TRUE_FALSE",
+          "actual": "TRUE_FALSE",
+          "passed": true
+        },
+        {
+          "assertion": "QB03:type:0",
+          "expected": "SHORT_ANSWER",
+          "actual": "SHORT_ANSWER",
+          "passed": true
+        },
+        {
+          "assertion": "QB04:type:0",
+          "expected": "ESSAY",
+          "actual": "ESSAY",
+          "passed": true
+        }
+      ]
+    },
+    "SHARED_CONTEXT": {
+      "numerator": 4,
+      "denominator": 4,
+      "ratio": "4/4",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "SC01:q1:section",
+          "expected": "TRẮC NGHIỆM",
+          "actual": "TRẮC NGHIỆM",
+          "passed": true
+        },
+        {
+          "assertion": "SC01:q2:section",
+          "expected": "TRẮC NGHIỆM",
+          "actual": "TRẮC NGHIỆM",
+          "passed": true
+        },
+        {
+          "assertion": "SC02:q1:section",
+          "expected": "TỰ LUẬN",
+          "actual": "TỰ LUẬN",
+          "passed": true
+        },
+        {
+          "assertion": "SC02:q2:section",
+          "expected": "TỰ LUẬN",
+          "actual": "TỰ LUẬN",
+          "passed": true
+        }
+      ]
+    },
+    "DOCX_COMPLEX_FIDELITY": {
+      "numerator": 10,
+      "denominator": 10,
+      "ratio": "10/10",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "plainText",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "inlineEquation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "displayEquation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "fractionsRadicals",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "vietnameseMath",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "image",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "table",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "multipleProblems",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "unsupportedOmml",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "structured",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    },
+    "ANSWER_LINK": {
+      "numerator": 5,
+      "denominator": 5,
+      "ratio": "5/5",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "AN01:answer",
+          "expected": "B",
+          "actual": "B",
+          "passed": true
+        },
+        {
+          "assertion": "AN02:answer",
+          "expected": "B",
+          "actual": "B",
+          "passed": true
+        },
+        {
+          "assertion": "AN03:answer",
+          "expected": "B",
+          "actual": "B",
+          "passed": true
+        },
+        {
+          "assertion": "AN04:answer",
+          "passed": true
+        },
+        {
+          "assertion": "AN05:answer",
+          "passed": true
+        }
+      ]
+    },
+    "SOLUTION_LINK": {
+      "numerator": 5,
+      "denominator": 5,
+      "ratio": "5/5",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "AN01:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN02:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN03:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN04:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "AN05:solution",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    },
+    "FIGURE_LINK": {
+      "numerator": 6,
+      "denominator": 6,
+      "ratio": "6/6",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "FG01:F1",
+          "expected": {
+            "owner": "FG0100000000-q1",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0100000000-q1",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG02:F2",
+          "expected": {
+            "owner": "FG0200000000-q2",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0200000000-q2",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG03:F3",
+          "expected": {
+            "status": "UNASSIGNED"
+          },
+          "actual": {
+            "status": "UNASSIGNED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG04:F4",
+          "expected": {
+            "owner": "FG0400000000-q1",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0400000000-q1",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG05:F5",
+          "expected": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        },
+        {
+          "assertion": "FG05:F6",
+          "expected": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "actual": {
+            "owner": "FG0500000000-q2",
+            "status": "CONFIRMED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "SOURCE_GROUP": {
+      "numerator": 4,
+      "denominator": 4,
+      "ratio": "4/4",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "SG01",
+          "expected": "SAME_SOURCE_GROUP",
+          "actual": "SAME_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG02",
+          "expected": "SAME_SOURCE_GROUP",
+          "actual": "SAME_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG03",
+          "expected": "DIFFERENT_SOURCE_GROUP",
+          "actual": "DIFFERENT_SOURCE_GROUP",
+          "passed": true
+        },
+        {
+          "assertion": "SG04",
+          "expected": "DIFFERENT_SOURCE_GROUP",
+          "actual": "DIFFERENT_SOURCE_GROUP",
+          "passed": true
+        }
+      ]
+    },
+    "TABLE_STRUCTURE": {
+      "numerator": 10,
+      "denominator": 10,
+      "ratio": "10/10",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "TB01:rows",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB01:columns",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB01:row:0",
+          "expected": [
+            "x",
+            "x+1"
+          ],
+          "actual": [
+            "x",
+            "x+1"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB01:row:1",
+          "expected": [
+            "1",
+            "2"
+          ],
+          "actual": [
+            "1",
+            "2"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB01:order",
+          "expected": [
+            "x",
+            "x+1",
+            "1",
+            "2"
+          ],
+          "actual": [
+            "x",
+            "x+1",
+            "1",
+            "2"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:rows",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "TB02:columns",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "assertion": "TB02:row:0",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:row:1",
+          "expected": [
+            "1",
+            "2",
+            "3"
+          ],
+          "actual": [
+            "1",
+            "2",
+            "3"
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "TB02:order",
+          "expected": [
+            "A",
+            "B",
+            "C",
+            "1",
+            "2",
+            "3"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C",
+            "1",
+            "2",
+            "3"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    "CROSS_PAGE_QUESTION": {
+      "numerator": 5,
+      "denominator": 5,
+      "ratio": "5/5",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "CP01:count",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q1-pages",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:q2-page",
+          "expected": [
+            2
+          ],
+          "actual": [
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP01:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        },
+        {
+          "assertion": "CP02:order",
+          "expected": [
+            1,
+            2
+          ],
+          "actual": [
+            1,
+            2
+          ],
+          "passed": true
+        }
+      ]
+    },
+    "RECONCILIATION": {
+      "numerator": 6,
+      "denominator": 6,
+      "ratio": "6/6",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "RC01",
+          "expected": "AGREE",
+          "actual": "AGREE",
+          "passed": true
+        },
+        {
+          "assertion": "RC02",
+          "expected": "FORMAT_EQUIVALENT",
+          "actual": "FORMAT_EQUIVALENT",
+          "passed": true
+        },
+        {
+          "assertion": "RC03",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC04",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC05",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "RC06",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        }
+      ]
+    },
+    "MATH_FIDELITY": {
+      "numerator": 15,
+      "denominator": 15,
+      "ratio": "15/15",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "MF01:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF02:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF03:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF04:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF05:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF06:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF07:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF08:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF09:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF10:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF11:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF12:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF13:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF14:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        },
+        {
+          "assertion": "MF15:runtime-conflict",
+          "expected": "CONFLICT_REVIEW_REQUIRED",
+          "actual": "CONFLICT_REVIEW_REQUIRED",
+          "passed": true
+        }
+      ]
+    },
+    "PROVENANCE": {
+      "numerator": 30,
+      "denominator": 30,
+      "ratio": "30/30",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "source:0:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:0:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:1:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:2:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:3:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceFile",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceSha256",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:sourceKind",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:parser",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:parserVersion",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "source:4:transformationHistory",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    },
+    "FIELD_LEVEL_PROVENANCE": {
+      "numerator": 20,
+      "denominator": 20,
+      "ratio": "20/20",
+      "percentage": 100,
+      "evidence": [
+        {
+          "assertion": "DOCX:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "DOCX:figure:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF1:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF2:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "PDF3:provenance",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:block:id",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:block:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:content:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "assertion": "JPEG:figure:sourceLocation",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    }
+  },
+  "summary": {
+    "totalV1Requirements": 64,
+    "passMandatoryRequirements": 61,
+    "failedMandatoryRequirementCount": 3,
+    "untestedMandatoryRequirementCount": 0,
+    "unresolvedMandatoryBlockerCount": 3,
+    "requirementTraceabilityCoverage": "100%",
+    "finalStatus": "FAIL_OPEN_V1"
+  }
+}
