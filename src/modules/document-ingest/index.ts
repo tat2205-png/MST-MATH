@@ -32,6 +32,21 @@ const imageTypes = new Map([[".png", "image/png"], [".jpg", "image/jpeg"], [".jp
 
 function failure(code: string, message: string): IngestResult { return { ok: false, diagnostics: [{ code, message }] }; }
 
+function pdfPages(bytes: Uint8Array): number {
+  try { const info = execFileSync("pdfinfo", ["-"], { input: Buffer.from(bytes), encoding: "utf8", windowsHide: true }); const match = info.match(/^Pages:\s+(\d+)/m); return match ? Number(match[1]) : 1; } catch { return 1; }
+}
+
+function pdfDocument(source: IngestSource, sourceHash: string): DocumentIR {
+  const pages = pdfPages(source.bytes); const blocks: DocumentIR["blocks"] = []; const issues: DocumentIR["extractionIssues"] = [];
+  for (let page = 1; page <= pages; page++) {
+    let text = "";
+    try { text = execFileSync("pdftotext", ["-f", String(page), "-l", String(page), "-enc", "UTF-8", "-layout", "-", "-"], { input: Buffer.from(source.bytes), encoding: "utf8", windowsHide: true }); } catch { text = ""; }
+    if (text.trim()) blocks.push({ id: `pdf-page-${page}`, kind: "PARAGRAPH", order: page - 1, paragraphIndex: page - 1, content: [{ type: "text", value: text, sourceLocation: `${source.name}:page:${page}` }], sourceLocation: `${source.name}:page:${page}` });
+    else issues.push({ code: "PDF_PAGE_TEXT_UNAVAILABLE", severity: "WARNING", message: `No native text evidence for page ${page}. OCR/layout review is required.`, status: "REVIEW", sourceAnchor: { sourceDocumentId: sourceHash, objectIndex: page - 1 } });
+  }
+  return { sourceDocument: source.name, sourceHash, blocks, figures: [], warnings: issues.length ? ["PDF_READING_ORDER_STATUS=REVIEW_REQUIRED", "PDF_SCAN_REQUIRES_LAYOUT_OCR"] : [], extractionIssues: issues, provenance: { sourceFile: source.name, sourceSha256: sourceHash, sourceKind: "PDF", parser: "native-pdf", parserVersion: "pdftotext-layout", transformationHistory: ["SOURCE_FINGERPRINT", "NATIVE_PAGE_EXTRACTION", "DETERMINISTIC_EVIDENCE_RECONCILIATION"] } };
+}
+
 function extension(name: string): string { const dot = name.lastIndexOf("."); return dot < 0 ? "" : name.slice(dot).toLowerCase(); }
 
 const zipSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0x50 && b[1] === 0x4b && (b[2] === 3 || b[2] === 5 || b[2] === 7) && (b[3] === 4 || b[3] === 6 || b[3] === 8);
@@ -75,11 +90,8 @@ export function ingestApprovedSource(source: IngestSource): IngestResult {
   const ext = extension(source.name);
   if (ext === ".pdf") {
     if (source.bytes.length < 5 || Buffer.from(source.bytes.subarray(0, 5)).toString("ascii") !== "%PDF-") return failure("INVALID_PDF", "The PDF signature is invalid.");
-    let text: string;
-    try { text = execFileSync("pdftotext", ["-enc", "UTF-8", "-layout", "-", "-"], { input: Buffer.from(source.bytes), encoding: "utf8", windowsHide: true }); }
-    catch { return failure("PDF_CONTENT_UNREADABLE", "The supported PDF content could not be extracted."); }
     const sourceHash = hash(source.bytes);
-    const document: DocumentIR = { sourceDocument: source.name, sourceHash, blocks: text ? [{ id: "pdf-text-0", kind: "PARAGRAPH", order: 0, content: [{ type: "text", value: text, sourceLocation: `${source.name}:text` }], sourceLocation: `${source.name}:text` }] : [], figures: [], warnings: [] };
+    const document = pdfDocument(source, sourceHash);
     return { ok: true, kind: "PDF", document, sourceHash, assetIds: [] };
   }
   const expectedMime = imageTypes.get(ext);
@@ -89,6 +101,9 @@ export function ingestApprovedSource(source: IngestSource): IngestResult {
   if (!valid) return failure("INVALID_IMAGE", "The image signature is invalid.");
   const sourceHash = hash(source.bytes), assetId = `asset-${sourceHash.slice(0, 16)}`;
   const figure: FigureRecord = { id: assetId, relationshipId: assetId, mediaPath: source.name, mimeType: expectedMime, bytes: new Uint8Array(source.bytes), sourceLocation: source.name };
-  const document: DocumentIR = { sourceDocument: source.name, sourceHash, blocks: [{ id: "image-0", kind: "PARAGRAPH", order: 0, content: [{ type: "figure", figureId: assetId, sourceLocation: source.name }], sourceLocation: source.name }], figures: [figure], warnings: [] };
+  const issue = { code: "IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE", severity: "WARNING" as const, message: "Raster text/math requires approved layout/OCR evidence; the source image remains authoritative.", status: "REVIEW" as const, sourceAnchor: { sourceDocumentId: sourceHash, objectIndex: 0 } };
+  figure.provenance = { sourceFile: source.name, sourceSha256: sourceHash, sourceKind: ext.slice(1).toUpperCase(), parser: "native-image", parserVersion: "1.0", transformationHistory: ["SOURCE_FINGERPRINT", "FIGURE_IDENTITY_PRESERVED"] };
+  figure.status = "REVIEW"; figure.issues = [issue];
+  const document: DocumentIR = { sourceDocument: source.name, sourceHash, blocks: [{ id: "image-0", kind: "PARAGRAPH", order: 0, content: [{ type: "figure", figureId: assetId, sourceLocation: `${source.name}:region:full` }], sourceLocation: `${source.name}:region:full` }], figures: [figure], warnings: ["IMAGE_SEMANTIC_RECONSTRUCTION=REVIEW_REQUIRED"], extractionIssues: [issue], provenance: { sourceFile: source.name, sourceSha256: sourceHash, sourceKind: ext.slice(1).toUpperCase(), parser: "native-image", parserVersion: "1.0", transformationHistory: ["SOURCE_FINGERPRINT", "FIGURE_IDENTITY_PRESERVED", "DETERMINISTIC_EVIDENCE_RECONCILIATION"] } };
   return { ok: true, kind: "IMAGE", document, sourceHash, assetIds: [assetId] };
 }
