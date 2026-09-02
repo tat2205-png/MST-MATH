@@ -16,3 +16,4 @@ export * from "./standardsAdapter.js";
 export * from "./export.js";
 export * from "./contracts.js";
 export * from "./canonical-segmentation.js";
+export * from "./package-integration.js";
