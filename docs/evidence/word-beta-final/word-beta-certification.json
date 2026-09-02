@@ -2,17 +2,9 @@
   "frozenBoundaryCount": 670,
   "questionIRCount": 670,
   "packageCount": 670,
-  "uniqueSourceMathCount": 3260,
-  "uniqueDocumentIrMathCount": 3260,
-  "uniqueQuestionScopedMathCount": 2844,
-  "questionMathOwnershipLinkCount": 3240,
-  "questionScopedQuestionIrMathCount": 3240,
-  "questionScopedPackageMathCount": 3240,
-  "uniqueSourceAssetCount": 583,
-  "questionAssetAssociationLinkCount": 581,
-  "uniqueQuestionScopedAssetCount": 442,
-  "answerMappingCount": 117,
-  "solutionMappingCount": 143,
+  "sourceFileCount": 11,
+  "hashMatchCount": 11,
+  "hashMismatchCount": 0,
   "types": {
     "MULTIPLE_CHOICE": 271,
     "TRUE_FALSE": 0,
@@ -20,9 +12,23 @@
     "ESSAY": 0,
     "UNKNOWN": 339
   },
-  "sourceFileCount": 11,
-  "hashMatchCount": 0,
-  "hashMismatchCount": 11,
-  "unaccounted": 0,
+  "mathReferenceCount": 3240,
+  "assetReferenceCount": 581,
+  "execution": {
+    "answerSolutionValidatorDocumentsRun": 11,
+    "questionTypeValidatorQuestionCount": 670,
+    "packageValidatorPackageCount": 670,
+    "sourceObjectValidatorDocumentsRun": 11
+  },
+  "qa": {
+    "boundaryConsumption": true,
+    "identityBridge": true,
+    "answerSolution": true,
+    "questionTypeAccounting": true,
+    "questionTypeSemantic": true,
+    "package": true,
+    "sourceObjectAccounting": true,
+    "sourceCorpusImmutability": true
+  },
   "automatedWordBetaQA": "PASS"
 }

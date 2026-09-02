@@ -1,4 +1,6 @@
 {
-  "unaccountedRelevantSourceObjectCount": 0,
-  "qa": "PASS_FOR_SUPPORTED_SCOPE"
+  "total": 3935,
+  "valid": true,
+  "unaccounted": 0,
+  "duplicateSourceObjectIdCount": 0
 }

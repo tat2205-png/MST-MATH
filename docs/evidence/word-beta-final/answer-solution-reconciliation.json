@@ -1,28 +1,5263 @@
 {
-  "frozenBoundaryCount": 670,
-  "questionIRCount": 670,
-  "packageCount": 670,
-  "uniqueSourceMathCount": 3260,
-  "uniqueDocumentIrMathCount": 3260,
-  "uniqueQuestionScopedMathCount": 2844,
-  "questionMathOwnershipLinkCount": 3240,
-  "questionScopedQuestionIrMathCount": 3240,
-  "questionScopedPackageMathCount": 3240,
-  "uniqueSourceAssetCount": 583,
-  "questionAssetAssociationLinkCount": 581,
-  "uniqueQuestionScopedAssetCount": 442,
-  "answerMappingCount": 117,
-  "solutionMappingCount": 143,
-  "types": {
-    "MULTIPLE_CHOICE": 271,
-    "TRUE_FALSE": 0,
-    "SHORT_ANSWER": 60,
-    "ESSAY": 0,
-    "UNKNOWN": 339
+  "answer": {
+    "documentsRun": 11,
+    "sourceBlocks": [
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-99",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-99"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 99,
+          "paragraphIndex": 99
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-153",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-153"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 153,
+          "paragraphIndex": 153
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-229",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-229"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 229,
+          "paragraphIndex": 229
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-299",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-299"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 299,
+          "paragraphIndex": 299
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-301",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-301"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 301,
+          "paragraphIndex": 301
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-304",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-304"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 304,
+          "paragraphIndex": 304
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-121",
+        "sourceDocumentId": "docx-717b39e5b6a1bad3",
+        "sourceObjectIds": [
+          "paragraph-121"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-717b39e5b6a1bad3",
+          "partName": "word/document.xml",
+          "objectIndex": 121,
+          "paragraphIndex": 121
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "2.1.docx",
+          "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-155",
+        "sourceDocumentId": "docx-717b39e5b6a1bad3",
+        "sourceObjectIds": [
+          "paragraph-155"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-717b39e5b6a1bad3",
+          "partName": "word/document.xml",
+          "objectIndex": 155,
+          "paragraphIndex": 155
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "2.1.docx",
+          "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-161",
+        "sourceDocumentId": "docx-717b39e5b6a1bad3",
+        "sourceObjectIds": [
+          "paragraph-161"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-717b39e5b6a1bad3",
+          "partName": "word/document.xml",
+          "objectIndex": 161,
+          "paragraphIndex": 161
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "2.1.docx",
+          "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-165",
+        "sourceDocumentId": "docx-717b39e5b6a1bad3",
+        "sourceObjectIds": [
+          "paragraph-165"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-717b39e5b6a1bad3",
+          "partName": "word/document.xml",
+          "objectIndex": 165,
+          "paragraphIndex": 165
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "2.1.docx",
+          "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-168",
+        "sourceDocumentId": "docx-717b39e5b6a1bad3",
+        "sourceObjectIds": [
+          "paragraph-168"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-717b39e5b6a1bad3",
+          "partName": "word/document.xml",
+          "objectIndex": 168,
+          "paragraphIndex": 168
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "2.1.docx",
+          "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-171",
+        "sourceDocumentId": "docx-717b39e5b6a1bad3",
+        "sourceObjectIds": [
+          "paragraph-171"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-717b39e5b6a1bad3",
+          "partName": "word/document.xml",
+          "objectIndex": 171,
+          "paragraphIndex": 171
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "2.1.docx",
+          "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be::answer::paragraph-48",
+        "sourceDocumentId": "docx-ac5a02cd6fdff821",
+        "sourceObjectIds": [
+          "paragraph-48"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-ac5a02cd6fdff821",
+          "partName": "word/document.xml",
+          "objectIndex": 48,
+          "paragraphIndex": 48
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+          "sourceSha256": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be::answer::paragraph-110",
+        "sourceDocumentId": "docx-ac5a02cd6fdff821",
+        "sourceObjectIds": [
+          "paragraph-110"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-ac5a02cd6fdff821",
+          "partName": "word/document.xml",
+          "objectIndex": 110,
+          "paragraphIndex": 110
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+          "sourceSha256": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be::answer::paragraph-154",
+        "sourceDocumentId": "docx-ac5a02cd6fdff821",
+        "sourceObjectIds": [
+          "paragraph-154"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-ac5a02cd6fdff821",
+          "partName": "word/document.xml",
+          "objectIndex": 154,
+          "paragraphIndex": 154
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+          "sourceSha256": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9::answer::paragraph-105",
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "sourceObjectIds": [
+          "paragraph-105"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 65,
+          "paragraphIndex": 105
+        },
+        "structureType": "ANSWER",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "NK TEST APP.docx",
+          "sourceSha256": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      }
+    ],
+    "mappings": 0,
+    "valid": true
   },
-  "sourceFileCount": 11,
-  "hashMatchCount": 0,
-  "hashMismatchCount": 11,
-  "unaccounted": 0,
-  "qa": "PASS_FOR_SUPPORTED_SCOPE"
+  "solution": {
+    "documentsRun": 11,
+    "sourceBlocks": [
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-69",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-69"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 69,
+          "paragraphIndex": 69
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-98",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-98"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 98,
+          "paragraphIndex": 98
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-156",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-156"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 156,
+          "paragraphIndex": 156
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-228",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-228"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 228,
+          "paragraphIndex": 228
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-272",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-272"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 272,
+          "paragraphIndex": 272
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-305",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-305"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 305,
+          "paragraphIndex": 305
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::solution::paragraph-453",
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "sourceObjectIds": [
+          "paragraph-453"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 450,
+          "paragraphIndex": 453
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "1.1.docx",
+          "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-5",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-5"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 5
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-18",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-18"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 18
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-24",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-24"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 24,
+          "paragraphIndex": 24
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-31",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-31"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 31,
+          "paragraphIndex": 31
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-38",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-38"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 38,
+          "paragraphIndex": 38
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-49",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-49"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 49,
+          "paragraphIndex": 49
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-63",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-63"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 63,
+          "paragraphIndex": 63
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-72",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-72"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 72,
+          "paragraphIndex": 72
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-79",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-79"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 79,
+          "paragraphIndex": 79
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-89",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-89"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 89,
+          "paragraphIndex": 89
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-109",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-109"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 109,
+          "paragraphIndex": 109
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-115",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-115"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 115,
+          "paragraphIndex": 115
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-121",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-121"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 121,
+          "paragraphIndex": 121
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-126",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-126"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 126,
+          "paragraphIndex": 126
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-135",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-135"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 135,
+          "paragraphIndex": 135
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-147",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-147"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 147,
+          "paragraphIndex": 147
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-165",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-165"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 165,
+          "paragraphIndex": 165
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-181",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-181"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 181,
+          "paragraphIndex": 181
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-194",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-194"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 194,
+          "paragraphIndex": 194
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-209",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-209"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 209,
+          "paragraphIndex": 209
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-218",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-218"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 218,
+          "paragraphIndex": 218
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-224",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-224"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 224,
+          "paragraphIndex": 224
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-231",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-231"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 231,
+          "paragraphIndex": 231
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-239",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-239"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 239,
+          "paragraphIndex": 239
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-245",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-245"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 245,
+          "paragraphIndex": 245
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-263",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-263"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 263,
+          "paragraphIndex": 263
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-270",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-270"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 270,
+          "paragraphIndex": 270
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-276",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-276"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 276,
+          "paragraphIndex": 276
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-290",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-290"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 290,
+          "paragraphIndex": 290
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-298",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-298"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 298,
+          "paragraphIndex": 298
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-308",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-308"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 308,
+          "paragraphIndex": 308
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-319",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-319"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 319,
+          "paragraphIndex": 319
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-331",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-331"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 331,
+          "paragraphIndex": 331
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-338",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-338"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 338,
+          "paragraphIndex": 338
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-351",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-351"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 351,
+          "paragraphIndex": 351
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-361",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-361"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 361,
+          "paragraphIndex": 361
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-371",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-371"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 371,
+          "paragraphIndex": 371
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-381",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-381"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 381,
+          "paragraphIndex": 381
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-394",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-394"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 394,
+          "paragraphIndex": 394
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-408",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-408"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 408,
+          "paragraphIndex": 408
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-418",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-418"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 418,
+          "paragraphIndex": 418
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-429",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-429"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 429,
+          "paragraphIndex": 429
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-444",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-444"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 444,
+          "paragraphIndex": 444
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-454",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-454"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 454,
+          "paragraphIndex": 454
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-474",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-474"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 474,
+          "paragraphIndex": 474
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-482",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-482"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 482,
+          "paragraphIndex": 482
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-489",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-489"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 489,
+          "paragraphIndex": 489
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-497",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-497"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 497,
+          "paragraphIndex": 497
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-516",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-516"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 516,
+          "paragraphIndex": 516
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-526",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-526"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 526,
+          "paragraphIndex": 526
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-541",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-541"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 541,
+          "paragraphIndex": 541
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-551",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-551"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 551,
+          "paragraphIndex": 551
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-560",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-560"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 560,
+          "paragraphIndex": 560
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-566",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-566"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 566,
+          "paragraphIndex": 566
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-580",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-580"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 580,
+          "paragraphIndex": 580
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-595",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-595"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 595,
+          "paragraphIndex": 595
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-606",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-606"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 606,
+          "paragraphIndex": 606
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-617",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-617"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 617,
+          "paragraphIndex": 617
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-630",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-630"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 630,
+          "paragraphIndex": 630
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-641",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-641"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 641,
+          "paragraphIndex": 641
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-652",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-652"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 652,
+          "paragraphIndex": 652
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-659",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-659"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 659,
+          "paragraphIndex": 659
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-667",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-667"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 667,
+          "paragraphIndex": 667
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-676",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-676"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 676,
+          "paragraphIndex": 676
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-683",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-683"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 683,
+          "paragraphIndex": 683
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-691",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-691"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 691,
+          "paragraphIndex": 691
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-699",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-699"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 699,
+          "paragraphIndex": 699
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-714",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-714"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 714,
+          "paragraphIndex": 714
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-721",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-721"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 721,
+          "paragraphIndex": 721
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-734",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-734"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 734,
+          "paragraphIndex": 734
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-745",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-745"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 745,
+          "paragraphIndex": 745
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-755",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-755"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 755,
+          "paragraphIndex": 755
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-768",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-768"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 768,
+          "paragraphIndex": 768
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-777",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-777"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 777,
+          "paragraphIndex": 777
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-788",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-788"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 788,
+          "paragraphIndex": 788
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-798",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-798"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 798,
+          "paragraphIndex": 798
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-818",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-818"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 818,
+          "paragraphIndex": 818
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-833",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-833"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 833,
+          "paragraphIndex": 833
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-839",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-839"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 839,
+          "paragraphIndex": 839
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-870",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-870"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 870,
+          "paragraphIndex": 870
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-882",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-882"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 882,
+          "paragraphIndex": 882
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-889",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-889"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 889,
+          "paragraphIndex": 889
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-908",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-908"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 908,
+          "paragraphIndex": 908
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-919",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-919"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 919,
+          "paragraphIndex": 919
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-925",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-925"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 925,
+          "paragraphIndex": 925
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-944",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-944"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 944,
+          "paragraphIndex": 944
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-957",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-957"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 957,
+          "paragraphIndex": 957
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-968",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-968"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 968,
+          "paragraphIndex": 968
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-979",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-979"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 979,
+          "paragraphIndex": 979
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-989",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-989"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 989,
+          "paragraphIndex": 989
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1003",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1003"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1003,
+          "paragraphIndex": 1003
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1013",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1013"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1013,
+          "paragraphIndex": 1013
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1026",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1026"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1026,
+          "paragraphIndex": 1026
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1034",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1034"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1034,
+          "paragraphIndex": 1034
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1053",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1053"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1053,
+          "paragraphIndex": 1053
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1069",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1069"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1069,
+          "paragraphIndex": 1069
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1082",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1082"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1082,
+          "paragraphIndex": 1082
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1096",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1096"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1096,
+          "paragraphIndex": 1096
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1110",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1110"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1110,
+          "paragraphIndex": 1110
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1125",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1125"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1125,
+          "paragraphIndex": 1125
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1143",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1143"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1143,
+          "paragraphIndex": 1143
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1170",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1170"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1170,
+          "paragraphIndex": 1170
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1191",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1191"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1191,
+          "paragraphIndex": 1191
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1203",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1203"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1203,
+          "paragraphIndex": 1203
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1214",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1214"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1214,
+          "paragraphIndex": 1214
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1228",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1228"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1228,
+          "paragraphIndex": 1228
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1237",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1237"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1237,
+          "paragraphIndex": 1237
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1243",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1243"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1243,
+          "paragraphIndex": 1243
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1253",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1253"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1253,
+          "paragraphIndex": 1253
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1261",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1261"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1261,
+          "paragraphIndex": 1261
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1269",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1269"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1269,
+          "paragraphIndex": 1269
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1278",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1278"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1278,
+          "paragraphIndex": 1278
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1284",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1284"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1284,
+          "paragraphIndex": 1284
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1296",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1296"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1296,
+          "paragraphIndex": 1296
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1311",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1311"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1311,
+          "paragraphIndex": 1311
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1329",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1329"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1329,
+          "paragraphIndex": 1329
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1338",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1338"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1338,
+          "paragraphIndex": 1338
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1349",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1349"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1349,
+          "paragraphIndex": 1349
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1360",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1360"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1360,
+          "paragraphIndex": 1360
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1376",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1376"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1376,
+          "paragraphIndex": 1376
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1394",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1394"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1394,
+          "paragraphIndex": 1394
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1404",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1404"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1404,
+          "paragraphIndex": 1404
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1409",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1409"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1409,
+          "paragraphIndex": 1409
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1420",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1420"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1420,
+          "paragraphIndex": 1420
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1434",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1434"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1434,
+          "paragraphIndex": 1434
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1444",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1444"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1444,
+          "paragraphIndex": 1444
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1463",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1463"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1463,
+          "paragraphIndex": 1463
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1473",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1473"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1473,
+          "paragraphIndex": 1473
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1484",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1484"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1484,
+          "paragraphIndex": 1484
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1494",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1494"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1494,
+          "paragraphIndex": 1494
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1503",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1503"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1503,
+          "paragraphIndex": 1503
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1510",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1510"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1510,
+          "paragraphIndex": 1510
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1518",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1518"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1518,
+          "paragraphIndex": 1518
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1530",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1530"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1530,
+          "paragraphIndex": 1530
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d::solution::paragraph-1542",
+        "sourceDocumentId": "docx-7f26811b8588672c",
+        "sourceObjectIds": [
+          "paragraph-1542"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1542,
+          "paragraphIndex": 1542
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "Full-Toán thực tế 10.docx",
+          "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      },
+      {
+        "sourceBlockId": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9::solution::paragraph-179",
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "sourceObjectIds": [
+          "paragraph-179"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 75,
+          "paragraphIndex": 179
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "NK TEST APP.docx",
+          "sourceSha256": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": []
+      }
+    ],
+    "mappings": 143,
+    "valid": true
+  }
 }
