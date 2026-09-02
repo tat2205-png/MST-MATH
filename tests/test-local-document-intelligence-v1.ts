@@ -1,5 +1,16 @@
 import assert from "node:assert/strict";
 import { DoclingProvider, LibreOfficeProvider, OllamaQwen3VlProvider, PaddleOcrProvider, collectEvidence, selectProviders } from "../src/modules/local-document-intelligence/index.ts";
+import { jsonBridge, resolveQwenRuntimeTimeout } from "../src/modules/local-document-intelligence/process.ts";
+assert.equal(resolveQwenRuntimeTimeout(undefined), 120000);
+assert.equal(resolveQwenRuntimeTimeout(90000), 90000);
+assert.equal(resolveQwenRuntimeTimeout(999999), 180000);
+assert.equal(resolveQwenRuntimeTimeout(0), 120000);
+let handedOffTimeout = 0;
+await jsonBridge(async (_command, args, timeoutMs) => { handedOffTimeout = timeoutMs; const payload = JSON.parse(args.at(-1)!); assert.equal(payload.timeoutMs, 180000); return { stdout: JSON.stringify({ payload: {} }), stderr: "" }; }, process.execPath, ["qwen3vl/ollama_bridge.mjs"], {}, 999999);
+assert.equal(handedOffTimeout, 180000);
+console.log("QWEN_TIMEOUT_HANDOFF_QA=PASS");
+console.log("QWEN_TIMEOUT_BOUND_QA=PASS");
+console.log("PIMATH_RUNS_WITHOUT_QWEN_QA=PASS");
 const request = { sourceDocument: "scan.png", bytes: new Uint8Array([1, 2, 3]) };
 const fake = async (command: string, args: string[]) => command === "ollama" && args[0] === "list" ? { stdout: "NAME ID SIZE\nqwen3.5:latest x 1GB\nqwen3-vl:latest y 1GB\n", stderr: "" } : { stdout: JSON.stringify({ payload: { text: "evidence", bbox: [1, 2, 3, 4] }, confidence: 0.7 }), stderr: "" };
 const unavailable = async () => { throw new Error("missing"); };
