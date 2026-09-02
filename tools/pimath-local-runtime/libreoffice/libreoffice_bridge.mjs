@@ -6,6 +6,7 @@ import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 
 const TIMEOUT_MS = 60_000;
+if (process.argv[2] === '--version') { process.stdout.write('pimath-libreoffice-bridge-v1'); process.exit(0); }
 const MAX_INPUT_BYTES = 100 * 1024 * 1024;
 
 function executable() {
@@ -53,7 +54,7 @@ async function main(request) {
   }
 }
 
-let input = '';
+let input = process.argv[2] ?? '';
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', (chunk) => { input += chunk; });
 process.stdin.on('end', async () => {
@@ -62,3 +63,4 @@ process.stdin.on('end', async () => {
   process.stdout.write(JSON.stringify(result));
   process.exitCode = result.confidence === 1 ? 0 : 1;
 });
+if (process.argv[2]) process.stdin.emit('end');

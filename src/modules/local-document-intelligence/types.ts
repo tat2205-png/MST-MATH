@@ -4,7 +4,7 @@ export type EvidenceKind = "TEXT" | "LAYOUT" | "TABLE" | "OCR_TEXT" | "FIGURE" |
 export type ReviewStatus = "NOT_REQUIRED" | "REVIEW" | "UNAVAILABLE";
 export type RuntimeStatus = "AVAILABLE" | "UNAVAILABLE" | "MODEL_MISSING" | "INVALID_INPUT" | "ERROR";
 
-export interface EvidenceRequest { sourceDocument: string; bytes?: Uint8Array; sourceHash?: string; sourceAnchor?: string; assetId?: string; timeoutMs?: number; }
+export interface EvidenceRequest { sourceDocument: string; bytes?: Uint8Array; sourceHash?: string; sourceAnchor?: string; assetId?: string; timeoutMs?: number; language?: string; documentLanguage?: string; prompt?: string; includeImage?: boolean; }
 export interface LocalDocumentEvidence { provider: string; providerVersion: string; model?: string; sourceDocument: string; sourceHash: string; sourceAnchor?: string; assetId?: string; evidenceKind: EvidenceKind; confidence?: number; payload?: unknown; reference?: string; issues: string[]; reviewStatus: ReviewStatus; transformationHistory: string[]; provenance: { sourceFile: string; sourceSha256: string; provider: string; transformations: string[]; authority: "EVIDENCE_ONLY" }; }
 export interface ProviderAvailability { status: RuntimeStatus; version?: string; model?: string; issues: string[]; }
 export interface LocalDocumentEvidenceProvider { readonly name: string; capabilities(): readonly EvidenceKind[]; availability(): Promise<ProviderAvailability>; extractEvidence(request: EvidenceRequest): Promise<LocalDocumentEvidence[]>; }
