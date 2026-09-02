@@ -16,6 +16,10 @@ const variant = changed("variant", "Giá trị của x+4 là");
 assert.ok(analyzeRelation(base, variant).relations.includes("PARAMETRIC_VARIANT") === false);
 const mathVariant = copy("math-variant"); mathVariant.stem = structuredClone(base.stem); const mathBlock = mathVariant.stem.find(block => block.type === "math"); if (mathBlock?.type === "math") { mathBlock.math = { ...mathBlock.math, latex: "\\frac{x+2}{2}", normalized: "\\frac{x+2}{2}", sourceLocation: "other" }; }
 assert.ok(analyzeRelation(base, mathVariant).relations.includes("PARAMETRIC_VARIANT"));
+const mathShape = (latex: string) => { const q = copy(`shape-${latex}`); const block = q.stem.find(item => item.type === "math"); if (block?.type === "math") block.math = { ...block.math, latex, normalized: latex, sourceLocation: latex }; return q; };
+assert.ok(!analyzeRelation(mathShape("x+3"), mathShape("\\sin(x)")).relations.includes("PARAMETRIC_VARIANT"));
+assert.ok(!analyzeRelation(mathShape("x<2"), mathShape("x<=2")).relations.includes("PARAMETRIC_VARIANT"));
+assert.ok(!analyzeRelation(mathShape("x^2"), mathShape("\\sqrt{x}")).relations.includes("PARAMETRIC_VARIANT"));
 const figureVariant = copy("figure"); figureVariant.stem = [{ type: "text", value: "Câu hỏi khác với hình" }]; figureVariant.figureAssociations = structuredClone(base.figureAssociations);
 assert.ok(analyzeRelation(base, figureVariant).relations.includes("SHARED_FIGURE"));
 const optionConflict = copy("options"); optionConflict.options[0].content = [{ type: "text", value: "999" }];
@@ -29,6 +33,7 @@ const repository = new MemoryQuestionBankRepository(); const service = new Quest
 service.importDocx(createQuestionDocx(), "nguồn.docx"); service.importDocx(createQuestionDocx(), "bản-sao.pdf");
 const snapshot = repository.load(); assert.equal(snapshot.questions.length, 4); assert.equal(snapshot.relations?.duplicateAudit.length, 4);
 assert.deepEqual(snapshot.questions.map(q => q.index), [1, 2, 3, 4]);
+assert.equal(snapshot.relations?.relations.filter(r => r.relations.includes("EXACT_DUPLICATE")).length, 4);
 const relationIndex = { schemaVersion: 1 as const, relations: [{ sourceQuestionId: base.id, targetQuestionId: variant.id, relations: ["DEPENDENT_ON" as const], evidence: [] }], families: [{ familyId: "FAMILY_x", memberQuestionIds: [base.id, variant.id], relationEvidence: [], schemaVersion: 1 as const }], duplicateAudit: [] };
 assert.ok(relationTypesForQuestion(relationIndex, base.id).includes("DEPENDENT_ON"));
 repository.replace({ schemaVersion: 1, questions: [base, variant], orphanFigures: [], relations: relationIndex });
