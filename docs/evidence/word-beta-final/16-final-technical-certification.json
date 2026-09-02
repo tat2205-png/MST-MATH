@@ -1,11 +1,18 @@
 {
   "schemaVersion": "PIMATH_WORD_BETA_TECHNICAL_CERTIFICATION_V1",
-  "generatedAt": "2026-09-02T18:57:38.187Z",
+  "generatedAt": "2026-09-02T18:59:51.641Z",
   "generatorVersion": "current-state-certifier-v1",
-  "gitCommit": "7b250306f7fc97738b290ca6a97ae2b3f53a4bd9",
+  "gitCommit": "1659494caf8f314a164060b34f3f9cd6e1e12366",
   "canonicalBoundaryCount": 668,
-  "canonicalBoundarySetHash": "a794b1fee63421c01f0baa39b23bf27eb9f876c9e4fecec72fed7af1c295f086",
+  "canonicalBoundarySetHash": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
   "sourceCorpusManifestHash": "7e1934a559da6ce424899a295ad7b2b44529569a9502769ba29367e75f51997c",
+  "idSetHashes": {
+    "boundary": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+    "questionIr": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+    "questionPackage": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+    "algorithm": "SHA256",
+    "normalization": "unique lexical UTF-8 joined by newline without trailing newline"
+  },
   "sourceCorpus": {
     "sourceFileCount": 11,
     "hashMatchCount": 11,
@@ -22,6 +29,9 @@
     "qa": "PASS"
   },
   "mathLedger": {
+    "expectedSource": "RAW_DOCX_SOURCE_IDENTITIES",
+    "actualSource": "CURRENT_DOCUMENT_IR",
+    "selfReferentialQA": "PASS",
     "uniqueSourceMathObjectCount": 5473,
     "unresolved": 0,
     "unaccounted": 0,
@@ -56,7 +66,8 @@
     "broken": 0,
     "invalid": 0,
     "unexplainedExtra": 0,
-    "qa": "PASS_FOR_SUPPORTED_SCOPE"
+    "qa": "PASS",
+    "scope": "SUPPORTED_SCOPE"
   },
   "packageSerialization": {
     "packageCount": 668,

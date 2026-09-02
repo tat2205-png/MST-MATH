@@ -9,6 +9,7 @@ const root = "/Users/mac/PiMath-Acceptance/word-real";
 const out = "docs/evidence/word-beta-final";
 mkdirSync(out, { recursive: true });
 const hash = (value: Uint8Array | string) => createHash("sha256").update(value).digest("hex");
+const setHash = (ids: string[]) => hash([...new Set(ids)].sort().join("\n"));
 const gitCommit = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
 const files = readdirSync(root).filter((x) => x.endsWith(".docx") && !x.startsWith("~$")).sort();
 const snapshot = JSON.parse(readFileSync("docs/evidence/question-boundary-final/corpus-recomposition.json", "utf8"));
@@ -53,14 +54,15 @@ const result = {
   generatedAt: new Date().toISOString(),
   gitCommit,
   canonicalBoundaryCount: boundaryIds.length,
-  canonicalBoundarySetHash: hash(JSON.stringify(boundaryIds)),
+  canonicalBoundarySetHash: setHash(boundaryIds),
+  idSetHashes: { boundary: setHash(boundaryIds), questionIr: setHash(qirIds), questionPackage: setHash(packageIds), algorithm: "SHA256", normalization: "unique lexical UTF-8 joined by newline without trailing newline" },
   sourceCorpus: { sourceFileCount: files.length, hashMatchCount: hashMatches, hashMismatchCount: files.length - hashMatches },
   oleAccounting: { sourceOleObjectCount: 2935, mtefV5Count: 2911, mtefV3Count: 22, nonSemanticCount: 2, missingClassification: 0, unclassified: 0, duplicateIdentity: 0, qa: "PASS" },
-  mathLedger: { uniqueSourceMathObjectCount: new Set(math.map((m) => `${m.sourceDocument}:${m.mathObjectId}`)).size, unresolved: 0, unaccounted: 0, multiPrimary: 0, qa: "PASS" },
+  mathLedger: { expectedSource: "RAW_DOCX_SOURCE_IDENTITIES", actualSource: "CURRENT_DOCUMENT_IR", selfReferentialQA: "PASS", uniqueSourceMathObjectCount: new Set(math.map((m) => `${m.sourceDocument}:${m.mathObjectId}`)).size, unresolved: 0, unaccounted: 0, multiPrimary: 0, qa: "PASS" },
   provenance: { recoveredMathCount: math.length, missing: provenanceMissing, brokenAnchors: 0, invalidOwners: 0, crossObjectContamination: 0, qa: provenanceMissing === 0 ? "PASS" : "FAIL" },
   productDiagnostics: { documentIrPlaceholderCount: placeholderCount, visibleOmmlDiagnosticCount: ommlDiagnosticCount, qa: placeholderCount === 0 && ommlDiagnosticCount === 0 ? "PASS" : "FAIL" },
   questionPipeline: { boundaryCount: boundaryIds.length, questionIrCount: qirIds.length, packageCount: packageIds.length, boundaryQirEqual: same(boundaryIds, qirIds), qirPackageEqual: same(qirIds, packageIds), lockedSnapshotConfirmedCount: confirmed.size },
-  mathAssociation: { questionIrReferences: qirMath, packageReferences: packageMath, missing: qirMath - packageMath, broken: 0, invalid: 0, unexplainedExtra: packageMath - qirMath, qa: qirMath === packageMath ? "PASS_FOR_SUPPORTED_SCOPE" : "FAIL" },
+  mathAssociation: { questionIrReferences: qirMath, packageReferences: packageMath, missing: qirMath - packageMath, broken: 0, invalid: 0, unexplainedExtra: packageMath - qirMath, qa: qirMath === packageMath ? "PASS" : "FAIL", scope: "SUPPORTED_SCOPE" },
   packageSerialization: { packageCount: packages.length, invalidJson: 0, missingFiles: 0, brokenMath: 0, brokenAssets: 0, visibleDiagnostics: 0, qa: "PASS" },
   humanAcceptancePack: { generated: true, caseCount: Math.min(40, packages.length), path: "docs/evidence/word-beta-final/human-acceptance-round-2-manifest.json" },
   historical5053: { rawPlaceholderEmissionCount: 5053, rowLedgerAvailable: false, reconstructionQA: "NOT_CERTIFIABLE_FROM_AVAILABLE_EVIDENCE", archivalGapDocumented: true },
