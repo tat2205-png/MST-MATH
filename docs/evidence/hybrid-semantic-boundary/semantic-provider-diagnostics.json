@@ -1,0 +1,6 @@
+{
+  "provider": "DETERMINISTIC_LOCAL_ADAPTER",
+  "network": false,
+  "documents": 11,
+  "malformedResults": 0
+}
