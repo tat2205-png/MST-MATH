@@ -1,121 +1,177 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-20",
-  "questionId": "1ffa795691ed-qcandidate-20",
+  "questionId": "bec93b42b430-qcandidate-50",
+  "questionIrId": "bec93b42b430-qcandidate-50",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
-    "documentId": "docx-1ffa795691edd5c5",
-    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
-    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "documentId": "docx-bec93b42b430a8d7",
+    "documentPath": "BÀI 2. GTLN-GTNN.docx",
+    "documentHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
     "sourceObjectIds": [
-      "paragraph-174",
-      "paragraph-175",
-      "paragraph-176",
-      "paragraph-177",
-      "paragraph-178",
-      "paragraph-179",
-      "paragraph-180"
-    ]
-  },
-  "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
-  "sourceRepresentation": {
-    "text": "",
-    "mathObjectIds": [],
-    "assetIds": [
-      "asset-152be7cb68e1",
-      "asset-f47f74d4643b",
-      "asset-9119916603c4",
-      "asset-215c731fd5b8",
-      "asset-3663ca8589b9"
+      "paragraph-310",
+      "paragraph-311",
+      "paragraph-312",
+      "paragraph-313",
+      "paragraph-314",
+      "paragraph-315",
+      "paragraph-316",
+      "paragraph-317",
+      "paragraph-318",
+      "paragraph-319"
     ],
-    "math": [],
+    "provenance": {
+      "sourceFile": "BÀI 2. GTLN-GTNN.docx",
+      "sourceSha256": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "SHORT_ANSWER",
+  "sourceRepresentation": {
+    "text": "Chokhốicầu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mo>(</mo><mo>)</mo></mrow></math>$có tâm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>I</mi></mrow></math>$, bánkính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$không đổi. Một khối trụ thay đổi có chiều cao$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$, bán kính đáy$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>r</mi></mrow></math>$nội tiếp khối cầu. Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$theo$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$sao cho thể tích khối trụ lớn nhất.",
+    "mathObjectIds": [
+      "mtef-v3-4526bef07cd7fa4a",
+      "mtef-v3-7e21668fc37ddaef",
+      "mtef-v3-af2fd1ee9a8f9cea",
+      "mtef-v3-c3fb431d2c132468",
+      "mtef-v3-f225055707e5b3e4"
+    ],
+    "assetIds": [
+      "asset-53383e4f0099"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-v3-4526bef07cd7fa4a",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-7e21668fc37ddaef",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-af2fd1ee9a8f9cea",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-f225055707e5b3e4",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 14,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-c3fb431d2c132468",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 16,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-f225055707e5b3e4",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-af2fd1ee9a8f9cea",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 20,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
     "assets": [
       {
-        "assetId": "asset-152be7cb68e1",
+        "assetId": "asset-53383e4f0099",
         "kind": "IMAGE",
-        "relationshipId": "rId283",
+        "relationshipId": "rId751",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
           "partName": "word/document.xml",
           "objectIndex": 0,
-          "paragraphIndex": 174,
-          "relationshipId": "rId283"
-        },
-        "status": "PASS"
-      },
-      {
-        "assetId": "asset-f47f74d4643b",
-        "kind": "IMAGE",
-        "relationshipId": "rId284",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-1ffa795691edd5c5",
-          "partName": "word/document.xml",
-          "objectIndex": 2,
-          "paragraphIndex": 174,
-          "relationshipId": "rId284"
-        },
-        "status": "PASS"
-      },
-      {
-        "assetId": "asset-9119916603c4",
-        "kind": "IMAGE",
-        "relationshipId": "rId285",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-1ffa795691edd5c5",
-          "partName": "word/document.xml",
-          "objectIndex": 4,
-          "paragraphIndex": 174,
-          "relationshipId": "rId285"
-        },
-        "status": "PASS"
-      },
-      {
-        "assetId": "asset-215c731fd5b8",
-        "kind": "IMAGE",
-        "relationshipId": "rId286",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-1ffa795691edd5c5",
-          "partName": "word/document.xml",
-          "objectIndex": 6,
-          "paragraphIndex": 174,
-          "relationshipId": "rId286"
-        },
-        "status": "PASS"
-      },
-      {
-        "assetId": "asset-3663ca8589b9",
-        "kind": "IMAGE",
-        "relationshipId": "rId287",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-1ffa795691edd5c5",
-          "partName": "word/document.xml",
-          "objectIndex": 8,
-          "paragraphIndex": 174,
-          "relationshipId": "rId287"
+          "paragraphIndex": 310,
+          "relationshipId": "rId751"
         },
         "status": "PASS"
       }
     ]
   },
   "finalRepresentation": {
-    "questionIrId": "1ffa795691ed-qcandidate-20",
-    "packageId": "question-1ffa795691ed-qcandidate-20",
-    "text": "",
-    "mathObjectIds": [],
+    "acceptanceQuestionId": "bec93b42b430-qcandidate-50",
+    "questionIrId": "bec93b42b430-qcandidate-50",
+    "packageId": "question-bec93b42b430-qcandidate-50",
+    "text": "Chokhốicầu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mo>(</mo><mo>)</mo></mrow></math>$có tâm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>I</mi></mrow></math>$, bánkính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$không đổi. Một khối trụ thay đổi có chiều cao$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$, bán kính đáy$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>r</mi></mrow></math>$nội tiếp khối cầu. Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$theo$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$sao cho thể tích khối trụ lớn nhất.",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-v3-4526bef07cd7fa4a",
+      "mtef-v3-7e21668fc37ddaef",
+      "mtef-v3-af2fd1ee9a8f9cea",
+      "mtef-v3-c3fb431d2c132468",
+      "mtef-v3-f225055707e5b3e4"
+    ],
     "assetIds": [
-      "asset-152be7cb68e1",
-      "asset-f47f74d4643b",
-      "asset-9119916603c4",
-      "asset-215c731fd5b8",
-      "asset-3663ca8589b9"
+      "asset-53383e4f0099"
     ]
   },
-  "automatedQa": "PASS",
+  "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "TEXT_ONLY",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V3"
+  ],
+  "mathFormats": [
+    "MTEF_V3"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

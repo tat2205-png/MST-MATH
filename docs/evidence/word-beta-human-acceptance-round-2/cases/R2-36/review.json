@@ -1,56 +1,827 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-36",
-  "questionId": "633e6a37a7bf-qcandidate-7",
+  "questionId": "f4d4446aeaf5-qcandidate-41",
+  "questionIrId": "f4d4446aeaf5-q1",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
-    "documentId": "docx-633e6a37a7bfd1d9",
-    "documentPath": "1.1.docx",
-    "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+    "documentId": "docx-f4d4446aeaf5ba44",
+    "documentPath": "NK TEST APP.docx",
+    "documentHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
     "sourceObjectIds": [
-      "paragraph-18",
-      "paragraph-19"
-    ]
-  },
-  "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
-  "sourceRepresentation": {
-    "text": "",
-    "mathObjectIds": [],
-    "assetIds": [
-      "asset-4f38aa0a1c38"
+      "paragraph-180",
+      "paragraph-181",
+      "paragraph-182",
+      "paragraph-183",
+      "paragraph-184",
+      "paragraph-185",
+      "paragraph-186",
+      "paragraph-187",
+      "paragraph-188",
+      "section-85"
     ],
-    "math": [],
-    "assets": [
+    "provenance": {
+      "sourceFile": "NK TEST APP.docx",
+      "sourceSha256": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "SHORT_ANSWER",
+  "sourceRepresentation": {
+    "text": "Tốc độ thay đổi là${f}^{′}(t)$. Tốc độ phục hồi lớn nhất tương đương với việc tìm cực đại của hàm$g(t)={f}^{′}(t)$trong giai đoạn nồng độ đang tăng (tức$g(t)>0$).$\\begin{matrix} & f(t)=5−15t{\\left(9{t}^{2}+1\\right)}^{−1} \\\\  & g(t)={f}^{′}(t)=−15\\frac{1\\left(9{t}^{2}+1\\right)−t(18t)}{{\\left(9{t}^{2}+1\\right)}^{2}}=\\frac{15\\left(9{t}^{2}−1\\right)}{{\\left(9{t}^{2}+1\\right)}^{2}}.\\end{matrix}$Ta cần tìm max của$g(t)$. Đạo hàm${g}^{′}(t)$:$\\begin{matrix} & {g}^{′}(t)=15\\frac{18t{\\left(9{t}^{2}+1\\right)}^{2}−2\\left(9{t}^{2}+1\\right)18t\\left(9{t}^{2}−1\\right)}{{\\left(9{t}^{2}+1\\right)}^{4}}=15\\frac{18t\\left(9{t}^{2}+1\\right)−36t\\left(9{t}^{2}−1\\right)}{{\\left(9{t}^{2}+1\\right)}^{3}}=\\frac{15\\left(54t−162{t}^{3}\\right)}{{\\left(9{t}^{2}+1\\right)}^{3}}. \\\\  & {g}^{′}(t)=0⇒54t−162{t}^{3}=0⇒1−3{t}^{2}=0⇒t=\\frac{1}{\\sqrt{3}}=\\frac{\\sqrt{3}}{3}( do t\\ge0).\\end{matrix}$Theo đề bài$t=\\frac{\\sqrt{a}}{b}⇒a=3,b=3$(thỏa mãn là số nguyên tố).Tính$P=a−b=3−3=0$.Kết quả: 0So sánh tổng chi phí trong 15 năm (cấp số cộng).Phương án 1 (Theo quý): Có$15\\times4=60$quý.${u}_{1}=10$, công sai$d=0.5$.Tổng chi phí:${S}_{60}=\\frac{60}{2}[2(10)+59(0.5)]=30(20+29.5)=1485$(triệu đồng).Phương án 2 (Theo năm): Có 15 năm.${v}_{1}=70$, công sai$d=3$.Tổng chi phí:${S}_{15}=\\frac{15}{2}[2(70)+14(3)]=7.5(140+42)=1365$(triệu đồng).Phương án 2 rẻ hơn. Chi phí thấp nhất là 1365 triệu đồng.Kết quả: 1365Tìm tiệm cận của hàm số$y=\\frac{\\sqrt{1−x}}{(x−1)\\sqrt{x}}$.Tập xác định:$\\left\\{\\begin{matrix}1−x\\ge0 \\\\ x>0 \\\\ x−1\\ne0\\end{matrix}⇒0<x<1\\right$.Vì tập xác định bị chặn trên khoảng (0; 1) nên hàm số không có tiệm cận ngang$⇒n=0$.Tại$x→{0}^{+},y→−\\infty$nên$x=0$là 1 tiệm cận đứng.Tại$x→{1}^{−}$, hàm số rút gọn được thành$\\frac{−1}{\\sqrt{1−x}\\sqrt{x}}→−\\infty$nên$x=1$là 1 tiệm cận đứng.Vậy có 2 tiệm cận đứng$⇒d=2$.Tính$T=26n−27d=26(0)−27(2)=−54$.Kết quả: -54Tìm chiều cao khay hình chóp cụt.Dựa vào hình khai triển: khay được tạo từ hình vuông lớn cạnh 8 dm. Phần đáy là hình vuông nhỏ$ABCD$có cạnh 3 dm.Phần mép mở ra trên cùng (sau khi gập) tương ứng với cạnh${C}^{′}{D}^{′}$ở viền ngoài. Do mỗi góc bị cắt vào đoạn vuông góc 1 dm, nên độ dài viền mép trên của mỗi mặt bên là$8−1−1=6$dm.Đường cao của mặt bên (của hình thang cân) chính là khoảng cách từ cạnh đáy đến viền ngoài trên mặt phẳng khai triển:$l=\\frac{8−3}{2}=2.5dm$.Hình chóp cụt có đáy dưới cạnh$a=3$, đáy trên cạnh$b=6$. Chiều cao$h$được tính qua tam giác vuông tại mặt cắt đứng qua tâm:$h=\\sqrt{{l}^{2}−{\\left(\\frac{b−a}{2}\\right)}^{2}}=\\sqrt{{2.5}^{2}−{\\left(\\frac{6−3}{2}\\right)}^{2}}=\\sqrt{{2.5}^{2}−{1.5}^{2}}=\\sqrt{4}=2dm.$Kết quả: 2Tính diện tích phần bị phủ màu sẫm của tấm pin.Đây là bài toán về Fractal (thảm Sierpinski).Ban đầu diện tích tổng là 1.Mỗi lần lặp, ta chia các hình vuông sáng còn lại thành 9 phần và bôi đen phần ở giữa (chiếm$\\frac{1}{9}$diện tích của nó). Do đó, sau mỗi bước, diện tích phần màu sáng còn lại bằng$\\frac{8}{9}$diện tích phần màu sáng của bước trước đó.Sau 5 lần, diện tích phần màu sáng (chưa bị bôi sẫm) là:${\\left(\\frac{8}{9}\\right)}^{5}$.Diện tích phần đã bôi sẫm là:$S=1−{\\left(\\frac{8}{9}\\right)}^{5}=1−\\frac{32768}{59049}≈0.44507{ m}^{2}$.Làm tròn đến hàng phần trăm ta được 0.45 .Kết quả: 0.45Xác suất xếp số thỏa mãn.Tập$X=\\{1,2,…,12\\}$. Chọn ngẫu nhiên 4 số, không gian mẫu của phép chọn 4 số là$|Ω|={C}_{12}^{4}=495$.Gọi 3 số ở 3 vòng nhỏ là$x,y,z(x<y<z)$và số vòng tròn lớn là$c$.Theo điều kiện 1:$x,y,z$lập thành cấp số cộng tăng$⇒x+z=2y$.Theo điều kiện 2:$c=x+y+z=2y+y=3y$.Vì$c\\inX⇒3y\\le12⇒y\\le4$. Lại có$y$là phần tử giữa cấp số cộng số dương nên$y\\ge2$. Vậy$y\\in\\{2,3,4\\}$.Nếu$y=2⇒c=6;x+z=4⇒x=1,z=3$. Bộ số là {1,2,3,6}. (1 bộ)Nếu$y=3⇒c=9;x+z=6⇒\\{1,5\\}$hoặc {2,4}. Các bộ là {1,3,5,9}, {2,3,4,9}. (2 bộ)Nếu$y=4⇒c=12;x+z=8⇒\\{1,7\\},\\{2,6\\},\\{3,5\\}$. Các bộ là$\\{1,4,7,12\\},\\{2,4,6,12\\},\\{3,4,5,12\\}$. (3 bộ)Có tổng cộng$1+2+3=6$bộ số thỏa mãn. Với mỗi bộ số, do 3 vòng tròn nhỏ không phân biệt vị trí nên luôn tồn tại duy nhất một cách để các số \"được đặt thỏa mãn\" (đặt số lớn nhất$3y$vào giữa).Xác suất$P=\\frac{6}{495}=\\frac{2}{165}$.Giá trị biểu thức:$33990P=33990\\times\\frac{2}{165}=412$.Kết quả: 412$____$",
+    "mathObjectIds": [
+      "expression-docx-126",
+      "expression-docx-127",
+      "expression-docx-128",
+      "expression-docx-129",
+      "expression-docx-130",
+      "expression-docx-131",
+      "expression-docx-132",
+      "expression-docx-133",
+      "expression-docx-134",
+      "expression-docx-135",
+      "expression-docx-136",
+      "expression-docx-137",
+      "expression-docx-138",
+      "expression-docx-139",
+      "expression-docx-140",
+      "expression-docx-141",
+      "expression-docx-142",
+      "expression-docx-143",
+      "expression-docx-144",
+      "expression-docx-145",
+      "expression-docx-146",
+      "expression-docx-147",
+      "expression-docx-148",
+      "expression-docx-149",
+      "expression-docx-150",
+      "expression-docx-151",
+      "expression-docx-152",
+      "expression-docx-153",
+      "expression-docx-154",
+      "expression-docx-155",
+      "expression-docx-156",
+      "expression-docx-157",
+      "expression-docx-158",
+      "expression-docx-159",
+      "expression-docx-160",
+      "expression-docx-161",
+      "expression-docx-162",
+      "expression-docx-163",
+      "expression-docx-164",
+      "expression-docx-165",
+      "expression-docx-166",
+      "expression-docx-167",
+      "expression-docx-168",
+      "expression-docx-169",
+      "expression-docx-170",
+      "expression-docx-171",
+      "expression-docx-172",
+      "expression-docx-173",
+      "expression-docx-174",
+      "expression-docx-175",
+      "expression-docx-176",
+      "expression-docx-177",
+      "expression-docx-178",
+      "expression-docx-179",
+      "expression-docx-180",
+      "expression-docx-181",
+      "expression-docx-182",
+      "expression-docx-183"
+    ],
+    "assetIds": [],
+    "math": [
       {
-        "assetId": "asset-4f38aa0a1c38",
-        "kind": "IMAGE",
-        "relationshipId": "rId118",
+        "mathObjectId": "expression-docx-126",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 180
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-127",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 180
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-128",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 180
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-129",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
           "partName": "word/document.xml",
           "objectIndex": 0,
-          "paragraphIndex": 19,
-          "relationshipId": "rId118"
+          "paragraphIndex": 181
         },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-130",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 182
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-131",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 182
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-132",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 183
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-133",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-134",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-135",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 13,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-136",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 16,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-137",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-138",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 22,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-139",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 27,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-140",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 29,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-141",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 33,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-142",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 41,
+          "paragraphIndex": 184
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-143",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-144",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-145",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-146",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-147",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-148",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 17,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-149",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 19,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-150",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 23,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-151",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 27,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-152",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 35,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-153",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 39,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-154",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 41,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-155",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 45,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-156",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 49,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-157",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 51,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-158",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 53,
+          "paragraphIndex": 185
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-159",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 186
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-160",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 187
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-161",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 187
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-162",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-163",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-164",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-165",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 17,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-166",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 21,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-167",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 23,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-168",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 27,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-169",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 29,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-170",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 33,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-171",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 37,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-172",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 39,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-173",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 41,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-174",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 43,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-175",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 47,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-176",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 51,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-177",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 55,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-178",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 57,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-179",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 61,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-180",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 63,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-181",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 67,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-182",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 71,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-183",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 76,
+          "paragraphIndex": 188
+        },
+        "sourceType": "OMML",
         "status": "PASS"
       }
-    ]
+    ],
+    "assets": []
   },
   "finalRepresentation": {
-    "questionIrId": "633e6a37a7bf-qcandidate-7",
-    "packageId": "question-633e6a37a7bf-qcandidate-7",
-    "text": "",
-    "mathObjectIds": [],
-    "assetIds": [
-      "asset-4f38aa0a1c38"
-    ]
+    "acceptanceQuestionId": "f4d4446aeaf5-qcandidate-41",
+    "questionIrId": "f4d4446aeaf5-q1",
+    "packageId": "question-f4d4446aeaf5-qcandidate-41",
+    "text": "Tốc độ thay đổi là${f}^{′}(t)$. Tốc độ phục hồi lớn nhất tương đương với việc tìm cực đại của hàm$g(t)={f}^{′}(t)$trong giai đoạn nồng độ đang tăng (tức$g(t)>0$).$\\begin{matrix} & f(t)=5−15t{\\left(9{t}^{2}+1\\right)}^{−1} \\\\  & g(t)={f}^{′}(t)=−15\\frac{1\\left(9{t}^{2}+1\\right)−t(18t)}{{\\left(9{t}^{2}+1\\right)}^{2}}=\\frac{15\\left(9{t}^{2}−1\\right)}{{\\left(9{t}^{2}+1\\right)}^{2}}.\\end{matrix}$Ta cần tìm max của$g(t)$. Đạo hàm${g}^{′}(t)$:$\\begin{matrix} & {g}^{′}(t)=15\\frac{18t{\\left(9{t}^{2}+1\\right)}^{2}−2\\left(9{t}^{2}+1\\right)18t\\left(9{t}^{2}−1\\right)}{{\\left(9{t}^{2}+1\\right)}^{4}}=15\\frac{18t\\left(9{t}^{2}+1\\right)−36t\\left(9{t}^{2}−1\\right)}{{\\left(9{t}^{2}+1\\right)}^{3}}=\\frac{15\\left(54t−162{t}^{3}\\right)}{{\\left(9{t}^{2}+1\\right)}^{3}}. \\\\  & {g}^{′}(t)=0⇒54t−162{t}^{3}=0⇒1−3{t}^{2}=0⇒t=\\frac{1}{\\sqrt{3}}=\\frac{\\sqrt{3}}{3}( do t\\ge0).\\end{matrix}$Theo đề bài$t=\\frac{\\sqrt{a}}{b}⇒a=3,b=3$(thỏa mãn là số nguyên tố).Tính$P=a−b=3−3=0$.Kết quả: 0So sánh tổng chi phí trong 15 năm (cấp số cộng).Phương án 1 (Theo quý): Có$15\\times4=60$quý.${u}_{1}=10$, công sai$d=0.5$.Tổng chi phí:${S}_{60}=\\frac{60}{2}[2(10)+59(0.5)]=30(20+29.5)=1485$(triệu đồng).Phương án 2 (Theo năm): Có 15 năm.${v}_{1}=70$, công sai$d=3$.Tổng chi phí:${S}_{15}=\\frac{15}{2}[2(70)+14(3)]=7.5(140+42)=1365$(triệu đồng).Phương án 2 rẻ hơn. Chi phí thấp nhất là 1365 triệu đồng.Kết quả: 1365Tìm tiệm cận của hàm số$y=\\frac{\\sqrt{1−x}}{(x−1)\\sqrt{x}}$.Tập xác định:$\\left\\{\\begin{matrix}1−x\\ge0 \\\\ x>0 \\\\ x−1\\ne0\\end{matrix}⇒0<x<1\\right$.Vì tập xác định bị chặn trên khoảng (0; 1) nên hàm số không có tiệm cận ngang$⇒n=0$.Tại$x→{0}^{+},y→−\\infty$nên$x=0$là 1 tiệm cận đứng.Tại$x→{1}^{−}$, hàm số rút gọn được thành$\\frac{−1}{\\sqrt{1−x}\\sqrt{x}}→−\\infty$nên$x=1$là 1 tiệm cận đứng.Vậy có 2 tiệm cận đứng$⇒d=2$.Tính$T=26n−27d=26(0)−27(2)=−54$.Kết quả: -54Tìm chiều cao khay hình chóp cụt.Dựa vào hình khai triển: khay được tạo từ hình vuông lớn cạnh 8 dm. Phần đáy là hình vuông nhỏ$ABCD$có cạnh 3 dm.Phần mép mở ra trên cùng (sau khi gập) tương ứng với cạnh${C}^{′}{D}^{′}$ở viền ngoài. Do mỗi góc bị cắt vào đoạn vuông góc 1 dm, nên độ dài viền mép trên của mỗi mặt bên là$8−1−1=6$dm.Đường cao của mặt bên (của hình thang cân) chính là khoảng cách từ cạnh đáy đến viền ngoài trên mặt phẳng khai triển:$l=\\frac{8−3}{2}=2.5dm$.Hình chóp cụt có đáy dưới cạnh$a=3$, đáy trên cạnh$b=6$. Chiều cao$h$được tính qua tam giác vuông tại mặt cắt đứng qua tâm:$h=\\sqrt{{l}^{2}−{\\left(\\frac{b−a}{2}\\right)}^{2}}=\\sqrt{{2.5}^{2}−{\\left(\\frac{6−3}{2}\\right)}^{2}}=\\sqrt{{2.5}^{2}−{1.5}^{2}}=\\sqrt{4}=2dm.$Kết quả: 2Tính diện tích phần bị phủ màu sẫm của tấm pin.Đây là bài toán về Fractal (thảm Sierpinski).Ban đầu diện tích tổng là 1.Mỗi lần lặp, ta chia các hình vuông sáng còn lại thành 9 phần và bôi đen phần ở giữa (chiếm$\\frac{1}{9}$diện tích của nó). Do đó, sau mỗi bước, diện tích phần màu sáng còn lại bằng$\\frac{8}{9}$diện tích phần màu sáng của bước trước đó.Sau 5 lần, diện tích phần màu sáng (chưa bị bôi sẫm) là:${\\left(\\frac{8}{9}\\right)}^{5}$.Diện tích phần đã bôi sẫm là:$S=1−{\\left(\\frac{8}{9}\\right)}^{5}=1−\\frac{32768}{59049}≈0.44507{ m}^{2}$.Làm tròn đến hàng phần trăm ta được 0.45 .Kết quả: 0.45Xác suất xếp số thỏa mãn.Tập$X=\\{1,2,…,12\\}$. Chọn ngẫu nhiên 4 số, không gian mẫu của phép chọn 4 số là$|Ω|={C}_{12}^{4}=495$.Gọi 3 số ở 3 vòng nhỏ là$x,y,z(x<y<z)$và số vòng tròn lớn là$c$.Theo điều kiện 1:$x,y,z$lập thành cấp số cộng tăng$⇒x+z=2y$.Theo điều kiện 2:$c=x+y+z=2y+y=3y$.Vì$c\\inX⇒3y\\le12⇒y\\le4$. Lại có$y$là phần tử giữa cấp số cộng số dương nên$y\\ge2$. Vậy$y\\in\\{2,3,4\\}$.Nếu$y=2⇒c=6;x+z=4⇒x=1,z=3$. Bộ số là {1,2,3,6}. (1 bộ)Nếu$y=3⇒c=9;x+z=6⇒\\{1,5\\}$hoặc {2,4}. Các bộ là {1,3,5,9}, {2,3,4,9}. (2 bộ)Nếu$y=4⇒c=12;x+z=8⇒\\{1,7\\},\\{2,6\\},\\{3,5\\}$. Các bộ là$\\{1,4,7,12\\},\\{2,4,6,12\\},\\{3,4,5,12\\}$. (3 bộ)Có tổng cộng$1+2+3=6$bộ số thỏa mãn. Với mỗi bộ số, do 3 vòng tròn nhỏ không phân biệt vị trí nên luôn tồn tại duy nhất một cách để các số \"được đặt thỏa mãn\" (đặt số lớn nhất$3y$vào giữa).Xác suất$P=\\frac{6}{495}=\\frac{2}{165}$.Giá trị biểu thức:$33990P=33990\\times\\frac{2}{165}=412$.Kết quả: 412$____$",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "expression-docx-126",
+      "expression-docx-127",
+      "expression-docx-128",
+      "expression-docx-129",
+      "expression-docx-130",
+      "expression-docx-131",
+      "expression-docx-132",
+      "expression-docx-133",
+      "expression-docx-134",
+      "expression-docx-135",
+      "expression-docx-136",
+      "expression-docx-137",
+      "expression-docx-138",
+      "expression-docx-139",
+      "expression-docx-140",
+      "expression-docx-141",
+      "expression-docx-142",
+      "expression-docx-143",
+      "expression-docx-144",
+      "expression-docx-145",
+      "expression-docx-146",
+      "expression-docx-147",
+      "expression-docx-148",
+      "expression-docx-149",
+      "expression-docx-150",
+      "expression-docx-151",
+      "expression-docx-152",
+      "expression-docx-153",
+      "expression-docx-154",
+      "expression-docx-155",
+      "expression-docx-156",
+      "expression-docx-157",
+      "expression-docx-158",
+      "expression-docx-159",
+      "expression-docx-160",
+      "expression-docx-161",
+      "expression-docx-162",
+      "expression-docx-163",
+      "expression-docx-164",
+      "expression-docx-165",
+      "expression-docx-166",
+      "expression-docx-167",
+      "expression-docx-168",
+      "expression-docx-169",
+      "expression-docx-170",
+      "expression-docx-171",
+      "expression-docx-172",
+      "expression-docx-173",
+      "expression-docx-174",
+      "expression-docx-175",
+      "expression-docx-176",
+      "expression-docx-177",
+      "expression-docx-178",
+      "expression-docx-179",
+      "expression-docx-180",
+      "expression-docx-181",
+      "expression-docx-182",
+      "expression-docx-183"
+    ],
+    "assetIds": []
   },
   "automatedQa": "PASS",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "TEXT_ONLY",
-    "ASSET_BEARING"
+    "MATH_IN_STEM",
+    "MODERN_MATH",
+    "SHARED_CONTEXT_MATH"
+  ],
+  "mathFormats": [
+    "MODERN_MATH"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM",
+    "SHARED_CONTEXT_MATH"
   ],
   "humanReview": {
     "decision": null,

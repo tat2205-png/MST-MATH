@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-03",
   "questionId": "1ffa795691ed-qcandidate-3",
+  "questionIrId": "1ffa795691ed-qcandidate-3",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -17,25 +18,35 @@
       "paragraph-64",
       "paragraph-65",
       "paragraph-66"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "MULTIPLE_CHOICE",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Chohaivị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cách nhau$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>1</mn><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$, cùng nằm về một phía bờ sông như hình vẽ. Khoàng cách từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mn>7</mn><mo> </mo><mi>m</mi></mrow></math>$. Một người đi từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến bờ sông để lấy nước và mang về$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$. Tính độ dài đoạn đường ngắn nhất mà người đó phải đi.\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>6</mn><mn>9</mn><mo>,</mo><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>7</mn><mn>1</mn><mo>,</mo><mn>4</mn><mo> </mo><mi>m</mi></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>7</mn><mn>9</mn><mo>,</mo><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>4</mn><mn>1</mn><mo>,</mo><mn>2</mn><mo> </mo><mi>m</mi></mrow></math>$.",
     "mathObjectIds": [
-      "mtef-d19fb74644ac0c7f",
-      "mtef-3853ad93ce79604d",
-      "mtef-e239f0c4185e9f1d",
       "mtef-144388621acc6a1e",
-      "mtef-95c9d4140bee9328",
       "mtef-1f18050409bc556a",
-      "mtef-e239f0c4185e9f1d",
-      "mtef-144388621acc6a1e",
-      "mtef-b52e80a80f9b7568",
-      "mtef-7a6c8d00e5825994",
+      "mtef-3853ad93ce79604d",
       "mtef-50db9d177ad4ab90",
-      "mtef-a098b3c38cf35490"
+      "mtef-7a6c8d00e5825994",
+      "mtef-95c9d4140bee9328",
+      "mtef-a098b3c38cf35490",
+      "mtef-b52e80a80f9b7568",
+      "mtef-d19fb74644ac0c7f",
+      "mtef-e239f0c4185e9f1d"
     ],
     "assetIds": [
       "asset-e1626b6e76b4"
@@ -246,22 +257,23 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-3",
     "questionIrId": "1ffa795691ed-qcandidate-3",
     "packageId": "question-1ffa795691ed-qcandidate-3",
-    "text": "",
+    "text": "Chohaivị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cách nhau$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>1</mn><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$, cùng nằm về một phía bờ sông như hình vẽ. Khoàng cách từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mn>7</mn><mo> </mo><mi>m</mi></mrow></math>$. Một người đi từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến bờ sông để lấy nước và mang về$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$. Tính độ dài đoạn đường ngắn nhất mà người đó phải đi.\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>6</mn><mn>9</mn><mo>,</mo><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>7</mn><mn>1</mn><mo>,</mo><mn>4</mn><mo> </mo><mi>m</mi></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>7</mn><mn>9</mn><mo>,</mo><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>4</mn><mn>1</mn><mo>,</mo><mn>2</mn><mo> </mo><mi>m</mi></mrow></math>$.",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-d19fb74644ac0c7f",
-      "mtef-3853ad93ce79604d",
-      "mtef-e239f0c4185e9f1d",
       "mtef-144388621acc6a1e",
-      "mtef-95c9d4140bee9328",
       "mtef-1f18050409bc556a",
-      "mtef-e239f0c4185e9f1d",
-      "mtef-144388621acc6a1e",
-      "mtef-b52e80a80f9b7568",
-      "mtef-7a6c8d00e5825994",
+      "mtef-3853ad93ce79604d",
       "mtef-50db9d177ad4ab90",
-      "mtef-a098b3c38cf35490"
+      "mtef-7a6c8d00e5825994",
+      "mtef-95c9d4140bee9328",
+      "mtef-a098b3c38cf35490",
+      "mtef-b52e80a80f9b7568",
+      "mtef-d19fb74644ac0c7f",
+      "mtef-e239f0c4185e9f1d"
     ],
     "assetIds": [
       "asset-e1626b6e76b4"
@@ -270,8 +282,17 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_OPTIONS",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_OPTIONS",
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

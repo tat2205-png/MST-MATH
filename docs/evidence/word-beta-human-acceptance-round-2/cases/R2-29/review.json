@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-29",
   "questionId": "1ffa795691ed-qcandidate-29",
+  "questionIrId": "1ffa795691ed-qcandidate-29",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -20,19 +21,31 @@
       "paragraph-244",
       "paragraph-245",
       "section-246"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Sân vườn hìnhchữnhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$có$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mo>,</mo><mi>A</mi><mi>D</mi><mo>=</mo><mn>1</mn><mn>0</mn><mo> </mo><mi>m</mi></mrow></math>$. Đèn pin tại$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$có góc chiếu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>α</mi><mo>=</mo><mn>3</mn><mn>0</mn><mo>∘</mo></mrow></math>$. Tìm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>i</mi><mi>n</mi></mrow></math>$của vùng chiếu sáng.",
     "mathObjectIds": [
       "mtef-26d56e99d261ab0f",
-      "mtef-b9afc5267fa14ed3",
-      "mtef-e239f0c4185e9f1d",
-      "mtef-e246c78f465e6294",
       "mtef-7dbf3d7c2bee759b",
-      "mtef-df5e9615000be0ba"
+      "mtef-b9afc5267fa14ed3",
+      "mtef-df5e9615000be0ba",
+      "mtef-e239f0c4185e9f1d",
+      "mtef-e246c78f465e6294"
     ],
     "assetIds": [
       "asset-a050598fe574"
@@ -166,16 +179,19 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-29",
     "questionIrId": "1ffa795691ed-qcandidate-29",
     "packageId": "question-1ffa795691ed-qcandidate-29",
-    "text": "",
+    "text": "Sân vườn hìnhchữnhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$có$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mo>,</mo><mi>A</mi><mi>D</mi><mo>=</mo><mn>1</mn><mn>0</mn><mo> </mo><mi>m</mi></mrow></math>$. Đèn pin tại$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$có góc chiếu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>α</mi><mo>=</mo><mn>3</mn><mn>0</mn><mo>∘</mo></mrow></math>$. Tìm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>i</mi><mi>n</mi></mrow></math>$của vùng chiếu sáng.",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
       "mtef-26d56e99d261ab0f",
-      "mtef-b9afc5267fa14ed3",
-      "mtef-e239f0c4185e9f1d",
-      "mtef-e246c78f465e6294",
       "mtef-7dbf3d7c2bee759b",
-      "mtef-df5e9615000be0ba"
+      "mtef-b9afc5267fa14ed3",
+      "mtef-df5e9615000be0ba",
+      "mtef-e239f0c4185e9f1d",
+      "mtef-e246c78f465e6294"
     ],
     "assetIds": [
       "asset-a050598fe574"
@@ -184,8 +200,15 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

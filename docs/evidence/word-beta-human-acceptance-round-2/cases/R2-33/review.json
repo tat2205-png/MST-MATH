@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-33",
   "questionId": "633e6a37a7bf-qcandidate-4",
+  "questionIrId": "633e6a37a7bf-qcandidate-4",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-633e6a37a7bfd1d9",
@@ -12,16 +13,28 @@
       "paragraph-12",
       "paragraph-13",
       "paragraph-14"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Anh Nam làm việc tại một giàn khoan cách bờbiển 10 km . ChịMai, bạn thân của anh Nam, làm việc tại một cơquan trênbờbiển cách nơi làm việc của anh Nam 6 km theo phương ngang. ThứBảy tuần sau anh Namđược nghỉphép nên hai người dựđịnh gặp nhau tại mộtđịađiểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$trên bờbiển. Biết rằng anh Nam sẽdi chuyển vào bờbiển bằng thuyền với vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>5</mn><mo> </mo><mi>k</mi><mi>m</mi><mo>/</mo><mi>h</mi></mrow></math>$, chịMaiđi bộvới vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mo> </mo><mi>k</mi><mi>m</mi><mo>/</mo><mi>h</mi></mrow></math>$vàhai người dựđịnh cùng xuất phát rồiđến nơi cùng lúc. Giảthiếtđường bờbiển làđường thẳng vàthuyền chởanh Nam cũng di chuyển theođường thẳng. Hỏiđịađiểm họdựđịnh gặp nhau cách cơquan của chịMai bao nhiêu kilômét? (Làm tròn kêt quảđến hàng phần trăm).",
     "mathObjectIds": [
-      "mtef-ee4bd2d00266aba8",
+      "mtef-3ad4f2d52100bbfc",
       "mtef-b394c787b7320354",
-      "mtef-3ad4f2d52100bbfc"
+      "mtef-ee4bd2d00266aba8"
     ],
     "assetIds": [
       "asset-67f3f0799575"
@@ -78,13 +91,16 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "633e6a37a7bf-qcandidate-4",
     "questionIrId": "633e6a37a7bf-qcandidate-4",
     "packageId": "question-633e6a37a7bf-qcandidate-4",
-    "text": "",
+    "text": "Anh Nam làm việc tại một giàn khoan cách bờbiển 10 km . ChịMai, bạn thân của anh Nam, làm việc tại một cơquan trênbờbiển cách nơi làm việc của anh Nam 6 km theo phương ngang. ThứBảy tuần sau anh Namđược nghỉphép nên hai người dựđịnh gặp nhau tại mộtđịađiểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$trên bờbiển. Biết rằng anh Nam sẽdi chuyển vào bờbiển bằng thuyền với vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>5</mn><mo> </mo><mi>k</mi><mi>m</mi><mo>/</mo><mi>h</mi></mrow></math>$, chịMaiđi bộvới vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mo> </mo><mi>k</mi><mi>m</mi><mo>/</mo><mi>h</mi></mrow></math>$vàhai người dựđịnh cùng xuất phát rồiđến nơi cùng lúc. Giảthiếtđường bờbiển làđường thẳng vàthuyền chởanh Nam cũng di chuyển theođường thẳng. Hỏiđịađiểm họdựđịnh gặp nhau cách cơquan của chịMai bao nhiêu kilômét? (Làm tròn kêt quảđến hàng phần trăm).",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-ee4bd2d00266aba8",
+      "mtef-3ad4f2d52100bbfc",
       "mtef-b394c787b7320354",
-      "mtef-3ad4f2d52100bbfc"
+      "mtef-ee4bd2d00266aba8"
     ],
     "assetIds": [
       "asset-67f3f0799575"
@@ -93,8 +109,15 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

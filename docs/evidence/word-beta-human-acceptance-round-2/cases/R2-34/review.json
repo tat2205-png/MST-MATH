@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-34",
   "questionId": "633e6a37a7bf-qcandidate-5",
+  "questionIrId": "633e6a37a7bf-qcandidate-5",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-633e6a37a7bfd1d9",
@@ -9,12 +10,24 @@
     "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
     "sourceObjectIds": [
       "paragraph-15"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Một đường cáp điện được kéo từ một trạm điện$A$ở một bên sông rộng 900 métđếnmột nhà máy$B$ở bờ bên kia của sông, nhà máy cách trạm điện 3000 mét tính xuôi theo bờ sông. Đường cáp này được mô hình hóa thành đường gấp khúc$APB$như hình vẽ, trong đó đoạn$PB$đặt trên bờ sông. Giả định rằng tỉ lệ giữa chi phí để kéo 1 mét cáp dưới nước và chi phí kéo 1 mét cáp trên bờ bằng 1,25. Hỏi để tiết kiệm chi phí nhất thì vị trí$P$cách nhà máy$B$bao nhiêu mét?",
     "mathObjectIds": [
       "expression-docx-1",
       "expression-docx-2",
@@ -111,9 +124,12 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "633e6a37a7bf-qcandidate-5",
     "questionIrId": "633e6a37a7bf-qcandidate-5",
     "packageId": "question-633e6a37a7bf-qcandidate-5",
-    "text": "",
+    "text": "Một đường cáp điện được kéo từ một trạm điện$A$ở một bên sông rộng 900 métđếnmột nhà máy$B$ở bờ bên kia của sông, nhà máy cách trạm điện 3000 mét tính xuôi theo bờ sông. Đường cáp này được mô hình hóa thành đường gấp khúc$APB$như hình vẽ, trong đó đoạn$PB$đặt trên bờ sông. Giả định rằng tỉ lệ giữa chi phí để kéo 1 mét cáp dưới nước và chi phí kéo 1 mét cáp trên bờ bằng 1,25. Hỏi để tiết kiệm chi phí nhất thì vị trí$P$cách nhà máy$B$bao nhiêu mét?",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
       "expression-docx-1",
       "expression-docx-2",
@@ -129,8 +145,15 @@
   "automatedQa": "PASS",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MODERN_MATH"
+  ],
+  "mathFormats": [
+    "MODERN_MATH"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-08",
   "questionId": "1ffa795691ed-qcandidate-8",
+  "questionIrId": "1ffa795691ed-qcandidate-8",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -13,20 +14,32 @@
       "paragraph-99",
       "paragraph-100",
       "paragraph-101"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Người ta giăng lưới để nuôi riêng một loại cá trên một góc hồ. Biết rằng lưới được giăng theo một đườngthẳngtừ một vị trí trên bờ ngang đến một vị trí trên bờ dọc và phải đi qua một cái cọc đã cắm sẵn ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$. Hỏi diện tích nhỏ nhất có thể giăng là bao nhiêu, biết rằng khoảng cách từ cọc đến bờ ngang là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mo></mo><mi>m</mi></mrow></math>$và khoảng cách từ cọc đến bờ dọc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>2</mn><mo></mo><mi>m</mi></mrow></math>$",
     "mathObjectIds": [
-      "mtef-f945aa56cc7139b7",
+      "mtef-885ffc32cc31fb1f",
       "mtef-cd4bb1cec20f155c",
-      "mtef-885ffc32cc31fb1f"
+      "mtef-f945aa56cc7139b7"
     ],
     "assetIds": [
-      "asset-5ca6a6aabb51",
-      "asset-4f38aa0a1c38"
+      "asset-4f38aa0a1c38",
+      "asset-5ca6a6aabb51"
     ],
     "math": [
       {
@@ -93,24 +106,35 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-8",
     "questionIrId": "1ffa795691ed-qcandidate-8",
     "packageId": "question-1ffa795691ed-qcandidate-8",
-    "text": "",
+    "text": "Người ta giăng lưới để nuôi riêng một loại cá trên một góc hồ. Biết rằng lưới được giăng theo một đườngthẳngtừ một vị trí trên bờ ngang đến một vị trí trên bờ dọc và phải đi qua một cái cọc đã cắm sẵn ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$. Hỏi diện tích nhỏ nhất có thể giăng là bao nhiêu, biết rằng khoảng cách từ cọc đến bờ ngang là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mo></mo><mi>m</mi></mrow></math>$và khoảng cách từ cọc đến bờ dọc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>2</mn><mo></mo><mi>m</mi></mrow></math>$",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-f945aa56cc7139b7",
+      "mtef-885ffc32cc31fb1f",
       "mtef-cd4bb1cec20f155c",
-      "mtef-885ffc32cc31fb1f"
+      "mtef-f945aa56cc7139b7"
     ],
     "assetIds": [
-      "asset-5ca6a6aabb51",
-      "asset-4f38aa0a1c38"
+      "asset-4f38aa0a1c38",
+      "asset-5ca6a6aabb51"
     ]
   },
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5",
+    "MULTI_ASSET"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

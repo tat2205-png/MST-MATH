@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-21",
   "questionId": "1ffa795691ed-qcandidate-21",
+  "questionIrId": "1ffa795691ed-qcandidate-21",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -15,28 +16,39 @@
       "paragraph-185",
       "paragraph-186",
       "paragraph-187"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "MULTIPLE_CHOICE",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Chotam giác đều$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$. Người ta dựng một hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi></mrow></math>$nằm trên cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>C</mi></mrow></math>$. Hai đỉnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Q</mi></mrow></math>$theo thứ tự nằm trên hai cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$của tam giác. Xác định độ dài đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi></mrow></math>$sao cho hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có diện tích lớn nhất.\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>2</mn></mrow></math>$.\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>6</mn></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>3</mn></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>4</mn></mrow></math>$.",
     "mathObjectIds": [
-      "mtef-8fc5d0277b51efa7",
-      "mtef-c4844685f5f93639",
       "mtef-12861ef339fdda1f",
-      "mtef-fec9e877e7fe9158",
-      "mtef-d151e7c9a3a5f136",
-      "mtef-77d55aaa12599bec",
-      "mtef-cfef32344c36f46b",
-      "mtef-c5c217fe074680dc",
       "mtef-159d4475bf51574f",
       "mtef-4ccc7e54a8682842",
-      "mtef-12861ef339fdda1f",
       "mtef-6f6e9ea9639128a4",
+      "mtef-77d55aaa12599bec",
       "mtef-8e2e4d26125ef348",
+      "mtef-8fc5d0277b51efa7",
+      "mtef-9d7fea411bee039b",
       "mtef-a47643b43a38f20e",
-      "mtef-9d7fea411bee039b"
+      "mtef-c4844685f5f93639",
+      "mtef-c5c217fe074680dc",
+      "mtef-cfef32344c36f46b",
+      "mtef-d151e7c9a3a5f136",
+      "mtef-fec9e877e7fe9158"
     ],
     "assetIds": [
       "asset-a4f78b1b0de8"
@@ -236,25 +248,27 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-21",
     "questionIrId": "1ffa795691ed-qcandidate-21",
     "packageId": "question-1ffa795691ed-qcandidate-21",
-    "text": "",
+    "text": "Chotam giác đều$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$. Người ta dựng một hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi></mrow></math>$nằm trên cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>C</mi></mrow></math>$. Hai đỉnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Q</mi></mrow></math>$theo thứ tự nằm trên hai cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$của tam giác. Xác định độ dài đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi></mrow></math>$sao cho hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có diện tích lớn nhất.\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>2</mn></mrow></math>$.\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>6</mn></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>3</mn></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mi>a</mi><mn>4</mn></mrow></math>$.",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-8fc5d0277b51efa7",
-      "mtef-c4844685f5f93639",
       "mtef-12861ef339fdda1f",
-      "mtef-fec9e877e7fe9158",
-      "mtef-d151e7c9a3a5f136",
-      "mtef-77d55aaa12599bec",
-      "mtef-cfef32344c36f46b",
-      "mtef-c5c217fe074680dc",
       "mtef-159d4475bf51574f",
       "mtef-4ccc7e54a8682842",
-      "mtef-12861ef339fdda1f",
       "mtef-6f6e9ea9639128a4",
+      "mtef-77d55aaa12599bec",
       "mtef-8e2e4d26125ef348",
+      "mtef-8fc5d0277b51efa7",
+      "mtef-9d7fea411bee039b",
       "mtef-a47643b43a38f20e",
-      "mtef-9d7fea411bee039b"
+      "mtef-c4844685f5f93639",
+      "mtef-c5c217fe074680dc",
+      "mtef-cfef32344c36f46b",
+      "mtef-d151e7c9a3a5f136",
+      "mtef-fec9e877e7fe9158"
     ],
     "assetIds": [
       "asset-a4f78b1b0de8"
@@ -263,8 +277,17 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_OPTIONS",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_OPTIONS",
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

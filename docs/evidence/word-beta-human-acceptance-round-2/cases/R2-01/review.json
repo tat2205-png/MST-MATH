@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-01",
   "questionId": "1ffa795691ed-qcandidate-1",
+  "questionIrId": "1ffa795691ed-qcandidate-1",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -51,27 +52,38 @@
       "paragraph-46",
       "paragraph-47",
       "paragraph-48"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Cóhaixã$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cùng ở một bên bờ sông. Khoảng cách từ hai xã đó đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>A</mi><mo>=</mo><mn>5</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo><mo>,</mo><mi>B</mi><mi>B</mi><mo>=</mo><mn>6</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$. Người ta đo được$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>2</mn><mn>2</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới đây. Các kỹ sư muốn xây dựng một trạm cung cấp nước sạch nằm bên bờ sông cho người dân của hai xã sử dụng. Để tiết kiệm chi phí, các kỹ sư phải chọn một vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$của trạm cung cấp nước sạch đó trên đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$sao cho tổng khoảng cách từ hai xã đến vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$là nhỏ nhất. Giá trị nhỏ nhất của tổng khoảng cách đó bằng bao nhiêu mét? (làm tròn kết quả đến hàng đơn vị).",
     "mathObjectIds": [
-      "mtef-d19fb74644ac0c7f",
-      "mtef-a4e956634dbff660",
       "mtef-53b0ac1fe7c98bb3",
-      "mtef-c75b96f040035d66",
       "mtef-7c3ff72cedfb601e",
-      "mtef-c75b96f040035d66"
+      "mtef-a4e956634dbff660",
+      "mtef-c75b96f040035d66",
+      "mtef-d19fb74644ac0c7f"
     ],
     "assetIds": [
-      "asset-bea79a8a9f17",
-      "asset-38b4ac91d495",
+      "asset-09883a3d9738",
       "asset-2ad1e1cda4cd",
+      "asset-38b4ac91d495",
       "asset-5a6daefa1f87",
       "asset-872964d6d452",
-      "asset-09883a3d9738"
+      "asset-bea79a8a9f17"
     ],
     "math": [
       {
@@ -234,31 +246,41 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-1",
     "questionIrId": "1ffa795691ed-qcandidate-1",
     "packageId": "question-1ffa795691ed-qcandidate-1",
-    "text": "",
+    "text": "Cóhaixã$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cùng ở một bên bờ sông. Khoảng cách từ hai xã đó đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>A</mi><mo>=</mo><mn>5</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo><mo>,</mo><mi>B</mi><mi>B</mi><mo>=</mo><mn>6</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$. Người ta đo được$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>2</mn><mn>2</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới đây. Các kỹ sư muốn xây dựng một trạm cung cấp nước sạch nằm bên bờ sông cho người dân của hai xã sử dụng. Để tiết kiệm chi phí, các kỹ sư phải chọn một vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$của trạm cung cấp nước sạch đó trên đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$sao cho tổng khoảng cách từ hai xã đến vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$là nhỏ nhất. Giá trị nhỏ nhất của tổng khoảng cách đó bằng bao nhiêu mét? (làm tròn kết quả đến hàng đơn vị).",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-d19fb74644ac0c7f",
-      "mtef-a4e956634dbff660",
       "mtef-53b0ac1fe7c98bb3",
-      "mtef-c75b96f040035d66",
       "mtef-7c3ff72cedfb601e",
-      "mtef-c75b96f040035d66"
+      "mtef-a4e956634dbff660",
+      "mtef-c75b96f040035d66",
+      "mtef-d19fb74644ac0c7f"
     ],
     "assetIds": [
-      "asset-bea79a8a9f17",
-      "asset-38b4ac91d495",
+      "asset-09883a3d9738",
       "asset-2ad1e1cda4cd",
+      "asset-38b4ac91d495",
       "asset-5a6daefa1f87",
       "asset-872964d6d452",
-      "asset-09883a3d9738"
+      "asset-bea79a8a9f17"
     ]
   },
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5",
+    "MULTI_ASSET"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

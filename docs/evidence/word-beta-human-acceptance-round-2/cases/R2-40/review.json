@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-40",
   "questionId": "633e6a37a7bf-qcandidate-11",
+  "questionIrId": "633e6a37a7bf-qcandidate-11",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-633e6a37a7bfd1d9",
@@ -16,20 +17,32 @@
       "paragraph-35",
       "paragraph-36",
       "paragraph-37"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Trong một tròchơithử thách, bạn Giáp đang ở trên thuyền (vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$",
     "mathObjectIds": [
       "mtef-1e4abcc1c5012814"
     ],
     "assetIds": [
-      "asset-b9ac53dd7813",
-      "asset-1e5393ea5c27",
       "asset-192b1088da5c",
-      "asset-2c6d5b7559da"
+      "asset-1e5393ea5c27",
+      "asset-2c6d5b7559da",
+      "asset-b9ac53dd7813"
     ],
     "math": [
       {
@@ -243,24 +256,35 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "633e6a37a7bf-qcandidate-11",
     "questionIrId": "633e6a37a7bf-qcandidate-11",
     "packageId": "question-633e6a37a7bf-qcandidate-11",
-    "text": "",
+    "text": "Trong một tròchơithử thách, bạn Giáp đang ở trên thuyền (vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
       "mtef-1e4abcc1c5012814"
     ],
     "assetIds": [
-      "asset-b9ac53dd7813",
-      "asset-1e5393ea5c27",
       "asset-192b1088da5c",
-      "asset-2c6d5b7559da"
+      "asset-1e5393ea5c27",
+      "asset-2c6d5b7559da",
+      "asset-b9ac53dd7813"
     ]
   },
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5",
+    "MULTI_ASSET"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

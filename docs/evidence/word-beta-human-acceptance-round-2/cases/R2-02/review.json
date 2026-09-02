@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-02",
   "questionId": "1ffa795691ed-qcandidate-2",
+  "questionIrId": "1ffa795691ed-qcandidate-2",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -17,15 +18,27 @@
       "paragraph-55",
       "paragraph-56",
       "paragraph-57"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Có hai tàu A và B cùng phía với con đường bờ biển. Biết tàu A, tàu B lần lượt cách con đường bờ biển là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn></mrow></math>$hải lí và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn></mrow></math>$hải lí; khoảng cách giữa hai tàu A và B là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn></mrow></math>$hải lí (như hình vẽ bên dưới). Người ta muốn xây dựng một trạm nhiên liệu dọc theo con đường bờ biển. Hỏi phải đặt trạm nhiên liệu cách tàu A bao nhiêuhải líđể tổng khoảng cách từ trạm nhiên liệu đến hai tàu A và B là ngắn nhất?",
     "mathObjectIds": [
-      "mtef-4371e6f814c48180",
       "mtef-35b818f7bf6b9468",
+      "mtef-4371e6f814c48180",
       "mtef-5f8cd9c7c15fbcda"
     ],
     "assetIds": [
@@ -83,12 +96,15 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-2",
     "questionIrId": "1ffa795691ed-qcandidate-2",
     "packageId": "question-1ffa795691ed-qcandidate-2",
-    "text": "",
+    "text": "Có hai tàu A và B cùng phía với con đường bờ biển. Biết tàu A, tàu B lần lượt cách con đường bờ biển là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn></mrow></math>$hải lí và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn></mrow></math>$hải lí; khoảng cách giữa hai tàu A và B là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn></mrow></math>$hải lí (như hình vẽ bên dưới). Người ta muốn xây dựng một trạm nhiên liệu dọc theo con đường bờ biển. Hỏi phải đặt trạm nhiên liệu cách tàu A bao nhiêuhải líđể tổng khoảng cách từ trạm nhiên liệu đến hai tàu A và B là ngắn nhất?",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-4371e6f814c48180",
       "mtef-35b818f7bf6b9468",
+      "mtef-4371e6f814c48180",
       "mtef-5f8cd9c7c15fbcda"
     ],
     "assetIds": [
@@ -98,8 +114,15 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

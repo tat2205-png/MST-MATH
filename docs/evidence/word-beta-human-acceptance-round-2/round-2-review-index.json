@@ -1,8 +1,10 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V2",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "canonicalBoundaryCount": 668,
   "caseCount": 40,
+  "selectionSource": "final-review-selection.json",
+  "coverageSource": "risk-coverage-certification.json",
   "cases": [
     {
       "reviewCaseId": "R2-01",
@@ -11,11 +13,13 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-01",
-      "reviewArtifactHash": "0abd0bbaabd05a14f23eb749fde1cc4931b4dc393671b674b2ffd1e6a926e7c6",
+      "reviewArtifactHash": "f4c24e01d0b6fc60123c52e82333d26655cc1e39bbf2d0a0e3a6ac9b67dc2315",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -25,11 +29,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-02",
-      "reviewArtifactHash": "8b5afe6e3805c989ba02b3f11930860f76f29366f7d2eb4620d0cb01b821c805",
+      "reviewArtifactHash": "037c1d6515d72f01495ffb36518dda37ed4539f3babfba52eedfceaa91c01af1",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -39,11 +44,13 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-03",
-      "reviewArtifactHash": "73c54389af945767f27fb7f55af76111e7a4b1a0bfcb8f7b453c4d5bff0859a9",
+      "reviewArtifactHash": "c401e2e1951ab123efed13de810aa43829831f0429a19fb44e661d1bae94225d",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -53,11 +60,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-04",
-      "reviewArtifactHash": "2d30e16e3d133b4fd78b24c64af7fac6190a3ad117ef2b7af181d751a4f868d6",
+      "reviewArtifactHash": "406ddf87e222c22ef4a4d729865737376b63c68f1df7677f81562f6bacd453b9",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -67,25 +75,28 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-05",
-      "reviewArtifactHash": "c1b5088fc1003480218b358dc4aeeac7f7fff7fc971f071e25f77e47917d5f49",
+      "reviewArtifactHash": "398607d8c044927380ac36f2348843a7b25d534da0fd6dd19497910c24ebf068",
       "humanDecisionStatus": "PENDING"
     },
     {
       "reviewCaseId": "R2-06",
-      "questionId": "1ffa795691ed-qcandidate-6",
-      "questionType": "UNKNOWN",
-      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "questionId": "6cff0e6db838-qcandidate-29",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "2. MIN MAX HHKG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "TEXT_ONLY",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V3"
       ],
       "relativeReviewPath": "cases/R2-06",
-      "reviewArtifactHash": "7f1a66cae078d3456b16b11a9aadce017cb420d932df544b1fe938cf7b4612b9",
+      "reviewArtifactHash": "d9d01dca8316ec81613860774312d795e34b9dd1131b01e7db35298a59c4fe02",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -95,11 +106,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-07",
-      "reviewArtifactHash": "5a096a52a5a82323f0b1afc02a733e3b806d35257c7417de1be8a5fd7923bebf",
+      "reviewArtifactHash": "48725f3cbd3987c8acd425e259dda7affbdd136e5f2917e558bfc09f8c7ddd25",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -109,11 +121,13 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-08",
-      "reviewArtifactHash": "76e11371a09ddc705e1cb031232179c31232f1aa169e3d1aed5f76105654a753",
+      "reviewArtifactHash": "99fb56062d758f13fd35594366c4789e369956c23dcbcb302d797e215c819c42",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -123,11 +137,14 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET",
+        "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-09",
-      "reviewArtifactHash": "271f09ed84ab4cf5cb12d530ebf40d74913c8d43a6a2d63f0302ef9cb64de69a",
+      "reviewArtifactHash": "df020813b8c64bb7b8a43bbc5b14a95865f7d392efadee41c43131bfc672b10d",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -137,25 +154,30 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-10",
-      "reviewArtifactHash": "faf9832bc2b4a3b685e872ae5cb6d3528e2622c6c5e88a6fc8f7460530a999ff",
+      "reviewArtifactHash": "e5197272931ac0c03ddcc828be5ce3076a601b2b5e8440aa8b527d292bd08010",
       "humanDecisionStatus": "PENDING"
     },
     {
       "reviewCaseId": "R2-11",
-      "questionId": "1ffa795691ed-qcandidate-11",
-      "questionType": "UNKNOWN",
-      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "questionId": "7f26811b8588-qcandidate-43",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "Full-Toán thực tế 10.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "TEXT_ONLY",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_SOLUTION",
+        "MATH_IN_STEM",
+        "MODERN_MATH",
+        "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-11",
-      "reviewArtifactHash": "fbfd852873e5068bf44ae2f9ab7e809e25123dc82ce436b3a8948a062c9f5e5d",
+      "reviewArtifactHash": "8cde68c2061644a18db52dae71020ad75a847f8111448782f462cd738668749e",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -165,11 +187,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-12",
-      "reviewArtifactHash": "ce267c727e4036b220dbd7bfd1a2cb0aa28c56db5ddd6c2b6da745b892f95f78",
+      "reviewArtifactHash": "23831eb61aa76bc6422d48db46c6d8dea10d847a27f59b41fc7580cb5b0e3c4c",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -179,11 +202,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-13",
-      "reviewArtifactHash": "88b36e0c0f2c33b235ff937337247302d8b1d65fac68c1cca2399f5af059bec2",
+      "reviewArtifactHash": "671f2b26d9a751294733e40e4ec7d3199a958577316a5750edf56d57a5e78394",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -193,11 +217,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-14",
-      "reviewArtifactHash": "023ddf9699779d46477248c23a91d3f1a8ac47230d60c0b37a151dcb0f35cf57",
+      "reviewArtifactHash": "bcbec414cd8e52810b93fb8d3d8d1e03939f153f2f83a855ecd8286ed7e37ca0",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -207,11 +232,13 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-15",
-      "reviewArtifactHash": "e7c81ea6e3fea474f820e63d99f7bac6ee9bc4c74c6a65e48d11318b88a4934d",
+      "reviewArtifactHash": "63f73d7964e3469a962319bb36d39cf630f86371aafe4f06a6973db04ecaa46a",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -221,11 +248,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-16",
-      "reviewArtifactHash": "3c55a1ad6c12e406aa2d85ce9673efe1fb9e3322802db76d1442f8b87ab0716d",
+      "reviewArtifactHash": "80dcaeb029bc9956eff3d9b50eae1ab4a4e9639f03c7766e1b7517e78a3bc726",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -235,11 +263,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-17",
-      "reviewArtifactHash": "442a75bb03fc4fa947aac15ce1814daf6e9b133ddeee50a6324192f6ba2a7aa9",
+      "reviewArtifactHash": "94440429a4ff03ea25e92a40b076a183d2c0de1e3529b303926f412f07d3eec3",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -249,11 +278,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-18",
-      "reviewArtifactHash": "a19d9491fcf0d35af15036393d31aebc7684ce2d3989c256e8febd88d21f45a7",
+      "reviewArtifactHash": "f4cedfa5a308c900863411a187ab28417e1970bf18916d4f286d0753c61e1f2c",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -263,25 +293,27 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-19",
-      "reviewArtifactHash": "ec4a54e3a114adde373e9ee525771f408fcd0c2ea1d8ed3e93acf741d1c74bdc",
+      "reviewArtifactHash": "fd4458e536496a7a04f969107506878036e71927e556c0b0b5b6a1b75e00a049",
       "humanDecisionStatus": "PENDING"
     },
     {
       "reviewCaseId": "R2-20",
-      "questionId": "1ffa795691ed-qcandidate-20",
-      "questionType": "UNKNOWN",
-      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "questionId": "bec93b42b430-qcandidate-50",
+      "questionType": "SHORT_ANSWER",
+      "sourceDocument": "BÀI 2. GTLN-GTNN.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "TEXT_ONLY",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V3"
       ],
       "relativeReviewPath": "cases/R2-20",
-      "reviewArtifactHash": "bc9e2eae453e27721cb9cebda535d33a25ca8c0bf9db411389bcf38256079638",
+      "reviewArtifactHash": "091e7ad7a8bcedc5c421252489f1fce71657eff9c150a824d3cec4fc299e45d1",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -291,11 +323,13 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-21",
-      "reviewArtifactHash": "e4f481c4988855cafeb692584058ca6e1414548a319eb290a596db53074ad4f0",
+      "reviewArtifactHash": "26fe5d1e47d281f5deed62daf62e56cff35943f54bd764ede265d39e11e10e1d",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -305,11 +339,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-22",
-      "reviewArtifactHash": "573bae91b047bc0cf8548e16d8b2a1c0763d77a9c7116d8bed1b2d47b181c9ba",
+      "reviewArtifactHash": "8742494bd1679436cd034bfdb2a94af1772a3815c494b0e90bb119ec6d45def4",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -319,11 +354,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-23",
-      "reviewArtifactHash": "5df300e9cafcdd9d7786e18c6a75f7164100f6f7065a0db5c82b771953d151be",
+      "reviewArtifactHash": "cb0ef95b60deffb9e002de8cb1f06e4f14d2318de3887ca04275001b19b9caf4",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -333,11 +369,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-24",
-      "reviewArtifactHash": "96ff36ebe36d36b480325e0577e0785d42fbda8dff441fcc20bd550f542b9252",
+      "reviewArtifactHash": "4ad7933b34daeff17d6e8de40d1d95a2858152786c3e04c321960351e12ddb7a",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -347,11 +384,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-25",
-      "reviewArtifactHash": "5c1a251c98322286a5297292a714946ac085bdd0d93eb4f1902c1f6e09f7f7e7",
+      "reviewArtifactHash": "463b2bb98254b15b9752abe4b4f26c68b83d133e6d7f4a28042205395163e610",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -361,11 +399,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-26",
-      "reviewArtifactHash": "c693f00be3d2760c16e992e47f0abdf81a73c66bd77be8e03d3c05b85c53baa7",
+      "reviewArtifactHash": "b5d9b146cb306c115b9f8ffd3c3142cf2c42339d4df3014bd9652ec96e7dfab6",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -375,11 +414,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-27",
-      "reviewArtifactHash": "7a4747def615c0115cfea460c46b33ed34c73c23a93c2546b52a02a759bb247c",
+      "reviewArtifactHash": "add1e0cf1e517cea091fb035104e387ede5437f96879e28b270fa6689e3e34d2",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -389,11 +429,13 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-28",
-      "reviewArtifactHash": "f2d8387e6f3137a576f853807626e4c3ea33bcaa6a69bb2324c348ed7d5fe22c",
+      "reviewArtifactHash": "a9b7f99f34e4d4f4342fc47b9f7a706913cb2a463f2dac4353665ba68f8a4bc3",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -403,11 +445,12 @@
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-29",
-      "reviewArtifactHash": "26c25d682d9913776dfc1f2072b3ecabac49cbf69b258f5864d9c454387114f2",
+      "reviewArtifactHash": "6448d0d589c6e964566e5af2539ae71b2452934819b08376ea7219f9b4b53b2a",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -417,11 +460,12 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-30",
-      "reviewArtifactHash": "d26b5a29aeaf323d9035550f797eeb86fec8687992e65e1301201ca8b9cacd40",
+      "reviewArtifactHash": "145e617046f3f73c7ad0ae4b00f227da2a560fb625349e8fdb4f3ef997ea543f",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -431,11 +475,12 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-31",
-      "reviewArtifactHash": "aeb03444e97612e9e992f911904eb2892bf16196ce980a2824d3f27f7e1e5bc4",
+      "reviewArtifactHash": "21aa3cb933526227907f84db787cabec3eacecf31931ec33d6b2c781dec0d967",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -445,11 +490,14 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-32",
-      "reviewArtifactHash": "b2e3b388b3e27f3fe1a003a969cf7d2a6fbd711ee0830b0862ec7877e1b943e8",
+      "reviewArtifactHash": "ca0f17d2a3133ace98ce21786bfca4c2ab6d4fcb94e8036a62cc465dcf9f1b68",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -459,11 +507,12 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-33",
-      "reviewArtifactHash": "b4dfa801045c3fb26390388219ad9a6cccc1e0a0b7192aa9e5fc414af4f5a40f",
+      "reviewArtifactHash": "943e587aa528627cbb4fbc7a706f0b3a086922d98067823fcaf6a0a886be2514",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -473,39 +522,42 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MODERN_MATH"
       ],
       "relativeReviewPath": "cases/R2-34",
-      "reviewArtifactHash": "a4436ed3192e3226ee8ea360f0009b3aa00dcdd4e4d38a72c5a2bc9e6347dfc7",
+      "reviewArtifactHash": "7e47f5a9db6c56c41b667f26949e07420945c5f38587b3c905aae9a144da5901",
       "humanDecisionStatus": "PENDING"
     },
     {
       "reviewCaseId": "R2-35",
-      "questionId": "633e6a37a7bf-qcandidate-6",
-      "questionType": "UNKNOWN",
-      "sourceDocument": "1.1.docx",
+      "questionId": "f4d4446aeaf5-qcandidate-23",
+      "questionType": "TRUE_FALSE",
+      "sourceDocument": "NK TEST APP.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "MATH_IN_STEM",
+        "MODERN_MATH",
+        "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-35",
-      "reviewArtifactHash": "ff06b02993f87303d60bb08341429c3b6cbf2e17f2525e70924906ec20cbab6e",
+      "reviewArtifactHash": "95c6431e55b9a9499bcb83dbbadf59399938e20f470fd8375e8e1813793cb0a6",
       "humanDecisionStatus": "PENDING"
     },
     {
       "reviewCaseId": "R2-36",
-      "questionId": "633e6a37a7bf-qcandidate-7",
-      "questionType": "UNKNOWN",
-      "sourceDocument": "1.1.docx",
+      "questionId": "f4d4446aeaf5-qcandidate-41",
+      "questionType": "SHORT_ANSWER",
+      "sourceDocument": "NK TEST APP.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "TEXT_ONLY",
-        "ASSET_BEARING"
+        "MATH_IN_STEM",
+        "MODERN_MATH",
+        "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-36",
-      "reviewArtifactHash": "5109a6120430ad0c83c5c9377378298a30e006624899676cfdd72104035f0c9d",
+      "reviewArtifactHash": "47fdae015b06a9324c1112f22db060c4aa83efe823188b401ca0c2166f64c66e",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -515,11 +567,12 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MODERN_MATH"
       ],
       "relativeReviewPath": "cases/R2-37",
-      "reviewArtifactHash": "2d39e6f01c8020a45e9194fad476eef2c526922cdf3725f7ddf0f32122e9596b",
+      "reviewArtifactHash": "cebda7fab7785c2a12035c2762e300edf596aabb60ca7ea7895d65c13d2dd300",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -529,11 +582,12 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-38",
-      "reviewArtifactHash": "2b6145f608959029ec96f52d45290e4425cf91650daf6a09a1824af476462cae",
+      "reviewArtifactHash": "ccd44e7a81ddb9b6ba1977439e27e5406869b5e2a8bc511bb0a67cbd16a224a2",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -543,11 +597,12 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-39",
-      "reviewArtifactHash": "721b266cf0fd308e520bd1660797530c780c09de9d50b999890a9c79a9a3f803",
+      "reviewArtifactHash": "bca82aa79e4406736f98db8fecd2466271e3038d7a700f8f6ab9b336b1ba40f7",
       "humanDecisionStatus": "PENDING"
     },
     {
@@ -557,11 +612,13 @@
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
       "coverageTags": [
-        "MATH",
-        "ASSET_BEARING"
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-40",
-      "reviewArtifactHash": "107d94d83959b9e5d1ff13c8f8398eb5af214e0c9b6bc4f0dac707014df21af0",
+      "reviewArtifactHash": "3c3b54cbe2c6be33efd1e90bee0c2512f51d30041f438ba3499288ccb8bd7193",
       "humanDecisionStatus": "PENDING"
     }
   ]

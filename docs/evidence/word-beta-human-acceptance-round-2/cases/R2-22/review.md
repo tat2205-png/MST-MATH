@@ -1,32 +1,31 @@
 # Review Case R2-22
 
 Question ID: 1ffa795691ed-qcandidate-22
+QuestionIR ID: 1ffa795691ed-qcandidate-22
 Source document: 1. MIN MAX -HH PHẲNG.docx
-Source anchor: undefined
 Question type: UNKNOWN
-Previous defect category: None
+Risk tags: ASSET_BEARING, MATH_IN_STEM, MTEF_V5
 
-## A. Source
+## A. Current source-backed question
 
+Chonửađường trònđườngkính$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, bán kính$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mn>0</mn></mrow></math>$. Ta dựng đường thẳng$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>Δ</mi></mrow></math>$song song$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, cắt nửa đường tròn tại hai điểm$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi><mo>,</mo><mi>N</mi></mrow></math>$, sau đó dựng hình chữ nhật$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>P</mi><mo>,</mo><mi>Q</mi></mrow></math>$nằm trên đường kính$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mi>B</mi></mrow></math>$như hình vẽ. Tìm diện tích lớn nhất của hình chữ nhật$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$theo$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>R</mi></mrow></math>$khi đường thẳng$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>Δ</mi></mrow></math>$thay đổi.
 
+## B. Answer
 
-Math objects: mtef-7c69ab0d2c4c56d4, mtef-11aa5f52975ea8f6, mtef-0cdb2838ec6b178f, mtef-7c69ab0d2c4c56d4, mtef-362eea45d1d0fc65, mtef-1e477fdc6f5b1ceb, mtef-37600acc64c07c5e, mtef-7c69ab0d2c4c56d4, mtef-1e477fdc6f5b1ceb, mtef-ad4ec3bd3205be0c, mtef-0cdb2838ec6b178f
+[NO_ANSWER_TEXT]
+
+## C. Solution
+
+[NO_SOLUTION_TEXT]
+
+## D. Math / Assets
+
+Math formats: MTEF_V5
+Math roles: MATH_IN_STEM
+Math objects: mtef-0cdb2838ec6b178f, mtef-11aa5f52975ea8f6, mtef-1e477fdc6f5b1ceb, mtef-362eea45d1d0fc65, mtef-37600acc64c07c5e, mtef-7c69ab0d2c4c56d4, mtef-ad4ec3bd3205be0c
 Assets: asset-c73c59d38614
 
-## B. Current PiMath Output
-
-
-
-Math objects: mtef-7c69ab0d2c4c56d4, mtef-11aa5f52975ea8f6, mtef-0cdb2838ec6b178f, mtef-7c69ab0d2c4c56d4, mtef-362eea45d1d0fc65, mtef-1e477fdc6f5b1ceb, mtef-37600acc64c07c5e, mtef-7c69ab0d2c4c56d4, mtef-1e477fdc6f5b1ceb, mtef-ad4ec3bd3205be0c, mtef-0cdb2838ec6b178f
-Assets: asset-c73c59d38614
-
-## C. Automated Evidence
-
-Automated QA: REVIEW
-Provenance: PASS
-Package: question-1ffa795691ed-qcandidate-22
-
-## D. Human Review
+## E. Human Review
 
 Decision:
 [ ] ACCEPT

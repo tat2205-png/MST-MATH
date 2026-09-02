@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-27",
   "questionId": "1ffa795691ed-qcandidate-27",
+  "questionIrId": "1ffa795691ed-qcandidate-27",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -13,17 +14,29 @@
       "paragraph-224",
       "paragraph-225",
       "paragraph-226"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Một màn hình$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>N</mi><mi>P</mi></mrow></math>$có chiều cao 1,6 mét được đặt thẳng đứng và mép dưới của màn hình cách mặt đất một khoảng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>N</mi><mi>M</mi></mrow></math>$bằng 1,9 mét. Một chiếc đèn chiếu sáng màn hình đặt ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi></mrow></math>$trên mặt đất (xem hình minh họa). Để góc chiếu sáng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>N</mi><mi>O</mi><mi>P</mi></mrow></math>$.lớn nhất thì độ dài đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>M</mi></mrow></math>$bằng bao nhiêu? (làm tròn kết quả đến hàng phần trăm).",
     "mathObjectIds": [
-      "mtef-2e25e7db235b4999",
-      "mtef-a942dba1b1866640",
-      "mtef-3a7262dfccac51e5",
       "mtef-0756caecd509f4dc",
+      "mtef-2e25e7db235b4999",
+      "mtef-3a7262dfccac51e5",
+      "mtef-a942dba1b1866640",
       "mtef-c732723b21193371"
     ],
     "assetIds": [
@@ -103,14 +116,17 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-27",
     "questionIrId": "1ffa795691ed-qcandidate-27",
     "packageId": "question-1ffa795691ed-qcandidate-27",
-    "text": "",
+    "text": "Một màn hình$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>N</mi><mi>P</mi></mrow></math>$có chiều cao 1,6 mét được đặt thẳng đứng và mép dưới của màn hình cách mặt đất một khoảng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>N</mi><mi>M</mi></mrow></math>$bằng 1,9 mét. Một chiếc đèn chiếu sáng màn hình đặt ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi></mrow></math>$trên mặt đất (xem hình minh họa). Để góc chiếu sáng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>N</mi><mi>O</mi><mi>P</mi></mrow></math>$.lớn nhất thì độ dài đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>M</mi></mrow></math>$bằng bao nhiêu? (làm tròn kết quả đến hàng phần trăm).",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-2e25e7db235b4999",
-      "mtef-a942dba1b1866640",
-      "mtef-3a7262dfccac51e5",
       "mtef-0756caecd509f4dc",
+      "mtef-2e25e7db235b4999",
+      "mtef-3a7262dfccac51e5",
+      "mtef-a942dba1b1866640",
       "mtef-c732723b21193371"
     ],
     "assetIds": [
@@ -120,8 +136,15 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

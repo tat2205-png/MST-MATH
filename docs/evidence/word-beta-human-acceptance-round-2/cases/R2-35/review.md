@@ -1,32 +1,31 @@
 # Review Case R2-35
 
-Question ID: 633e6a37a7bf-qcandidate-6
-Source document: 1.1.docx
-Source anchor: undefined
-Question type: UNKNOWN
-Previous defect category: None
+Question ID: f4d4446aeaf5-qcandidate-23
+QuestionIR ID: f4d4446aeaf5-q3
+Source document: NK TEST APP.docx
+Question type: TRUE_FALSE
+Risk tags: MATH_IN_STEM, MODERN_MATH, SHARED_CONTEXT_MATH
 
-## A. Source
+## A. Current source-backed question
 
+Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian$t$($t\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số$x(t)=2t−2ln⁡(t+1)$(đơn vị: triệu giờ). Hàm số$v(t)={x}^{′}(t)$biểu thị tốc độ tương tác của người dùng tại thời điểm$t$(đơn vị: triệu giờ/tuần).
 
+## B. Answer
 
-Math objects: mtef-80e2e6e605cce089, mtef-a4f73614201f3397, mtef-80e2e6e605cce089, mtef-eaa46a8467c24da8, mtef-d8986846972da575, mtef-536ceaea5319968c, mtef-cd57d1e05dd017c8, mtef-a4f73614201f3397, mtef-6ee88d4ed471c035
-Assets: asset-7ec19b59109e
+[NO_ANSWER_TEXT]
 
-## B. Current PiMath Output
+## C. Solution
 
+[NO_SOLUTION_TEXT]
 
+## D. Math / Assets
 
-Math objects: mtef-80e2e6e605cce089, mtef-a4f73614201f3397, mtef-80e2e6e605cce089, mtef-eaa46a8467c24da8, mtef-d8986846972da575, mtef-536ceaea5319968c, mtef-cd57d1e05dd017c8, mtef-a4f73614201f3397, mtef-6ee88d4ed471c035
-Assets: asset-7ec19b59109e
+Math formats: MODERN_MATH
+Math roles: MATH_IN_STEM, SHARED_CONTEXT_MATH
+Math objects: expression-docx-88, expression-docx-89, expression-docx-90, expression-docx-91, expression-docx-92
+Assets: None
 
-## C. Automated Evidence
-
-Automated QA: REVIEW
-Provenance: PASS
-Package: question-633e6a37a7bf-qcandidate-6
-
-## D. Human Review
+## E. Human Review
 
 Decision:
 [ ] ACCEPT

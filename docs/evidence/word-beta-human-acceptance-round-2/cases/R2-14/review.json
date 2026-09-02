@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-14",
   "questionId": "1ffa795691ed-qcandidate-14",
+  "questionIrId": "1ffa795691ed-qcandidate-14",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -14,22 +15,32 @@
       "paragraph-138",
       "paragraph-139",
       "paragraph-140"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Haichất điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$chuyểnđộngthẳng đều cùng hướng về$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi></mrow></math>$(như hình vẽ), biết rằng vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>V</mi><mi>B</mi><mo>=</mo><mi>V</mi><mi>A</mi><mn>3</mn></mrow></math>$và góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mo>∡</mo><mi>A</mi><mi>O</mi><mi>B</mi><mo>=</mo><mn>3</mn><mn>0</mn><mn>0</mn></mrow></math>$. Biết rằng khi khoảng cách giữa hai chất điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$là nhỏ nhất thì số đo góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>A</mi><mi>O</mi><mo>̂</mo><mo>=</mo><mi>γ</mi><mo>.</mo></mrow></math>$Tìm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>γ</mi><mo>.</mo></mrow></math>$",
     "mathObjectIds": [
-      "mtef-30f5e7558432f220",
-      "mtef-ebf17e222ec0f8c9",
-      "mtef-35da0f7cdc37056a",
-      "mtef-a8be789a544f4852",
       "mtef-0cd346f06231fcb2",
       "mtef-30f5e7558432f220",
-      "mtef-ebf17e222ec0f8c9",
+      "mtef-35da0f7cdc37056a",
       "mtef-504cf0068c38ce56",
-      "mtef-9b06fcdc0f5d93c6"
+      "mtef-9b06fcdc0f5d93c6",
+      "mtef-a8be789a544f4852",
+      "mtef-ebf17e222ec0f8c9"
     ],
     "assetIds": [
       "asset-9f7a506dbcdd"
@@ -240,19 +251,20 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-14",
     "questionIrId": "1ffa795691ed-qcandidate-14",
     "packageId": "question-1ffa795691ed-qcandidate-14",
-    "text": "",
+    "text": "Haichất điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$chuyểnđộngthẳng đều cùng hướng về$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi></mrow></math>$(như hình vẽ), biết rằng vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>V</mi><mi>B</mi><mo>=</mo><mi>V</mi><mi>A</mi><mn>3</mn></mrow></math>$và góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mo>∡</mo><mi>A</mi><mi>O</mi><mi>B</mi><mo>=</mo><mn>3</mn><mn>0</mn><mn>0</mn></mrow></math>$. Biết rằng khi khoảng cách giữa hai chất điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$là nhỏ nhất thì số đo góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>A</mi><mi>O</mi><mo>̂</mo><mo>=</mo><mi>γ</mi><mo>.</mo></mrow></math>$Tìm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>γ</mi><mo>.</mo></mrow></math>$",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-30f5e7558432f220",
-      "mtef-ebf17e222ec0f8c9",
-      "mtef-35da0f7cdc37056a",
-      "mtef-a8be789a544f4852",
       "mtef-0cd346f06231fcb2",
       "mtef-30f5e7558432f220",
-      "mtef-ebf17e222ec0f8c9",
+      "mtef-35da0f7cdc37056a",
       "mtef-504cf0068c38ce56",
-      "mtef-9b06fcdc0f5d93c6"
+      "mtef-9b06fcdc0f5d93c6",
+      "mtef-a8be789a544f4852",
+      "mtef-ebf17e222ec0f8c9"
     ],
     "assetIds": [
       "asset-9f7a506dbcdd"
@@ -261,8 +273,15 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

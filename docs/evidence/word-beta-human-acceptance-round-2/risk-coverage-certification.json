@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_RISK_COVERAGE_CERTIFICATION_V1",
+  "source": "docs/evidence/word-beta-human-acceptance-round-2/acceptance-feature-matrix.json",
+  "matrixQuestionCount": 668,
+  "initialCoverage": {
+    "FORMAT:MTEF_V3": {
+      "minimum": 2,
+      "actual": 0,
+      "pass": false
+    },
+    "FORMAT:MTEF_V5": {
+      "minimum": 5,
+      "actual": 34,
+      "pass": true
+    },
+    "FORMAT:MODERN_MATH": {
+      "minimum": 5,
+      "actual": 2,
+      "pass": false
+    },
+    "ROLE:MATH_IN_OPTIONS": {
+      "minimum": 1,
+      "actual": 6,
+      "pass": true
+    },
+    "ROLE:MATH_IN_SOLUTION": {
+      "minimum": 1,
+      "actual": 0,
+      "pass": false
+    },
+    "ROLE:SHARED_CONTEXT_MATH": {
+      "minimum": 1,
+      "actual": 2,
+      "pass": true
+    },
+    "TAG:ASSET_BEARING": {
+      "minimum": 1,
+      "actual": 40,
+      "pass": true
+    },
+    "TAG:MULTI_ASSET": {
+      "minimum": 1,
+      "actual": 8,
+      "pass": true
+    },
+    "TYPE:MULTIPLE_CHOICE": {
+      "minimum": 1,
+      "actual": 6,
+      "pass": true
+    },
+    "TYPE:SHORT_ANSWER": {
+      "minimum": 1,
+      "actual": 0,
+      "pass": false
+    },
+    "TYPE:TRUE_FALSE": {
+      "minimum": 1,
+      "actual": 0,
+      "pass": false
+    },
+    "TYPE:UNKNOWN": {
+      "minimum": 1,
+      "actual": 34,
+      "pass": true
+    }
+  },
+  "finalCoverage": {
+    "FORMAT:MTEF_V3": {
+      "minimum": 2,
+      "actual": 2,
+      "pass": true
+    },
+    "FORMAT:MTEF_V5": {
+      "minimum": 5,
+      "actual": 33,
+      "pass": true
+    },
+    "FORMAT:MODERN_MATH": {
+      "minimum": 5,
+      "actual": 5,
+      "pass": true
+    },
+    "ROLE:MATH_IN_OPTIONS": {
+      "minimum": 1,
+      "actual": 8,
+      "pass": true
+    },
+    "ROLE:MATH_IN_SOLUTION": {
+      "minimum": 1,
+      "actual": 1,
+      "pass": true
+    },
+    "ROLE:SHARED_CONTEXT_MATH": {
+      "minimum": 1,
+      "actual": 4,
+      "pass": true
+    },
+    "TAG:ASSET_BEARING": {
+      "minimum": 1,
+      "actual": 38,
+      "pass": true
+    },
+    "TAG:MULTI_ASSET": {
+      "minimum": 1,
+      "actual": 7,
+      "pass": true
+    },
+    "TYPE:MULTIPLE_CHOICE": {
+      "minimum": 1,
+      "actual": 8,
+      "pass": true
+    },
+    "TYPE:SHORT_ANSWER": {
+      "minimum": 1,
+      "actual": 2,
+      "pass": true
+    },
+    "TYPE:TRUE_FALSE": {
+      "minimum": 1,
+      "actual": 1,
+      "pass": true
+    },
+    "TYPE:UNKNOWN": {
+      "minimum": 1,
+      "actual": 29,
+      "pass": true
+    }
+  },
+  "mandatoryCoverageGapCount": 0,
+  "mandatoryCoverageGaps": [],
+  "round1MandatoryGapCount": 0,
+  "coverageDerivationQA": "PASS",
+  "riskCoverageQA": "PASS",
+  "archivalRound1EvidenceStatus": "CONSUMED_IF_SCHEMA_MATCHED"
+}

@@ -1,176 +1,129 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-35",
-  "questionId": "633e6a37a7bf-qcandidate-6",
+  "questionId": "f4d4446aeaf5-qcandidate-23",
+  "questionIrId": "f4d4446aeaf5-q3",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
-    "documentId": "docx-633e6a37a7bfd1d9",
-    "documentPath": "1.1.docx",
-    "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+    "documentId": "docx-f4d4446aeaf5ba44",
+    "documentPath": "NK TEST APP.docx",
+    "documentHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
     "sourceObjectIds": [
-      "paragraph-16",
-      "paragraph-17"
-    ]
+      "paragraph-75"
+    ],
+    "provenance": {
+      "sourceFile": "NK TEST APP.docx",
+      "sourceSha256": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
-  "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
+  "questionType": "TRUE_FALSE",
   "sourceRepresentation": {
-    "text": "",
+    "text": "Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian$t$($t\\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số$x(t)=2t−2ln⁡(t+1)$(đơn vị: triệu giờ). Hàm số$v(t)={x}^{′}(t)$biểu thị tốc độ tương tác của người dùng tại thời điểm$t$(đơn vị: triệu giờ/tuần).",
     "mathObjectIds": [
-      "mtef-80e2e6e605cce089",
-      "mtef-a4f73614201f3397",
-      "mtef-80e2e6e605cce089",
-      "mtef-eaa46a8467c24da8",
-      "mtef-d8986846972da575",
-      "mtef-536ceaea5319968c",
-      "mtef-cd57d1e05dd017c8",
-      "mtef-a4f73614201f3397",
-      "mtef-6ee88d4ed471c035"
+      "expression-docx-88",
+      "expression-docx-89",
+      "expression-docx-90",
+      "expression-docx-91",
+      "expression-docx-92"
     ],
-    "assetIds": [
-      "asset-7ec19b59109e"
-    ],
+    "assetIds": [],
     "math": [
       {
-        "mathObjectId": "mtef-80e2e6e605cce089",
+        "mathObjectId": "expression-docx-88",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
           "partName": "word/document.xml",
           "objectIndex": 1,
-          "paragraphIndex": 16
+          "paragraphIndex": 75
         },
         "sourceType": "OMML",
         "status": "PASS"
       },
       {
-        "mathObjectId": "mtef-a4f73614201f3397",
+        "mathObjectId": "expression-docx-89",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
           "partName": "word/document.xml",
           "objectIndex": 3,
-          "paragraphIndex": 16
+          "paragraphIndex": 75
         },
         "sourceType": "OMML",
         "status": "PASS"
       },
       {
-        "mathObjectId": "mtef-80e2e6e605cce089",
+        "mathObjectId": "expression-docx-90",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
           "partName": "word/document.xml",
           "objectIndex": 5,
-          "paragraphIndex": 16
+          "paragraphIndex": 75
         },
         "sourceType": "OMML",
         "status": "PASS"
       },
       {
-        "mathObjectId": "mtef-eaa46a8467c24da8",
+        "mathObjectId": "expression-docx-91",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
           "partName": "word/document.xml",
           "objectIndex": 7,
-          "paragraphIndex": 16
+          "paragraphIndex": 75
         },
         "sourceType": "OMML",
         "status": "PASS"
       },
       {
-        "mathObjectId": "mtef-d8986846972da575",
+        "mathObjectId": "expression-docx-92",
         "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
           "partName": "word/document.xml",
-          "objectIndex": 10,
-          "paragraphIndex": 16
-        },
-        "sourceType": "OMML",
-        "status": "PASS"
-      },
-      {
-        "mathObjectId": "mtef-536ceaea5319968c",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
-          "partName": "word/document.xml",
-          "objectIndex": 12,
-          "paragraphIndex": 16
-        },
-        "sourceType": "OMML",
-        "status": "PASS"
-      },
-      {
-        "mathObjectId": "mtef-cd57d1e05dd017c8",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
-          "partName": "word/document.xml",
-          "objectIndex": 14,
-          "paragraphIndex": 16
-        },
-        "sourceType": "OMML",
-        "status": "PASS"
-      },
-      {
-        "mathObjectId": "mtef-a4f73614201f3397",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
-          "partName": "word/document.xml",
-          "objectIndex": 16,
-          "paragraphIndex": 16
-        },
-        "sourceType": "OMML",
-        "status": "PASS"
-      },
-      {
-        "mathObjectId": "mtef-6ee88d4ed471c035",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
-          "partName": "word/document.xml",
-          "objectIndex": 18,
-          "paragraphIndex": 16
+          "objectIndex": 9,
+          "paragraphIndex": 75
         },
         "sourceType": "OMML",
         "status": "PASS"
       }
     ],
-    "assets": [
-      {
-        "assetId": "asset-7ec19b59109e",
-        "kind": "IMAGE",
-        "relationshipId": "rId117",
-        "sourceAnchor": {
-          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
-          "partName": "word/document.xml",
-          "objectIndex": 0,
-          "paragraphIndex": 17,
-          "relationshipId": "rId117"
-        },
-        "status": "PASS"
-      }
-    ]
+    "assets": []
   },
   "finalRepresentation": {
-    "questionIrId": "633e6a37a7bf-qcandidate-6",
-    "packageId": "question-633e6a37a7bf-qcandidate-6",
-    "text": "",
+    "acceptanceQuestionId": "f4d4446aeaf5-qcandidate-23",
+    "questionIrId": "f4d4446aeaf5-q3",
+    "packageId": "question-f4d4446aeaf5-qcandidate-23",
+    "text": "Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian$t$($t\\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số$x(t)=2t−2ln⁡(t+1)$(đơn vị: triệu giờ). Hàm số$v(t)={x}^{′}(t)$biểu thị tốc độ tương tác của người dùng tại thời điểm$t$(đơn vị: triệu giờ/tuần).",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "mtef-80e2e6e605cce089",
-      "mtef-a4f73614201f3397",
-      "mtef-80e2e6e605cce089",
-      "mtef-eaa46a8467c24da8",
-      "mtef-d8986846972da575",
-      "mtef-536ceaea5319968c",
-      "mtef-cd57d1e05dd017c8",
-      "mtef-a4f73614201f3397",
-      "mtef-6ee88d4ed471c035"
+      "expression-docx-88",
+      "expression-docx-89",
+      "expression-docx-90",
+      "expression-docx-91",
+      "expression-docx-92"
     ],
-    "assetIds": [
-      "asset-7ec19b59109e"
-    ]
+    "assetIds": []
   },
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "MATH_IN_STEM",
+    "MODERN_MATH",
+    "SHARED_CONTEXT_MATH"
+  ],
+  "mathFormats": [
+    "MODERN_MATH"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM",
+    "SHARED_CONTEXT_MATH"
   ],
   "humanReview": {
     "decision": null,

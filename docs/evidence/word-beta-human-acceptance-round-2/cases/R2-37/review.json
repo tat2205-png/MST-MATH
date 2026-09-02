@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-37",
   "questionId": "633e6a37a7bf-qcandidate-8",
+  "questionIrId": "633e6a37a7bf-qcandidate-8",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-633e6a37a7bfd1d9",
@@ -11,23 +12,35 @@
       "paragraph-20",
       "paragraph-21",
       "paragraph-22"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Trong cuộc thi 2 môn phối hợp gồm chèo thuyền và chạy bộ. Các vận động viên sẽ chèo thuyền từ điểm xuất phát$A$cách bờ$BC là 6km$sau đó đến bờ tại một vị trí$D$rồi chạy về đích$C$(xem hình minh họa). Biết rằng quãng đường$BC=15km$, vận tốc chèo thuyền của một vận động viên$X$là$8km/h$và vận tốc chạy trên bờ của vận động viênXlà$16km/h$.Vận động viên$X$nênchèo thuyền về bờ tại vị trí$D$cách đíchCbao nhiêukmđể tổng thời gian về đích làítnhất(làm tròn kết quả đến hàng phần chục)?",
     "mathObjectIds": [
-      "expression-docx-7",
-      "expression-docx-8",
-      "expression-docx-9",
       "expression-docx-10",
       "expression-docx-11",
       "expression-docx-12",
       "expression-docx-13",
       "expression-docx-14",
       "expression-docx-15",
-      "expression-docx-16"
+      "expression-docx-16",
+      "expression-docx-7",
+      "expression-docx-8",
+      "expression-docx-9"
     ],
     "assetIds": [
       "asset-f47664c18cee"
@@ -161,20 +174,23 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "633e6a37a7bf-qcandidate-8",
     "questionIrId": "633e6a37a7bf-qcandidate-8",
     "packageId": "question-633e6a37a7bf-qcandidate-8",
-    "text": "",
+    "text": "Trong cuộc thi 2 môn phối hợp gồm chèo thuyền và chạy bộ. Các vận động viên sẽ chèo thuyền từ điểm xuất phát$A$cách bờ$BC là 6km$sau đó đến bờ tại một vị trí$D$rồi chạy về đích$C$(xem hình minh họa). Biết rằng quãng đường$BC=15km$, vận tốc chèo thuyền của một vận động viên$X$là$8km/h$và vận tốc chạy trên bờ của vận động viênXlà$16km/h$.Vận động viên$X$nênchèo thuyền về bờ tại vị trí$D$cách đíchCbao nhiêukmđể tổng thời gian về đích làítnhất(làm tròn kết quả đến hàng phần chục)?",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
-      "expression-docx-7",
-      "expression-docx-8",
-      "expression-docx-9",
       "expression-docx-10",
       "expression-docx-11",
       "expression-docx-12",
       "expression-docx-13",
       "expression-docx-14",
       "expression-docx-15",
-      "expression-docx-16"
+      "expression-docx-16",
+      "expression-docx-7",
+      "expression-docx-8",
+      "expression-docx-9"
     ],
     "assetIds": [
       "asset-f47664c18cee"
@@ -183,8 +199,15 @@
   "automatedQa": "PASS",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MODERN_MATH"
+  ],
+  "mathFormats": [
+    "MODERN_MATH"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

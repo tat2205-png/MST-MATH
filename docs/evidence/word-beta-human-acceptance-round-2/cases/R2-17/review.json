@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
   "reviewCaseId": "R2-17",
   "questionId": "1ffa795691ed-qcandidate-17",
+  "questionIrId": "1ffa795691ed-qcandidate-17",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
@@ -14,16 +15,28 @@
       "paragraph-160",
       "paragraph-161",
       "paragraph-162"
-    ]
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
   },
   "questionType": "UNKNOWN",
-  "previousDefectCategory": null,
   "sourceRepresentation": {
-    "text": "",
+    "text": "Một bác nông dân có ba tấm lưới thép B40, mỗi tấm dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>=</mo><mn>5</mn><mo>(</mo><mi>m</mi><mo>)</mo></mrow></math>$vàmuốnrào một mảnh vườn dọc bờ sông có dạng hình thang cân$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$nhưHình vẽ(bờ sông là đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$không phải rào).Hỏi bác đó có thể rào được mảnh vườn có diện tích lớn nhất là bao nhiêu mét vuông?( kết quả làm tròn ở hàng phần mười)",
     "mathObjectIds": [
+      "mtef-1fc1bae60f109a06",
       "mtef-3a43219486c65d18",
-      "mtef-61ebbcbfa051d764",
-      "mtef-1fc1bae60f109a06"
+      "mtef-61ebbcbfa051d764"
     ],
     "assetIds": [
       "asset-057aa8dfa102"
@@ -80,13 +93,16 @@
     ]
   },
   "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-17",
     "questionIrId": "1ffa795691ed-qcandidate-17",
     "packageId": "question-1ffa795691ed-qcandidate-17",
-    "text": "",
+    "text": "Một bác nông dân có ba tấm lưới thép B40, mỗi tấm dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>=</mo><mn>5</mn><mo>(</mo><mi>m</mi><mo>)</mo></mrow></math>$vàmuốnrào một mảnh vườn dọc bờ sông có dạng hình thang cân$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$nhưHình vẽ(bờ sông là đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$không phải rào).Hỏi bác đó có thể rào được mảnh vườn có diện tích lớn nhất là bao nhiêu mét vuông?( kết quả làm tròn ở hàng phần mười)",
+    "answer": "",
+    "solution": "",
     "mathObjectIds": [
+      "mtef-1fc1bae60f109a06",
       "mtef-3a43219486c65d18",
-      "mtef-61ebbcbfa051d764",
-      "mtef-1fc1bae60f109a06"
+      "mtef-61ebbcbfa051d764"
     ],
     "assetIds": [
       "asset-057aa8dfa102"
@@ -95,8 +111,15 @@
   "automatedQa": "REVIEW",
   "provenanceStatus": "PASS",
   "coverageTags": [
-    "MATH",
-    "ASSET_BEARING"
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
   ],
   "humanReview": {
     "decision": null,

@@ -1,32 +1,31 @@
 # Review Case R2-08
 
 Question ID: 1ffa795691ed-qcandidate-8
+QuestionIR ID: 1ffa795691ed-qcandidate-8
 Source document: 1. MIN MAX -HH PHẲNG.docx
-Source anchor: undefined
 Question type: UNKNOWN
-Previous defect category: None
+Risk tags: ASSET_BEARING, MATH_IN_STEM, MTEF_V5, MULTI_ASSET
 
-## A. Source
+## A. Current source-backed question
 
+Người ta giăng lưới để nuôi riêng một loại cá trên một góc hồ. Biết rằng lưới được giăng theo một đườngthẳngtừ một vị trí trên bờ ngang đến một vị trí trên bờ dọc và phải đi qua một cái cọc đã cắm sẵn ở vị trí$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi></mrow></math>$. Hỏi diện tích nhỏ nhất có thể giăng là bao nhiêu, biết rằng khoảng cách từ cọc đến bờ ngang là$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mo></mo><mi>m</mi></mrow></math>$và khoảng cách từ cọc đến bờ dọc là$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mn>2</mn><mo></mo><mi>m</mi></mrow></math>$
 
+## B. Answer
 
-Math objects: mtef-f945aa56cc7139b7, mtef-cd4bb1cec20f155c, mtef-885ffc32cc31fb1f
-Assets: asset-5ca6a6aabb51, asset-4f38aa0a1c38
+[NO_ANSWER_TEXT]
 
-## B. Current PiMath Output
+## C. Solution
 
+[NO_SOLUTION_TEXT]
 
+## D. Math / Assets
 
-Math objects: mtef-f945aa56cc7139b7, mtef-cd4bb1cec20f155c, mtef-885ffc32cc31fb1f
-Assets: asset-5ca6a6aabb51, asset-4f38aa0a1c38
+Math formats: MTEF_V5
+Math roles: MATH_IN_STEM
+Math objects: mtef-885ffc32cc31fb1f, mtef-cd4bb1cec20f155c, mtef-f945aa56cc7139b7
+Assets: asset-4f38aa0a1c38, asset-5ca6a6aabb51
 
-## C. Automated Evidence
-
-Automated QA: REVIEW
-Provenance: PASS
-Package: question-1ffa795691ed-qcandidate-8
-
-## D. Human Review
+## E. Human Review
 
 Decision:
 [ ] ACCEPT
