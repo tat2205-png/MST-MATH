@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_TECHNICAL_CERTIFICATION_V1",
+  "generatedAt": "2026-09-02T18:57:38.187Z",
+  "generatorVersion": "current-state-certifier-v1",
+  "gitCommit": "7b250306f7fc97738b290ca6a97ae2b3f53a4bd9",
+  "canonicalBoundaryCount": 668,
+  "canonicalBoundarySetHash": "a794b1fee63421c01f0baa39b23bf27eb9f876c9e4fecec72fed7af1c295f086",
+  "sourceCorpusManifestHash": "7e1934a559da6ce424899a295ad7b2b44529569a9502769ba29367e75f51997c",
+  "visibleUnsupportedOmmlDiagnosticCount": 0,
+  "internalParserDiagnosticCount": 8,
+  "qa": "PASS"
+}

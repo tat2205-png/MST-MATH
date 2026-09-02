@@ -1,0 +1,641 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_ACCEPTANCE_ROUND_2",
+  "generatedAt": "2026-09-02T18:57:38.187Z",
+  "generatorVersion": "current-state-certifier-v1",
+  "gitCommit": "7b250306f7fc97738b290ca6a97ae2b3f53a4bd9",
+  "canonicalBoundaryCount": 668,
+  "canonicalBoundarySetHash": "a794b1fee63421c01f0baa39b23bf27eb9f876c9e4fecec72fed7af1c295f086",
+  "sourceCorpusManifestHash": "7e1934a559da6ce424899a295ad7b2b44529569a9502769ba29367e75f51997c",
+  "cases": [
+    {
+      "reviewCaseId": "R2-01",
+      "questionId": "1ffa795691ed-qcandidate-1",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-1",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-d19fb74644ac0c7f",
+        "mtef-a4e956634dbff660",
+        "mtef-53b0ac1fe7c98bb3",
+        "mtef-c75b96f040035d66",
+        "mtef-7c3ff72cedfb601e",
+        "mtef-c75b96f040035d66"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-02",
+      "questionId": "1ffa795691ed-qcandidate-2",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-2",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-4371e6f814c48180",
+        "mtef-35b818f7bf6b9468",
+        "mtef-5f8cd9c7c15fbcda"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-03",
+      "questionId": "1ffa795691ed-qcandidate-3",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-3",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-d19fb74644ac0c7f",
+        "mtef-3853ad93ce79604d",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-144388621acc6a1e",
+        "mtef-95c9d4140bee9328",
+        "mtef-1f18050409bc556a",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-144388621acc6a1e",
+        "mtef-b52e80a80f9b7568",
+        "mtef-7a6c8d00e5825994",
+        "mtef-50db9d177ad4ab90",
+        "mtef-a098b3c38cf35490"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-04",
+      "questionId": "1ffa795691ed-qcandidate-4",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-4",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-b3f4dd3347f700ef",
+        "mtef-3488601c810fb2ae",
+        "mtef-b3f4dd3347f700ef",
+        "mtef-3488601c810fb2ae",
+        "mtef-6c8a982261123010",
+        "mtef-20ecea9256765903",
+        "mtef-6c8a982261123010",
+        "mtef-b3f4dd3347f700ef",
+        "mtef-bba0c1a2c0554c30",
+        "mtef-b3f4dd3347f700ef",
+        "mtef-3488601c810fb2ae",
+        "mtef-2d761d5a982e4f55"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-05",
+      "questionId": "1ffa795691ed-qcandidate-5",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-5",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-4901ed4c5bf48e0a",
+        "mtef-cde79b5ecbfcda92",
+        "mtef-e879c698833031ce",
+        "mtef-4fbe8e9651d57882",
+        "mtef-363c81406bbd1b51"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-06",
+      "questionId": "1ffa795691ed-qcandidate-6",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-6",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [],
+      "automatedQA": "PASS"
+    },
+    {
+      "reviewCaseId": "R2-07",
+      "questionId": "1ffa795691ed-qcandidate-7",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-7",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-7766020055263463",
+        "mtef-fe453ca07604bc19",
+        "mtef-61f820d84346d3e0"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-08",
+      "questionId": "1ffa795691ed-qcandidate-8",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-8",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-f945aa56cc7139b7",
+        "mtef-cd4bb1cec20f155c",
+        "mtef-885ffc32cc31fb1f"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-09",
+      "questionId": "1ffa795691ed-qcandidate-9",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-9",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-99978399b4be5526",
+        "mtef-3de1207067df91e8",
+        "mtef-fdbc879862231805",
+        "mtef-0b9b412ccaa49c46",
+        "mtef-207ae618315d5882",
+        "mtef-b06077c23bb5efc6",
+        "mtef-87f349670fd15740"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-10",
+      "questionId": "1ffa795691ed-qcandidate-10",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-10",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-cc29929403a9b3c5",
+        "mtef-f11c8473c7195e41",
+        "mtef-30f5e7558432f220",
+        "mtef-a0501fb7426750c9",
+        "mtef-a0501fb7426750c9",
+        "mtef-b4e7ca09edadc9ae",
+        "mtef-322a6d039d6252bf",
+        "mtef-b61a349c0aad7cb5"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-11",
+      "questionId": "1ffa795691ed-qcandidate-11",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-11",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [],
+      "automatedQA": "PASS"
+    },
+    {
+      "reviewCaseId": "R2-12",
+      "questionId": "1ffa795691ed-qcandidate-12",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-12",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-2ba3529b9c032fc4",
+        "mtef-5e5b45040a86ee1c",
+        "mtef-db442328346cb1bc",
+        "mtef-124c8a774a85f0eb",
+        "mtef-8172e857bc94bffc",
+        "mtef-ebf17e222ec0f8c9",
+        "mtef-ebf17e222ec0f8c9",
+        "mtef-30f5e7558432f220",
+        "mtef-65903be49c5c38e3",
+        "mtef-7bdbd94a449297d8",
+        "mtef-30f5e7558432f220",
+        "mtef-49033e942f4bcff3",
+        "mtef-11aa5f52975ea8f6",
+        "mtef-7bdbd94a449297d8"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-13",
+      "questionId": "1ffa795691ed-qcandidate-13",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-13",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-e239f0c4185e9f1d",
+        "mtef-aa24bc02e9fee351",
+        "mtef-a1578620f0565baf",
+        "mtef-144388621acc6a1e",
+        "mtef-e7653f9fa2b4bbe5",
+        "mtef-d7a040bad2df907b",
+        "mtef-742d379f8979ca20",
+        "mtef-8163351aec78b047",
+        "mtef-b42b08c38559730f",
+        "mtef-e4b800abd1586e14",
+        "mtef-60cf4524756db6cb"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-14",
+      "questionId": "1ffa795691ed-qcandidate-14",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-14",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-30f5e7558432f220",
+        "mtef-ebf17e222ec0f8c9",
+        "mtef-35da0f7cdc37056a",
+        "mtef-a8be789a544f4852",
+        "mtef-0cd346f06231fcb2",
+        "mtef-30f5e7558432f220",
+        "mtef-ebf17e222ec0f8c9",
+        "mtef-504cf0068c38ce56",
+        "mtef-9b06fcdc0f5d93c6"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-15",
+      "questionId": "1ffa795691ed-qcandidate-15",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-15",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-53065e3bdb78d507",
+        "mtef-54a8352f95fa6521",
+        "mtef-41c3f1b281fa1a48",
+        "mtef-abbd6b5bd26afc65"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-16",
+      "questionId": "1ffa795691ed-qcandidate-16",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-16",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-30f5e7558432f220",
+        "mtef-ebf17e222ec0f8c9",
+        "mtef-7f2fae8f46136964",
+        "mtef-c04d9f3a18473b7b",
+        "mtef-101dad64805215b8",
+        "mtef-65903be49c5c38e3",
+        "mtef-1800d3108aacdd77",
+        "mtef-101dad64805215b8",
+        "mtef-ebf17e222ec0f8c9",
+        "mtef-1a9a4db5ce129496",
+        "mtef-1800d3108aacdd77",
+        "mtef-101dad64805215b8"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-17",
+      "questionId": "1ffa795691ed-qcandidate-17",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-17",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-3a43219486c65d18",
+        "mtef-61ebbcbfa051d764",
+        "mtef-1fc1bae60f109a06"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-18",
+      "questionId": "1ffa795691ed-qcandidate-18",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-18",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-fb84cde9647ca192",
+        "mtef-919f81132e4de2e1",
+        "mtef-f1697478fbddcd51",
+        "mtef-919f81132e4de2e1"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-19",
+      "questionId": "1ffa795691ed-qcandidate-19",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-19",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-3f6dab202f269878",
+        "mtef-b14d3b786db5aef7",
+        "mtef-171fb37a5cee9c08",
+        "mtef-e2c08ef7d75dede5"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-20",
+      "questionId": "1ffa795691ed-qcandidate-20",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-20",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [],
+      "automatedQA": "PASS"
+    },
+    {
+      "reviewCaseId": "R2-21",
+      "questionId": "1ffa795691ed-qcandidate-21",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-21",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-8fc5d0277b51efa7",
+        "mtef-c4844685f5f93639",
+        "mtef-12861ef339fdda1f",
+        "mtef-fec9e877e7fe9158",
+        "mtef-d151e7c9a3a5f136",
+        "mtef-77d55aaa12599bec",
+        "mtef-cfef32344c36f46b",
+        "mtef-c5c217fe074680dc",
+        "mtef-159d4475bf51574f",
+        "mtef-4ccc7e54a8682842",
+        "mtef-12861ef339fdda1f",
+        "mtef-6f6e9ea9639128a4",
+        "mtef-8e2e4d26125ef348",
+        "mtef-a47643b43a38f20e",
+        "mtef-9d7fea411bee039b"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-22",
+      "questionId": "1ffa795691ed-qcandidate-22",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-22",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-7c69ab0d2c4c56d4",
+        "mtef-11aa5f52975ea8f6",
+        "mtef-0cdb2838ec6b178f",
+        "mtef-7c69ab0d2c4c56d4",
+        "mtef-362eea45d1d0fc65",
+        "mtef-1e477fdc6f5b1ceb",
+        "mtef-37600acc64c07c5e",
+        "mtef-7c69ab0d2c4c56d4",
+        "mtef-1e477fdc6f5b1ceb",
+        "mtef-ad4ec3bd3205be0c",
+        "mtef-0cdb2838ec6b178f"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-23",
+      "questionId": "1ffa795691ed-qcandidate-23",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-23",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-8172e857bc94bffc",
+        "mtef-5f078915d78dc0dc",
+        "mtef-8172e857bc94bffc"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-24",
+      "questionId": "1ffa795691ed-qcandidate-24",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-24",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-18ef06f35780cf98",
+        "mtef-8149646492a3ae29",
+        "mtef-e7ac90e85afd8261",
+        "mtef-1d5cd681fe139f96"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-25",
+      "questionId": "1ffa795691ed-qcandidate-25",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-25",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-a8957396be68606a",
+        "mtef-159d4475bf51574f",
+        "mtef-57113a2c0859d99f",
+        "mtef-d1df49bb65307957",
+        "mtef-38c18efc33f9c1dd",
+        "mtef-a1b27a2228b707cc",
+        "mtef-393382ba4ff31dce",
+        "mtef-38c18efc33f9c1dd",
+        "mtef-57113a2c0859d99f",
+        "mtef-a1b27a2228b707cc",
+        "mtef-57113a2c0859d99f",
+        "mtef-a1b27a2228b707cc"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-26",
+      "questionId": "1ffa795691ed-qcandidate-26",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-26",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-8796a12580d4b560",
+        "mtef-c3aab6ae10953c2a",
+        "mtef-b40addcd680d072f",
+        "mtef-8f5834e5aa5e3937"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-27",
+      "questionId": "1ffa795691ed-qcandidate-27",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-27",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-2e25e7db235b4999",
+        "mtef-a942dba1b1866640",
+        "mtef-3a7262dfccac51e5",
+        "mtef-0756caecd509f4dc",
+        "mtef-c732723b21193371"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-28",
+      "questionId": "1ffa795691ed-qcandidate-28",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-28",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-26d56e99d261ab0f",
+        "mtef-a4b9694c1a4a5821",
+        "mtef-ce25c5b44120da3c",
+        "mtef-144388621acc6a1e",
+        "mtef-2720e24434616d75",
+        "mtef-45d686aa30f0c8de"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-29",
+      "questionId": "1ffa795691ed-qcandidate-29",
+      "packageIdentity": "question-1ffa795691ed-qcandidate-29",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "mathReferences": [
+        "mtef-26d56e99d261ab0f",
+        "mtef-b9afc5267fa14ed3",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-e246c78f465e6294",
+        "mtef-7dbf3d7c2bee759b",
+        "mtef-df5e9615000be0ba"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-30",
+      "questionId": "633e6a37a7bf-qcandidate-1",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-1",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-30f5e7558432f220",
+        "mtef-49033e942f4bcff3",
+        "mtef-30f5e7558432f220",
+        "mtef-d879c74c58b0b0a8",
+        "mtef-49033e942f4bcff3",
+        "mtef-5f47051b16411b24",
+        "mtef-4cb7992c82b54493",
+        "mtef-681e0f40c4ba1c0c",
+        "mtef-30f5e7558432f220",
+        "mtef-49033e942f4bcff3",
+        "mtef-fb10fcc20647aa24",
+        "mtef-e677aeccd222df6b",
+        "mtef-30f5e7558432f220",
+        "mtef-49033e942f4bcff3",
+        "mtef-215fbf1efb86ccf1",
+        "mtef-bce7826f60963c14",
+        "mtef-b2028b1ba1d22e4d",
+        "mtef-018874008ec5a34c"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-31",
+      "questionId": "633e6a37a7bf-qcandidate-2",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-2",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-e239f0c4185e9f1d",
+        "mtef-aa24bc02e9fee351",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-144388621acc6a1e",
+        "mtef-144388621acc6a1e",
+        "mtef-aa24bc02e9fee351",
+        "mtef-54bee0140dd46338",
+        "mtef-33cd45506a1dff4e",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-aa24bc02e9fee351",
+        "mtef-b4c576ac1423080c"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-32",
+      "questionId": "633e6a37a7bf-qcandidate-3",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-3",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-e239f0c4185e9f1d",
+        "mtef-b84a313e1c36b1fc",
+        "mtef-aa24bc02e9fee351",
+        "mtef-3ed98407bd92af9b",
+        "mtef-144388621acc6a1e",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-8e312ac80fd09a89",
+        "mtef-144388621acc6a1e",
+        "mtef-e239f0c4185e9f1d",
+        "mtef-8e312ac80fd09a89",
+        "mtef-aa24bc02e9fee351"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-33",
+      "questionId": "633e6a37a7bf-qcandidate-4",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-4",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-ee4bd2d00266aba8",
+        "mtef-b394c787b7320354",
+        "mtef-3ad4f2d52100bbfc"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-34",
+      "questionId": "633e6a37a7bf-qcandidate-5",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-5",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "expression-docx-1",
+        "expression-docx-2",
+        "expression-docx-3",
+        "expression-docx-4",
+        "expression-docx-5",
+        "expression-docx-6"
+      ],
+      "automatedQA": "PASS"
+    },
+    {
+      "reviewCaseId": "R2-35",
+      "questionId": "633e6a37a7bf-qcandidate-6",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-6",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-80e2e6e605cce089",
+        "mtef-a4f73614201f3397",
+        "mtef-80e2e6e605cce089",
+        "mtef-eaa46a8467c24da8",
+        "mtef-d8986846972da575",
+        "mtef-536ceaea5319968c",
+        "mtef-cd57d1e05dd017c8",
+        "mtef-a4f73614201f3397",
+        "mtef-6ee88d4ed471c035"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-36",
+      "questionId": "633e6a37a7bf-qcandidate-7",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-7",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [],
+      "automatedQA": "PASS"
+    },
+    {
+      "reviewCaseId": "R2-37",
+      "questionId": "633e6a37a7bf-qcandidate-8",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-8",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "expression-docx-7",
+        "expression-docx-8",
+        "expression-docx-9",
+        "expression-docx-10",
+        "expression-docx-11",
+        "expression-docx-12",
+        "expression-docx-13",
+        "expression-docx-14",
+        "expression-docx-15",
+        "expression-docx-16"
+      ],
+      "automatedQA": "PASS"
+    },
+    {
+      "reviewCaseId": "R2-38",
+      "questionId": "633e6a37a7bf-qcandidate-9",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-9",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-5d3e67cb884e4cd7",
+        "mtef-da9562981503ff47"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-39",
+      "questionId": "633e6a37a7bf-qcandidate-10",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-10",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-f0316d512854e140",
+        "mtef-7851bd6141cf9382",
+        "mtef-64cd27054097448d",
+        "mtef-0f791f1e7a584740",
+        "mtef-ae7ce25c4fcaf06a",
+        "mtef-3d8607e7df5f4163",
+        "mtef-6905b279d262b36c",
+        "mtef-9e67a76825b98854",
+        "mtef-c29d745cdb5b8d96",
+        "mtef-62ba67fcf02ba546",
+        "mtef-a68b6ee8c41dc177",
+        "mtef-df8393cb94f33552"
+      ],
+      "automatedQA": "REVIEW"
+    },
+    {
+      "reviewCaseId": "R2-40",
+      "questionId": "633e6a37a7bf-qcandidate-11",
+      "packageIdentity": "question-633e6a37a7bf-qcandidate-11",
+      "sourceDocument": "1.1.docx",
+      "mathReferences": [
+        "mtef-1e4abcc1c5012814"
+      ],
+      "automatedQA": "REVIEW"
+    }
+  ],
+  "humanAcceptancePack": {
+    "generated": true,
+    "caseCount": 40
+  }
+}
