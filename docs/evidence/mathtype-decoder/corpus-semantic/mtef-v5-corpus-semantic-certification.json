@@ -1,0 +1,16 @@
+{
+  "confirmedMtefV5ObjectCount": 2911,
+  "semanticUniquePayloadCount": 2054,
+  "semanticPayloadPassCount": 2054,
+  "semanticPayloadFailCount": 0,
+  "mtefV5SemanticObjectPassCount": 2911,
+  "mtefV5SemanticObjectFailCount": 0,
+  "cache": {
+    "lookupCount": 2054,
+    "hitCount": 0,
+    "missCount": 2054,
+    "parseExecutionCount": 2054,
+    "entryCount": 2054
+  },
+  "qa": "PASS"
+}
