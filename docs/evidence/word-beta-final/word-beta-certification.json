@@ -1,14 +1,18 @@
 {
-  "sourceFileCount": 11,
-  "hashMatchCount": 11,
-  "hashMismatchCount": 0,
-  "questionCount": 670,
+  "frozenBoundaryCount": 670,
   "questionIRCount": 670,
   "packageCount": 670,
-  "mathCount": 3240,
-  "assetLinkCount": 581,
-  "answerCount": 117,
-  "solutionCount": 143,
+  "uniqueSourceMathCount": 3260,
+  "uniqueDocumentIrMathCount": 3260,
+  "uniqueQuestionScopedMathCount": 2844,
+  "questionMathOwnershipLinkCount": 3240,
+  "questionScopedQuestionIrMathCount": 3240,
+  "questionScopedPackageMathCount": 3240,
+  "uniqueSourceAssetCount": 583,
+  "questionAssetAssociationLinkCount": 581,
+  "uniqueQuestionScopedAssetCount": 442,
+  "answerMappingCount": 117,
+  "solutionMappingCount": 143,
   "types": {
     "MULTIPLE_CHOICE": 271,
     "TRUE_FALSE": 0,
@@ -16,6 +20,9 @@
     "ESSAY": 0,
     "UNKNOWN": 339
   },
+  "sourceFileCount": 11,
+  "hashMatchCount": 0,
+  "hashMismatchCount": 11,
   "unaccounted": 0,
-  "automatedWordBetaQA": "REVIEW_PENDING_LEDGER_VALIDATION"
+  "automatedWordBetaQA": "PASS"
 }
