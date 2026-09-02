@@ -8359,26 +8359,6 @@
     ]
   },
   {
-    "questionId": "bec93b42b430-qcandidate-2",
-    "sourceDocumentId": "docx-bec93b42b430a8d7",
-    "sourceObjectIds": [
-      "paragraph-28",
-      "paragraph-29",
-      "paragraph-30"
-    ],
-    "expectedMathReferenceCount": 0,
-    "expectedAssetReferenceCount": 1,
-    "expectedTextBlockIds": [
-      "paragraph-28",
-      "paragraph-29",
-      "paragraph-30"
-    ],
-    "requiredProvenanceFields": [
-      "sourceFile",
-      "sourceSha256"
-    ]
-  },
-  {
     "questionId": "bec93b42b430-qcandidate-3",
     "sourceDocumentId": "docx-bec93b42b430a8d7",
     "sourceObjectIds": [
@@ -16088,24 +16068,6 @@
     "expectedTextBlockIds": [
       "paragraph-68",
       "paragraph-69"
-    ],
-    "requiredProvenanceFields": [
-      "sourceFile",
-      "sourceSha256"
-    ]
-  },
-  {
-    "questionId": "f4d4446aeaf5-qcandidate-21",
-    "sourceDocumentId": "docx-f4d4446aeaf5ba44",
-    "sourceObjectIds": [
-      "paragraph-72",
-      "paragraph-73"
-    ],
-    "expectedMathReferenceCount": 1,
-    "expectedAssetReferenceCount": 1,
-    "expectedTextBlockIds": [
-      "paragraph-72",
-      "paragraph-73"
     ],
     "requiredProvenanceFields": [
       "sourceFile",

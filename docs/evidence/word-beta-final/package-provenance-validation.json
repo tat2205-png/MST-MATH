@@ -1785,11 +1785,6 @@
     "errors": []
   },
   {
-    "questionId": "bec93b42b430-qcandidate-2",
-    "valid": true,
-    "errors": []
-  },
-  {
     "questionId": "bec93b42b430-qcandidate-3",
     "valid": true,
     "errors": []
@@ -3071,11 +3066,6 @@
   },
   {
     "questionId": "f4d4446aeaf5-q2",
-    "valid": true,
-    "errors": []
-  },
-  {
-    "questionId": "f4d4446aeaf5-qcandidate-21",
     "valid": true,
     "errors": []
   },

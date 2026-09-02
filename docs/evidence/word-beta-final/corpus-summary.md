@@ -1,20 +1,20 @@
 {
   "common": {
-    "frozenBoundaryCount": 670,
-    "questionIRCount": 670,
-    "packageCount": 670,
+    "frozenBoundaryCount": 668,
+    "questionIRCount": 668,
+    "packageCount": 668,
     "sourceFileCount": 11,
     "hashMatchCount": 11,
     "hashMismatchCount": 0,
     "types": {
-      "MULTIPLE_CHOICE": 271,
-      "TRUE_FALSE": 0,
+      "MULTIPLE_CHOICE": 270,
+      "TRUE_FALSE": 5,
       "SHORT_ANSWER": 60,
       "ESSAY": 0,
-      "UNKNOWN": 339
+      "UNKNOWN": 333
     },
-    "mathReferenceCount": 3240,
-    "assetReferenceCount": 581
+    "mathReferenceCount": 3239,
+    "assetReferenceCount": 579
   },
   "documents": [
     {
@@ -174,15 +174,15 @@
     {
       "file": "BÀI 2. GTLN-GTNN.docx",
       "hash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
-      "frozenCount": 86,
-      "questionIRCount": 86,
-      "packageCount": 86,
+      "frozenCount": 85,
+      "questionIRCount": 85,
+      "packageCount": 85,
       "answerSourceBlockCount": 0,
       "solutionSourceBlockCount": 0,
       "answerMappingCount": 0,
       "solutionMappingCount": 0,
       "typeCounts": {
-        "MULTIPLE_CHOICE": 20,
+        "MULTIPLE_CHOICE": 19,
         "TRUE_FALSE": 0,
         "SHORT_ANSWER": 53,
         "ESSAY": 0,
@@ -218,19 +218,19 @@
     {
       "file": "NK TEST APP.docx",
       "hash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
-      "frozenCount": 25,
-      "questionIRCount": 25,
-      "packageCount": 25,
+      "frozenCount": 24,
+      "questionIRCount": 24,
+      "packageCount": 24,
       "answerSourceBlockCount": 1,
       "solutionSourceBlockCount": 1,
       "answerMappingCount": 0,
       "solutionMappingCount": 0,
       "typeCounts": {
         "MULTIPLE_CHOICE": 12,
-        "TRUE_FALSE": 0,
+        "TRUE_FALSE": 5,
         "SHORT_ANSWER": 7,
         "ESSAY": 0,
-        "UNKNOWN": 6
+        "UNKNOWN": 0
       },
       "packageLossCount": 0,
       "sourceObjectCount": 86,
@@ -261,25 +261,25 @@
     }
   ],
   "certification": {
-    "frozenBoundaryCount": 670,
-    "questionIRCount": 670,
-    "packageCount": 670,
+    "frozenBoundaryCount": 668,
+    "questionIRCount": 668,
+    "packageCount": 668,
     "sourceFileCount": 11,
     "hashMatchCount": 11,
     "hashMismatchCount": 0,
     "types": {
-      "MULTIPLE_CHOICE": 271,
-      "TRUE_FALSE": 0,
+      "MULTIPLE_CHOICE": 270,
+      "TRUE_FALSE": 5,
       "SHORT_ANSWER": 60,
       "ESSAY": 0,
-      "UNKNOWN": 339
+      "UNKNOWN": 333
     },
-    "mathReferenceCount": 3240,
-    "assetReferenceCount": 581,
+    "mathReferenceCount": 3239,
+    "assetReferenceCount": 579,
     "execution": {
       "answerSolutionValidatorDocumentsRun": 11,
-      "questionTypeValidatorQuestionCount": 670,
-      "packageValidatorPackageCount": 670,
+      "questionTypeValidatorQuestionCount": 668,
+      "packageValidatorPackageCount": 668,
       "sourceObjectValidatorDocumentsRun": 11
     },
     "qa": {

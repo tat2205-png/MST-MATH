@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "TARGETED_BOUNDARY_REMEDIATION_V1",
+  "globalResegmentationUsed": false,
+  "corrections": [
+    {
+      "humanCase": "CASE15",
+      "oldQuestionId": "BÀI 2. GTLN-GTNN.docx::candidate-2",
+      "oldCandidateId": "BÀI 2. GTLN-GTNN.docx::candidate-2",
+      "oldRole": "QUESTION",
+      "newRole": "DOCUMENT_STRUCTURE",
+      "newQuestionIds": [],
+      "identityMigration": "REMOVED_FROM_QUESTION_SET_PRESERVED_DOCUMENT_STRUCTURE",
+      "reason": "Document title/definition/examples/section heading"
+    },
+    {
+      "humanCase": "CASE24",
+      "oldQuestionId": "NK TEST APP.docx::candidate-21",
+      "oldCandidateId": "NK TEST APP.docx::candidate-21",
+      "oldRole": "QUESTION",
+      "newRole": "SOLUTION_CONTENT",
+      "newQuestionIds": [],
+      "identityMigration": "REMOVED_FROM_QUESTION_SET_REASSIGNED_SOLUTION_CONTENT",
+      "reason": "Unrelated solution/reasoning range"
+    },
+    {
+      "humanCase": "CASE40",
+      "oldQuestionId": "NK TEST APP.docx::candidate-36",
+      "oldCandidateId": "NK TEST APP.docx::candidate-36",
+      "oldRole": "QUESTION",
+      "newRole": "QUESTION_SPLIT_LEFT",
+      "newQuestionIds": [
+        "NK TEST APP.docx::candidate-36",
+        "NK TEST APP.docx::candidate-37"
+      ],
+      "identityMigration": "SPLIT_LEFT_REUSE_EXISTING_RIGHT_OWNER",
+      "reason": "Rental problem ends before asymptote problem"
+    }
+  ]
+}

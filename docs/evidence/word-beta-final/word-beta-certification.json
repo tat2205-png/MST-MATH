@@ -1,23 +1,23 @@
 {
-  "frozenBoundaryCount": 670,
-  "questionIRCount": 670,
-  "packageCount": 670,
+  "frozenBoundaryCount": 668,
+  "questionIRCount": 668,
+  "packageCount": 668,
   "sourceFileCount": 11,
   "hashMatchCount": 11,
   "hashMismatchCount": 0,
   "types": {
-    "MULTIPLE_CHOICE": 271,
-    "TRUE_FALSE": 0,
+    "MULTIPLE_CHOICE": 270,
+    "TRUE_FALSE": 5,
     "SHORT_ANSWER": 60,
     "ESSAY": 0,
-    "UNKNOWN": 339
+    "UNKNOWN": 333
   },
-  "mathReferenceCount": 3240,
-  "assetReferenceCount": 581,
+  "mathReferenceCount": 3239,
+  "assetReferenceCount": 579,
   "execution": {
     "answerSolutionValidatorDocumentsRun": 11,
-    "questionTypeValidatorQuestionCount": 670,
-    "packageValidatorPackageCount": 670,
+    "questionTypeValidatorQuestionCount": 668,
+    "packageValidatorPackageCount": 668,
     "sourceObjectValidatorDocumentsRun": 11
   },
   "qa": {

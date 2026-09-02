@@ -1816,8 +1816,8 @@
     },
     {
       "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-2",
-      "state": "CONFIRMED",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "DOCUMENT_STRUCTURE",
+      "decisionSource": "HUMAN_TARGETED_BOUNDARY_APPROVAL"
     },
     {
       "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-3",
@@ -3135,8 +3135,8 @@
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-21",
-      "state": "CONFIRMED",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "state": "SOLUTION_CONTENT",
+      "decisionSource": "HUMAN_TARGETED_BOUNDARY_APPROVAL"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-22",
@@ -3221,7 +3221,7 @@
     {
       "candidateId": "NK TEST APP.docx::candidate-36",
       "state": "CONFIRMED",
-      "decisionSource": "CERTIFIED_SNAPSHOT"
+      "decisionSource": "HUMAN_TARGETED_BOUNDARY_APPROVAL"
     },
     {
       "candidateId": "NK TEST APP.docx::candidate-37",
