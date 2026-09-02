@@ -214,8 +214,8 @@ writeFileSync(HUMAN_INDEX_PATH, humanIndex);
 
 console.log(JSON.stringify({
   finalReviewCaseCount: index.cases.length,
-  sourceVisibleCaseCount,
-  currentVisibleCaseCount,
+  sourceVisibleCaseCount: sourceVisibleCount,
+  currentVisibleCaseCount: currentVisibleCount,
   needsSourceCheckForReadabilityCount: needsSourceCheckCount,
   humanReviewReadabilityQA: index.humanReviewReadabilityQA,
   renderer: index.reviewRenderer,
