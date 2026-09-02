@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import type { DocumentIR, FigureRecord } from "../document-engine/document-ir.js";
 import { ingestDocx } from "../document-engine/docx/ingestion.js";
+import { INPUT_DIAGNOSTIC_CODES, INPUT_LIMITS, INPUT_PIPELINE_VERSION, type InputDiagnosticCode } from "./contracts.js";
+export { INPUT_DIAGNOSTIC_CODES, INPUT_LIMITS, INPUT_PIPELINE_VERSION } from "./contracts.js";
 
 export type IngestKind = "PDF" | "IMAGE";
 
@@ -11,7 +13,7 @@ export interface IngestSource {
   readonly mimeType?: string;
 }
 
-export interface IngestDiagnostic { readonly code: string; readonly message: string }
+export interface IngestDiagnostic { readonly code: InputDiagnosticCode; readonly message: string }
 
 export type InputSourceType = "DOCX" | "DOC" | "PDF" | "PNG" | "JPEG" | "UNSUPPORTED";
 export type InputQuality = "A" | "B" | "C" | "REVIEW";
@@ -50,6 +52,10 @@ function pdfDocument(source: IngestSource, sourceHash: string): DocumentIR {
 function extension(name: string): string { const dot = name.lastIndexOf("."); return dot < 0 ? "" : name.slice(dot).toLowerCase(); }
 
 const zipSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0x50 && b[1] === 0x4b && (b[2] === 3 || b[2] === 5 || b[2] === 7) && (b[3] === 4 || b[3] === 6 || b[3] === 8);
+function isDocxPackage(bytes: Uint8Array): boolean {
+  if (!zipSignature(bytes)) return false;
+  try { const listing = execFileSync("tar", ["-tf", "-"], { input: Buffer.from(bytes), encoding: "utf8", windowsHide: true, maxBuffer: 2 * 1024 * 1024 }); const entries = listing.split(/\r?\n/).filter(Boolean); return entries.length <= INPUT_LIMITS.maxArchiveEntries && entries.includes("[Content_Types].xml") && entries.includes("word/document.xml") && entries.some(x => x === "_rels/.rels" || x === "word/_rels/document.xml.rels"); } catch { return false; }
+}
 const pdfSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 5)).toString("ascii") === "%PDF-";
 const pngSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 8)).equals(Buffer.from([137,80,78,71,13,10,26,10]));
 const jpegSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0xff && b[1] === 0xd8 && b.at(-2) === 0xff && b.at(-1) === 0xd9;
@@ -58,14 +64,15 @@ export function validateInputSource(source: SourceInput): InputAcceptanceResult 
   const ext = source && typeof source.name === "string" ? extension(source.name) : "";
   const bytes = source?.bytes;
   if (!(bytes instanceof Uint8Array) || bytes.length === 0) return { sourceType: "UNSUPPORTED", fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "EMPTY_SOURCE", message: "The source is empty." }] };
+  if (bytes.length > INPUT_LIMITS.maxInputBytes) return { sourceType: "UNSUPPORTED", fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "RESOURCE_LIMIT_EXCEEDED", message: "The source exceeds the configured input limit." }] };
   const sig = pdfSignature(bytes) ? "PDF" : pngSignature(bytes) ? "PNG" : jpegSignature(bytes) ? "JPEG" : zipSignature(bytes) ? "ZIP" : "UNKNOWN";
   const byExt: Record<string, InputSourceType> = { ".docx": "DOCX", ".doc": "DOC", ".pdf": "PDF", ".png": "PNG", ".jpg": "JPEG", ".jpeg": "JPEG" };
   const type = byExt[ext] ?? "UNSUPPORTED";
-  const expected = type === "DOCX" ? sig === "ZIP" : type === "PDF" ? sig === "PDF" : type === "PNG" ? sig === "PNG" : type === "JPEG" ? sig === "JPEG" : type === "DOC" ? false : false;
+  const expected = type === "DOCX" ? isDocxPackage(bytes) : type === "PDF" ? sig === "PDF" : type === "PNG" ? sig === "PNG" : type === "JPEG" ? sig === "JPEG" : type === "DOC" ? false : false;
   const mismatch = type !== "UNSUPPORTED" && type !== "DOC" && !expected;
   const detected = sig === "ZIP" ? "DOCX" : sig === "PDF" || sig === "PNG" || sig === "JPEG" ? sig : type;
   const sourceType = type === "UNSUPPORTED" && detected !== "DOCX" && detected !== "PDF" && detected !== "PNG" && detected !== "JPEG" ? "UNSUPPORTED" : type;
-  if (mismatch || sourceType === "UNSUPPORTED") return { sourceType, fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: mismatch ? "EXTENSION_SIGNATURE_MISMATCH" : "UNSUPPORTED_INPUT", message: mismatch ? "The extension does not match the file signature." : "The input type is unsupported." }] };
+  if (mismatch || sourceType === "UNSUPPORTED" || (type === "DOCX" && !expected)) return { sourceType, fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: mismatch ? "EXTENSION_SIGNATURE_MISMATCH" : type === "DOCX" ? "CORRUPT_DOCX" : "UNSUPPORTED_INPUT", message: mismatch ? "The extension does not match the file signature." : type === "DOCX" ? "The OOXML package structure is invalid." : "The input type is unsupported." }] };
   if (type === "DOC") return { sourceType: "DOC", fileIntegrity: "VALID", readability: "READABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "REQUIRES_LEGACY_CONVERSION", message: "Legacy DOC requires controlled external conversion." }] };
   const sourceHash = hash(bytes);
   let readable = true;
