@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { unzipSync, zipSync } from "fflate";
 import { createQuestionDocx } from "./question-bank-fixture.ts";
 import { ingestDocxQuestions } from "../src/modules/question-bank/pipeline.ts";
 import { analyzeRelation, relationFingerprint, relationTypesForQuestion } from "../src/modules/question-bank/relations.ts";
@@ -8,6 +9,7 @@ import { QuestionSearchService } from "../src/modules/question-bank/search.ts";
 import type { QuestionObject } from "../src/modules/question-bank/types.ts";
 
 const base = ingestDocxQuestions(createQuestionDocx(), "nguồn.docx").questions[0];
+const variantDocx = (numerator: string) => { const files = unzipSync(createQuestionDocx()); const xml = new TextDecoder().decode(files["word/document.xml"]); files["word/document.xml"] = new TextEncoder().encode(xml.replace("x+1", numerator)); return zipSync(files); };
 const copy = (suffix: string, value = base): QuestionObject => ({ ...structuredClone(value), id: `${value.id}-${suffix}`, source: { ...value.source, document: `${suffix}.pdf`, sourceHash: `${suffix}-hash` } });
 const changed = (suffix: string, text: string) => { const q = copy(suffix); q.stem = [{ type: "text", value: text, sourceLocation: `source:${suffix}` } as never]; return q; };
 
@@ -34,6 +36,10 @@ service.importDocx(createQuestionDocx(), "nguồn.docx"); service.importDocx(cre
 const snapshot = repository.load(); assert.equal(snapshot.questions.length, 4); assert.equal(snapshot.relations?.duplicateAudit.length, 4);
 assert.deepEqual(snapshot.questions.map(q => q.index), [1, 2, 3, 4]);
 assert.equal(snapshot.relations?.relations.filter(r => r.relations.includes("EXACT_DUPLICATE")).length, 4);
+const familiesRepository = new MemoryQuestionBankRepository(); const familiesService = new QuestionBankService(familiesRepository);
+familiesService.importDocx(variantDocx("x+1"), "x-a.docx"); familiesService.importDocx(variantDocx("x+2"), "x-b.docx"); familiesService.importDocx(variantDocx("y+1"), "y-a.docx"); familiesService.importDocx(variantDocx("y+2"), "y-b.docx");
+const familySnapshot = familiesRepository.load(); const q1s = familySnapshot.questions.filter(q => q.index === 1); assert.equal(q1s.length, 4); const variantRelations = familySnapshot.relations?.relations.filter(r => r.relations.includes("PARAMETRIC_VARIANT")) ?? []; assert.equal(variantRelations.length, 2);
+const familyIds = familySnapshot.relations?.families ?? []; assert.equal(familyIds.length, 2); assert.notEqual(familyIds[0].familyId, familyIds[1].familyId); assert.deepEqual(familyIds.map(f => f.memberQuestionIds.length), [2, 2]); assert.equal(new Set(familyIds.flatMap(f => f.memberQuestionIds)).size, 4);
 const relationIndex = { schemaVersion: 1 as const, relations: [{ sourceQuestionId: base.id, targetQuestionId: variant.id, relations: ["DEPENDENT_ON" as const], evidence: [] }], families: [{ familyId: "FAMILY_x", memberQuestionIds: [base.id, variant.id], relationEvidence: [], schemaVersion: 1 as const }], duplicateAudit: [] };
 assert.ok(relationTypesForQuestion(relationIndex, base.id).includes("DEPENDENT_ON"));
 repository.replace({ schemaVersion: 1, questions: [base, variant], orphanFigures: [], relations: relationIndex });

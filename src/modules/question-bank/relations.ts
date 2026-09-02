@@ -10,6 +10,7 @@ const withoutOptions = (q: QuestionObject) => JSON.stringify({ type: q.type, ste
 const figures = (q: QuestionObject) => q.figureAssociations.filter(x => x.status === "CONFIRMED").map(x => x.figureId).sort().join("|");
 const mathStructure = (block: Extract<QuestionObject["stem"][number], { type: "math" }>) => (block.math.latex ?? block.math.normalized ?? block.math.sourceRaw).replace(/[0-9]+(?:\.[0-9]+)?/gu, "#");
 const parameterStructure = (q: QuestionObject) => JSON.stringify(canonicalizeForRelation({ type: q.type, stem: q.stem.map(block => block.type === "math" ? { type: "math", sourceType: block.math.sourceType, parseStatus: block.math.parseStatus, structure: mathStructure(block) } : block), options: q.options.map(x => ({ label: x.label, content: x.content.map(block => block.type === "math" ? { type: "math", sourceType: block.math.sourceType, parseStatus: block.math.parseStatus, structure: mathStructure(block) } : block) })), trueFalseItems: q.trueFalseItems, shortAnswer: q.shortAnswer, subquestions: q.subquestions }));
+export const variantStructureFingerprint = (q: QuestionObject) => createHash("sha256").update(parameterStructure(q).normalize("NFC")).digest("hex");
 export function analyzeRelation(a: QuestionObject, b: QuestionObject): QuestionRelation {
   if (a.source.sourceHash === b.source.sourceHash && a.index !== undefined && a.index === b.index && content(a) !== content(b)) return { sourceQuestionId: a.id, targetQuestionId: b.id, relations: ["SOURCE_CONFLICT"], evidence: ["STABLE_SOURCE_IDENTITY_CONTENT_CONFLICT"], reviewRequired: true };
   const sameCore = content(a) === content(b), sameFull = content(a, true) === content(b, true);
@@ -20,4 +21,4 @@ export function analyzeRelation(a: QuestionObject, b: QuestionObject): QuestionR
   if (figures(a) && figures(a) === figures(b)) return { sourceQuestionId: a.id, targetQuestionId: b.id, relations: ["SHARED_FIGURE"], evidence: ["CONFIRMED_FIGURE_ID_MATCH"] };
   return { sourceQuestionId: a.id, targetQuestionId: b.id, relations: ["NONE"], evidence: [] };
 }
-export function familyIdFor(q: QuestionObject, _peer: QuestionObject) { return `FAMILY_${structureFingerprint(q).slice(0, 16)}`; }
+export function familyIdFor(q: QuestionObject, _peer: QuestionObject) { return `FAMILY_${variantStructureFingerprint(q).slice(0, 16)}`; }
