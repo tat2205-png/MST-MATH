@@ -20,6 +20,7 @@ const text = (blocks: ContentBlock[] = []): string => blocks.map((b) => b.type =
 const anchors = (doc?: DocumentIR) => (doc?.blocks ?? []).slice().sort((a, b) => a.order - b.order).map((b) => `${b.kind}:${b.sourceLocation ?? b.id}`);
 const figures = (doc?: DocumentIR): FigureRecord[] => doc?.figures ?? [];
 const issue = (ok: boolean, metric: BenchmarkMetric, measurement?: number): MetricResult => ({ metric, status: ok ? "PASS" : "FAIL", ...(measurement === undefined ? {} : { measurement }), issues: ok ? [] : [`${metric}_MISMATCH`] });
+const reproducibility = (expected: unknown, actual: unknown): MetricResult => { if (expected === undefined && actual === undefined) return { metric: "REPRODUCIBILITY", status: "NOT_APPLICABLE", issues: [] }; if (expected === undefined || actual === undefined) return { metric: "REPRODUCIBILITY", status: "REVIEW", issues: ["STABLE_OUTPUT_MISSING"] }; return issue(hash(expected) === hash(actual), "REPRODUCIBILITY"); };
 
 export function evaluateMetrics(expected: DocumentIR, actual: DocumentIR, expectedStable?: unknown, actualStable?: unknown): MetricResult[] {
   const expectedText = normalizeVietnameseText(expected.blocks.map((b) => text(b.content)).join(""));
@@ -38,7 +39,7 @@ export function evaluateMetrics(expected: DocumentIR, actual: DocumentIR, expect
     issue(provenanceOk, "PROVENANCE_PRESERVATION"),
     issue(expectedText === actualText, "VIETNAMESE_FIDELITY"),
     { metric: "RUNTIME", status: "NOT_APPLICABLE", issues: [] },
-    issue(hash(expectedStable) === hash(actualStable), "REPRODUCIBILITY"),
+    reproducibility(expectedStable, actualStable),
   ];
 }
 
