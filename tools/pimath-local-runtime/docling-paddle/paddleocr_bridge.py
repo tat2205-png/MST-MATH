@@ -18,7 +18,10 @@ def main(req):
     from paddleocr import PaddleOCR
     # Keep the deterministic CPU path lean and avoid optional orientation/
     # unwarping graphs that are incompatible with some Windows oneDNN builds.
-    ocr = PaddleOCR(lang=req.get("lang", "en"), device="cpu",
+    requested_lang = req.get("lang", "en")
+    # PiMath locales are BCP-47; PaddleOCR's provider contract uses short codes.
+    provider_lang = {"vi-VN": "vi", "vi_VN": "vi"}.get(requested_lang, requested_lang)
+    ocr = PaddleOCR(lang=provider_lang, device="cpu",
                     use_doc_orientation_classify=False,
                     use_doc_unwarping=False,
                     use_textline_orientation=False)

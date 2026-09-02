@@ -2,6 +2,9 @@
 import hashlib, json, os, sys
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 MAX_INPUT = 2_000_000
 
 def fail(code, message, source=None, source_hash=None):
@@ -28,10 +31,16 @@ def main(req):
         return fail("SOURCE_HASH_MISMATCH", "sourceHash does not match sourceDocument", source, source_hash)
     try:
         from docling.document_converter import DocumentConverter
-        result = DocumentConverter().convert(str(path))
+        # Keep real-PDF execution bounded and explicit. Docling pages are 1-based.
+        start_page = max(1, int(req.get("pageStart", 1)))
+        end_page = max(start_page, int(req.get("pageEnd", start_page)))
+        if end_page - start_page > 2:
+            return fail("PAGE_SCOPE_TOO_LARGE", "bounded page scope is at most three pages", source, source_hash)
+        result = DocumentConverter().convert(str(path), page_range=(start_page, end_page))
         doc = result.document
         payload = {"sourceDocument": source, "sourceHash": source_hash,
-                   "text": doc.export_to_markdown(), "status": "converted"}
+                   "text": doc.export_to_markdown(), "status": "converted",
+                   "scope": {"pageStart": start_page, "pageEnd": end_page, "bounded": True}}
         return {"payload": payload, "confidence": 1.0, "issues": [], "provider": "docling", "providerVersion": version()}
     except Exception as exc:
         print(f"docling bridge failure: {type(exc).__name__}: {exc}", file=sys.stderr)
