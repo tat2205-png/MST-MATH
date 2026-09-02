@@ -36,6 +36,7 @@
     "bridge:start": "uv run python local_bridge/bridge.py",
     "qa:regression": "node scripts/run-regression.mjs",
     "qa:question-bank": "node --import tsx tests/test-question-bank-qb1a.ts && node --import tsx tests/test-question-bank-qb1b.ts && node --import tsx tests/test-question-bank-qb1c.ts",
+    "qa:question-bank:relations": "node --import tsx tests/test-question-bank-relations-v1.ts",
     "qa:question-bank:persistence": "node --import tsx tests/test-question-bank-qb1d.ts",
     "qa:question-bank:e2e": "node --import tsx tests/test-question-bank-qb1e.ts",
     "qa:question-bank:search": "node --import tsx tests/test-question-bank-qb1f.ts",
