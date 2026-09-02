@@ -10,17 +10,35 @@ const matrix = JSON.parse(
 
 const EXPECTED_QUESTION_COUNT = 668;
 const PRIMARY_TYPES = ["MULTIPLE_CHOICE", "TRUE_FALSE", "SHORT_ANSWER", "ESSAY", "UNKNOWN"] as const;
-
 const expectedFormatForMathId = (id: string) =>
   id.startsWith("mtef-v3-") ? "MTEF_V3" : id.startsWith("mtef-") ? "MTEF_V5" : "MODERN_MATH";
 
 assert.equal(matrix.featureMatrixQuestionCount, EXPECTED_QUESTION_COUNT);
 assert.equal(matrix.featureMatrixUniqueQuestionIdCount, EXPECTED_QUESTION_COUNT);
 assert.equal(matrix.rows.length, EXPECTED_QUESTION_COUNT);
+assert.equal(matrix.identityAuthority, "CONFIRMED_CANONICAL_BOUNDARY_CANDIDATE");
+assert.equal(matrix.summary.acceptanceIdentityQA, "PASS");
 
 const ids = matrix.rows.map((row: any) => row.questionId);
 assert.equal(new Set(ids).size, EXPECTED_QUESTION_COUNT);
 assert.deepEqual(ids, [...ids].sort());
+assert.ok(matrix.rows.every((row: any) => /^[0-9a-f]{12}-qcandidate-\d+$/.test(row.questionId)));
+assert.ok(matrix.rows.every((row: any) => typeof row.questionIrId === "string" && row.questionIrId.length > 0));
+assert.ok(matrix.rows.every((row: any) => typeof row.boundaryCandidateId === "string" && row.boundaryCandidateId.includes("::candidate-")));
+
+const questionIrIds = matrix.rows.map((row: any) => row.questionIrId);
+const expectedQuestionIrDuplicateCount = matrix.rows.length - new Set(questionIrIds).size;
+assert.equal(matrix.summary.questionIrDuplicateIdCount, expectedQuestionIrDuplicateCount);
+assert.equal(matrix.summary.questionIrUniqueIdCount, new Set(questionIrIds).size);
+assert.equal(
+  matrix.summary.questionIrCollisionStatus,
+  expectedQuestionIrDuplicateCount > 0 ? "DOCUMENTED_NON_BLOCKING_FOR_ACCEPTANCE_IDENTITY" : "NONE",
+);
+if (expectedQuestionIrDuplicateCount > 0) {
+  assert.ok(Array.isArray(matrix.summary.questionIrCollisionGroups));
+  assert.ok(matrix.summary.questionIrCollisionGroups.length > 0);
+  assert.ok(matrix.summary.questionIrCollisionGroups.every((group: any) => group.acceptanceQuestionIds.length > 1));
+}
 
 const typeSets = new Map(
   PRIMARY_TYPES.map((type) => [
@@ -29,13 +47,11 @@ const typeSets = new Map(
   ]),
 );
 assert.ok(matrix.rows.every((row: any) => PRIMARY_TYPES.includes(row.questionType)));
-
 const typeCountSum = [...typeSets.values()].reduce((sum, set) => sum + set.size, 0);
 assert.equal(typeCountSum, EXPECTED_QUESTION_COUNT);
 assert.equal(new Set([...typeSets.values()].flatMap((set) => [...set])).size, EXPECTED_QUESTION_COUNT);
 
 for (const row of matrix.rows) {
-  assert.ok(row.questionId);
   assert.ok(Array.isArray(row.mathFormats));
   assert.ok(Array.isArray(row.mathRoles));
   assert.ok(Array.isArray(row.mathObjectIds));
@@ -58,13 +74,8 @@ const v3Rows = matrix.rows.filter((row: any) =>
   row.mathObjectIds.some((id: string) => id.startsWith("mtef-v3-")),
 );
 const v3UniqueMathIds = new Set(
-  v3Rows.flatMap((row: any) =>
-    row.mathObjectIds.filter((id: string) => id.startsWith("mtef-v3-")),
-  ),
+  v3Rows.flatMap((row: any) => row.mathObjectIds.filter((id: string) => id.startsWith("mtef-v3-"))),
 );
-
-// Current locked source corpus is known to contain V3 objects. This assertion prevents
-// an unresolved V3 join from silently being emitted as numeric zero again.
 assert.ok(v3Rows.length > 0);
 assert.ok(v3UniqueMathIds.size > 0);
 assert.ok(v3Rows.every((row: any) => row.mathFormats.includes("MTEF_V3")));
@@ -74,7 +85,6 @@ assert.equal(matrix.summary.questionTypeMultiPrimaryCount, 0);
 assert.equal(matrix.summary.questionTypeUnaccountedCount, 0);
 assert.equal(matrix.summary.questionTypeSetEqualityQA, "PASS");
 assert.equal(matrix.summary.questionTypeAccountingQA, "PASS");
-
 assert.equal(matrix.summary.mathFormatQuestionCounts.MTEF_V3, v3Rows.length);
 assert.equal(matrix.summary.mathFormatUniqueMathObjectCounts.MTEF_V3, v3UniqueMathIds.size);
 assert.equal(matrix.summary.v3QuestionJoinQA, "PASS");

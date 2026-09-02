@@ -38,10 +38,6 @@ const PRIMARY_TYPES: readonly PrimaryQuestionType[] = [
 const uniqueSorted = (values: Iterable<string>) => [...new Set(values)].sort();
 
 function classifyMathObjectId(id: string): MathFormat {
-  // These prefixes are canonical identities created by the production bridges:
-  // bridgeMtefV3ToMathExpression -> mtef-v3-*
-  // bridgeMtefV5ToMathExpression -> mtef-*
-  // modern DOCX/OMML expressions -> non-mtef IDs.
   if (id.startsWith("mtef-v3-")) return "MTEF_V3";
   if (id.startsWith("mtef-")) return "MTEF_V5";
   return "MODERN_MATH";
@@ -54,6 +50,10 @@ function hasMath(blocks: any[] | undefined): boolean {
 function normalizePrimaryQuestionType(value: unknown): PrimaryQuestionType {
   const type = String(value ?? "UNKNOWN") as PrimaryQuestionType;
   return PRIMARY_TYPES.includes(type) ? type : "UNKNOWN";
+}
+
+function acceptanceQuestionId(sourceHash: string, candidateOrdinal: number): string {
+  return `${sourceHash.slice(0, 12)}-qcandidate-${candidateOrdinal}`;
 }
 
 const rows: any[] = [];
@@ -70,9 +70,15 @@ for (const file of files) {
   );
 
   for (const [index, question] of segmentCanonicalQuestions(document).entries()) {
-    if (!confirmed.has(`${file}::candidate-${index + 1}`)) continue;
+    const candidateOrdinal = index + 1;
+    const boundaryCandidateId = `${file}::candidate-${candidateOrdinal}`;
+    if (!confirmed.has(boundaryCandidateId)) continue;
 
-    const questionId = question.id;
+    // Human Acceptance identity is the locked boundary identity used by the 668-set
+    // snapshot and the existing R2 review pack. QuestionIR.id is retained separately
+    // because current runtime generation can contain duplicate QuestionIR IDs.
+    const questionId = acceptanceQuestionId(document.sourceHash, candidateOrdinal);
+    const questionIrId = question.id;
     const mathObjectIds = uniqueSorted(question.mathObjectIds ?? []);
     const mathFormats = uniqueSorted(mathObjectIds.map(classifyMathObjectId)) as MathFormat[];
 
@@ -105,6 +111,8 @@ for (const file of files) {
 
     rows.push({
       questionId,
+      questionIrId,
+      boundaryCandidateId,
       sourceDocumentId: question.sourceDocumentId,
       sourceAnchor: question.provenance,
       sourceObjectIds: uniqueSorted(question.sourceObjectIds ?? []),
@@ -118,6 +126,7 @@ for (const file of files) {
       assetCount: assetIds.length,
       riskTags,
       evidenceRefs: [
+        "confirmed canonical boundary candidate identity",
         "current DocumentIR",
         "current canonical QuestionIR",
         "current canonical source identities",
@@ -131,6 +140,20 @@ rows.sort((a, b) => a.questionId.localeCompare(b.questionId));
 
 const questionIds = rows.map((row) => row.questionId);
 const uniqueQuestionIds = new Set(questionIds);
+const questionIrIds = rows.map((row) => row.questionIrId);
+const uniqueQuestionIrIds = new Set(questionIrIds);
+const questionIrGroups = new Map<string, string[]>();
+for (const row of rows) {
+  const ids = questionIrGroups.get(row.questionIrId) ?? [];
+  ids.push(row.questionId);
+  questionIrGroups.set(row.questionIrId, ids);
+}
+const questionIrCollisionGroups = [...questionIrGroups.entries()]
+  .filter(([, ids]) => ids.length > 1)
+  .map(([questionIrId, acceptanceQuestionIds]) => ({ questionIrId, acceptanceQuestionIds: acceptanceQuestionIds.sort() }))
+  .sort((a, b) => a.questionIrId.localeCompare(b.questionIrId));
+const questionIrDuplicateIdCount = rows.length - uniqueQuestionIrIds.size;
+
 const typeCounts = Object.fromEntries(
   PRIMARY_TYPES.map((type) => [type, rows.filter((row) => row.questionType === type).length]),
 ) as Record<PrimaryQuestionType, number>;
@@ -151,10 +174,11 @@ const mathFormatUniqueMathObjectCounts = {
 };
 const v3QuestionJoinQa =
   mathFormatUniqueMathObjectCounts.MTEF_V3 > 0 && mathFormatQuestionCounts.MTEF_V3 > 0 ? "PASS" : "FAIL";
+const acceptanceIdentityQa =
+  rows.length === EXPECTED_QUESTION_COUNT && uniqueQuestionIds.size === EXPECTED_QUESTION_COUNT ? "PASS" : "FAIL";
 
 const featureMatrixQa =
-  rows.length === EXPECTED_QUESTION_COUNT &&
-  uniqueQuestionIds.size === EXPECTED_QUESTION_COUNT &&
+  acceptanceIdentityQa === "PASS" &&
   questionTypePrimaryCountSum === EXPECTED_QUESTION_COUNT &&
   questionTypeUnaccountedCount === 0 &&
   v3QuestionJoinQa === "PASS"
@@ -162,6 +186,12 @@ const featureMatrixQa =
     : "FAIL";
 
 const summary = {
+  acceptanceIdentityQA: acceptanceIdentityQa,
+  questionIrUniqueIdCount: uniqueQuestionIrIds.size,
+  questionIrDuplicateIdCount,
+  questionIrCollisionGroupCount: questionIrCollisionGroups.length,
+  questionIrCollisionStatus: questionIrDuplicateIdCount > 0 ? "DOCUMENTED_NON_BLOCKING_FOR_ACCEPTANCE_IDENTITY" : "NONE",
+  questionIrCollisionGroups,
   questionTypeCounts: typeCounts,
   questionTypePrimaryCountSum,
   questionTypeMultiPrimaryCount,
@@ -182,7 +212,8 @@ writeFileSync(
   JSON.stringify(
     {
       schemaVersion: "PIMATH_WORD_BETA_ACCEPTANCE_FEATURE_MATRIX_V1",
-      generatorVersion: "2",
+      generatorVersion: "3",
+      identityAuthority: "CONFIRMED_CANONICAL_BOUNDARY_CANDIDATE",
       canonicalBoundaryCount: EXPECTED_QUESTION_COUNT,
       featureMatrixQuestionCount: rows.length,
       featureMatrixUniqueQuestionIdCount: uniqueQuestionIds.size,
@@ -201,6 +232,11 @@ console.log(
     featureMatrixMissingQuestionCount: Math.max(0, EXPECTED_QUESTION_COUNT - uniqueQuestionIds.size),
     featureMatrixExtraQuestionCount: Math.max(0, uniqueQuestionIds.size - EXPECTED_QUESTION_COUNT),
     featureMatrixDuplicateQuestionIdCount: rows.length - uniqueQuestionIds.size,
+    acceptanceIdentityQA: acceptanceIdentityQa,
+    questionIrUniqueIdCount: uniqueQuestionIrIds.size,
+    questionIrDuplicateIdCount,
+    questionIrCollisionGroupCount: questionIrCollisionGroups.length,
+    questionIrCollisionStatus: summary.questionIrCollisionStatus,
     questionWithModernMathCount: mathFormatQuestionCounts.MODERN_MATH,
     questionWithMtefV5Count: mathFormatQuestionCounts.MTEF_V5,
     questionWithMtefV3Count: mathFormatQuestionCounts.MTEF_V3,
