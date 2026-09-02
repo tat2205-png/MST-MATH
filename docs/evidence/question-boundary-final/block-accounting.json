@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "W10F-V4",
+  "unaccountedBlockCount": 0,
+  "documents": [
+    {
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "blocks": 247,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "1.1.docx",
+      "blocks": 466,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "2. MIN MAX HHKG.docx",
+      "blocks": 235,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "2.1.docx",
+      "blocks": 336,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "blocks": 137,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "blocks": 180,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "blocks": 73,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "blocks": 526,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "Full-Toán thực tế 10.docx",
+      "blocks": 1548,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "NK TEST APP.docx",
+      "blocks": 86,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    },
+    {
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "blocks": 101,
+      "unaccounted": 0,
+      "classification": "REVIEW_OR_NON_QUESTION_REQUIRED_FOR_HUMAN_AUDIT"
+    }
+  ]
+}

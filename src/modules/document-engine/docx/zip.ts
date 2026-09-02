@@ -25,7 +25,9 @@ function crc32(bytes: Uint8Array): number {
 }
 
 function safePackagePath(name: string): boolean {
-  return name.length > 0 && name.length <= 512 && !name.includes("\\") && !name.startsWith("/") && !/^[a-z]:/i.test(name) && !name.split("/").some((part) => part === ".." || part === "");
+  const directoryEntry = name.endsWith("/");
+  const path = directoryEntry ? name.slice(0, -1) : name;
+  return path.length > 0 && name.length <= 512 && !name.includes("\\") && !name.startsWith("/") && !/^[a-z]:/i.test(name) && !path.split("/").some((part) => part === ".." || part === "");
 }
 
 function findEocd(buffer: Buffer): number {

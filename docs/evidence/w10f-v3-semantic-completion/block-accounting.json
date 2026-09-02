@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "W10F-V3",
+  "documents": [
+    {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "blocks": 247,
+      "accountedBlocks": 247,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 29,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 218,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "1.1.docx",
+      "blocks": 466,
+      "accountedBlocks": 466,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 104,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 362,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "2. MIN MAX HHKG.docx",
+      "blocks": 235,
+      "accountedBlocks": 235,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 33,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 202,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "2.1.docx",
+      "blocks": 336,
+      "accountedBlocks": 336,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 92,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 244,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "3. MIN MAX TÀI CHÍNH.docx",
+      "blocks": 137,
+      "accountedBlocks": 137,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 60,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 77,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "blocks": 180,
+      "accountedBlocks": 180,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 27,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 153,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "blocks": 73,
+      "accountedBlocks": 73,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 15,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 58,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "BÀI 2. GTLN-GTNN.docx",
+      "blocks": 526,
+      "accountedBlocks": 526,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 86,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 440,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "Full-Toán thực tế 10.docx",
+      "blocks": 1548,
+      "accountedBlocks": 1548,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 158,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 1390,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "NK TEST APP.docx",
+      "blocks": 86,
+      "accountedBlocks": 86,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 41,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 45,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    },
+    {
+      "sourceFile": "gấp hình (1)-TUAN-ANH.docx",
+      "blocks": 101,
+      "accountedBlocks": 101,
+      "unaccountedBlocks": 0,
+      "categories": {
+        "QUESTION": 45,
+        "SHARED_CONTEXT": 0,
+        "ANSWER": 0,
+        "SOLUTION": 0,
+        "DOCUMENT_STRUCTURE": 0,
+        "NON_QUESTION": 56,
+        "REVIEW": 0,
+        "UNSUPPORTED": 0
+      }
+    }
+  ]
+}

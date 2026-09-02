@@ -23,7 +23,13 @@ export type {
 } from "../document-engine/document-ir.js";
 
 export type QuestionType = "MULTIPLE_CHOICE" | "TRUE_FALSE" | "SHORT_ANSWER" | "ESSAY" | "UNKNOWN";
-export interface DocumentQuestionCandidate { id: string; questionIndex?: number; questionLabel?: string; section?: string; rawBlocks: DocumentBlock[]; textBlocks: ContentBlock[]; mathBlocks: MathNode[]; figureAnchors: string[]; questionTypeCandidate: QuestionType; sourceLocations: string[]; parseWarnings: string[] }
+export type BoundaryConfidence = "HIGH_CONFIDENCE" | "MEDIUM_CONFIDENCE" | "LOW_CONFIDENCE";
+export type QuestionCandidateKind = "TEXTUAL_MARKER" | "WORD_NUMBERING" | "SEMANTIC_STEM" | "OPTION_STRUCTURE" | "TABLE_STRUCTURE" | "TEXTBOX_STRUCTURE" | "STYLE_TRANSITION" | "SHARED_CONTEXT_TRANSITION" | "OTHER_STRUCTURAL_SIGNAL";
+export interface BoundaryEvidence { kind: QuestionCandidateKind | "NEXT_QUESTION_START" | "DOCUMENT_END" | "SECTION_TRANSITION" | "ANSWER_SOLUTION_TRANSITION"; detail: string; objectId?: string; }
+export interface QuestionBoundary { startObjectId: string; endObjectId: string; startAnchor?: unknown; endAnchor?: unknown; startEvidence: BoundaryEvidence[]; endEvidence: BoundaryEvidence[]; confidence: BoundaryConfidence; contradictions: string[]; qaStatus: "AUTO_ACCEPT" | "REVIEW" | "QUARANTINED"; }
+export interface QuestionStartCandidate { candidateId: string; sourceDocumentId: string; sourceObjectId: string; sourceAnchor?: unknown; documentOrder: number; candidateKind: QuestionCandidateKind; rawEvidence: string; normalizedEvidence: string; confidence: BoundaryConfidence; contradictions: string[]; qaStatus: "AUTO_ACCEPT" | "REVIEW" | "REJECTED"; }
+export interface SharedContext { contextId: string; sourceDocumentId: string; sourceObjectIds: string[]; startObjectId: string; endObjectId: string; mathObjectIds: string[]; assetIds: string[]; tableIds: string[]; sourceAnchors: unknown[]; evidence: string[]; contradictions: string[]; confidence: BoundaryConfidence; provenance: unknown; referencedQuestionIds: string[]; qaStatus: "PASS" | "REVIEW" | "UNSUPPORTED"; }
+export interface DocumentQuestionCandidate { id: string; questionIndex?: number; questionLabel?: string; section?: string; rawBlocks: DocumentBlock[]; textBlocks: ContentBlock[]; mathBlocks: MathNode[]; figureAnchors: string[]; questionTypeCandidate: QuestionType; sourceLocations: string[]; parseWarnings: string[]; boundary?: QuestionBoundary; startCandidates?: QuestionStartCandidate[]; semanticRoles?: string[] }
 export interface QuestionOption { label: string; content: ContentBlock[] }
 export interface TrueFalseItem { label: string; content: ContentBlock[] }
 export interface SourceProvenance { document: string; sourceHash: string; blockIds: string[]; sourceLocations: string[] }
