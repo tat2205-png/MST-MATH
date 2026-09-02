@@ -9,7 +9,7 @@ import { ommlToLatex } from "../omml/omml.js";
 import { readSafeZip } from "./zip.js";
 import { readCfb } from "./cfb.js";
 import { equationNativeStream } from "./equation-native.js";
-import { bridgeMtefV5ToMathExpression } from "./mtef-mathml.js";
+import { bridgeMtefV3ToMathExpression, bridgeMtefV5ToMathExpression } from "./mtef-mathml.js";
 
 interface Relationship { id: string; type: string; target: string; external: boolean; }
 interface ParseContext {
@@ -184,9 +184,10 @@ function parseInline(node: XmlNode, context: ParseContext, sourcePath: string): 
     if (oleBytes) {
       try {
         const stream = equationNativeStream(oleBytes);
-        const payload = stream && stream.bytes.length > 28 ? stream.bytes.subarray(28) : undefined;
-        if (payload?.[0] === 5) {
-          const bridged = bridgeMtefV5ToMathExpression(payload, {
+        const rawPayload = stream && stream.bytes.length > 28 ? stream.bytes.subarray(28) : undefined;
+        const payload = rawPayload?.[0] === 0 && rawPayload[4] === 2 ? stream!.bytes.subarray(32) : rawPayload;
+        if (payload?.[0] === 5 || payload?.[0] === 3 || payload?.[0] === 2) {
+          const bridged = (payload[0] === 5 ? bridgeMtefV5ToMathExpression : bridgeMtefV3ToMathExpression)(payload, {
             sourceDocumentId: context.sourceName ?? "DOCX",
             sourceObjectId: packagePath,
             oleObjectId: packagePath,
@@ -197,7 +198,11 @@ function parseInline(node: XmlNode, context: ParseContext, sourcePath: string): 
         }
         // Opening the CFB here is intentional: it distinguishes a valid OLE
         // container without a V5 Equation Native payload from a bad archive.
-        readCfb(oleBytes);
+        const streams = readCfb(oleBytes);
+        if (streams.some((candidate) => candidate.name.toLowerCase() === "\x01ole10native")) {
+          context.issues.push({ code: "LEGACY_MATHTYPE_NON_SEMANTIC_NATIVE", severity: "warning", path: sourcePath, message: "OLE container contains only Ole10Native data and no Equation Native semantic stream; preserved preview/native data is not emitted as math." });
+          return [];
+        }
       } catch (error) {
         context.issues.push({ code: "LEGACY_MATHTYPE_DECODE_FAILED", severity: "warning", path: sourcePath, message: error instanceof Error ? error.message : String(error) });
       }
