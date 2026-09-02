@@ -1,6 +1,6 @@
 {
   "version": "PIMATH_UNIFIED_INPUT_V1",
-  "executedAt": "2026-09-02T20:48:01.417Z",
+  "executedAt": "2026-09-02T20:55:05.778Z",
   "metricDenominatorLockedBeforeRun": true,
   "results": [
     {
@@ -234,7 +234,7 @@
     {
       "requirementId": "R5",
       "verificationId": "INPUT-R5-HOSTILE_INPUT",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "assertion": "oversize rejected",
@@ -245,12 +245,23 @@
         {
           "assertion": "archive entry limit",
           "expected": "CORRUPT_DOCX",
-          "actual": "EXTENSION_SIGNATURE_MISMATCH",
-          "passed": false
+          "actual": "CORRUPT_DOCX",
+          "passed": true
+        },
+        {
+          "assertion": "embedded asset limit",
+          "expected": "CORRUPT_DOCX",
+          "actual": "CORRUPT_DOCX",
+          "passed": true
+        },
+        {
+          "assertion": "decompressed limit",
+          "expected": "CORRUPT_DOCX",
+          "actual": "CORRUPT_DOCX",
+          "passed": true
         }
       ],
-      "testCommand": "npm run qa:unified-input:certify",
-      "failureReason": "archive entry limit"
+      "testCommand": "npm run qa:unified-input:certify"
     },
     {
       "requirementId": "R6",
@@ -2623,17 +2634,16 @@
     {
       "requirementId": "R60",
       "verificationId": "INPUT-R60-CLOSURE_GATE",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "assertion": "prior requirements pass",
           "expected": 60,
-          "actual": 59,
-          "passed": false
+          "actual": 60,
+          "passed": true
         }
       ],
-      "testCommand": "npm run qa:unified-input:certify",
-      "failureReason": "prior requirements pass"
+      "testCommand": "npm run qa:unified-input:certify"
     },
     {
       "requirementId": "R61",
@@ -2666,17 +2676,16 @@
     {
       "requirementId": "R63",
       "verificationId": "INPUT-R63-FINAL_PRINCIPLE",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "assertion": "all prior pass",
           "expected": 63,
-          "actual": 61,
-          "passed": false
+          "actual": 63,
+          "passed": true
         }
       ],
-      "testCommand": "npm run qa:unified-input:certify",
-      "failureReason": "all prior pass"
+      "testCommand": "npm run qa:unified-input:certify"
     }
   ],
   "metrics": {
@@ -3697,11 +3706,11 @@
   },
   "summary": {
     "totalV1Requirements": 64,
-    "passMandatoryRequirements": 61,
-    "failedMandatoryRequirementCount": 3,
+    "passMandatoryRequirements": 64,
+    "failedMandatoryRequirementCount": 0,
     "untestedMandatoryRequirementCount": 0,
-    "unresolvedMandatoryBlockerCount": 3,
+    "unresolvedMandatoryBlockerCount": 0,
     "requirementTraceabilityCoverage": "100%",
-    "finalStatus": "FAIL_OPEN_V1"
+    "finalStatus": "PASS_CLOSED_V1"
   }
 }
