@@ -1,0 +1,256 @@
+{
+  "base": {
+    "confirmed": 642,
+    "review": 47,
+    "rejectedFalse": 1
+  },
+  "decisions": [
+    {
+      "candidateId": "1.1.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-64",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-65",
+      "state": "MERGE_NEXT",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-74",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-5",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-6",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-46",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-14",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    }
+  ],
+  "counts": {
+    "CONFIRMED": 662,
+    "REVIEW": 23,
+    "REJECTED_FALSE": 1,
+    "MERGE_PREVIOUS": 3,
+    "MERGE_NEXT": 1
+  },
+  "invariants": {
+    "total": true,
+    "noBaseConfirmedLost": true,
+    "noNewReview": true,
+    "noDuplicate": true,
+    "noCandidateLost": true,
+    "reviewPartition": true
+  },
+  "documents": [
+    {
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "hash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "candidateCount": 29,
+      "confirmed": 29,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "1.1.docx",
+      "hash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "candidateCount": 104,
+      "confirmed": 103,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 1
+    },
+    {
+      "file": "2. MIN MAX HHKG.docx",
+      "hash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519",
+      "candidateCount": 33,
+      "confirmed": 33,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "2.1.docx",
+      "hash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "candidateCount": 92,
+      "confirmed": 89,
+      "review": 0,
+      "rejected_false": 1,
+      "merge_previous": 2,
+      "merge_next": 0
+    },
+    {
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "hash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06",
+      "candidateCount": 60,
+      "confirmed": 52,
+      "review": 8,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "hash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "candidateCount": 27,
+      "confirmed": 27,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "hash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c",
+      "candidateCount": 15,
+      "confirmed": 15,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "hash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+      "candidateCount": 86,
+      "confirmed": 86,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "Full-Toán thực tế 10.docx",
+      "hash": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+      "candidateCount": 158,
+      "confirmed": 158,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "NK TEST APP.docx",
+      "hash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "candidateCount": 41,
+      "confirmed": 25,
+      "review": 15,
+      "rejected_false": 0,
+      "merge_previous": 1,
+      "merge_next": 0
+    },
+    {
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "hash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7",
+      "candidateCount": 45,
+      "confirmed": 45,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    }
+  ]
+}
