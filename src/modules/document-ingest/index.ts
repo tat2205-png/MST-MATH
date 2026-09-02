@@ -126,7 +126,7 @@ export function validateInputSource(source: SourceInput): InputAcceptanceResult 
   const type = byExt[ext] ?? "UNSUPPORTED";
   if (type === "PDF" && /\/Encrypt\b/.test(Buffer.from(bytes).toString("latin1"))) return { sourceType: "PDF", fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: "ENCRYPTED_PDF", message: "Encrypted PDF input requires a teacher-supplied decrypted source." }] };
   const expected = type === "DOCX" ? isDocxPackage(bytes) : type === "PDF" ? sig === "PDF" : type === "PNG" ? sig === "PNG" : type === "JPEG" ? sig === "JPEG" : type === "DOC" ? false : false;
-  const mismatch = type !== "UNSUPPORTED" && type !== "DOC" && !expected;
+  const mismatch = type !== "UNSUPPORTED" && type !== "DOC" && (type === "DOCX" ? sig !== "ZIP" : !expected);
   const detected = sig === "ZIP" ? "DOCX" : sig === "PDF" || sig === "PNG" || sig === "JPEG" ? sig : type;
   const sourceType = type === "UNSUPPORTED" && detected !== "DOCX" && detected !== "PDF" && detected !== "PNG" && detected !== "JPEG" ? "UNSUPPORTED" : type;
   if (mismatch || sourceType === "UNSUPPORTED" || (type === "DOCX" && !expected)) return { sourceType, fileIntegrity: "INVALID", readability: "UNREADABLE", inputQuality: "REVIEW", autoProcessAllowed: false, teacherReviewRequired: true, issues: [{ code: mismatch ? "EXTENSION_SIGNATURE_MISMATCH" : type === "DOCX" ? "CORRUPT_DOCX" : "UNSUPPORTED_INPUT", message: mismatch ? "The extension does not match the file signature." : type === "DOCX" ? "The OOXML package structure is invalid." : "The input type is unsupported." }] };
