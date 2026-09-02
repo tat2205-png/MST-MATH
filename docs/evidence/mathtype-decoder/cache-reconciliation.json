@@ -1,0 +1,10 @@
+{
+  "cacheKey": "MTEF_V5:pimath-mtef-v5-1:<sha256>",
+  "hashAlgorithm": "SHA256",
+  "successOnly": true,
+  "versionAware": true,
+  "measuredTest": { "lookupCount": 2, "hitCount": 1, "missCount": 1, "parseExecutionCount": 1, "entryCount": 1 },
+  "sourceProvenanceInstanceCount": 2,
+  "sourceIdentitiesDistinct": true,
+  "mutationIsolation": true
+}
