@@ -81,14 +81,14 @@
       "requirementName": "hostile-input",
       "mandatory": true,
       "sourceSpecification": "PIMATH_UNIFIED_INPUT_V1",
-      "currentState": "CERTIFIED",
+      "currentState": "AUDIT_PENDING",
       "implementationPath": "src/modules/document-ingest/index.ts; src/modules/document-ingest/contracts.ts",
       "verificationType": "EXECUTABLE_TEST",
       "verificationId": "INPUT-R5-HOSTILE_INPUT",
       "testPathOrAuditCommand": "npm run qa:unified-input",
       "evidenceType": "SYNTHETIC_FIXTURE",
       "evidenceSource": "repository audit",
-      "status": "PASS",
+      "status": "FAIL",
       "notes": "Requires evidence-specific certification before final closure."
     },
     {
@@ -906,14 +906,14 @@
       "requirementName": "closure-gate",
       "mandatory": true,
       "sourceSpecification": "PIMATH_UNIFIED_INPUT_V1",
-      "currentState": "CERTIFIED",
+      "currentState": "AUDIT_PENDING",
       "implementationPath": "src/modules/document-ingest/index.ts; src/modules/document-ingest/contracts.ts",
       "verificationType": "EXECUTABLE_TEST",
       "verificationId": "INPUT-R60-CLOSURE_GATE",
       "testPathOrAuditCommand": "npm run qa:unified-input",
       "evidenceType": "SYNTHETIC_FIXTURE",
       "evidenceSource": "repository audit",
-      "status": "PASS",
+      "status": "FAIL",
       "notes": "Requires evidence-specific certification before final closure."
     },
     {
@@ -951,14 +951,14 @@
       "requirementName": "final-principle",
       "mandatory": true,
       "sourceSpecification": "PIMATH_UNIFIED_INPUT_V1",
-      "currentState": "CERTIFIED",
+      "currentState": "AUDIT_PENDING",
       "implementationPath": "src/modules/document-ingest/index.ts; src/modules/document-ingest/contracts.ts",
       "verificationType": "EXECUTABLE_TEST",
       "verificationId": "INPUT-R63-FINAL_PRINCIPLE",
       "testPathOrAuditCommand": "npm run qa:unified-input",
       "evidenceType": "SYNTHETIC_FIXTURE",
       "evidenceSource": "repository audit",
-      "status": "PASS",
+      "status": "FAIL",
       "notes": "Requires evidence-specific certification before final closure."
     }
   ]
