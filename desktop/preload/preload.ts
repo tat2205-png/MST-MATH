@@ -1,0 +1,2 @@
+import { contextBridge, ipcRenderer } from "electron";
+contextBridge.exposeInMainWorld("pimathDesktop", { selectInputFiles: () => ipcRenderer.invoke("select-input-files"), selectOutputRoot: () => ipcRenderer.invoke("select-output-root"), openOutputFolder: () => ipcRenderer.invoke("open-output-folder"), openResult: (resultPath: string) => ipcRenderer.invoke("open-result", resultPath), getConfiguration: () => ipcRenderer.invoke("get-configuration"), processJob: (sourcePath: string, outputProfile: string) => ipcRenderer.invoke("process-job", sourcePath, outputProfile) });

@@ -1,0 +1,1 @@
+export interface PimathDesktopApi { selectInputFiles(): Promise<string[]>; selectOutputRoot(): Promise<string | null>; openOutputFolder(): Promise<void>; openResult(resultPath: string): Promise<void>; getConfiguration(): Promise<unknown>; processJob(sourcePath: string, outputProfile: string): Promise<unknown>; }

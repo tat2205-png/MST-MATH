@@ -1,0 +1,3 @@
+// desktop/preload/preload.ts
+var import_electron = require("electron");
+import_electron.contextBridge.exposeInMainWorld("pimathDesktop", { selectInputFiles: () => import_electron.ipcRenderer.invoke("select-input-files"), selectOutputRoot: () => import_electron.ipcRenderer.invoke("select-output-root"), openOutputFolder: () => import_electron.ipcRenderer.invoke("open-output-folder"), openResult: (resultPath) => import_electron.ipcRenderer.invoke("open-result", resultPath), getConfiguration: () => import_electron.ipcRenderer.invoke("get-configuration"), processJob: (sourcePath, outputProfile) => import_electron.ipcRenderer.invoke("process-job", sourcePath, outputProfile) });

@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx -r dotenv/config server.ts",
+    "desktop:build": "esbuild desktop/main/main.ts --bundle --platform=node --format=cjs --external:electron --external:canvas --outfile=desktop/main/main.cjs && esbuild desktop/preload/preload.ts --bundle --platform=node --format=cjs --external:electron --outfile=desktop/preload/preload.cjs",
+    "desktop:dev": "npm run desktop:build && electron desktop/main/main.cjs",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "studio": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\start-studio.ps1",
@@ -93,6 +95,7 @@
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
     "dependency-cruiser": "^18.2.0",
+    "electron": "^37.10.3",
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",

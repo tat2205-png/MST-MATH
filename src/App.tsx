@@ -23,6 +23,7 @@ import {
 } from "./types/mathSchema.js";
 import { AlertCircle, CheckCircle2, Sparkles, X } from "lucide-react";
 import { TeacherWorkspace } from "./components/teacher/TeacherWorkspace.js";
+import { DesktopShell } from "./components/desktop/DesktopShell.js";
 
 function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
   const [currentTab, setCurrentTab] = useState<"input" | "parsed" | "solution" | "visual" | "video" | "qa">("input");
@@ -502,6 +503,7 @@ function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
 }
 
 export function App() {
+  if (window.pimathDesktop) return <DesktopShell />;
   const [productSurface, setProductSurface] = useState<"teacher" | "studio">("teacher");
   return productSurface === "teacher"
     ? <TeacherWorkspace onOpenStudio={() => setProductSurface("studio")} />
