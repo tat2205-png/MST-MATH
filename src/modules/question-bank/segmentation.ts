@@ -9,6 +9,10 @@ import type {
   BoundaryEvidence,
   BoundaryConfidence,
 } from "./types.js";
+import {
+  blockBelongsToAnswerSolutionAppendix,
+  findAnswerSolutionAppendixRegions,
+} from "./source-region-classification.js";
 
 /**
  * A segmentation unit is a logical slice of one physical DocumentBlock.
@@ -31,35 +35,61 @@ const textOf = (blocks: ContentBlock[]): string =>
 
 const question = /^(?:(Câu|Bài|Question)\s*)?(\d+)\s*[.:)]\s*/iu;
 const explicitQuestion = /^(Câu|Bài|Question)\s*(\d+)\s*[.:)]\s*/iu;
+const embeddedExplicitQuestion = /\b(?:Câu|Bài|Question)\s*\d+\s*[.:)]\s*/giu;
 const section = /^(PHẦN\s+(?:I|II|III|IV|V)|TRẮC NGHIỆM|ĐÚNG\s*\/\s*SAI|TRẢ LỜI NGẮN|TỰ LUẬN)/iu;
 const semantic = /^(?:cho|tính|tìm|xác định|chứng minh|giải|hãy|một|trong|tại|người ta|một người|một công ty|một vật)\b/iu;
 const answerSolution = /^(?:đáp\s*án|lời\s*giải|hướng\s*dẫn\s*giải|kết\s*quả)\b/iu;
+const terminalAnswerCue = /(?:\bKQ|\bKết\s*quả|\bĐáp\s*án)\s*:\s*[^\n]{0,120}$/iu;
 
 function contentStartsExplicitQuestion(content: ContentBlock): boolean {
   return content.type === "text" && explicitQuestion.test(content.value.trimStart());
 }
 
+function splitEmbeddedTextQuestionStarts(content: ContentBlock): ContentBlock[] {
+  if (content.type !== "text") return [content];
+
+  const value = content.value;
+  const splitPoints = [...value.matchAll(embeddedExplicitQuestion)]
+    .map((match) => match.index ?? -1)
+    .filter((index) => {
+      if (index <= 0) return false;
+      const before = value.slice(0, index);
+      return /\n\s*$/u.test(before) || terminalAnswerCue.test(before);
+    });
+
+  if (splitPoints.length === 0) return [content];
+
+  const starts = [0, ...splitPoints];
+  return starts.map((start, index) => {
+    const end = starts[index + 1] ?? value.length;
+    return { ...content, value: value.slice(start, end) };
+  });
+}
+
 /**
  * Word can store several visually separate "Câu N:" lines inside a single
- * physical block. The old segmenter iterated only DocumentBlock boundaries and
- * therefore merged all of them into one candidate.
+ * physical block, and in some files a new question starts in the middle of one
+ * text run after a terminal answer cue such as "KQ:". Expand those cases into
+ * logical units while preserving the physical source object identity.
  *
- * Split only when the same physical block contains at least two explicit
- * question starts. Do not trust `DocumentBlock.kind` as a veto: ingestion can
- * classify a paragraph/text container as SECTION even when its runs contain
- * actual questions. Explicit source markers are stronger local evidence here.
+ * Embedded markers are only split when preceded by a strong local boundary
+ * (line break or KQ/Kết quả/Đáp án cue). Repeated Câu markers inside a detected
+ * worked-solution appendix are excluded separately at the document-region layer
+ * and are never promoted to question boundaries.
  */
 function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[] {
-  if (block.content.length < 2) return [block];
-
-  const markerIndexes = block.content
+  const expandedContent = block.content.flatMap(splitEmbeddedTextQuestionStarts);
+  const markerIndexes = expandedContent
     .map((content, index) => (contentStartsExplicitQuestion(content) ? index : -1))
     .filter((index) => index >= 0);
 
-  if (markerIndexes.length < 2) return [block];
+  if (markerIndexes.length === 0) return [block];
+
+  const firstMarker = markerIndexes[0];
+  const requiresLogicalSplit = markerIndexes.length >= 2 || firstMarker > 0;
+  if (!requiresLogicalSplit) return [block];
 
   const units: SegmentationBlock[] = [];
-  const firstMarker = markerIndexes[0];
 
   // Preserve any physical content that precedes the first explicit marker. It
   // remains a separate segmentation unit and may attach to prior context using
@@ -67,21 +97,21 @@ function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[
   if (firstMarker > 0) {
     units.push({
       ...block,
-      content: block.content.slice(0, firstMarker),
+      content: expandedContent.slice(0, firstMarker),
       segmentationUnitId: `${block.id}::prefix`,
     });
   }
 
   markerIndexes.forEach((start, markerOrdinal) => {
-    const end = markerIndexes[markerOrdinal + 1] ?? block.content.length;
+    const end = markerIndexes[markerOrdinal + 1] ?? expandedContent.length;
     units.push({
       ...block,
-      content: block.content.slice(start, end),
+      content: expandedContent.slice(start, end),
       segmentationUnitId: `${block.id}::question-segment-${markerOrdinal + 1}`,
       // A Word list number belongs to the physical paragraph, not every
       // logical segment inside it. Explicit Câu/Bài/Question markers are the
       // authority for the derived segments.
-      ...(markerOrdinal > 0 ? { numbering: undefined } : {}),
+      ...(markerOrdinal > 0 || firstMarker > 0 ? { numbering: undefined } : {}),
     });
   });
 
@@ -132,6 +162,7 @@ function typeFor(sectionName: string | undefined, content: ContentBlock[]): Ques
 
 export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidate[] {
   const candidates: DocumentQuestionCandidate[] = [];
+  const answerSolutionAppendices = findAnswerSolutionAppendixRegions(document);
   let current: SegmentationBlock[] = [];
   let currentSection: string | undefined;
   let label: string | undefined;
@@ -211,8 +242,15 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
 
   for (const block of segmentationUnits(document)) {
     const value = textOf(block.content).trim();
-    const sectionMatch = section.exec(value);
 
+    if (blockBelongsToAnswerSolutionAppendix(block, answerSolutionAppendices)) {
+      if (current.length) {
+        flush([{ kind: "ANSWER_SOLUTION_TRANSITION", detail: "detected answer/solution appendix", objectId: block.id }]);
+      }
+      continue;
+    }
+
+    const sectionMatch = section.exec(value);
     if (sectionMatch && (block.kind === "SECTION" || !question.test(value))) {
       flush([
         {
