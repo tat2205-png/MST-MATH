@@ -5255,6 +5255,55 @@
         },
         "qaStatus": "REVIEW",
         "issues": []
+      },
+      {
+        "sourceBlockId": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9::solution-appendix::paragraph-179",
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "sourceObjectIds": [
+          "paragraph-179",
+          "paragraph-180",
+          "paragraph-181",
+          "paragraph-182",
+          "paragraph-183",
+          "paragraph-184",
+          "paragraph-185",
+          "paragraph-186",
+          "paragraph-187",
+          "paragraph-188",
+          "section-85"
+        ],
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+          "partName": "word/document.xml",
+          "objectIndex": 75
+        },
+        "structureType": "SOLUTION",
+        "detectionEvidence": [
+          "EXPLICIT_HEADING",
+          "TERMINAL_DOCUMENT_REGION",
+          "REPEATED_QUESTION_MARKERS",
+          "NUMBERING_RESTARTS_AT_ONE",
+          "RESULT_CUES",
+          "SOLUTION_REASONING_CUES"
+        ],
+        "disposition": "UNRESOLVED",
+        "provenance": {
+          "sourceFile": "NK TEST APP.docx",
+          "sourceSha256": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+          "sourceKind": "DOCX",
+          "parser": "document-engine/docx/parser",
+          "parserVersion": "1",
+          "transformationHistory": [
+            "SOURCE_FINGERPRINT",
+            "DOCX_PACKAGE_READ",
+            "EXISTING_DOCX_PARSER",
+            "DOCUMENT_IR_ADAPTER"
+          ]
+        },
+        "qaStatus": "REVIEW",
+        "issues": [
+          "APPENDIX_REQUIRES_QUESTION_MAPPING"
+        ]
       }
     ],
     "mappings": 143,

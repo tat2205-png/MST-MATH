@@ -13,8 +13,10 @@
       "ESSAY": 0,
       "UNKNOWN": 333
     },
-    "mathReferenceCount": 3239,
-    "assetReferenceCount": 579
+    "mathReferenceCount": 5888,
+    "assetReferenceCount": 579,
+    "canonicalAuthorityCommit": "1741ad4915e50ecba99c5ff5971cd8e6bb20b8ed",
+    "canonicalDeltaVs668": 0
   },
   "documents": [
     {
@@ -222,7 +224,7 @@
       "questionIRCount": 24,
       "packageCount": 24,
       "answerSourceBlockCount": 1,
-      "solutionSourceBlockCount": 1,
+      "solutionSourceBlockCount": 2,
       "answerMappingCount": 0,
       "solutionMappingCount": 0,
       "typeCounts": {
@@ -274,8 +276,10 @@
       "ESSAY": 0,
       "UNKNOWN": 333
     },
-    "mathReferenceCount": 3239,
+    "mathReferenceCount": 5888,
     "assetReferenceCount": 579,
+    "canonicalAuthorityCommit": "1741ad4915e50ecba99c5ff5971cd8e6bb20b8ed",
+    "canonicalDeltaVs668": 0,
     "execution": {
       "answerSolutionValidatorDocumentsRun": 11,
       "questionTypeValidatorQuestionCount": 668,
@@ -283,6 +287,7 @@
       "sourceObjectValidatorDocumentsRun": 11
     },
     "qa": {
+      "canonicalBoundaryRecomposition": true,
       "boundaryConsumption": true,
       "identityBridge": true,
       "answerSolution": true,

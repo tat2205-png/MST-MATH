@@ -1,0 +1,429 @@
+{
+  "schemaVersion": "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V4",
+  "corpusFileCount": 11,
+  "historicalRawCandidateCount": 690,
+  "segmentedCandidateCount": 691,
+  "measuredRawCandidateDeltaVsHistoricalSegmentation": 1,
+  "rawCandidateRetentionRatio": 1.0014492753623188,
+  "minimumCorpusRawRetentionRatioForAutomaticPass": 0.95,
+  "minimumDocumentRawRetentionRatioForAutomaticPass": 0.9,
+  "baselineConfirmedCount": 668,
+  "candidateWithMultipleExplicitQuestionMarkersCount": 0,
+  "multiMarkerCandidates": [],
+  "answerSolutionAppendixRegionCount": 1,
+  "questionCandidateOverlappingAppendixCount": 0,
+  "appendixOverlapCandidates": [],
+  "nkTestApp": {
+    "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+    "candidateCount": 42,
+    "historicalRawCandidateCount": 41,
+    "rawDeltaVsHistoricalSegmentation": 1,
+    "rawRetentionRatio": 1.024390243902439,
+    "baselineConfirmedCount": 24,
+    "answerSolutionAppendixRegionCount": 1,
+    "solutionAppendixRegions": [
+      {
+        "kind": "SOLUTION",
+        "startOrder": 75,
+        "endOrder": 85,
+        "headingBlockId": "paragraph-179",
+        "sourceObjectIds": [
+          "paragraph-179",
+          "paragraph-180",
+          "paragraph-181",
+          "paragraph-182",
+          "paragraph-183",
+          "paragraph-184",
+          "paragraph-185",
+          "paragraph-186",
+          "paragraph-187",
+          "paragraph-188",
+          "section-85"
+        ],
+        "markerNumbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "resultCueCount": 6,
+        "reasoningCueCount": 7,
+        "evidence": [
+          "EXPLICIT_HEADING",
+          "TERMINAL_DOCUMENT_REGION",
+          "REPEATED_QUESTION_MARKERS",
+          "NUMBERING_RESTARTS_AT_ONE",
+          "RESULT_CUES",
+          "SOLUTION_REASONING_CUES"
+        ]
+      }
+    ],
+    "solutionAppendixWithRepeated3456Found": true,
+    "questionCandidateOverlappingAppendixCount": 0,
+    "embeddedQuestion56SplitFound": true,
+    "embeddedQuestion56SplitGroup": {
+      "sourceObjectId": "paragraph-100",
+      "owners": [
+        {
+          "ordinal": 39,
+          "questionIndex": 5
+        },
+        {
+          "ordinal": 40,
+          "questionIndex": 6
+        }
+      ]
+    },
+    "tailCandidates": [
+      {
+        "ordinal": 31,
+        "candidateId": "candidate-31",
+        "questionIndex": null,
+        "questionTypeCandidate": "TRUE_FALSE",
+        "sourceObjectIds": [
+          "paragraph-83"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [],
+        "preview": "Xác suất của biến cố [MATH:expression-docx-103] là [MATH:expression-docx-104] ."
+      },
+      {
+        "ordinal": 32,
+        "candidateId": "candidate-32",
+        "questionIndex": null,
+        "questionTypeCandidate": "TRUE_FALSE",
+        "sourceObjectIds": [
+          "paragraph-84"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [],
+        "preview": "Xác suất của biến cố hợp [MATH:expression-docx-105] là [MATH:expression-docx-106] ."
+      },
+      {
+        "ordinal": 33,
+        "candidateId": "candidate-33",
+        "questionIndex": 1,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-86",
+          "paragraph-87"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [
+          1
+        ],
+        "preview": "Câu 1. Trong một dự án giám sát sinh thái hồ, các chuyên gia môi trường mô hình hóa nồng độ oxygen hòa tan [MATH:expression-docx-107] (đơn vị: [MATH:expression-docx-108] ) trong nước hồ sau [MATH:expression-docx-109] giờ [MATH:expression-docx-110] kể từ khi xảy ra sự cố xả thải hữu cơ bằng hàm số [MATH:expression-docx-111] có đồ thị như hình vẽ bên. Biết rằng nồng độ oxygen hòa tan được xấp xỉ bởi công thức [MATH:expression-docx-112] . Đạo hàm [MATH:expression-docx-113] biểu thị tốc độ thay đổi nồng độ oxygen trong nước hồ (đơn vị: [MATH:expression-docx-114] giờ)). Tốc độ phục hồi (hoặc gia tăng) nồng độ oxygen hòa tan trong hồ đạt giá trị lớn nhất tại thời điểm [MATH:expression-docx-115] giờ ( [MATH:expression-docx-116] và [MATH:expression-docx-117] là các số nguyên tố). Tính giá trị của biểu thức [MATH:expression-docx-118] . [FIGURE:asset-50c56bd21837]"
+      },
+      {
+        "ordinal": 34,
+        "candidateId": "candidate-34",
+        "questionIndex": 2,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-88"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [
+          2
+        ],
+        "preview": "Câu 2. Một doanh nghiệp công nghệ khởi nghiệp (Startup) chuẩn bị mở rộng quy mô và cần thuê một mặt bằng làm trung tâm kho vận phân phối hàng hóa trong thời hạn 15 năm. Sau khi khảo sát, doanh nghiệp nhận được hai phương án hợp đồng từ hai đơn vị cho thuê bất động sản như sau:"
+      },
+      {
+        "ordinal": 35,
+        "candidateId": "candidate-35",
+        "questionIndex": null,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-89"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [],
+        "preview": "Phương án 1 (Thanh toán theo quý): Tiền thuê quý đầu tiên là 10 triệu đồng; từ quý thứ hai trở đi, tiền thuê mỗi quý tăng thêm 500000 đồng so với quý trước đó."
+      },
+      {
+        "ordinal": 36,
+        "candidateId": "candidate-36",
+        "questionIndex": null,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-90",
+          "paragraph-91",
+          "paragraph-92"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [],
+        "preview": "Phương án 2 (Thanh toán theo năm): Tiền thuê năm đầu tiên là 70 triệu đồng; từ năm thứ hai trở đi, tiền thuê mỗi năm tăng thêm 3 triệu đồng so với năm trước đó. Để tối ưu hóa ngân sách, doanh nghiệp nên chọn phương án nào để tổng chi phí thuê mặt bằng trong 15 năm là thấp nhất? Số tiền chi phí thấp nhất đó bằng bao nhiêu triệu đồng? KQ: □"
+      },
+      {
+        "ordinal": 37,
+        "candidateId": "candidate-37",
+        "questionIndex": 3,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-92",
+          "paragraph-93"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [
+          3
+        ],
+        "preview": "Câu 3. Gọi [MATH:expression-docx-119] lần lượt là số đường tiệm cận ngang và số tiệm cận đứng của đồ thị hàm số [MATH:expression-docx-120] . Tính giá trị của biểu thức [MATH:expression-docx-121] . KQ: □"
+      },
+      {
+        "ordinal": 38,
+        "candidateId": "candidate-38",
+        "questionIndex": 4,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-94",
+          "paragraph-95"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [
+          4
+        ],
+        "preview": "Câu 4. Để chuẩn bị cho hội chợ \"Ý tưởng xanh\", bạn Nam dự định làm một chiếc khay trồng rau mầm thủy canh dạng hình chóp cụt đều không có nắp. Từ một tấm vật liệu tái chế hình vuông có cạnh 8 dm, Nam cắt bỏ bốn phần giống nhau ở bốn góc, sau đó gấp tạo hình rồi hàn các mép lại để được chiếc khay như hình vẽ bên dưới. Biết đáy khay là hình vuông có cạnh bằng 3 dm. Hỏi chiều cao của chiếc khay trồng rau này bằng bao nhiêu đề-xi-mét? [FIGURE:asset-bea79a8a9f17]"
+      },
+      {
+        "ordinal": 39,
+        "candidateId": "candidate-39",
+        "questionIndex": 5,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-96",
+          "paragraph-97",
+          "paragraph-98",
+          "paragraph-99",
+          "paragraph-100"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [
+          5
+        ],
+        "preview": "Câu 5. Trong một dự án nghiên cứu công nghệ vật liệu mới, các kỹ sư thiết kế một tấm pin năng lượng mặt trời dạng hình vuông có cạnh 1 m. Để tối ưu hóa khả năng hấp thụ ánh sáng và tản nhiệt, mặt tấm pin được phủ các lớp vi mạch cảm biến dạng phân mảnh (fractal). Ban đầu, tấm pin hình vuông được chia thành 9 ô vuông nhỏ bằng nhau, ô vuông ở chính giữa được phủ một lớp vật liệu cảm biến sẫm màu (màu đen). Ở giai đoạn tiếp theo, mỗi ô vuông màu sáng còn lại tiếp tục được chia thành 9 ô vuông nhỏ hơn và ô chính giữa của nó lại được phủ vật liệu cảm biến sẫm màu. Quá trình chia nhỏ và phủ vi mạch sẫm màu này được thực hiện liên tiếp đúng 5 lần. [FIGURE:asset-2bc17b52b1c5] Tính tổng diện tích mặt tấm pin đã được phủ vật liệu cảm biến sẫm màu sau 5 lần thực hiện theo đơn vị mét vuông (làm tròn kết quả đến hàng phần trăm). KQ: □ □ □ □"
+      },
+      {
+        "ordinal": 40,
+        "candidateId": "candidate-40",
+        "questionIndex": 6,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-100"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [
+          6
+        ],
+        "preview": "Câu 6. Cho tập hợp [MATH:expression-docx-122] . Chọn ngẫu nhiên 4 số phân biệt từ tập [MATH:expression-docx-123] . Trong 4 số được chọn, ta đặt 1 số vào vòng tròn lớn ở chính giữa, 3 số còn lại được đặt vào ba vòng tròn nhỏ xung quanh (biết rằng ba vòng tròn nhỏ này không phân biệt vị trí). Gọi [MATH:expression-docx-124] là xác suất để các số được đặt thỏa mãn đồng thời hai điều kiện sau:"
+      },
+      {
+        "ordinal": 41,
+        "candidateId": "candidate-41",
+        "questionIndex": null,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-101"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [],
+        "preview": "Ba số ở ba vòng tròn nhỏ có thể sắp xếp thành một cấp số cộng tăng."
+      },
+      {
+        "ordinal": 42,
+        "candidateId": "candidate-42",
+        "questionIndex": null,
+        "questionTypeCandidate": "SHORT_ANSWER",
+        "sourceObjectIds": [
+          "paragraph-102",
+          "paragraph-103",
+          "paragraph-104",
+          "paragraph-105"
+        ],
+        "sourceBlockKinds": [
+          "PARAGRAPH"
+        ],
+        "markerNumbers": [],
+        "preview": "Số ở vòng tròn lớn chính giữa bằng tổng của cả ba số ở ba vòng tròn nhỏ. Tính giá trị của biểu thức [MATH:expression-docx-125] . [FIGURE:asset-345a99c7e900] ĐÁP ÁN THAM KHẢO Được thực hiện bởi AI"
+      }
+    ]
+  },
+  "perDocument": [
+    {
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "historicalRawCandidateCount": 29,
+      "segmentedCandidateCount": 29,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 29,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "historicalRawCandidateCount": 104,
+      "segmentedCandidateCount": 104,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 103,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519",
+      "historicalRawCandidateCount": 33,
+      "segmentedCandidateCount": 33,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 33,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "historicalRawCandidateCount": 92,
+      "segmentedCandidateCount": 92,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 89,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06",
+      "historicalRawCandidateCount": 60,
+      "segmentedCandidateCount": 60,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 60,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "historicalRawCandidateCount": 27,
+      "segmentedCandidateCount": 27,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 27,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "sourceHash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c",
+      "historicalRawCandidateCount": 15,
+      "segmentedCandidateCount": 15,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 15,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+      "historicalRawCandidateCount": 86,
+      "segmentedCandidateCount": 86,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 85,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "Full-Toán thực tế 10.docx",
+      "sourceHash": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+      "historicalRawCandidateCount": 158,
+      "segmentedCandidateCount": 158,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 158,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "historicalRawCandidateCount": 41,
+      "segmentedCandidateCount": 42,
+      "rawDeltaVsHistoricalSegmentation": 1,
+      "rawRetentionRatio": 1.024390243902439,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 24,
+      "sharedPhysicalSourceGroupCount": 2,
+      "answerSolutionAppendixRegionCount": 1,
+      "questionCandidateOverlappingAppendixCount": 0
+    },
+    {
+      "sourceDocument": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7",
+      "historicalRawCandidateCount": 45,
+      "segmentedCandidateCount": 45,
+      "rawDeltaVsHistoricalSegmentation": 0,
+      "rawRetentionRatio": 1,
+      "rawRetentionQA": "PASS",
+      "baselineConfirmedCount": 45,
+      "sharedPhysicalSourceGroupCount": 0,
+      "answerSolutionAppendixRegionCount": 0,
+      "questionCandidateOverlappingAppendixCount": 0
+    }
+  ],
+  "perDocumentRawRetentionFailures": [],
+  "noMultiQuestionCandidateQA": "PASS",
+  "answerSolutionAppendixIsolationQA": "PASS",
+  "embeddedQuestionTransitionQA": "PASS",
+  "r236SolutionAppendixExclusionQA": "PASS",
+  "corpusRawCandidateRetentionQA": "PASS",
+  "perDocumentRawCandidateRetentionQA": "PASS",
+  "rawCandidateConservationQA": "PASS",
+  "boundaryRemediationImpactQA": "PASS",
+  "note": "Historical raw segmentation and canonical confirmed boundary counts are reported separately. Raw-retention thresholds are anti-silent-loss safety gates only and never define the canonical question count. Answer/solution appendices remain source-backed DocumentIR evidence but are excluded from QuestionIR segmentation only when conservative appendix evidence passes. Canonical count must be recomposed after remediation; it is not inferred from raw candidate delta."
+}
