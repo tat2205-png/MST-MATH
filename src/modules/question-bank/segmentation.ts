@@ -41,13 +41,16 @@ function contentStartsExplicitQuestion(content: ContentBlock): boolean {
 
 /**
  * Word can store several visually separate "Câu N:" lines inside a single
- * paragraph. The old segmenter iterated only DocumentBlock boundaries and
- * therefore merged all of them into one candidate. Split only when the same
- * physical block contains at least two explicit question starts. This is a
- * conservative rule: ordinary multi-run paragraphs are unchanged.
+ * physical block. The old segmenter iterated only DocumentBlock boundaries and
+ * therefore merged all of them into one candidate.
+ *
+ * Split only when the same physical block contains at least two explicit
+ * question starts. Do not trust `DocumentBlock.kind` as a veto: ingestion can
+ * classify a paragraph/text container as SECTION even when its runs contain
+ * actual questions. Explicit source markers are stronger local evidence here.
  */
 function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[] {
-  if (block.kind === "SECTION" || block.content.length < 2) return [block];
+  if (block.content.length < 2) return [block];
 
   const markerIndexes = block.content
     .map((content, index) => (contentStartsExplicitQuestion(content) ? index : -1))
