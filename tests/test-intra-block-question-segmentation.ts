@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { segmentQuestions } from "../src/modules/question-bank/segmentation.js";
 import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
 import type { ContentBlock, DocumentIR } from "../src/modules/document-engine/document-ir.js";
+import { renderSourceReconstruction } from "../scripts/render-word-beta-human-review.js";
 
 const text = (value: string, run: number): ContentBlock => ({
   type: "text",
@@ -60,5 +61,15 @@ assert.deepEqual(questions.map((question) => question.id), [
   "0123456789ab-q3",
 ]);
 assert.ok(questions.every((question) => question.sourceObjectIds.length === 1 && question.sourceObjectIds[0] === "paragraph-0"));
+
+const source1 = renderSourceReconstruction(document, questions[0]);
+const source2 = renderSourceReconstruction(document, questions[1]);
+const source3 = renderSourceReconstruction(document, questions[2]);
+assert.match(source1, /Câu 1:/);
+assert.doesNotMatch(source1, /Câu 2:/);
+assert.match(source2, /Câu 2:/);
+assert.doesNotMatch(source2, /Câu 1:|Câu 3:/);
+assert.match(source3, /Câu 3:/);
+assert.doesNotMatch(source3, /Câu 2:/);
 
 console.log("INTRA_BLOCK_QUESTION_SEGMENTATION_TESTS=PASS");
