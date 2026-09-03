@@ -74,6 +74,7 @@ const suites = [
   "tests/test-word-preflight-safe-clean-v1.ts",
   "tests/test-teacher-word-preflight-integration-v1.ts",
   "tests/test-mcq-four-option-adaptive-layout-v1.ts",
+  "tests/test-pimath-unified-input-certification-readonly-v1.ts",
   "tests/test-teacher-workflow-ux01.ts",
 ];
 
