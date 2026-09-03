@@ -45,7 +45,7 @@ function loadFrozenAuthorityRows(): ManifestAuthorityRow[] {
         }));
       }
     } catch {
-      // Fall through to the still-committed 668 manifest on first materialization.
+      // Fall through to the committed 668 authority on first materialization.
     }
   }
 
@@ -223,3 +223,7 @@ console.log(JSON.stringify({
   canonicalBoundaryRecompositionQA: evidence.canonicalBoundaryRecompositionQA,
   evidencePath: OUT,
 }));
+
+if (qa !== "PASS") {
+  process.exitCode = 2;
+}
