@@ -4,6 +4,7 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
 import type { DocumentIR } from "../src/modules/document-engine/document-ir.js";
+import { canonicalQuestionIdentityKey } from "../src/modules/question-bank/canonical-boundary-remap.js";
 import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
 import type { QuestionIR } from "../src/modules/question-bank/contracts.js";
 import {
@@ -23,12 +24,14 @@ const EXPECTED_CASE_COUNT = 40;
 
 const readJson = <T>(path: string): T => JSON.parse(readFileSync(path, "utf8"));
 const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
-const qcandidateId = (document: DocumentIR, index: number) => `${document.sourceHash.slice(0, 12)}-qcandidate-${index + 1}`;
 const caseNumber = (id: string) => Number(id.replace(/^R2-/, ""));
 
 type Located = { question: QuestionIR; document: DocumentIR; sourceDocument: string };
 type MatrixRow = {
   questionId: string;
+  canonicalIdentityKey: string;
+  canonicalSelectionKind: string;
+  sourceSliceIds: string[];
   questionType: string;
   mathFormats: string[];
   mathRoles: string[];
@@ -37,8 +40,10 @@ type MatrixRow = {
   riskTags: string[];
 };
 
-function locateQuestions(ids: Set<string>): Map<string, Located> {
+function locateQuestions(rows: MatrixRow[]): Map<string, Located> {
   const found = new Map<string, Located>();
+  const targetByIdentity = new Map(rows.map((row) => [row.canonicalIdentityKey, row.questionId]));
+  if (targetByIdentity.size !== rows.length) throw new Error("READABLE_REVIEW_TARGET_IDENTITY_COLLISION");
   const files = readdirSync(CORPUS_ROOT)
     .filter((name) => name.endsWith(".docx") && !name.startsWith("~$"))
     .sort();
@@ -48,9 +53,10 @@ function locateQuestions(ids: Set<string>): Map<string, Located> {
     const document = result.document;
     if (!document) throw new Error(`MISSING_DOCUMENT_IR:${file}`);
 
-    for (const [index, question] of segmentCanonicalQuestions(document).entries()) {
-      const id = qcandidateId(document, index);
-      if (!ids.has(id)) continue;
+    for (const question of segmentCanonicalQuestions(document)) {
+      const identity = canonicalQuestionIdentityKey(question);
+      const id = targetByIdentity.get(identity);
+      if (!id) continue;
       if (found.has(id)) throw new Error(`DUPLICATE_ACCEPTANCE_ID:${id}`);
       found.set(id, { question, document, sourceDocument: file });
     }
@@ -73,6 +79,7 @@ function readableMarkdown(
     "",
     `- **Question ID:** ${row.questionId}`,
     `- **QuestionIR ID:** ${question.id}`,
+    `- **Canonical selection:** ${row.canonicalSelectionKind}`,
     `- **Source document:** ${sourceDocument}`,
     `- **Question type:** ${row.questionType}`,
     `- **Risk tags:** ${row.riskTags.join(", ") || "None"}`,
@@ -97,6 +104,8 @@ function readableMarkdown(
     "",
     "## D. Technical evidence",
     "",
+    `- **Canonical identity:** ${row.canonicalIdentityKey}`,
+    `- **Source slice count:** ${row.sourceSliceIds.length}`,
     `- **Math formats:** ${row.mathFormats.join(", ") || "None"}`,
     `- **Math roles:** ${row.mathRoles.join(", ") || "None"}`,
     `- **Math object count:** ${row.mathObjectIds.length}`,
@@ -128,15 +137,21 @@ const matrix = readJson<any>(MATRIX_PATH);
 if (index.caseCount !== EXPECTED_CASE_COUNT || !Array.isArray(index.cases) || index.cases.length !== EXPECTED_CASE_COUNT) {
   throw new Error("REVIEW_INDEX_NOT_40");
 }
-if (matrix.featureMatrixQuestionCount !== 668 || matrix.featureMatrixUniqueQuestionIdCount !== 668) {
-  throw new Error("FEATURE_MATRIX_NOT_668");
+if (
+  matrix.featureMatrixQuestionCount !== 668 ||
+  matrix.featureMatrixUniqueQuestionIdCount !== 668 ||
+  matrix.featureMatrixUniqueCanonicalIdentityCount !== 668 ||
+  matrix.summary?.acceptanceIdentityQA !== "PASS"
+) {
+  throw new Error("FEATURE_MATRIX_NOT_668_SOURCE_IDENTITY_CERTIFIED");
 }
 
 const rowsById = new Map<string, MatrixRow>(matrix.rows.map((row: MatrixRow) => [row.questionId, row]));
-const ids = new Set<string>(index.cases.map((entry: any) => String(entry.questionId)));
-const located = locateQuestions(ids);
+const selectedRows = index.cases.map((entry: any) => rowsById.get(String(entry.questionId))).filter((row: MatrixRow | undefined): row is MatrixRow => Boolean(row));
+if (selectedRows.length !== EXPECTED_CASE_COUNT) throw new Error(`REVIEW_MATRIX_JOIN_FAILED:${selectedRows.length}`);
+const located = locateQuestions(selectedRows);
 if (located.size !== EXPECTED_CASE_COUNT) {
-  const missing = [...ids].filter((id) => !located.has(id));
+  const missing = selectedRows.map((row) => row.questionId).filter((id) => !located.has(id));
   throw new Error(`LOCAL_SOURCE_JOIN_MISSING:${located.size}:MISSING:${missing.join(",")}`);
 }
 
@@ -165,8 +180,14 @@ for (const entry of index.cases) {
   const oldReview = readJson<any>(`${base}/review.json`);
   const review = {
     ...oldReview,
-    schemaVersion: "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V3",
+    schemaVersion: "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
+    canonicalSelectionKind: row.canonicalSelectionKind,
+    canonicalIdentityKey: row.canonicalIdentityKey,
     reviewReadabilityStatus: readabilityStatus,
+    source: {
+      ...oldReview.source,
+      sourceSliceIds: [...(hit.question.sourceSliceIds ?? hit.question.sourceObjectIds)],
+    },
     sourceRepresentation: {
       ...oldReview.sourceRepresentation,
       text: sourceText,
@@ -184,10 +205,13 @@ for (const entry of index.cases) {
   writeFileSync(`${base}/review.md`, md);
   entry.reviewArtifactHash = sha256(jsonText + md);
   entry.reviewReadabilityStatus = readabilityStatus;
+  entry.canonicalIdentityKey = row.canonicalIdentityKey;
+  entry.canonicalSelectionKind = row.canonicalSelectionKind;
 }
 
-index.schemaVersion = "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V3";
-index.reviewRenderer = "PIMATH_WORD_BETA_HUMAN_READABLE_RENDERER_V1";
+index.schemaVersion = "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V4";
+index.reviewRenderer = "PIMATH_WORD_BETA_HUMAN_READABLE_RENDERER_V2";
+index.identityAuthority = "CANONICAL_LOGICAL_SOURCE_SLICE";
 index.sourceVisibleCaseCount = sourceVisibleCount;
 index.currentVisibleCaseCount = currentVisibleCount;
 index.needsSourceCheckForReadabilityCount = needsSourceCheckCount;
@@ -199,14 +223,16 @@ const humanIndex = [
   "# PiMath Word Beta — Final Human Review Index",
   "",
   `Final review cases: ${EXPECTED_CASE_COUNT}`,
+  "Canonical identity: PASS",
   "Risk coverage: PASS",
+  "Boundary remediation split coverage: PASS",
   `Human review readability: ${index.humanReviewReadabilityQA}`,
   "Human decisions: PENDING",
   "",
-  "| # | Review Case | Question ID | Type | Source | Risk tags | Readability | Review |",
-  "|---:|---|---|---|---|---|---|---|",
+  "| # | Review Case | Question ID | Canonical selection | Type | Source | Risk tags | Readability | Review |",
+  "|---:|---|---|---|---|---|---|---|---|",
   ...sortedCases.map((entry: any, i: number) =>
-    `| ${i + 1} | ${entry.reviewCaseId} | ${entry.questionId} | ${entry.questionType} | ${String(entry.sourceDocument).replaceAll("|", "\\|")} | ${String((entry.coverageTags ?? []).join(", ")).replaceAll("|", "\\|")} | ${entry.reviewReadabilityStatus} | [open](${entry.relativeReviewPath}/review.md) |`,
+    `| ${i + 1} | ${entry.reviewCaseId} | ${entry.questionId} | ${entry.canonicalSelectionKind} | ${entry.questionType} | ${String(entry.sourceDocument).replaceAll("|", "\\|")} | ${String((entry.coverageTags ?? []).join(", ")).replaceAll("|", "\\|")} | ${entry.reviewReadabilityStatus} | [open](${entry.relativeReviewPath}/review.md) |`,
   ),
   "",
 ].join("\n");
@@ -217,6 +243,7 @@ console.log(JSON.stringify({
   sourceVisibleCaseCount: sourceVisibleCount,
   currentVisibleCaseCount: currentVisibleCount,
   needsSourceCheckForReadabilityCount: needsSourceCheckCount,
+  promotedSplitReviewCaseCount: index.cases.filter((entry: any) => entry.canonicalSelectionKind === "PROMOTED_SPLIT").length,
   humanReviewReadabilityQA: index.humanReviewReadabilityQA,
   renderer: index.reviewRenderer,
 }));
