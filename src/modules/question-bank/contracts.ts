@@ -6,13 +6,71 @@ export type CanonicalQuestionType = "MULTIPLE_CHOICE" | "TRUE_FALSE" | "SHORT_AN
 export interface LedgerDiagnostics { sourceMathCount: number; extractedMathCount: number; documentIrMathCount: number; questionIrMathCount: number; questionPackageMathCount: number; sourceAssetCount: number; extractedAssetCount: number; documentIrAssetCount: number; questionPackageAssetCount: number }
 export interface MathAssetIdentityMappings { sourceToExtracted: Record<string, string>; extractedToDocumentIr: Record<string, string>; documentIrToQuestionIr: Record<string, string[]>; questionIrToPackage: Record<string, string[]> }
 export interface MathAssetLedger { diagnostics: LedgerDiagnostics; math: MathLedgerEntry[]; assets: AssetLedgerEntry[]; mappings?: MathAssetIdentityMappings; status: PreservationStatus; issues: ExtractionIssue[] }
-export interface QuestionIR { id: string; questionNumber?: string | number; questionType: CanonicalQuestionType; sourceDocumentId: string; sourceObjectIds: DocumentObjectId[]; stem: ContentBlock[]; options: Array<{ label: string; content: ContentBlock[] }>; subitems?: Array<{ label: string; content: ContentBlock[]; sourceObjectIds?: DocumentObjectId[] }>; answer?: ContentBlock[]; solution?: ContentBlock[]; mathObjectIds: DocumentObjectId[]; assetIds: DocumentObjectId[]; tableIds: DocumentObjectId[]; contextIds?: string[]; metadata: Record<string, unknown>; qaStatus: PreservationStatus; issues: ExtractionIssue[]; provenance: Provenance }
-export interface QuestionPackage { id: string; directoryName: `question-${string}`; question: QuestionIR; questionTex?: string; solutionTex?: string; metadata: Record<string, unknown>; assets: AssetLedgerEntry[]; mathObjectIds: DocumentObjectId[]; sourceObjectIds: DocumentObjectId[]; provenance: Provenance; qaStatus: PreservationStatus; extractionIssues: ExtractionIssue[] }
+
+/**
+ * `sourceObjectIds` are immutable physical Word-object identities.
+ * `sourceSliceIds` are deterministic logical identities used only when one
+ * physical Word object contains more than one logical question. They never
+ * replace or mutate physical provenance.
+ */
+export interface QuestionIR {
+  id: string;
+  questionNumber?: string | number;
+  questionType: CanonicalQuestionType;
+  sourceDocumentId: string;
+  sourceObjectIds: DocumentObjectId[];
+  sourceSliceIds?: string[];
+  stem: ContentBlock[];
+  options: Array<{ label: string; content: ContentBlock[] }>;
+  subitems?: Array<{ label: string; content: ContentBlock[]; sourceObjectIds?: DocumentObjectId[] }>;
+  answer?: ContentBlock[];
+  solution?: ContentBlock[];
+  mathObjectIds: DocumentObjectId[];
+  assetIds: DocumentObjectId[];
+  tableIds: DocumentObjectId[];
+  contextIds?: string[];
+  metadata: Record<string, unknown>;
+  qaStatus: PreservationStatus;
+  issues: ExtractionIssue[];
+  provenance: Provenance;
+}
+
+export interface QuestionPackage {
+  id: string;
+  directoryName: `question-${string}`;
+  question: QuestionIR;
+  questionTex?: string;
+  solutionTex?: string;
+  metadata: Record<string, unknown>;
+  assets: AssetLedgerEntry[];
+  mathObjectIds: DocumentObjectId[];
+  sourceObjectIds: DocumentObjectId[];
+  sourceSliceIds?: string[];
+  provenance: Provenance;
+  qaStatus: PreservationStatus;
+  extractionIssues: ExtractionIssue[];
+}
 
 const packageText = (blocks?: ContentBlock[]) => (blocks ?? []).reduce((out, block, index, all) => { const value = block.type === "text" ? block.value : block.type === "math" ? `\\(${block.math.latex ?? block.math.sourceRaw}\\)` : block.type === "figure" ? `[FIGURE:${block.figureId}]` : block.cells.map(row => row.map(cell => packageText([cell])).join(" & ")).join(" \\\\ "); const previous = all[index - 1]; const needsSpace = Boolean(previous && block.type === "text" && previous.type === "text" && out && !/[\\s([{]$/.test(out) && !/^[\\s,.;:!?)}\\]]/.test(value)); return out + (needsSpace ? " " : "") + value; }, "");
+
 export function createQuestionPackage(question: QuestionIR, assets: AssetLedgerEntry[] = []): QuestionPackage {
-  return { id: question.id, directoryName: `question-${question.id}`, question, questionTex: packageText(question.stem), solutionTex: question.solution ? packageText(question.solution) : "", metadata: { id: question.id, questionType: question.questionType, sourceDocumentId: question.sourceDocumentId }, assets: assets.filter(asset => question.assetIds.includes(asset.assetId)), mathObjectIds: [...question.mathObjectIds], sourceObjectIds: [...question.sourceObjectIds], provenance: question.provenance, qaStatus: question.qaStatus, extractionIssues: [...question.issues] };
+  return {
+    id: question.id,
+    directoryName: `question-${question.id}`,
+    question,
+    questionTex: packageText(question.stem),
+    solutionTex: question.solution ? packageText(question.solution) : "",
+    metadata: { id: question.id, questionType: question.questionType, sourceDocumentId: question.sourceDocumentId },
+    assets: assets.filter(asset => question.assetIds.includes(asset.assetId)),
+    mathObjectIds: [...question.mathObjectIds],
+    sourceObjectIds: [...question.sourceObjectIds],
+    ...(question.sourceSliceIds ? { sourceSliceIds: [...question.sourceSliceIds] } : {}),
+    provenance: question.provenance,
+    qaStatus: question.qaStatus,
+    extractionIssues: [...question.issues],
+  };
 }
+
 export const serializeQuestionPackage = (pkg: QuestionPackage) => JSON.stringify(pkg, (_key, value) => value instanceof Uint8Array ? { $type: "Uint8Array", base64: Buffer.from(value).toString("base64") } : value, 2);
 
 export function evaluatePreservationStatus(issues: readonly ExtractionIssue[], counts?: Pick<LedgerDiagnostics, "sourceMathCount" | "extractedMathCount" | "documentIrMathCount" | "questionIrMathCount" | "questionPackageMathCount" | "sourceAssetCount" | "extractedAssetCount" | "documentIrAssetCount" | "questionPackageAssetCount">): PreservationStatus {
