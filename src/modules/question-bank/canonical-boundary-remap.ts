@@ -90,6 +90,8 @@ const overlaps = (a: readonly string[], b: readonly string[]): boolean => {
   const right = new Set(b);
   return a.some(value => right.has(value));
 };
+const isFirstSplitSibling = (row: CurrentBoundaryRecord): boolean =>
+  row.sourceSliceIds.some(id => /::question-segment-1(?::|$)/u.test(id));
 
 export function canonicalQuestionIdentityKey(value: Pick<QuestionIR, "sourceDocumentId" | "sourceObjectIds" | "sourceSliceIds">): string {
   const slices = value.sourceSliceIds?.length ? value.sourceSliceIds : value.sourceObjectIds;
@@ -117,8 +119,17 @@ export function remapCanonicalBoundaries(
       matched = exact[0];
       matchKind = "EXACT_PHYSICAL_IDENTITY";
     } else if (exact.length > 1) {
-      ambiguousFrozen.push({ frozen, currentOrdinals: exact.map(row => row.currentOrdinal) });
-      continue;
+      // When one physical Word block is split into several questions, all
+      // siblings can have the same sourceObjectIds. The frozen parent started at
+      // the first marker, so only logical sibling #1 may inherit that authority.
+      const firstSiblings = exact.filter(isFirstSplitSibling);
+      if (firstSiblings.length === 1) {
+        matched = firstSiblings[0];
+        matchKind = "SOURCE_RANGE_NARROWED_BY_SPLIT";
+      } else {
+        ambiguousFrozen.push({ frozen, currentOrdinals: exact.map(row => row.currentOrdinal) });
+        continue;
+      }
     } else if (!frozen.inAnswerSolutionAppendix) {
       // A source-backed intra-block split may narrow the original parent range.
       // Retain only a unique child that starts at the same physical source object
@@ -133,8 +144,14 @@ export function remapCanonicalBoundaries(
         matched = narrowed[0];
         matchKind = "SOURCE_RANGE_NARROWED_BY_SPLIT";
       } else if (narrowed.length > 1) {
-        ambiguousFrozen.push({ frozen, currentOrdinals: narrowed.map(row => row.currentOrdinal) });
-        continue;
+        const firstSiblings = narrowed.filter(isFirstSplitSibling);
+        if (firstSiblings.length === 1) {
+          matched = firstSiblings[0];
+          matchKind = "SOURCE_RANGE_NARROWED_BY_SPLIT";
+        } else {
+          ambiguousFrozen.push({ frozen, currentOrdinals: narrowed.map(row => row.currentOrdinal) });
+          continue;
+        }
       }
     }
 
@@ -170,7 +187,6 @@ export function remapCanonicalBoundaries(
     unresolvedFrozen.push(frozen);
   }
 
-  const retainedByAuthority = new Map(retained.map(row => [row.authorityOrdinal, row]));
   const frozenByOrdinal = new Map(frozenRows.map(row => [row.authorityOrdinal, row]));
   const promoted: PromotedBoundarySelection[] = [];
   const ambiguousPromotions: Array<{ currentOrdinal: number; parentAuthorityOrdinals: number[] }> = [];
