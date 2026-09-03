@@ -125,6 +125,8 @@ for (const kind of ["PARAGRAPH", "SECTION"] as const) {
   assert.equal(regions.length, 1);
   assert.equal(regions[0].kind, "SOLUTION");
   assert.deepEqual(regions[0].markerNumbers, [1, 2, 3]);
+  assert.ok(regions[0].evidence.includes("TERMINAL_DOCUMENT_REGION"));
+  assert.ok(regions[0].evidence.includes("NUMBERING_RESTARTS_AT_ONE"));
 
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 1);
@@ -137,6 +139,27 @@ for (const kind of ["PARAGRAPH", "SECTION"] as const) {
   assert.equal(appendix.structureType, "SOLUTION");
   assert.ok(appendix.sourceObjectIds.includes("paragraph-5"));
   assert.ok(appendix.detectionEvidence.includes("REPEATED_QUESTION_MARKERS"));
+}
+
+// A short per-question "Lời giải" inside normal document flow is NOT a global
+// appendix. Later questions must remain candidates. The first question marker
+// after the local solution is Câu 2, so appendix numbering does not restart at 1.
+{
+  const document = documentFromBlocks("inline-local-solution", [
+    paragraph(0, [text("Câu 1. Tính giá trị thứ nhất.", 0, 0)]),
+    paragraph(1, [text("Lời giải", 0, 1)]),
+    paragraph(2, [text("Vì giả thiết đã cho nên suy ra Kết quả: 1.", 0, 2)]),
+    paragraph(3, [text("Câu 2. Tính giá trị thứ hai.", 0, 3)]),
+    paragraph(4, [text("KQ: 2", 0, 4)]),
+    paragraph(5, [text("Câu 3. Tính giá trị thứ ba.", 0, 5)]),
+  ]);
+
+  const regions = findAnswerSolutionAppendixRegions(document);
+  assert.equal(regions.length, 0, "local solution heading must not become a terminal appendix");
+
+  const candidates = segmentQuestions(document);
+  assert.equal(candidates.length, 3, "later questions must not be swallowed by local solution classification");
+  assert.deepEqual(candidates.map((candidate) => candidate.questionIndex), [1, 2, 3]);
 }
 
 console.log("INTRA_BLOCK_QUESTION_SEGMENTATION_TESTS=PASS");
