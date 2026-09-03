@@ -73,6 +73,7 @@ const suites = [
   "tests/studio-real-render-contract-phase4a2.test.ts",
   "tests/test-word-preflight-safe-clean-v1.ts",
   "tests/test-teacher-word-preflight-integration-v1.ts",
+  "tests/test-mcq-four-option-adaptive-layout-v1.ts",
   "tests/test-teacher-workflow-ux01.ts",
 ];
 
