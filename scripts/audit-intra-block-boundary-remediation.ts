@@ -14,6 +14,12 @@ const SNAPSHOT_PATH = "docs/evidence/question-boundary-final/corpus-recompositio
 const OUT = "docs/evidence/word-beta-human-acceptance-round-2/intra-block-boundary-remediation-impact.json";
 const markerPattern = /\b(?:Câu|Bài|Question)\s*(\d+)\s*[:.)]/giu;
 
+// Safety gates only. They do not define the canonical question count. A boundary
+// remediation that silently removes a large fraction of the historical raw
+// candidate population must stop for review even if all focused defect checks pass.
+const MIN_CORPUS_RAW_RETENTION_RATIO = 0.95;
+const MIN_DOCUMENT_RAW_RETENTION_RATIO = 0.90;
+
 function markerNumbers(blocks: ContentBlock[]): number[] {
   const numbers: number[] = [];
   for (const block of blocks) {
@@ -131,6 +137,7 @@ for (const file of files) {
 
   const historicalRawCount = baselineRawByFile.get(file) ?? null;
   const confirmedCount = baselineConfirmedByFile.get(file) ?? 0;
+  const rawRetentionRatio = historicalRawCount && historicalRawCount > 0 ? candidates.length / historicalRawCount : null;
 
   if (file === "NK TEST APP.docx") {
     const solutionAppendixRegions = appendixRegions.filter((region) => region.kind === "SOLUTION");
@@ -144,6 +151,7 @@ for (const file of files) {
       candidateCount: candidates.length,
       historicalRawCandidateCount: historicalRawCount,
       rawDeltaVsHistoricalSegmentation: historicalRawCount === null ? null : candidates.length - historicalRawCount,
+      rawRetentionRatio,
       baselineConfirmedCount: confirmedCount,
       answerSolutionAppendixRegionCount: appendixRegions.length,
       solutionAppendixRegions,
@@ -170,6 +178,9 @@ for (const file of files) {
     historicalRawCandidateCount: historicalRawCount,
     segmentedCandidateCount: candidates.length,
     rawDeltaVsHistoricalSegmentation: historicalRawCount === null ? null : candidates.length - historicalRawCount,
+    rawRetentionRatio,
+    rawRetentionQA:
+      rawRetentionRatio === null || rawRetentionRatio >= MIN_DOCUMENT_RAW_RETENTION_RATIO ? "PASS" : "FAIL",
     baselineConfirmedCount: confirmedCount,
     sharedPhysicalSourceGroupCount: sharedPhysicalSourceGroups.length,
     answerSolutionAppendixRegionCount: appendixRegions.length,
@@ -181,6 +192,10 @@ const baselineConfirmedCount = [...baselineConfirmedByFile.values()].reduce((sum
 const historicalRawCandidateCount = [...baselineRawByFile.values()].reduce((sum, value) => sum + value, 0);
 const candidateWithMultipleExplicitQuestionMarkersCount = multiMarkerCandidates.length;
 const questionCandidateOverlappingAppendixCount = appendixOverlapCandidates.length;
+const rawCandidateRetentionRatio = historicalRawCandidateCount > 0
+  ? segmentedCandidateCount / historicalRawCandidateCount
+  : null;
+const perDocumentRawRetentionFailures = perDocument.filter((entry) => entry.rawRetentionQA === "FAIL");
 
 const noMultiQuestionCandidateQA = candidateWithMultipleExplicitQuestionMarkersCount === 0 ? "PASS" : "FAIL";
 const answerSolutionAppendixIsolationQA =
@@ -188,20 +203,30 @@ const answerSolutionAppendixIsolationQA =
 const embeddedQuestionTransitionQA = nkTestApp?.embeddedQuestion56SplitFound ? "PASS" : "FAIL";
 const r236SolutionAppendixExclusionQA =
   nkTestApp?.solutionAppendixWithRepeated3456Found && nkTestApp?.questionCandidateOverlappingAppendixCount === 0 ? "PASS" : "FAIL";
+const corpusRawCandidateRetentionQA =
+  rawCandidateRetentionRatio !== null && rawCandidateRetentionRatio >= MIN_CORPUS_RAW_RETENTION_RATIO ? "PASS" : "FAIL";
+const perDocumentRawCandidateRetentionQA = perDocumentRawRetentionFailures.length === 0 ? "PASS" : "FAIL";
+const rawCandidateConservationQA =
+  corpusRawCandidateRetentionQA === "PASS" && perDocumentRawCandidateRetentionQA === "PASS" ? "PASS" : "FAIL";
+
 const qa =
   noMultiQuestionCandidateQA === "PASS" &&
   answerSolutionAppendixIsolationQA === "PASS" &&
   embeddedQuestionTransitionQA === "PASS" &&
-  r236SolutionAppendixExclusionQA === "PASS"
+  r236SolutionAppendixExclusionQA === "PASS" &&
+  rawCandidateConservationQA === "PASS"
     ? "PASS"
     : "FAIL";
 
 const evidence = {
-  schemaVersion: "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V3",
+  schemaVersion: "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V4",
   corpusFileCount: files.length,
   historicalRawCandidateCount,
   segmentedCandidateCount,
   measuredRawCandidateDeltaVsHistoricalSegmentation: segmentedCandidateCount - historicalRawCandidateCount,
+  rawCandidateRetentionRatio,
+  minimumCorpusRawRetentionRatioForAutomaticPass: MIN_CORPUS_RAW_RETENTION_RATIO,
+  minimumDocumentRawRetentionRatioForAutomaticPass: MIN_DOCUMENT_RAW_RETENTION_RATIO,
   baselineConfirmedCount,
   candidateWithMultipleExplicitQuestionMarkersCount,
   multiMarkerCandidates,
@@ -210,12 +235,16 @@ const evidence = {
   appendixOverlapCandidates,
   nkTestApp,
   perDocument,
+  perDocumentRawRetentionFailures,
   noMultiQuestionCandidateQA,
   answerSolutionAppendixIsolationQA,
   embeddedQuestionTransitionQA,
   r236SolutionAppendixExclusionQA,
+  corpusRawCandidateRetentionQA,
+  perDocumentRawCandidateRetentionQA,
+  rawCandidateConservationQA,
   boundaryRemediationImpactQA: qa,
-  note: "Historical raw segmentation and canonical confirmed boundary counts are reported separately. Answer/solution appendices remain source-backed DocumentIR evidence but are excluded from QuestionIR segmentation. Canonical count must be recomposed after this remediation; it is not inferred from raw candidate delta.",
+  note: "Historical raw segmentation and canonical confirmed boundary counts are reported separately. Raw-retention thresholds are anti-silent-loss safety gates only and never define the canonical question count. Answer/solution appendices remain source-backed DocumentIR evidence but are excluded from QuestionIR segmentation only when conservative appendix evidence passes. Canonical count must be recomposed after remediation; it is not inferred from raw candidate delta.",
 };
 
 writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
@@ -224,6 +253,7 @@ console.log(JSON.stringify({
   historicalRawCandidateCount,
   segmentedCandidateCount,
   measuredRawCandidateDeltaVsHistoricalSegmentation: segmentedCandidateCount - historicalRawCandidateCount,
+  rawCandidateRetentionRatio,
   baselineConfirmedCount,
   candidateWithMultipleExplicitQuestionMarkersCount,
   multiMarkerCandidates,
@@ -238,6 +268,11 @@ console.log(JSON.stringify({
   answerSolutionAppendixIsolationQA,
   embeddedQuestionTransitionQA,
   r236SolutionAppendixExclusionQA,
+  corpusRawCandidateRetentionQA,
+  perDocumentRawCandidateRetentionQA,
+  rawCandidateConservationQA,
+  perDocumentRawRetentionFailureCount: perDocumentRawRetentionFailures.length,
+  perDocumentRawRetentionFailures,
   boundaryRemediationImpactQA: qa,
   evidencePath: OUT,
 }));
