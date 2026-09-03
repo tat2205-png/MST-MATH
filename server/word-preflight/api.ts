@@ -63,8 +63,8 @@ function augmentReport(report: WordPreflightReport, bytes: Uint8Array): Augmente
     issues.unshift({
       code: "WORD_VBA_QUARANTINE_AVAILABLE",
       severity: "WARNING",
-      message: "VBA payload detected. PiMath will never execute it; SAFE CLEAN can quarantine VBA and emit a macro-free .docx while preserving document.xml and non-target package parts.",
-      count: activeContent.vbaParts.length || activeContent.vbaRelationshipCount,
+      message: "VBA payload or macro-enabled Word package detected. PiMath will never execute it; SAFE CLEAN can quarantine VBA and emit a macro-free .docx while preserving document.xml and non-target package parts.",
+      count: Math.max(1, activeContent.vbaParts.length, activeContent.vbaRelationshipCount),
     });
   }
 
@@ -114,7 +114,7 @@ export function registerWordPreflightRoutes(app: Pick<Express, "get" | "post">):
       sourceOverwrite: false,
       vbaExecution: false,
       activeXPolicy: "BLOCK",
-      protectedContent: ["OMML", "OLE_MATHTYPE", "DRAWINGML", "VML", "RELATIONSHIPS", "MEDIA", "EMBEDDINGS", "FIELDS", "TRACKED_CHANGES"],
+      protectedContent: ["OMML", "OLE_MATHTYPE", "DRAWINGML", "VML", "NON_VBA_RELATIONSHIPS", "MEDIA", "EMBEDDINGS", "FIELDS", "TRACKED_CHANGES"],
       legacyHints: ["SMARTTEST_HASH", "SMARTTEST_GROUP", "ANSWER_COLOR", "ANSWER_HIGHLIGHT", "ANSWER_UNDERLINE", "LEGACY_ID4_ID5_ID6"],
     });
   });
@@ -145,7 +145,7 @@ export function registerWordPreflightRoutes(app: Pick<Express, "get" | "post">):
       if (before.activeContent.hasVba) {
         vbaSanitization = sanitizeVbaToDocx(bytes, fileName);
         workingBytes = vbaSanitization.bytes;
-        workingFileName = vbaSanitization.suggestedOutputFileName;
+        workingFileName = fileName.replace(ACCEPTED_WORD_EXTENSION, ".docx");
       }
 
       const cleaned = safeCleanDocx(workingBytes, workingFileName, options);

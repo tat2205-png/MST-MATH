@@ -9,6 +9,7 @@ export interface WordActiveContentInspection {
   version: typeof PIMATH_WORD_ACTIVE_CONTENT_SANITIZER_VERSION;
   hasVba: boolean;
   hasActiveX: boolean;
+  macroEnabledContentType: boolean;
   vbaParts: string[];
   activeXParts: string[];
   vbaRelationshipCount: number;
@@ -73,18 +74,26 @@ function countVbaRelationships(parts: PackageParts): number {
   return count;
 }
 
+function hasMacroEnabledMainContentType(parts: PackageParts): boolean {
+  const contentTypes = parts["[Content_Types].xml"];
+  if (!contentTypes) return false;
+  return /application\/vnd\.ms-word\.(?:document\.macroEnabled\.main|template\.macroEnabledTemplate\.main)\+xml/i.test(strFromU8(contentTypes));
+}
+
 export function inspectWordActiveContent(bytes: Uint8Array): WordActiveContentInspection {
   const parts = openPackage(bytes);
   const names = Object.keys(parts);
   const vbaParts = names.filter(isVbaPayloadPart).sort();
   const activeXParts = names.filter(isActiveXPart).sort();
   const vbaRelationshipCount = countVbaRelationships(parts);
-  const hasVba = vbaParts.length > 0 || vbaRelationshipCount > 0;
+  const macroEnabledContentType = hasMacroEnabledMainContentType(parts);
+  const hasVba = vbaParts.length > 0 || vbaRelationshipCount > 0 || macroEnabledContentType;
   const hasActiveX = activeXParts.length > 0;
   return {
     version: PIMATH_WORD_ACTIVE_CONTENT_SANITIZER_VERSION,
     hasVba,
     hasActiveX,
+    macroEnabledContentType,
     vbaParts,
     activeXParts,
     vbaRelationshipCount,
@@ -143,7 +152,7 @@ export function sanitizeVbaToDocx(bytes: Uint8Array, fileName: string): WordVbaS
     throw new Error("WORD_PREFLIGHT_BLOCKED: WORD_ACTIVEX_BLOCKED");
   }
   if (!inspection.hasVba) {
-    throw new Error("WORD_VBA_SANITIZATION_NOT_REQUIRED: No VBA payload was detected.");
+    throw new Error("WORD_VBA_SANITIZATION_NOT_REQUIRED: No VBA payload or macro-enabled main content type was detected.");
   }
 
   const cleaned: PackageParts = Object.fromEntries(Object.entries(before).map(([name, value]) => [name, value.slice()]));
