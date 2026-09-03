@@ -1,13 +1,19 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { unzipSync } from "fflate";
 import { readCfb } from "../src/modules/document-engine/docx/cfb.js";
 import { bridgeMtefV3ToMathExpression } from "../src/modules/document-engine/docx/mtef-mathml.js";
 import { scanMtefV3Records } from "../src/modules/document-engine/docx/mtef-v3-fixed.js";
 
-const root = "/Users/mac/PiMath-Acceptance/word-real";
+const root = process.env.PIMATH_WORD_REAL_CORPUS ?? "/Users/mac/PiMath-Acceptance/word-real";
+const requiredFiles = ["2. MIN MAX HHKG.docx", "BÀI 2. GTLN-GTNN.docx"];
+const availableFiles = readdirSync(root).filter((file) => file.endsWith(".docx") && !file.startsWith("~$"));
+const availableByNfc = new Map(availableFiles.map((file) => [file.normalize("NFC"), file]));
+
 let objects = 0;
-for (const file of ["2. MIN MAX HHKG.docx", "BÀI 2. GTLN-GTNN.docx"]) {
+for (const requiredFile of requiredFiles) {
+  const file = availableByNfc.get(requiredFile.normalize("NFC"));
+  assert.ok(file, `MISSING_REAL_CORPUS_FILE:${requiredFile}`);
   const files = unzipSync(readFileSync(`${root}/${file}`));
   for (const [name, bytes] of Object.entries(files)) {
     if (!name.startsWith("word/embeddings/")) continue;
