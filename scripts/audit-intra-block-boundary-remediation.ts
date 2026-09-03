@@ -4,6 +4,10 @@ import { join } from "node:path";
 import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
 import type { ContentBlock } from "../src/modules/document-engine/document-ir.js";
 import { segmentQuestions } from "../src/modules/question-bank/segmentation.js";
+import {
+  blockBelongsToAnswerSolutionAppendix,
+  findAnswerSolutionAppendixRegions,
+} from "../src/modules/question-bank/source-region-classification.js";
 
 const CORPUS_ROOT = process.env.PIMATH_WORD_REAL_CORPUS ?? join(homedir(), "PiMath-Acceptance", "word-real");
 const SNAPSHOT_PATH = "docs/evidence/question-boundary-final/corpus-recomposition.json";
@@ -62,8 +66,9 @@ const files = readdirSync(CORPUS_ROOT)
 
 const perDocument: any[] = [];
 const multiMarkerCandidates: any[] = [];
+const appendixOverlapCandidates: any[] = [];
 let segmentedCandidateCount = 0;
-let embeddedSplitGroupFound = false;
+let totalAnswerSolutionAppendixRegionCount = 0;
 let nkTestApp: any = null;
 
 for (const file of files) {
@@ -71,6 +76,8 @@ for (const file of files) {
   const document = result.document;
   if (!document) throw new Error(`DOCUMENT_IR_NOT_CREATED:${file}`);
 
+  const appendixRegions = findAnswerSolutionAppendixRegions(document);
+  totalAnswerSolutionAppendixRegionCount += appendixRegions.length;
   const candidates = segmentQuestions(document);
   segmentedCandidateCount += candidates.length;
 
@@ -91,6 +98,18 @@ for (const file of files) {
       });
     }
 
+    const overlap = candidate.rawBlocks.some((block) => blockBelongsToAnswerSolutionAppendix(block, appendixRegions));
+    if (overlap) {
+      appendixOverlapCandidates.push({
+        sourceDocument: file,
+        candidateOrdinal: index + 1,
+        candidateId: candidate.id,
+        questionIndex: candidate.questionIndex ?? null,
+        sourceObjectIds: [...new Set(candidate.rawBlocks.map((block) => block.id))],
+        preview: preview(candidate.textBlocks).slice(0, 1200),
+      });
+    }
+
     for (const sourceObjectId of new Set(candidate.rawBlocks.map((block) => block.id))) {
       const owners = sourceObjectOwners.get(sourceObjectId) ?? [];
       owners.push({ ordinal: index + 1, questionIndex: candidate.questionIndex ?? null });
@@ -102,24 +121,36 @@ for (const file of files) {
     .filter(([, owners]) => owners.length > 1)
     .map(([sourceObjectId, owners]) => ({ sourceObjectId, owners }));
 
-  const sixQuestionGroup = sharedPhysicalSourceGroups.find((group) => {
-    const indexes = [...new Set(group.owners.map((owner) => owner.questionIndex).filter((value): value is number => value !== null))].sort((a, b) => a - b);
-    return [1, 2, 3, 4, 5, 6].every((number) => indexes.includes(number));
+  // This generic pattern proves the latent real-source defect represented by
+  // candidate 38 is repaired: one physical Word object can end question 5 and
+  // begin question 6 after a terminal KQ cue, yielding two logical owners.
+  const embeddedQuestion56SplitGroup = sharedPhysicalSourceGroups.find((group) => {
+    const indexes = [...new Set(group.owners.map((owner) => owner.questionIndex).filter((value): value is number => value !== null))];
+    return indexes.includes(5) && indexes.includes(6);
   });
 
   const historicalRawCount = baselineRawByFile.get(file) ?? null;
   const confirmedCount = baselineConfirmedByFile.get(file) ?? 0;
 
   if (file === "NK TEST APP.docx") {
-    embeddedSplitGroupFound = Boolean(sixQuestionGroup);
+    const solutionAppendixRegions = appendixRegions.filter((region) => region.kind === "SOLUTION");
+    const solutionAppendixWithRepeated3456 = solutionAppendixRegions.find((region) =>
+      [3, 4, 5, 6].every((number) => region.markerNumbers.includes(number)),
+    );
+    const nkOverlapCount = appendixOverlapCandidates.filter((entry) => entry.sourceDocument === file).length;
+
     nkTestApp = {
       sourceHash: document.sourceHash,
       candidateCount: candidates.length,
       historicalRawCandidateCount: historicalRawCount,
       rawDeltaVsHistoricalSegmentation: historicalRawCount === null ? null : candidates.length - historicalRawCount,
       baselineConfirmedCount: confirmedCount,
-      embeddedSplitGroupFound,
-      embeddedSplitGroup: sixQuestionGroup ?? null,
+      answerSolutionAppendixRegionCount: appendixRegions.length,
+      solutionAppendixRegions,
+      solutionAppendixWithRepeated3456Found: Boolean(solutionAppendixWithRepeated3456),
+      questionCandidateOverlappingAppendixCount: nkOverlapCount,
+      embeddedQuestion56SplitFound: Boolean(embeddedQuestion56SplitGroup),
+      embeddedQuestion56SplitGroup: embeddedQuestion56SplitGroup ?? null,
       tailCandidates: candidates.slice(-12).map((candidate, offset) => ({
         ordinal: candidates.length - Math.min(12, candidates.length) + offset + 1,
         candidateId: candidate.id,
@@ -141,21 +172,32 @@ for (const file of files) {
     rawDeltaVsHistoricalSegmentation: historicalRawCount === null ? null : candidates.length - historicalRawCount,
     baselineConfirmedCount: confirmedCount,
     sharedPhysicalSourceGroupCount: sharedPhysicalSourceGroups.length,
+    answerSolutionAppendixRegionCount: appendixRegions.length,
+    questionCandidateOverlappingAppendixCount: appendixOverlapCandidates.filter((entry) => entry.sourceDocument === file).length,
   });
 }
 
 const baselineConfirmedCount = [...baselineConfirmedByFile.values()].reduce((sum, value) => sum + value, 0);
 const historicalRawCandidateCount = [...baselineRawByFile.values()].reduce((sum, value) => sum + value, 0);
 const candidateWithMultipleExplicitQuestionMarkersCount = multiMarkerCandidates.length;
+const questionCandidateOverlappingAppendixCount = appendixOverlapCandidates.length;
+
+const noMultiQuestionCandidateQA = candidateWithMultipleExplicitQuestionMarkersCount === 0 ? "PASS" : "FAIL";
+const answerSolutionAppendixIsolationQA =
+  totalAnswerSolutionAppendixRegionCount > 0 && questionCandidateOverlappingAppendixCount === 0 ? "PASS" : "FAIL";
+const embeddedQuestionTransitionQA = nkTestApp?.embeddedQuestion56SplitFound ? "PASS" : "FAIL";
+const r236SolutionAppendixExclusionQA =
+  nkTestApp?.solutionAppendixWithRepeated3456Found && nkTestApp?.questionCandidateOverlappingAppendixCount === 0 ? "PASS" : "FAIL";
 const qa =
-  candidateWithMultipleExplicitQuestionMarkersCount === 0 &&
-  Boolean(nkTestApp) &&
-  embeddedSplitGroupFound
+  noMultiQuestionCandidateQA === "PASS" &&
+  answerSolutionAppendixIsolationQA === "PASS" &&
+  embeddedQuestionTransitionQA === "PASS" &&
+  r236SolutionAppendixExclusionQA === "PASS"
     ? "PASS"
     : "FAIL";
 
 const evidence = {
-  schemaVersion: "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V2",
+  schemaVersion: "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V3",
   corpusFileCount: files.length,
   historicalRawCandidateCount,
   segmentedCandidateCount,
@@ -163,12 +205,17 @@ const evidence = {
   baselineConfirmedCount,
   candidateWithMultipleExplicitQuestionMarkersCount,
   multiMarkerCandidates,
+  answerSolutionAppendixRegionCount: totalAnswerSolutionAppendixRegionCount,
+  questionCandidateOverlappingAppendixCount,
+  appendixOverlapCandidates,
   nkTestApp,
   perDocument,
-  noMultiQuestionCandidateQA: candidateWithMultipleExplicitQuestionMarkersCount === 0 ? "PASS" : "FAIL",
-  r236EmbeddedSplitQA: embeddedSplitGroupFound ? "PASS" : "FAIL",
+  noMultiQuestionCandidateQA,
+  answerSolutionAppendixIsolationQA,
+  embeddedQuestionTransitionQA,
+  r236SolutionAppendixExclusionQA,
   boundaryRemediationImpactQA: qa,
-  note: "Historical raw segmentation and canonical confirmed boundary counts are reported separately. Canonical count must be recomposed after source-backed remediation; it is not inferred from raw candidate delta.",
+  note: "Historical raw segmentation and canonical confirmed boundary counts are reported separately. Answer/solution appendices remain source-backed DocumentIR evidence but are excluded from QuestionIR segmentation. Canonical count must be recomposed after this remediation; it is not inferred from raw candidate delta.",
 };
 
 writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
@@ -180,11 +227,17 @@ console.log(JSON.stringify({
   baselineConfirmedCount,
   candidateWithMultipleExplicitQuestionMarkersCount,
   multiMarkerCandidates,
+  answerSolutionAppendixRegionCount: totalAnswerSolutionAppendixRegionCount,
+  questionCandidateOverlappingAppendixCount,
   nkTestAppCandidateCount: nkTestApp?.candidateCount ?? null,
   nkTestAppHistoricalRawCandidateCount: nkTestApp?.historicalRawCandidateCount ?? null,
   nkTestAppRawDeltaVsHistoricalSegmentation: nkTestApp?.rawDeltaVsHistoricalSegmentation ?? null,
-  r236EmbeddedSplitQA: evidence.r236EmbeddedSplitQA,
-  noMultiQuestionCandidateQA: evidence.noMultiQuestionCandidateQA,
-  boundaryRemediationImpactQA: evidence.boundaryRemediationImpactQA,
+  nkTestAppSolutionAppendixRegionCount: nkTestApp?.answerSolutionAppendixRegionCount ?? null,
+  nkTestAppEmbeddedQuestion56SplitFound: nkTestApp?.embeddedQuestion56SplitFound ?? false,
+  noMultiQuestionCandidateQA,
+  answerSolutionAppendixIsolationQA,
+  embeddedQuestionTransitionQA,
+  r236SolutionAppendixExclusionQA,
+  boundaryRemediationImpactQA: qa,
   evidencePath: OUT,
 }));
