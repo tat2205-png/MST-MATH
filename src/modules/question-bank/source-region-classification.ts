@@ -64,12 +64,18 @@ function cueCounts(blocks: DocumentBlock[]) {
 /**
  * Detect document-level answer/solution appendices conservatively.
  *
- * A short explicit heading alone is not enough because many teaching documents
- * interleave one question with its own "Lời giải". Promotion to appendix status
- * requires repeated explicit question labels after the heading plus repeated
- * result/reasoning evidence. This keeps per-question solutions in normal flow
- * while preventing an end-of-document worked-solution bank from becoming new
- * QuestionIR objects.
+ * A short "Lời giải" paragraph inside normal question flow must never cause all
+ * later questions to disappear. A region is promoted to document-level appendix
+ * only when all of the following source-backed signals agree:
+ *   1) the heading is short and explicit;
+ *   2) the region runs to the physical end of the document rather than stopping
+ *      at a later question section;
+ *   3) repeated question-entry labels occur after the heading;
+ *   4) appendix numbering restarts at question 1;
+ *   5) there is repeated answer/reasoning evidence.
+ *
+ * If any signal is absent we fail closed and leave the blocks in normal question
+ * flow for later review instead of silently excluding them.
  */
 export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerSolutionAppendixRegion[] {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
@@ -93,15 +99,22 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
       }
     }
 
+    // A document-level appendix is terminal. If another explicit question
+    // section follows, this heading belongs to local/interleaved content.
+    if (endIndex !== blocks.length) continue;
+
     const regionBlocks = blocks.slice(i + 1, endIndex);
-    const markerNumbers = [...new Set(regionBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content)))];
+    const markerSequence = regionBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content));
+    const markerNumbers = [...new Set(markerSequence)];
     const { resultCueCount, reasoningCueCount } = cueCounts(regionBlocks);
     const repeatedQuestionEntries = markerNumbers.length >= 2;
+    const numberingRestartsAtOne = markerSequence[0] === 1;
+    const cueCount = resultCueCount + reasoningCueCount;
     const solutionEvidence = kind === "ANSWER"
-      ? resultCueCount >= 1 || reasoningCueCount >= 1
-      : resultCueCount >= 2 || reasoningCueCount >= 2;
+      ? cueCount >= 1
+      : cueCount >= Math.min(2, markerNumbers.length);
 
-    if (!repeatedQuestionEntries || !solutionEvidence) continue;
+    if (!repeatedQuestionEntries || !numberingRestartsAtOne || !solutionEvidence) continue;
 
     const last = regionBlocks.at(-1) ?? heading;
     regions.push({
@@ -115,7 +128,9 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
       reasoningCueCount,
       evidence: [
         "EXPLICIT_HEADING",
+        "TERMINAL_DOCUMENT_REGION",
         "REPEATED_QUESTION_MARKERS",
+        "NUMBERING_RESTARTS_AT_ONE",
         ...(resultCueCount > 0 ? ["RESULT_CUES"] : []),
         ...(reasoningCueCount > 0 ? ["SOLUTION_REASONING_CUES"] : []),
       ],
