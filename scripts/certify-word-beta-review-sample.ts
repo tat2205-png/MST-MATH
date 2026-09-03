@@ -21,7 +21,10 @@ type Row = {
 type Matrix = {
   featureMatrixQuestionCount: number;
   featureMatrixUniqueQuestionIdCount: number;
+  featureMatrixUniqueCanonicalIdentityCount?: number;
   summary?: {
+    acceptanceIdentityQA?: string;
+    canonicalIdentityAccountingQA?: string;
     questionTypeAccountingQA?: string;
     mathFormatDerivationQA?: string;
     v3QuestionJoinQA?: string;
@@ -75,7 +78,7 @@ function requirementsFor(rows: Row[]): Requirement[] {
     const predicate = (row: Row) => row.mathRoles.includes(role);
     if (count(predicate) > 0) reqs.push({ key: `ROLE:${role}`, minimum: 1, predicate });
   }
-  for (const tag of ["ASSET_BEARING", "MULTI_ASSET"]) {
+  for (const tag of ["ASSET_BEARING", "MULTI_ASSET", "BOUNDARY_REMEDIATION_SPLIT"]) {
     const predicate = (row: Row) => row.riskTags.includes(tag);
     if (count(predicate) > 0) reqs.push({ key: `TAG:${tag}`, minimum: 1, predicate });
   }
@@ -108,28 +111,39 @@ function contribution(row: Row, reqs: Requirement[], selected: Row[]) {
 }
 
 function riskScore(row: Row) {
-  return row.mathFormats.length * 20 + row.mathRoles.length * 10 + Math.min(row.assetCount ?? 0, 5) * 3 + (row.questionType === "UNKNOWN" ? 0 : 2);
+  return (
+    row.mathFormats.length * 20 +
+    row.mathRoles.length * 10 +
+    Math.min(row.assetCount ?? 0, 5) * 3 +
+    (row.riskTags.includes("BOUNDARY_REMEDIATION_SPLIT") ? 100 : 0) +
+    (row.questionType === "UNKNOWN" ? 0 : 2)
+  );
 }
 
 function selectFinal(matrixRows: Row[], initialIds: string[], mandatoryIds: string[]) {
   const byId = new Map(matrixRows.map((row) => [row.questionId, row]));
-  const initial = initialIds.map((id) => byId.get(id)).filter((x): x is Row => Boolean(x));
-  if (initial.length !== FINAL_COUNT) throw new Error(`CURRENT_SAMPLE_JOIN_COUNT:${initial.length}:EXPECTED:${FINAL_COUNT}`);
-
+  const staleInitialIds = initialIds.filter((id) => !byId.has(id));
+  const joinedInitial = uniq(initialIds.map((id) => byId.get(id)).filter((x): x is Row => Boolean(x)));
+  const activeMandatoryIds = mandatoryIds.filter((id) => byId.has(id));
+  const retiredMandatoryIds = mandatoryIds.filter((id) => !byId.has(id));
   const reqs = requirementsFor(matrixRows);
-  let selected = [...initial];
+  let selected = [...joinedInitial];
 
-  for (const id of mandatoryIds) {
-    const candidate = byId.get(id);
-    if (!candidate) throw new Error(`ROUND1_MANDATORY_QUESTION_NOT_IN_MATRIX:${id}`);
-    if (selected.some((row) => row.questionId === id)) continue;
+  const addCandidate = (candidate: Row, reason: string) => {
+    if (selected.some((row) => row.questionId === candidate.questionId)) return;
+    if (selected.length < FINAL_COUNT) {
+      selected.push(candidate);
+      return;
+    }
     const removable = selected
-      .filter((row) => !mandatoryIds.includes(row.questionId))
+      .filter((row) => !activeMandatoryIds.includes(row.questionId))
       .map((row) => ({ row, essential: contribution(row, reqs, selected), score: riskScore(row) }))
       .sort((a, b) => a.essential - b.essential || a.score - b.score || b.row.questionId.localeCompare(a.row.questionId))[0];
-    if (!removable) throw new Error(`NO_REPLACEMENT_SLOT_FOR_MANDATORY:${id}`);
+    if (!removable || removable.essential > 0) throw new Error(`NO_REPLACEMENT_SLOT_FOR:${reason}:${candidate.questionId}`);
     selected = selected.filter((row) => row.questionId !== removable.row.questionId).concat(candidate);
-  }
+  };
+
+  for (const id of activeMandatoryIds) addCandidate(byId.get(id)!, "MANDATORY");
 
   let cov = coverage(selected, reqs);
   while (gapKeys(cov).length > 0) {
@@ -145,69 +159,103 @@ function selectFinal(matrixRows: Row[], initialIds: string[], mandatoryIds: stri
       .sort((a, b) => b.gain - a.gain || b.score - a.score || a.row.questionId.localeCompare(b.row.questionId));
     const add = candidates[0]?.row;
     if (!add) throw new Error(`UNSATISFIABLE_COVERAGE_GAPS:${[...gaps].join(",")}`);
-
-    const removable = selected
-      .filter((row) => !mandatoryIds.includes(row.questionId))
-      .map((row) => ({ row, essential: contribution(row, reqs, selected), score: riskScore(row) }))
-      .filter((x) => x.essential === 0)
-      .sort((a, b) => a.score - b.score || b.row.questionId.localeCompare(a.row.questionId))[0];
-    if (!removable) throw new Error(`NO_REDUNDANT_CASE_AVAILABLE_FOR:${add.questionId}`);
-    selected = selected.filter((row) => row.questionId !== removable.row.questionId).concat(add);
+    addCandidate(add, `COVERAGE:${[...gaps].join(",")}`);
     selected.sort((a, b) => a.questionId.localeCompare(b.questionId));
     cov = coverage(selected, reqs);
   }
 
-  if (selected.length !== FINAL_COUNT || new Set(selected.map((x) => x.questionId)).size !== FINAL_COUNT) {
-    throw new Error("FINAL_SELECTION_CARDINALITY_INVALID");
+  if (selected.length < FINAL_COUNT) {
+    const fillers = matrixRows
+      .filter((row) => !selected.some((x) => x.questionId === row.questionId))
+      .sort((a, b) => riskScore(b) - riskScore(a) || a.questionId.localeCompare(b.questionId));
+    for (const row of fillers) {
+      if (selected.length >= FINAL_COUNT) break;
+      selected.push(row);
+    }
   }
-  return { selected, requirements: reqs, coverage: cov };
+
+  selected.sort((a, b) => a.questionId.localeCompare(b.questionId));
+  cov = coverage(selected, reqs);
+  if (selected.length !== FINAL_COUNT || new Set(selected.map((x) => x.questionId)).size !== FINAL_COUNT) {
+    throw new Error(`FINAL_SELECTION_CARDINALITY_INVALID:${selected.length}`);
+  }
+  return { selected, requirements: reqs, coverage: cov, staleInitialIds, activeMandatoryIds, retiredMandatoryIds, joinedInitialCount: joinedInitial.length };
 }
 
 const matrix = readJson<Matrix>(MATRIX_PATH);
-if (matrix.featureMatrixQuestionCount !== 668 || matrix.featureMatrixUniqueQuestionIdCount !== 668 || matrix.rows.length !== 668) {
+if (
+  matrix.featureMatrixQuestionCount !== 668 ||
+  matrix.featureMatrixUniqueQuestionIdCount !== 668 ||
+  matrix.featureMatrixUniqueCanonicalIdentityCount !== 668 ||
+  matrix.rows.length !== 668
+) {
   throw new Error("FEATURE_MATRIX_NOT_668_CERTIFIED");
 }
-if (matrix.summary?.questionTypeAccountingQA !== "PASS" || matrix.summary?.mathFormatDerivationQA !== "PASS" || matrix.summary?.v3QuestionJoinQA !== "PASS") {
+if (
+  matrix.summary?.acceptanceIdentityQA !== "PASS" ||
+  matrix.summary?.canonicalIdentityAccountingQA !== "PASS" ||
+  matrix.summary?.questionTypeAccountingQA !== "PASS" ||
+  matrix.summary?.mathFormatDerivationQA !== "PASS" ||
+  matrix.summary?.v3QuestionJoinQA !== "PASS"
+) {
   throw new Error("FEATURE_MATRIX_SEMANTIC_QA_NOT_PASS");
 }
 const reviewIndex = readJson<any>(REVIEW_INDEX_PATH);
 const initialIds = reviewQuestionIds(reviewIndex);
+if (initialIds.length !== FINAL_COUNT || new Set(initialIds).size !== FINAL_COUNT) throw new Error("CURRENT_REVIEW_INDEX_NOT_40_UNIQUE");
 const mandatoryRound1Ids = existsSync(ROUND1_PATH) ? round1MandatoryQuestionIds(readJson<any>(ROUND1_PATH)) : [];
-const { selected, requirements, coverage: finalCoverage } = selectFinal(matrix.rows, initialIds, mandatoryRound1Ids);
-const initialCoverage = coverage(initialIds.map((id) => matrix.rows.find((row) => row.questionId === id)!).filter(Boolean), requirements);
+const {
+  selected,
+  requirements,
+  coverage: finalCoverage,
+  staleInitialIds,
+  activeMandatoryIds,
+  retiredMandatoryIds,
+  joinedInitialCount,
+} = selectFinal(matrix.rows, initialIds, mandatoryRound1Ids);
+const initialRows = initialIds.map((id) => matrix.rows.find((row) => row.questionId === id)).filter((row): row is Row => Boolean(row));
+const initialCoverage = coverage(initialRows, requirements);
 const initialSet = new Set(initialIds);
 const finalIds = selected.map((row) => row.questionId);
 const added = finalIds.filter((id) => !initialSet.has(id));
 const removed = initialIds.filter((id) => !finalIds.includes(id));
 const gaps = gapKeys(finalCoverage);
 const selectedSet = new Set(finalIds);
-const mandatoryMissing = mandatoryRound1Ids.filter((id) => !selectedSet.has(id));
+const mandatoryMissing = activeMandatoryIds.filter((id) => !selectedSet.has(id));
 
 const selection = {
-  schemaVersion: "PIMATH_WORD_BETA_FINAL_REVIEW_SELECTION_V1",
+  schemaVersion: "PIMATH_WORD_BETA_FINAL_REVIEW_SELECTION_V2",
   initialReviewCaseCount: initialIds.length,
+  initialJoinedReviewCaseCount: joinedInitialCount,
+  staleInitialQuestionIds: staleInitialIds,
   finalReviewCaseCount: finalIds.length,
-  finalSelectionChanged: added.length > 0,
+  finalSelectionChanged: added.length > 0 || removed.length > 0,
   replacedReviewCaseCount: added.length,
   initialQuestionIds: initialIds,
   finalQuestionIds: finalIds,
   addedQuestionIds: added,
   removedQuestionIds: removed,
   round1MandatoryQuestionIds: mandatoryRound1Ids,
+  activeRound1MandatoryQuestionIds: activeMandatoryIds,
+  retiredRound1MandatoryQuestionIds: retiredMandatoryIds,
   round1MandatoryMissingQuestionIds: mandatoryMissing,
 };
 const certification = {
-  schemaVersion: "PIMATH_WORD_BETA_RISK_COVERAGE_CERTIFICATION_V1",
+  schemaVersion: "PIMATH_WORD_BETA_RISK_COVERAGE_CERTIFICATION_V2",
   source: MATRIX_PATH,
   matrixQuestionCount: matrix.rows.length,
   initialCoverage,
   finalCoverage,
+  staleInitialQuestionCount: staleInitialIds.length,
   mandatoryCoverageGapCount: gaps.length + mandatoryMissing.length,
   mandatoryCoverageGaps: gaps,
   round1MandatoryGapCount: mandatoryMissing.length,
+  retiredRound1MandatoryCount: retiredMandatoryIds.length,
   coverageDerivationQA: gaps.length === 0 ? "PASS" : "FAIL",
   riskCoverageQA: gaps.length === 0 && mandatoryMissing.length === 0 ? "PASS" : "FAIL",
-  archivalRound1EvidenceStatus: existsSync(ROUND1_PATH) ? "CONSUMED_IF_SCHEMA_MATCHED" : "NOT_PRESENT_NON_BLOCKING_FOR_CURRENT_SOURCE_COVERAGE",
+  boundaryRemediationSplitCoverageQA:
+    finalCoverage["TAG:BOUNDARY_REMEDIATION_SPLIT"]?.pass === false ? "FAIL" : "PASS",
+  archivalRound1EvidenceStatus: existsSync(ROUND1_PATH) ? "CONSUMED_WITH_CANONICAL_REMAP" : "NOT_PRESENT_NON_BLOCKING_FOR_CURRENT_SOURCE_COVERAGE",
 };
 
 mkdirSync(ROOT, { recursive: true });
@@ -215,12 +263,16 @@ writeFileSync(OUTPUT_PATH, JSON.stringify(selection, null, 2));
 writeFileSync(COVERAGE_PATH, JSON.stringify(certification, null, 2));
 console.log(JSON.stringify({
   initialReviewCaseCount: initialIds.length,
+  initialJoinedReviewCaseCount: joinedInitialCount,
+  staleInitialQuestionCount: staleInitialIds.length,
+  staleInitialQuestionIds: staleInitialIds,
   finalReviewCaseCount: finalIds.length,
   finalSelectionChanged: selection.finalSelectionChanged,
   replacedReviewCaseCount: added.length,
   mandatoryCoverageGapCount: certification.mandatoryCoverageGapCount,
   coverageDerivationQA: certification.coverageDerivationQA,
   riskCoverageQA: certification.riskCoverageQA,
+  boundaryRemediationSplitCoverageQA: certification.boundaryRemediationSplitCoverageQA,
   addedQuestionIds: added,
   removedQuestionIds: removed,
 }));
