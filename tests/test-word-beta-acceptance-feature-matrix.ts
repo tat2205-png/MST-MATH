@@ -15,16 +15,27 @@ const expectedFormatForMathId = (id: string) =>
 
 assert.equal(matrix.featureMatrixQuestionCount, EXPECTED_QUESTION_COUNT);
 assert.equal(matrix.featureMatrixUniqueQuestionIdCount, EXPECTED_QUESTION_COUNT);
+assert.equal(matrix.featureMatrixUniqueCanonicalIdentityCount, EXPECTED_QUESTION_COUNT);
 assert.equal(matrix.rows.length, EXPECTED_QUESTION_COUNT);
-assert.equal(matrix.identityAuthority, "CONFIRMED_CANONICAL_BOUNDARY_CANDIDATE");
+assert.equal(matrix.identityAuthority, "CANONICAL_LOGICAL_SOURCE_SLICE");
 assert.equal(matrix.summary.acceptanceIdentityQA, "PASS");
+assert.equal(matrix.summary.canonicalIdentityAccountingQA, "PASS");
 
 const ids = matrix.rows.map((row: any) => row.questionId);
 assert.equal(new Set(ids).size, EXPECTED_QUESTION_COUNT);
 assert.deepEqual(ids, [...ids].sort());
-assert.ok(matrix.rows.every((row: any) => /^[0-9a-f]{12}-qcandidate-\d+$/.test(row.questionId)));
+assert.ok(matrix.rows.every((row: any) => /^[0-9a-f]{12}-(?:qcandidate-\d+|qslice-[0-9a-f]{12})$/.test(row.questionId)));
 assert.ok(matrix.rows.every((row: any) => typeof row.questionIrId === "string" && row.questionIrId.length > 0));
-assert.ok(matrix.rows.every((row: any) => typeof row.boundaryCandidateId === "string" && row.boundaryCandidateId.includes("::candidate-")));
+assert.ok(matrix.rows.every((row: any) => typeof row.canonicalIdentityKey === "string" && row.canonicalIdentityKey.length > 0));
+assert.ok(matrix.rows.every((row: any) => Array.isArray(row.sourceSliceIds) && row.sourceSliceIds.length > 0));
+assert.ok(matrix.rows.every((row: any) => ["RETAINED_FROZEN", "PROMOTED_SPLIT"].includes(row.canonicalSelectionKind)));
+assert.equal(new Set(matrix.rows.map((row: any) => row.canonicalIdentityKey)).size, EXPECTED_QUESTION_COUNT);
+assert.ok(matrix.summary.retainedFrozenQuestionCount + matrix.summary.promotedSplitQuestionCount === EXPECTED_QUESTION_COUNT);
+
+const promoted = matrix.rows.filter((row: any) => row.canonicalSelectionKind === "PROMOTED_SPLIT");
+assert.equal(promoted.length, matrix.summary.promotedSplitQuestionCount);
+assert.ok(promoted.every((row: any) => row.riskTags.includes("BOUNDARY_REMEDIATION_SPLIT")));
+assert.ok(promoted.every((row: any) => row.identityContinuity === "NEW_SOURCE_BACKED_SPLIT_ID" || String(row.identityContinuity).startsWith("PRESERVED_")));
 
 const questionIrIds = matrix.rows.map((row: any) => row.questionIrId);
 const expectedQuestionIrDuplicateCount = matrix.rows.length - new Set(questionIrIds).size;
@@ -66,6 +77,7 @@ for (const row of matrix.rows) {
     ...row.mathRoles,
     ...(row.assetIds.length > 0 ? ["ASSET_BEARING"] : []),
     ...(row.assetIds.length > 1 ? ["MULTI_ASSET"] : []),
+    ...(row.canonicalSelectionKind === "PROMOTED_SPLIT" ? ["BOUNDARY_REMEDIATION_SPLIT"] : []),
   ]);
   assert.deepEqual(row.riskTags, [...expectedRiskTags].sort());
 }
