@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
@@ -14,6 +14,7 @@ import { enumerateRelevantSourceObjects, validateSourceObjectAccounting } from "
 const root = process.env.PIMATH_WORD_REAL_CORPUS ?? join(homedir(), "PiMath-Acceptance", "word-real");
 const out = "docs/evidence/word-beta-final";
 const canonicalPath = "docs/evidence/word-beta-human-acceptance-round-2/canonical-boundary-recomposition.json";
+const technicalMathOwnershipPath = `${out}/04-current-math-ownership-ledger.json`;
 mkdirSync(out, { recursive: true });
 
 const canonical = JSON.parse(readFileSync(canonicalPath, "utf8"));
@@ -42,12 +43,15 @@ const sourceRows: any[] = [];
 const typeRows: any[] = [];
 const packageChecks: any[] = [];
 const consumedIdentityKeys = new Set<string>();
+const sourceMathIdentityKeys = new Set<string>();
 
 for (const file of files) {
   const bytes = new Uint8Array(readFileSync(join(root, file)));
   const hash = createHash("sha256").update(bytes).digest("hex");
   const doc = ingestDocx({ name: file, bytes }).document;
   if (!doc) throw new Error(`DOCUMENT_IR_NOT_CREATED:${file}`);
+  const documentId = doc.sourceDocumentId ?? doc.id ?? doc.sourceHash;
+  for (const entry of doc.mathObjects ?? []) sourceMathIdentityKeys.add(`${documentId}::${entry.mathObjectId}`);
 
   const allQuestions = segmentCanonicalQuestions(doc);
   const selected = allQuestions.filter(question => {
@@ -58,7 +62,7 @@ for (const file of files) {
     return true;
   });
 
-  const expectedForDocument = canonical.selectedQuestions.filter((row: any) => row.sourceDocumentId === (doc.sourceDocumentId ?? doc.id ?? doc.sourceHash)).length;
+  const expectedForDocument = canonical.selectedQuestions.filter((row: any) => row.sourceDocumentId === documentId).length;
   if (selected.length !== expectedForDocument) {
     throw new Error(`CANONICAL_DOCUMENT_SELECTION_MISMATCH:${file}:${selected.length}:${expectedForDocument}`);
   }
@@ -121,6 +125,41 @@ const answer = { documentsRun: files.length, sourceBlocks: answerRows, mappings:
 const solution = { documentsRun: files.length, sourceBlocks: solutionRows, mappings: documents.reduce((n, d) => n + d.solutionMappingCount, 0), valid: true };
 const packageValid = packageChecks.every(x => x.result.valid);
 const sourceValid = sourceRows.every(x => Boolean(x.sourceObjectId && x.sourceAnchor && x.provenance));
+
+const questionMathReferenceKeys = questions.flatMap(q => q.mathObjectIds.map((id: string) => `${q.sourceDocumentId}::${id}`));
+const packageMathReferenceKeys = packages.flatMap(pkg => pkg.mathObjectIds.map((id: string) => `${pkg.question.sourceDocumentId}::${id}`));
+const sortedQuestionMathReferenceKeys = [...questionMathReferenceKeys].sort();
+const sortedPackageMathReferenceKeys = [...packageMathReferenceKeys].sort();
+const questionPackageMathMultisetEquality =
+  sortedQuestionMathReferenceKeys.length === sortedPackageMathReferenceKeys.length &&
+  sortedQuestionMathReferenceKeys.every((value, index) => value === sortedPackageMathReferenceKeys[index]);
+const missingQuestionMathSourceKeys = [...new Set(questionMathReferenceKeys.filter(key => !sourceMathIdentityKeys.has(key)))].sort();
+const uniqueQuestionScopedMathCount = new Set(questionMathReferenceKeys).size;
+const duplicateQuestionMathOwnershipLinkCount = questionMathReferenceKeys.length - uniqueQuestionScopedMathCount;
+const technicalMathOwnership = existsSync(technicalMathOwnershipPath)
+  ? JSON.parse(readFileSync(technicalMathOwnershipPath, "utf8"))
+  : null;
+const technicalBaselineOwnershipLinkCount = Number(technicalMathOwnership?.ownershipLinks ?? 0) || null;
+const mathReferenceIntegrity = questionPackageMathMultisetEquality && missingQuestionMathSourceKeys.length === 0;
+const mathOwnershipReconciliation = {
+  schemaVersion: "PIMATH_WORD_BETA_CANONICAL_MATH_OWNERSHIP_RECONCILIATION_V1",
+  canonicalQuestionCount: questions.length,
+  sourceUniqueMathIdentityCount: sourceMathIdentityKeys.size,
+  questionIrReferenceCount: questionMathReferenceKeys.length,
+  packageReferenceCount: packageMathReferenceKeys.length,
+  uniqueQuestionScopedMathCount,
+  duplicateQuestionMathOwnershipLinkCount,
+  technicalBaselineOwnershipLinkCount,
+  ownershipLinkDeltaVsTechnicalBaseline:
+    technicalBaselineOwnershipLinkCount === null ? null : questionMathReferenceKeys.length - technicalBaselineOwnershipLinkCount,
+  missingQuestionMathSourceCount: missingQuestionMathSourceKeys.length,
+  missingQuestionMathSourceKeys,
+  questionPackageMathMultisetEqualityQA: questionPackageMathMultisetEquality ? "PASS" : "FAIL",
+  questionMathSourceExistenceQA: missingQuestionMathSourceKeys.length === 0 ? "PASS" : "FAIL",
+  mathReferenceIntegrityQA: mathReferenceIntegrity ? "PASS" : "FAIL",
+  note: "Source unique math objects and question ownership links are different populations. Duplicate ownership links may be valid for shared context; the blocking invariants are source existence and exact QuestionIR↔Package multiset preservation.",
+};
+
 const common = {
   frozenBoundaryCount: questions.length,
   questionIRCount: questions.length,
@@ -129,7 +168,8 @@ const common = {
   hashMatchCount: hashMatch,
   hashMismatchCount: files.length - hashMatch,
   types,
-  mathReferenceCount: questions.reduce((n, q) => n + q.mathObjectIds.length, 0),
+  mathReferenceCount: questionMathReferenceKeys.length,
+  uniqueQuestionScopedMathCount,
   assetReferenceCount: questions.reduce((n, q) => n + q.assetIds.length, 0),
   canonicalAuthorityCommit: canonical.authority?.commit,
   canonicalDeltaVs668: canonical.canonicalDeltaVs668,
@@ -153,6 +193,7 @@ const certification = {
     questionTypeAccounting: typeAccounting,
     questionTypeSemantic: typeRows.every(x => x.qaStatus === "PASS"),
     package: packageValid,
+    mathReferenceIntegrity,
     sourceObjectAccounting: sourceValid,
     sourceCorpusImmutability: hashMatch === files.length,
   },
@@ -164,6 +205,7 @@ const certification = {
     answer.valid &&
     solution.valid &&
     packageValid &&
+    mathReferenceIntegrity &&
     sourceValid &&
     hashMatch === files.length
       ? "PASS"
@@ -179,9 +221,10 @@ write("package-expected-manifest.json", packageChecks.map(x => x.expected));
 write("package-actual-manifest.json", packageChecks.map(x => x.actual));
 write("package-loss-validation.json", packageChecks);
 write("package-provenance-validation.json", packageChecks.map(x => ({ questionId: x.questionId, valid: x.result.valid, errors: x.result.errors })));
+write("math-ownership-remediation-reconciliation.json", mathOwnershipReconciliation);
 write("source-object-enumeration.json", sourceRows);
 write("source-object-accounting.json", { total: sourceRows.length, valid: sourceValid, unaccounted: 0, duplicateSourceObjectIdCount: 0 });
 write("word-beta-certification.json", certification);
 writeFileSync(`${out}/per-document-certification.md`, documents.map(d => `${d.file}: frozen=${d.frozenCount}, QIR=${d.questionIRCount}, packages=${d.packageCount}, answers=${d.answerMappingCount}, solutions=${d.solutionMappingCount}, sourceObjects=${d.sourceObjectCount}, QA=${d.qaStatus}`).join("\n"));
-writeFileSync(`${out}/corpus-summary.md`, JSON.stringify({ common, documents, certification }, null, 2));
+writeFileSync(`${out}/corpus-summary.md`, JSON.stringify({ common, documents, mathOwnershipReconciliation, certification }, null, 2));
 console.log(JSON.stringify(certification));
