@@ -3,16 +3,12 @@ import {
   Sparkles,
   Download,
   BookOpen,
-  CheckCircle2,
   FileCode2,
-  Cpu,
   Layers,
   Video,
   PenTool,
   ShieldCheck,
   Compass,
-  AlertCircle,
-  RefreshCw,
 } from "lucide-react";
 import { ProviderType } from "../types/mathSchema.js";
 
@@ -150,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <div className="w-1.5 h-1.5 rounded-full bg-slate-500" title="Disabled in V1"></div>
               </div>
 
-              {/* Skills button */}
+              {/* Skills button: do not fabricate a runtime-active count. */}
               <button
                 id="skills-header-btn"
                 onClick={onOpenSkills}
@@ -158,9 +154,6 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                 <span>Skills</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono font-bold">
-                  1 Active
-                </span>
               </button>
 
               {/* Ecosystem */}
@@ -233,4 +226,3 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
-

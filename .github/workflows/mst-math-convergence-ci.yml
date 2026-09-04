@@ -23,16 +23,19 @@ jobs:
     timeout-minutes: 45
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
           cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Dependency security gate (high/critical)
+        run: npm audit --audit-level=high
 
       - name: Install authoritative PDF runtime
         run: |
@@ -56,20 +59,22 @@ jobs:
       - name: Canonical brand and semantic-icon contract
         run: node --import tsx tests/test-na-math-brand-01.ts
 
+      - name: P0 runtime truth contract
+        run: node --import tsx tests/test-mst-math-p0-runtime-truth-v1.ts
+
   pc-question-authority:
     name: pc-question-authority
-    if: github.event_name == 'pull_request'
     needs: core-quality
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - name: Checkout full authority ancestry
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
           cache: npm
@@ -85,6 +90,12 @@ jobs:
 
       - name: TECH03 assets and provenance
         run: node --import tsx tests/test-mst-math-tech03-assets.ts
+
+      - name: A3 public readiness contract
+        run: node --import tsx tests/test-mst-math-pc-a3-public-readiness-contract-v1.ts
+
+      - name: A3 backend authority and export guard
+        run: node --import tsx tests/test-mst-math-pc-a3-backend-readiness-v1.ts
 
       - name: Unified Input certification contract
         run: node --import tsx tests/test-pimath-unified-input-certification-readonly-v1.ts

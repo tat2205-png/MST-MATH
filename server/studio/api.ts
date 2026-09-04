@@ -107,7 +107,9 @@ export function registerStudioRoutes(app: Pick<Express, "get" | "post">, depende
   registerWordPreflightRoutes(app);
   const flagsProvider = dependencies.flags ?? (() => readStudioFeatureFlags());
   const probe = dependencies.runtimeProbe ?? systemRuntimeProbe;
-  app.get("/api/studio/status", (_request: Request, response: Response) => {
+  // Runtime-engine truth has its own endpoint. `/api/studio/status` is reserved
+  // for the capability registry/orchestrator contract registered by server.ts.
+  app.get("/api/studio/runtime-status", (_request: Request, response: Response) => {
     try {
       response.json({ success: true, ...getStudioStatus(flagsProvider(), probe) });
     } catch (error) {

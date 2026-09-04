@@ -259,8 +259,12 @@ function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
 
   // Re-generate video plan on demand (when user switches Video Style)
   const handleRegenerateVideo = async () => {
-    if (!problemIR || !solution || !visualSpec) return;
+    if (!problemIR || !solution || !verification || !visualSpec) {
+      setErrorMessage("Không thể tái tạo video khi chưa có lời giải, kiểm định toán học và hình minh họa hợp lệ.");
+      return;
+    }
     setIsProcessing(true);
+    setErrorMessage(null);
     setPipelineProgressText(`Đang cập nhật kịch bản Manim theo phong cách ${videoStyle}...`);
     try {
       const res = await fetch("/api/pipeline/video", {
@@ -269,6 +273,7 @@ function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
         body: JSON.stringify({
           problemIR,
           solution,
+          verification,
           visualSpec,
           providerId: selectedProvider,
           videoStyle,
@@ -278,13 +283,15 @@ function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
         }),
       });
       const data = await res.json();
-      if (data.success && data.videoSpec) {
-        setVideoSpec(data.videoSpec);
-        setSuccessToast(`Đã áp dụng phong cách ${videoStyle} cho kịch bản Video!`);
-        setTimeout(() => setSuccessToast(null), 3000);
+      if (!res.ok || !data.success || !data.videoSpec) {
+        const reason = data.mathGate?.reasons?.join(" ");
+        throw new Error(reason || data.error || "Không thể tái tạo video từ artifact đã được kiểm định.");
       }
+      setVideoSpec(data.videoSpec);
+      setSuccessToast(`Đã áp dụng phong cách ${videoStyle} cho kịch bản Video!`);
+      setTimeout(() => setSuccessToast(null), 3000);
     } catch (err: any) {
-      setErrorMessage(err.message);
+      setErrorMessage(err.message || "Không thể tái tạo video.");
     } finally {
       setIsProcessing(false);
       setPipelineProgressText("");
@@ -453,17 +460,16 @@ function StudioApp({ onOpenTeacher }: { onOpenTeacher: () => void }) {
         )}
       </main>
 
-      {/* Professional Polish Footer */}
+      {/* Footer only exposes truthful build context; runtime metrics must come from the server. */}
       <footer className="bg-slate-100 border-t border-slate-200 px-6 py-2.5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
         <div className="flex items-center space-x-2">
-          <span>System Environment:</span>
+          <span>Build mode:</span>
           <span className="font-mono font-semibold text-slate-700 bg-white px-2 py-0.5 rounded border border-slate-200">
-            PRODUCTION_V1.0.4
+            {import.meta.env.MODE.toUpperCase()}
           </span>
         </div>
         <div className="flex items-center space-x-4">
-          <span>API Latency: <strong className="text-slate-700">~240ms</strong></span>
-          <span>Worker Nodes: <strong className="text-slate-700">04 Online</strong></span>
+          <span>Runtime metrics are displayed only when reported by the server.</span>
           <span>© 2026 Math AI Video Studio</span>
         </div>
       </footer>
