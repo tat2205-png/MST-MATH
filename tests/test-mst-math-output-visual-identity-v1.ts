@@ -23,19 +23,19 @@ const coverage = validateOutputVisualProfileCoverage();
 assert.equal(coverage.ok, true);
 assert.equal(coverage.covered.length, 16);
 
-const p01 = resolveOutputVisualProfile("P01_LEARNING_MATERIAL").profile;
+const p01 = resolveOutputVisualProfile("P01_LEARNING_MATERIAL").profile as Record<string, unknown>;
 assert.equal(p01.colorContract, "learning_material");
 assert.equal(p01.primaryAccent, "#0C2D57");
 
-const p03 = resolveOutputVisualProfile("P03_WORKSHEET").profile;
+const p03 = resolveOutputVisualProfile("P03_WORKSHEET").profile as Record<string, unknown>;
 assert.equal(p03.colorContract, "worksheet");
 assert.equal(p03.primaryAccent, "#2F8F68");
 
-const p04 = resolveOutputVisualProfile("P04_EXERCISE_SHEET").profile;
+const p04 = resolveOutputVisualProfile("P04_EXERCISE_SHEET").profile as Record<string, unknown>;
 assert.equal(p04.colorContract, "exercise_sheet");
 assert.equal(p04.primaryAccent, "#6B4FA3");
 
-const p07 = resolveOutputVisualProfile("P07_VIDEO").profile;
+const p07 = resolveOutputVisualProfile("P07_VIDEO").profile as Record<string, unknown>;
 assert.equal(p07.colorContract, "video");
 assert.equal(p07.primaryAccent, "#D9911B");
 assert.equal(resolveOutputVisualProfile("MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0").profile.profileId, "P07_VIDEO");
