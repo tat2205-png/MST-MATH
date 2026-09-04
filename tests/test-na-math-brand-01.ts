@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
-import { PIMATH_DNA, NA_MATH_OUTPUT_PROFILES, resolveBrand, resolveOutputProfile, resolveCanonicalReference, resolveConsumerProfile, resolveIcon, resolveComponent, resolvePdfLatexAuthority } from "../src/config/naMathBrandRoot.ts";
+import { PIMATH_DNA, NA_MATH_OUTPUT_PROFILES, resolveBrand, resolveOutputProfile, resolveCanonicalReference, resolveConsumerProfile, resolveIcon, resolveIconForOutput, resolveComponentIcon, resolveComponent, resolvePdfLatexAuthority } from "../src/config/naMathBrandRoot.ts";
 import { ExportService } from "../server/services/exportService.ts";
 assert.equal(PIMATH_DNA.standardId, "PIMATH-DNA-V1.0");
 assert.equal(PIMATH_DNA.displayName, "PiDNA");
 assert.equal(PIMATH_DNA.codeRoot, "PIMATH_DNA");
 assert.equal(PIMATH_DNA.canonical, true); assert.equal(PIMATH_DNA.singleSourceOfTruth, true);
+assert.equal(PIMATH_DNA.references.icons, "PIMATH-DNA-SEMANTIC-ICONS-V1.1");
 assert.equal(NA_MATH_OUTPUT_PROFILES.length, 17);
 assert.ok(NA_MATH_OUTPUT_PROFILES.every((profile) => profile.parentBrandId === "PIMATH-DNA-V1.0"));
 assert.equal(resolveBrand().architecture.application, "Math AI Studio");
@@ -20,7 +21,11 @@ assert.equal(resolvePdfLatexAuthority("P05_TEST").profile.profileId, "P05_TEST")
 assert.equal(resolvePdfLatexAuthority("P06_EXAM_THPTQG").profile.profileId, "P06_EXAM_THPTQG");
 assert.throws(() => resolvePdfLatexAuthority(), /PIMATH_DNA_OUTPUT_PROFILE_REQUIRED/);
 assert.equal(resolveOutputProfile("P02_LESSON_PLAN").profileId, "P02_LESSON_PLAN");
-assert.deepEqual(resolveOutputProfile("P07_VIDEO").canonicalReferences, ["NA_MATH_CANONICAL_LAYOUT_V1_3", "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0", "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1", "PIMATH-DNA-SEMANTIC-ICONS-V1.0"]);
+const p01 = resolveOutputProfile("P01_LEARNING_MATERIAL") as any;
+assert.ok(p01.canonicalReferences.includes("PIMATH-DNA-SEMANTIC-ICONS-V1.1"));
+assert.deepEqual(p01.renderTargets, ["PDF", "DOCX", "HTML", "SLIDES", "VIDEO"]);
+assert.equal(p01.iconIdentityPolicy, "SAME_SEMANTIC_ROLE_SAME_MASTER_ASSET");
+assert.deepEqual(resolveOutputProfile("P07_VIDEO").canonicalReferences, ["NA_MATH_CANONICAL_LAYOUT_V1_3", "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0", "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1", "PIMATH-DNA-SEMANTIC-ICONS-V1.1"]);
 assert.ok(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences.includes("NA-MATH-BRAND-DRIVEN-GEOGEBRA-UI-SYSTEM-V1.0"));
 assert.notDeepEqual(resolveOutputProfile("P08_GEOGEBRA").canonicalReferences, resolveOutputProfile("P09_FOLD").canonicalReferences);
 for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"]) {
@@ -29,13 +34,32 @@ for (const profileId of ["P05_TEST", "P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_
   assert.ok(["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT", "P02_LESSON_PLAN", "P05_TEST"].includes(profile.profileId));
 }
 assert.throws(() => resolveIcon("default"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
-for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const) {
-  assert.equal(resolveIcon(role).authority, "PIMATH-DNA-SEMANTIC-ICONS-V1.0");
+const coreIconRoles = ["LEARNING_OBJECTIVE", "CONCEPT", "DEFINITION", "FORMULA", "EXAMPLE", "NOTE", "IMPORTANT", "WARNING", "TIP", "QUESTION", "EXERCISE", "SOLUTION", "ANSWER", "GEOMETRY", "GRAPH", "TABLE", "ACTIVITY"] as const;
+for (const role of coreIconRoles) {
+  assert.equal(resolveIcon(role).authority, "PIMATH-DNA-SEMANTIC-ICONS-V1.1");
   assert.match(resolveIcon(role).resource, /^assets\/pimath-icons\/.*\.svg$/);
 }
+for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const) {
+  assert.equal(resolveIcon(role).authority, "PIMATH-DNA-SEMANTIC-ICONS-V1.1");
+  assert.match(resolveIcon(role).resource, /^assets\/pimath-icons\/.*\.svg$/);
+}
+const exampleMaster = resolveIcon("EXAMPLE").resource;
+for (const target of ["PDF", "DOCX", "HTML", "SLIDES", "VIDEO"] as const) {
+  const resolved = resolveIconForOutput("EXAMPLE", target);
+  assert.equal(resolved.resource, exampleMaster);
+  assert.equal(resolved.preserveIdentity, true);
+  assert.equal(resolved.identityRule, "SAME_SEMANTIC_ROLE_SAME_MASTER_ASSET");
+}
+assert.equal(resolveComponentIcon("learning-objective", "PDF").role, "LEARNING_OBJECTIVE");
+assert.equal(resolveComponentIcon("worked-example", "DOCX").role, "EXAMPLE");
+assert.equal(resolveComponentIcon("common-mistake", "HTML").role, "WARNING");
+assert.equal(resolveComponentIcon("math-formula-card", "SLIDES").role, "FORMULA");
+assert.equal(resolveComponentIcon("geometry-figure-card", "VIDEO").role, "GEOMETRY");
+assert.equal(resolveComponentIcon("final-answer", "VIDEO").role, "ANSWER");
+assert.throws(() => resolveComponentIcon("not-a-component", "PDF"), /PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED/);
 assert.equal(resolveComponent("worked-example").authority, "NA_MATH_DESIGN_SYSTEM_V1_3");
 assert.equal(resolvePdfLatexAuthority("P03_WORKSHEET").canOverridePiMathDna, false);
 const exportTeX = new ExportService().generateStandaloneTeX({ domain: "Algebra", topic: "Test", grade: "10", problem: "x=1", given: [], find: [] } as never, { section_1_analysis: { problem_essence: "", identified_pattern: "", pitfalls_and_traps: [], core_theorems: [] }, section_2_approach: { strategy_overview: "", roadmap_steps: [], formulas_needed: [] }, section_3_detailed_steps: [], final_answer: { value: "1", summary_text: "" } } as never, null, null, "P03_WORKSHEET");
 assert.match(exportTeX, /PIMATH-DNA-V1\.0 \/ P03_WORKSHEET/);
-console.log("PIMATH_DNA_ROOT_EXISTS_QA=PASS\nPIMATH_DNA_SINGLE_SOURCE_QA=PASS\nCANONICAL_CHILD_REFERENCE_QA=PASS\nOUTPUT_PROFILE_REGISTRY_QA=PASS\nNO_SILENT_LEGACY_FALLBACK_QA=PASS");
+console.log("PIMATH_DNA_ROOT_EXISTS_QA=PASS\nPIMATH_DNA_SINGLE_SOURCE_QA=PASS\nCANONICAL_CHILD_REFERENCE_QA=PASS\nOUTPUT_PROFILE_REGISTRY_QA=PASS\nSEMANTIC_ICON_SINGLE_SOURCE_QA=PASS\nSEMANTIC_ICON_MULTI_RENDER_QA=PASS\nNO_SILENT_LEGACY_FALLBACK_QA=PASS");
 console.log("PDF_LATEX_IDENTITY_TRACEABILITY_QA=PASS\nNO_ACTIVE_PARALLEL_BRAND_QA=PASS\nNO_ACTIVE_BRAND_BYPASS_QA=PASS\nNO_LOCAL_CANONICAL_OVERRIDE_QA=PASS\nRUNTIME_IDENTITY_TRACEABILITY_QA=PASS\nACTIVE_PARALLEL_BRAND_COUNT=0\nACTIVE_BRAND_BYPASS_COUNT=0\nACTIVE_DUPLICATE_IDENTITY_SOURCE_COUNT=0\nACTIVE_IDENTITY_CONFLICT_COUNT=0");

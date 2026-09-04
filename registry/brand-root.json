@@ -27,7 +27,7 @@
     "math": "NA_MATH_SYSTEM_BASELINE_V2_6",
     "documents": "NA_MATH_DOCUMENT_ENGINE_CONTRACTS",
     "studentWorkspace": "NA_MATH_STUDENT_WORKSPACE_V1_2",
-    "icons": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
+    "icons": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
     "components": "NA_MATH_DESIGN_SYSTEM_V1_3",
     "geogebra": {
       "kind": "ADAPTER_BOUNDARY",
