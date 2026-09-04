@@ -11,20 +11,18 @@ import type {
 
 export interface QuestionImportContext {
   /**
-   * Immutable source identity.
-   * These values describe the file selected by the teacher,
-   * not the SAFE CLEAN processing artifact.
+   * Immutable identity of the teacher-selected original source.
    */
   sourceDocument?: string;
   sourceSha256?: string;
 
   /**
-   * Identity of the artifact actually parsed.
+   * Identity of the non-destructive artifact actually parsed.
    */
   processingSha256?: string;
 
   /**
-   * Ordered non-destructive transformations between source and parser input.
+   * Ordered transformations between immutable source and processing input.
    */
   transformationHistory?: string[];
 }
@@ -77,6 +75,10 @@ export function canonicalizeCompositeAnchors(
     : candidate;
 }
 
+/**
+ * The parsed artifact may be SAFE CLEAN output, but canonical document
+ * identity must remain attached to the immutable original teacher source.
+ */
 function lockOriginalSourceIdentity(
   document: DocumentIR,
   context?: QuestionImportContext,
@@ -86,18 +88,14 @@ function lockOriginalSourceIdentity(
   const sourceDocument = context.sourceDocument ?? document.sourceDocument;
   const sourceSha256 = context.sourceSha256 ?? document.sourceHash;
 
-  const priorHistory = document.provenance?.transformationHistory ?? [];
   const transformationHistory = [
-    ...priorHistory,
+    ...(document.provenance?.transformationHistory ?? []),
     ...(context.transformationHistory ?? []),
   ];
 
   return {
     ...document,
 
-    // CRITICAL:
-    // The canonical identity remains the immutable original source,
-    // although document contents may have been parsed from a clean artifact.
     sourceDocument,
     sourceHash: sourceSha256,
 
@@ -112,6 +110,12 @@ function lockOriginalSourceIdentity(
   };
 }
 
+/**
+ * Preserve both identities:
+ *
+ * sourceHash       = immutable original DOCX
+ * processingSha256 = SAFE CLEAN artifact actually parsed
+ */
 function attachProcessingProvenance(
   question: QuestionObject,
   context?: QuestionImportContext,
@@ -122,14 +126,53 @@ function attachProcessingProvenance(
     ...question,
     source: {
       ...question.source,
+
       ...(context.processingSha256
         ? { processingSha256: context.processingSha256 }
         : {}),
+
       ...(context.transformationHistory?.length
         ? { transformationHistory: [...context.transformationHistory] }
         : {}),
     },
   };
+}
+
+/**
+ * Existing canonical IDs remain untouched when unique.
+ *
+ * Only collisions caused by repeated question numbering
+ * (for example PHẦN I Câu 1 and PHẦN II Câu 1)
+ * receive a deterministic candidate suffix.
+ */
+function disambiguateQuestionIds(
+  questions: QuestionObject[],
+  candidates: DocumentQuestionCandidate[],
+): QuestionObject[] {
+  const counts = new Map<string, number>();
+
+  for (const question of questions) {
+    counts.set(question.id, (counts.get(question.id) ?? 0) + 1);
+  }
+
+  return questions.map((question, index) => {
+    if ((counts.get(question.id) ?? 0) <= 1) {
+      return question;
+    }
+
+    const id =
+      `${question.id}-${candidates[index]?.id ?? `candidate-${index + 1}`}`;
+
+    return {
+      ...question,
+      id,
+
+      figureAssociations: question.figureAssociations.map((association) => ({
+        ...association,
+        questionId: id,
+      })),
+    };
+  });
 }
 
 function finish(
@@ -140,12 +183,14 @@ function finish(
     canonicalizeCompositeAnchors(candidate, document),
   );
 
-  const questions = candidates.map((candidate) =>
+  const normalized = candidates.map((candidate) =>
     attachProcessingProvenance(
       normalizeCandidate(candidate, document),
       context,
     ),
   );
+
+  const questions = disambiguateQuestionIds(normalized, candidates);
 
   const figureAssociations = associateFigures(document, questions);
 
@@ -154,6 +199,7 @@ function finish(
     candidates,
     questions,
     figureAssociations,
+
     warnings: [
       ...document.warnings,
       ...candidates.flatMap((candidate) => candidate.parseWarnings),
@@ -174,7 +220,11 @@ export function ingestDocxQuestions(
   context?: QuestionImportContext,
 ) {
   const parsed = parseDocx(bytes, name);
-  return finish(lockOriginalSourceIdentity(parsed, context), context);
+
+  return finish(
+    lockOriginalSourceIdentity(parsed, context),
+    context,
+  );
 }
 
 export async function ingestDocxQuestionsForRuntime(
@@ -186,5 +236,8 @@ export async function ingestDocxQuestionsForRuntime(
     parseDocx(bytes, name, { canonicalVml: true }),
   );
 
-  return finish(lockOriginalSourceIdentity(parsed, context), context);
+  return finish(
+    lockOriginalSourceIdentity(parsed, context),
+    context,
+  );
 }
