@@ -99,19 +99,80 @@ function extension(name: string): string { const dot = name.lastIndexOf("."); re
 const zipSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0x50 && b[1] === 0x4b && (b[2] === 3 || b[2] === 5 || b[2] === 7) && (b[3] === 4 || b[3] === 6 || b[3] === 8);
 function isDocxPackage(bytes: Uint8Array): boolean {
   if (!zipSignature(bytes)) return false;
-  let archiveEntries = 0, embeddedAssets = 0, decompressedBytes = 0;
+
+  let archiveEntries = 0;
+  let embeddedAssets = 0;
+  let decompressedBytes = 0;
+
+  let hasContentTypes = false;
+  let hasDocumentXml = false;
+  let hasRelationships = false;
+
   for (let offset = 0; offset + 46 <= bytes.length; offset++) {
-    if (bytes[offset] !== 0x50 || bytes[offset + 1] !== 0x4b || bytes[offset + 2] !== 0x01 || bytes[offset + 3] !== 0x02) continue;
-    const view = new DataView(bytes.buffer, bytes.byteOffset + offset, Math.min(46, bytes.length - offset));
-    const nameLength = view.getUint16(28, true), extraLength = view.getUint16(30, true), commentLength = view.getUint16(32, true);
-    const name = Buffer.from(bytes.subarray(offset + 46, offset + 46 + nameLength)).toString("utf8");
-    archiveEntries++; decompressedBytes += view.getUint32(24, true); if (/^word\/(?:media|embeddings)\//i.test(name)) embeddedAssets++;
-    if (archiveEntries > INPUT_LIMITS.maxArchiveEntries || decompressedBytes > INPUT_LIMITS.maxDecompressedBytes || embeddedAssets > INPUT_LIMITS.maxEmbeddedAssets) return false;
+    if (
+      bytes[offset] !== 0x50 ||
+      bytes[offset + 1] !== 0x4b ||
+      bytes[offset + 2] !== 0x01 ||
+      bytes[offset + 3] !== 0x02
+    ) {
+      continue;
+    }
+
+    const view = new DataView(
+      bytes.buffer,
+      bytes.byteOffset + offset,
+      Math.min(46, bytes.length - offset),
+    );
+
+    const nameLength = view.getUint16(28, true);
+    const extraLength = view.getUint16(30, true);
+    const commentLength = view.getUint16(32, true);
+
+    const name = Buffer.from(
+      bytes.subarray(offset + 46, offset + 46 + nameLength),
+    ).toString("utf8");
+
+    archiveEntries++;
+    decompressedBytes += view.getUint32(24, true);
+
+    if (/^word\/(?:media|embeddings)\//i.test(name)) {
+      embeddedAssets++;
+    }
+
+    if (name === "[Content_Types].xml") {
+      hasContentTypes = true;
+    }
+
+    if (name === "word/document.xml") {
+      hasDocumentXml = true;
+    }
+
+    if (
+      name === "_rels/.rels" ||
+      name === "word/_rels/document.xml.rels"
+    ) {
+      hasRelationships = true;
+    }
+
+    if (
+      archiveEntries > INPUT_LIMITS.maxArchiveEntries ||
+      decompressedBytes > INPUT_LIMITS.maxDecompressedBytes ||
+      embeddedAssets > INPUT_LIMITS.maxEmbeddedAssets
+    ) {
+      return false;
+    }
+
     offset += 45 + nameLength + extraLength + commentLength;
   }
-  const root = mkdtempSync(join(tmpdir(), "pimath-docx-check-")); const path = join(root, "package.docx");
-  try { writeFileSync(path, Buffer.from(bytes)); const listing = execFileSync("tar", ["-tf", path], { encoding: "utf8", windowsHide: true, maxBuffer: 2 * 1024 * 1024 }); const entries = listing.split(/\r?\n/).filter(Boolean); return entries.length <= INPUT_LIMITS.maxArchiveEntries && entries.includes("[Content_Types].xml") && entries.includes("word/document.xml") && entries.some(x => x === "_rels/.rels" || x === "word/_rels/document.xml.rels"); } catch { return false; } finally { rmSync(root, { recursive: true, force: true }); }
+
+  return (
+    archiveEntries > 0 &&
+    hasContentTypes &&
+    hasDocumentXml &&
+    hasRelationships
+  );
 }
+
 const pdfSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 5)).toString("ascii") === "%PDF-";
 const pngSignature = (b: Uint8Array) => Buffer.from(b.subarray(0, 8)).equals(Buffer.from([137,80,78,71,13,10,26,10]));
 const jpegSignature = (b: Uint8Array) => b.length >= 4 && b[0] === 0xff && b[1] === 0xd8 && b.at(-2) === 0xff && b.at(-1) === 0xd9;
