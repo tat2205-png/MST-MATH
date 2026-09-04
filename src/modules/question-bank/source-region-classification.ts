@@ -18,6 +18,7 @@ const explicitMarkerPattern = /\b(?:Câu|Bài|Question)\s*(\d+)\s*[:.)]/giu;
 const questionSectionPattern = /^(?:PHẦN\s+(?:I|II|III|IV|V)|TRẮC NGHIỆM|ĐÚNG\s*\/\s*SAI|TRẢ LỜI NGẮN|TỰ LUẬN)\b/iu;
 const answerHeadingPattern = /^(?:đáp\s*án|answer)\b/iu;
 const solutionHeadingPattern = /^(?:lời\s*giải|hướng\s*dẫn\s*giải|solution)\b/iu;
+const referenceAnswerHeadingPattern = /^(?:đáp\s*án\s+tham\s+khảo|reference\s+answers?)(?:\s|$|[:\-–—])/iu;
 const resultCuePattern = /\b(?:KQ|Kết\s*quả|Đáp\s*án)\s*:/giu;
 const reasoningCuePattern = /(?<![\p{L}\p{N}_])(?:ta\s+có|vì|do\s+đó|suy\s+ra|dựa\s+vào|vậy|đây\s+là\s+bài\s+toán)(?![\p{L}\p{N}_])/giu;
 
@@ -53,6 +54,10 @@ export function isQuestionSectionHeading(value: string): boolean {
   return questionSectionPattern.test(value.trim());
 }
 
+export function isReferenceAnswerHeading(value: string): boolean {
+  return referenceAnswerHeadingPattern.test(value.trim());
+}
+
 function cueCounts(blocks: DocumentBlock[]) {
   const value = blocks.map(blockText).join(" ");
   return {
@@ -65,8 +70,9 @@ function cueCounts(blocks: DocumentBlock[]) {
  * Detect document-level answer/solution appendices conservatively.
  *
  * A short "Lời giải" paragraph inside normal question flow must never cause all
- * later questions to disappear. A region is promoted to document-level appendix
- * only when all of the following source-backed signals agree:
+ * later questions to disappear. A general answer/solution region is promoted to
+ * document-level appendix only when all of the following source-backed signals
+ * agree:
  *   1) the heading is short and explicit;
  *   2) the region runs to the physical end of the document rather than stopping
  *      at a later question section;
@@ -74,8 +80,13 @@ function cueCounts(blocks: DocumentBlock[]) {
  *   4) appendix numbering restarts at question 1;
  *   5) there is repeated answer/reasoning evidence.
  *
- * If any signal is absent we fail closed and leave the blocks in normal question
- * flow for later review instead of silently excluding them.
+ * A terminal heading explicitly saying "ĐÁP ÁN THAM KHẢO" / "Reference answer"
+ * is a stronger structural signal and is accepted as an ANSWER appendix even
+ * when it contains no repeated Câu markers. This handles footer-style reference
+ * answer material without weakening ordinary inline "Đáp án: ..." handling.
+ *
+ * If the evidence is insufficient we fail closed and leave blocks in normal
+ * question flow for later review instead of silently excluding them.
  */
 export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerSolutionAppendixRegion[] {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
@@ -107,6 +118,31 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
     const markerSequence = regionBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content));
     const markerNumbers = [...new Set(markerSequence)];
     const { resultCueCount, reasoningCueCount } = cueCounts(regionBlocks);
+    const referenceAnswerHeading = kind === "ANSWER" && isReferenceAnswerHeading(headingText);
+
+    if (referenceAnswerHeading) {
+      const last = regionBlocks.at(-1) ?? heading;
+      regions.push({
+        kind,
+        startOrder: heading.order,
+        endOrder: last.order,
+        headingBlockId: heading.id,
+        sourceObjectIds: [heading.id, ...regionBlocks.map((block) => block.id)],
+        markerNumbers,
+        resultCueCount,
+        reasoningCueCount,
+        evidence: [
+          "EXPLICIT_HEADING",
+          "REFERENCE_ANSWER_HEADING",
+          "TERMINAL_DOCUMENT_REGION",
+          ...(markerNumbers.length > 0 ? ["QUESTION_MARKERS"] : []),
+          ...(resultCueCount > 0 ? ["RESULT_CUES"] : []),
+        ],
+      });
+      i = Math.max(i, endIndex - 1);
+      continue;
+    }
+
     const repeatedQuestionEntries = markerNumbers.length >= 2;
     const numberingRestartsAtOne = markerSequence[0] === 1;
     const cueCount = resultCueCount + reasoningCueCount;
