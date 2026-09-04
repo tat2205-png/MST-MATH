@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "MST_MATH_BRAND_APPLICATION_POLICY_V1.0",
+  "status": "DRAFT_FOR_HUMAN_APPROVAL",
+  "canonical": false,
+  "canonicalCandidate": true,
+  "root": "MST-MATH-DNA-V1.0",
+  "scope": "BRAND_NAME_AND_APPLICATION_ONLY",
+  "identity": {
+    "primaryBrandName": "MST-MATH",
+    "productDescriptor": "Math AI Studio",
+    "descriptorIsBrand": false,
+    "graphicLogoStatus": "GRAPHIC_LOGO_NOT_APPROVED",
+    "temporaryBrandPresentation": "TEXT_NAME_ONLY",
+    "pseudoLogoAllowed": false,
+    "arbitraryMathGlyphAsLogoAllowed": false,
+    "explicitlyForbiddenPseudoMarks": ["Σ"]
+  },
+  "nameHierarchy": {
+    "primary": "MST-MATH",
+    "secondaryDescriptor": "Math AI Studio",
+    "version": "TERTIARY_METADATA",
+    "rule": "MST-MATH must remain visually primary wherever the product brand is displayed."
+  },
+  "typographyBinding": {
+    "noIndependentBrandFont": true,
+    "appUiBrandText": "Source Sans 3 Semibold/Bold via MST-MATH UI typography authority",
+    "documentBrandText": "XCharter or STIX Two Text via approved document heading/header role",
+    "mathInBrandLockup": "NOT_APPLICABLE_UNLESS_HUMAN_APPROVED_GRAPHIC_MARK"
+  },
+  "colorBinding": {
+    "noIndependentBrandPalette": true,
+    "primary": "#0C2D57",
+    "secondary": "#0C9A94",
+    "paper": "#FCFCFA",
+    "ink": "#18212B",
+    "source": "NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0"
+  },
+  "application": {
+    "appHeader": {
+      "requiredBrandText": "MST-MATH",
+      "descriptor": "Math AI Studio",
+      "pseudoLogo": "FORBIDDEN",
+      "largeDecorativeLogo": "FORBIDDEN_UNTIL_APPROVED"
+    },
+    "document": {
+      "brandPlacement": "PROFILE_CONTROLLED_HEADER_OR_FOOTER",
+      "watermarkDefault": false,
+      "formalExamBranding": "MINIMAL",
+      "contentObscuringBrandMark": false
+    },
+    "video": {
+      "brandPlacement": "SAFE_ZONE_ONLY",
+      "persistentLargeWatermark": false,
+      "mathOrFigureObstruction": false
+    },
+    "game": {
+      "brandPlacement": "LOBBY_ROUND_INTRO_OR_SMALL_SAFE_CHROME",
+      "persistentLargeLogo": false,
+      "questionObstruction": false
+    },
+    "geogebraFold": {
+      "brandPlacement": "UI_CHROME_ONLY",
+      "geometryCanvasObstruction": false
+    }
+  },
+  "clearSpace": {
+    "textBrandMinimum": "1x current cap-height around primary brand text where practical",
+    "rule": "Brand label may not collide with controls, math, figures, question text or page trim."
+  },
+  "governance": {
+    "rendererMayInventLogo": false,
+    "moduleMayInventLogo": false,
+    "emojiOrMathGlyphLogoFallback": false,
+    "brandTextMayBeLocalized": false,
+    "descriptorMayBeLocalized": false,
+    "graphicLogoRequiresHumanApproval": true
+  },
+  "qa": [
+    "PRIMARY_BRAND_NAME_IS_MST_MATH",
+    "NO_PSEUDO_LOGO_PASS",
+    "NO_LOCAL_BRAND_PALETTE_PASS",
+    "BRAND_DOES_NOT_OBSCURE_MATH_PASS",
+    "FORMAL_EXAM_BRANDING_MINIMAL_PASS"
+  ]
+}
