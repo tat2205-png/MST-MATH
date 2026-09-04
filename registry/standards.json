@@ -28,7 +28,7 @@
     {"id":"MST_MATH_ACCESSIBILITY_CANONICAL_V1.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_ACCESSIBILITY_CANONICAL_V1_0/mst-math-accessibility-canonical-v1.0.json"},
     {"id":"PIMATH_ACCESSIBILITY_CANONICAL_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_ACCESSIBILITY_CANONICAL_V1.0","path":"standards/PIMATH_ACCESSIBILITY_CANONICAL_V1_0/pimath-accessibility-canonical-v1.0.json"},
     {"id":"MST_MATH_VOICE_NARRATION_CANONICAL_V1.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_VOICE_NARRATION_CANONICAL_V1_0/mst-math-voice-narration-canonical-v1.0.json"},
-    {"id":"PIMATH_VOICE_NARRATION_CANONICAL_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_VOICE_NARRATION_CANONICAL_V1.0","path":"standards/PIMATH_VOICE_NARRATION_CANONICAL_V1_0/pimath-accessibility-canonical-v1.0.json"},
+    {"id":"PIMATH_VOICE_NARRATION_CANONICAL_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_VOICE_NARRATION_CANONICAL_V1.0","path":"standards/PIMATH_VOICE_NARRATION_CANONICAL_V1_0/pimath-voice-narration-canonical-v1.0.json"},
     {"id":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_VIDEO_VISUAL_CANONICAL_V2_0/mst-math-video-visual-canonical-v2.0.json"},
     {"id":"PIMATH_VIDEO_VISUAL_CANONICAL_V2.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","path":"standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json"},
 
