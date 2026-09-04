@@ -18,7 +18,7 @@ Renderers may change representation mechanics, but MUST NOT change mathematical 
 
 ## Assurance pipeline
 
-`SOURCE → MATH IR → CANONICAL SYMBOL REGISTRY → SEMANTIC VALIDATION → OUTPUT ADAPTER → POST-RENDER QA`
+`SOURCE → NOTATION PROFILE → MATH IR → CANONICAL SYMBOL REGISTRY → SEMANTIC VALIDATION → OUTPUT ADAPTER → POST-RENDER QA`
 
 For narrated video, add `NARRATION QA` after semantic validation.
 
@@ -27,13 +27,24 @@ For narrated video, add `NARRATION QA` after semantic validation.
 Each registered notation role MUST define:
 
 - stable `symbolId`;
-- mathematical `semantic` meaning;
+- mathematical `semantic` meaning, or an explicit `PROFILE_DEPENDENT_*` semantic when convention varies;
 - canonical LaTeX form;
 - Unicode form where appropriate;
 - accepted aliases, if any;
 - Vietnamese spoken form;
 - mathematical category;
-- supported output channels.
+- supported output channels;
+- profile-specific semantics when a notation convention is curriculum/profile dependent.
+
+## Notation profile rule
+
+Mathematical glyphs do not always have one universal pedagogical convention. MST-MATH MUST bind convention-dependent notation to a declared profile before assigning semantics.
+
+Initial profile: `VN_GDPT2018`.
+
+For example, Vietnamese high-school materials commonly use `A \subset B` / `A ⊂ B` to mean “A is a subset of B”, including the reflexive case `A ⊂ A`. Therefore MST-MATH MUST NOT globally interpret `⊂` as “proper subset”. Under `VN_GDPT2018`, the proposed registry maps it to inclusive subset semantics. A proper-subset meaning requires an unambiguous role such as `\subsetneq` / `⊊` or another explicitly approved profile convention.
+
+If a profile-dependent token is encountered without a valid notation profile, validation MUST fail with `MATH_NOTATION_AMBIGUITY` rather than guessing.
 
 ## Fail-closed rules
 
@@ -43,7 +54,7 @@ Each registered notation role MUST define:
 4. Loss of semantic modifiers is forbidden. Examples include:
    - `\vec{AB}` → `AB`;
    - `\leq` → `<`;
-   - `\subseteq` → `\subset`;
+   - automatic substitution between `\subset`, `\subseteq`, and `\subsetneq` without profile-aware semantic validation;
    - interval endpoint changes such as `(a;b]` → `[a;b]`;
    - perpendicular/parallel substitutions by visually similar glyphs.
 5. Plain text fallback is allowed only when it preserves meaning explicitly and is declared by the output adapter.
