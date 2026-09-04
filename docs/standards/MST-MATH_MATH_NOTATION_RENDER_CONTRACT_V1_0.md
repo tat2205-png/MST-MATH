@@ -7,7 +7,7 @@ Parent standard: `PIMATH-DNA-MATH-NOTATION-V1.0`
 
 Every renderer consumes mathematical semantics; no renderer becomes the mathematical source of truth.
 
-Supported output channels in this contract:
+Supported target output channels in this contract:
 
 - `PDF`
 - `DOCX`
@@ -16,23 +16,26 @@ Supported output channels in this contract:
 - `VIDEO`
 - `TTS`
 
+A channel appearing in the target contract does not mean it is already production-certified. Certification is channel-by-channel and requires its golden regression gate.
+
 ## Required adapter behavior
 
 For every registered notation token, an adapter MUST either:
 
-1. render the canonical semantics correctly; or
-2. fail closed with `MATH_NOTATION_RENDER_FAILURE`.
+1. preserve the resolved mathematical role correctly; or
+2. fail closed with a notation failure code.
 
 An adapter MUST NOT:
 
 - silently drop vector, ray, angle, perpendicular, parallel, membership, subset, inequality, interval-boundary, exponent, or subscript semantics;
 - replace a symbol with a visually similar but semantically different glyph;
 - infer a different notation convention from typography limitations;
-- rewrite a mathematically meaningful delimiter without semantic validation.
+- rewrite a mathematically meaningful delimiter without semantic validation;
+- invent a spoken meaning for a context-dependent symbol solely from its glyph.
 
 ## Cross-output invariants
 
-Given one Math IR semantic expression, all output adapters MUST preserve:
+Given one Math IR semantic expression, all certified output adapters MUST preserve:
 
 - operator and relation identity;
 - operand order;
@@ -45,11 +48,13 @@ Given one Math IR semantic expression, all output adapters MUST preserve:
 - logical direction and equivalence;
 - domain-specific notation declared by the source profile.
 
+For registered notation, adapters SHOULD retain a semantic signature so semantic identity can be compared before and after conversion.
+
 ## PDF / LaTeX
 
 - Prefer canonical LaTeX from the registry.
 - Unknown aliases MUST be normalized before final serialization when the semantic identity is known.
-- Unsupported expressions MUST not be presented as if successfully rendered mathematics.
+- Unsupported or ambiguous notation MUST not be presented as if successfully validated mathematics.
 
 ## DOCX / OMML
 
@@ -68,15 +73,19 @@ Given one Math IR semantic expression, all output adapters MUST preserve:
 
 ## Video / Manim
 
-- Mathematical text MUST be generated from validated semantic notation.
+- Mathematical text MUST be generated from validated notation derived from the shared authority.
 - Visual QA MUST verify sign visibility, baseline, exponent/subscript position, vector/ray modifiers, delimiters, and clipping.
 - Animation MUST NOT morph one semantic token into another without an explicit mathematical transition.
+- Syntax validation alone is insufficient; notation identity must be preserved before render.
 
 ## TTS / narration
 
-- Spoken Vietnamese is derived from semantic identity, not from arbitrary glyph guessing.
-- Narration MUST distinguish meanings such as `thuộc`, `không thuộc`, `tập con`, `tập con hoặc bằng`, `vuông góc`, `song song`, `nhỏ hơn hoặc bằng`, and `lớn hơn hoặc bằng`.
-- When a notation item has context-sensitive pronunciation, the registry MAY delegate to a contextual pronunciation rule but MUST retain one semantic ID.
+- Spoken Vietnamese is derived from resolved semantic identity, not arbitrary glyph guessing.
+- Narration MUST distinguish meanings such as `thuộc`, `không thuộc`, `tập con`, `vuông góc`, `song song`, `nhỏ hơn hoặc bằng`, and `lớn hơn hoặc bằng`.
+- Profile-dependent notation MUST be resolved under a declared notation profile before narration.
+- Context-dependent notation MUST be resolved by mathematical structure before narration. If context is insufficient, TTS support for that token MUST be rejected rather than guessed.
+- Example: `≡` may be visually preserved while generic TTS remains disabled until the expression semantics identify identity, modular congruence, or another intended relation.
+- Contextual verbalizers for fractions, roots, powers, coordinates, and similar structures MAY exist, but they MUST consume registered semantic identity and MUST NOT redefine registered notation independently.
 
 ## Failure codes
 
