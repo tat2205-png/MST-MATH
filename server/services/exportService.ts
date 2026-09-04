@@ -19,7 +19,7 @@ export class ExportService {
     const dateStr = new Date().toLocaleDateString("vi-VN");
     
     return `% ====================================================================
-% PiMath / ${authority.brand.standardId} / ${authority.profile.profileId}
+% MST-MATH / ${authority.brand.standardId} / ${authority.profile.profileId}
 % MATH AI VIDEO STUDIO - High-School Mathematics Document
 % Generated on: ${dateStr}
 % Domain: ${problemIR.domain} | Topic: ${problemIR.topic} | Grade: ${problemIR.grade}
