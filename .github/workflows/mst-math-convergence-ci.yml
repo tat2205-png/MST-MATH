@@ -59,6 +59,7 @@ jobs:
   pc-question-authority:
     name: pc-question-authority
     if: github.event_name == 'pull_request'
+    needs: core-quality
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
