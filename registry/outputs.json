@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "PIMATH_OUTPUT_REGISTRY_V1",
+  "id": "MST_MATH_OUTPUT_REGISTRY_V1",
   "status": "CANONICAL",
   "rules": {
-    "scopeStatusMeaning": "Defines whether an output belongs to the locked PiMath product architecture.",
+    "scopeStatusMeaning": "Defines whether an output belongs to the locked MST-MATH product architecture.",
     "repoStatusMeaning": "Describes only verified implementation/artifact state in the repository.",
     "noInferenceRule": "PRODUCT_SCOPE_LOCKED must never be interpreted as IMPLEMENTED."
   },
