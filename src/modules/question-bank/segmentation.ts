@@ -40,6 +40,7 @@ const section = /^(PHẦN\s+(?:I|II|III|IV|V)|TRẮC NGHIỆM|ĐÚNG\s*\/\s*SAI|
 const semantic = /^(?:cho|tính|tìm|xác định|chứng minh|giải|hãy|một|trong|tại|người ta|một người|một công ty|một vật)\b/iu;
 const answerSolution = /^(?:đáp\s*án|lời\s*giải|hướng\s*dẫn\s*giải|kết\s*quả)\b/iu;
 const terminalAnswerCue = /(?:\bKQ|\bKết\s*quả|\bĐáp\s*án)\s*:\s*[^\n]{0,120}$/iu;
+const numberedContinuationIntro = /(?:\b(?:điều kiện|yêu cầu|mệnh đề|khẳng định|trường hợp|nội dung|các\s+ý)\s+(?:sau|sau\s+đây)|\b(?:gồm|bao\s+gồm|thỏa\s+mãn)[^:.!?]{0,120})\s*:\s*$/iu;
 
 function contentStartsExplicitQuestion(content: ContentBlock): boolean {
   return content.type === "text" && explicitQuestion.test(content.value.trimStart());
@@ -160,6 +161,15 @@ function typeFor(sectionName: string | undefined, content: ContentBlock[]): Ques
   return new Set(optionLabels).size >= 2 ? "MULTIPLE_CHOICE" : "UNKNOWN";
 }
 
+function currentCandidateText(current: SegmentationBlock[]): string {
+  return textOf(current.flatMap((block) => block.content)).replace(/\s+/gu, " ").trim();
+}
+
+function invitesNumberedContinuation(current: SegmentationBlock[]): boolean {
+  if (current.length === 0) return false;
+  return numberedContinuationIntro.test(currentCandidateText(current));
+}
+
 export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidate[] {
   const candidates: DocumentQuestionCandidate[] = [];
   const answerSolutionAppendices = findAnswerSolutionAppendixRegions(document);
@@ -168,6 +178,7 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
   let label: string | undefined;
   let index: number | undefined;
   let starts: QuestionStartCandidate[] = [];
+  let numberedContinuationActive = false;
 
   const flush = (
     endEvidence: BoundaryEvidence[] = [{ kind: "DOCUMENT_END", detail: "ordered document sequence ended" }],
@@ -238,6 +249,7 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
 
     current = [];
     starts = [];
+    numberedContinuationActive = false;
   };
 
   for (const block of segmentationUnits(document)) {
@@ -264,6 +276,14 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
     }
 
     const marker = question.exec(value);
+    const explicitMarker = Boolean(marker?.[1]);
+    const numberedContinuation = Boolean(
+      block.numbering &&
+      current.length > 0 &&
+      !explicitMarker &&
+      (numberedContinuationActive || invitesNumberedContinuation(current)),
+    );
+
     const signals: QuestionStartCandidate[] = [];
     if (marker) {
       signals.push(
@@ -276,7 +296,9 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
         ),
       );
     }
-    if (block.numbering) signals.push(evidenceFor(block, document, "WORD_NUMBERING", block.numbering, "HIGH_CONFIDENCE"));
+    if (block.numbering && !numberedContinuation) {
+      signals.push(evidenceFor(block, document, "WORD_NUMBERING", block.numbering, "HIGH_CONFIDENCE"));
+    }
     if (
       semantic.test(value) &&
       value.length >= 12 &&
@@ -296,8 +318,20 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
       starts = signals;
       label = marker?.[0]?.trim();
       index = marker?.[2] ? Number(marker[2]) : undefined;
+      numberedContinuationActive = false;
     }
-    if (current.length || startsQuestion) current.push(block);
+
+    if (current.length || startsQuestion) {
+      current.push(block);
+      if (numberedContinuation) {
+        numberedContinuationActive = true;
+      } else if (numberedContinuationActive && !block.numbering && !explicitMarker) {
+        // A plain paragraph after the numbered subordinate list can still be
+        // part of the same question, but it ends the list-mode suppression so
+        // a later independent Word-numbered question is not swallowed.
+        numberedContinuationActive = false;
+      }
+    }
   }
 
   flush();
