@@ -19,6 +19,7 @@
     "qa:python-math": "uv run --group test python -m pytest tests/test_python_math_stack.py -q",
     "qa:manim": "uv run --group test python -m pytest tests/test_manim_toolkit.py tests/test_manim_toolkit_golden_scene.py tests/test_manim_toolkit_hardening.py tests/test_manim_toolkit_phase2b_baseline.py -q",
     "qa:na-math-v2.6": "node --import tsx tests/test-na-math-v2.6.ts",
+    "qa:visual-identity": "node --import tsx tests/test-mst-math-output-visual-identity-v1.ts",
     "qa:docx:1a": "node --import tsx tests/test-docx-1a.ts",
     "qa:docx:1b": "node --import tsx tests/test-docx-1b.ts",
     "qa:docx:1c": "node --import tsx tests/test-docx-1c.ts",
