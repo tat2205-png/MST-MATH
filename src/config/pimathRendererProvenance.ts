@@ -4,14 +4,14 @@ import { resolveBrand, resolveCanonicalReference } from "./naMathBrandRoot.js";
 
 export type RendererProvenance = "CANONICAL_BINDING" | "ADAPTER_BOUNDARY" | "IMPLEMENTATION_NEUTRAL";
 export function resolveRendererColor(role: keyof typeof colorSystem.shared_tokens) {
-  if (resolveBrand().references.color !== colorSystem.id) throw new Error("PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED:renderer-color");
+  if (resolveBrand().references.color !== colorSystem.id) throw new Error("MST_MATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED:renderer-color");
   return { value: colorSystem.shared_tokens[role], role, authority: resolveCanonicalReference("color"), provenance: "CANONICAL_BINDING" as const };
 }
 export function resolveRendererTypography(role: keyof typeof tokens.typography) {
-  if (resolveBrand().references.typography !== "NA_MATH_TYPOGRAPHY_STANDARD_V1_0") throw new Error("PIMATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED:renderer-typography");
+  if (resolveBrand().references.typography !== "NA_MATH_TYPOGRAPHY_STANDARD_V1_0") throw new Error("MST_MATH_DNA_AUTHORITATIVE_TOKEN_UNRESOLVED:renderer-typography");
   return { value: tokens.typography[role], role, authority: resolveCanonicalReference("typography"), provenance: "CANONICAL_BINDING" as const };
 }
 export function resolveDevelopableThreeColor(role: "base-face" | "cut-edge" | "folding-face" | "cut-piece" | "hidden-edge" | "dimension") { const compatibilityValues = { "base-face": 0x4f8fdf, "cut-edge": 0xef4444, "folding-face": 0xfbbf24, "cut-piece": 0xf472b6, "hidden-edge": 0x64748b, dimension: 0x94a3b8 } as const; return { value: compatibilityValues[role], role, upstream: "NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1" as const, provenance: "ADAPTER_BOUNDARY" as const }; }
 export function resolveRendererAdapterValue<T>(value: T, adapter: string) {
-  return { value, adapter, upstream: "PIMATH-DNA-V1.0" as const, provenance: "ADAPTER_BOUNDARY" as const };
+  return { value, adapter, upstream: "MST-MATH-DNA-V1.0" as const, provenance: "ADAPTER_BOUNDARY" as const };
 }
