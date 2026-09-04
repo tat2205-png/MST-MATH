@@ -49,15 +49,16 @@ const typeLabels: Record<QuestionType, string> = {
 };
 
 const areas: Array<{ id: TeacherArea; label: string; icon: React.ComponentType<{ className?: string }> }> = [
-  { id: "workspace", label: "Không gian làm việc", icon: Home },
-  { id: "import", label: "Nhập tài liệu", icon: FileInput },
-  { id: "review", label: "Duyệt câu hỏi", icon: ShieldCheck },
-  { id: "bank", label: "Ngân hàng câu hỏi", icon: Library },
-  { id: "assessment", label: "Tạo đề", icon: BookOpenCheck },
-  { id: "game", label: "Trò chơi", icon: Gamepad2 },
-  { id: "video", label: "Giải / Video", icon: Video },
-  { id: "export", label: "Xuất bản", icon: FileOutput },
+  { id: "workspace", label: "Tổng quan", icon: Home },
+  { id: "import", label: "Nguồn", icon: FileInput },
+  { id: "review", label: "Xử lý", icon: ShieldCheck },
+  { id: "assessment", label: "Thiết kế", icon: BookOpenCheck },
+  { id: "bank", label: "Question Bank", icon: Library },
+  { id: "video", label: "QA", icon: Video },
+  { id: "export", label: "Xuất", icon: FileOutput },
 ];
+
+export const CANONICAL_TEACHER_STAGES = ["Nguồn", "Xử lý", "Thiết kế", "QA", "Xuất"] as const;
 
 async function api<T>(path: string, body?: unknown): Promise<T> {
   const response = await fetch(path, body === undefined ? undefined : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
@@ -278,7 +279,7 @@ export function TeacherWorkspace({ onOpenStudio }: { onOpenStudio: () => void })
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <button onClick={() => navigate("workspace")} className="flex items-center gap-3 rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-blue-400">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-xl font-bold">Σ</span>
-            <span><strong className="block text-sm tracking-wide">MATH AI STUDIO</strong><span className="text-xs text-slate-300">Quy trình dành cho giáo viên</span></span>
+            <span><strong className="block text-sm tracking-wide">MST-MATH Studio</strong><span className="text-xs text-slate-300">Teacher Workspace · Quy trình dành cho giáo viên</span></span>
           </button>
           <div className="flex items-center gap-2 text-xs">
             <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-emerald-300">Runtime sẵn sàng</span>
@@ -295,9 +296,9 @@ export function TeacherWorkspace({ onOpenStudio }: { onOpenStudio: () => void })
 
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
         {area === "workspace" && <section>
-          <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-blue-950 p-6 text-white shadow-lg sm:p-8"><p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-300">Teacher Golden Workflow</p><h1 className="text-2xl font-bold sm:text-3xl">Từ tài liệu đến hoạt động lớp học trong một luồng rõ ràng</h1><p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">Nhập DOCX, kiểm tra nội dung, duyệt câu hỏi, chọn Question ID và tạo đề, trò chơi, video hoặc tệp xuất bằng các engine đã được kiểm định.</p><button onClick={() => navigate("import")} className="mt-5 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300"><FileInput className="h-4 w-4" />Nhập tài liệu</button></div>
+          <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-blue-950 p-6 text-white shadow-lg sm:p-8"><p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-300">MST-MATH Teacher Workspace</p><h1 className="text-2xl font-bold sm:text-3xl">Nguồn → Xử lý → Thiết kế → QA → Xuất</h1><p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">Một không gian giáo viên thích ứng: nguồn và ngữ cảnh ở bên trái, thiết kế ở trung tâm, QA và AI theo ngữ cảnh ở bên phải. DOCX là đường nhập tài liệu đã được xác minh.</p><div className="mt-5 flex flex-wrap gap-2" aria-label="Các giai đoạn quy trình">{CANONICAL_TEACHER_STAGES.map((stage, index) => <button key={stage} onClick={() => navigate((["import", "review", "assessment", "video", "export"] as TeacherArea[])[index])} className="rounded-lg border border-blue-400/40 bg-white/10 px-3 py-2 text-xs font-semibold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-300">{index + 1}. {stage}</button>)}</div></div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[{ label: "Tổng câu hỏi", value: summary?.counts.TOTAL ?? 0 }, { label: "Đã duyệt", value: summary?.counts.APPROVED ?? 0 }, { label: "Cần xem lại", value: summary?.counts.REVIEW ?? 0 }, { label: "Cách ly", value: summary?.counts.QUARANTINED ?? 0 }].map((item) => <div key={item.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><div className="text-xs text-slate-500">{item.label}</div><div className="mt-1 text-2xl font-bold">{item.value}</div></div>)}</div>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">{[{ title: "Ngân hàng câu hỏi", text: "Tìm kiếm, lọc và chọn câu hỏi đã duyệt.", action: "bank" as TeacherArea, icon: Library }, { title: "Tạo đề & trò chơi", text: "Sinh đề xác định và dùng Assessment làm nguồn trò chơi.", action: "assessment" as TeacherArea, icon: Gamepad2 }, { title: "Giải / Video / Export", text: "Giữ Math QA và Studio Orchestrator trong đường thực thi.", action: "video" as TeacherArea, icon: Sparkles }].map((card) => <button key={card.title} onClick={() => navigate(card.action)} className="rounded-xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:border-blue-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"><card.icon className="h-6 w-6 text-blue-600" /><strong className="mt-3 block">{card.title}</strong><span className="mt-1 block text-sm leading-6 text-slate-600">{card.text}</span></button>)}</div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">{[{ title: "Thiết kế bài học / Geometry", text: "Bài học, worksheet, bài tập và geometry dùng capability hiện có; FOLD là mode trong Geometry.", action: "assessment" as TeacherArea, icon: BookOpenCheck }, { title: "QA theo ngữ cảnh", text: "Theo dõi math, source, layout và output readiness trước khi xuất.", action: "video" as TeacherArea, icon: ShieldCheck }, { title: "Hồ sơ đầu ra", text: "THPTQG · DGNL · SAT · V-SAT là output profiles, không phải ứng dụng riêng.", action: "export" as TeacherArea, icon: FileOutput }].map((card) => <button key={card.title} onClick={() => navigate(card.action)} className="rounded-xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:border-blue-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"><card.icon className="h-6 w-6 text-blue-600" /><strong className="mt-3 block">{card.title}</strong><span className="mt-1 block text-sm leading-6 text-slate-600">{card.text}</span></button>)}</div>
         </section>}
 
         {area === "import" && <section className="mx-auto max-w-3xl"><button onClick={() => navigate("workspace")} className="mb-4 inline-flex items-center gap-1 text-sm text-slate-600 hover:text-blue-600"><ArrowLeft className="h-4 w-4" />Không gian làm việc</button><div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h1 className="text-xl font-bold">Nhập tài liệu DOCX</h1><p className="mt-2 text-sm text-slate-600">Hệ thống dùng pipeline DOCX/OMML hiện có. Nội dung không rõ ràng sẽ được đánh dấu để giáo viên xem lại, không tự suy đoán.</p><label htmlFor="teacher-docx" className="mt-6 block rounded-xl border-2 border-dashed border-slate-300 p-8 text-center hover:border-blue-400"><FileInput className="mx-auto h-8 w-8 text-blue-600" /><span className="mt-3 block text-sm font-semibold">Chọn tệp .docx</span><span className="mt-1 block text-xs text-slate-500">Không quảng cáo PDF vì runtime nhập PDF chưa thuộc đường được xác minh.</span><input id="teacher-docx" type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={(event) => setFile(event.target.files?.[0] ?? null)} className="mt-4 block w-full text-sm" /></label>{file && <div className="mt-3 rounded-lg bg-slate-50 p-3 text-sm">Đã chọn: <strong>{file.name}</strong> · {(file.size / 1024).toFixed(1)} KB</div>}<button disabled={!file || busy !== null} onClick={runImport} className="mt-5 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"><FileInput className="h-4 w-4" />Phân tích và nhận diện câu hỏi</button></div></section>}
