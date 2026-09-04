@@ -118,6 +118,16 @@ def _effective_semantics(entry: dict[str, Any], profile_id: str | None) -> tuple
     return profile["semantic"], profile.get("spokenVi", entry["spokenVi"])
 
 
+def _needs_control_word_separator(canonical: str, next_character: str | None) -> bool:
+    return (
+        canonical.startswith("\\")
+        and canonical[1:].isalpha()
+        and bool(next_character)
+        and next_character.isascii()
+        and next_character.isalpha()
+    )
+
+
 def prepare_math_notation(
     source: str,
     *,
@@ -171,6 +181,10 @@ def prepare_math_notation(
             }
         )
         canonical_parts.append(canonical)
+        next_index = cursor + len(token)
+        next_character = source[next_index] if next_index < len(source) else None
+        if _needs_control_word_separator(canonical, next_character):
+            canonical_parts.append(" ")
         cursor += len(token)
 
     return {
