@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "corpusId": "PIMATH_REAL_ACCEPTANCE_CORPUS_V1",
+  "classificationPolicy": "REAL_ACCEPTANCE_SOURCE; no Golden relabeling",
+  "sourceDiscoveryMode": "READ_ONLY",
+  "sourceRootsInspected": [
+    "D:\\NA-MATH-NLS-AI-SOURCES"
+  ],
+  "entries": [
+    {
+      "id": "KNTT-MATH-10-T1",
+      "type": "PDF",
+      "sourceDocument": "Toan10-Tap1-KNTT.pdf",
+      "sourceRoot": "D:\\NA-MATH-NLS-AI-SOURCES",
+      "relativePath": "Toan10-Tap1-KNTT.pdf",
+      "sha256": "3fcc974ef1bb8ac0ef11bcc3408c1dba12eedd76a67cfcfebde087c90ac9a88b",
+      "classification": "REAL_ACCEPTANCE_SOURCE",
+      "provenanceStatus": "PRESERVED",
+      "expectedCapabilities": [
+        "native-pdf-text",
+        "layout-evidence",
+        "raster-region-OCR-if-required"
+      ],
+      "notes": "Grade 10 textbook volume 1; representative full textbook PDF"
+    },
+    {
+      "id": "KNTT-MATH-11-CD",
+      "type": "PDF",
+      "sourceDocument": "Toan11-ChuyenDe-KNTT.pdf",
+      "sourceRoot": "D:\\NA-MATH-NLS-AI-SOURCES",
+      "relativePath": "Toan11-ChuyenDe-KNTT.pdf",
+      "sha256": "a7b48523d80e956baaff3aa0a75f7d438468c3940f3d4ce7fe2d04d8b6e3e89e",
+      "classification": "REAL_ACCEPTANCE_SOURCE",
+      "provenanceStatus": "PRESERVED",
+      "expectedCapabilities": [
+        "native-pdf-text",
+        "layout-evidence",
+        "raster-region-OCR-if-required"
+      ],
+      "notes": "Grade 11 specialized-topic PDF; different document structure"
+    },
+    {
+      "id": "KNTT-MATH-12-T2",
+      "type": "PDF",
+      "sourceDocument": "Toan12-Tap2-KNTT.pdf",
+      "sourceRoot": "D:\\NA-MATH-NLS-AI-SOURCES",
+      "relativePath": "Toan12-Tap2-KNTT.pdf",
+      "sha256": "3c642f2e80d86d699ea62bbcabd0c3074fd5118def96e4b3b8ce1f9ead7f97bb",
+      "classification": "REAL_ACCEPTANCE_SOURCE",
+      "provenanceStatus": "PRESERVED",
+      "expectedCapabilities": [
+        "native-pdf-text",
+        "layout-evidence",
+        "raster-region-OCR-if-required"
+      ],
+      "notes": "Grade 12 textbook volume 2; representative full textbook PDF"
+    }
+  ]
+}

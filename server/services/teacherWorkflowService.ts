@@ -7,6 +7,11 @@ import { QuestionBankExportService, type ExportAudience, type ExportFormat } fro
 import { JsonQuestionBankRepository } from "../../src/modules/question-bank/repository.js";
 import { QuestionSearchService } from "../../src/modules/question-bank/search.js";
 import type { FigureRecord, QuestionBankRepository, QuestionObject, QuestionSearchQuery } from "../../src/modules/question-bank/types.js";
+import {
+  safeCleanDocx,
+  type WordPreflightReport,
+  type WordSafeCleanResult,
+} from "../../src/modules/word-preflight/index.js";
 import type {
   AssessmentWorkflowResult,
   ExportWorkflowRequest,
@@ -20,9 +25,20 @@ import type {
 } from "../../src/services/teacherWorkflowTypes.js";
 import { QuestionBankStudioService } from "../integrations/questionBankStudio.js";
 import { StudioEngineRegistry } from "../studio/engineRegistry.js";
+import {
+  SUPPORTED_EXPORT_FORMATS,
+  TeacherWorkflowReadinessAuthority,
+  type AuthoritativeReadinessContract,
+} from "./teacherWorkflowReadiness.js";
 
 type StoredAssessment = { assessment: Assessment; answerManifest: AssessmentAnswerManifest };
 type StoredGame = { service: ClassroomGameService; session: GameSession };
+type ImportDiagnostic = ImportWorkflowResult["diagnostics"][number];
+
+type BackendExportWorkflowRequest =
+  ExportWorkflowRequest & {
+    artifactId?: string;
+  };
 
 function figureForClient(figure: FigureRecord): TeacherQuestion["figures"][number] {
   const { bytes, ...safe } = figure;
@@ -36,6 +52,113 @@ function questionForClient(question: QuestionObject): TeacherQuestion {
   return { ...structuredClone(question), figures: question.figures.map(figureForClient) };
 }
 
+function wordPreflightDiagnostics(report: WordPreflightReport): ImportDiagnostic[] {
+  const diagnostics: ImportDiagnostic[] = [{
+    code: "WORD_PREFLIGHT_PASS",
+    severity: report.riskLevel === "HIGH" ? "WARNING" : "INFO",
+    details: {
+      version: report.version,
+      healthScore: report.healthScore,
+      riskLevel: report.riskLevel,
+      sourceSha256: report.inputSha256,
+      safeCleanAvailable: report.safeCleanAvailable,
+      metrics: report.metrics,
+    },
+  }];
+  for (const issue of report.issues) {
+    diagnostics.push({
+      code: issue.code,
+      severity: issue.severity,
+      details: { message: issue.message, count: issue.count },
+    });
+  }
+  if (report.safeCleanAvailable) {
+    diagnostics.push({
+      code: "WORD_SAFE_CLEAN_AVAILABLE",
+      severity: "INFO",
+      details: {
+        endpoint: "/api/word-preflight/safe-clean",
+        sourceOverwrite: false,
+        protectedFingerprint: report.protectedFingerprint,
+      },
+    });
+  }
+  return diagnostics;
+}
+
+function wordSafeCleanDiagnostics(
+  result: WordSafeCleanResult,
+): ImportDiagnostic[] {
+  return [
+    {
+      code: "WORD_SAFE_CLEAN_APPLIED",
+      severity: "INFO",
+      details: {
+        version: result.version,
+        sourceSha256: result.sourceSha256,
+        outputSha256: result.outputSha256,
+        suggestedOutputFileName: result.suggestedOutputFileName,
+        changes: result.changes,
+        protectedFingerprintMatch: result.protectedFingerprintMatch,
+        sourceBytesMutated: result.sourceBytesMutated,
+        safeCleanQa: result.safeCleanQa,
+        afterHealthScore: result.after.healthScore,
+        afterRiskLevel: result.after.riskLevel,
+      },
+    },
+    {
+      code: "WORD_SOURCE_IDENTITY_LOCKED",
+      severity: "INFO",
+      details: {
+        sourceDocument: result.originalFileName,
+        sourceSha256: result.sourceSha256,
+        processingSha256: result.outputSha256,
+        sourceBytesMutated: false,
+      },
+    },
+  ];
+}
+
+function prepareImportBytes(
+  bytes: Uint8Array,
+  fileName: string,
+) {
+  const sourceDocument = path.basename(fileName);
+
+  let cleaned: WordSafeCleanResult;
+
+  try {
+    cleaned = safeCleanDocx(bytes, sourceDocument);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+
+    if (message.startsWith("WORD_PREFLIGHT_BLOCKED")) {
+      throw new Error(`INVALID_DOCUMENT: ${message}`);
+    }
+
+    throw error;
+  }
+
+  const transformationHistory = [
+    `PIMATH_WORD_SAFE_CLEAN:${cleaned.version}:${cleaned.sourceSha256}->${cleaned.outputSha256}`,
+  ];
+
+  return {
+    processingBytes: cleaned.bytes,
+    sourceDocument,
+    context: {
+      sourceDocument,
+      sourceSha256: cleaned.sourceSha256,
+      processingSha256: cleaned.outputSha256,
+      transformationHistory,
+    },
+    diagnostics: [
+      ...wordPreflightDiagnostics(cleaned.before),
+      ...wordSafeCleanDiagnostics(cleaned),
+    ],
+  };
+}
+
 export class TeacherWorkflowService {
   private readonly bank: QuestionBankService;
   private readonly search: QuestionSearchService;
@@ -44,6 +167,9 @@ export class TeacherWorkflowService {
   private readonly studio = new QuestionBankStudioService();
   private readonly assessments = new Map<string, StoredAssessment>();
   private readonly games = new Map<string, StoredGame>();
+
+  private readonly readinessAuthority =
+    new TeacherWorkflowReadinessAuthority();
   private readonly outputDirectory: string;
 
   constructor(private readonly repository: QuestionBankRepository = new JsonQuestionBankRepository(path.join(process.cwd(), "render_output", "teacher-workflow", "question-bank.json"))) {
@@ -76,17 +202,58 @@ export class TeacherWorkflowService {
   }
 
   importDocx(base64: string, fileName: string): ImportWorkflowResult {
-    if (!fileName.toLocaleLowerCase().endsWith(".docx")) throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
-    const bytes = new Uint8Array(Buffer.from(base64, "base64"));
-    if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
-    const result = this.bank.importDocx(bytes, path.basename(fileName));
-    return { imported: result.imported.map(questionForClient), diagnostics: result.diagnostics, summary: this.summary() };
+    if (!fileName.toLocaleLowerCase().endsWith(".docx")) {
+      throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
+    }
+
+    const sourceBytes = new Uint8Array(Buffer.from(base64, "base64"));
+
+    if (!sourceBytes.length) {
+      throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
+    }
+
+    const prepared = prepareImportBytes(sourceBytes, fileName);
+
+    const result = this.bank.importDocx(
+      prepared.processingBytes,
+      prepared.sourceDocument,
+      prepared.context,
+    );
+
+    return {
+      imported: result.imported.map(questionForClient),
+      diagnostics: [...prepared.diagnostics, ...result.diagnostics],
+      summary: this.summary(),
+    };
   }
 
-  async importDocxForRuntime(base64: string, fileName: string): Promise<ImportWorkflowResult> {
-    if (!fileName.toLocaleLowerCase().endsWith(".docx")) throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
-    const bytes = new Uint8Array(Buffer.from(base64, "base64")); if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
-    const result = await this.bank.importDocxForRuntime(bytes, path.basename(fileName)); return { imported: result.imported.map(questionForClient), diagnostics: result.diagnostics, summary: this.summary() };
+  async importDocxForRuntime(
+    base64: string,
+    fileName: string,
+  ): Promise<ImportWorkflowResult> {
+    if (!fileName.toLocaleLowerCase().endsWith(".docx")) {
+      throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
+    }
+
+    const sourceBytes = new Uint8Array(Buffer.from(base64, "base64"));
+
+    if (!sourceBytes.length) {
+      throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
+    }
+
+    const prepared = prepareImportBytes(sourceBytes, fileName);
+
+    const result = await this.bank.importDocxForRuntime(
+      prepared.processingBytes,
+      prepared.sourceDocument,
+      prepared.context,
+    );
+
+    return {
+      imported: result.imported.map(questionForClient),
+      diagnostics: [...prepared.diagnostics, ...result.diagnostics],
+      summary: this.summary(),
+    };
   }
 
   approve(ids: string[]): WorkflowSummary {
@@ -111,8 +278,60 @@ export class TeacherWorkflowService {
   generateAssessment(spec: AssessmentSpec): AssessmentWorkflowResult | { diagnostics: unknown[]; queryPlan: unknown[] } {
     const result = this.assessment.generate({ ...spec, statuses: ["APPROVED"] });
     if ("diagnostics" in result) return { diagnostics: result.diagnostics, queryPlan: result.queryPlan };
-    this.assessments.set(result.assessment.id, { assessment: result.assessment, answerManifest: result.answerManifest });
-    return { assessment: result.assessment, questionIds: result.assessment.sections.flatMap((section) => section.questionRefs.map((ref) => ref.questionId)), queryPlan: result.queryPlan };
+    this.assessments.set(
+      result.assessment.id,
+      {
+        assessment:
+          result.assessment,
+
+        answerManifest:
+          result.answerManifest,
+      },
+    );
+
+    this.readinessAuthority.registerAssessment(
+      result.assessment,
+    );
+
+    return {
+      assessment:
+        result.assessment,
+
+      questionIds:
+        result.assessment.sections.flatMap(
+          (section) =>
+            section.questionRefs.map(
+              (ref) =>
+                ref.questionId,
+            ),
+        ),
+
+      queryPlan:
+        result.queryPlan,
+    };
+  }
+
+  readiness(
+    assessmentId?: string,
+    artifactId?: string,
+  ): AuthoritativeReadinessContract {
+    const resolvedAssessmentId =
+      assessmentId ??
+      this.readinessAuthority.currentAssessmentId();
+
+    const stored =
+      resolvedAssessmentId
+        ? this.assessments.get(
+            resolvedAssessmentId,
+          )
+        : undefined;
+
+    return this.readinessAuthority.evaluate(
+      stored?.assessment,
+      this.repository,
+      resolvedAssessmentId,
+      artifactId,
+    );
   }
 
   startGame(assessmentId: string): GameWorkflowView {
@@ -154,22 +373,212 @@ export class TeacherWorkflowService {
     return { job: result.job, stages: ["PREPARING", "VERIFYING_MATH", "PLANNING_VISUAL", "RENDERING", "QA", "COMPLETE"] };
   }
 
-  exportAssessment(request: ExportWorkflowRequest): ExportWorkflowResult {
-    const stored = this.assessments.get(request.assessmentId);
-    if (!stored) throw new Error("ASSESSMENT_NOT_FOUND");
-    const result = this.exporter.deliver(stored.assessment, stored.answerManifest, this.repository, {
-      audience: request.audience,
-      formats: request.formats,
-      includeAnswers: request.audience === "TEACHER" && request.includeAnswers,
-      includeSolutions: request.audience === "TEACHER" && request.includeSolutions,
-      includeMetadata: request.audience === "TEACHER",
-      includeProvenance: request.audience === "TEACHER",
-      assetMode: "REFERENCE",
-      outputProfile: "NA_MATH_STANDARD",
-      outputDirectory: this.outputDirectory,
-      filename: request.filename,
-    });
-    if ("diagnostics" in result) throw new Error(result.diagnostics.map((diagnostic) => `${diagnostic.code}: ${diagnostic.message}`).join(" | "));
-    return { assessmentId: request.assessmentId, audience: request.audience, artifacts: result.artifacts, questionIds: result.package.questionRefs };
+  exportAssessment(
+    request: BackendExportWorkflowRequest,
+  ): ExportWorkflowResult {
+    if (
+      !request ||
+      typeof request.assessmentId !== "string" ||
+      !request.assessmentId.trim()
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ASSESSMENT_NOT_FOUND",
+      );
+    }
+
+    const stored =
+      this.assessments.get(
+        request.assessmentId,
+      );
+
+    if (!stored) {
+      throw new Error(
+        "EXPORT_DENIED:ASSESSMENT_NOT_FOUND",
+      );
+    }
+
+    if (
+      !Array.isArray(request.formats) ||
+      !request.formats.length
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:FORMAT_UNSUPPORTED",
+      );
+    }
+
+    const unsupported =
+      request.formats.filter(
+        (format) =>
+          !SUPPORTED_EXPORT_FORMATS.includes(
+            format as ExportFormat,
+          ),
+      );
+
+    if (unsupported.length) {
+      throw new Error(
+        "EXPORT_DENIED:FORMAT_UNSUPPORTED",
+      );
+    }
+
+    const readiness =
+      this.readiness(
+        request.assessmentId,
+        request.artifactId,
+      );
+
+    if (
+      readiness.qa.assessmentId !==
+        readiness.design.assessmentId
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ASSESSMENT_ID_MISMATCH",
+      );
+    }
+
+    if (
+      readiness.qa.artifactId !==
+        readiness.design.artifactId
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ARTIFACT_ID_MISMATCH",
+      );
+    }
+
+    if (
+      readiness.source.state !== "PASS"
+    ) {
+      throw new Error(
+        readiness.source.reasons.includes(
+          "SOURCE_LINEAGE_INVALID",
+        )
+          ? "EXPORT_DENIED:SOURCE_LINEAGE_INVALID"
+          : readiness.source.reasons.includes(
+                "QUESTION_IDENTITY_STALE",
+              )
+            ? "EXPORT_DENIED:ASSESSMENT_REF_INVALID"
+            : "EXPORT_DENIED:SOURCE_NOT_READY",
+      );
+    }
+
+    if (
+      readiness.qa.state === "UNKNOWN"
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_UNKNOWN",
+      );
+    }
+
+    if (
+      readiness.qa.state === "REVIEW"
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_REVIEW_REQUIRED",
+      );
+    }
+
+    if (
+      readiness.qa.state !== "PASS"
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_FAILED",
+      );
+    }
+
+    if (
+      !readiness.currentArtifactExportReadiness.ready
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_FAILED",
+      );
+    }
+
+    if (
+      readiness.currentArtifactExportReadiness.artifactId !==
+        readiness.design.artifactId ||
+      readiness.currentArtifactExportReadiness.assessmentId !==
+        readiness.design.assessmentId
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ARTIFACT_ID_MISMATCH",
+      );
+    }
+
+    if (
+      request.formats.some(
+        (format) =>
+          !readiness.currentArtifactExportReadiness.allowedFormats.includes(
+            format,
+          ),
+      )
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:FORMAT_UNSUPPORTED",
+      );
+    }
+
+    const result =
+      this.exporter.deliver(
+        stored.assessment,
+        stored.answerManifest,
+        this.repository,
+        {
+          audience:
+            request.audience,
+
+          formats:
+            request.formats,
+
+          includeAnswers:
+            request.audience === "TEACHER" &&
+            request.includeAnswers,
+
+          includeSolutions:
+            request.audience === "TEACHER" &&
+            request.includeSolutions,
+
+          includeMetadata:
+            request.audience === "TEACHER",
+
+          includeProvenance:
+            request.audience === "TEACHER",
+
+          assetMode:
+            "REFERENCE",
+
+          outputProfile:
+            "NA_MATH_STANDARD",
+
+          outputDirectory:
+            this.outputDirectory,
+
+          filename:
+            request.filename,
+        },
+      );
+
+    if ("diagnostics" in result) {
+      throw new Error(
+        result.diagnostics
+          .map(
+            (diagnostic) =>
+              `${diagnostic.code}: ${diagnostic.message}`,
+          )
+          .join(" | "),
+      );
+    }
+
+    return {
+      assessmentId:
+        request.assessmentId,
+
+      audience:
+        request.audience,
+
+      artifacts:
+        result.artifacts,
+
+      questionIds:
+        result.package.questionRefs,
+    };
   }
 }

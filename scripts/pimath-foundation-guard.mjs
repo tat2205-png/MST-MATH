@@ -1,0 +1,20 @@
+import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+
+const root = process.cwd();
+const changed = execFileSync("git", ["diff", "--name-only", "HEAD"], { encoding: "utf8" }).split(/\r?\n/).filter(Boolean);
+const baseline = "c2a2bd9030983f6b253b9fc1f76f83b4b05c7a06";
+const dna = execFileSync("git", ["diff", "--name-only", `${baseline}..HEAD`], { encoding: "utf8" }).split(/\r?\n/).filter(Boolean);
+const protectedPatterns = [/^registry\/pimath-dna-/i, /^registry\/brand-root\.json$/i, /^registry\/locked-decisions\.json$/i];
+const protectedChanges = [...new Set([...changed, ...dna].filter((p) => protectedPatterns.some((re) => re.test(p))))];
+const pkg = JSON.parse(readFileSync(`${root}/package.json`, "utf8"));
+const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
+const paid = Object.keys(allDeps).filter((p) => /openai|anthropic|mathpix|azure|google-cloud/i.test(p));
+const mathpix = Object.keys(allDeps).filter((p) => /mathpix/i.test(p));
+if (protectedChanges.length || paid.length || mathpix.length) process.exitCode = 1;
+console.log(`PIMATH_DNA_IMMUTABILITY_QA=${protectedChanges.length ? "FAIL" : "PASS"}`);
+console.log(`PIMATH_DNA_AUTHORITY_QA=${protectedChanges.length ? "FAIL" : "PASS"}`);
+console.log(`PROTECTED_AUTHORITY_MUTATION_COUNT=${protectedChanges.length}`);
+console.log(`DNA_REGISTRY_MUTATION_COUNT=${dna.filter((p) => p.toLowerCase().startsWith("registry/")).length}`);
+console.log(`PAID_RUNTIME_DEPENDENCY_COUNT=${paid.length}`);
+console.log(`MATHPIX_IMPLEMENTATION_COUNT=${mathpix.length}`);

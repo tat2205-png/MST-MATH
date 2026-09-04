@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import type { QuestionBankRepository, QuestionBankSnapshot } from "./types.js";
-const empty = (): QuestionBankSnapshot => ({ schemaVersion: 1, questions: [], orphanFigures: [] });
+const empty = (): QuestionBankSnapshot => ({ schemaVersion: 1, questions: [], orphanFigures: [], relations: { schemaVersion: 1, relations: [], families: [], duplicateAudit: [] } });
 
 type EncodedBytes = { $type: "Uint8Array"; base64: string };
 type NodeBufferJson = { type: "Buffer"; data: number[] };

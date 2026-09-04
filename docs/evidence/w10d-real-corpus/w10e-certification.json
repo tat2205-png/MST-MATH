@@ -1,0 +1,5461 @@
+{
+  "schemaVersion": "W10E-1",
+  "rangeTotals": {
+    "overlap": 0,
+    "gap": 0,
+    "invalid": 0,
+    "duplicate": 0
+  },
+  "rangeCertification": [
+    {
+      "filename": "1. MIN MAX -HH PHẲNG.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "1.1.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "2. MIN MAX HHKG.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "2.1.docx",
+      "questions": [
+        {
+          "questionId": "717b39e5b6a1-q1",
+          "questionNumber": 1,
+          "start": 5,
+          "end": 335,
+          "startObjectId": "paragraph-5",
+          "endObjectId": "section-336",
+          "startAnchor": {
+            "sourceDocumentId": "docx-717b39e5b6a1bad3",
+            "partName": "word/document.xml",
+            "paragraphIndex": 5,
+            "objectIndex": 5
+          }
+        }
+      ],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "BÀI 2. GTLN-GTNN.docx",
+      "questions": [
+        {
+          "questionId": "bec93b42b430-q2",
+          "questionNumber": 2,
+          "start": 0,
+          "end": 189,
+          "startObjectId": "paragraph-0",
+          "endObjectId": "paragraph-189",
+          "startAnchor": {
+            "sourceDocumentId": "docx-bec93b42b430a8d7",
+            "partName": "word/document.xml",
+            "paragraphIndex": 0,
+            "objectIndex": 0
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-bec93b42b430a8d7",
+            "partName": "word/document.xml",
+            "paragraphIndex": 189,
+            "objectIndex": 189
+          }
+        }
+      ],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "questions": [
+        {
+          "questionId": "7f26811b8588-q1",
+          "questionNumber": 1,
+          "start": 3,
+          "end": 8,
+          "startObjectId": "paragraph-3",
+          "endObjectId": "paragraph-8",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 3,
+            "objectIndex": 3
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 8,
+            "objectIndex": 8
+          },
+          "nextQuestionStartObjectId": "paragraph-9"
+        },
+        {
+          "questionId": "7f26811b8588-q2",
+          "questionNumber": 2,
+          "start": 9,
+          "end": 15,
+          "startObjectId": "paragraph-9",
+          "endObjectId": "paragraph-15",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 9,
+            "objectIndex": 9
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 15,
+            "objectIndex": 15
+          },
+          "nextQuestionStartObjectId": "paragraph-16"
+        },
+        {
+          "questionId": "7f26811b8588-q3",
+          "questionNumber": 3,
+          "start": 16,
+          "end": 21,
+          "startObjectId": "paragraph-16",
+          "endObjectId": "paragraph-21",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 16,
+            "objectIndex": 16
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 21,
+            "objectIndex": 21
+          },
+          "nextQuestionStartObjectId": "paragraph-22"
+        },
+        {
+          "questionId": "7f26811b8588-q4",
+          "questionNumber": 4,
+          "start": 22,
+          "end": 28,
+          "startObjectId": "paragraph-22",
+          "endObjectId": "paragraph-28",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 22,
+            "objectIndex": 22
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 28,
+            "objectIndex": 28
+          },
+          "nextQuestionStartObjectId": "paragraph-29"
+        },
+        {
+          "questionId": "7f26811b8588-q5",
+          "questionNumber": 5,
+          "start": 29,
+          "end": 35,
+          "startObjectId": "paragraph-29",
+          "endObjectId": "paragraph-35",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 29,
+            "objectIndex": 29
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 35,
+            "objectIndex": 35
+          },
+          "nextQuestionStartObjectId": "paragraph-36"
+        },
+        {
+          "questionId": "7f26811b8588-q6",
+          "questionNumber": 6,
+          "start": 36,
+          "end": 46,
+          "startObjectId": "paragraph-36",
+          "endObjectId": "paragraph-46",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 36,
+            "objectIndex": 36
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 46,
+            "objectIndex": 46
+          },
+          "nextQuestionStartObjectId": "paragraph-47"
+        },
+        {
+          "questionId": "7f26811b8588-q7",
+          "questionNumber": 7,
+          "start": 47,
+          "end": 53,
+          "startObjectId": "paragraph-47",
+          "endObjectId": "paragraph-53",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 47,
+            "objectIndex": 47
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 53,
+            "objectIndex": 53
+          },
+          "nextQuestionStartObjectId": "paragraph-54"
+        },
+        {
+          "questionId": "7f26811b8588-q8",
+          "questionNumber": 8,
+          "start": 54,
+          "end": 60,
+          "startObjectId": "paragraph-54",
+          "endObjectId": "paragraph-60",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 54,
+            "objectIndex": 54
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 60,
+            "objectIndex": 60
+          },
+          "nextQuestionStartObjectId": "paragraph-61"
+        },
+        {
+          "questionId": "7f26811b8588-q9",
+          "questionNumber": 9,
+          "start": 61,
+          "end": 69,
+          "startObjectId": "paragraph-61",
+          "endObjectId": "paragraph-69",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 61,
+            "objectIndex": 61
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 69,
+            "objectIndex": 69
+          },
+          "nextQuestionStartObjectId": "paragraph-70"
+        },
+        {
+          "questionId": "7f26811b8588-q10",
+          "questionNumber": 10,
+          "start": 70,
+          "end": 76,
+          "startObjectId": "paragraph-70",
+          "endObjectId": "paragraph-76",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 70,
+            "objectIndex": 70
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 76,
+            "objectIndex": 76
+          },
+          "nextQuestionStartObjectId": "paragraph-77"
+        },
+        {
+          "questionId": "7f26811b8588-q11",
+          "questionNumber": 11,
+          "start": 77,
+          "end": 86,
+          "startObjectId": "paragraph-77",
+          "endObjectId": "paragraph-86",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 77,
+            "objectIndex": 77
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 86,
+            "objectIndex": 86
+          },
+          "nextQuestionStartObjectId": "paragraph-87"
+        },
+        {
+          "questionId": "7f26811b8588-q12",
+          "questionNumber": 12,
+          "start": 87,
+          "end": 94,
+          "startObjectId": "paragraph-87",
+          "endObjectId": "paragraph-94",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 87,
+            "objectIndex": 87
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 94,
+            "objectIndex": 94
+          },
+          "nextQuestionStartObjectId": "paragraph-95"
+        },
+        {
+          "questionId": "7f26811b8588-q13",
+          "questionNumber": 13,
+          "start": 95,
+          "end": 106,
+          "startObjectId": "paragraph-95",
+          "endObjectId": "paragraph-106",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 95,
+            "objectIndex": 95
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 106,
+            "objectIndex": 106
+          },
+          "nextQuestionStartObjectId": "paragraph-107"
+        },
+        {
+          "questionId": "7f26811b8588-q14",
+          "questionNumber": 14,
+          "start": 107,
+          "end": 112,
+          "startObjectId": "paragraph-107",
+          "endObjectId": "paragraph-112",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 107,
+            "objectIndex": 107
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 112,
+            "objectIndex": 112
+          },
+          "nextQuestionStartObjectId": "paragraph-113"
+        },
+        {
+          "questionId": "7f26811b8588-q15",
+          "questionNumber": 15,
+          "start": 113,
+          "end": 118,
+          "startObjectId": "paragraph-113",
+          "endObjectId": "paragraph-118",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 113,
+            "objectIndex": 113
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 118,
+            "objectIndex": 118
+          },
+          "nextQuestionStartObjectId": "paragraph-119"
+        },
+        {
+          "questionId": "7f26811b8588-q16",
+          "questionNumber": 16,
+          "start": 119,
+          "end": 123,
+          "startObjectId": "paragraph-119",
+          "endObjectId": "paragraph-123",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 119,
+            "objectIndex": 119
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 123,
+            "objectIndex": 123
+          },
+          "nextQuestionStartObjectId": "paragraph-124"
+        },
+        {
+          "questionId": "7f26811b8588-q17",
+          "questionNumber": 17,
+          "start": 124,
+          "end": 132,
+          "startObjectId": "paragraph-124",
+          "endObjectId": "paragraph-132",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 124,
+            "objectIndex": 124
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 132,
+            "objectIndex": 132
+          },
+          "nextQuestionStartObjectId": "paragraph-133"
+        },
+        {
+          "questionId": "7f26811b8588-q18",
+          "questionNumber": 18,
+          "start": 133,
+          "end": 144,
+          "startObjectId": "paragraph-133",
+          "endObjectId": "paragraph-144",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 133,
+            "objectIndex": 133
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 144,
+            "objectIndex": 144
+          },
+          "nextQuestionStartObjectId": "paragraph-145"
+        },
+        {
+          "questionId": "7f26811b8588-q19",
+          "questionNumber": 19,
+          "start": 145,
+          "end": 151,
+          "startObjectId": "paragraph-145",
+          "endObjectId": "paragraph-151",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 145,
+            "objectIndex": 145
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 151,
+            "objectIndex": 151
+          },
+          "nextQuestionStartObjectId": "paragraph-152"
+        },
+        {
+          "questionId": "7f26811b8588-q20",
+          "questionNumber": 20,
+          "start": 152,
+          "end": 162,
+          "startObjectId": "paragraph-152",
+          "endObjectId": "paragraph-162",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 152,
+            "objectIndex": 152
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 162,
+            "objectIndex": 162
+          },
+          "nextQuestionStartObjectId": "paragraph-163"
+        },
+        {
+          "questionId": "7f26811b8588-q21",
+          "questionNumber": 21,
+          "start": 163,
+          "end": 178,
+          "startObjectId": "paragraph-163",
+          "endObjectId": "paragraph-178",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 163,
+            "objectIndex": 163
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 178,
+            "objectIndex": 178
+          },
+          "nextQuestionStartObjectId": "paragraph-179"
+        },
+        {
+          "questionId": "7f26811b8588-q22",
+          "questionNumber": 22,
+          "start": 179,
+          "end": 191,
+          "startObjectId": "paragraph-179",
+          "endObjectId": "paragraph-191",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 179,
+            "objectIndex": 179
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 191,
+            "objectIndex": 191
+          },
+          "nextQuestionStartObjectId": "paragraph-192"
+        },
+        {
+          "questionId": "7f26811b8588-q23",
+          "questionNumber": 23,
+          "start": 192,
+          "end": 206,
+          "startObjectId": "paragraph-192",
+          "endObjectId": "paragraph-206",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 192,
+            "objectIndex": 192
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 206,
+            "objectIndex": 206
+          },
+          "nextQuestionStartObjectId": "paragraph-207"
+        },
+        {
+          "questionId": "7f26811b8588-q24",
+          "questionNumber": 24,
+          "start": 207,
+          "end": 215,
+          "startObjectId": "paragraph-207",
+          "endObjectId": "paragraph-215",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 207,
+            "objectIndex": 207
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 215,
+            "objectIndex": 215
+          },
+          "nextQuestionStartObjectId": "paragraph-216"
+        },
+        {
+          "questionId": "7f26811b8588-q25",
+          "questionNumber": 25,
+          "start": 216,
+          "end": 221,
+          "startObjectId": "paragraph-216",
+          "endObjectId": "paragraph-221",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 216,
+            "objectIndex": 216
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 221,
+            "objectIndex": 221
+          },
+          "nextQuestionStartObjectId": "paragraph-222"
+        },
+        {
+          "questionId": "7f26811b8588-q26",
+          "questionNumber": 26,
+          "start": 222,
+          "end": 228,
+          "startObjectId": "paragraph-222",
+          "endObjectId": "paragraph-228",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 222,
+            "objectIndex": 222
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 228,
+            "objectIndex": 228
+          },
+          "nextQuestionStartObjectId": "paragraph-229"
+        },
+        {
+          "questionId": "7f26811b8588-q27",
+          "questionNumber": 27,
+          "start": 229,
+          "end": 236,
+          "startObjectId": "paragraph-229",
+          "endObjectId": "paragraph-236",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 229,
+            "objectIndex": 229
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 236,
+            "objectIndex": 236
+          },
+          "nextQuestionStartObjectId": "paragraph-237"
+        },
+        {
+          "questionId": "7f26811b8588-q28",
+          "questionNumber": 28,
+          "start": 237,
+          "end": 242,
+          "startObjectId": "paragraph-237",
+          "endObjectId": "paragraph-242",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 237,
+            "objectIndex": 237
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 242,
+            "objectIndex": 242
+          },
+          "nextQuestionStartObjectId": "paragraph-243"
+        },
+        {
+          "questionId": "7f26811b8588-q29",
+          "questionNumber": 29,
+          "start": 243,
+          "end": 249,
+          "startObjectId": "paragraph-243",
+          "endObjectId": "paragraph-249",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 243,
+            "objectIndex": 243
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 249,
+            "objectIndex": 249
+          },
+          "nextQuestionStartObjectId": "paragraph-250"
+        },
+        {
+          "questionId": "7f26811b8588-q30",
+          "questionNumber": 30,
+          "start": 250,
+          "end": 260,
+          "startObjectId": "paragraph-250",
+          "endObjectId": "paragraph-260",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 250,
+            "objectIndex": 250
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 260,
+            "objectIndex": 260
+          },
+          "nextQuestionStartObjectId": "paragraph-261"
+        },
+        {
+          "questionId": "7f26811b8588-q31",
+          "questionNumber": 31,
+          "start": 261,
+          "end": 267,
+          "startObjectId": "paragraph-261",
+          "endObjectId": "paragraph-267",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 261,
+            "objectIndex": 261
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 267,
+            "objectIndex": 267
+          },
+          "nextQuestionStartObjectId": "paragraph-268"
+        },
+        {
+          "questionId": "7f26811b8588-q32",
+          "questionNumber": 32,
+          "start": 268,
+          "end": 273,
+          "startObjectId": "paragraph-268",
+          "endObjectId": "paragraph-273",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 268,
+            "objectIndex": 268
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 273,
+            "objectIndex": 273
+          },
+          "nextQuestionStartObjectId": "paragraph-274"
+        },
+        {
+          "questionId": "7f26811b8588-q33",
+          "questionNumber": 33,
+          "start": 274,
+          "end": 286,
+          "startObjectId": "paragraph-274",
+          "endObjectId": "paragraph-286",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 274,
+            "objectIndex": 274
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 286,
+            "objectIndex": 286
+          },
+          "nextQuestionStartObjectId": "paragraph-287"
+        },
+        {
+          "questionId": "7f26811b8588-q34",
+          "questionNumber": 34,
+          "start": 287,
+          "end": 295,
+          "startObjectId": "paragraph-287",
+          "endObjectId": "paragraph-295",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 287,
+            "objectIndex": 287
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 295,
+            "objectIndex": 295
+          },
+          "nextQuestionStartObjectId": "paragraph-296"
+        },
+        {
+          "questionId": "7f26811b8588-q35",
+          "questionNumber": 35,
+          "start": 296,
+          "end": 303,
+          "startObjectId": "paragraph-296",
+          "endObjectId": "paragraph-303",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 296,
+            "objectIndex": 296
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 303,
+            "objectIndex": 303
+          },
+          "nextQuestionStartObjectId": "paragraph-304"
+        },
+        {
+          "questionId": "7f26811b8588-q36",
+          "questionNumber": 36,
+          "start": 304,
+          "end": 315,
+          "startObjectId": "paragraph-304",
+          "endObjectId": "paragraph-315",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 304,
+            "objectIndex": 304
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 315,
+            "objectIndex": 315
+          },
+          "nextQuestionStartObjectId": "paragraph-316"
+        },
+        {
+          "questionId": "7f26811b8588-q37",
+          "questionNumber": 37,
+          "start": 316,
+          "end": 327,
+          "startObjectId": "paragraph-316",
+          "endObjectId": "paragraph-327",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 316,
+            "objectIndex": 316
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 327,
+            "objectIndex": 327
+          },
+          "nextQuestionStartObjectId": "paragraph-328"
+        },
+        {
+          "questionId": "7f26811b8588-q38",
+          "questionNumber": 38,
+          "start": 328,
+          "end": 335,
+          "startObjectId": "paragraph-328",
+          "endObjectId": "paragraph-335",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 328,
+            "objectIndex": 328
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 335,
+            "objectIndex": 335
+          },
+          "nextQuestionStartObjectId": "paragraph-336"
+        },
+        {
+          "questionId": "7f26811b8588-q39",
+          "questionNumber": 39,
+          "start": 336,
+          "end": 341,
+          "startObjectId": "paragraph-336",
+          "endObjectId": "paragraph-341",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 336,
+            "objectIndex": 336
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 341,
+            "objectIndex": 341
+          },
+          "nextQuestionStartObjectId": "paragraph-342"
+        },
+        {
+          "questionId": "7f26811b8588-q40",
+          "questionNumber": 40,
+          "start": 342,
+          "end": 348,
+          "startObjectId": "paragraph-342",
+          "endObjectId": "paragraph-348",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 342,
+            "objectIndex": 342
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 348,
+            "objectIndex": 348
+          },
+          "nextQuestionStartObjectId": "paragraph-349"
+        },
+        {
+          "questionId": "7f26811b8588-q41",
+          "questionNumber": 41,
+          "start": 349,
+          "end": 358,
+          "startObjectId": "paragraph-349",
+          "endObjectId": "paragraph-358",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 349,
+            "objectIndex": 349
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 358,
+            "objectIndex": 358
+          },
+          "nextQuestionStartObjectId": "paragraph-359"
+        },
+        {
+          "questionId": "7f26811b8588-q42",
+          "questionNumber": 42,
+          "start": 359,
+          "end": 367,
+          "startObjectId": "paragraph-359",
+          "endObjectId": "paragraph-367",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 359,
+            "objectIndex": 359
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 367,
+            "objectIndex": 367
+          },
+          "nextQuestionStartObjectId": "paragraph-368"
+        },
+        {
+          "questionId": "7f26811b8588-q43",
+          "questionNumber": 43,
+          "start": 368,
+          "end": 378,
+          "startObjectId": "paragraph-368",
+          "endObjectId": "paragraph-378",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 368,
+            "objectIndex": 368
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 378,
+            "objectIndex": 378
+          },
+          "nextQuestionStartObjectId": "paragraph-379"
+        },
+        {
+          "questionId": "7f26811b8588-q44",
+          "questionNumber": 44,
+          "start": 379,
+          "end": 390,
+          "startObjectId": "paragraph-379",
+          "endObjectId": "paragraph-390",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 379,
+            "objectIndex": 379
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 390,
+            "objectIndex": 390
+          },
+          "nextQuestionStartObjectId": "paragraph-391"
+        },
+        {
+          "questionId": "7f26811b8588-q45",
+          "questionNumber": 45,
+          "start": 391,
+          "end": 404,
+          "startObjectId": "paragraph-391",
+          "endObjectId": "paragraph-404",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 391,
+            "objectIndex": 391
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 404,
+            "objectIndex": 404
+          },
+          "nextQuestionStartObjectId": "paragraph-405"
+        },
+        {
+          "questionId": "7f26811b8588-q46",
+          "questionNumber": 46,
+          "start": 405,
+          "end": 414,
+          "startObjectId": "paragraph-405",
+          "endObjectId": "paragraph-414",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 405,
+            "objectIndex": 405
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 414,
+            "objectIndex": 414
+          },
+          "nextQuestionStartObjectId": "paragraph-415"
+        },
+        {
+          "questionId": "7f26811b8588-q47",
+          "questionNumber": 47,
+          "start": 415,
+          "end": 425,
+          "startObjectId": "paragraph-415",
+          "endObjectId": "paragraph-425",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 415,
+            "objectIndex": 415
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 425,
+            "objectIndex": 425
+          },
+          "nextQuestionStartObjectId": "paragraph-426"
+        },
+        {
+          "questionId": "7f26811b8588-q48",
+          "questionNumber": 48,
+          "start": 426,
+          "end": 432,
+          "startObjectId": "paragraph-426",
+          "endObjectId": "paragraph-432",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 426,
+            "objectIndex": 426
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 432,
+            "objectIndex": 432
+          },
+          "nextQuestionStartObjectId": "paragraph-433"
+        },
+        {
+          "questionId": "7f26811b8588-q49",
+          "questionNumber": 49,
+          "start": 433,
+          "end": 441,
+          "startObjectId": "paragraph-433",
+          "endObjectId": "paragraph-441",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 433,
+            "objectIndex": 433
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 441,
+            "objectIndex": 441
+          },
+          "nextQuestionStartObjectId": "paragraph-442"
+        },
+        {
+          "questionId": "7f26811b8588-q50",
+          "questionNumber": 50,
+          "start": 442,
+          "end": 451,
+          "startObjectId": "paragraph-442",
+          "endObjectId": "paragraph-451",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 442,
+            "objectIndex": 442
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 451,
+            "objectIndex": 451
+          },
+          "nextQuestionStartObjectId": "paragraph-452"
+        },
+        {
+          "questionId": "7f26811b8588-q51",
+          "questionNumber": 51,
+          "start": 452,
+          "end": 462,
+          "startObjectId": "paragraph-452",
+          "endObjectId": "paragraph-462",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 452,
+            "objectIndex": 452
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 462,
+            "objectIndex": 462
+          },
+          "nextQuestionStartObjectId": "paragraph-463"
+        },
+        {
+          "questionId": "7f26811b8588-q52",
+          "questionNumber": 52,
+          "start": 463,
+          "end": 471,
+          "startObjectId": "paragraph-463",
+          "endObjectId": "paragraph-471",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 463,
+            "objectIndex": 463
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 471,
+            "objectIndex": 471
+          },
+          "nextQuestionStartObjectId": "paragraph-472"
+        },
+        {
+          "questionId": "7f26811b8588-q53",
+          "questionNumber": 53,
+          "start": 472,
+          "end": 478,
+          "startObjectId": "paragraph-472",
+          "endObjectId": "paragraph-478",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 472,
+            "objectIndex": 472
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 478,
+            "objectIndex": 478
+          },
+          "nextQuestionStartObjectId": "paragraph-479"
+        },
+        {
+          "questionId": "7f26811b8588-q54",
+          "questionNumber": 54,
+          "start": 479,
+          "end": 485,
+          "startObjectId": "paragraph-479",
+          "endObjectId": "paragraph-485",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 479,
+            "objectIndex": 479
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 485,
+            "objectIndex": 485
+          },
+          "nextQuestionStartObjectId": "paragraph-486"
+        },
+        {
+          "questionId": "7f26811b8588-q55",
+          "questionNumber": 55,
+          "start": 486,
+          "end": 492,
+          "startObjectId": "paragraph-486",
+          "endObjectId": "paragraph-492",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 486,
+            "objectIndex": 486
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 492,
+            "objectIndex": 492
+          },
+          "nextQuestionStartObjectId": "paragraph-493"
+        },
+        {
+          "questionId": "7f26811b8588-q56",
+          "questionNumber": 56,
+          "start": 493,
+          "end": 504,
+          "startObjectId": "paragraph-493",
+          "endObjectId": "paragraph-504",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 493,
+            "objectIndex": 493
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 504,
+            "objectIndex": 504
+          },
+          "nextQuestionStartObjectId": "paragraph-505"
+        },
+        {
+          "questionId": "7f26811b8588-q57",
+          "questionNumber": 57,
+          "start": 505,
+          "end": 513,
+          "startObjectId": "paragraph-505",
+          "endObjectId": "paragraph-513",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 505,
+            "objectIndex": 505
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 513,
+            "objectIndex": 513
+          },
+          "nextQuestionStartObjectId": "paragraph-514"
+        },
+        {
+          "questionId": "7f26811b8588-q58",
+          "questionNumber": 58,
+          "start": 514,
+          "end": 523,
+          "startObjectId": "paragraph-514",
+          "endObjectId": "paragraph-523",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 514,
+            "objectIndex": 514
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 523,
+            "objectIndex": 523
+          },
+          "nextQuestionStartObjectId": "paragraph-524"
+        },
+        {
+          "questionId": "7f26811b8588-q59",
+          "questionNumber": 59,
+          "start": 524,
+          "end": 536,
+          "startObjectId": "paragraph-524",
+          "endObjectId": "paragraph-536",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 524,
+            "objectIndex": 524
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 536,
+            "objectIndex": 536
+          },
+          "nextQuestionStartObjectId": "paragraph-537"
+        },
+        {
+          "questionId": "7f26811b8588-q60",
+          "questionNumber": 60,
+          "start": 537,
+          "end": 546,
+          "startObjectId": "paragraph-537",
+          "endObjectId": "paragraph-546",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 537,
+            "objectIndex": 537
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 546,
+            "objectIndex": 546
+          },
+          "nextQuestionStartObjectId": "paragraph-547"
+        },
+        {
+          "questionId": "7f26811b8588-q61",
+          "questionNumber": 61,
+          "start": 547,
+          "end": 557,
+          "startObjectId": "paragraph-547",
+          "endObjectId": "paragraph-557",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 547,
+            "objectIndex": 547
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 557,
+            "objectIndex": 557
+          },
+          "nextQuestionStartObjectId": "paragraph-558"
+        },
+        {
+          "questionId": "7f26811b8588-q62",
+          "questionNumber": 62,
+          "start": 558,
+          "end": 563,
+          "startObjectId": "paragraph-558",
+          "endObjectId": "paragraph-563",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 558,
+            "objectIndex": 558
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 563,
+            "objectIndex": 563
+          },
+          "nextQuestionStartObjectId": "paragraph-564"
+        },
+        {
+          "questionId": "7f26811b8588-q63",
+          "questionNumber": 63,
+          "start": 564,
+          "end": 576,
+          "startObjectId": "paragraph-564",
+          "endObjectId": "paragraph-576",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 564,
+            "objectIndex": 564
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 576,
+            "objectIndex": 576
+          },
+          "nextQuestionStartObjectId": "paragraph-577"
+        },
+        {
+          "questionId": "7f26811b8588-q64",
+          "questionNumber": 64,
+          "start": 577,
+          "end": 591,
+          "startObjectId": "paragraph-577",
+          "endObjectId": "paragraph-591",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 577,
+            "objectIndex": 577
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 591,
+            "objectIndex": 591
+          },
+          "nextQuestionStartObjectId": "paragraph-592"
+        },
+        {
+          "questionId": "7f26811b8588-q65",
+          "questionNumber": 65,
+          "start": 592,
+          "end": 602,
+          "startObjectId": "paragraph-592",
+          "endObjectId": "paragraph-602",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 592,
+            "objectIndex": 592
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 602,
+            "objectIndex": 602
+          },
+          "nextQuestionStartObjectId": "paragraph-603"
+        },
+        {
+          "questionId": "7f26811b8588-q66",
+          "questionNumber": 66,
+          "start": 603,
+          "end": 613,
+          "startObjectId": "paragraph-603",
+          "endObjectId": "paragraph-613",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 603,
+            "objectIndex": 603
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 613,
+            "objectIndex": 613
+          },
+          "nextQuestionStartObjectId": "paragraph-614"
+        },
+        {
+          "questionId": "7f26811b8588-q67",
+          "questionNumber": 67,
+          "start": 614,
+          "end": 626,
+          "startObjectId": "paragraph-614",
+          "endObjectId": "paragraph-626",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 614,
+            "objectIndex": 614
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 626,
+            "objectIndex": 626
+          },
+          "nextQuestionStartObjectId": "paragraph-627"
+        },
+        {
+          "questionId": "7f26811b8588-q68",
+          "questionNumber": 68,
+          "start": 627,
+          "end": 635,
+          "startObjectId": "paragraph-627",
+          "endObjectId": "paragraph-635",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 627,
+            "objectIndex": 627
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 635,
+            "objectIndex": 635
+          },
+          "nextQuestionStartObjectId": "paragraph-636"
+        },
+        {
+          "questionId": "7f26811b8588-q69",
+          "questionNumber": 69,
+          "start": 636,
+          "end": 646,
+          "startObjectId": "paragraph-636",
+          "endObjectId": "paragraph-646",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 636,
+            "objectIndex": 636
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 646,
+            "objectIndex": 646
+          },
+          "nextQuestionStartObjectId": "paragraph-647"
+        },
+        {
+          "questionId": "7f26811b8588-q70",
+          "questionNumber": 70,
+          "start": 647,
+          "end": 655,
+          "startObjectId": "paragraph-647",
+          "endObjectId": "paragraph-655",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 647,
+            "objectIndex": 647
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 655,
+            "objectIndex": 655
+          },
+          "nextQuestionStartObjectId": "paragraph-656"
+        },
+        {
+          "questionId": "7f26811b8588-q71",
+          "questionNumber": 71,
+          "start": 656,
+          "end": 664,
+          "startObjectId": "paragraph-656",
+          "endObjectId": "paragraph-664",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 656,
+            "objectIndex": 656
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 664,
+            "objectIndex": 664
+          },
+          "nextQuestionStartObjectId": "paragraph-665"
+        },
+        {
+          "questionId": "7f26811b8588-q72",
+          "questionNumber": 72,
+          "start": 665,
+          "end": 672,
+          "startObjectId": "paragraph-665",
+          "endObjectId": "paragraph-672",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 665,
+            "objectIndex": 665
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 672,
+            "objectIndex": 672
+          },
+          "nextQuestionStartObjectId": "paragraph-673"
+        },
+        {
+          "questionId": "7f26811b8588-q73",
+          "questionNumber": 73,
+          "start": 673,
+          "end": 680,
+          "startObjectId": "paragraph-673",
+          "endObjectId": "paragraph-680",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 673,
+            "objectIndex": 673
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 680,
+            "objectIndex": 680
+          },
+          "nextQuestionStartObjectId": "paragraph-681"
+        },
+        {
+          "questionId": "7f26811b8588-q74",
+          "questionNumber": 74,
+          "start": 681,
+          "end": 687,
+          "startObjectId": "paragraph-681",
+          "endObjectId": "paragraph-687",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 681,
+            "objectIndex": 681
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 687,
+            "objectIndex": 687
+          },
+          "nextQuestionStartObjectId": "paragraph-688"
+        },
+        {
+          "questionId": "7f26811b8588-q75",
+          "questionNumber": 75,
+          "start": 688,
+          "end": 693,
+          "startObjectId": "paragraph-688",
+          "endObjectId": "paragraph-693",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 688,
+            "objectIndex": 688
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 693,
+            "objectIndex": 693
+          },
+          "nextQuestionStartObjectId": "paragraph-694"
+        },
+        {
+          "questionId": "7f26811b8588-q76",
+          "questionNumber": 76,
+          "start": 694,
+          "end": 703,
+          "startObjectId": "paragraph-694",
+          "endObjectId": "paragraph-703",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 694,
+            "objectIndex": 694
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 703,
+            "objectIndex": 703
+          },
+          "nextQuestionStartObjectId": "paragraph-704"
+        },
+        {
+          "questionId": "7f26811b8588-q77",
+          "questionNumber": 77,
+          "start": 704,
+          "end": 710,
+          "startObjectId": "paragraph-704",
+          "endObjectId": "paragraph-710",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 704,
+            "objectIndex": 704
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 710,
+            "objectIndex": 710
+          },
+          "nextQuestionStartObjectId": "paragraph-711"
+        },
+        {
+          "questionId": "7f26811b8588-q78",
+          "questionNumber": 78,
+          "start": 711,
+          "end": 718,
+          "startObjectId": "paragraph-711",
+          "endObjectId": "paragraph-718",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 711,
+            "objectIndex": 711
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 718,
+            "objectIndex": 718
+          },
+          "nextQuestionStartObjectId": "paragraph-719"
+        },
+        {
+          "questionId": "7f26811b8588-q79",
+          "questionNumber": 79,
+          "start": 719,
+          "end": 728,
+          "startObjectId": "paragraph-719",
+          "endObjectId": "paragraph-728",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 719,
+            "objectIndex": 719
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 728,
+            "objectIndex": 728
+          },
+          "nextQuestionStartObjectId": "paragraph-729"
+        },
+        {
+          "questionId": "7f26811b8588-q80",
+          "questionNumber": 80,
+          "start": 729,
+          "end": 739,
+          "startObjectId": "paragraph-729",
+          "endObjectId": "paragraph-739",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 729,
+            "objectIndex": 729
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 739,
+            "objectIndex": 739
+          },
+          "nextQuestionStartObjectId": "paragraph-740"
+        },
+        {
+          "questionId": "7f26811b8588-q81",
+          "questionNumber": 81,
+          "start": 740,
+          "end": 752,
+          "startObjectId": "paragraph-740",
+          "endObjectId": "paragraph-752",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 740,
+            "objectIndex": 740
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 752,
+            "objectIndex": 752
+          },
+          "nextQuestionStartObjectId": "paragraph-753"
+        },
+        {
+          "questionId": "7f26811b8588-q82",
+          "questionNumber": 82,
+          "start": 753,
+          "end": 759,
+          "startObjectId": "paragraph-753",
+          "endObjectId": "paragraph-759",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 753,
+            "objectIndex": 753
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 759,
+            "objectIndex": 759
+          },
+          "nextQuestionStartObjectId": "paragraph-760"
+        },
+        {
+          "questionId": "7f26811b8588-q83",
+          "questionNumber": 83,
+          "start": 760,
+          "end": 765,
+          "startObjectId": "paragraph-760",
+          "endObjectId": "paragraph-765",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 760,
+            "objectIndex": 760
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 765,
+            "objectIndex": 765
+          },
+          "nextQuestionStartObjectId": "paragraph-766"
+        },
+        {
+          "questionId": "7f26811b8588-q84",
+          "questionNumber": 84,
+          "start": 766,
+          "end": 774,
+          "startObjectId": "paragraph-766",
+          "endObjectId": "paragraph-774",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 766,
+            "objectIndex": 766
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 774,
+            "objectIndex": 774
+          },
+          "nextQuestionStartObjectId": "paragraph-775"
+        },
+        {
+          "questionId": "7f26811b8588-q85",
+          "questionNumber": 85,
+          "start": 775,
+          "end": 782,
+          "startObjectId": "paragraph-775",
+          "endObjectId": "paragraph-782",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 775,
+            "objectIndex": 775
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 782,
+            "objectIndex": 782
+          },
+          "nextQuestionStartObjectId": "paragraph-783"
+        },
+        {
+          "questionId": "7f26811b8588-q86",
+          "questionNumber": 86,
+          "start": 783,
+          "end": 795,
+          "startObjectId": "paragraph-783",
+          "endObjectId": "paragraph-795",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 783,
+            "objectIndex": 783
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 795,
+            "objectIndex": 795
+          },
+          "nextQuestionStartObjectId": "paragraph-796"
+        },
+        {
+          "questionId": "7f26811b8588-q87",
+          "questionNumber": 87,
+          "start": 796,
+          "end": 814,
+          "startObjectId": "paragraph-796",
+          "endObjectId": "paragraph-814",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 796,
+            "objectIndex": 796
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 814,
+            "objectIndex": 814
+          },
+          "nextQuestionStartObjectId": "paragraph-815"
+        },
+        {
+          "questionId": "7f26811b8588-q88",
+          "questionNumber": 88,
+          "start": 815,
+          "end": 829,
+          "startObjectId": "paragraph-815",
+          "endObjectId": "paragraph-829",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 815,
+            "objectIndex": 815
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 829,
+            "objectIndex": 829
+          },
+          "nextQuestionStartObjectId": "paragraph-830"
+        },
+        {
+          "questionId": "7f26811b8588-q89",
+          "questionNumber": 89,
+          "start": 830,
+          "end": 835,
+          "startObjectId": "paragraph-830",
+          "endObjectId": "paragraph-835",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 830,
+            "objectIndex": 830
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 835,
+            "objectIndex": 835
+          },
+          "nextQuestionStartObjectId": "paragraph-836"
+        },
+        {
+          "questionId": "7f26811b8588-q90",
+          "questionNumber": 90,
+          "start": 836,
+          "end": 844,
+          "startObjectId": "paragraph-836",
+          "endObjectId": "paragraph-844",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 836,
+            "objectIndex": 836
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 844,
+            "objectIndex": 844
+          },
+          "nextQuestionStartObjectId": "paragraph-845"
+        },
+        {
+          "questionId": "7f26811b8588-q91",
+          "questionNumber": 91,
+          "start": 845,
+          "end": 857,
+          "startObjectId": "paragraph-845",
+          "endObjectId": "paragraph-857",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 845,
+            "objectIndex": 845
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 857,
+            "objectIndex": 857
+          },
+          "nextQuestionStartObjectId": "paragraph-858"
+        },
+        {
+          "questionId": "7f26811b8588-q92",
+          "questionNumber": 92,
+          "start": 858,
+          "end": 867,
+          "startObjectId": "paragraph-858",
+          "endObjectId": "paragraph-867",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 858,
+            "objectIndex": 858
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 867,
+            "objectIndex": 867
+          },
+          "nextQuestionStartObjectId": "paragraph-868"
+        },
+        {
+          "questionId": "7f26811b8588-q93",
+          "questionNumber": 93,
+          "start": 868,
+          "end": 876,
+          "startObjectId": "paragraph-868",
+          "endObjectId": "paragraph-876",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 868,
+            "objectIndex": 868
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 876,
+            "objectIndex": 876
+          },
+          "nextQuestionStartObjectId": "paragraph-877"
+        },
+        {
+          "questionId": "7f26811b8588-q94",
+          "questionNumber": 94,
+          "start": 877,
+          "end": 886,
+          "startObjectId": "paragraph-877",
+          "endObjectId": "paragraph-886",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 877,
+            "objectIndex": 877
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 886,
+            "objectIndex": 886
+          },
+          "nextQuestionStartObjectId": "paragraph-887"
+        },
+        {
+          "questionId": "7f26811b8588-q95",
+          "questionNumber": 95,
+          "start": 887,
+          "end": 894,
+          "startObjectId": "paragraph-887",
+          "endObjectId": "paragraph-894",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 887,
+            "objectIndex": 887
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 894,
+            "objectIndex": 894
+          },
+          "nextQuestionStartObjectId": "paragraph-895"
+        },
+        {
+          "questionId": "7f26811b8588-q96",
+          "questionNumber": 96,
+          "start": 895,
+          "end": 902,
+          "startObjectId": "paragraph-895",
+          "endObjectId": "paragraph-902",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 895,
+            "objectIndex": 895
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 902,
+            "objectIndex": 902
+          },
+          "nextQuestionStartObjectId": "paragraph-903"
+        },
+        {
+          "questionId": "7f26811b8588-q97",
+          "questionNumber": 97,
+          "start": 903,
+          "end": 913,
+          "startObjectId": "paragraph-903",
+          "endObjectId": "paragraph-913",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 903,
+            "objectIndex": 903
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 913,
+            "objectIndex": 913
+          },
+          "nextQuestionStartObjectId": "paragraph-914"
+        },
+        {
+          "questionId": "7f26811b8588-q98",
+          "questionNumber": 98,
+          "start": 914,
+          "end": 922,
+          "startObjectId": "paragraph-914",
+          "endObjectId": "paragraph-922",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 914,
+            "objectIndex": 914
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 922,
+            "objectIndex": 922
+          },
+          "nextQuestionStartObjectId": "paragraph-923"
+        },
+        {
+          "questionId": "7f26811b8588-q99",
+          "questionNumber": 99,
+          "start": 923,
+          "end": 941,
+          "startObjectId": "paragraph-923",
+          "endObjectId": "paragraph-941",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 923,
+            "objectIndex": 923
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 941,
+            "objectIndex": 941
+          },
+          "nextQuestionStartObjectId": "paragraph-942"
+        },
+        {
+          "questionId": "7f26811b8588-q100",
+          "questionNumber": 100,
+          "start": 942,
+          "end": 951,
+          "startObjectId": "paragraph-942",
+          "endObjectId": "paragraph-951",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 942,
+            "objectIndex": 942
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 951,
+            "objectIndex": 951
+          },
+          "nextQuestionStartObjectId": "paragraph-952"
+        },
+        {
+          "questionId": "7f26811b8588-q101",
+          "questionNumber": 101,
+          "start": 952,
+          "end": 964,
+          "startObjectId": "paragraph-952",
+          "endObjectId": "paragraph-964",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 952,
+            "objectIndex": 952
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 964,
+            "objectIndex": 964
+          },
+          "nextQuestionStartObjectId": "paragraph-965"
+        },
+        {
+          "questionId": "7f26811b8588-q102",
+          "questionNumber": 102,
+          "start": 965,
+          "end": 973,
+          "startObjectId": "paragraph-965",
+          "endObjectId": "paragraph-973",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 965,
+            "objectIndex": 965
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 973,
+            "objectIndex": 973
+          },
+          "nextQuestionStartObjectId": "paragraph-974"
+        },
+        {
+          "questionId": "7f26811b8588-q103",
+          "questionNumber": 103,
+          "start": 974,
+          "end": 986,
+          "startObjectId": "paragraph-974",
+          "endObjectId": "paragraph-986",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 974,
+            "objectIndex": 974
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 986,
+            "objectIndex": 986
+          },
+          "nextQuestionStartObjectId": "paragraph-987"
+        },
+        {
+          "questionId": "7f26811b8588-q104",
+          "questionNumber": 104,
+          "start": 987,
+          "end": 994,
+          "startObjectId": "paragraph-987",
+          "endObjectId": "paragraph-994",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 987,
+            "objectIndex": 987
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 994,
+            "objectIndex": 994
+          },
+          "nextQuestionStartObjectId": "paragraph-995"
+        },
+        {
+          "questionId": "7f26811b8588-q105",
+          "questionNumber": 105,
+          "start": 995,
+          "end": 1000,
+          "startObjectId": "paragraph-995",
+          "endObjectId": "paragraph-1000",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 995,
+            "objectIndex": 995
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1000,
+            "objectIndex": 1000
+          },
+          "nextQuestionStartObjectId": "paragraph-1001"
+        },
+        {
+          "questionId": "7f26811b8588-q106",
+          "questionNumber": 106,
+          "start": 1001,
+          "end": 1009,
+          "startObjectId": "paragraph-1001",
+          "endObjectId": "paragraph-1009",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1001,
+            "objectIndex": 1001
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1009,
+            "objectIndex": 1009
+          },
+          "nextQuestionStartObjectId": "paragraph-1010"
+        },
+        {
+          "questionId": "7f26811b8588-q107",
+          "questionNumber": 107,
+          "start": 1010,
+          "end": 1023,
+          "startObjectId": "paragraph-1010",
+          "endObjectId": "paragraph-1023",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1010,
+            "objectIndex": 1010
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1023,
+            "objectIndex": 1023
+          },
+          "nextQuestionStartObjectId": "paragraph-1024"
+        },
+        {
+          "questionId": "7f26811b8588-q108",
+          "questionNumber": 108,
+          "start": 1024,
+          "end": 1031,
+          "startObjectId": "paragraph-1024",
+          "endObjectId": "paragraph-1031",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1024,
+            "objectIndex": 1024
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1031,
+            "objectIndex": 1031
+          },
+          "nextQuestionStartObjectId": "paragraph-1032"
+        },
+        {
+          "questionId": "7f26811b8588-q109",
+          "questionNumber": 109,
+          "start": 1032,
+          "end": 1049,
+          "startObjectId": "paragraph-1032",
+          "endObjectId": "paragraph-1049",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1032,
+            "objectIndex": 1032
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1049,
+            "objectIndex": 1049
+          },
+          "nextQuestionStartObjectId": "paragraph-1050"
+        },
+        {
+          "questionId": "7f26811b8588-q110",
+          "questionNumber": 110,
+          "start": 1050,
+          "end": 1065,
+          "startObjectId": "paragraph-1050",
+          "endObjectId": "paragraph-1065",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1050,
+            "objectIndex": 1050
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1065,
+            "objectIndex": 1065
+          },
+          "nextQuestionStartObjectId": "paragraph-1066"
+        },
+        {
+          "questionId": "7f26811b8588-q111",
+          "questionNumber": 111,
+          "start": 1066,
+          "end": 1078,
+          "startObjectId": "paragraph-1066",
+          "endObjectId": "paragraph-1078",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1066,
+            "objectIndex": 1066
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1078,
+            "objectIndex": 1078
+          },
+          "nextQuestionStartObjectId": "paragraph-1079"
+        },
+        {
+          "questionId": "7f26811b8588-q112",
+          "questionNumber": 112,
+          "start": 1079,
+          "end": 1090,
+          "startObjectId": "paragraph-1079",
+          "endObjectId": "paragraph-1090",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1079,
+            "objectIndex": 1079
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1090,
+            "objectIndex": 1090
+          },
+          "nextQuestionStartObjectId": "paragraph-1091"
+        },
+        {
+          "questionId": "7f26811b8588-q113",
+          "questionNumber": 113,
+          "start": 1091,
+          "end": 1106,
+          "startObjectId": "paragraph-1091",
+          "endObjectId": "paragraph-1106",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1091,
+            "objectIndex": 1091
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1106,
+            "objectIndex": 1106
+          },
+          "nextQuestionStartObjectId": "paragraph-1107"
+        },
+        {
+          "questionId": "7f26811b8588-q114",
+          "questionNumber": 114,
+          "start": 1107,
+          "end": 1122,
+          "startObjectId": "paragraph-1107",
+          "endObjectId": "paragraph-1122",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1107,
+            "objectIndex": 1107
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1122,
+            "objectIndex": 1122
+          },
+          "nextQuestionStartObjectId": "paragraph-1123"
+        },
+        {
+          "questionId": "7f26811b8588-q115",
+          "questionNumber": 115,
+          "start": 1123,
+          "end": 1140,
+          "startObjectId": "paragraph-1123",
+          "endObjectId": "paragraph-1140",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1123,
+            "objectIndex": 1123
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1140,
+            "objectIndex": 1140
+          },
+          "nextQuestionStartObjectId": "paragraph-1141"
+        },
+        {
+          "questionId": "7f26811b8588-q116",
+          "questionNumber": 116,
+          "start": 1141,
+          "end": 1150,
+          "startObjectId": "paragraph-1141",
+          "endObjectId": "paragraph-1150",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1141,
+            "objectIndex": 1141
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1150,
+            "objectIndex": 1150
+          },
+          "nextQuestionStartObjectId": "paragraph-1151"
+        },
+        {
+          "questionId": "7f26811b8588-q117",
+          "questionNumber": 117,
+          "start": 1151,
+          "end": 1166,
+          "startObjectId": "paragraph-1151",
+          "endObjectId": "paragraph-1166",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1151,
+            "objectIndex": 1151
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1166,
+            "objectIndex": 1166
+          },
+          "nextQuestionStartObjectId": "paragraph-1167"
+        },
+        {
+          "questionId": "7f26811b8588-q118",
+          "questionNumber": 118,
+          "start": 1167,
+          "end": 1182,
+          "startObjectId": "paragraph-1167",
+          "endObjectId": "paragraph-1182",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1167,
+            "objectIndex": 1167
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1182,
+            "objectIndex": 1182
+          },
+          "nextQuestionStartObjectId": "paragraph-1183"
+        },
+        {
+          "questionId": "7f26811b8588-q119",
+          "questionNumber": 119,
+          "start": 1183,
+          "end": 1188,
+          "startObjectId": "paragraph-1183",
+          "endObjectId": "paragraph-1188",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1183,
+            "objectIndex": 1183
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1188,
+            "objectIndex": 1188
+          },
+          "nextQuestionStartObjectId": "paragraph-1189"
+        },
+        {
+          "questionId": "7f26811b8588-q120",
+          "questionNumber": 120,
+          "start": 1189,
+          "end": 1200,
+          "startObjectId": "paragraph-1189",
+          "endObjectId": "paragraph-1200",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1189,
+            "objectIndex": 1189
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1200,
+            "objectIndex": 1200
+          },
+          "nextQuestionStartObjectId": "paragraph-1201"
+        },
+        {
+          "questionId": "7f26811b8588-q121",
+          "questionNumber": 121,
+          "start": 1201,
+          "end": 1208,
+          "startObjectId": "paragraph-1201",
+          "endObjectId": "paragraph-1208",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1201,
+            "objectIndex": 1201
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1208,
+            "objectIndex": 1208
+          },
+          "nextQuestionStartObjectId": "paragraph-1209"
+        },
+        {
+          "questionId": "7f26811b8588-q122",
+          "questionNumber": 122,
+          "start": 1209,
+          "end": 1219,
+          "startObjectId": "paragraph-1209",
+          "endObjectId": "paragraph-1219",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1209,
+            "objectIndex": 1209
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1219,
+            "objectIndex": 1219
+          },
+          "nextQuestionStartObjectId": "paragraph-1220"
+        },
+        {
+          "questionId": "7f26811b8588-q123",
+          "questionNumber": 123,
+          "start": 1220,
+          "end": 1225,
+          "startObjectId": "paragraph-1220",
+          "endObjectId": "paragraph-1225",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1220,
+            "objectIndex": 1220
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1225,
+            "objectIndex": 1225
+          },
+          "nextQuestionStartObjectId": "paragraph-1226"
+        },
+        {
+          "questionId": "7f26811b8588-q124",
+          "questionNumber": 124,
+          "start": 1226,
+          "end": 1232,
+          "startObjectId": "paragraph-1226",
+          "endObjectId": "paragraph-1232",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1226,
+            "objectIndex": 1226
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1232,
+            "objectIndex": 1232
+          },
+          "nextQuestionStartObjectId": "paragraph-1233"
+        },
+        {
+          "questionId": "7f26811b8588-q125",
+          "questionNumber": 125,
+          "start": 1233,
+          "end": 1240,
+          "startObjectId": "paragraph-1233",
+          "endObjectId": "paragraph-1240",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1233,
+            "objectIndex": 1233
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1240,
+            "objectIndex": 1240
+          },
+          "nextQuestionStartObjectId": "paragraph-1241"
+        },
+        {
+          "questionId": "7f26811b8588-q126",
+          "questionNumber": 126,
+          "start": 1241,
+          "end": 1249,
+          "startObjectId": "paragraph-1241",
+          "endObjectId": "paragraph-1249",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1241,
+            "objectIndex": 1241
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1249,
+            "objectIndex": 1249
+          },
+          "nextQuestionStartObjectId": "paragraph-1250"
+        },
+        {
+          "questionId": "7f26811b8588-q127",
+          "questionNumber": 127,
+          "start": 1250,
+          "end": 1258,
+          "startObjectId": "paragraph-1250",
+          "endObjectId": "paragraph-1258",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1250,
+            "objectIndex": 1250
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1258,
+            "objectIndex": 1258
+          },
+          "nextQuestionStartObjectId": "paragraph-1259"
+        },
+        {
+          "questionId": "7f26811b8588-q128",
+          "questionNumber": 128,
+          "start": 1259,
+          "end": 1266,
+          "startObjectId": "paragraph-1259",
+          "endObjectId": "paragraph-1266",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1259,
+            "objectIndex": 1259
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1266,
+            "objectIndex": 1266
+          },
+          "nextQuestionStartObjectId": "paragraph-1267"
+        },
+        {
+          "questionId": "7f26811b8588-q129",
+          "questionNumber": 129,
+          "start": 1267,
+          "end": 1275,
+          "startObjectId": "paragraph-1267",
+          "endObjectId": "paragraph-1275",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1267,
+            "objectIndex": 1267
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1275,
+            "objectIndex": 1275
+          },
+          "nextQuestionStartObjectId": "paragraph-1276"
+        },
+        {
+          "questionId": "7f26811b8588-q130",
+          "questionNumber": 130,
+          "start": 1276,
+          "end": 1281,
+          "startObjectId": "paragraph-1276",
+          "endObjectId": "paragraph-1281",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1276,
+            "objectIndex": 1276
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1281,
+            "objectIndex": 1281
+          },
+          "nextQuestionStartObjectId": "paragraph-1282"
+        },
+        {
+          "questionId": "7f26811b8588-q131",
+          "questionNumber": 131,
+          "start": 1282,
+          "end": 1292,
+          "startObjectId": "paragraph-1282",
+          "endObjectId": "paragraph-1292",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1282,
+            "objectIndex": 1282
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1292,
+            "objectIndex": 1292
+          },
+          "nextQuestionStartObjectId": "paragraph-1293"
+        },
+        {
+          "questionId": "7f26811b8588-q132",
+          "questionNumber": 132,
+          "start": 1293,
+          "end": 1299,
+          "startObjectId": "paragraph-1293",
+          "endObjectId": "paragraph-1299",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1293,
+            "objectIndex": 1293
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1299,
+            "objectIndex": 1299
+          },
+          "nextQuestionStartObjectId": "paragraph-1300"
+        },
+        {
+          "questionId": "7f26811b8588-q133",
+          "questionNumber": 133,
+          "start": 1300,
+          "end": 1307,
+          "startObjectId": "paragraph-1300",
+          "endObjectId": "paragraph-1307",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1300,
+            "objectIndex": 1300
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1307,
+            "objectIndex": 1307
+          },
+          "nextQuestionStartObjectId": "paragraph-1308"
+        },
+        {
+          "questionId": "7f26811b8588-q134",
+          "questionNumber": 134,
+          "start": 1308,
+          "end": 1316,
+          "startObjectId": "paragraph-1308",
+          "endObjectId": "paragraph-1316",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1308,
+            "objectIndex": 1308
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1316,
+            "objectIndex": 1316
+          },
+          "nextQuestionStartObjectId": "paragraph-1317"
+        },
+        {
+          "questionId": "7f26811b8588-q135",
+          "questionNumber": 135,
+          "start": 1317,
+          "end": 1326,
+          "startObjectId": "paragraph-1317",
+          "endObjectId": "paragraph-1326",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1317,
+            "objectIndex": 1317
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1326,
+            "objectIndex": 1326
+          },
+          "nextQuestionStartObjectId": "paragraph-1327"
+        },
+        {
+          "questionId": "7f26811b8588-q136",
+          "questionNumber": 136,
+          "start": 1327,
+          "end": 1334,
+          "startObjectId": "paragraph-1327",
+          "endObjectId": "paragraph-1334",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1327,
+            "objectIndex": 1327
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1334,
+            "objectIndex": 1334
+          },
+          "nextQuestionStartObjectId": "paragraph-1335"
+        },
+        {
+          "questionId": "7f26811b8588-q137",
+          "questionNumber": 137,
+          "start": 1335,
+          "end": 1345,
+          "startObjectId": "paragraph-1335",
+          "endObjectId": "paragraph-1345",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1335,
+            "objectIndex": 1335
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1345,
+            "objectIndex": 1345
+          },
+          "nextQuestionStartObjectId": "paragraph-1346"
+        },
+        {
+          "questionId": "7f26811b8588-q138",
+          "questionNumber": 138,
+          "start": 1346,
+          "end": 1357,
+          "startObjectId": "paragraph-1346",
+          "endObjectId": "paragraph-1357",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1346,
+            "objectIndex": 1346
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1357,
+            "objectIndex": 1357
+          },
+          "nextQuestionStartObjectId": "paragraph-1358"
+        },
+        {
+          "questionId": "7f26811b8588-q139",
+          "questionNumber": 139,
+          "start": 1358,
+          "end": 1368,
+          "startObjectId": "paragraph-1358",
+          "endObjectId": "paragraph-1368",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1358,
+            "objectIndex": 1358
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1368,
+            "objectIndex": 1368
+          },
+          "nextQuestionStartObjectId": "paragraph-1369"
+        },
+        {
+          "questionId": "7f26811b8588-q140",
+          "questionNumber": 140,
+          "start": 1369,
+          "end": 1373,
+          "startObjectId": "paragraph-1369",
+          "endObjectId": "paragraph-1373",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1369,
+            "objectIndex": 1369
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1373,
+            "objectIndex": 1373
+          },
+          "nextQuestionStartObjectId": "paragraph-1374"
+        },
+        {
+          "questionId": "7f26811b8588-q141",
+          "questionNumber": 141,
+          "start": 1374,
+          "end": 1380,
+          "startObjectId": "paragraph-1374",
+          "endObjectId": "paragraph-1380",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1374,
+            "objectIndex": 1374
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1380,
+            "objectIndex": 1380
+          },
+          "nextQuestionStartObjectId": "paragraph-1381"
+        },
+        {
+          "questionId": "7f26811b8588-q142",
+          "questionNumber": 142,
+          "start": 1381,
+          "end": 1389,
+          "startObjectId": "paragraph-1381",
+          "endObjectId": "paragraph-1389",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1381,
+            "objectIndex": 1381
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1389,
+            "objectIndex": 1389
+          },
+          "nextQuestionStartObjectId": "paragraph-1390"
+        },
+        {
+          "questionId": "7f26811b8588-q143",
+          "questionNumber": 143,
+          "start": 1390,
+          "end": 1400,
+          "startObjectId": "paragraph-1390",
+          "endObjectId": "paragraph-1400",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1390,
+            "objectIndex": 1390
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1400,
+            "objectIndex": 1400
+          },
+          "nextQuestionStartObjectId": "paragraph-1401"
+        },
+        {
+          "questionId": "7f26811b8588-q144",
+          "questionNumber": 144,
+          "start": 1401,
+          "end": 1406,
+          "startObjectId": "paragraph-1401",
+          "endObjectId": "paragraph-1406",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1401,
+            "objectIndex": 1401
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1406,
+            "objectIndex": 1406
+          },
+          "nextQuestionStartObjectId": "paragraph-1407"
+        },
+        {
+          "questionId": "7f26811b8588-q145",
+          "questionNumber": 145,
+          "start": 1407,
+          "end": 1417,
+          "startObjectId": "paragraph-1407",
+          "endObjectId": "paragraph-1417",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1407,
+            "objectIndex": 1407
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1417,
+            "objectIndex": 1417
+          },
+          "nextQuestionStartObjectId": "paragraph-1418"
+        },
+        {
+          "questionId": "7f26811b8588-q146",
+          "questionNumber": 146,
+          "start": 1418,
+          "end": 1423,
+          "startObjectId": "paragraph-1418",
+          "endObjectId": "paragraph-1423",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1418,
+            "objectIndex": 1418
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1423,
+            "objectIndex": 1423
+          },
+          "nextQuestionStartObjectId": "paragraph-1424"
+        },
+        {
+          "questionId": "7f26811b8588-q147",
+          "questionNumber": 147,
+          "start": 1424,
+          "end": 1431,
+          "startObjectId": "paragraph-1424",
+          "endObjectId": "paragraph-1431",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1424,
+            "objectIndex": 1424
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1431,
+            "objectIndex": 1431
+          },
+          "nextQuestionStartObjectId": "paragraph-1432"
+        },
+        {
+          "questionId": "7f26811b8588-q148",
+          "questionNumber": 148,
+          "start": 1432,
+          "end": 1439,
+          "startObjectId": "paragraph-1432",
+          "endObjectId": "paragraph-1439",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1432,
+            "objectIndex": 1432
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1439,
+            "objectIndex": 1439
+          },
+          "nextQuestionStartObjectId": "paragraph-1440"
+        },
+        {
+          "questionId": "7f26811b8588-q149",
+          "questionNumber": 149,
+          "start": 1440,
+          "end": 1460,
+          "startObjectId": "paragraph-1440",
+          "endObjectId": "paragraph-1460",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1440,
+            "objectIndex": 1440
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1460,
+            "objectIndex": 1460
+          },
+          "nextQuestionStartObjectId": "paragraph-1461"
+        },
+        {
+          "questionId": "7f26811b8588-q150",
+          "questionNumber": 150,
+          "start": 1461,
+          "end": 1468,
+          "startObjectId": "paragraph-1461",
+          "endObjectId": "paragraph-1468",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1461,
+            "objectIndex": 1461
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1468,
+            "objectIndex": 1468
+          },
+          "nextQuestionStartObjectId": "paragraph-1469"
+        },
+        {
+          "questionId": "7f26811b8588-q151",
+          "questionNumber": 151,
+          "start": 1469,
+          "end": 1480,
+          "startObjectId": "paragraph-1469",
+          "endObjectId": "paragraph-1480",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1469,
+            "objectIndex": 1469
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1480,
+            "objectIndex": 1480
+          },
+          "nextQuestionStartObjectId": "paragraph-1481"
+        },
+        {
+          "questionId": "7f26811b8588-q152",
+          "questionNumber": 152,
+          "start": 1481,
+          "end": 1489,
+          "startObjectId": "paragraph-1481",
+          "endObjectId": "paragraph-1489",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1481,
+            "objectIndex": 1481
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1489,
+            "objectIndex": 1489
+          },
+          "nextQuestionStartObjectId": "paragraph-1490"
+        },
+        {
+          "questionId": "7f26811b8588-q153",
+          "questionNumber": 153,
+          "start": 1490,
+          "end": 1499,
+          "startObjectId": "paragraph-1490",
+          "endObjectId": "paragraph-1499",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1490,
+            "objectIndex": 1490
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1499,
+            "objectIndex": 1499
+          },
+          "nextQuestionStartObjectId": "paragraph-1500"
+        },
+        {
+          "questionId": "7f26811b8588-q154",
+          "questionNumber": 154,
+          "start": 1500,
+          "end": 1506,
+          "startObjectId": "paragraph-1500",
+          "endObjectId": "paragraph-1506",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1500,
+            "objectIndex": 1500
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1506,
+            "objectIndex": 1506
+          },
+          "nextQuestionStartObjectId": "paragraph-1507"
+        },
+        {
+          "questionId": "7f26811b8588-q155",
+          "questionNumber": 155,
+          "start": 1507,
+          "end": 1513,
+          "startObjectId": "paragraph-1507",
+          "endObjectId": "paragraph-1513",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1507,
+            "objectIndex": 1507
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1513,
+            "objectIndex": 1513
+          },
+          "nextQuestionStartObjectId": "paragraph-1514"
+        },
+        {
+          "questionId": "7f26811b8588-q156",
+          "questionNumber": 156,
+          "start": 1514,
+          "end": 1527,
+          "startObjectId": "paragraph-1514",
+          "endObjectId": "paragraph-1527",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1514,
+            "objectIndex": 1514
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1527,
+            "objectIndex": 1527
+          },
+          "nextQuestionStartObjectId": "paragraph-1528"
+        },
+        {
+          "questionId": "7f26811b8588-q157",
+          "questionNumber": 157,
+          "start": 1528,
+          "end": 1537,
+          "startObjectId": "paragraph-1528",
+          "endObjectId": "paragraph-1537",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1528,
+            "objectIndex": 1528
+          },
+          "endAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1537,
+            "objectIndex": 1537
+          },
+          "nextQuestionStartObjectId": "paragraph-1538"
+        },
+        {
+          "questionId": "7f26811b8588-q158",
+          "questionNumber": 158,
+          "start": 1538,
+          "end": 1547,
+          "startObjectId": "paragraph-1538",
+          "endObjectId": "section-1555",
+          "startAnchor": {
+            "sourceDocumentId": "docx-7f26811b8588672c",
+            "partName": "word/document.xml",
+            "paragraphIndex": 1538,
+            "objectIndex": 1538
+          }
+        }
+      ],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "NK TEST APP.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "questions": [],
+      "overlapCount": 0,
+      "gapCount": 0,
+      "invalidCount": 0,
+      "duplicateCount": 0
+    }
+  ],
+  "anchorTotals": {
+    "total": 4230,
+    "valid": 4230,
+    "invalid": 0,
+    "missing": 0,
+    "ambiguous": 0
+  },
+  "assetDelta": [
+    {
+      "filename": "1. MIN MAX -HH PHẲNG.docx",
+      "index": 1,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "1.1.docx",
+      "index": 1,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "1.1.docx",
+      "index": 2,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "1.1.docx",
+      "index": 3,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "1.1.docx",
+      "index": 4,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "1.1.docx",
+      "index": 5,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "1.1.docx",
+      "index": 6,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "2.1.docx",
+      "index": 1,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "BÀI 2. GTLN-GTNN.docx",
+      "index": 1,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 1,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 2,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 3,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 4,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 5,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 6,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    },
+    {
+      "filename": "Full-Toán thực tế 10.docx",
+      "index": 7,
+      "classification": "TABLE_COMPONENT",
+      "provenance": "DocumentIR table component extraction",
+      "qaStatus": "PASS"
+    }
+  ],
+  "packageDelta": [
+    {
+      "index": 1,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 2,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 3,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 4,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 5,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 6,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 7,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 8,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 9,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 10,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    },
+    {
+      "index": 11,
+      "classification": "DUPLICATE_PACKAGE_ASSET",
+      "provenance": "one-to-many question package reference",
+      "qaStatus": "PASS"
+    }
+  ],
+  "outsideMath": [
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-1",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-2",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 6,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-3",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 8,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-4",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 10,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-5",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 12,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-6",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 14,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-7",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-8",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-9",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-10",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-11",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-12",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 13,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-13",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 15,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-14",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 19,
+        "paragraphIndex": 20
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-15",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 22
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-16",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 6,
+        "paragraphIndex": 22
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-17",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 54
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-18",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 54
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-19",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 54
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-20",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 54
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-21",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 54
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-22",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 13,
+        "paragraphIndex": 54
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-23",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-24",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-25",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-26",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-27",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-28",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-29",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 13,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-30",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 15,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-31",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 17,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-32",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 19,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-33",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 21,
+        "paragraphIndex": 59
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-34",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 119
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-35",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 119
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-36",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 119
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-37",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 119
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-38",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 121
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-39",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 121
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-40",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 121
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-41",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 121
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-42",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 121
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-43",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 223
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-44",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 224
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-45",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 224
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-46",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 224
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-47",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 256
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-48",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 257
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-49",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 297
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-50",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 297
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-51",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 297
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-52",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 297
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-53",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 297
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-54",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 299
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-55",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 300
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-56",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 301
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-57",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-58",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-59",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-60",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-61",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-62",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-63",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 13,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-64",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 17,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-65",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 19,
+        "paragraphIndex": 302
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-66",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 304
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-67",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 305
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-68",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 305
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-69",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 305
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-70",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 305
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-71",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 305
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-72",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 306
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-73",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 0,
+        "paragraphIndex": 307
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-74",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 308
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-75",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 308
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-76",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 310
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-77",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 310
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-78",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 312
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-79",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 312
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-80",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 339
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-81",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 339
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-82",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 339
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-83",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-84",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 4,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-85",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 6,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-86",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 8,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-87",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 10,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-88",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 12,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-89",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 14,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-90",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 16,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-91",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 18,
+        "paragraphIndex": 348
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-92",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 353
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-93",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 353
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-94",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 353
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-95",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-96",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-97",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-98",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-99",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-100",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-101",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 13,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-102",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 15,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-103",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 17,
+        "paragraphIndex": 419
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-104",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 429
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-105",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 431
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-106",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 431
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-107",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 431
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-108",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 431
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-109",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 431
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-110",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 431
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-111",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 464
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-112",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 4,
+        "paragraphIndex": 464
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-113",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 6,
+        "paragraphIndex": 464
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-114",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 8,
+        "paragraphIndex": 464
+      }
+    },
+    {
+      "filename": "1.1.docx",
+      "mathObjectId": "expression-docx-115",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+        "partName": "word/document.xml",
+        "objectIndex": 10,
+        "paragraphIndex": 464
+      }
+    },
+    {
+      "filename": "2. MIN MAX HHKG.docx",
+      "mathObjectId": "expression-docx-1",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6cff0e6db838df3e",
+        "partName": "word/document.xml",
+        "objectIndex": 2,
+        "paragraphIndex": 91
+      }
+    },
+    {
+      "filename": "2. MIN MAX HHKG.docx",
+      "mathObjectId": "expression-docx-2",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6cff0e6db838df3e",
+        "partName": "word/document.xml",
+        "objectIndex": 4,
+        "paragraphIndex": 91
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-1",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 5
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-2",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 7
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-3",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-4",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-5",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 15
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-6",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-7",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-8",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-9",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-10",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-11",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-12",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 13,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-13",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 16,
+        "paragraphIndex": 16
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-14",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 19
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-15",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 44
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-16",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 44
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-17",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 44
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-18",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 44
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-19",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 44
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-20",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 44
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-21",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 131
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-22",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 131
+      }
+    },
+    {
+      "filename": "3. MIN MAX TÀI CHÍNH.docx",
+      "mathObjectId": "expression-docx-23",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 131
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-1",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 0
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-2",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 6
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-3",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 9
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-4",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 27
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-5",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 37
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-6",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 68
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-7",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 76
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-8",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 76
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-9",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 76
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-10",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 80
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-11",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 80
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-12",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 80
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-13",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 80
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-14",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 80
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-15",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 82
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-16",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 82
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-17",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 82
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-18",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 82
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-19",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 82
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-20",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 3,
+        "paragraphIndex": 84
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-21",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 5,
+        "paragraphIndex": 84
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-22",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 7,
+        "paragraphIndex": 84
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-23",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 9,
+        "paragraphIndex": 84
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-24",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 11,
+        "paragraphIndex": 84
+      }
+    },
+    {
+      "filename": "gấp hình (1)-TUAN-ANH.docx",
+      "mathObjectId": "expression-docx-25",
+      "classification": "OTHER_NON_QUESTION",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-95e5f5bd2748ba73",
+        "partName": "word/document.xml",
+        "objectIndex": 1,
+        "paragraphIndex": 89
+      }
+    }
+  ],
+  "assetLineage": {
+    "derivedAssetCount": 0,
+    "sourceAssetCount": 571,
+    "questionScopedSourceAssetCount": 213,
+    "nonQuestionSourceAssetCount": 358,
+    "qaStatus": "PASS"
+  },
+  "humanTeacherAcceptance": "PENDING"
+}

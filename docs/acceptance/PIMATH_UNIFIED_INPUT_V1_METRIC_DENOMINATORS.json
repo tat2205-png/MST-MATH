@@ -1,0 +1,21 @@
+{
+  "version": "PIMATH_UNIFIED_INPUT_V1",
+  "authority": "HUMAN_AUTHORIZED_SPECIFICATION",
+  "lockedBeforeMeasurement": true,
+  "denominators": {
+    "QUESTION_BOUNDARY": 8,
+    "QUESTION_TYPE": 5,
+    "SHARED_CONTEXT": 4,
+    "DOCX_COMPLEX_FIDELITY": 10,
+    "ANSWER_LINK": 5,
+    "SOLUTION_LINK": 5,
+    "FIGURE_LINK": 6,
+    "SOURCE_GROUP": 4,
+    "TABLE_STRUCTURE": 10,
+    "CROSS_PAGE_QUESTION": 5,
+    "RECONCILIATION": 6,
+    "MATH_FIDELITY": 15,
+    "PROVENANCE": 30,
+    "FIELD_LEVEL_PROVENANCE": 20
+  }
+}
