@@ -62,8 +62,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout
+      - name: Checkout full authority ancestry
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -83,5 +85,33 @@ jobs:
       - name: TECH03 assets and provenance
         run: node --import tsx tests/test-mst-math-tech03-assets.ts
 
-      - name: Unified Input certification
-        run: node --import tsx tests/test-pimath-unified-input-certification-v1.ts
+      - name: Unified Input certification contract
+        run: node --import tsx tests/test-pimath-unified-input-certification-readonly-v1.ts
+
+      - name: Unified Input immutable baseline ancestry
+        run: |
+          git merge-base --is-ancestor 552fe9001d095aed4abc8057934767b9a04d7269 HEAD
+          echo "UNIFIED_INPUT_BASELINE_ANCESTRY=PASS"
+
+      - name: Unified Input certified evidence integrity
+        shell: bash
+        run: |
+          BASELINE=552fe9001d095aed4abc8057934767b9a04d7269
+          RESULT=docs/acceptance/PIMATH_UNIFIED_INPUT_V1_CERTIFICATION_RESULTS.json
+          BASELINE_BLOB="$(git rev-parse "$BASELINE:$RESULT")"
+          CURRENT_BLOB="$(git hash-object "$RESULT")"
+          test "$BASELINE_BLOB" = "$CURRENT_BLOB"
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = 'docs/acceptance/PIMATH_UNIFIED_INPUT_V1_CERTIFICATION_RESULTS.json';
+          const result = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const expectedIds = Array.from({ length: 64 }, (_, i) => `R${i}`);
+          if (result.version !== 'PIMATH_UNIFIED_INPUT_V1') throw new Error('UNIFIED_INPUT_CERT_VERSION_MISMATCH');
+          if (result.metricDenominatorLockedBeforeRun !== true) throw new Error('UNIFIED_INPUT_DENOMINATOR_NOT_LOCKED');
+          if (!Array.isArray(result.results) || result.results.length !== 64) throw new Error('UNIFIED_INPUT_CERT_RESULT_COUNT_MISMATCH');
+          if (JSON.stringify(result.results.map((row) => row.requirementId)) !== JSON.stringify(expectedIds)) throw new Error('UNIFIED_INPUT_CERT_REQUIREMENT_ORDER_MISMATCH');
+          if (result.results.some((row) => row.status !== 'PASS')) throw new Error('UNIFIED_INPUT_CERT_NOT_ALL_PASS');
+          if (result.results.some((row) => !Array.isArray(row.evidence) || row.evidence.length === 0 || row.evidence.some((item) => item.passed !== true))) throw new Error('UNIFIED_INPUT_CERT_EVIDENCE_INVALID');
+          console.log('UNIFIED_INPUT_CERTIFIED_EVIDENCE=PASS');
+          console.log('FULL_REAL_CORPUS_RECERTIFICATION=EXTERNAL_CORPUS_REQUIRED');
+          NODE
