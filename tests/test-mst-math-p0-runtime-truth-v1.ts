@@ -6,6 +6,7 @@ const read = (path: string) => readFileSync(path, "utf8");
 const app = read("src/App.tsx");
 const header = read("src/components/Header.tsx");
 const studioApi = read("server/studio/api.ts");
+const runtimeStatus = read("server/studio/runtimeStatus.ts");
 const server = read("server.ts");
 const runtimePanel = read("src/components/StudioEngineStatusPanel.tsx");
 const inputTab = read("src/components/tabs/InputTab.tsx");
@@ -38,6 +39,15 @@ assert.match(server, /app\.get\("\/api\/studio\/status"/, "Capability registry/o
 assert.match(runtimePanel, /fetch\("\/api\/studio\/runtime-status"/, "Runtime engine UI must consume the runtime-status contract.");
 assert.match(inputTab, /fetch\("\/api\/studio\/status"/, "Studio planning UI must consume the capability-registry status contract.");
 console.log("STUDIO_STATUS_ROUTE_CONTRACT_QA=PASS");
+
+assert.match(runtimeStatus, /resolveCanonicalPythonExecutable/, "Runtime probe must explicitly resolve the canonical repository Python.");
+assert.match(runtimeStatus, /\.venv["',\s)]/, "Runtime probe must use the repository-local .venv contract.");
+assert.match(runtimeStatus, /Scripts["',\s),]+python\.exe/, "Windows runtime probe must resolve .venv/Scripts/python.exe.");
+assert.match(runtimeStatus, /bin["',\s),]+python/, "Unix runtime probe must resolve .venv/bin/python.");
+assert.match(runtimeStatus, /if \(!existsSync\(pythonExecutable\)\) return false;/, "Missing canonical Python environment must fail closed.");
+assert.doesNotMatch(runtimeStatus, /spawnSync\("python"/, "Runtime status must not probe an unrelated system Python.");
+assert.doesNotMatch(runtimeStatus, /spawnSync\("uv"/, "Runtime status must not mutate/sync the environment during a health probe.");
+console.log("CANONICAL_PYTHON_RUNTIME_PROBE_QA=PASS");
 
 assert.match(workflow, /uses:\s*actions\/checkout@v5/, "CI must use the Node-24 generation of checkout.");
 assert.match(workflow, /uses:\s*actions\/setup-node@v5/, "CI must use the Node-24 generation of setup-node.");
