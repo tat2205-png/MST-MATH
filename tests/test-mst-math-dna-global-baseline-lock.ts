@@ -1,0 +1,22 @@
+import assert from "node:assert/strict";
+import previousBaseline from "../registry/mst-math-dna-global-baseline-v1.0.json";
+import baseline from "../registry/mst-math-dna-global-baseline-v1.1.json";
+import standards from "../registry/standards.json";
+import brandRoot from "../registry/mst-math-brand-root.json";
+
+assert.equal(brandRoot.globalBaseline, baseline.id);
+assert.equal(standards.standards.find((standard) => standard.id === baseline.id)?.path, "registry/mst-math-dna-global-baseline-v1.1.json");
+assert.equal(previousBaseline.id, "MST_MATH_DNA_GLOBAL_BASELINE_V1.0");
+assert.equal(previousBaseline.status, "LOCKED");
+assert.equal(baseline.inherits, previousBaseline.id);
+assert.equal(baseline.status, "LOCKED");
+assert.equal(baseline.canonical, true);
+assert.equal(baseline.approved, true);
+assert.equal(baseline.root, "MST-MATH-DNA-V1.0");
+assert.deepEqual(previousBaseline.authorityReferences.exam, ["P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT", "P06_EXAM_VSAT"]);
+assert.equal(baseline.closureCertification.missingConnections, "NONE");
+assert.equal(baseline.closureCertification.unresolvedReferences, "NONE");
+assert.equal(baseline.closureCertification.directRendererColorAuthority, 0);
+assert.equal(baseline.closureCertification.directRendererFontAuthority, 0);
+assert.equal(previousBaseline.videoLock.canonicalTag, "mst-math-dna-video-canonical-v2.0");
+console.log("MST_MATH_GLOBAL_BASELINE_LOCK_QA=PASS");
