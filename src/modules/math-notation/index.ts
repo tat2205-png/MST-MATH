@@ -10,6 +10,11 @@ export const MATH_NOTATION_FAILURE_CODES = [
 ] as const;
 export type MathNotationFailureCode = (typeof MATH_NOTATION_FAILURE_CODES)[number];
 
+export interface MathNotationProfileSemantic {
+  semantic: string;
+  spokenVi?: string;
+}
+
 export interface MathNotationEntry {
   symbolId: string;
   semantic: string;
@@ -18,6 +23,7 @@ export interface MathNotationEntry {
   aliases: string[];
   spokenVi: string;
   category: string;
+  profileSemantics?: Record<string, MathNotationProfileSemantic>;
   outputs: MathNotationOutputChannel[];
 }
 
@@ -28,6 +34,7 @@ export interface MathNotationRegistry {
   status: string;
   canonical: boolean;
   approvalRequired: boolean;
+  notationProfiles?: string[];
   outputChannels: MathNotationOutputChannel[];
   failureCodes: MathNotationFailureCode[];
   entries: MathNotationEntry[];
@@ -38,6 +45,7 @@ export interface MathNotationIssue {
   message: string;
   symbolId?: string;
   token?: string;
+  profileId?: string;
 }
 
 export interface MathNotationRegistryValidation {
@@ -48,11 +56,26 @@ export interface MathNotationRegistryValidation {
 export interface MathNotationResolution {
   status: "PASS" | "FAIL";
   entry?: MathNotationEntry;
+  effectiveSemantic?: string;
+  effectiveSpokenVi?: string;
+  profileId?: string;
   issue?: MathNotationIssue;
 }
 
 function isOutputChannel(value: unknown): value is MathNotationOutputChannel {
   return typeof value === "string" && (MATH_NOTATION_OUTPUT_CHANNELS as readonly string[]).includes(value);
+}
+
+function isProfileSemantics(value: unknown): value is Record<string, MathNotationProfileSemantic> {
+  if (value === undefined) return true;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return Object.values(value).every((item) => {
+    if (!item || typeof item !== "object") return false;
+    const profile = item as Partial<MathNotationProfileSemantic>;
+    return typeof profile.semantic === "string"
+      && profile.semantic.length > 0
+      && (profile.spokenVi === undefined || (typeof profile.spokenVi === "string" && profile.spokenVi.length > 0));
+  });
 }
 
 function isEntry(value: unknown): value is MathNotationEntry {
@@ -71,6 +94,7 @@ function isEntry(value: unknown): value is MathNotationEntry {
     && entry.spokenVi.length > 0
     && typeof entry.category === "string"
     && entry.category.length > 0
+    && isProfileSemantics(entry.profileSemantics)
     && Array.isArray(entry.outputs)
     && entry.outputs.length > 0
     && entry.outputs.every(isOutputChannel);
@@ -78,6 +102,53 @@ function isEntry(value: unknown): value is MathNotationEntry {
 
 function tokenKeys(entry: MathNotationEntry): string[] {
   return [entry.canonicalLatex, ...(entry.unicode ? [entry.unicode] : []), ...entry.aliases];
+}
+
+function resolveEffectiveSemantics(entry: MathNotationEntry, profileId?: string): MathNotationResolution {
+  if (!entry.profileSemantics || Object.keys(entry.profileSemantics).length === 0) {
+    return {
+      status: "PASS",
+      entry,
+      effectiveSemantic: entry.semantic,
+      effectiveSpokenVi: entry.spokenVi,
+      ...(profileId ? { profileId } : {}),
+    };
+  }
+
+  if (!profileId) {
+    return {
+      status: "FAIL",
+      entry,
+      issue: {
+        code: "MATH_NOTATION_AMBIGUITY",
+        symbolId: entry.symbolId,
+        message: `${entry.symbolId} is profile-dependent and requires a notation profile.`,
+      },
+    };
+  }
+
+  const profile = entry.profileSemantics[profileId];
+  if (!profile) {
+    return {
+      status: "FAIL",
+      entry,
+      profileId,
+      issue: {
+        code: "MATH_NOTATION_AMBIGUITY",
+        symbolId: entry.symbolId,
+        profileId,
+        message: `${entry.symbolId} has no declared semantics for notation profile ${profileId}.`,
+      },
+    };
+  }
+
+  return {
+    status: "PASS",
+    entry,
+    profileId,
+    effectiveSemantic: profile.semantic,
+    effectiveSpokenVi: profile.spokenVi ?? entry.spokenVi,
+  };
 }
 
 export function validateMathNotationRegistry(value: unknown): MathNotationRegistryValidation {
@@ -95,6 +166,7 @@ export function validateMathNotationRegistry(value: unknown): MathNotationRegist
     return { status: "FAIL", issues };
   }
 
+  const declaredProfiles = new Set(Array.isArray(registry.notationProfiles) ? registry.notationProfiles : []);
   const symbolIds = new Set<string>();
   const tokenOwners = new Map<string, string>();
   for (const rawEntry of registry.entries) {
@@ -107,6 +179,17 @@ export function validateMathNotationRegistry(value: unknown): MathNotationRegist
       issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", symbolId: entry.symbolId, message: `Duplicate symbolId: ${entry.symbolId}` });
     }
     symbolIds.add(entry.symbolId);
+
+    for (const profileId of Object.keys(entry.profileSemantics ?? {})) {
+      if (!declaredProfiles.has(profileId)) {
+        issues.push({
+          code: "MATH_NOTATION_REGISTRY_INVALID",
+          symbolId: entry.symbolId,
+          profileId,
+          message: `Undeclared notation profile ${profileId} used by ${entry.symbolId}.`,
+        });
+      }
+    }
 
     for (const token of tokenKeys(entry)) {
       const owner = tokenOwners.get(token);
@@ -126,7 +209,11 @@ export function validateMathNotationRegistry(value: unknown): MathNotationRegist
   return { status: issues.length === 0 ? "PASS" : "FAIL", issues };
 }
 
-export function resolveMathNotationToken(registry: MathNotationRegistry, token: string): MathNotationResolution {
+export function resolveMathNotationToken(
+  registry: MathNotationRegistry,
+  token: string,
+  profileId?: string,
+): MathNotationResolution {
   const normalized = token.trim();
   if (!normalized) {
     return { status: "FAIL", issue: { code: "MATH_NOTATION_UNKNOWN_TOKEN", token, message: "Notation token cannot be empty." } };
@@ -145,15 +232,16 @@ export function resolveMathNotationToken(registry: MathNotationRegistry, token: 
       issue: { code: "MATH_NOTATION_AMBIGUITY", token: normalized, message: `Ambiguous notation token: ${normalized}` },
     };
   }
-  return { status: "PASS", entry: matches[0] };
+  return resolveEffectiveSemantics(matches[0], profileId);
 }
 
 export function validateMathNotationRenderable(
   registry: MathNotationRegistry,
   token: string,
   output: MathNotationOutputChannel,
+  profileId?: string,
 ): MathNotationResolution {
-  const resolution = resolveMathNotationToken(registry, token);
+  const resolution = resolveMathNotationToken(registry, token, profileId);
   if (resolution.status === "FAIL" || !resolution.entry) return resolution;
   if (!resolution.entry.outputs.includes(output)) {
     return {
@@ -162,17 +250,19 @@ export function validateMathNotationRenderable(
         code: "MATH_NOTATION_RENDER_FAILURE",
         token,
         symbolId: resolution.entry.symbolId,
+        profileId,
         message: `${resolution.entry.symbolId} is not declared renderable for ${output}.`,
       },
     };
   }
-  if (output === "TTS" && !resolution.entry.spokenVi.trim()) {
+  if (output === "TTS" && !resolution.effectiveSpokenVi?.trim()) {
     return {
       status: "FAIL",
       issue: {
         code: "MATH_NOTATION_NARRATION_MISMATCH",
         token,
         symbolId: resolution.entry.symbolId,
+        profileId,
         message: `${resolution.entry.symbolId} has no Vietnamese narration mapping.`,
       },
     };
@@ -180,8 +270,12 @@ export function validateMathNotationRenderable(
   return resolution;
 }
 
-export function canonicalizeMathNotationToken(registry: MathNotationRegistry, token: string): MathNotationResolution & { canonicalLatex?: string } {
-  const resolution = resolveMathNotationToken(registry, token);
+export function canonicalizeMathNotationToken(
+  registry: MathNotationRegistry,
+  token: string,
+  profileId?: string,
+): MathNotationResolution & { canonicalLatex?: string } {
+  const resolution = resolveMathNotationToken(registry, token, profileId);
   if (resolution.status === "FAIL" || !resolution.entry) return resolution;
   return { ...resolution, canonicalLatex: resolution.entry.canonicalLatex };
 }
