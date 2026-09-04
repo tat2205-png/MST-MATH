@@ -31,8 +31,8 @@ assert.equal(treeHash, EXPECTED_TREE_SHA256);
 const standard = NA_MATH_STANDARD_V2_6;
 assert.equal(standard.id, "NA_MATH_STANDARD_V2_6");
 assert.equal(standard.layout.id, "NA-MATH-LAYOUT-V1.3-CANONICAL");
-assert.equal(standard.video.id, "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0");
-assert.equal(standard.video.canonicalProfileId, "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0");
+assert.equal(standard.video.id, "MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0");
+assert.equal(standard.video.canonicalProfileId, "MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0");
 assert.equal(standard.video.canonicalLayoutId, "NA-MATH-LAYOUT-V1.3-CANONICAL");
 assert.deepEqual(standard.video.semanticOrder, ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"]);
 assert.deepEqual(standard.video.canvas, { width: 1920, height: 1080, aspectRatio: "16:9", fps: 30 });
@@ -107,6 +107,7 @@ assert.equal(documentAdapter.standard, NA_MATH_STANDARD_V2_6);
 
 console.log([
   "V2_6_CANONICAL_ASSET_IDENTITY_QA=PASS",
+  "MST_MATH_VIDEO_AUTHORITY_QA=PASS",
   "STANDARD_REGISTRY_QA=PASS",
   "LAYOUT_LOCK_QA=PASS",
   "COLOR_LOCK_QA=PASS",
