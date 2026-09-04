@@ -2,7 +2,7 @@ import visualRegistry from "../../registry/mst-math-output-visual-profiles-v1.0.
 import outputRegistry from "../../registry/output-profiles.json";
 import videoTypeScale from "../../standards/MST_MATH_VIDEO_TYPE_SCALE_V1_0/mst-math-video-type-scale-v1.0.json";
 import gameVisualSystem from "../../standards/MST_MATH_GAME_VISUAL_SYSTEM_V1_0/mst-math-game-visual-system-v1.0.json";
-import outputContentPolicy from "../../standards/MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1_0/mst-math-output-content-presentation-policy-v1.0.json";
+import outputContentPolicy from "../../standards/MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1_1/mst-math-output-content-presentation-policy-v1.1.json";
 
 export const MST_MATH_OUTPUT_VISUAL_PROFILE_REGISTRY = visualRegistry;
 export const MST_MATH_VIDEO_TYPE_SCALE = videoTypeScale;
@@ -50,11 +50,13 @@ export function resolveOutputVisualProfile(profileId: string) {
 
 export function resolveOutputContentPresentationPolicy() {
   if (
-    outputContentPolicy.id !== "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0" ||
+    outputContentPolicy.id !== "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.1" ||
     outputContentPolicy.status !== "LOCKED_CANONICAL_APPROVED" ||
     outputContentPolicy.canonical !== true ||
     outputContentPolicy.approved !== true ||
     outputContentPolicy.humanApproved !== true ||
+    outputContentPolicy.inherits !== "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0" ||
+    outputContentPolicy.supersedes !== "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0" ||
     outputRegistry.contentPresentationPolicy !== outputContentPolicy.id
   ) {
     fail("output-content-policy");
