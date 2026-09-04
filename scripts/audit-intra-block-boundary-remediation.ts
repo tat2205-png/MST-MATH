@@ -14,9 +14,6 @@ const SNAPSHOT_PATH = "docs/evidence/question-boundary-final/corpus-recompositio
 const OUT = "docs/evidence/word-beta-human-acceptance-round-2/intra-block-boundary-remediation-impact.json";
 const markerPattern = /\b(?:Câu|Bài|Question)\s*(\d+)\s*[:.)]/giu;
 
-// Safety gates only. They do not define the canonical question count. A boundary
-// remediation that silently removes a large fraction of the historical raw
-// candidate population must stop for review even if all focused defect checks pass.
 const MIN_CORPUS_RAW_RETENTION_RATIO = 0.95;
 const MIN_DOCUMENT_RAW_RETENTION_RATIO = 0.90;
 
@@ -47,8 +44,6 @@ function preview(blocks: ContentBlock[]): string {
 
 const snapshot = JSON.parse(readFileSync(SNAPSHOT_PATH, "utf8"));
 
-// Canonical confirmed count and historical raw segmentation count are different
-// populations. Never subtract current raw candidates from confirmed candidates.
 const baselineConfirmedByFile = new Map<string, number>();
 for (const entry of snapshot.candidates ?? []) {
   if (entry.state !== "CONFIRMED") continue;
@@ -127,9 +122,6 @@ for (const file of files) {
     .filter(([, owners]) => owners.length > 1)
     .map(([sourceObjectId, owners]) => ({ sourceObjectId, owners }));
 
-  // This generic pattern proves the latent real-source defect represented by
-  // candidate 38 is repaired: one physical Word object can end question 5 and
-  // begin question 6 after a terminal KQ cue, yielding two logical owners.
   const embeddedQuestion56SplitGroup = sharedPhysicalSourceGroups.find((group) => {
     const indexes = [...new Set(group.owners.map((owner) => owner.questionIndex).filter((value): value is number => value !== null))];
     return indexes.includes(5) && indexes.includes(6);
@@ -140,9 +132,11 @@ for (const file of files) {
   const rawRetentionRatio = historicalRawCount && historicalRawCount > 0 ? candidates.length / historicalRawCount : null;
 
   if (file === "NK TEST APP.docx") {
-    const solutionAppendixRegions = appendixRegions.filter((region) => region.kind === "SOLUTION");
-    const solutionAppendixWithRepeated3456 = solutionAppendixRegions.find((region) =>
-      [3, 4, 5, 6].every((number) => region.markerNumbers.includes(number)),
+    const referenceAnswerRegions = appendixRegions.filter(
+      (region) => region.kind === "ANSWER" && region.evidence.includes("REFERENCE_ANSWER_HEADING"),
+    );
+    const structuredReferenceAnswerRegion = referenceAnswerRegions.find(
+      (region) => region.evidence.includes("STRUCTURED_ANSWER_SUBSECTIONS"),
     );
     const nkOverlapCount = appendixOverlapCandidates.filter((entry) => entry.sourceDocument === file).length;
 
@@ -154,8 +148,9 @@ for (const file of files) {
       rawRetentionRatio,
       baselineConfirmedCount: confirmedCount,
       answerSolutionAppendixRegionCount: appendixRegions.length,
-      solutionAppendixRegions,
-      solutionAppendixWithRepeated3456Found: Boolean(solutionAppendixWithRepeated3456),
+      referenceAnswerRegionCount: referenceAnswerRegions.length,
+      referenceAnswerRegions,
+      structuredReferenceAnswerRegionFound: Boolean(structuredReferenceAnswerRegion),
       questionCandidateOverlappingAppendixCount: nkOverlapCount,
       embeddedQuestion56SplitFound: Boolean(embeddedQuestion56SplitGroup),
       embeddedQuestion56SplitGroup: embeddedQuestion56SplitGroup ?? null,
@@ -201,8 +196,12 @@ const noMultiQuestionCandidateQA = candidateWithMultipleExplicitQuestionMarkersC
 const answerSolutionAppendixIsolationQA =
   totalAnswerSolutionAppendixRegionCount > 0 && questionCandidateOverlappingAppendixCount === 0 ? "PASS" : "FAIL";
 const embeddedQuestionTransitionQA = nkTestApp?.embeddedQuestion56SplitFound ? "PASS" : "FAIL";
-const r236SolutionAppendixExclusionQA =
-  nkTestApp?.solutionAppendixWithRepeated3456Found && nkTestApp?.questionCandidateOverlappingAppendixCount === 0 ? "PASS" : "FAIL";
+const r236ReferenceAnswerExclusionQA =
+  nkTestApp?.structuredReferenceAnswerRegionFound && nkTestApp?.questionCandidateOverlappingAppendixCount === 0 ? "PASS" : "FAIL";
+// Backward-compatible alias for older evidence readers. The source region is now
+// correctly typed as a structured reference-answer appendix, not a generic
+// solution appendix.
+const r236SolutionAppendixExclusionQA = r236ReferenceAnswerExclusionQA;
 const corpusRawCandidateRetentionQA =
   rawCandidateRetentionRatio !== null && rawCandidateRetentionRatio >= MIN_CORPUS_RAW_RETENTION_RATIO ? "PASS" : "FAIL";
 const perDocumentRawCandidateRetentionQA = perDocumentRawRetentionFailures.length === 0 ? "PASS" : "FAIL";
@@ -213,13 +212,13 @@ const qa =
   noMultiQuestionCandidateQA === "PASS" &&
   answerSolutionAppendixIsolationQA === "PASS" &&
   embeddedQuestionTransitionQA === "PASS" &&
-  r236SolutionAppendixExclusionQA === "PASS" &&
+  r236ReferenceAnswerExclusionQA === "PASS" &&
   rawCandidateConservationQA === "PASS"
     ? "PASS"
     : "FAIL";
 
 const evidence = {
-  schemaVersion: "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V4",
+  schemaVersion: "PIMATH_INTRA_BLOCK_BOUNDARY_REMEDIATION_IMPACT_V5",
   corpusFileCount: files.length,
   historicalRawCandidateCount,
   segmentedCandidateCount,
@@ -239,12 +238,13 @@ const evidence = {
   noMultiQuestionCandidateQA,
   answerSolutionAppendixIsolationQA,
   embeddedQuestionTransitionQA,
+  r236ReferenceAnswerExclusionQA,
   r236SolutionAppendixExclusionQA,
   corpusRawCandidateRetentionQA,
   perDocumentRawCandidateRetentionQA,
   rawCandidateConservationQA,
   boundaryRemediationImpactQA: qa,
-  note: "Historical raw segmentation and canonical confirmed boundary counts are reported separately. Raw-retention thresholds are anti-silent-loss safety gates only and never define the canonical question count. Answer/solution appendices remain source-backed DocumentIR evidence but are excluded from QuestionIR segmentation only when conservative appendix evidence passes. Canonical count must be recomposed after remediation; it is not inferred from raw candidate delta.",
+  note: "Historical raw segmentation and canonical confirmed boundary counts are separate populations. Raw-retention thresholds are anti-silent-loss safety gates only. R2-36 reference-answer content is excluded only when the structured reference-answer classifier passes and no QuestionIR candidate overlaps that appendix. Canonical count is recomposed independently from frozen authority and source ownership.",
 };
 
 writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
@@ -262,11 +262,13 @@ console.log(JSON.stringify({
   nkTestAppCandidateCount: nkTestApp?.candidateCount ?? null,
   nkTestAppHistoricalRawCandidateCount: nkTestApp?.historicalRawCandidateCount ?? null,
   nkTestAppRawDeltaVsHistoricalSegmentation: nkTestApp?.rawDeltaVsHistoricalSegmentation ?? null,
-  nkTestAppSolutionAppendixRegionCount: nkTestApp?.answerSolutionAppendixRegionCount ?? null,
+  nkTestAppReferenceAnswerRegionCount: nkTestApp?.referenceAnswerRegionCount ?? null,
+  nkTestAppStructuredReferenceAnswerRegionFound: nkTestApp?.structuredReferenceAnswerRegionFound ?? false,
   nkTestAppEmbeddedQuestion56SplitFound: nkTestApp?.embeddedQuestion56SplitFound ?? false,
   noMultiQuestionCandidateQA,
   answerSolutionAppendixIsolationQA,
   embeddedQuestionTransitionQA,
+  r236ReferenceAnswerExclusionQA,
   r236SolutionAppendixExclusionQA,
   corpusRawCandidateRetentionQA,
   perDocumentRawCandidateRetentionQA,
