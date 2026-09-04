@@ -58,7 +58,14 @@ export function resolveCanonicalReference(name: keyof typeof MST_MATH_DNA.refere
 function resolveChildAuthority(authority: typeof accessibilityAuthority | typeof voiceNarrationAuthority, reference: string) {
   const brand = resolveBrand();
   if (brand.references[reference as keyof typeof brand.references] !== authority.id || authority.status !== "LOCKED" || !authority.canonical || !authority.approved || authority.inherits !== "PIMATH_DNA_CORE" || authority.overrideCoreDna) fail(`child:${authority.id}`);
-  return { authority, provenance: { root: brand.standardId, source: `${authority.id} → MST-MATH DNA Core` as const, binding: "CANONICAL_BINDING" as const } } as const;
+  return {
+    authority,
+    provenance: {
+      root: brand.standardId,
+      source: `${authority.id} → PIMATH_DNA_CORE (legacy) → PIMATH-DNA-V1.0 compatibility alias → MST-MATH-DNA-V1.0` as const,
+      binding: "CANONICAL_BINDING" as const,
+    },
+  } as const;
 }
 export function resolveAccessibilityAuthority() { return resolveChildAuthority(accessibilityAuthority, "accessibility"); }
 export function resolveVoiceNarrationAuthority() { return resolveChildAuthority(voiceNarrationAuthority, "voice"); }
@@ -117,8 +124,8 @@ export function resolveExamRuntimeAuthority(exam: MstMathExamProfile) {
   } as const;
 }
 export function resolvePdfLatexAuthority(profileId?: string) {
-  requireProfileId("PDF_LATEX", profileId);
-  const profile = resolveOutputProfile(profileId);
+  const requiredProfileId = requireProfileId("PDF_LATEX", profileId);
+  const profile = resolveOutputProfile(requiredProfileId);
   return {
     profile,
     brand: resolveBrand(),
