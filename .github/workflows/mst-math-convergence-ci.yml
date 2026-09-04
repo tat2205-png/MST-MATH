@@ -91,6 +91,12 @@ jobs:
       - name: TECH03 assets and provenance
         run: node --import tsx tests/test-mst-math-tech03-assets.ts
 
+      - name: A3 public readiness contract
+        run: node --import tsx tests/test-mst-math-pc-a3-public-readiness-contract-v1.ts
+
+      - name: A3 backend authority and export guard
+        run: node --import tsx tests/test-mst-math-pc-a3-backend-readiness-v1.ts
+
       - name: Unified Input certification contract
         run: node --import tsx tests/test-pimath-unified-input-certification-readonly-v1.ts
 
