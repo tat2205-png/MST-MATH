@@ -12,6 +12,7 @@ import type {
 import {
   blockBelongsToAnswerSolutionAppendix,
   findAnswerSolutionAppendixRegions,
+  findTerminalEmbeddedReferenceAnswerFooter,
 } from "./source-region-classification.js";
 
 /**
@@ -70,17 +71,6 @@ function splitEmbeddedTextQuestionStarts(content: ContentBlock): ContentBlock[] 
   });
 }
 
-/**
- * Word can store several visually separate "Câu N:" lines inside a single
- * physical block, and in some files a new question starts in the middle of one
- * text run after a terminal answer cue such as "KQ:". Expand those cases into
- * logical units while preserving the physical source object identity.
- *
- * Embedded markers are only split when preceded by a strong local boundary
- * (line break or KQ/Kết quả/Đáp án cue). Repeated Câu markers inside a detected
- * worked-solution appendix are excluded separately at the document-region layer
- * and are never promoted to question boundaries.
- */
 function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[] {
   const expandedContent = block.content.flatMap(splitEmbeddedTextQuestionStarts);
   const markerIndexes = expandedContent
@@ -95,9 +85,6 @@ function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[
 
   const units: SegmentationBlock[] = [];
 
-  // Preserve any physical content that precedes the first explicit marker. It
-  // remains a separate segmentation unit and may attach to prior context using
-  // the existing rules. No source content is discarded.
   if (firstMarker > 0) {
     units.push({
       ...block,
@@ -112,9 +99,6 @@ function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[
       ...block,
       content: expandedContent.slice(start, end),
       segmentationUnitId: `${block.id}::question-segment-${markerOrdinal + 1}`,
-      // A Word list number belongs to the physical paragraph, not every
-      // logical segment inside it. Explicit Câu/Bài/Question markers are the
-      // authority for the derived segments.
       ...(markerOrdinal > 0 || firstMarker > 0 ? { numbering: undefined } : {}),
     });
   });
@@ -122,8 +106,39 @@ function expandIntraBlockQuestionUnits(block: DocumentBlock): SegmentationBlock[
   return units;
 }
 
+/**
+ * A terminal reference-answer footer can share the final physical Word
+ * paragraph with valid question content. Slice only the logical prefix before
+ * the footer and leave the original DocumentIR untouched for provenance.
+ */
+function questionSourceBlocks(document: DocumentIR): DocumentBlock[] {
+  const footer = findTerminalEmbeddedReferenceAnswerFooter(document);
+  if (!footer) return document.blocks;
+
+  const blocks: DocumentBlock[] = [];
+  for (const block of document.blocks) {
+    if (block.order < footer.blockOrder) {
+      blocks.push(block);
+      continue;
+    }
+    if (block.order > footer.blockOrder) continue;
+
+    const prefix = block.content.slice(0, footer.contentIndex);
+    const target = block.content[footer.contentIndex];
+    if (target?.type === "text") {
+      const value = target.value.slice(0, footer.charOffset);
+      if (value.trim().length > 0) prefix.push({ ...target, value });
+    }
+
+    if (prefix.length > 0) {
+      blocks.push({ ...block, content: prefix });
+    }
+  }
+  return blocks;
+}
+
 function segmentationUnits(document: DocumentIR): SegmentationBlock[] {
-  return document.blocks.flatMap(expandIntraBlockQuestionUnits);
+  return questionSourceBlocks(document).flatMap(expandIntraBlockQuestionUnits);
 }
 
 const evidenceFor = (
@@ -135,7 +150,6 @@ const evidenceFor = (
 ): QuestionStartCandidate => ({
   candidateId: `${block.segmentationUnitId ?? block.id}:${kind}`,
   sourceDocumentId: document.sourceDocumentId ?? document.id ?? document.sourceHash,
-  // Preserve the physical source object identity even for an intra-block slice.
   sourceObjectId: block.id,
   sourceAnchor: {
     sourceDocumentId: document.sourceDocumentId ?? document.sourceHash,
@@ -218,8 +232,6 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
       questionIndex: index,
       questionLabel: label,
       section: currentSection,
-      // Strip the internal-only segmentationUnitId. Candidate raw blocks still
-      // carry the sliced content but expose only canonical DocumentBlock fields.
       rawBlocks: current.map(({ segmentationUnitId: _unit, ...block }) => block),
       textBlocks: flat,
       mathBlocks: math,
@@ -329,9 +341,6 @@ export function segmentQuestions(document: DocumentIR): DocumentQuestionCandidat
       if (numberedContinuation) {
         numberedContinuationActive = true;
       } else if (numberedContinuationActive && !block.numbering && !explicitMarker) {
-        // A plain paragraph after the numbered subordinate list can still be
-        // part of the same question, but it ends the list-mode suppression so
-        // a later independent Word-numbered question is not swallowed.
         numberedContinuationActive = false;
       }
     }
