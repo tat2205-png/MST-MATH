@@ -26,6 +26,9 @@ assert.equal(resolveMathNotationToken(registry, "∉").effectiveSemantic, "SET_N
 assert.equal(resolveMathNotationToken(registry, "\\leq").effectiveSemantic, "LESS_THAN_OR_EQUAL");
 assert.equal(resolveMathNotationToken(registry, "<=").effectiveSemantic, "LESS_THAN_OR_EQUAL");
 assert.equal(canonicalizeMathNotationToken(registry, "<=").canonicalLatex, "\\leq");
+assert.equal(resolveMathNotationToken(registry, "=").effectiveSemantic, "EQUAL");
+assert.equal(resolveMathNotationToken(registry, "<").effectiveSemantic, "LESS_THAN");
+assert.equal(resolveMathNotationToken(registry, ">").effectiveSemantic, "GREATER_THAN");
 
 // In Vietnamese GDPT 2018 materials, ⊂ is convention-dependent and must not be
 // assigned a global "proper subset" meaning without a notation profile.
@@ -42,15 +45,33 @@ const properSubset = resolveMathNotationToken(registry, "⊊");
 assert.equal(properSubset.status, "PASS");
 assert.equal(properSubset.effectiveSemantic, "PROPER_SUBSET");
 
+const directedUnscoped = resolveMathNotationToken(registry, "\\overrightarrow");
+assert.equal(directedUnscoped.status, "FAIL");
+assert.equal(directedUnscoped.issue?.code, "MATH_NOTATION_AMBIGUITY");
+assert.equal(resolveMathNotationToken(registry, "\\overrightarrow", "VN_GDPT2018").effectiveSemantic, "VECTOR");
+
 const ttsPerpendicular = validateMathNotationRenderable(registry, "\\perp", "TTS");
 assert.equal(ttsPerpendicular.status, "PASS");
 assert.equal(ttsPerpendicular.effectiveSpokenVi, "vuông góc với");
 
+// ≡ can mean identity, congruence modulo, or another equivalence relation by context.
+// Visual preservation is allowed, but generic TTS must fail closed until context is resolved.
+const equivVisual = validateMathNotationRenderable(registry, "\\equiv", "PDF");
+assert.equal(equivVisual.status, "PASS");
+const equivTts = validateMathNotationRenderable(registry, "\\equiv", "TTS");
+assert.equal(equivTts.status, "FAIL");
+assert.equal(equivTts.issue?.code, "MATH_NOTATION_RENDER_FAILURE");
+
 for (const entry of registry.entries) {
-  for (const output of registry.outputChannels) {
+  for (const output of entry.outputs) {
     const profileId = entry.profileSemantics ? "VN_GDPT2018" : undefined;
     const rendered = validateMathNotationRenderable(registry, entry.canonicalLatex, output, profileId);
-    assert.equal(rendered.status, "PASS", `${entry.symbolId} must support ${output}`);
+    assert.equal(rendered.status, "PASS", `${entry.symbolId} must support declared output ${output}`);
+  }
+  for (const output of registry.outputChannels.filter((candidate) => !entry.outputs.includes(candidate))) {
+    const profileId = entry.profileSemantics ? "VN_GDPT2018" : undefined;
+    const rejected = validateMathNotationRenderable(registry, entry.canonicalLatex, output, profileId);
+    assert.equal(rejected.status, "FAIL", `${entry.symbolId} must reject undeclared output ${output}`);
   }
 }
 
