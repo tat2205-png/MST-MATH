@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "MST_MATH_VIDEO_TYPE_SCALE_V1.0",
+  "status": "DRAFT_FOR_HUMAN_APPROVAL",
+  "canonical": false,
+  "canonicalCandidate": true,
+  "root": "MST-MATH-DNA-V1.0",
+  "inherits": [
+    "NA_MATH_TYPOGRAPHY_STANDARD_V1_0",
+    "MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0",
+    "MST_MATH_ACCESSIBILITY_CANONICAL_V1.0"
+  ],
+  "scope": "VIDEO_TYPE_SCALE_ONLY",
+  "fontBindings": {
+    "title": "STIX Two Text",
+    "section": "XCharter",
+    "body": "Libertinus Serif",
+    "math": "Libertinus Math",
+    "ui": "Source Sans 3"
+  },
+  "canonical1080p": {
+    "resolution": "1920x1080",
+    "rolesPx": {
+      "title": {"size": 44, "lineHeight": 54, "weight": "Bold"},
+      "sectionTab": {"size": 28, "lineHeight": 34, "weight": "Semibold"},
+      "question": {"size": 36, "lineHeight": 48, "weight": "Regular"},
+      "solutionBody": {"size": 32, "lineHeight": 44, "weight": "Regular"},
+      "inlineMath": {"size": 32, "lineHeight": 42},
+      "displayMath": {"size": 38, "lineHeight": 50, "allowedRange": [34, 44]},
+      "figureLabel": {"size": 26, "lineHeight": 32},
+      "caption": {"size": 24, "lineHeight": 30},
+      "conclusion": {"size": 34, "lineHeight": 44, "weight": "Semibold"},
+      "metadata": {"size": 22, "lineHeight": 28}
+    }
+  },
+  "derivatives": {
+    "1280x720": {
+      "scale": 0.75,
+      "minimumsPx": {"body": 24, "math": 26, "label": 18},
+      "rule": "Prefer reflow or scene split before reducing below minimums."
+    },
+    "854x480": {
+      "scale": 0.58,
+      "minimumsPx": {"body": 18, "math": 20, "label": 16},
+      "rule": "Low-resolution derivative only; reflow and simplify density before size reduction."
+    }
+  },
+  "readabilityRules": {
+    "fontShrinkToHideOverflow": false,
+    "maxPrimaryTextLinesPerZone": 7,
+    "preferredSolutionLinesPerReveal": [2, 5],
+    "singlePrimaryEmphasis": true,
+    "mathClippingAllowed": false,
+    "danglingMathOperatorAllowed": false,
+    "reflowBeforeShrink": true,
+    "splitSceneBeforeShrinkBelowMinimum": true
+  },
+  "qa": [
+    "VIDEO_TYPE_ROLE_RESOLVED",
+    "VIDEO_MIN_READABLE_SIZE_PASS",
+    "VIDEO_NO_TEXT_OVERFLOW_PASS",
+    "VIDEO_NO_MATH_CLIP_PASS",
+    "VIDEO_ZONE_DENSITY_PASS",
+    "VIDEO_1080P_CLASSROOM_READABILITY_PASS"
+  ]
+}
