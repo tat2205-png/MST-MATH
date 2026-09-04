@@ -3,6 +3,7 @@ import process from "node:process";
 
 const suites = [
   "tests/test-mst-math-canonical-migration.ts",
+  "tests/test-mst-math-output-visual-identity-v1.ts",
   "tests/test-mst-math-dna-runtime-resolver.ts",
   "tests/test-mst-math-dna-accessibility-voice.ts",
   "tests/test-mst-math-dna-component-authority.ts",
