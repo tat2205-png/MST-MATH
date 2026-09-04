@@ -27,7 +27,20 @@
       "activeCanonical": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
       "historical": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0"],
       "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE",
-      "runtimeEvidence": "src/config/naMathBrandRoot.ts imports registry/pimath-dna-icons-v1.1.json"
+      "runtimeEvidence": "src/config/naMathBrandRoot.ts imports registry/pimath-dna-icons-v1.1.json",
+      "consumerBindings": {
+        "accessibility": "PIMATH-DNA-SEMANTIC-ICONS-V1.1"
+      },
+      "knownNonAuthorityLegacyReferences": [
+        {
+          "path": "server/services/goldenPathService.ts",
+          "field": "manifest.metadata.iconAuthority",
+          "value": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
+          "classification": "STALE_METADATA_NON_AUTHORITY_PROTECTED_VIDEO_SCOPE",
+          "runtimeAuthority": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+          "requiredAction": "RECONCILE_WITH_PROTECTED_VIDEO_WORKSTREAM_BEFORE_RELEASE"
+        }
+      ]
     },
     "DYNAMIC_GEOMETRY": {
       "activeCanonical": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
