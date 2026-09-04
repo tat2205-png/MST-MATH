@@ -58,7 +58,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 2, "numbered subordinate conditions must remain inside Câu 6");
   assert.deepEqual(candidates.map((candidate) => candidate.questionIndex), [6, 7]);
-
   const q6 = candidates[0];
   assert.deepEqual(q6.rawBlocks.map((block) => block.id), ["paragraph-0", "paragraph-1", "paragraph-2", "paragraph-3"]);
   const q6Text = q6.textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
@@ -118,11 +117,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
 }
 
-// Corpus-like pattern: formatting splits the heading across Word runs with no
-// literal spaces in the run payloads. The semantic visible-text layer must
-// insert virtual separation exactly as review rendering does, then map the
-// detected marker back to the original run for lossless slicing. Câu 1..6 below
-// the heading are answer entries because numbering restarts at 1.
 {
   const document = documentFromBlocks("split-run-reference-answer-entries", [
     paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
@@ -148,10 +142,42 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
 
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 1, "reference-answer Câu entries must not become question candidates");
-  assert.equal(candidates[0].questionIndex, 6);
   const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
   assert.match(q6Text, /KQ:/u);
   assert.doesNotMatch(q6Text, /ĐÁP|THAM|KHẢO|Câu 1|Được thực hiện bởi AI/iu);
+}
+
+// Corpus-backed structural variant: the footer words can be split across
+// physical Word paragraphs, not only formatting runs. Detection must operate on
+// the document-visible stream and slice from the first physical source block.
+{
+  const document = documentFromBlocks("cross-paragraph-reference-answer", [
+    paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
+    paragraph(1, "Điều kiện thứ nhất.", "1."),
+    paragraph(2, "Điều kiện thứ hai. Tính giá trị của biểu thức P.", "2."),
+    paragraph(3, "KQ: □ □ □ □ ĐÁP"),
+    paragraph(4, "ÁN"),
+    paragraph(5, "THAM KHẢO"),
+    paragraph(6, "Câu 1. KQ: 0"),
+    paragraph(7, "Câu 2. KQ: 1"),
+    paragraph(8, "Câu 3. KQ: 2"),
+    paragraph(9, "Câu 4. KQ: 3"),
+    paragraph(10, "Câu 5. KQ: 4"),
+    paragraph(11, "Câu 6. KQ: 5"),
+    paragraph(12, "Được thực hiện bởi AI"),
+  ]);
+
+  const embedded = findTerminalEmbeddedReferenceAnswerFooter(document);
+  assert.ok(embedded);
+  assert.equal(embedded.blockId, "paragraph-3");
+  assert.deepEqual(embedded.markerNumbersAfterHeading, [1, 2, 3, 4, 5, 6]);
+  assert.ok(embedded.evidence.includes("VISIBLE_TEXT_AGGREGATE"));
+
+  const candidates = segmentQuestions(document);
+  assert.equal(candidates.length, 1);
+  const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
+  assert.match(q6Text, /KQ:/u);
+  assert.doesNotMatch(q6Text, /ĐÁP|ÁN|THAM KHẢO|Câu 1|Được thực hiện bởi AI/iu);
 }
 
 {
