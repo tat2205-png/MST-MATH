@@ -37,8 +37,9 @@ jobs:
       - name: Install authoritative PDF runtime
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-xetex texlive-latex-recommended texlive-fonts-recommended
+          sudo apt-get install -y texlive-xetex texlive-latex-recommended texlive-fonts-recommended poppler-utils
           xelatex --version
+          pdftotext -v
 
       - name: Architecture check
         run: npm run arch:check
