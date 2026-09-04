@@ -1,4 +1,4 @@
-// Canonical PiMath generic document interchange contracts.
+// Canonical MST-MATH generic document interchange contracts.
 // Extracted without schema mutation from the legacy Question Bank ownership.
 
 export type ParseStatus = "PARSED" | "UNRESOLVED" | "UNSUPPORTED";
