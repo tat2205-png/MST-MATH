@@ -2,10 +2,12 @@ import visualRegistry from "../../registry/mst-math-output-visual-profiles-v1.0.
 import outputRegistry from "../../registry/output-profiles.json";
 import videoTypeScale from "../../standards/MST_MATH_VIDEO_TYPE_SCALE_V1_0/mst-math-video-type-scale-v1.0.json";
 import gameVisualSystem from "../../standards/MST_MATH_GAME_VISUAL_SYSTEM_V1_0/mst-math-game-visual-system-v1.0.json";
+import outputContentPolicy from "../../standards/MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1_0/mst-math-output-content-presentation-policy-v1.0.json";
 
 export const MST_MATH_OUTPUT_VISUAL_PROFILE_REGISTRY = visualRegistry;
 export const MST_MATH_VIDEO_TYPE_SCALE = videoTypeScale;
 export const MST_MATH_GAME_VISUAL_SYSTEM = gameVisualSystem;
+export const MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY = outputContentPolicy;
 
 export type MstMathVisualProfileId = (typeof visualRegistry.profiles)[number]["profileId"];
 
@@ -46,6 +48,20 @@ export function resolveOutputVisualProfile(profileId: string) {
   } as const;
 }
 
+export function resolveOutputContentPresentationPolicy() {
+  if (
+    outputContentPolicy.id !== "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0" ||
+    outputContentPolicy.status !== "LOCKED_CANONICAL_APPROVED" ||
+    outputContentPolicy.canonical !== true ||
+    outputContentPolicy.approved !== true ||
+    outputContentPolicy.humanApproved !== true ||
+    outputRegistry.contentPresentationPolicy !== outputContentPolicy.id
+  ) {
+    fail("output-content-policy");
+  }
+  return { ...outputContentPolicy, authoritative: true as const } as const;
+}
+
 export function resolveVideoTypeScale() {
   if (videoTypeScale.id !== "MST_MATH_VIDEO_TYPE_SCALE_V1.0" || videoTypeScale.scope !== "VIDEO_TYPE_SCALE_ONLY") fail("video-type-scale");
   return { ...videoTypeScale, authoritative: false as const } as const;
@@ -65,5 +81,6 @@ export function validateOutputVisualProfileCoverage(): { ok: true; covered: stri
   const covered = normalizedFamilies.filter((id) => visualRegistry.profiles.some((profile) => profile.profileId === id));
   const missing = normalizedFamilies.filter((id) => !covered.includes(id));
   if (missing.length) fail(`coverage:${missing.join(",")}`);
+  resolveOutputContentPresentationPolicy();
   return { ok: true, covered };
 }
