@@ -6,6 +6,7 @@ export interface FrozenBoundaryAuthorityRow {
   sourceDocumentId: string;
   sourceObjectIds: string[];
   inAnswerSolutionAppendix: boolean;
+  sourceObjectIdsInAnswerSolutionAppendix?: string[];
 }
 
 export interface CurrentBoundaryRecord {
@@ -51,8 +52,11 @@ export interface RetiredFrozenBoundary {
   frozenQuestionId: string;
   sourceDocumentId: string;
   sourceObjectIds: string[];
-  reason: "ANSWER_SOLUTION_APPENDIX";
-  decisionSource: "SOURCE_REGION_REMEDIATION";
+  reason: "ANSWER_SOLUTION_APPENDIX" | "SOURCE_OWNERSHIP_ABSORBED";
+  decisionSource: "SOURCE_REGION_REMEDIATION" | "SOURCE_OWNERSHIP_REMEDIATION";
+  absorbedByCurrentQuestionId?: string;
+  absorbedSourceObjectIds?: string[];
+  appendixSourceObjectIds?: string[];
 }
 
 export type CanonicalBoundarySelection = RetainedBoundarySelection | PromotedBoundarySelection;
@@ -92,6 +96,58 @@ const overlaps = (a: readonly string[], b: readonly string[]): boolean => {
 };
 const isFirstSplitSibling = (row: CurrentBoundaryRecord): boolean =>
   row.sourceSliceIds.some(id => /::question-segment-1(?::|$)/u.test(id));
+
+interface SourceOwnershipAbsorption {
+  owner: CurrentBoundaryRecord;
+  absorbedSourceObjectIds: string[];
+  appendixSourceObjectIds: string[];
+}
+
+/**
+ * A historical frozen boundary may cease to be an independent question when a
+ * later source-backed segmentation repair proves that its content is actually a
+ * continuation of an earlier explicit question, while any remaining tail is an
+ * answer/solution appendix. Retire only when one unique high-confidence current
+ * question owns every non-appendix physical source object and that current
+ * question starts before the frozen range. This deliberately does not consume
+ * the current row, so it can still be promoted by a separate split-remediation
+ * rule when warranted.
+ */
+function absorbedByEarlierCurrentQuestion(
+  frozen: FrozenBoundaryAuthorityRow,
+  currentInDocument: CurrentBoundaryRecord[],
+): SourceOwnershipAbsorption | undefined {
+  if (frozen.sourceObjectIds.length === 0) return undefined;
+
+  const appendixIds = new Set(frozen.sourceObjectIdsInAnswerSolutionAppendix ?? []);
+  const nonAppendixIds = frozen.sourceObjectIds.filter(id => !appendixIds.has(id));
+  if (nonAppendixIds.length === 0) return undefined;
+
+  const possibleOwners = currentInDocument.filter(row => {
+    if (!row.highConfidenceExplicitStart) return false;
+    if (row.sourceObjectIds.length === 0) return false;
+    if (!nonAppendixIds.every(id => row.sourceObjectIds.includes(id))) return false;
+
+    // The frozen range must be continuation content inside this current question,
+    // not the start of the current question itself.
+    const firstFrozenPosition = row.sourceObjectIds.indexOf(nonAppendixIds[0]);
+    return firstFrozenPosition > 0 && row.sourceObjectIds[0] !== frozen.sourceObjectIds[0];
+  });
+
+  if (possibleOwners.length !== 1) return undefined;
+  const owner = possibleOwners[0];
+
+  const everyFrozenObjectExplained = frozen.sourceObjectIds.every(
+    id => owner.sourceObjectIds.includes(id) || appendixIds.has(id),
+  );
+  if (!everyFrozenObjectExplained) return undefined;
+
+  return {
+    owner,
+    absorbedSourceObjectIds: nonAppendixIds,
+    appendixSourceObjectIds: frozen.sourceObjectIds.filter(id => appendixIds.has(id)),
+  };
+}
 
 export function canonicalQuestionIdentityKey(value: Pick<QuestionIR, "sourceDocumentId" | "sourceObjectIds" | "sourceSliceIds">): string {
   const slices = value.sourceSliceIds?.length ? value.sourceSliceIds : value.sourceObjectIds;
@@ -180,6 +236,23 @@ export function remapCanonicalBoundaries(
         sourceObjectIds: [...frozen.sourceObjectIds],
         reason: "ANSWER_SOLUTION_APPENDIX",
         decisionSource: "SOURCE_REGION_REMEDIATION",
+        appendixSourceObjectIds: [...(frozen.sourceObjectIdsInAnswerSolutionAppendix ?? frozen.sourceObjectIds)],
+      });
+      continue;
+    }
+
+    const absorption = absorbedByEarlierCurrentQuestion(frozen, currentInDocument);
+    if (absorption) {
+      retired.push({
+        authorityOrdinal: frozen.authorityOrdinal,
+        frozenQuestionId: frozen.questionId,
+        sourceDocumentId: frozen.sourceDocumentId,
+        sourceObjectIds: [...frozen.sourceObjectIds],
+        reason: "SOURCE_OWNERSHIP_ABSORBED",
+        decisionSource: "SOURCE_OWNERSHIP_REMEDIATION",
+        absorbedByCurrentQuestionId: absorption.owner.question.id,
+        absorbedSourceObjectIds: [...absorption.absorbedSourceObjectIds],
+        appendixSourceObjectIds: [...absorption.appendixSourceObjectIds],
       });
       continue;
     }
