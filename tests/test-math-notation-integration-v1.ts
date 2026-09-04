@@ -8,9 +8,10 @@ import {
 import { verifyMathNotationSemanticSignature } from "../src/modules/math-notation/index.js";
 import { toTtsText } from "../src/utils/pronunciation.js";
 
-const profileId = DEFAULT_MST_MATH_NOTATION_PROFILE;
+const notationProfileId = DEFAULT_MST_MATH_NOTATION_PROFILE;
+const outputProfileId = "P01_LEARNING_MATERIAL";
 const source = String.raw`A ⊂ B,\quad x≤2,\quad d\perp a`;
-const prepared = prepareMstMathNotation(source, { profileId, output: "PDF" });
+const prepared = prepareMstMathNotation(source, { profileId: notationProfileId, output: "PDF" });
 assert.equal(prepared.status, "PASS", JSON.stringify(prepared.issues));
 assert.ok(prepared.canonicalLatex?.includes(String.raw`\subset`));
 assert.ok(prepared.canonicalLatex?.includes(String.raw`\leq`));
@@ -24,11 +25,11 @@ assert.deepEqual(
   ],
 );
 
-const canonicalPrepared = prepareMstMathNotation(prepared.canonicalLatex!, { profileId, output: "PDF" });
+const canonicalPrepared = prepareMstMathNotation(prepared.canonicalLatex!, { profileId: notationProfileId, output: "PDF" });
 assert.equal(verifyMathNotationSemanticSignature(prepared, canonicalPrepared), undefined);
 
 // Longest-token/control-word protection: \\in must never be read inside \\infty.
-const infinity = prepareMstMathNotation(String.raw`x\to+\infty`, { profileId });
+const infinity = prepareMstMathNotation(String.raw`x\to+\infty`, { profileId: notationProfileId });
 assert.deepEqual(infinity.semanticSignature, ["constant.infinity:INFINITY"]);
 
 const document = createMathDocument({
@@ -45,19 +46,26 @@ const document = createMathDocument({
   ],
 });
 
-const latexResult = mathIRToLatex(document, { notationProfileId: profileId });
+const latexResult = mathIRToLatex(document, {
+  profileId: outputProfileId,
+  notationProfileId,
+});
 assert.equal(latexResult.status, "PASS", JSON.stringify(latexResult.report.errors));
 assert.ok(latexResult.latex?.includes(String.raw`A \subset B`));
 assert.ok(latexResult.latex?.includes(String.raw`x\leq2`));
 assert.ok(latexResult.latex?.includes(String.raw`d\perp a`));
 
-const narration = toTtsText(source, { notationProfileId: profileId });
+const narration = toTtsText(source, { notationProfileId });
 assert.ok(narration.includes("là tập con của"), narration);
 assert.ok(narration.includes("nhỏ hơn hoặc bằng"), narration);
 assert.ok(narration.includes("vuông góc với"), narration);
 
-// A profile-dependent symbol with an invalid profile is release-blocking.
-const invalidProfile = mathIRToLatex(document, { notationProfileId: "UNKNOWN_PROFILE" });
+// A profile-dependent symbol with an invalid notation profile is release-blocking,
+// while the required document output profile remains valid and explicit.
+const invalidProfile = mathIRToLatex(document, {
+  profileId: outputProfileId,
+  notationProfileId: "UNKNOWN_PROFILE",
+});
 assert.equal(invalidProfile.status, "FAIL");
 assert.equal(invalidProfile.latex, undefined);
 assert.equal(
