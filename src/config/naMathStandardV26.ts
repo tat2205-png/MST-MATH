@@ -7,7 +7,7 @@ import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID
 import iconAuthority from "../../registry/pimath-dna-icons.json";
 import canonicalVideoV2 from "../../standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json";
 import { resolveMathNotationAuthority, resolveSemanticGeometryAuthority } from "./naMathBrandRoot.js";
-import { resolveRendererColor, resolveRendererTypography } from "./pimathRendererProvenance.js";
+import { resolveRendererColor, resolveRendererTypography } from "./mstMathRendererProvenance.js";
 
 export type NaMathOutputIdentity = "learning_material" | "worksheet" | "exercise_sheet" | "video";
 export type CanonicalMathStatus = "PASS" | "BLOCK_RENDER" | "REVIEW_REQUIRED";
