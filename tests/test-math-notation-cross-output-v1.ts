@@ -10,7 +10,7 @@ const html = renderMstMathToHtml(source, {
   displayMode: true,
 });
 assert.equal(html.status, "PASS", JSON.stringify(html.issues));
-assert.equal(html.canonicalLatex, String.raw`A\subsetB,\quad x\leq2,\quad d\perp a`);
+assert.equal(html.canonicalLatex, String.raw`A\subset B,\quad x\leq2,\quad d\perp a`);
 assert.deepEqual(html.semanticSignature, [
   "set.subset:SUBSET_INCLUSIVE",
   "relation.less_equal:LESS_THAN_OR_EQUAL",
