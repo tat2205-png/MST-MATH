@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import {
   MST_MATH_GAME_VISUAL_SYSTEM,
+  MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY,
   MST_MATH_OUTPUT_VISUAL_PROFILE_REGISTRY,
   MST_MATH_VIDEO_TYPE_SCALE,
   resolveGameVisualSystem,
+  resolveOutputContentPresentationPolicy,
   resolveOutputVisualProfile,
   resolveVideoTypeScale,
   validateOutputVisualProfileCoverage,
@@ -22,6 +24,26 @@ assert.equal(MST_MATH_OUTPUT_VISUAL_PROFILE_REGISTRY.governance.noLocalCanonical
 const coverage = validateOutputVisualProfileCoverage();
 assert.equal(coverage.ok, true);
 assert.equal(coverage.covered.length, 16);
+
+const outputPolicy = resolveOutputContentPresentationPolicy();
+assert.equal(MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY.id, "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0");
+assert.equal(outputPolicy.status, "LOCKED_CANONICAL_APPROVED");
+assert.equal(outputPolicy.humanApproved, true);
+assert.equal(outputPolicy.document.page.size, "A4");
+assert.equal(outputPolicy.document.branding.showMstMathBrand, false);
+assert.equal(outputPolicy.video.branding.showMstMathBrand, false);
+assert.equal(outputPolicy.document.answerSection.required, true);
+assert.equal(outputPolicy.document.answerSection.placement, "END_OF_DOCUMENT");
+assert.equal(outputPolicy.figure.questionContainment.required, true);
+assert.equal(outputPolicy.figure.questionContainment.splitAcrossPages, false);
+assert.equal(outputPolicy.figure.clarity.vectorPreferred, true);
+assert.equal(outputPolicy.figure.clarity.rasterMinimumEffectiveDpiForPrint, 300);
+assert.equal(outputPolicy.figure.pageBalance.preserveAspectRatio, true);
+assert.equal(outputPolicy.answerQa.requiredBeforeExport, true);
+assert.equal(outputPolicy.answerQa.mcq.verifyAnswerKeyMatchesComputedOrProvenResult, true);
+assert.equal(outputPolicy.answerQa.mcq.verifyDistractorsDoNotCreateMultipleCorrectAnswers, true);
+assert.equal(outputPolicy.answerQa.failurePolicy.onFail, "BLOCK_EXPORT");
+assert.equal(outputPolicy.governance.rendererMayExportUnverifiedAnswer, false);
 
 const p01 = resolveOutputVisualProfile("P01_LEARNING_MATERIAL").profile as Record<string, unknown>;
 assert.equal(p01.colorContract, "learning_material");
@@ -62,4 +84,4 @@ assert.equal(game.readability.fontShrinkToHideOverflow, false);
 
 assert.throws(() => resolveOutputVisualProfile("UNKNOWN_PROFILE"), /MST_MATH_OUTPUT_VISUAL_PROFILE_UNRESOLVED/);
 
-console.log("MST-MATH OUTPUT VISUAL IDENTITY V1.0 QA PASS");
+console.log("MST-MATH OUTPUT VISUAL IDENTITY + CONTENT PRESENTATION POLICY QA PASS");
