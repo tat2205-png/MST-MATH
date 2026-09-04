@@ -43,6 +43,8 @@ const COMPATIBILITY_EXACT_PATHS = new Set([
   'registry/standards.json',
   'registry/locked-decisions.json',
   'src/config/naMathBrandRoot.ts',
+  'src/config/pimathRendererProvenance.ts',
+  'tests/test-mst-math-brand-migration-v1.ts',
   'scripts/audit-mst-math-brand.mjs',
 ]);
 
