@@ -19,5 +19,13 @@
     "documentAccessibility": "Preserve reading order, headings, grouping, tables, labels, and answer structure.",
     "videoAccessibility": "Maintain provenance linking caption, transcript, and narration without changing video visual semantics."
   },
-  "consumes": { "color": "PIMATH_DNA.references.color", "typography": "PIMATH_DNA.references.typography", "components": "NA_MATH_DESIGN_SYSTEM_V1_3", "mathNotation": "NA_MATH_SYSTEM_BASELINE_V2_6", "semanticGeometry": "NA_MATH_GEOMETRY_RULES_V1_8_GEO8", "icons": "PIMATH-DNA-SEMANTIC-ICONS-V1.0", "outputProfiles": "PIMATH_DNA.references" }
+  "consumes": {
+    "color": "PIMATH_DNA.references.color",
+    "typography": "PIMATH_DNA.references.typography",
+    "components": "NA_MATH_DESIGN_SYSTEM_V1_3",
+    "mathNotation": "NA_MATH_SYSTEM_BASELINE_V2_6",
+    "semanticGeometry": "NA_MATH_GEOMETRY_RULES_V1_8_GEO8",
+    "icons": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+    "outputProfiles": "PIMATH_DNA.references"
+  }
 }
