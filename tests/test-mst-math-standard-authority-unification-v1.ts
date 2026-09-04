@@ -6,6 +6,7 @@ import iconV1 from "../registry/pimath-dna-icons.json";
 import iconV11 from "../registry/pimath-dna-icons-v1.1.json";
 import baselineV1 from "../registry/pimath-dna-global-baseline-v1.0.json";
 import baselineV11 from "../registry/pimath-dna-global-baseline-v1.1.json";
+import accessibility from "../standards/PIMATH_ACCESSIBILITY_CANONICAL_V1_0/pimath-accessibility-canonical-v1.0.json";
 
 const entries = standards.standards as Array<Record<string, unknown>>;
 const byId = new Map(entries.map((entry) => [String(entry.id), entry]));
@@ -52,6 +53,8 @@ assert.equal(iconFamily.activeCanonical, iconV11.standardId);
 assert.equal(brandRoot.references.icons, iconV11.standardId);
 assert.equal(byId.get(iconV1.standardId)?.canonical, false);
 assert.equal(byId.get(iconV1.standardId)?.active, false);
+assert.equal(accessibility.consumes.icons, iconV11.standardId);
+assert.equal(iconFamily.consumerBindings.accessibility, iconV11.standardId);
 
 // Historical locked payloads remain unchanged even if they self-declared canonical at the time.
 // Current authority is resolved by registry classification, not by rewriting certified history.
@@ -59,6 +62,11 @@ assert.equal(iconV1.canonical, true);
 assert.equal(baselineV1.canonical, true);
 assert.equal(byId.get(iconV1.standardId)?.supersededBy, iconV11.standardId);
 assert.equal(byId.get(baselineV1.id)?.supersededBy, baselineV11.id);
+
+const protectedVideoDebt = iconFamily.knownNonAuthorityLegacyReferences;
+assert.equal(protectedVideoDebt.length, 1);
+assert.equal(protectedVideoDebt[0].classification, "STALE_METADATA_NON_AUTHORITY_PROTECTED_VIDEO_SCOPE");
+assert.equal(protectedVideoDebt[0].runtimeAuthority, iconV11.standardId);
 
 const dynamicGeometry = families.families.DYNAMIC_GEOMETRY;
 assert.ok(dynamicGeometry.specializedFacets.length >= 4);
@@ -73,6 +81,8 @@ console.log("STANDARD_FAMILY_REGISTRY_QA=PASS");
 console.log("ONE_ACTIVE_CANONICAL_PER_FAMILY_QA=PASS");
 console.log("GLOBAL_BASELINE_PARALLEL_AUTHORITY_COUNT=0");
 console.log("SEMANTIC_ICON_PARALLEL_AUTHORITY_COUNT=0");
+console.log("ACCESSIBILITY_ACTIVE_ICON_BINDING_QA=PASS");
 console.log("HISTORICAL_IMMUTABILITY_PRESERVED_QA=PASS");
 console.log("SPECIALIZED_FACET_NON_DESTRUCTIVE_MERGE_QA=PASS");
+console.log("PROTECTED_NON_AUTHORITY_STALE_REFERENCE_TRACKED_QA=PASS");
 console.log("STANDARD_AUTHORITY_UNIFICATION_QA=PASS");
