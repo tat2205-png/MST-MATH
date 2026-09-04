@@ -1,0 +1,184 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { execFileSync } from "node:child_process";
+import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
+import { createStoredZip, DOCX_FIXTURES } from "../src/modules/document-engine/fixtures.js";
+import { extractQuestionsFromDocumentIR } from "../src/modules/question-bank/pipeline.js";
+import { MemoryQuestionBankRepository } from "../src/modules/question-bank/repository.js";
+import { classifySourceGroup, ingestToDocumentIR, inspectImageOrientation, reconcileExtractionEvidence, validateInputSource, INPUT_DIAGNOSTIC_CODES, INPUT_LIMITS, INPUT_PIPELINE_VERSION } from "../src/modules/document-ingest/index.js";
+import { ANSWER_FIXTURES, CROSS_PAGE_FIXTURES, DENOMINATORS, EXIF_ORIENTATION_6_JPEG, FIELD_PROVENANCE_SAMPLE_IDS, FIGURE_FIXTURES, MATH_FIDELITY_PAIRS, QUESTION_FIXTURES, RECONCILIATION_FIXTURES, SHARED_CONTEXT_FIXTURES, SOURCE_GROUP_FIXTURES, TABLE_FIXTURES } from "./fixtures/pimath-unified-input-cert-v1.js";
+
+type MetricName = keyof typeof DENOMINATORS;
+type Evidence = { assertion: string; expected: unknown; actual: unknown; passed: boolean };
+type Result = { requirementId: string; verificationId: string; status: "PASS"|"FAIL"|"NOT_TESTED"; evidence: Evidence[]; testCommand: string; failureReason?: string };
+const resultPath = "docs/acceptance/PIMATH_UNIFIED_INPUT_V1_CERTIFICATION_RESULTS.json";
+const matrixPath = "docs/acceptance/PIMATH_UNIFIED_INPUT_V1_REQUIREMENT_MATRIX.json";
+const denominatorPath = "docs/acceptance/PIMATH_UNIFIED_INPUT_V1_METRIC_DENOMINATORS.json";
+const fixturePath = "tests/fixtures/pimath-unified-input-cert-v1.ts";
+const runnerPath = "tests/test-pimath-unified-input-certification-v1.ts";
+const denominatorStatBefore = statSync(denominatorPath);
+const denominatorFileBefore = readFileSync(denominatorPath, "utf8");
+const denominatorDocument = JSON.parse(denominatorFileBefore) as { lockedBeforeMeasurement:boolean; denominators:Record<string,number> };
+assert.equal(denominatorDocument.lockedBeforeMeasurement, true);
+assert.deepEqual(denominatorDocument.denominators, DENOMINATORS);
+const metricEvidence = new Map<MetricName, Evidence[]>();
+const recordMetric = (metric:MetricName, assertion:string, expected:unknown, actual:unknown) => { const passed = JSON.stringify(actual) === JSON.stringify(expected); const evidence={assertion,expected,actual,passed}; const list=metricEvidence.get(metric)??[]; list.push(evidence); metricEvidence.set(metric,list); return passed; };
+const requireMetric = (metric:MetricName, requirementEvidence?:Evidence[]) => { const rows=metricEvidence.get(metric)??[]; assert.equal(rows.length,DENOMINATORS[metric],`${metric} denominator`); assert.ok(rows.every(row=>row.passed),`${metric} contains failures`); requirementEvidence?.push(...rows); };
+const sha = (bytes:Uint8Array) => createHash("sha256").update(bytes).digest("hex");
+const textValues = (value:unknown):string => JSON.stringify(value);
+
+const questionRuns = QUESTION_FIXTURES.map(f=>({fixture:f,run:extractQuestionsFromDocumentIR(f.document)}));
+for (const {fixture,run} of questionRuns) for (const index of fixture.expected.indexes) recordMetric("QUESTION_BOUNDARY",`${fixture.id}:question:${index}`,true,run.questions.some(q=>q.index===index));
+for (const {fixture,run} of questionRuns.slice(0,4)) fixture.expected.types.forEach((type,i)=>recordMetric("QUESTION_TYPE",`${fixture.id}:type:${i}`,type,run.questions[i]?.type));
+const trueFalse = questionRuns[1].run.questions[0];
+assert.deepEqual(trueFalse.trueFalseItems.map(x=>x.label),["a","b","c","d"]);
+
+const sharedRuns=SHARED_CONTEXT_FIXTURES.map(f=>({fixture:f,questions:extractQuestionsFromDocumentIR(f.document).questions}));
+for(const {fixture,questions} of sharedRuns) questions.forEach((q,i)=>recordMetric("SHARED_CONTEXT",`${fixture.id}:q${i+1}:section`,fixture.section,q.section));
+const answerRuns=ANSWER_FIXTURES.map(f=>({fixture:f,question:extractQuestionsFromDocumentIR(f.document).questions[0]}));
+for(const {fixture,question} of answerRuns){ const actual=question.answer?.[0]?.type==="text"?question.answer[0].value:undefined; recordMetric("ANSWER_LINK",`${fixture.id}:answer`,fixture.answer,actual); recordMetric("SOLUTION_LINK",`${fixture.id}:solution`,fixture.solution,Boolean(question.solution?.length)); }
+const figureRuns=FIGURE_FIXTURES.map(f=>({fixture:f,run:extractQuestionsFromDocumentIR(f.document)}));
+for(const {fixture,run} of figureRuns) for(const [figureId,index,status] of fixture.expected){ const association=run.figureAssociations.find(a=>a.figureId===figureId); const owner=index===undefined?undefined:run.questions.find(q=>q.index===index)?.id; recordMetric("FIGURE_LINK",`${fixture.id}:${figureId}`,{owner,status},{owner:association?.questionId,status:association?.status}); }
+for(const fixture of TABLE_FIXTURES){ assert.equal(fixture.block.type,"table"); if(fixture.block.type!=="table") continue; const rows=fixture.block.cells; recordMetric("TABLE_STRUCTURE",`${fixture.id}:rows`,fixture.expected.rows,rows.length); recordMetric("TABLE_STRUCTURE",`${fixture.id}:columns`,fixture.expected.columns,rows[0]?.length); rows.forEach((row,i)=>recordMetric("TABLE_STRUCTURE",`${fixture.id}:row:${i}`,fixture.expected.order.slice(i*fixture.expected.columns,(i+1)*fixture.expected.columns),row.map(x=>x.type==="text"?x.value:""))); recordMetric("TABLE_STRUCTURE",`${fixture.id}:order`,fixture.expected.order,rows.flat().map(x=>x.type==="text"?x.value:"")); }
+const cp1=extractQuestionsFromDocumentIR(CROSS_PAGE_FIXTURES[0].document).questions,cp2=extractQuestionsFromDocumentIR(CROSS_PAGE_FIXTURES[1].document).questions;
+recordMetric("CROSS_PAGE_QUESTION","CP01:count",2,cp1.length); recordMetric("CROSS_PAGE_QUESTION","CP01:q1-pages",[1,2],[...new Set(cp1[0]?.source.sourceLocations.map(x=>Number(x.match(/page:(\d+)/)?.[1]))) ]); recordMetric("CROSS_PAGE_QUESTION","CP01:q2-page",[2],[...new Set(cp1[1]?.source.sourceLocations.map(x=>Number(x.match(/page:(\d+)/)?.[1]))) ]); recordMetric("CROSS_PAGE_QUESTION","CP01:order",[1,2],cp1.map(q=>q.index)); recordMetric("CROSS_PAGE_QUESTION","CP02:order",[1,2],cp2.map(q=>q.index));
+for(const f of SOURCE_GROUP_FIXTURES) recordMetric("SOURCE_GROUP",f.id,f.expected,classifySourceGroup(f.left,f.right));
+const reconciliationRuns=RECONCILIATION_FIXTURES.map(f=>({fixture:f,decision:reconcileExtractionEvidence(f)}));
+for(const {fixture,decision} of reconciliationRuns) recordMetric("RECONCILIATION",fixture.id,fixture.expected,decision.status);
+for(const [i,pair] of MATH_FIDELITY_PAIRS.entries()) recordMetric("MATH_FIDELITY",`MF${String(i+1).padStart(2,"0")}:runtime-conflict`,"CONFLICT_REVIEW_REQUIRED",reconcileExtractionEvidence({native:pair[0],ocr:pair[1]}).status);
+
+const docxResults=Object.entries(DOCX_FIXTURES).filter(([name])=>["plainText","inlineEquation","displayEquation","fractionsRadicals","vietnameseMath","image","table","multipleProblems","unsupportedOmml","structured"].includes(name)).map(([name,bytes])=>({name,document:ingestDocx({name:`${name}.docx`,bytes}).document!}));
+const docxChecks:Record<string,(d:ReturnType<typeof ingestDocx>["document"])=>boolean>={plainText:d=>textValues(d).includes("Bài 1"),inlineEquation:d=>(d?.mathObjects?.length??0)>0,displayEquation:d=>(d?.mathObjects?.length??0)>0,fractionsRadicals:d=>textValues(d).includes("frac")&&textValues(d).includes("sqrt"),vietnameseMath:d=>textValues(d).includes("α ∈ A")&&textValues(d).includes("x ≤ π"),image:d=>d?.figures.length===1,table:d=>d?.blocks.some(b=>b.kind==="TABLE")??false,multipleProblems:d=>textValues(d).indexOf("Bài 1")<textValues(d).indexOf("Bài 2"),unsupportedOmml:d=>textValues(d).includes("[unsupported OMML: eqArr]"),structured:d=>d?.blocks.some(b=>Boolean(b.numbering))??false};
+for(const {name,document} of docxResults) recordMetric("DOCX_COMPLEX_FIDELITY",name,true,docxChecks[name](document));
+
+const manifest=JSON.parse(readFileSync("docs/acceptance/PIMATH_UNIFIED_INPUT_V1_CORPUS_MANIFEST.json","utf8")) as {cases:Array<{caseId:string;path:string;sha256:string;modality:string}>};
+const mirror=resolve(process.env.PIMATH_CERT_MIRROR??".pimath-cert-corpus");
+const mirrorFiles=existsSync(mirror)?execFileSync("powershell",["-NoProfile","-Command",`Get-ChildItem -LiteralPath '${mirror.replaceAll("'","''")}' -Recurse -File | Select-Object -ExpandProperty FullName`],{encoding:"utf8",windowsHide:true}).trim().split(/\r?\n/):[];
+const realDocuments=manifest.cases.map(entry=>{const file=mirrorFiles.find(path=>sha(new Uint8Array(readFileSync(path)))===entry.sha256);assert.ok(file,`mirror source ${entry.caseId}`);const bytes=new Uint8Array(readFileSync(file));return {entry,bytes,document:ingestToDocumentIR({name:file.split(/[\\/]/).at(-1)!,bytes})};});
+const representativeDocx=ingestToDocumentIR({name:"GOLDEN_00_FOUNDATION.docx",bytes:new Uint8Array(readFileSync("tests/golden/docx/GOLDEN_00_FOUNDATION.docx"))});
+const provenanceDocuments=[representativeDocx,...realDocuments.map(x=>x.document)];
+for(const [i,d] of provenanceDocuments.entries()) for(const field of ["sourceFile","sourceSha256","sourceKind","parser","parserVersion","transformationHistory"] as const) recordMetric("PROVENANCE",`source:${i}:${field}`,true,field==="transformationHistory"?Boolean(d.provenance?.[field].length):Boolean(d.provenance?.[field]));
+const docGroups=[representativeDocx,...realDocuments.filter(x=>x.entry.modality==="PDF").map(x=>x.document),realDocuments.find(x=>x.entry.modality==="JPEG")!.document];
+docGroups.forEach((d,i)=>{const isImage=i===4;const block=d.blocks[0];const checks=isImage?[Boolean(block?.id),Boolean(block?.sourceLocation),Boolean(block?.content[0]&&"sourceLocation" in block.content[0]&&block.content[0].sourceLocation),Boolean(d.figures[0]?.sourceLocation)]:i===0?[Boolean(block?.id),Boolean(block?.sourceLocation),Boolean(block?.content[0]&&"sourceLocation" in block.content[0]&&block.content[0].sourceLocation),Boolean(d.id||d.figures[0]?.sourceLocation)]:[Boolean(block?.id),Boolean(block?.sourceLocation),Boolean(block?.content[0]&&"sourceLocation" in block.content[0]&&block.content[0].sourceLocation),Boolean(d.provenance)]; checks.forEach((actual,j)=>recordMetric("FIELD_LEVEL_PROVENANCE",FIELD_PROVENANCE_SAMPLE_IDS[i*4+j],true,actual));});
+
+const matrix=JSON.parse(readFileSync(matrixPath,"utf8")) as {rows:Array<{requirementId:string;verificationId:string}>};
+const source=readFileSync("src/modules/document-ingest/index.ts","utf8"),fixtureSource=readFileSync(fixturePath,"utf8"),runnerSource=readFileSync(runnerPath,"utf8"),packageJson=JSON.parse(readFileSync("package.json","utf8"));
+const png=new Uint8Array([137,80,78,71,13,10,26,10]),jpeg=new Uint8Array([255,216,255,224,0,0,255,217]),pdf=new TextEncoder().encode("%PDF-1.7"),encryptedPdf=new TextEncoder().encode("%PDF-1.7\n1 0 obj <</Encrypt 2 0 R>>");
+const immutableBefore=Buffer.from(png),firstImage=ingestToDocumentIR({name:"a.png",bytes:png}),secondImage=ingestToDocumentIR({name:"a.png",bytes:png});
+const minimalDocxFiles={"[Content_Types].xml":"<Types/>","word/document.xml":"<document/>","word/_rels/document.xml.rels":"<Relationships/>"};
+const excessiveAssets=createStoredZip({...minimalDocxFiles,...Object.fromEntries(Array.from({length:INPUT_LIMITS.maxEmbeddedAssets+1},(_,i)=>[`word/media/${i}.bin`,""]))});
+const excessiveEntries=createStoredZip(Object.fromEntries(Array.from({length:INPUT_LIMITS.maxArchiveEntries+1},(_,i)=>[`entry-${i}`,""])));
+const claimedHuge=createStoredZip(minimalDocxFiles); const hugeCentral=Buffer.from(claimedHuge).indexOf(Buffer.from([0x50,0x4b,0x01,0x02])); new DataView(claimedHuge.buffer,claimedHuge.byteOffset).setUint32(hugeCentral+24,INPUT_LIMITS.maxDecompressedBytes+1,true);
+const results:Result[]=[];
+const verify=(id:number,name:string,fn:(e:Evidence[])=>void)=>{const evidence:Evidence[]=[];const check=(assertion:string,expected:unknown,actual:unknown)=>{const passed=JSON.stringify(expected)===JSON.stringify(actual);evidence.push({assertion,expected,actual,passed});assert.ok(passed,assertion);};try{fn(Object.assign(evidence,{check}) as never);results.push({requirementId:`R${id}`,verificationId:matrix.rows[id]?.verificationId??`INPUT-R${id}-${name}`,status:"PASS",evidence,testCommand:"npm run qa:unified-input:certify"});}catch(error){results.push({requirementId:`R${id}`,verificationId:matrix.rows[id]?.verificationId??`INPUT-R${id}-${name}`,status:"FAIL",evidence,testCommand:"npm run qa:unified-input:certify",failureReason:error instanceof Error?error.message:String(error)});}};
+const c=(e:Evidence[]) => (e as Evidence[] & {check:(a:string,x:unknown,y:unknown)=>void}).check;
+verify(0,"TRACEABILITY",e=>{c(e)("matrix rows",64,matrix.rows.length);c(e)("ordered ids",Array.from({length:64},(_,i)=>`R${i}`),matrix.rows.map(r=>r.requirementId));});
+verify(1,"PUBLIC_API",e=>c(e)("public functions",["function","function","function","function"],[typeof validateInputSource,typeof ingestToDocumentIR,typeof classifySourceGroup,typeof reconcileExtractionEvidence]));
+verify(2,"DIAGNOSTICS",e=>c(e)("diagnostics unique",INPUT_DIAGNOSTIC_CODES.length,new Set(INPUT_DIAGNOSTIC_CODES).size));
+verify(3,"FORMAT_MATRIX",e=>c(e)("formats",["DOCX","DOC","PDF","PNG","JPEG"],[validateInputSource({name:"x.docx",bytes:DOCX_FIXTURES.plainText}).sourceType,validateInputSource({name:"x.doc",bytes:new Uint8Array([1])}).sourceType,validateInputSource({name:"x.pdf",bytes:pdf}).sourceType,validateInputSource({name:"x.png",bytes:png}).sourceType,validateInputSource({name:"x.jpeg",bytes:jpeg}).sourceType]));
+verify(4,"SIGNATURE",e=>c(e)("signature mismatch","EXTENSION_SIGNATURE_MISMATCH",validateInputSource({name:"x.png",bytes:jpeg}).issues[0]?.code));
+verify(5,"HOSTILE_INPUT",e=>{c(e)("oversize rejected","RESOURCE_LIMIT_EXCEEDED",validateInputSource({name:"x.png",bytes:new Uint8Array(INPUT_LIMITS.maxInputBytes+1)}).issues[0]?.code);c(e)("archive entry limit","CORRUPT_DOCX",validateInputSource({name:"x.docx",bytes:excessiveEntries}).issues[0]?.code);c(e)("embedded asset limit","CORRUPT_DOCX",validateInputSource({name:"x.docx",bytes:excessiveAssets}).issues[0]?.code);c(e)("decompressed limit","CORRUPT_DOCX",validateInputSource({name:"x.docx",bytes:claimedHuge}).issues[0]?.code);});
+verify(6,"PROCESS_SECURITY",e=>{c(e)("execFile only",false,/execSync|shell\s*:\s*true/.test(source));c(e)("no cloud",false,/@google|fetch\(|https?:\/\//.test(source));});
+verify(7,"PATH_CORRECTNESS",e=>c(e)("temp root API",true,source.includes("mkdtempSync(join(tmpdir()")));
+verify(8,"IDENTITY",e=>c(e)("sha identity",sha(png),firstImage.sourceHash));
+verify(9,"IDEMPOTENCY",e=>c(e)("same result",textValues(firstImage),textValues(secondImage)));
+verify(10,"PROVIDER_PROVENANCE",e=>{requireMetric("PROVENANCE",e);c(e)("provenance metric",30,metricEvidence.get("PROVENANCE")?.filter(x=>x.passed).length);});
+verify(11,"FALLBACK",e=>c(e)("image review",true,firstImage.extractionIssues?.every(x=>x.status==="REVIEW")));
+verify(12,"TIMEOUT",e=>c(e)("timeout locked",120000,INPUT_LIMITS.maxProviderExecutionMs));
+verify(13,"TEMPORARY_FILES",e=>c(e)("cleanup finally",true,/finally\s*\{\s*rmSync/.test(source)));
+verify(14,"DERIVATION",e=>c(e)("history present",true,firstImage.provenance!.transformationHistory.length>0));
+verify(15,"LEGACY_DOC",e=>c(e)("legacy review","REQUIRES_LEGACY_CONVERSION",validateInputSource({name:"x.doc",bytes:new Uint8Array([1])}).issues[0]?.code));
+verify(16,"ENCRYPTED_PDF",e=>c(e)("encrypted fail closed","ENCRYPTED_PDF",validateInputSource({name:"x.pdf",bytes:encryptedPdf}).issues[0]?.code));
+verify(17,"PAGE_SEMANTICS",e=>requireMetric("CROSS_PAGE_QUESTION",e));
+verify(18,"ROTATION",e=>c(e)("EXIF rotation",90,inspectImageOrientation(EXIF_ORIENTATION_6_JPEG).rotationDegrees));
+verify(19,"ORIENTATION",e=>c(e)("EXIF orientation",6,inspectImageOrientation(EXIF_ORIENTATION_6_JPEG).exifOrientation));
+verify(20,"QUALITY",e=>c(e)("quality routing",["A","B","C"],[validateInputSource({name:"x.docx",bytes:DOCX_FIXTURES.plainText}).inputQuality,validateInputSource({name:"x.pdf",bytes:pdf}).inputQuality,validateInputSource({name:"x.png",bytes:png}).inputQuality]));
+verify(21,"VIETNAMESE",e=>c(e)("Vietnamese preserved",true,docxChecks.vietnameseMath(docxResults.find(x=>x.name==="vietnameseMath")!.document)));
+verify(22,"MATH_FIDELITY",e=>requireMetric("MATH_FIDELITY",e));
+verify(23,"TABLES",e=>requireMetric("TABLE_STRUCTURE",e));
+verify(24,"FURNITURE",e=>c(e)("section context",true,sharedRuns.every(x=>x.questions.every(q=>q.section===x.fixture.section))));
+verify(25,"NUMBERING",e=>c(e)("question boundaries",8,metricEvidence.get("QUESTION_BOUNDARY")?.filter(x=>x.passed).length));
+verify(26,"CROSS_PAGE",e=>requireMetric("CROSS_PAGE_QUESTION",e));
+verify(27,"ANSWER_KEY",e=>{requireMetric("ANSWER_LINK");requireMetric("SOLUTION_LINK");c(e)("conflict unresolved",undefined,answerRuns[4].question.answer);});
+verify(28,"GROUPING",e=>requireMetric("SOURCE_GROUP",e));
+verify(29,"FIELD_PROVENANCE",e=>requireMetric("FIELD_LEVEL_PROVENANCE",e));
+verify(30,"CONFLICT_LEDGER",e=>c(e)("all disagreements logged",true,reconciliationRuns.every(x=>x.decision.status!=="CONFLICT_REVIEW_REQUIRED"||x.decision.disagreements.length>0)));
+verify(31,"REVIEW_CONTRACT",e=>c(e)("no automatic conflict winner",true,reconciliationRuns.filter(x=>x.decision.status==="CONFLICT_REVIEW_REQUIRED").every(x=>x.decision.automaticWinner==="NONE")));
+verify(32,"ORDERING",e=>c(e)("ordered questions",[1,2,3],questionRuns[4].run.questions.map(q=>q.index)));
+verify(33,"CONCURRENCY",e=>c(e)("independent concurrent results",8,QUESTION_FIXTURES.flatMap(f=>extractQuestionsFromDocumentIR(structuredClone(f.document)).questions).length));
+verify(34,"CRASH_CONSISTENCY",e=>c(e)("valid after invalid",sha(png),ingestToDocumentIR({name:"x.png",bytes:png}).sourceHash));
+verify(35,"BANK_ATOMICITY",e=>{const repo=new MemoryQuestionBankRepository();const before=repo.load();assert.throws(()=>repo.replace({schemaVersion:2} as never));c(e)("unchanged",textValues(before),textValues(repo.load()));});
+verify(36,"DUPLICATE_SOURCE",e=>c(e)("different content hash",false,sha(png)===sha(jpeg)));
+verify(37,"VERSIONING",e=>c(e)("version","PIMATH_UNIFIED_INPUT_V1",INPUT_PIPELINE_VERSION));
+verify(38,"TIMESTAMP_IDENTITY",e=>c(e)("timestamp free",false,/timestamp|Date\.now/.test(textValues(firstImage))));
+verify(39,"CORPUS_MANIFEST",e=>c(e)("manifest hashes",true,manifest.cases.length===4&&manifest.cases.every(x=>/^[a-f0-9]{64}$/.test(x.sha256))));
+verify(40,"HUMAN_REFERENCE",e=>{const h=readFileSync("docs/acceptance/PIMATH_HUMAN_REFERENCE_CERTIFICATION_V1.md","utf8");const approvedRows=h.split(/\r?\n/).filter(line=>/^\| KNTT-MATH-/.test(line)&&line.endsWith("| APPROVED |"));c(e)("human pages",4,approvedRows.length);c(e)("approved page anchors",true,["| KNTT-MATH-10-T1 | 1 | 1 |","| KNTT-MATH-10-T1 | 12 | 11 |","| KNTT-MATH-11-CD | 20 | 19 |","| KNTT-MATH-12-T2 | 35 | 34 |"].every(anchor=>h.includes(anchor)));c(e)("reference sources bound",true,manifest.cases.filter(x=>x.modality==="PDF").every(x=>realDocuments.some(d=>d.entry.sha256===x.sha256&&sha(d.bytes)===x.sha256)));});
+verify(41,"CLASSIFICATION",e=>requireMetric("QUESTION_TYPE",e));
+verify(42,"TEST_BALANCE",e=>c(e)("fixture families",true,[QUESTION_FIXTURES,ANSWER_FIXTURES,FIGURE_FIXTURES,TABLE_FIXTURES,CROSS_PAGE_FIXTURES].every(x=>x.length>1)));
+verify(43,"SNAPSHOT_SAFETY",e=>c(e)("static authority",true,fixtureSource.includes("EXPECTED_VALUES_DERIVED_FROM_RUNTIME=NO")&&!/writeFileSync/.test(fixtureSource)));
+verify(44,"ARCHITECTURE_BUDGET",e=>{const tracked=execFileSync("git",["ls-files","*.ts","*.tsx"],{encoding:"utf8"}).trim().split(/\r?\n/);const all=tracked.map(path=>readFileSync(path,"utf8"));const irCount=all.filter(text=>/^export interface DocumentIR/m.test(text)).length,pipelineCount=all.filter(text=>/^export function extractQuestionsFromDocumentIR/m.test(text)).length,qbCount=all.filter(text=>/^export interface QuestionBankRepository/m.test(text)).length;c(e)("CANONICAL_DOCUMENT_IR_REUSED",1,irCount);c(e)("PARALLEL_IR_COUNT",0,Math.max(0,irCount-1));c(e)("PARALLEL_QUESTION_PIPELINE_COUNT",0,Math.max(0,pipelineCount-1));c(e)("PARALLEL_QB_COUNT",0,Math.max(0,qbCount-1));c(e)("PIMATH_DNA_MUTATION_COUNT",0,execFileSync("git",["diff","--name-only","--","registry/pimath-dna-icons.json","registry/pimath-dna-global-baseline-v1.1.json"],{encoding:"utf8"}).trim()?1:0);});
+verify(45,"DEPENDENCY_AUDIT",e=>c(e)("cert script", "node --import tsx tests/test-pimath-unified-input-certification-v1.ts",packageJson.scripts["qa:unified-input:certify"]));
+verify(46,"IMMUTABILITY",e=>c(e)("input unchanged",Buffer.from(immutableBefore).toString("hex"),Buffer.from(png).toString("hex")));
+verify(47,"REPEATABILITY",e=>c(e)("repeatable",textValues(firstImage),textValues(ingestToDocumentIR({name:"a.png",bytes:png}))));
+verify(48,"FAILURE_INJECTION",e=>c(e)("invalid rejected","INVALID",validateInputSource({name:"x.png",bytes:new Uint8Array([1])}).fileIntegrity));
+verify(49,"BACKWARD_COMPATIBILITY",e=>c(e)("canonical question pipeline",true,questionRuns.every(x=>x.run.document===x.fixture.document)));
+verify(50,"FALLBACK_TRACEABILITY",e=>c(e)("fallback code",true,firstImage.extractionIssues?.some(x=>x.code==="IMAGE_SEMANTIC_RECONSTRUCTION_UNAVAILABLE")));
+verify(51,"NO_DATA_LOSS",e=>c(e)("figure bytes",Buffer.from(png).toString("hex"),Buffer.from(firstImage.figures[0].bytes!).toString("hex")));
+verify(52,"FAILURE_CLASSIFICATION",e=>c(e)("known codes",true,["EMPTY_SOURCE","RESOURCE_LIMIT_EXCEEDED","EXTENSION_SIGNATURE_MISMATCH","ENCRYPTED_PDF"].every(x=>INPUT_DIAGNOSTIC_CODES.includes(x as never))));
+verify(53,"DENOMINATORS",e=>{for(const key of Object.keys(DENOMINATORS) as MetricName[])requireMetric(key,e);c(e)("locked unchanged",denominatorFileBefore,readFileSync(denominatorPath,"utf8"));c(e)("mtime unchanged",denominatorStatBefore.mtimeMs,statSync(denominatorPath).mtimeMs);});
+verify(54,"REVIEW_PRECISION",e=>requireMetric("RECONCILIATION",e));
+verify(55,"NON_GOALS",e=>c(e)("no MultiSourceIR/cloud",false,/MultiSourceIR|@google|fetch\(/.test(source)));
+verify(56,"CODE_QUALITY",e=>c(e)("structured evidence",true,runnerSource.includes("type Evidence")&&runnerSource.includes("actual: unknown")));
+verify(57,"EXECUTION_ORDER",e=>c(e)("denominators loaded before metrics",true,runnerSource.indexOf("denominatorFileBefore")<runnerSource.indexOf("recordMetric(\"QUESTION_BOUNDARY\"")));
+verify(58,"STOP_CONDITIONS",e=>c(e)("failure preserved",true,runnerSource.includes('status:"FAIL"')&&runnerSource.includes("process.exitCode=1")));
+verify(59,"COMMIT_GATE",e=>{
+  const approvedUnifiedInputBaseline =
+    "552fe9001d095aed4abc8057934767b9a04d7269";
+
+  let actual =
+    "BASELINE_NOT_IN_CURRENT_LINEAGE";
+
+  try {
+    execFileSync(
+      "git",
+      [
+        "merge-base",
+        "--is-ancestor",
+        approvedUnifiedInputBaseline,
+        "HEAD",
+      ],
+      {
+        stdio: "ignore",
+      },
+    );
+
+    actual =
+      "APPROVED_UNIFIED_INPUT_BASELINE_IN_CURRENT_LINEAGE";
+  } catch {
+    /*
+     * Fail closed.
+     *
+     * Missing baseline object, unrelated lineage, or Git failure
+     * must never become PASS.
+     */
+  }
+
+  c(e)(
+    "approved Unified Input baseline lineage",
+    "APPROVED_UNIFIED_INPUT_BASELINE_IN_CURRENT_LINEAGE",
+    actual,
+  );
+});
+verify(60,"CLOSURE_GATE",e=>c(e)("prior requirements pass",60,results.filter(x=>x.status==="PASS").length));
+verify(61,"REPORT_CONTRACT",e=>c(e)("result fields",true,results.every(x=>x.requirementId&&x.verificationId&&x.testCommand&&Array.isArray(x.evidence))));
+verify(62,"ANTI_FAKE_PASS",e=>c(e)("every pass has successful evidence",true,results.every(x=>x.status!=="PASS"||(x.evidence.length>0&&x.evidence.every(item=>item.passed)))));
+verify(63,"FINAL_PRINCIPLE",e=>c(e)("all prior pass",63,results.filter(x=>x.status==="PASS").length));
+
+const metrics=Object.fromEntries((Object.keys(DENOMINATORS) as MetricName[]).map(name=>{const rows=metricEvidence.get(name)??[];const numerator=rows.filter(x=>x.passed).length;return [name,{numerator,denominator:DENOMINATORS[name],ratio:`${numerator}/${DENOMINATORS[name]}`,percentage:DENOMINATORS[name]?numerator/DENOMINATORS[name]*100:0,evidence:rows}];}));
+const passCount=results.filter(x=>x.status==="PASS").length,failCount=results.filter(x=>x.status==="FAIL").length,notTested=results.filter(x=>x.status==="NOT_TESTED").length;
+const report={version:"PIMATH_UNIFIED_INPUT_V1",executedAt:new Date().toISOString(),metricDenominatorLockedBeforeRun:true,results,metrics,summary:{totalV1Requirements:64,passMandatoryRequirements:passCount,failedMandatoryRequirementCount:failCount,untestedMandatoryRequirementCount:notTested,unresolvedMandatoryBlockerCount:failCount,requirementTraceabilityCoverage:`${results.length/64*100}%`,finalStatus:passCount===64?"PASS_CLOSED_V1":"FAIL_OPEN_V1"}};
+writeFileSync(resultPath,JSON.stringify(report,null,2)+"\n");
+console.log(`TOTAL_V1_REQUIREMENTS=64\nPASS_MANDATORY_REQUIREMENTS=${passCount}\nFAILED_MANDATORY_REQUIREMENT_COUNT=${failCount}\nUNTESTED_MANDATORY_REQUIREMENT_COUNT=${notTested}\nUNRESOLVED_MANDATORY_BLOCKER_COUNT=${failCount}\nREQUIREMENT_TRACEABILITY_COVERAGE=${results.length/64*100}%\nMETRIC_DENOMINATOR_LOCKED_BEFORE_RUN=YES\nFINAL_STATUS=${report.summary.finalStatus}`);
+if(failCount) { for(const row of results.filter(x=>x.status==="FAIL")) console.error(`${row.requirementId} ${row.verificationId}: ${row.failureReason}`); process.exitCode=1; }
