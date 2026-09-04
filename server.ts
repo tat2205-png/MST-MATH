@@ -106,6 +106,27 @@ async function startServer() {
     res.json({ success: true, summary: teacherWorkflowService.summary() });
   });
 
+  app.get("/api/teacher-workflow/readiness", (req, res) => {
+    const assessmentId =
+      typeof req.query.assessmentId === "string"
+        ? req.query.assessmentId
+        : undefined;
+
+    const artifactId =
+      typeof req.query.artifactId === "string"
+        ? req.query.artifactId
+        : undefined;
+
+    res.json({
+      success: true,
+      readiness:
+        teacherWorkflowService.readiness(
+          assessmentId,
+          artifactId,
+        ),
+    });
+  });
+
   app.post("/api/teacher-workflow/import", async (req, res) => {
     try {
       const { base64, fileName } = req.body || {};
@@ -184,9 +205,29 @@ async function startServer() {
 
   app.post("/api/teacher-workflow/exports", (req, res) => {
     try {
-      res.json({ success: true, result: teacherWorkflowService.exportAssessment(req.body) });
+      res.json({
+        success: true,
+        result:
+          teacherWorkflowService.exportAssessment(
+            req.body,
+          ),
+      });
     } catch (error) {
-      res.status(409).json({ success: false, code: "EXPORT_FAILED", error: error instanceof Error ? error.message : String(error) });
+      const message =
+        error instanceof Error
+          ? error.message
+          : String(error);
+
+      res.status(409).json({
+        success: false,
+        code:
+          message.startsWith(
+            "EXPORT_DENIED:",
+          )
+            ? "EXPORT_DENIED"
+            : "EXPORT_FAILED",
+        error: message,
+      });
     }
   });
 

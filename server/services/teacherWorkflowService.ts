@@ -25,10 +25,20 @@ import type {
 } from "../../src/services/teacherWorkflowTypes.js";
 import { QuestionBankStudioService } from "../integrations/questionBankStudio.js";
 import { StudioEngineRegistry } from "../studio/engineRegistry.js";
+import {
+  SUPPORTED_EXPORT_FORMATS,
+  TeacherWorkflowReadinessAuthority,
+  type AuthoritativeReadinessContract,
+} from "./teacherWorkflowReadiness.js";
 
 type StoredAssessment = { assessment: Assessment; answerManifest: AssessmentAnswerManifest };
 type StoredGame = { service: ClassroomGameService; session: GameSession };
 type ImportDiagnostic = ImportWorkflowResult["diagnostics"][number];
+
+type BackendExportWorkflowRequest =
+  ExportWorkflowRequest & {
+    artifactId?: string;
+  };
 
 function figureForClient(figure: FigureRecord): TeacherQuestion["figures"][number] {
   const { bytes, ...safe } = figure;
@@ -157,6 +167,9 @@ export class TeacherWorkflowService {
   private readonly studio = new QuestionBankStudioService();
   private readonly assessments = new Map<string, StoredAssessment>();
   private readonly games = new Map<string, StoredGame>();
+
+  private readonly readinessAuthority =
+    new TeacherWorkflowReadinessAuthority();
   private readonly outputDirectory: string;
 
   constructor(private readonly repository: QuestionBankRepository = new JsonQuestionBankRepository(path.join(process.cwd(), "render_output", "teacher-workflow", "question-bank.json"))) {
@@ -265,8 +278,60 @@ export class TeacherWorkflowService {
   generateAssessment(spec: AssessmentSpec): AssessmentWorkflowResult | { diagnostics: unknown[]; queryPlan: unknown[] } {
     const result = this.assessment.generate({ ...spec, statuses: ["APPROVED"] });
     if ("diagnostics" in result) return { diagnostics: result.diagnostics, queryPlan: result.queryPlan };
-    this.assessments.set(result.assessment.id, { assessment: result.assessment, answerManifest: result.answerManifest });
-    return { assessment: result.assessment, questionIds: result.assessment.sections.flatMap((section) => section.questionRefs.map((ref) => ref.questionId)), queryPlan: result.queryPlan };
+    this.assessments.set(
+      result.assessment.id,
+      {
+        assessment:
+          result.assessment,
+
+        answerManifest:
+          result.answerManifest,
+      },
+    );
+
+    this.readinessAuthority.registerAssessment(
+      result.assessment,
+    );
+
+    return {
+      assessment:
+        result.assessment,
+
+      questionIds:
+        result.assessment.sections.flatMap(
+          (section) =>
+            section.questionRefs.map(
+              (ref) =>
+                ref.questionId,
+            ),
+        ),
+
+      queryPlan:
+        result.queryPlan,
+    };
+  }
+
+  readiness(
+    assessmentId?: string,
+    artifactId?: string,
+  ): AuthoritativeReadinessContract {
+    const resolvedAssessmentId =
+      assessmentId ??
+      this.readinessAuthority.currentAssessmentId();
+
+    const stored =
+      resolvedAssessmentId
+        ? this.assessments.get(
+            resolvedAssessmentId,
+          )
+        : undefined;
+
+    return this.readinessAuthority.evaluate(
+      stored?.assessment,
+      this.repository,
+      resolvedAssessmentId,
+      artifactId,
+    );
   }
 
   startGame(assessmentId: string): GameWorkflowView {
@@ -308,22 +373,212 @@ export class TeacherWorkflowService {
     return { job: result.job, stages: ["PREPARING", "VERIFYING_MATH", "PLANNING_VISUAL", "RENDERING", "QA", "COMPLETE"] };
   }
 
-  exportAssessment(request: ExportWorkflowRequest): ExportWorkflowResult {
-    const stored = this.assessments.get(request.assessmentId);
-    if (!stored) throw new Error("ASSESSMENT_NOT_FOUND");
-    const result = this.exporter.deliver(stored.assessment, stored.answerManifest, this.repository, {
-      audience: request.audience,
-      formats: request.formats,
-      includeAnswers: request.audience === "TEACHER" && request.includeAnswers,
-      includeSolutions: request.audience === "TEACHER" && request.includeSolutions,
-      includeMetadata: request.audience === "TEACHER",
-      includeProvenance: request.audience === "TEACHER",
-      assetMode: "REFERENCE",
-      outputProfile: "NA_MATH_STANDARD",
-      outputDirectory: this.outputDirectory,
-      filename: request.filename,
-    });
-    if ("diagnostics" in result) throw new Error(result.diagnostics.map((diagnostic) => `${diagnostic.code}: ${diagnostic.message}`).join(" | "));
-    return { assessmentId: request.assessmentId, audience: request.audience, artifacts: result.artifacts, questionIds: result.package.questionRefs };
+  exportAssessment(
+    request: BackendExportWorkflowRequest,
+  ): ExportWorkflowResult {
+    if (
+      !request ||
+      typeof request.assessmentId !== "string" ||
+      !request.assessmentId.trim()
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ASSESSMENT_NOT_FOUND",
+      );
+    }
+
+    const stored =
+      this.assessments.get(
+        request.assessmentId,
+      );
+
+    if (!stored) {
+      throw new Error(
+        "EXPORT_DENIED:ASSESSMENT_NOT_FOUND",
+      );
+    }
+
+    if (
+      !Array.isArray(request.formats) ||
+      !request.formats.length
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:FORMAT_UNSUPPORTED",
+      );
+    }
+
+    const unsupported =
+      request.formats.filter(
+        (format) =>
+          !SUPPORTED_EXPORT_FORMATS.includes(
+            format as ExportFormat,
+          ),
+      );
+
+    if (unsupported.length) {
+      throw new Error(
+        "EXPORT_DENIED:FORMAT_UNSUPPORTED",
+      );
+    }
+
+    const readiness =
+      this.readiness(
+        request.assessmentId,
+        request.artifactId,
+      );
+
+    if (
+      readiness.qa.assessmentId !==
+        readiness.design.assessmentId
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ASSESSMENT_ID_MISMATCH",
+      );
+    }
+
+    if (
+      readiness.qa.artifactId !==
+        readiness.design.artifactId
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ARTIFACT_ID_MISMATCH",
+      );
+    }
+
+    if (
+      readiness.source.state !== "PASS"
+    ) {
+      throw new Error(
+        readiness.source.reasons.includes(
+          "SOURCE_LINEAGE_INVALID",
+        )
+          ? "EXPORT_DENIED:SOURCE_LINEAGE_INVALID"
+          : readiness.source.reasons.includes(
+                "QUESTION_IDENTITY_STALE",
+              )
+            ? "EXPORT_DENIED:ASSESSMENT_REF_INVALID"
+            : "EXPORT_DENIED:SOURCE_NOT_READY",
+      );
+    }
+
+    if (
+      readiness.qa.state === "UNKNOWN"
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_UNKNOWN",
+      );
+    }
+
+    if (
+      readiness.qa.state === "REVIEW"
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_REVIEW_REQUIRED",
+      );
+    }
+
+    if (
+      readiness.qa.state !== "PASS"
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_FAILED",
+      );
+    }
+
+    if (
+      !readiness.currentArtifactExportReadiness.ready
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:QA_FAILED",
+      );
+    }
+
+    if (
+      readiness.currentArtifactExportReadiness.artifactId !==
+        readiness.design.artifactId ||
+      readiness.currentArtifactExportReadiness.assessmentId !==
+        readiness.design.assessmentId
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:ARTIFACT_ID_MISMATCH",
+      );
+    }
+
+    if (
+      request.formats.some(
+        (format) =>
+          !readiness.currentArtifactExportReadiness.allowedFormats.includes(
+            format,
+          ),
+      )
+    ) {
+      throw new Error(
+        "EXPORT_DENIED:FORMAT_UNSUPPORTED",
+      );
+    }
+
+    const result =
+      this.exporter.deliver(
+        stored.assessment,
+        stored.answerManifest,
+        this.repository,
+        {
+          audience:
+            request.audience,
+
+          formats:
+            request.formats,
+
+          includeAnswers:
+            request.audience === "TEACHER" &&
+            request.includeAnswers,
+
+          includeSolutions:
+            request.audience === "TEACHER" &&
+            request.includeSolutions,
+
+          includeMetadata:
+            request.audience === "TEACHER",
+
+          includeProvenance:
+            request.audience === "TEACHER",
+
+          assetMode:
+            "REFERENCE",
+
+          outputProfile:
+            "NA_MATH_STANDARD",
+
+          outputDirectory:
+            this.outputDirectory,
+
+          filename:
+            request.filename,
+        },
+      );
+
+    if ("diagnostics" in result) {
+      throw new Error(
+        result.diagnostics
+          .map(
+            (diagnostic) =>
+              `${diagnostic.code}: ${diagnostic.message}`,
+          )
+          .join(" | "),
+      );
+    }
+
+    return {
+      assessmentId:
+        request.assessmentId,
+
+      audience:
+        request.audience,
+
+      artifacts:
+        result.artifacts,
+
+      questionIds:
+        result.package.questionRefs,
+    };
   }
 }
