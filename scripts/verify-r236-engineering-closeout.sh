@@ -59,6 +59,48 @@ echo "===== 7. CANONICAL RECOMPOSITION ====="
 node --import tsx scripts/recompose-word-beta-canonical-boundary.ts
 
 echo ""
+echo "===== 7B. CANONICAL AUTHORITY COUNT GATE ====="
+node <<'NODE'
+const fs = require("fs");
+const p = "docs/evidence/word-beta-human-acceptance-round-2/canonical-boundary-recomposition.json";
+const c = JSON.parse(fs.readFileSync(p, "utf8"));
+const fail = (code) => { console.error("FAIL:", code); process.exit(1); };
+if (c.canonicalBoundaryRecompositionQA !== "PASS") fail("SOURCE_BACKED_CANONICAL_REMAP");
+if (c.unresolvedFrozenCount !== 0) fail("UNRESOLVED_FROZEN_AUTHORITY");
+if (c.ambiguousFrozenCount !== 0 || c.ambiguousPromotionCount !== 0) fail("AMBIGUOUS_CANONICAL_REMAP");
+
+if (c.humanCanonicalCountDecisionRequired === true || c.selectedQuestionCount !== c.frozenAuthorityCount) {
+  const absorbed = (c.retired ?? []).filter((row) => row.reason === "SOURCE_OWNERSHIP_ABSORBED");
+  console.log("");
+  console.log("============================================");
+  console.log(" CANONICAL AUTHORITY DECISION REQUIRED");
+  console.log("============================================");
+  console.log("FROZEN_AUTHORITY_COUNT =", c.frozenAuthorityCount);
+  console.log("SOURCE_BACKED_SELECTED_COUNT =", c.selectedQuestionCount);
+  console.log("CANONICAL_DELTA =", c.canonicalDeltaVs668);
+  console.log("RETAINED_FROZEN_COUNT =", c.retainedFrozenCount);
+  console.log("RETIRED_FROZEN_COUNT =", c.retiredFrozenCount);
+  console.log("PROMOTED_SPLIT_COUNT =", c.promotedSplitCount);
+  console.log("ABSORBED_FROZEN_COUNT =", absorbed.length);
+  for (const row of absorbed) {
+    console.log("ABSORBED_FROZEN =", JSON.stringify({
+      frozenQuestionId: row.frozenQuestionId,
+      sourceObjectIds: row.sourceObjectIds,
+      absorbedByCurrentQuestionId: row.absorbedByCurrentQuestionId,
+      absorbedSourceObjectIds: row.absorbedSourceObjectIds,
+      appendixSourceObjectIds: row.appendixSourceObjectIds,
+    }));
+  }
+  console.log("SOURCE_BACKED_REMAP_QA =", c.remapQA);
+  console.log("HUMAN_CANONICAL_COUNT_DECISION_REQUIRED=YES");
+  console.log("");
+  process.exit(3);
+}
+
+console.log("CANONICAL_AUTHORITY_COUNT_GATE=PASS");
+NODE
+
+echo ""
 echo "===== 8. WORD BETA RECONCILIATION ====="
 node --import tsx scripts/run-word-beta-reconciliation.ts
 
