@@ -30,11 +30,16 @@ def test_latex_control_word_prefix_is_not_misclassified() -> None:
     assert semantic_signature(r"x\to+\infty") == ["constant.infinity:INFINITY"]
 
 
+def test_unicode_to_control_word_inserts_safe_boundary() -> None:
+    prepared = prepare_math_notation("A⊂B, A∈B", output="VIDEO")
+    assert prepared["canonicalLatex"] == r"A\subset B, A\in B"
+
+
 def test_canonicalization_is_semantically_idempotent() -> None:
     source = r"x≥0,\quad A∈B"
     canonical = canonicalize_math_expression(source)
     assert semantic_signature(source) == semantic_signature(canonical)
-    assert canonical == r"x\geq0,\quad A\inB"
+    assert canonical == r"x\geq0,\quad A\in B"
 
 
 def test_profile_dependent_notation_fails_closed() -> None:
