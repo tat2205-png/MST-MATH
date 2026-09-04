@@ -40,7 +40,10 @@ const section = /^(PHẦN\s+(?:I|II|III|IV|V)|TRẮC NGHIỆM|ĐÚNG\s*\/\s*SAI|
 const semantic = /^(?:cho|tính|tìm|xác định|chứng minh|giải|hãy|một|trong|tại|người ta|một người|một công ty|một vật)\b/iu;
 const answerSolution = /^(?:đáp\s*án|lời\s*giải|hướng\s*dẫn\s*giải|kết\s*quả)\b/iu;
 const terminalAnswerCue = /(?:\bKQ|\bKết\s*quả|\bĐáp\s*án)\s*:\s*[^\n]{0,120}$/iu;
-const numberedContinuationIntro = /(?:\b(?:điều kiện|yêu cầu|mệnh đề|khẳng định|trường hợp|nội dung|các\s+ý)\s+(?:sau|sau\s+đây)|\b(?:gồm|bao\s+gồm|thỏa\s+mãn)[^:.!?]{0,120})\s*:\s*$/iu;
+// Do not use a leading `\b` before Vietnamese phrases such as "điều kiện":
+// JavaScript's word-boundary semantics are not Unicode-word-aware for `đ`, so
+// an otherwise valid cue like "... hai điều kiện sau:" would be missed.
+const numberedContinuationIntro = /(?:(?:điều kiện|yêu cầu|mệnh đề|khẳng định|trường hợp|nội dung|các\s+ý)\s+(?:sau|sau\s+đây)|(?:gồm|bao\s+gồm|thỏa\s+mãn)[^:.!?]{0,120})\s*:\s*$/iu;
 
 function contentStartsExplicitQuestion(content: ContentBlock): boolean {
   return content.type === "text" && explicitQuestion.test(content.value.trimStart());
