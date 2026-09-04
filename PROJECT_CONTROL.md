@@ -1,35 +1,44 @@
 # MST-MATH — PROJECT CONTROL / MASTER STATUS
 
-> Operational source of truth for the current MST-MATH stabilization and convergence program.
->
-> This file records present repository truth, approved architectural direction, active blockers, and release gates. Historical release records remain immutable and are not rewritten here.
+> Operational source of truth for the current MST-MATH stabilization program.
+> Historical certification/release evidence remains immutable and is not rewritten here.
 
-LAST_UPDATED=2026-09-04
+LAST_UPDATED=2026-09-05
 CONTROL_MODE=STABILIZATION
-EXECUTION_MODEL=SINGLE_EXECUTOR_PC
-MAC_WORKSTREAM=FULL_FREEZE
+EXECUTION_MODEL=PARALLEL_BOUNDED_PC_MAC
 FEATURE_EXPANSION=FROZEN
 MAIN_PROMOTION=BLOCKED_UNTIL_STABLE_BASELINE
+REPORT_GOVERNANCE=RECEIVE_ALL_ACTIVE_WORKSTREAM_REPORTS_BEFORE_NEXT_ASSIGNMENT
 
 ---
 
-# 1. PRODUCT IDENTITY
+# 1. PRODUCT / ARCHITECTURE IDENTITY
 
 PRODUCT_UMBRELLA=MST-MATH
 APPLICATION=Math AI Studio
 STANDARDS_LAYER=NA-MATH
 
-Approved target identity architecture:
+Target identity architecture:
 
 `MST-MATH → MST-MATH-DNA-V1.0 → canonical authorities → output profiles → renderers`
 
-Legacy `PIMATH-*` machine IDs and certified PiMath history are preserved for compatibility/history. No blind global rename is allowed.
+Legacy `PIMATH-*` machine IDs and certified PiMath history remain compatibility/history evidence. No blind global rename.
 
-Repository note: the full MST-MATH brand migration is still isolated on a draft branch/PR and is NOT yet converged into the stabilization baseline.
+Primary workflow:
+
+`Nguồn → Xử lý → Thiết kế → QA → Xuất`
+
+Locked operating principles:
+- UI does not own business truth.
+- AI proposes; deterministic engines validate; QA gates; renderers publish.
+- Math/Geometry correctness precedes visual approval.
+- provenance/source fidelity are mandatory.
+- AUTHOR ONCE — RENDER MANY.
+- one semantic source must preserve meaning across outputs.
 
 ---
 
-# 2. CURRENT REPOSITORY TRUTH
+# 2. LIVE REPOSITORY TRUTH
 
 MAIN_BRANCH=main
 MAIN_HEAD=598b35a42b284ab17d7de6ba3023458a36e8f42d
@@ -38,161 +47,188 @@ MAIN_BRANCH_PROTECTION=OFF
 MAIN_REQUIRED_CHECKS=OFF
 
 CONVERGENCE_BRANCH=integration/mst-math-convergence-v1
-CONVERGENCE_CI_HARDENING_BASE=05384e5feeb35ea865db759a7ae5c332e2f990db
-CONVERGENCE_STATUS=ACTIVE_STABILIZATION_SURFACE
+CONVERGENCE_HEAD=4ad5c66ec5486cc0459aceff2047e75d20a0be5a
+CONVERGENCE_STATUS=AUTHORITIES_CONVERGED_STABILIZATION_BASE
+
+AUTHORITY_CONVERGENCE_PR=15
+AUTHORITY_CONVERGENCE_PR_STATUS=MERGED
+SUPERSEDED_PC_PR=12
+SUPERSEDED_PC_PR_STATUS=CLOSED_SUPERSEDED
+
+P0_RUNTIME_TRUTH_BRANCH=fix/mst-math-p0-runtime-truth-v1
+P0_RUNTIME_TRUTH_PR=20
+P0_RUNTIME_TRUTH_HEAD=1ed6c3d607aea1d49df615b200e7a2efc1b81057
+P0_RUNTIME_TRUTH_STATUS=CI_RECERTIFICATION_IN_PROGRESS
 
 PC_AUTHORITY_BRANCH=fix/mst-math-canonical-question-integrity-v1
 PC_AUTHORITY_HEAD=cc34f55c9ca4341a3ae0c0b45c8caab0f179736a
-PC_RECONCILIATION_BRANCH=integration/mst-math-convergence-pc-reconcile-v1
-PC_RECONCILIATION_HEAD=cc34f55c9ca4341a3ae0c0b45c8caab0f179736a
-PC_RECONCILIATION_STATUS=NOT_YET_RECONCILED_WITH_LATEST_CONVERGENCE
+PC_AUTHORITY_STATUS=PRESERVED_AS_EVIDENCE_AUTHORITY_NOW_CONVERGED
 
-MAC_BRANCH=feature/mac-b-human-acceptance-remediation-v1
-MAC_HEAD=acf9e6b8973ca06486e8733960defd755ea8f8c9
-MAC_STATUS=FROZEN_PRESERVE_REMOTE_EVIDENCE
+MAC_LEGACY_BRANCH=feature/mac-b-human-acceptance-remediation-v1
+MAC_LEGACY_HEAD=acf9e6b8973ca06486e8733960defd755ea8f8c9
+MAC_LEGACY_STATUS=STALE_REFERENCE_ONLY_DO_NOT_MERGE_WHOLE
+
+MAC_ACTIVE_BRANCH=audit/mac-b-teacher-readiness-consumer-v1
+MAC_ACTIVE_BASE=4ad5c66ec5486cc0459aceff2047e75d20a0be5a
+MAC_ACTIVE_STATUS=AUTHORIZED_BOUNDED_UI_CONSUMER_WORK
 
 BRAND_BRANCH=chore/mst-math-brand-migration-v1
 BRAND_HEAD=f38fbc066fd9bd539e72b6a7acaebcb6940be350
 BRAND_PR=8
-BRAND_PR_STATUS=DRAFT_NOT_READY_TO_MERGE
-
-PC_CONVERGENCE_PR=12
-PC_CONVERGENCE_PR_STATUS=DRAFT_CONFLICTING_NOT_READY_TO_MERGE
+BRAND_STATUS=HOLD_OLD_LINEAGE_REBUILD_FROM_FRESH_CONVERGENCE_LATER
 
 ---
 
-# 3. CURRENT STABILIZATION PRIORITY
+# 3. P0 TECHNICAL STABILIZATION
 
-## S1 — CI baseline
+Confirmed/fixed on PR #20 branch:
+- Video regeneration must carry authoritative `verification` and fail closed.
+- fabricated UI telemetry removed.
+- `/api/studio/status` = capability/orchestrator contract.
+- `/api/studio/runtime-status` = runtime engine truth contract.
+- canonical Python/Manim probe uses repo-local `.venv`, not arbitrary PATH Python.
+- convergence authority gates run after `core-quality` on PR and convergence push.
+- explicit A3 authoritative readiness/export-guard tests added to authority CI.
+- GitHub Actions checkout/setup-node upgraded to v5.
+- High/Critical npm vulnerability gate added without blind auto-fix.
 
-Required:
-- Architecture check PASS
-- TypeScript/typecheck PASS
-- Production build PASS
-- Full regression PASS
-- Canonical brand / Semantic Icon contract PASS
+PC-S2 report received:
+- security attempt #1 failed because npm audit endpoint returned 503.
+- subsequent security gate reproduced no High/Critical dependency vulnerability.
+- `NPM_SECURITY_HIGH_CRITICAL=0`.
+- architecture PASS.
+- typecheck exposed missing Vite `ImportMetaEnv` ambient type contract.
 
-CI environment defects identified and corrected without weakening tests:
-1. XeLaTeX missing on Ubuntu runner → provisioned.
-2. `pdftotext` missing on Ubuntu runner → `poppler-utils` provisioned.
+Control Room narrow repair:
+- added `vite-env.d.ts` with `/// <reference types="vite/client" />`.
+- repair commit: `1ed6c3d607aea1d49df615b200e7a2efc1b81057`.
+- no dependency/runtime/domain authority changed.
 
-CI_CERTIFICATION=IN_PROGRESS
-DO_NOT_MARK_FULL_CI_PASS_UNTIL_COMPLETED_GREEN_RUN
+CURRENT_P0_GATE=PR20_CI_RUN_18_FULL_RECERTIFICATION
+DO_NOT_MERGE_PR20_UNTIL_ALL_REQUIRED_GATES_PASS
 
-## S2 — PC clean reconciliation
+Moderate npm findings:
+- remain non-P0 until separately dispositioned.
+- no blind `npm audit fix`.
 
-Reconcile published PC Question/Input/Backend authority into the latest convergence baseline using a clean dedicated worktree.
+---
 
-Preserve:
-- Semantic Icon V1.1
-- QuestionIR discriminated authority
-- canonical question identity
-- Unified Input certification
-- TeacherWorkflowReadinessAuthority
-- authoritative assessment QA
-- source lineage
+# 4. WORKSTREAM OWNERSHIP
+
+## PC — Workstream A
+
+ROLE=BACKEND_INPUT_DOCUMENT_QUESTION_CI_SECURITY
+
+Current report state:
+`MST_MATH_PC_S2_REPORT=RECEIVED_AND_REVIEWED`
+
+PC-S2 final decision:
+`NO_NEXT_PC_TASK_YET`
+
+Reason:
+- PR #20 recertification still running after Control Room type repair.
+- active-workstream governance requires Mac report before next assignment.
+
+Future PC direction after dual-report review:
+- audit legacy PR #4 capability before reimplementation.
+- focus on MathType/MTEF V5/OMML/CFB/question-boundary/source-object capability reconciliation.
+- no new PDF/Image pipeline from scratch.
+
+## Mac — Workstream B
+
+ROLE=TEACHER_WORKSPACE_UI_CONSUMER_HUMAN_ACCEPTANCE
+
+Active task:
+`MAC-B3 — AUTHORITATIVE TEACHER WORKSPACE CONSUMER`
+
+Allowed ownership:
+- `src/components/teacher/**`
+- `src/services/teacherWorkflowTypes.ts`
+- focused Teacher Workspace consumer tests/evidence.
+
+Forbidden:
+- backend readiness authority
+- QuestionIR / DocumentIR authority
+- segmentation/question identity
 - server export guard
-- fail-closed behavior
+- PC Input/Question paths
+- Semantic Icon registry
+- Brand migration
+- Geometry/FOLD
+- PR #20 runtime-truth paths
 
-Strict exclusions:
-- do not import pre-existing dirty Video portability work
-- do not import Mac UI delta yet
+Required invariant:
+`UI_CONSUMES_AUTHORITY; UI_DOES_NOT_RECREATE_AUTHORITY`
 
-## S3 — One authoritative runtime truth
-
-Question/Input/Assessment/QA/Export must PASS on one converged SHA, not on separate branches.
-
-## S4 — Authority cleanup
-
-After PC reconciliation:
-- resolve active Semantic Icon V1.0/V1.1 conflicts without rewriting history
-- converge MST-MATH brand identity safely
-- remove renderer-local authority drift
-- preserve compatibility IDs
-
-## S5 — Teacher Workspace
-
-Mac machine is no longer active. Existing remote Mac work is preserved as evidence and may be selectively reintegrated later from a clean convergence base.
-
-Teacher Workspace reintegration is NOT a prerequisite for core P01 document-output proof unless the acceptance test explicitly exercises that UI.
-
-## S6 — P01 real golden case
-
-Minimum proof:
-
-`REAL DOCX → ingest → DocumentIR → validation → semantic learning pipeline → P01 → PDF + DOCX + HTML`
-
-Must prove:
-- no content loss
-- math typography correctness
-- semantic icon identity
-- figure/table association
-- provenance
-- accessibility
-- semantic equivalence across outputs
-
-Slides/Video follow when their production adapters are authoritative.
-
-## S7 — release governance
-
-Before promotion to `main`:
-- branch protection ON
-- PR-only changes
-- required CI checks ON
-- no force push
-- stable convergence candidate PASS
+Mac report status:
+`MST_MATH_MAC_B3_REPORT=PENDING`
 
 ---
 
-# 4. CORE ARCHITECTURE — LOCKED DIRECTION
+# 5. REPORT / DECISION GOVERNANCE
 
-Primary teacher workflow:
+Mandatory cycle:
 
-`Nguồn → Xử lý → Thiết kế → QA → Xuất`
+`ASSIGN → EXECUTE → STOP → REPORT → VERIFY → RE-AUDIT → UPDATE MASTER → CROSS-WORKSTREAM CHECK → DECIDE → NEXT ASSIGNMENT`
 
 Rules:
-- UI does not own business truth.
-- AI is contextual, not one chatbot per feature.
-- AI proposes; deterministic engines validate; QA gates; renderers publish.
-- Math QA is mandatory.
-- provenance and source fidelity are mandatory.
-- no renderer may silently redefine mathematical meaning.
+- NO REPORT → NO NEXT TASK.
+- NO LIVE VERIFICATION → NO PASS CLAIM.
+- NO MASTER UPDATE → NO NEW ASSIGNMENT.
+- NO CROSS-WORKSTREAM CHECK → NO PARALLEL WRITE.
+- receive all currently active workstream reports before issuing the next work round.
+- a workstream that finishes first waits; it does not self-start the next task.
 
-AUTHORING_PRINCIPLE=AUTHOR_ONCE_RENDER_MANY
-SEMANTIC_PRINCIPLE=SAME_SOURCE_SAME_MEANING_ACROSS_OUTPUTS
+Decision states:
+`ACCEPT / ACCEPT_WITH_RISK / REMEDIATE / HOLD / BLOCK / CONVERGE / CLOSE`
 
 ---
 
-# 5. SEMANTIC ICON SYSTEM
+# 6. IDEA / IMPROVEMENT GOVERNANCE
 
-ACTIVE_TARGET_AUTHORITY=MST-MATH Semantic Icon System V1.1
+IDEA_BACKLOG_ISSUE=23
+STATUS=ACTIVE_CONTROL_BACKLOG
+
+Governing rule:
+`IDEA_CAPTURED != APPROVED != SCHEDULED != IMPLEMENTED != CANONICAL`
+
+Lifecycle:
+`CAPTURE → CLASSIFY → REVIEW → SCORE → CONFLICT CHECK → ROADMAP POSITION → IMPLEMENT/HOLD/REJECT → RE-AUDIT`
+
+Initial retained directions include:
+- Teacher Home V2 / Teacher-first launcher.
+- Recent Work / Quick Tools.
+- Friendly Academic Workspace Icons.
+- Classroom Tools Foundation.
+- Classroom Activity Engine.
+- Question/Lesson → Activity conversion.
+- Quick Math as façade over existing Math/Graph/Verifier engines.
+- Semantic Geometry Tools / Compass golden case after SG-0A.
+- P01 real executable learning-material golden case.
+- provider status semantics cleanup.
+- legacy MathType/MTEF/OMML capability reconciliation.
+
+Ideas may evolve during stabilization but implementation remains HOLD unless explicitly promoted by Control Room.
+
+---
+
+# 7. SEMANTIC ICON / WORKSPACE ICON
+
+ACTIVE_CONTENT_ICON_AUTHORITY=MST-MATH Semantic Icon System V1.1
 MACHINE_ID=PIMATH-DNA-SEMANTIC-ICONS-V1.1
-MAIN_COMMIT=598b35a42b284ab17d7de6ba3023458a36e8f42d
 STATUS=LOCKED_CANONICAL_APPROVED_ON_MAIN
 
-Core educational semantic roles remain the existing 17-role V1.1 authority plus compatibility roles.
+Operational certification remains incomplete:
+- active/stale V1.0 authority references still require closure.
+- real PDF/DOCX/HTML/Slides/Video consumption not fully proven.
+- P01 icon multi-render golden case pending.
 
-Operational certification is still incomplete because:
-- some active V1.0 references remain
-- real PDF/DOCX/HTML/Slides/Video adapter consumption is not fully proven
-- P01 multi-render golden case is pending
+Tracking: Issue #11.
 
-Tracking: GitHub Issue #11.
+Workspace navigation direction:
+`MST-MATH-WORKSPACE-ICON-DIRECTION-V1.0`
 
----
-
-# 6. WORKSPACE NAVIGATION ICON DIRECTION
-
-DECISION_ID=MST-MATH-WORKSPACE-ICON-DIRECTION-V1.0
-STATUS=LOCKED_DIRECTION_IMPLEMENTATION_HOLD
-
-Home/workspace navigation will use MST-MATH-owned **Friendly Academic SVG icons** inspired by the instant recognition of:
-
-`📚 📝 📄 📐 🎬 🎮`
-
-Unicode emoji are reference imagery only, not production canonical assets.
-
-Approved navigation semantic roles:
+Roles:
 - WORKSPACE_LESSON
 - WORKSPACE_ASSESSMENT
 - WORKSPACE_MATERIAL
@@ -200,106 +236,97 @@ Approved navigation semantic roles:
 - WORKSPACE_MEDIA
 - WORKSPACE_CLASSROOM
 
-Architecture:
-
+Rule:
 `ONE ICON AUTHORITY → CONTENT SEMANTIC SCOPE + WORKSPACE NAVIGATION SCOPE`
 
-Do not mutate the 17 core educational content roles to serve navigation.
-
-IMPLEMENTATION_TRIGGER=STABLE_BASELINE
+Emoji are UX reference only; production uses MST-MATH-owned Friendly Academic SVG assets.
 
 ---
 
-# 7. TEACHER PRODUCT STRATEGY
+# 8. TEACHER EXPERIENCE / PRODUCT IDEAS
 
-Approved direction:
-- MST-MATH remains an integrated mathematics teaching workspace, not a catalog of independent apps.
-- Teacher Job-to-be-Done is a UI principle: users see tasks, not engines.
-- Assessment `Generate / Matrix / Similar / Variant` are workflows/profiles of one Assessment Engine.
-- Classroom and Game capabilities are roadmap-approved but not active development during stabilization.
-- Game content must reuse Question/Assessment authority rather than create a new content silo.
-
-Suggested product positioning:
-
-`MST-MATH — Integrated AI Workspace for Mathematics Teaching & Learning`
+Approved direction only, implementation HOLD during stabilization:
+- Teacher Job-to-be-Done UI.
+- SIMPLE OUTSIDE — POWERFUL INSIDE.
+- integrated Teacher Workspace, not app zoo.
+- Assessment Generate/Matrix/Similar/Variant remain workflows of one Assessment Engine.
+- Classroom/Game content must reuse existing Question/Assessment semantic authority.
+- Teacher Home V2, Classroom Tools, Activity Engine, intelligent activity conversion are roadmap/UI-application opportunities, not new core architecture.
 
 ---
 
-# 8. SEMANTIC GEOMETRY TOOLS — ROADMAP APPROVED
+# 9. SEMANTIC GEOMETRY ROADMAP
 
-REPORT=MST-MATH-EXEC-REPORT-SEMANTIC-GEOMETRY-TOOLS-20260904
-DECISION=APPROVED_WITH_ARCHITECTURAL_CONSTRAINTS
-CANONICAL=NO
-IMPLEMENT_NOW=NO
+STATUS=ROADMAP_APPROVED_IMPLEMENTATION_HOLD
 
-Locked architectural directions:
-- learn the COMPASS architectural pattern; do not copy `geometry_tools` as canonical core
-- ONE Geometry Core
-- GEOMETRY ≠ VISUAL ≠ ANIMATION
-- GEOMETRIC RESULT ≠ CONSTRUCTION PROCEDURE
-- Geometry Invariant QA is mandatory
-- AI must not use generated Manim code as geometry source of truth
-- CompassTool is the first golden case
-- FOLD and Semantic Geometry Tools must reuse the same Geometry Core
-- avoid registry sprawl; audit reuse of existing capability registry first
+Locked directions:
+- ONE Geometry Core.
+- GEOMETRY ≠ VISUAL ≠ ANIMATION.
+- GEOMETRIC RESULT ≠ CONSTRUCTION PROCEDURE.
+- Geometry Invariant QA mandatory.
+- generated Manim code is not geometry source of truth.
+- CompassTool = first golden case.
+- FOLD and Semantic Geometry Tools reuse the same Geometry Core.
 
-Post-stabilization sequence:
-
-SG-0A Existing Geometry Authority Audit
-→ SG-0B Contracts
-→ SG-1 CompassTool Golden Case
-→ SG-2 ONE SOURCE → SVG + TikZ + Manim
-→ SG-3 P01 / Video / FOLD / GeoGebra integration
-→ SG-4 tool expansion
-
-No canonical/locked implementation before Architecture + Invariant + Determinism + Serialization + Multi-render + Regression + Compatibility + QA gates PASS.
+Post-stabilization:
+`SG-0A Existing Geometry Authority Audit → SG-0B Contracts → SG-1 Compass → SG-2 SVG+TikZ+Manim → SG-3 integration → SG-4 expansion`
 
 ---
 
-# 9. EDUCATIONAL OUTPUT IDENTITY
+# 10. OPEN CONTROL ITEMS
 
-STATUS=APPROVED_FOR_NEXT_CANONICAL_BASELINE_NOT_EXECUTING
+ISSUE_11=Semantic Icon V1.1 convergence / multi-render certification
+ISSUE_13=Protect main / required CI
+ISSUE_14=P01 real learning-material golden case
+ISSUE_19=P0 runtime truth / API uniqueness / CI truthfulness
+ISSUE_21=Legacy MathType/MTEF/OMML capability reconciliation
+ISSUE_22=Provider connection-state semantics
+ISSUE_23=Idea & Improvement Backlog
 
-Direction:
-- one semantic authority across outputs
-- educational content icons and workspace navigation icons remain distinct semantic scopes
-- output-family accent colors must remain separate from semantic state colors
-- canonical vector geometry may have derived technical representations, but renderers cannot redesign semantic identity
-- accessibility intent and fallback behavior must be explicit
-
-IMPLEMENTATION_TRIGGER=MASTER_CONVERGENCE_STABLE_BASELINE
-
----
-
-# 10. OPEN P0 TRACKING
-
-ISSUE_11=Semantic Icon V1.1 convergence and multi-render certification
-ISSUE_13=Protect main and require convergence CI
-ISSUE_14=Real P01 learning-material golden case
-
-All remain OPEN until their exit criteria are evidenced.
+P0/P1 classification remains evidence-driven; no issue is closed without exit evidence.
 
 ---
 
-# 11. ACTIVE BLOCKERS
+# 11. ACTIVE BLOCKERS / RISKS
 
-B1=FULL_GREEN_CONVERGENCE_CI_PENDING
-B2=PC_RECONCILIATION_NOT_COMPLETE
-B3=PR_12_CONFLICTING
-B4=MAIN_BRANCH_PROTECTION_OFF
-B5=SEMANTIC_ICON_ACTIVE_V1_0_REFERENCES_REMAIN
-B6=BRAND_MIGRATION_NOT_CONVERGED
-B7=P01_REAL_GOLDEN_CASE_NOT_RUN
-B8=VIDEO_LOCAL_PORTABILITY_WORK_REQUIRES_SAFE_DISPOSITION
+B1=PR20_FULL_RECERTIFICATION_NOT_YET_GREEN
+B2=MAC_B3_REPORT_PENDING
+B3=MAIN_BRANCH_PROTECTION_OFF
+B4=SEMANTIC_ICON_ACTIVE_V1_0_REFERENCES_REMAIN
+B5=BRAND_MIGRATION_NOT_CONVERGED
+B6=P01_REAL_GOLDEN_CASE_NOT_RUN
+B7=VIDEO_LOCAL_PORTABILITY_WORK_REQUIRES_SAFE_DISPOSITION
+B8=LEGACY_PR4_CAPABILITY_ORPHAN_NOT_YET_RECONCILED
+B9=PROVIDER_STATUS_SEMANTICS_NOT_YET_CLEAN
 
-No blocker may be hidden or downgraded to warning without evidence.
+No blocker may be hidden or downgraded without evidence.
 
 ---
 
-# 12. RELEASE GATE
+# 12. ENGINEERING LESSONS LOCKED
 
-A stable baseline requires ALL of the following on one lineage:
+R1 FILE SAME != AUTHORITY SAME
+R2 LINEAGE IS A DEPENDENCY
+R3 ONE URL = ONE PUBLIC CONTRACT
+R4 UI MUST NOT INVENT RUNTIME TRUTH
+R5 CLOUD CI MUST NOT FAKE LOCAL-CORPUS CERTIFICATION
+R6 REGENERATION MUST NOT BYPASS VERIFICATION
+R7 CORRECTNESS > CI SPEED
+R8 CANONICAL RUNTIME != RANDOM SYSTEM RUNTIME
+R9 PR GREEN != POST-MERGE AUTHORITY GREEN
+R10 STALE BRANCH != USELESS BRANCH
+R11 AUDIT EXISTING CAPABILITY BEFORE REIMPLEMENTING
+R12 FREEZE PRODUCER CONTRACT DURING CONSUMER WORK
+R13 SMALL BOUNDED PR > MASS CLEANUP
+R14 CRITICAL AUTHORITY TESTS REQUIRE EXPLICIT CI GATES
+R15 TRANSIENT EXTERNAL SECURITY-SERVICE FAILURE != PROVEN VULNERABILITY; RETRY/DIAGNOSE BEFORE MUTATING DEPENDENCIES
+R16 STANDARD TOOLCHAIN AMBIENT TYPES MUST BE EXPLICITLY DECLARED WHEN APPLICATION CODE USES THEM
 
+---
+
+# 13. STABLE BASELINE / RELEASE GATE
+
+Required on one lineage:
 - CONVERGENCE_CI=PASS
 - ARCHITECTURE_GATE=PASS
 - TYPECHECK_GATE=PASS
@@ -310,56 +337,20 @@ A stable baseline requires ALL of the following on one lineage:
 - AUTHORITATIVE_QA_GATE=PASS
 - EXPORT_GUARD_GATE=PASS
 - FAIL_CLOSED_GATE=PASS
+- P0_RUNTIME_TRUTH_GATE=PASS
 - SEMANTIC_ICON_SINGLE_SOURCE_GATE=PASS
 - BRAND_IDENTITY_CONVERGENCE_GATE=PASS
 - NO_HIDDEN_DIRTY_DEPENDENCY=YES
 
 Then:
 - P01_REAL_E2E_GATE=PASS
-- branch protection / required checks enabled
-- human acceptance appropriate to the promoted surface
+- branch protection + required checks ON
+- Human Acceptance appropriate to promoted product surface
 
-Only then may the project move from STABILIZATION to controlled feature development.
-
----
-
-# 13. POST-STABILIZATION PRIORITY ORDER
-
-P1=Production Input expansion (PDF + Image through the same DocumentIR; no parallel content pipeline)
-P2=Output usability / P01 / worksheet / lesson / assessment / exam exports
-P3=Assessment workflow consolidation
-P4=Geometry / GeoGebra / FOLD integration, beginning with SG-0A audit
-P5=Classroom + Game Engine capabilities
-P6=Slides / Video production expansion
-
-Priority changes require explicit Project Supervisor approval.
+Only then may the project leave STABILIZATION.
 
 ---
 
-# 14. HISTORICAL RELEASE RECORD
-
-The existing `v1.3.1` release/tag and prior PiMath/Math AI Studio certification evidence remain historical publication records. This stabilization program does not rewrite them.
-
-Historical evidence must not be confused with current MST-MATH convergence readiness.
-
----
-
-# 15. GOVERNANCE RULES
-
-1. Never mark DONE without executable evidence.
-2. Never silently fix canonical conflicts.
-3. Report `DNA_CONFLICT_DETECTED` or `DNA_GAP_DETECTED` when applicable.
-4. Preserve certified history and compatibility IDs.
-5. Prefer brownfield/additive convergence over rewrites.
-6. No feature expansion while STABILIZATION is active.
-7. No direct merge to `main` from isolated feature authority branches.
-8. Resolve conflicts on controlled reconciliation surfaces, not on evidence/source branches.
-9. Renderer capability is not permission to export the current artifact.
-10. QA UNKNOWN is never PASS.
-11. One semantic source must remain authoritative across outputs.
-12. Geometry/Math correctness gates precede visual approval.
-
----
-
-CURRENT_DECISION=STABILIZE_THEN_CONVERGE_THEN_CERTIFY_THEN_ACCEPT_THEN_RELEASE
-NEXT_HARD_GATE=FULL_GREEN_CONVERGENCE_CI_THEN_PC_CLEAN_RECONCILIATION
+CURRENT_DECISION=PC_S2_REPORT_REVIEWED_WAIT_FOR_PR20_RECERTIFICATION_AND_MAC_B3_REPORT
+NEXT_HARD_GATE=RECEIVE_MAC_B3_REPORT_PLUS_PR20_FULL_GREEN_THEN_CONTROL_ROOM_DUAL_REPORT_REVIEW
+NEXT_ASSIGNMENT=HOLD
