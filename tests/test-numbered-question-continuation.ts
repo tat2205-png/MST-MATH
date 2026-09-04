@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import { segmentQuestions } from "../src/modules/question-bank/segmentation.js";
 import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
-import { findAnswerSolutionAppendixRegions } from "../src/modules/question-bank/source-region-classification.js";
+import {
+  findAnswerSolutionAppendixRegions,
+  findTerminalEmbeddedReferenceAnswerFooter,
+} from "../src/modules/question-bank/source-region-classification.js";
 import type { ContentBlock, DocumentBlock, DocumentIR } from "../src/modules/document-engine/document-ir.js";
 
 const HASH = "abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcd";
@@ -34,9 +37,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assetObjects: [],
 });
 
-// Source-backed R2-36 pattern: an explicit question stem introduces a numbered
-// list of subordinate conditions. Word list numbering must not create top-level
-// question boundaries; the conditions and final request belong to the question.
 {
   const document = documentFromBlocks("numbered-continuation", [
     paragraph(0, "Câu 6. Chọn ngẫu nhiên bốn số và xét đồng thời hai điều kiện sau:"),
@@ -66,10 +66,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.ok(questions[0].sourceSliceIds?.includes("paragraph-2"));
 }
 
-// R2-36 follow-up guardrail: after the numbered conditions and final request,
-// a terminal "ĐÁP ÁN THAM KHẢO" footer is document-level answer material. It
-// must not be swallowed by the question continuation simply because there is no
-// next explicit question marker.
 {
   const document = documentFromBlocks("numbered-continuation-reference-answer", [
     paragraph(0, "Câu 6. Chọn ngẫu nhiên bốn số và xét đồng thời hai điều kiện sau:"),
@@ -98,7 +94,35 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
 }
 
-// Guardrail: a local inline answer is not a terminal reference-answer appendix.
+// Word can place valid final-question text and the terminal reference-answer
+// heading in the same physical paragraph. Preserve the valid prefix while
+// slicing the footer from logical question flow.
+{
+  const mixed = paragraph(
+    3,
+    "Tính giá trị của biểu thức P. ĐÁP ÁN THAM KHẢO Được thực hiện bởi AI",
+  );
+  const document = documentFromBlocks("embedded-reference-answer-footer", [
+    paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
+    paragraph(1, "Điều kiện thứ nhất.", "1."),
+    paragraph(2, "Điều kiện thứ hai.", "2."),
+    mixed,
+  ]);
+
+  const embedded = findTerminalEmbeddedReferenceAnswerFooter(document);
+  assert.ok(embedded);
+  assert.equal(embedded.blockId, "paragraph-3");
+  assert.ok(embedded.charOffset > 0);
+  assert.ok(embedded.evidence.includes("EMBEDDED_IN_PHYSICAL_BLOCK"));
+
+  const candidates = segmentQuestions(document);
+  assert.equal(candidates.length, 1);
+  const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
+  assert.match(q6Text, /Tính giá trị của biểu thức P/u);
+  assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
+  assert.ok(candidates[0].rawBlocks.some((block) => block.id === "paragraph-3"));
+}
+
 {
   const document = documentFromBlocks("inline-answer-not-footer", [
     paragraph(0, "Câu 1. Tính giá trị của biểu thức."),
@@ -107,13 +131,12 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   ]);
 
   assert.equal(findAnswerSolutionAppendixRegions(document).length, 0);
+  assert.equal(findTerminalEmbeddedReferenceAnswerFooter(document), undefined);
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 2);
   assert.deepEqual(candidates.map((candidate) => candidate.questionIndex), [1, 2]);
 }
 
-// Guardrail: genuine top-level Word-numbered questions still split when there
-// is no continuation-introduction cue from the current question.
 {
   const document = documentFromBlocks("top-level-word-numbering", [
     paragraph(0, "Tính giá trị của biểu thức thứ nhất?", "1."),
