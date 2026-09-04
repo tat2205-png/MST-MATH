@@ -4,7 +4,10 @@ import { join } from "node:path";
 import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
 import { segmentQuestions } from "../src/modules/question-bank/segmentation.js";
 import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
-import { findAnswerSolutionAppendixRegions } from "../src/modules/question-bank/source-region-classification.js";
+import {
+  findAnswerSolutionAppendixRegions,
+  findTerminalEmbeddedReferenceAnswerFooter,
+} from "../src/modules/question-bank/source-region-classification.js";
 
 const CORPUS_ROOT = process.env.PIMATH_WORD_REAL_CORPUS ?? join(homedir(), "PiMath-Acceptance", "word-real");
 const SOURCE = "NK TEST APP.docx";
@@ -16,6 +19,7 @@ if (!document) throw new Error("DOCUMENT_IR_NOT_CREATED:NK_TEST_APP");
 
 const appendixRegions = findAnswerSolutionAppendixRegions(document);
 const referenceAnswerRegions = appendixRegions.filter((region) => region.evidence.includes("REFERENCE_ANSWER_HEADING"));
+const embeddedReferenceAnswerFooter = findTerminalEmbeddedReferenceAnswerFooter(document);
 const candidates = segmentQuestions(document);
 const questions = segmentCanonicalQuestions(document);
 if (candidates.length !== questions.length) throw new Error(`SEGMENTATION_QIR_LENGTH_MISMATCH:${candidates.length}:${questions.length}`);
@@ -42,7 +46,7 @@ const paragraph101Owned = q6SourceObjectIds.includes("paragraph-101");
 const paragraph102Owned = q6SourceObjectIds.includes("paragraph-102");
 const referenceAnswerContamination = /ĐÁP\s*ÁN\s+THAM\s+KHẢO/iu.test(q6Text);
 const aiFooterContamination = /Được\s+thực\s+hiện\s+bởi\s+AI/iu.test(q6Text);
-const referenceAnswerRegionFound = referenceAnswerRegions.length >= 1;
+const referenceAnswerRegionFound = referenceAnswerRegions.length >= 1 || Boolean(embeddedReferenceAnswerFooter);
 const isolatedContinuationCandidates = candidates
   .map((candidate, index) => ({
     ordinal: index + 1,
@@ -67,7 +71,7 @@ const continuationOwnershipQA = Boolean(
 ) ? "PASS" : "FAIL";
 
 const evidence = {
-  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V2",
+  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V3",
   sourceDocument: SOURCE,
   sourceHash: document.sourceHash,
   totalCandidates: candidates.length,
@@ -83,6 +87,7 @@ const evidence = {
   paragraph102Owned,
   referenceAnswerRegionFound,
   referenceAnswerRegions,
+  embeddedReferenceAnswerFooter: embeddedReferenceAnswerFooter ?? null,
   referenceAnswerContamination,
   aiFooterContamination,
   isolatedContinuationCandidateCount: isolatedContinuationCandidates.length,
@@ -106,6 +111,7 @@ console.log(JSON.stringify({
   paragraph101Owned: evidence.paragraph101Owned,
   paragraph102Owned: evidence.paragraph102Owned,
   referenceAnswerRegionFound: evidence.referenceAnswerRegionFound,
+  embeddedReferenceAnswerFooter: evidence.embeddedReferenceAnswerFooter,
   referenceAnswerContamination: evidence.referenceAnswerContamination,
   aiFooterContamination: evidence.aiFooterContamination,
   isolatedContinuationCandidateCount: evidence.isolatedContinuationCandidateCount,
