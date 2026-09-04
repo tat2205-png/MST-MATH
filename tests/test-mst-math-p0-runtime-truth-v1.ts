@@ -56,4 +56,8 @@ assert.match(workflow, /pc-question-authority:[\s\S]*needs:\s*core-quality/, "Au
 assert.doesNotMatch(workflow, /pc-question-authority:[\s\S]*if:\s*github\.event_name\s*==\s*'pull_request'/, "Authority gates must also run on convergence pushes.");
 console.log("POST_MERGE_AUTHORITY_GATE=ON");
 
+assert.match(workflow, /tests\/test-mst-math-pc-a3-public-readiness-contract-v1\.ts/, "A3 public readiness contract must be an explicit authority CI gate.");
+assert.match(workflow, /tests\/test-mst-math-pc-a3-backend-readiness-v1\.ts/, "A3 backend authority/export guard must be an explicit authority CI gate.");
+console.log("AUTHORITATIVE_READINESS_CI_GATE=ON");
+
 console.log("P0_RUNTIME_TRUTH_QA=PASS");
