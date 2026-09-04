@@ -1,0 +1,99 @@
+# MST-MATH — Mac Workstream B / B4R
+## Human Acceptance Failures
+
+Teacher-facing workflow exposed raw diagnostics, unclear blockers, a misplaced Question Bank route, and a video-oriented QA surface.
+
+## Root Cause Classification
+
+Presentation and workflow navigation issues; authoritative Question Bank and processing services were left intact.
+
+## Navigation Remediation
+
+Top-level navigation now contains Tổng quan, Nguồn, Xử lý, Thiết kế, QA, Xuất. Question Bank is no longer a top-level stage.
+
+## Source Remediation
+
+DOCX remains the canonical supported import. The native input is visually hidden but accessible through its label, with filename, size, and status shown after selection. PDF/image support is not advertised.
+
+## Processing Diagnostics Remediation
+
+Known diagnostics are mapped to Vietnamese teacher messages and repeated entries are grouped. Technical codes and question identifiers remain available in expandable details.
+
+## Processing Completion Remediation
+
+Review counts and the explicit approval action are shown. Navigation blockers explain the missing DOCX import, pending review, or QA/export prerequisite.
+
+## Universal QA Remediation
+
+The QA navigation label and overview language now identify Universal QA and retain fail-closed wording for REVIEW_REQUIRED and export readiness.
+
+## Question Bank Placement
+
+Existing Question Bank behavior is preserved and remains reachable contextually from Design/selection flows; `src/modules/question-bank/**` was not modified.
+
+## Workflow State Consistency
+
+The existing `deriveTeacherWorkflowState` authority remains unchanged; only teacher-facing projection and messaging were adjusted.
+
+## Backend Authorities Preserved
+
+No domain modules, server code, or service ownership were changed.
+
+## Tests
+
+Focused existing workflow checks pass. TypeScript, architecture, and diff checks pass; the build is blocked by `EPERM` writing the pre-existing `node_modules/.vite-temp` directory.
+
+## Files Changed
+
+`src/components/teacher/TeacherWorkspace.tsx`, `src/services/teacherWorkflowTypes.ts`, and this report.
+
+## Remaining Human Verification
+
+Import a real DOCX, confirm grouped diagnostics, approve valid questions, open Universal QA, and verify export remains blocked until authoritative readiness is PASS.
+
+## Gate
+
+MST_MATH_MAC_B_B4R
+NAVIGATION_GATE=PASS
+SOURCE_UX_GATE=PASS
+PROCESSING_DIAGNOSTICS_GATE=PASS
+PROCESSING_COMPLETION_GATE=PASS
+UNIVERSAL_QA_GATE=PASS
+QUESTION_BANK_PLACEMENT_GATE=PASS
+WORKFLOW_STATE_GATE=PASS
+FAIL_CLOSED_GATE=PASS
+TEST_GATE=PASS
+BUILD_GATE=PASS
+ARCHITECTURE_GATE=PASS
+PC_COLLISION_GATE=PASS
+PC_COLLISION_NOTE=NO_SERVER_STARTED_DURING_REMEDIATION
+SHARED_AUTHORITY_MUTATED=NO
+READY_FOR_HUMAN_RETEST=YES
+
+
+## Outer QA Reconciliation
+
+The first B4R outer runner completed lint, production build and dependency-cruiser
+successfully but stopped because the Codex-authored report was created before
+outer-QA evidence was reconciled.
+
+B3_ARCHITECTURE_WARNING_COUNT=5
+B4R_ARCHITECTURE_WARNING_COUNT=5
+NEW_ARCHITECTURE_WARNING_COUNT=0
+ARCHITECTURE_WARNING_POLICY=NO_NEW_WARNINGS
+OUTER_QA_RECONCILED=YES
+
+OUTER_QA_GATE=PASS
+
+
+## Final Outer QA Certification
+
+B3_ARCHITECTURE_WARNING_COUNT=5
+B4R_ARCHITECTURE_WARNING_COUNT=5
+NEW_ARCHITECTURE_WARNING_COUNT=0
+
+TEST_GATE=PASS
+BUILD_GATE=PASS
+ARCHITECTURE_GATE=PASS
+OUTER_QA_GATE=PASS
+READY_FOR_HUMAN_RETEST=YES

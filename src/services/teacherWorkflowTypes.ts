@@ -52,6 +52,51 @@ export interface TeacherWorkflowStateInput {
   exportReady: boolean;
 }
 
+export interface TeacherDiagnostic {
+  code: string;
+  questionId?: string;
+  severity: "INFO" | "WARNING" | "ERROR";
+  details?: Record<string, unknown>;
+}
+
+export interface TeacherDiagnosticGroup {
+  code: string;
+  message: string;
+  severity: TeacherDiagnostic["severity"];
+  count: number;
+  questionIds: string[];
+}
+
+const teacherDiagnosticMessages: Record<string, string> = {
+  UNRESOLVED_FIGURE: "Chưa xác định được hình minh họa; cần giáo viên kiểm tra.",
+};
+
+export function presentTeacherDiagnostic(code: string): string {
+  return teacherDiagnosticMessages[code] ?? "Có nội dung cần giáo viên kiểm tra trước khi tiếp tục.";
+}
+
+export function groupTeacherDiagnostics(diagnostics: TeacherDiagnostic[]): TeacherDiagnosticGroup[] {
+  const groups = new Map<string, TeacherDiagnosticGroup>();
+  for (const diagnostic of diagnostics) {
+    const current = groups.get(diagnostic.code) ?? {
+      code: diagnostic.code,
+      message: presentTeacherDiagnostic(diagnostic.code),
+      severity: diagnostic.severity,
+      count: 0,
+      questionIds: [],
+    };
+    current.count += 1;
+    if (diagnostic.severity === "ERROR" || (diagnostic.severity === "WARNING" && current.severity === "INFO")) current.severity = diagnostic.severity;
+    if (diagnostic.questionId && !current.questionIds.includes(diagnostic.questionId)) current.questionIds.push(diagnostic.questionId);
+    groups.set(diagnostic.code, current);
+  }
+  return [...groups.values()];
+}
+
+export function qaBlocksExport(status: "PASS" | "WARN" | "REVIEW_REQUIRED" | "FAIL" | undefined): boolean {
+  return status !== "PASS";
+}
+
 /** Pure UI projection of authoritative service outcomes. It never infers math truth. */
 export function deriveTeacherWorkflowState(input: TeacherWorkflowStateInput): TeacherWorkflowState {
   if (input.processingError) return "ERROR";
