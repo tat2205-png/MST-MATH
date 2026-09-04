@@ -32,6 +32,7 @@ const referenceAnswerHeadingPattern = /^(?:đáp\s*án\s+tham\s+khảo|reference
 const embeddedReferenceAnswerPattern = /(?<![\p{L}\p{N}_])(?:đáp\s*án\s+tham\s+khảo|reference\s+answers?)(?=\s|$|[:\-–—])/iu;
 const resultCuePattern = /\b(?:KQ|Kết\s*quả|Đáp\s*án)\s*:/giu;
 const reasoningCuePattern = /(?<![\p{L}\p{N}_])(?:ta\s+có|vì|do\s+đó|suy\s+ra|dựa\s+vào|vậy|đây\s+là\s+bài\s+toán)(?![\p{L}\p{N}_])/giu;
+const answerKeyTablePattern = /(?:^|\s)Câu(?:\s|$)[\s\S]{0,240}(?:Đáp\s*án|Answer)(?:\s|$)/iu;
 
 export function visibleText(blocks: ContentBlock[]): string {
   return blocks
@@ -93,6 +94,11 @@ interface DocumentMarkerPosition {
   contentIndex: number;
   charOffset: number;
   markerText: string;
+}
+
+interface ReferenceAnswerContinuationEvidence {
+  accepted: boolean;
+  evidence: string[];
 }
 
 /**
@@ -167,6 +173,44 @@ function suffixContentFrom(
   return suffix;
 }
 
+/**
+ * A reference-answer appendix may legitimately contain PHẦN I / II / III again
+ * because those are answer-key subsections, not a return to question flow. We
+ * only permit that structure when the source heading is itself an explicit
+ * reference-answer heading and the later region has independent answer/solution
+ * evidence (answer-key table, solution heading, or restarted answer entries
+ * with result cues). This keeps the classifier fail-closed for ordinary question
+ * sections that merely happen to follow a reference-looking phrase.
+ */
+function referenceAnswerContinuationEvidence(laterBlocks: DocumentBlock[]): ReferenceAnswerContinuationEvidence {
+  const answerKeyTableCount = laterBlocks.filter(
+    (block) => block.kind === "TABLE" && answerKeyTablePattern.test(blockText(block)),
+  ).length;
+  const solutionHeadingCount = laterBlocks.filter(
+    (block) => solutionHeadingPattern.test(blockText(block).trim()),
+  ).length;
+  const markerNumbers = laterBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content));
+  const numberingRestartsAtOne = markerNumbers.length > 0 && markerNumbers[0] === 1;
+  const { resultCueCount } = cueCounts(laterBlocks);
+
+  const accepted = Boolean(
+    answerKeyTableCount > 0 ||
+    solutionHeadingCount > 0 ||
+    (numberingRestartsAtOne && resultCueCount > 0)
+  );
+
+  return {
+    accepted,
+    evidence: accepted
+      ? [
+          ...(answerKeyTableCount > 0 ? ["ANSWER_KEY_TABLE"] : []),
+          ...(solutionHeadingCount > 0 ? ["SOLUTION_HEADING_AFTER_REFERENCE"] : []),
+          ...(numberingRestartsAtOne && resultCueCount > 0 ? ["RESTARTED_ANSWER_ENTRIES_WITH_RESULTS"] : []),
+        ]
+      : [],
+  };
+}
+
 function terminalReferenceAnswerEvidence(
   blocks: DocumentBlock[],
   blockIndex: number,
@@ -176,11 +220,7 @@ function terminalReferenceAnswerEvidence(
   const block = blocks[blockIndex];
   const suffixContent = suffixContentFrom(block, contentIndex, charOffset);
   const laterBlocks = blocks.slice(blockIndex + 1);
-
-  // A later explicit question section means this is not a terminal footer.
-  if (laterBlocks.some((candidate) => isQuestionSectionHeading(blockText(candidate)))) {
-    return { accepted: false, markerNumbers: [], evidence: [] };
-  }
+  const laterQuestionSections = laterBlocks.filter((candidate) => isQuestionSectionHeading(blockText(candidate)));
 
   const markerNumbers = [
     ...explicitQuestionMarkerNumbers(suffixContent),
@@ -193,6 +233,19 @@ function terminalReferenceAnswerEvidence(
     return { accepted: false, markerNumbers, evidence: [] };
   }
 
+  let structuredAnswerSubsections: ReferenceAnswerContinuationEvidence = {
+    accepted: false,
+    evidence: [],
+  };
+
+  if (laterQuestionSections.length > 0) {
+    const explicitReferenceHeading = isReferenceAnswerHeading(blockText(block));
+    structuredAnswerSubsections = referenceAnswerContinuationEvidence(laterBlocks);
+    if (!explicitReferenceHeading || !structuredAnswerSubsections.accepted) {
+      return { accepted: false, markerNumbers, evidence: [] };
+    }
+  }
+
   return {
     accepted: true,
     markerNumbers,
@@ -201,6 +254,8 @@ function terminalReferenceAnswerEvidence(
       "VISIBLE_TEXT_AGGREGATE",
       "TERMINAL_DOCUMENT_REGION",
       ...(markerNumbers.length > 0 ? ["ANSWER_ENTRIES_RESTART_AT_ONE"] : []),
+      ...(laterQuestionSections.length > 0 ? ["STRUCTURED_ANSWER_SUBSECTIONS"] : []),
+      ...structuredAnswerSubsections.evidence,
     ],
   };
 }
@@ -263,15 +318,21 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
         break;
       }
     }
-    if (endIndex !== blocks.length) continue;
 
-    const regionBlocks = blocks.slice(i + 1, endIndex);
-    const markerSequence = regionBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content));
-    const markerNumbers = [...new Set(markerSequence)];
-    const { resultCueCount, reasoningCueCount } = cueCounts(regionBlocks);
     const referenceAnswerHeading = kind === "ANSWER" && isReferenceAnswerHeading(headingText);
-
     if (referenceAnswerHeading) {
+      const fullTail = blocks.slice(i + 1);
+      const structuredAnswerSubsections = referenceAnswerContinuationEvidence(fullTail);
+      const regionBlocks = endIndex === blocks.length || structuredAnswerSubsections.accepted
+        ? fullTail
+        : blocks.slice(i + 1, endIndex);
+      const markerSequence = regionBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content));
+      const markerNumbers = [...new Set(markerSequence)];
+      const { resultCueCount, reasoningCueCount } = cueCounts(regionBlocks);
+
+      if (endIndex !== blocks.length && !structuredAnswerSubsections.accepted) continue;
+      if (markerSequence.length > 0 && markerSequence[0] !== 1) continue;
+
       const last = regionBlocks.at(-1) ?? heading;
       regions.push({
         kind,
@@ -286,13 +347,22 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
           "EXPLICIT_HEADING",
           "REFERENCE_ANSWER_HEADING",
           "TERMINAL_DOCUMENT_REGION",
+          ...(endIndex !== blocks.length ? ["STRUCTURED_ANSWER_SUBSECTIONS"] : []),
+          ...structuredAnswerSubsections.evidence,
           ...(markerNumbers.length > 0 ? ["QUESTION_MARKERS"] : []),
           ...(resultCueCount > 0 ? ["RESULT_CUES"] : []),
         ],
       });
-      i = Math.max(i, endIndex - 1);
+      i = blocks.length;
       continue;
     }
+
+    if (endIndex !== blocks.length) continue;
+
+    const regionBlocks = blocks.slice(i + 1, endIndex);
+    const markerSequence = regionBlocks.flatMap((block) => explicitQuestionMarkerNumbers(block.content));
+    const markerNumbers = [...new Set(markerSequence)];
+    const { resultCueCount, reasoningCueCount } = cueCounts(regionBlocks);
 
     const repeatedQuestionEntries = markerNumbers.length >= 2;
     const numberingRestartsAtOne = markerSequence[0] === 1;
