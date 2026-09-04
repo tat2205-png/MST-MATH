@@ -1,0 +1,7 @@
+python==3.12.10
+docling==2.124.0
+paddleocr==3.7.0
+paddlepaddle==3.2.2
+uv==0.12.7
+platform==Windows
+authority==EVIDENCE_ONLY

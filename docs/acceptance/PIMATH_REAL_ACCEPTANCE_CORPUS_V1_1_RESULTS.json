@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "corpusId": "PIMATH_REAL_ACCEPTANCE_CORPUS_V1_1",
+  "sourceCount": 3,
+  "sourceIdentityPreserved": true,
+  "nativePdf": "PASS",
+  "docling": {"status":"PASS","route":"bounded-page-range","fullBookStrategy":"SUPPORTED_BY_BOUNDED_CHUNKING"},
+  "paddleocr": {"status":"PASS","requestedLanguage":"vi-VN","runtimeLanguage":"vi","realExecution":"PASS","textOutput":"PASS","confidence":"PASS","boundingBox":"PASS","semanticFidelity":"READY_PENDING_HUMAN_REFERENCE"},
+  "canvasNative":"PASS",
+  "qwen3Vl":"AVAILABLE_OPTIONAL",
+  "benchmark":{"TEXT":"READY_PENDING_HUMAN_REFERENCE","MATH":"READY_PENDING_HUMAN_REFERENCE","FIGURE_SEMANTIC":"READY_PENDING_HUMAN_REFERENCE","READING_ORDER":"READY_PENDING_HUMAN_REFERENCE","TABLE":"READY_PENDING_HUMAN_REFERENCE","VIETNAMESE":"READY_PENDING_HUMAN_REFERENCE","NO_FAKE_FIDELITY_QA":"PASS"}
+}

@@ -1,0 +1,166 @@
+{
+  "runId": "real-corpus-v1-20260902090719309",
+  "generatedAt": "2026-09-02T09:09:20.286Z",
+  "sourceDiscoveryMode": "READ_ONLY",
+  "sourceRootsInspected": [
+    "D:\\NA-MATH-NLS-AI-SOURCES"
+  ],
+  "candidates": {
+    "total": 9,
+    "selected": 3,
+    "docx": 0,
+    "pdf": 9,
+    "image": 0,
+    "legacyDoc": 0
+  },
+  "sources": [
+    {
+      "id": "KNTT-MATH-10-T1",
+      "sourceDocument": "Toan10-Tap1-KNTT.pdf",
+      "extension": ".pdf",
+      "fileSize": 22914815,
+      "sha256": "3fcc974ef1bb8ac0ef11bcc3408c1dba12eedd76a67cfcfebde087c90ac9a88b",
+      "sourceRoot": "D:\\NA-MATH-NLS-AI-SOURCES",
+      "relativePath": "Toan10-Tap1-KNTT.pdf",
+      "classification": "REAL_ACCEPTANCE_SOURCE",
+      "provenanceStatus": "PRESERVED",
+      "selectedForAcceptance": true,
+      "selectionReason": "Grade 10 textbook volume 1; representative full textbook PDF",
+      "expectedCapabilities": [
+        "native-pdf-text",
+        "layout-evidence",
+        "raster-region-OCR-if-required"
+      ],
+      "nativePdf": {
+        "status": "PASS",
+        "durationMs": 268.61,
+        "textChars": 106,
+        "blockCount": 1,
+        "assetCount": 0,
+        "issues": []
+      },
+      "transformationHistory": [
+        "native PDF extraction attempted; no source binary copied"
+      ],
+      "qaStatus": "PASS_WITH_REVIEW"
+    },
+    {
+      "id": "KNTT-MATH-11-CD",
+      "sourceDocument": "Toan11-ChuyenDe-KNTT.pdf",
+      "extension": ".pdf",
+      "fileSize": 10364634,
+      "sha256": "a7b48523d80e956baaff3aa0a75f7d438468c3940f3d4ce7fe2d04d8b6e3e89e",
+      "sourceRoot": "D:\\NA-MATH-NLS-AI-SOURCES",
+      "relativePath": "Toan11-ChuyenDe-KNTT.pdf",
+      "classification": "REAL_ACCEPTANCE_SOURCE",
+      "provenanceStatus": "PRESERVED",
+      "selectedForAcceptance": true,
+      "selectionReason": "Grade 11 specialized-topic PDF; different document structure",
+      "expectedCapabilities": [
+        "native-pdf-text",
+        "layout-evidence",
+        "raster-region-OCR-if-required"
+      ],
+      "nativePdf": {
+        "status": "PASS",
+        "durationMs": 236.9,
+        "textChars": 86,
+        "blockCount": 1,
+        "assetCount": 0,
+        "issues": []
+      },
+      "transformationHistory": [
+        "native PDF extraction attempted; no source binary copied"
+      ],
+      "qaStatus": "PASS_WITH_REVIEW"
+    },
+    {
+      "id": "KNTT-MATH-12-T2",
+      "sourceDocument": "Toan12-Tap2-KNTT.pdf",
+      "extension": ".pdf",
+      "fileSize": 15891463,
+      "sha256": "3c642f2e80d86d699ea62bbcabd0c3074fd5118def96e4b3b8ce1f9ead7f97bb",
+      "sourceRoot": "D:\\NA-MATH-NLS-AI-SOURCES",
+      "relativePath": "Toan12-Tap2-KNTT.pdf",
+      "classification": "REAL_ACCEPTANCE_SOURCE",
+      "provenanceStatus": "PRESERVED",
+      "selectedForAcceptance": true,
+      "selectionReason": "Grade 12 textbook volume 2; representative full textbook PDF",
+      "expectedCapabilities": [
+        "native-pdf-text",
+        "layout-evidence",
+        "raster-region-OCR-if-required"
+      ],
+      "nativePdf": {
+        "status": "PASS",
+        "durationMs": 244.39,
+        "textChars": 99,
+        "blockCount": 1,
+        "assetCount": 0,
+        "issues": []
+      },
+      "transformationHistory": [
+        "native PDF extraction attempted; no source binary copied"
+      ],
+      "qaStatus": "PASS_WITH_REVIEW"
+    }
+  ],
+  "providers": {
+    "docling": {
+      "status": "AVAILABLE",
+      "version": "Python 3.12.10",
+      "issues": []
+    },
+    "paddleocr": {
+      "status": "AVAILABLE",
+      "version": "Python 3.12.10",
+      "issues": []
+    },
+    "ollama-qwen3-vl": {
+      "status": "AVAILABLE",
+      "model": "qwen3-vl:2b",
+      "issues": []
+    }
+  },
+  "providerRuns": [
+    {
+      "provider": "docling",
+      "status": "UNAVAILABLE_OR_FAILED",
+      "durationMs": 120049.65,
+      "evidenceCount": 1,
+      "issues": [
+        "Command failed: D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Scripts\\python.exe D:\\math-ai-video-studio\\pimath-real-acceptance-corpus-v1\\tools\\pimath-local-runtime\\docling-paddle\\docling_bridge.py {\"sourceDocument\":\"D:\\\\NA-MATH-NLS-AI-SOURCES\\\\Toan10-Tap1-KNTT.pdf\",\"sourceHash\":\"3fcc974ef1bb8ac0ef11bcc3408c1dba12eedd76a67cfcfebde087c90ac9a88b\",\"lang\":\"vi-VN\"}\n[INFO] 2026-09-02 16:07:27,906 [RapidOCR] base.py:23: Using engine_name: torch\r\n[INFO] 2026-09-02 16:07:27,937 [RapidOCR] device_config.py:57: Using CPU device\r\n[INFO] 2026-09-02 16:07:27,953 [RapidOCR] download_file.py:60: File exists and is valid: D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\rapidocr\\models\\PP-OCRv6_det_small.pth\r\n[INFO] 2026-09-02 16:07:27,953 [RapidOCR] main.py:50: Using D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\rapidocr\\models\\PP-OCRv6_det_small.pth\r\n[INFO] 2026-09-02 16:07:28,377 [RapidOCR] base.py:23: Using engine_name: torch\r\n[INFO] 2026-09-02 16:07:28,389 [RapidOCR] device_config.py:57: Using CPU device\r\n[INFO] 2026-09-02 16:07:28,393 [RapidOCR] download_file.py:60: File exists and is valid: D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\rapidocr\\models\\ch_ptocr_mobile_v2.0_cls_mobile.pth\r\n[INFO] 2026-09-02 16:07:28,393 [RapidOCR] main.py:50: Using D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\rapidocr\\models\\ch_ptocr_mobile_v2.0_cls_mobile.pth\r\n[INFO] 2026-09-02 16:07:28,565 [RapidOCR] base.py:23: Using engine_name: torch\r\n[INFO] 2026-09-02 16:07:28,565 [RapidOCR] device_config.py:57: Using CPU device\r\n[INFO] 2026-09-02 16:07:28,600 [RapidOCR] download_file.py:60: File exists and is valid: D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\rapidocr\\models\\PP-OCRv6_rec_small.pth\r\n[INFO] 2026-09-02 16:07:28,600 [RapidOCR] main.py:50: Using D:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\rapidocr\\models\\PP-OCRv6_rec_small.pth\r\n\rLoading weights:   0%|          | 0/770 [00:00<?, ?it/s]\rLoading weights:  77%|#######6  | 591/770 [00:00<00:00, 5825.26it/s]\rLoading weights: 100%|##########| 770/770 [00:00<00:00, 6068.09it/s]\r\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\r\nD:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\huggingface_hub\\file_download.py:141: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\\Users\\tat22\\.cache\\huggingface\\hub\\models--docling-project--docling-models. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.\r\nTo support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development\r\n  warnings.warn(message)\r\nD:\\PiMathRuntime\\local-document-intelligence\\python-v1\\Lib\\site-packages\\torch\\nn\\modules\\conv.py:560: UserWarning: Using padding='same' with even kernel lengths and odd dilation may require a zero-padded copy of the input be created (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\aten\\src\\ATen\\native\\Convolution.cpp:1102.)\r\n  return F.conv2d(\r\n"
+      ],
+      "provenancePreserved": true
+    },
+    {
+      "provider": "paddleocr",
+      "status": "UNAVAILABLE_OR_FAILED",
+      "durationMs": 6587.8,
+      "evidenceCount": 1,
+      "issues": [
+        "RUNTIME_FAILURE",
+        "No models are available for lang='vi-VN' and ocr_version=None."
+      ],
+      "provenancePreserved": true
+    }
+  ],
+  "guards": {
+    "goldenEvidenceCount": 0,
+    "goldenRelabellingCount": 0,
+    "sourceIdentityPreservation": true,
+    "noFakeFidelity": true
+  },
+  "benchmark": {
+    "TEXT": "READY_PENDING_HUMAN_REFERENCE",
+    "MATH": "NOT_MEASURABLE_WITHOUT_REFERENCE",
+    "FIGURE_SEMANTIC": "NOT_MEASURABLE_WITHOUT_REFERENCE",
+    "READING_ORDER": "NOT_MEASURABLE_WITHOUT_REFERENCE",
+    "TABLE": "NOT_MEASURABLE_WITHOUT_REFERENCE",
+    "ASSET_IDENTITY": "PASS (no assets emitted by native PDF route)",
+    "PROVENANCE": "PASS",
+    "VIETNAMESE": "READY_PENDING_HUMAN_REFERENCE",
+    "RUNTIME": "PASS",
+    "REPRODUCIBILITY": "READY_PENDING_REPEAT"
+  }
+}
