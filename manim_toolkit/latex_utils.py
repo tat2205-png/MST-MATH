@@ -4,6 +4,8 @@ import re
 
 from manim import MathTex, Tex, Text
 
+from manim_toolkit.math_notation import DEFAULT_NOTATION_PROFILE, canonicalize_math_expression
+
 
 def normalize_latex(raw: str) -> str:
     if raw is None:
@@ -35,20 +37,55 @@ def safe_text(value: str, *, font_size: int = 24, color=None):
     return Text(text, font_size=font_size, color=color)
 
 
-def safe_tex(value: str, *, font_size: int = 24, color=None):
+def safe_tex(
+    value: str,
+    *,
+    font_size: int = 24,
+    color=None,
+    notation_profile_id: str = DEFAULT_NOTATION_PROFILE,
+):
     latex = validate_latex_string(value)
     math_like = bool(re.search(r"\\(?:frac|sqrt|sum|int|prod|lim)\b|[_^=]", latex))
+    if math_like:
+        latex = canonicalize_math_expression(
+            latex,
+            profile_id=notation_profile_id,
+            output="VIDEO",
+        )
     expression = f"${latex}$" if math_like else latex
     return Tex(expression, font_size=font_size, color=color)
 
 
-def safe_mathtex(value: str, *, font_size: int = 28, color=None):
+def safe_mathtex(
+    value: str,
+    *,
+    font_size: int = 28,
+    color=None,
+    notation_profile_id: str = DEFAULT_NOTATION_PROFILE,
+):
     latex = validate_latex_string(value)
+    latex = canonicalize_math_expression(
+        latex,
+        profile_id=notation_profile_id,
+        output="VIDEO",
+    )
     return MathTex(latex, font_size=font_size, color=color)
 
 
-def fit_math_to_width(value: str, max_width: float, *, font_size: int = 28, color=None):
-    math = safe_mathtex(value, font_size=font_size, color=color)
+def fit_math_to_width(
+    value: str,
+    max_width: float,
+    *,
+    font_size: int = 28,
+    color=None,
+    notation_profile_id: str = DEFAULT_NOTATION_PROFILE,
+):
+    math = safe_mathtex(
+        value,
+        font_size=font_size,
+        color=color,
+        notation_profile_id=notation_profile_id,
+    )
     if max_width <= 0:
         raise ValueError("max_width must be positive.")
     scale = max_width / max(math.get_width(), 1e-6)
@@ -57,8 +94,22 @@ def fit_math_to_width(value: str, max_width: float, *, font_size: int = 28, colo
     return math
 
 
-def fit_math_to_box(value: str, max_width: float, max_height: float | None = None, *, font_size: int = 28, color=None):
-    math = fit_math_to_width(value, max_width, font_size=font_size, color=color)
+def fit_math_to_box(
+    value: str,
+    max_width: float,
+    max_height: float | None = None,
+    *,
+    font_size: int = 28,
+    color=None,
+    notation_profile_id: str = DEFAULT_NOTATION_PROFILE,
+):
+    math = fit_math_to_width(
+        value,
+        max_width,
+        font_size=font_size,
+        color=color,
+        notation_profile_id=notation_profile_id,
+    )
     if max_height is not None and math.get_height() > max_height:
         math.scale(max_height / max(math.get_height(), 1e-6))
     return math
