@@ -14,6 +14,7 @@
     "qa:full": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Full",
     "qa:repair": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode RepairSmoke",
     "qa:math": "npx tsx tests/math-regression.ts",
+    "qa:math-notation": "node --import tsx tests/test-math-notation-v1.ts",
     "python:sync": "uv sync --group test",
     "qa:python-runtime": "uv run --group test python scripts/doctor_python_runtime.py",
     "qa:python-math": "uv run --group test python -m pytest tests/test_python_math_stack.py -q",
@@ -66,7 +67,7 @@
     "ia:self-build": "tsx image-animation/automation/scripts/self-build.ts",
     "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
     "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
-    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression",
+    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:math-notation && npm run qa:regression",
     "qa:visual-pedagogy": "node --import tsx tests/test-visual-pedagogy-convergence.ts"
   },
   "dependencies": {
