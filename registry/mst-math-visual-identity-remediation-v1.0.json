@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "MST_MATH_VISUAL_IDENTITY_REMEDIATION_V1.0",
+  "status": "ACTIVE_AUDIT",
+  "root": "MST-MATH-DNA-V1.0",
+  "purpose": "Track visual-identity and output-presentation leakage that must be remediated before the Output Visual Identity candidate may be promoted to canonical.",
+  "findings": [
+    {"id":"BRAND_MARK_01","severity":"HIGH","area":"APP_HEADER","evidence":"src/components/Header.tsx uses Sigma as an ad-hoc logo and MATH AI STUDIO as the visually primary brand.","required":"Use MST-MATH as primary brand text in product UI. Do not treat Sigma or another arbitrary math glyph as an official mark. Learning artifacts and video must contain no promotional MST-MATH branding.","status":"OPEN"},
+    {"id":"UI_COLOR_01","severity":"HIGH","area":"P12_APP_UI","evidence":"Multiple UI files hard-code Tailwind blue/slate/emerald/rose visual roles rather than resolving MST-MATH core semantic color tokens.","required":"Migrate UI semantic roles to core token bindings without changing mathematical/business logic.","status":"OPEN"},
+    {"id":"UI_ICON_01","severity":"MEDIUM","area":"P12_APP_UI","evidence":"UI uses Lucide glyphs directly for several semantic concepts.","required":"Classify each glyph as UI chrome or semantic icon. Semantic icons must resolve through MST-MATH Semantic Icons; purely operational UI chrome must not become a parallel semantic icon authority.","status":"OPEN"},
+    {"id":"P04_LAYOUT_01","severity":"MEDIUM","area":"P04_EXERCISE_SHEET","evidence":"Exercise Sheet has identity color and inherited textbook/layout authorities but no explicit exercise-specific composition profile.","required":"Validate candidate P04 composition using an A4 Golden Case before canonical promotion.","status":"CANDIDATE_DEFINED_NEEDS_GOLDEN_CASE"},
+    {"id":"P07_TYPE_01","severity":"MEDIUM","area":"P07_VIDEO","evidence":"Video has strong macro layout and font authority but no previously approved explicit readable type scale.","required":"Validate MST_MATH_VIDEO_TYPE_SCALE_V1.0 on 1080p classroom display and derivative outputs while enforcing no promotional branding.","status":"CANDIDATE_DEFINED_NEEDS_HUMAN_VISUAL_APPROVAL"},
+    {"id":"P10_VISUAL_01","severity":"HIGH","area":"P10_GAME","evidence":"Game reference defines gameplay/screens but does not define a complete visual token system.","required":"Validate MST_MATH_GAME_VISUAL_SYSTEM_V1.0 on a real classroom TV/projector Golden Case.","status":"CANDIDATE_DEFINED_NEEDS_HUMAN_VISUAL_APPROVAL"},
+    {"id":"P08_AUTHORITY_01","severity":"HIGH","area":"P08_GEOGEBRA","evidence":"Legacy output profile referenced unresolved NA-MATH-BRAND-DRIVEN-GEOGEBRA-UI-SYSTEM-V1.0.","required":"Bind to current locked MST-MATH Dynamic Geometry authorities.","status":"REMEDIATED_ON_FEATURE_BRANCH"},
+    {"id":"BRAND_ASSET_01","severity":"LOW","area":"PRODUCT_UI_ONLY","evidence":"No approved MST-MATH graphic logo/wordmark master asset is present in the active assets namespace; only semantic icon assets are present.","required":"Use text-only MST-MATH identity in product UI until a human-approved graphic mark exists. This does not block learning artifacts because those artifacts must not display promotional branding.","status":"OPEN_HUMAN_DECISION"},
+    {"id":"OUTPUT_POLICY_ENFORCEMENT_01","severity":"CRITICAL","area":"DOCUMENT_AND_VIDEO_RENDERERS","evidence":"MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.1 is locked and registered, but every renderer/export path still needs explicit runtime gate enforcement.","required":"Before final export, resolve V1.1 and block rendering when A4, page-number, no-branding, pedagogical-reflow, student-workspace, answer-section, figure-containment or answer-QA gates fail.","status":"OPEN_RUNTIME_INTEGRATION"},
+    {"id":"FIGURE_LAYOUT_QA_01","severity":"CRITICAL","area":"A4_DOCUMENT_LAYOUT","evidence":"Canonical policy requires figures to remain wholly within their owning question/answer region, preserve aspect ratio, remain sharp, avoid student workspace and never split across pages.","required":"Implement/verify renderer QA for figure ownership bounds, final A4 readability, vector preference or >=300 effective dpi raster, no crop/blur/pixelation, no overlap and whole-question page move before unsafe shrink.","status":"OPEN_RUNTIME_INTEGRATION"},
+    {"id":"ANSWER_QA_01","severity":"CRITICAL","area":"PRE_EXPORT_ASSESSMENT_QA","evidence":"Canonical policy requires mathematical, logical, pedagogical and answer-key verification before any answer-bearing A4 artifact may be exported.","required":"Integrate ANSWER_QA_PASS as a hard export gate. MCQ must verify key/result alignment and absence of multiple correct distractors; true/false must verify each statement independently; short answer must verify accepted forms, rounding and units.","status":"OPEN_RUNTIME_INTEGRATION"},
+    {"id":"PEDAGOGICAL_REFLOW_01","severity":"CRITICAL","area":"P01_P03_P07_P11_COMPOSITION","evidence":"V1.1 permits question/example reorder only when the learning dependency graph remains valid and meaningful whitespace is distinguished from intentional student workspace.","required":"Implement dependency-aware reflow that records original order, rendered order and reason; reject reorder across prerequisite, scaffolding, shared-stem, scenario-continuity or previous-result dependencies.","status":"OPEN_RUNTIME_INTEGRATION"},
+    {"id":"STUDENT_WORKSPACE_01","severity":"CRITICAL","area":"P01_P03_A4_LAYOUT","evidence":"V1.1 requires ruled notebook-like writing space for every question, including MCQ, using 7.0 mm line pitch with adaptive minimum row counts.","required":"Implement question-owned ruled workspace in P01/P03. Minimum rows: MCQ 2, True/False 3, Short Answer 4, Constructed Response 6, Open Investigation 8; never shrink below minimum merely to fill the page. Treat this workspace as meaningful space, not page waste.","status":"OPEN_RUNTIME_INTEGRATION"},
+    {"id":"PAGE_NUMBER_01","severity":"HIGH","area":"ALL_A4_DOCUMENT_ARTIFACTS","evidence":"V1.1 requires a visible Arabic page number at the bottom center of every A4 page, including the first page and answer pages.","required":"Implement bottom-center page numbering in every A4 renderer/export path with no promotional footer text and no collision with content/trim.","status":"OPEN_RUNTIME_INTEGRATION"}
+  ],
+  "promotionBlockers": [
+    "BRAND_MARK_01",
+    "UI_COLOR_01",
+    "P07_TYPE_01",
+    "P10_VISUAL_01",
+    "OUTPUT_POLICY_ENFORCEMENT_01",
+    "FIGURE_LAYOUT_QA_01",
+    "ANSWER_QA_01",
+    "PEDAGOGICAL_REFLOW_01",
+    "STUDENT_WORKSPACE_01",
+    "PAGE_NUMBER_01"
+  ],
+  "rule": "Candidate visual standards may be implemented and tested, but must not be promoted to LOCKED/CANONICAL while promotion blockers remain unresolved or explicitly waived by the human product owner. Locked human-approved output presentation policy V1.1 is already authoritative and may not be bypassed."
+}

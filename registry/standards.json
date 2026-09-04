@@ -32,6 +32,13 @@
     {"id":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_VIDEO_VISUAL_CANONICAL_V2_0/mst-math-video-visual-canonical-v2.0.json"},
     {"id":"PIMATH_VIDEO_VISUAL_CANONICAL_V2.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","path":"standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json"},
 
+    {"id":"MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0","status":"LOCKED_CANONICAL_HISTORY_SUPERSEDED","canonical":false,"approved":true,"humanApproved":true,"path":"standards/MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1_0/mst-math-output-content-presentation-policy-v1.0.json","root":"MST-MATH-DNA-V1.0","supersededBy":"MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.1"},
+    {"id":"MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.1","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"humanApproved":true,"path":"standards/MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1_1/mst-math-output-content-presentation-policy-v1.1.json","root":"MST-MATH-DNA-V1.0","inherits":"MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0","supersedes":"MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0"},
+    {"id":"MST_MATH_OUTPUT_VISUAL_PROFILE_REGISTRY_V1.0","status":"DRAFT_FOR_HUMAN_APPROVAL","canonical":false,"canonicalCandidate":true,"path":"registry/mst-math-output-visual-profiles-v1.0.json","implementation":"src/config/mstMathOutputVisualProfiles.ts","root":"MST-MATH-DNA-V1.0"},
+    {"id":"MST_MATH_VIDEO_TYPE_SCALE_V1.0","status":"DRAFT_FOR_HUMAN_APPROVAL","canonical":false,"canonicalCandidate":true,"path":"standards/MST_MATH_VIDEO_TYPE_SCALE_V1_0/mst-math-video-type-scale-v1.0.json","root":"MST-MATH-DNA-V1.0"},
+    {"id":"MST_MATH_GAME_VISUAL_SYSTEM_V1.0","status":"DRAFT_FOR_HUMAN_APPROVAL","canonical":false,"canonicalCandidate":true,"path":"standards/MST_MATH_GAME_VISUAL_SYSTEM_V1_0/mst-math-game-visual-system-v1.0.json","root":"MST-MATH-DNA-V1.0"},
+    {"id":"MST_MATH_BRAND_APPLICATION_POLICY_V1.0","status":"DRAFT_FOR_HUMAN_APPROVAL","canonical":false,"canonicalCandidate":true,"path":"standards/MST_MATH_BRAND_APPLICATION_POLICY_V1_0/mst-math-brand-application-policy-v1.0.json","root":"MST-MATH-DNA-V1.0"},
+
     {"id":"NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0","status":"COMPATIBILITY_ALIAS","aliasOf":"MST-MATH-DNA-V1.0","path":"registry/mst-math-brand-root.json"},
     {"id":"NA_MATH_SYSTEM_BASELINE_V2_6","status":"LOCKED","path":"standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK"},
     {"id":"NA_MATH_LAYOUT_V1_3","status":"CANONICAL_LOCKED","path":"standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0"},

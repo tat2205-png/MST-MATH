@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0",
+  "status": "LOCKED_CANONICAL_APPROVED",
+  "canonical": true,
+  "approved": true,
+  "humanApproved": true,
+  "root": "MST-MATH-DNA-V1.0",
+  "scope": "OUTPUT_CONTENT_PRESENTATION_AND_PRE_EXPORT_QA",
+  "sourceDecision": "Human product owner directive 2026-09-05",
+  "principles": [
+    "CONTENT_FIRST_NO_PROMOTIONAL_BRANDING",
+    "A4_FOR_ALL_DOCUMENT_ARTIFACTS_EXCEPT_VIDEO",
+    "QUESTION_AND_ANSWER_BLOCK_INTEGRITY",
+    "FIGURE_CLARITY_AND_PAGE_BALANCE",
+    "FINAL_ANSWER_SECTION_REQUIRED",
+    "ANSWER_QA_BEFORE_EXPORT",
+    "FAIL_CLOSED_ON_UNVERIFIED_ANSWER"
+  ],
+  "document": {
+    "page": {
+      "size": "A4",
+      "required": true,
+      "appliesTo": [
+        "P01_LEARNING_MATERIAL",
+        "P02_LESSON_PLAN",
+        "P03_WORKSHEET",
+        "P04_EXERCISE_SHEET",
+        "P05_TEST",
+        "P06_EXAM_SCHOOL",
+        "P06_EXAM_THPTQG",
+        "P06_EXAM_DGNL",
+        "P06_EXAM_VSAT",
+        "P06_EXAM_SAT_PRINT"
+      ],
+      "exceptions": ["P07_VIDEO", "INTERACTIVE_ONLY_SURFACES"]
+    },
+    "branding": {
+      "showMstMathBrand": false,
+      "showProductDescriptor": false,
+      "showLogo": false,
+      "showWatermark": false,
+      "showPromotionalFooter": false,
+      "showMarketingTagline": false,
+      "allowedVisibleIdentity": "LEARNING_CONTENT_ONLY"
+    },
+    "visibleTextPolicy": {
+      "allowed": [
+        "LEARNING_CONTENT_TITLE",
+        "LEARNING_CONTENT_BODY",
+        "QUESTION_TEXT",
+        "ANSWER_OPTIONS",
+        "TABLE_DATA",
+        "FIGURE_LABELS_WHEN_MATHEMATICALLY_REQUIRED",
+        "ANSWER_SECTION",
+        "SEMANTIC_ICON_ASSOCIATED_WITH_CONTENT_ROLE"
+      ],
+      "forbidden": [
+        "MST_MATH_PROMOTION",
+        "PRODUCT_PROMOTION",
+        "MARKETING_SLOGAN",
+        "DECORATIVE_BRAND_CAPTION",
+        "NON_PEDAGOGICAL_ANNOTATION"
+      ]
+    },
+    "answerSection": {
+      "required": true,
+      "placement": "END_OF_DOCUMENT",
+      "coversAllQuestionsRequiringAnswers": true,
+      "mcqAnswerFormat": "CLEAR_COMPACT_UNAMBIGUOUS",
+      "trueFalseAnswerFormat": "CLEAR_PER_STATEMENT",
+      "shortAnswerFormat": "FINAL_VALUE_OR_REQUIRED_EXPRESSION",
+      "essayAnswerPolicy": "FINAL_ANSWER_OR_KEY_RESULT_AS_PROFILE_REQUIRES",
+      "solutionVisibility": "OUTPUT_PROFILE_CONTROLLED"
+    }
+  },
+  "figure": {
+    "appliesToMathFigures": true,
+    "questionContainment": {
+      "required": true,
+      "rule": "A figure belonging to a question must remain wholly inside the visual ownership region of that question and its answer/options block; it must not drift into the next question or unrelated content.",
+      "keepWithQuestion": true,
+      "keepWithOptionsWhenOptionsDependOnFigure": true,
+      "splitAcrossPages": false
+    },
+    "pageBalance": {
+      "required": true,
+      "preserveAspectRatio": true,
+      "noDistortion": true,
+      "noCropOfMathematicalContent": true,
+      "noOverlapText": true,
+      "noOverlapAnswerOptions": true,
+      "noOverlapPageMargin": true,
+      "avoidOrphanFigure": true,
+      "avoidExcessiveEmptySpaceCausedByFigure": true,
+      "preferMoveWholeQuestionToNextPageBeforeUnsafeShrink": true
+    },
+    "clarity": {
+      "required": true,
+      "vectorPreferred": true,
+      "rasterMinimumEffectiveDpiForPrint": 300,
+      "textAndLabelsReadableAtFinalA4Size": true,
+      "thinLinesMustSurvivePrint": true,
+      "grayscaleSafeWhereRequired": true,
+      "noBlur": true,
+      "noPixelation": true,
+      "noCompressionArtifactThatChangesMeaning": true
+    },
+    "semanticIntegrity": {
+      "geometryZeroInference": true,
+      "doNotInventMissingRelations": true,
+      "doNotDecorativelyAlterMathematicalFigure": true,
+      "preserveLabelsAndDependencies": true
+    }
+  },
+  "video": {
+    "pageSize": "NOT_APPLICABLE",
+    "branding": {
+      "showMstMathBrand": false,
+      "showProductDescriptor": false,
+      "showLogo": false,
+      "showWatermark": false,
+      "showPromotionalIntroOutro": false,
+      "showMarketingTagline": false
+    },
+    "visibleOverlayPolicy": {
+      "allowed": [
+        "LEARNING_CONTENT_TITLE",
+        "LEARNING_CONTENT_BODY",
+        "MATHEMATICAL_NOTATION",
+        "PEDAGOGICALLY_REQUIRED_FIGURE_LABELS",
+        "SEMANTIC_ICON_ASSOCIATED_WITH_CONTENT_ROLE"
+      ],
+      "forbidden": [
+        "PROMOTIONAL_BRAND_OVERLAY",
+        "DECORATIVE_BRAND_BADGE",
+        "NON_PEDAGOGICAL_CAPTION"
+      ]
+    }
+  },
+  "answerQa": {
+    "requiredBeforeExport": true,
+    "appliesTo": "ALL_DOCUMENT_OUTPUTS_WITH_ANSWERS",
+    "automatedExportAllowedOnlyIf": "ANSWER_QA_PASS",
+    "dimensions": [
+      "SOURCE_FIDELITY",
+      "MATHEMATICAL_CORRECTNESS",
+      "LOGICAL_VALIDITY",
+      "DOMAIN_AND_BOUNDARY_CORRECTNESS",
+      "NUMERIC_CORRECTNESS",
+      "UNITS_AND_DIMENSIONS",
+      "GEOMETRY_INVARIANTS",
+      "ANSWER_TO_QUESTION_ALIGNMENT",
+      "OPTION_KEY_ALIGNMENT",
+      "TRUE_FALSE_STATEMENT_ALIGNMENT",
+      "PEDAGOGICAL_APPROPRIATENESS",
+      "CURRICULUM_APPROPRIATENESS",
+      "REAL_WORLD_ASSUMPTION_PLAUSIBILITY_WHEN_APPLICABLE",
+      "REAL_WORLD_RESULT_PLAUSIBILITY_WHEN_APPLICABLE"
+    ],
+    "mcq": {
+      "verifyExactlyOneCorrectOptionWhenProfileRequiresSingleChoice": true,
+      "verifyAnswerKeyMatchesComputedOrProvenResult": true,
+      "verifyDistractorsDoNotCreateMultipleCorrectAnswers": true,
+      "verifyNoOptionLabelMismatch": true
+    },
+    "trueFalse": {
+      "verifyEachStatementIndependently": true,
+      "verifyNoCrossStatementInferenceError": true
+    },
+    "shortAnswer": {
+      "verifyNormalizationAndAcceptedEquivalentForms": true,
+      "verifyRoundingAndUnitsWhenSpecified": true
+    },
+    "failurePolicy": {
+      "onFail": "BLOCK_EXPORT",
+      "onNeedMoreInformation": "BLOCK_EXPORT",
+      "onWarningAffectingCorrectness": "BLOCK_EXPORT",
+      "onPurelyCosmeticWarning": "ALLOW_ONLY_IF_LAYOUT_QA_PASSES"
+    }
+  },
+  "preExportGates": [
+    "A4_PAGE_POLICY_PASS",
+    "NO_PROMOTIONAL_BRANDING_PASS",
+    "VISIBLE_CONTENT_ONLY_PASS",
+    "FIGURE_QUESTION_CONTAINMENT_PASS",
+    "FIGURE_CLARITY_PASS",
+    "FIGURE_PAGE_BALANCE_PASS",
+    "NO_FIGURE_SPLIT_PASS",
+    "ANSWER_SECTION_AT_END_PASS",
+    "ANSWER_COVERAGE_PASS",
+    "ANSWER_QA_PASS",
+    "MATH_QA_PASS",
+    "PEDAGOGY_QA_PASS",
+    "OUTPUT_PROFILE_QA_PASS"
+  ],
+  "governance": {
+    "rendererMayAddBranding": false,
+    "rendererMayMoveFigureOutsideQuestionOwnership": false,
+    "rendererMayShrinkFigureUntilLabelsUnreadable": false,
+    "rendererMayExportUnverifiedAnswer": false,
+    "failClosed": true
+  }
+}
