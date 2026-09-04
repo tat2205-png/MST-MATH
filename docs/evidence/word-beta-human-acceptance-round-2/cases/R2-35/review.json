@@ -1,15 +1,21 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-35",
   "questionId": "f4d4446aeaf5-qcandidate-23",
   "questionIrId": "f4d4446aeaf5-q3",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-f4d4446aeaf5ba44::paragraph-75:TEXTUAL_MARKER",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-f4d4446aeaf5ba44",
     "documentPath": "NK TEST APP.docx",
     "documentHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
     "sourceObjectIds": [
       "paragraph-75"
+    ],
+    "sourceSliceIds": [
+      "paragraph-75:TEXTUAL_MARKER"
     ],
     "provenance": {
       "sourceFile": "NK TEST APP.docx",
@@ -27,7 +33,7 @@
   },
   "questionType": "TRUE_FALSE",
   "sourceRepresentation": {
-    "text": "Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian$t$($t\\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số$x(t)=2t−2ln⁡(t+1)$(đơn vị: triệu giờ). Hàm số$v(t)={x}^{′}(t)$biểu thị tốc độ tương tác của người dùng tại thời điểm$t$(đơn vị: triệu giờ/tuần).",
+    "text": "Câu 3. Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian $t$ ( $t\\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số $x(t)=2t−2ln⁡(t+1)$ (đơn vị: triệu giờ). Hàm số $v(t)={x}^{′}(t)$ biểu thị tốc độ tương tác của người dùng tại thời điểm $t$ (đơn vị: triệu giờ/tuần).",
     "mathObjectIds": [
       "expression-docx-88",
       "expression-docx-89",
@@ -98,8 +104,8 @@
   "finalRepresentation": {
     "acceptanceQuestionId": "f4d4446aeaf5-qcandidate-23",
     "questionIrId": "f4d4446aeaf5-q3",
-    "packageId": "question-f4d4446aeaf5-qcandidate-23",
-    "text": "Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian$t$($t\\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số$x(t)=2t−2ln⁡(t+1)$(đơn vị: triệu giờ). Hàm số$v(t)={x}^{′}(t)$biểu thị tốc độ tương tác của người dùng tại thời điểm$t$(đơn vị: triệu giờ/tuần).",
+    "packageId": "question-f4d4446aeaf5-q3",
+    "text": "Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng mới. Tổng thời gian người dùng tương tác tích lũy trên hệ thống theo thời gian $t$ ($t\\ge0$, tính bằng tuần) được mô hình hóa bởi hàm số $x(t)=2t−2ln⁡(t+1)$ (đơn vị: triệu giờ). Hàm số $v(t)={x}^{′}(t)$ biểu thị tốc độ tương tác của người dùng tại thời điểm $t$ (đơn vị: triệu giờ/tuần).",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -129,5 +135,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

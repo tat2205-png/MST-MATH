@@ -1,15 +1,32 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-29",
   "questionId": "1ffa795691ed-qcandidate-29",
   "questionIrId": "1ffa795691ed-qcandidate-29",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-235:WORD_NUMBERING|paragraph-236|paragraph-237|paragraph-238|paragraph-239|paragraph-240|paragraph-241|paragraph-242|paragraph-243|paragraph-244|paragraph-245|section-246",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-235",
+      "paragraph-236",
+      "paragraph-237",
+      "paragraph-238",
+      "paragraph-239",
+      "paragraph-240",
+      "paragraph-241",
+      "paragraph-242",
+      "paragraph-243",
+      "paragraph-244",
+      "paragraph-245",
+      "section-246"
+    ],
+    "sourceSliceIds": [
+      "paragraph-235:WORD_NUMBERING",
       "paragraph-236",
       "paragraph-237",
       "paragraph-238",
@@ -38,7 +55,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Sân vườn hìnhchữnhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$có$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mo>,</mo><mi>A</mi><mi>D</mi><mo>=</mo><mn>1</mn><mn>0</mn><mo> </mo><mi>m</mi></mrow></math>$. Đèn pin tại$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$có góc chiếu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>α</mi><mo>=</mo><mn>3</mn><mn>0</mn><mo>∘</mo></mrow></math>$. Tìm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>i</mi><mi>n</mi></mrow></math>$của vùng chiếu sáng.",
+    "text": "Sân vườn hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ có $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mo>,</mo><mi>A</mi><mi>D</mi><mo>=</mo><mn>1</mn><mn>0</mn><mo> </mo><mi>m</mi></mrow></math>$. Đèn pin tại $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ có góc chiếu $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>α</mi><mo>=</mo><mn>3</mn><mn>0</mn><mo>∘</mo></mrow></math>$. Tìm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi></mrow></math>$ và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>i</mi><mi>n</mi></mrow></math>$ của vùng chiếu sáng.",
     "mathObjectIds": [
       "mtef-26d56e99d261ab0f",
       "mtef-7dbf3d7c2bee759b",
@@ -182,7 +199,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-29",
     "questionIrId": "1ffa795691ed-qcandidate-29",
     "packageId": "question-1ffa795691ed-qcandidate-29",
-    "text": "Sân vườn hìnhchữnhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$có$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mo>,</mo><mi>A</mi><mi>D</mi><mo>=</mo><mn>1</mn><mn>0</mn><mo> </mo><mi>m</mi></mrow></math>$. Đèn pin tại$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$có góc chiếu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>α</mi><mo>=</mo><mn>3</mn><mn>0</mn><mo>∘</mo></mrow></math>$. Tìm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>i</mi><mi>n</mi></mrow></math>$của vùng chiếu sáng.",
+    "text": "Sân vườn hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ có $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mo>,</mo><mi>A</mi><mi>D</mi><mo>=</mo><mn>1</mn><mn>0</mn><mo> </mo><mi>m</mi></mrow></math>$. Đèn pin tại $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ có góc chiếu $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>α</mi><mo>=</mo><mn>3</mn><mn>0</mn><mo>∘</mo></mrow></math>$. Tìm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi></mrow></math>$ và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mi>m</mi><mi>i</mi><mi>n</mi></mrow></math>$ của vùng chiếu sáng.",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -214,5 +231,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

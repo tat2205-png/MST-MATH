@@ -39,7 +39,7 @@ Allowed values: `ACCEPT`, `MINOR_NON_BLOCKING`, `BLOCKING`, `NEEDS_SOURCE_CHECK`
 | 33 | R2-33 | 633e6a37a7bf-qcandidate-4 |  |  |
 | 34 | R2-34 | 633e6a37a7bf-qcandidate-5 |  |  |
 | 35 | R2-35 | f4d4446aeaf5-qcandidate-23 |  |  |
-| 36 | R2-36 | f4d4446aeaf5-qcandidate-41 |  |  |
+| 36 | R2-36 | f4d4446aeaf5-qslice-d09e82a2e511 |  |  |
 | 37 | R2-37 | 633e6a37a7bf-qcandidate-8 |  |  |
 | 38 | R2-38 | 633e6a37a7bf-qcandidate-9 |  |  |
 | 39 | R2-39 | 633e6a37a7bf-qcandidate-10 |  |  |

@@ -1,15 +1,28 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-23",
   "questionId": "1ffa795691ed-qcandidate-23",
   "questionIrId": "1ffa795691ed-qcandidate-23",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-194:WORD_NUMBERING|paragraph-195|paragraph-196|paragraph-197|paragraph-198|paragraph-199|paragraph-200|paragraph-201",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-194",
+      "paragraph-195",
+      "paragraph-196",
+      "paragraph-197",
+      "paragraph-198",
+      "paragraph-199",
+      "paragraph-200",
+      "paragraph-201"
+    ],
+    "sourceSliceIds": [
+      "paragraph-194:WORD_NUMBERING",
       "paragraph-195",
       "paragraph-196",
       "paragraph-197",
@@ -34,7 +47,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Cho tamgiác$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$cân nằm trong đường tròn đường kính bằng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn></mrow></math>$. Tìm diện tích lớn nhất của tam giác$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$",
+    "text": "Cho tam giác $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$ cân nằm trong đường tròn đường kính bằng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn></mrow></math>$. Tìm diện tích lớn nhất của tam giác $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$",
     "mathObjectIds": [
       "mtef-5f078915d78dc0dc",
       "mtef-8172e857bc94bffc"
@@ -108,7 +121,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-23",
     "questionIrId": "1ffa795691ed-qcandidate-23",
     "packageId": "question-1ffa795691ed-qcandidate-23",
-    "text": "Cho tamgiác$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$cân nằm trong đường tròn đường kính bằng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn></mrow></math>$. Tìm diện tích lớn nhất của tam giác$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$",
+    "text": "Cho tam giác $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$ cân nằm trong đường tròn đường kính bằng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn></mrow></math>$. Tìm diện tích lớn nhất của tam giác $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></math>$",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -136,5 +149,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

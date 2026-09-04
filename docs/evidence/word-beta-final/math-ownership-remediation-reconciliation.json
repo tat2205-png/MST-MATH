@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_CANONICAL_MATH_OWNERSHIP_RECONCILIATION_V1",
+  "canonicalQuestionCount": 668,
+  "sourceUniqueMathIdentityCount": 5473,
+  "questionIrReferenceCount": 5888,
+  "packageReferenceCount": 5888,
+  "uniqueQuestionScopedMathCount": 5255,
+  "duplicateQuestionMathOwnershipLinkCount": 633,
+  "technicalBaselineOwnershipLinkCount": 5949,
+  "ownershipLinkDeltaVsTechnicalBaseline": -61,
+  "missingQuestionMathSourceCount": 0,
+  "missingQuestionMathSourceKeys": [],
+  "questionPackageMathMultisetEqualityQA": "PASS",
+  "questionMathSourceExistenceQA": "PASS",
+  "mathReferenceIntegrityQA": "PASS",
+  "note": "Source unique math objects and question ownership links are different populations. Duplicate ownership links may be valid for shared context; the blocking invariants are source existence and exact QuestionIR↔Package multiset preservation."
+}

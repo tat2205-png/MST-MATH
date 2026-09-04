@@ -1,14 +1,18 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V4",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
   "canonicalBoundaryCount": 668,
+  "identityAuthority": "CANONICAL_LOGICAL_SOURCE_SLICE",
   "caseCount": 40,
   "selectionSource": "final-review-selection.json",
   "coverageSource": "risk-coverage-certification.json",
+  "staleInitialQuestionCount": 1,
   "cases": [
     {
       "reviewCaseId": "R2-01",
       "questionId": "1ffa795691ed-qcandidate-1",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-6:WORD_NUMBERING|paragraph-7|paragraph-8|paragraph-9|paragraph-10|paragraph-11|paragraph-12|paragraph-13|paragraph-14|paragraph-15|paragraph-16|paragraph-17|paragraph-18|paragraph-19|paragraph-20|paragraph-21|paragraph-22|paragraph-23|paragraph-24|paragraph-25|paragraph-26|paragraph-27|paragraph-28|paragraph-29|paragraph-30|paragraph-31|paragraph-32|paragraph-33|paragraph-34|paragraph-35|paragraph-36|paragraph-37|paragraph-38|paragraph-39|paragraph-40|paragraph-41|paragraph-42|paragraph-43|paragraph-44|paragraph-45|paragraph-46|paragraph-47|paragraph-48",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -19,12 +23,15 @@
         "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-01",
-      "reviewArtifactHash": "f4c24e01d0b6fc60123c52e82333d26655cc1e39bbf2d0a0e3a6ac9b67dc2315",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "b9d6f8beeabee50183ddf6724885926ef55272d6f39a9e27b8e90e5361ef2e1b",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-02",
       "questionId": "1ffa795691ed-qcandidate-2",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-49:WORD_NUMBERING|paragraph-50|paragraph-51|paragraph-52|paragraph-53|paragraph-54|paragraph-55|paragraph-56|paragraph-57",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -34,12 +41,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-02",
-      "reviewArtifactHash": "037c1d6515d72f01495ffb36518dda37ed4539f3babfba52eedfceaa91c01af1",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "6dac8751bc4a839f6881d35c292669078651a5007c044884486a1025bcef042c",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-03",
       "questionId": "1ffa795691ed-qcandidate-3",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-58:WORD_NUMBERING|paragraph-59|paragraph-60|paragraph-61|paragraph-62|paragraph-63|paragraph-64|paragraph-65|paragraph-66",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -50,12 +60,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-03",
-      "reviewArtifactHash": "c401e2e1951ab123efed13de810aa43829831f0429a19fb44e661d1bae94225d",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "58ebc7f99bcce6497174f78e6a8dc865de6202c4909d48b93f2fd6f74477c248",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-04",
       "questionId": "1ffa795691ed-qcandidate-4",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-67:WORD_NUMBERING|paragraph-68|paragraph-69|paragraph-70|paragraph-71|paragraph-72",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -65,12 +78,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-04",
-      "reviewArtifactHash": "406ddf87e222c22ef4a4d729865737376b63c68f1df7677f81562f6bacd453b9",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "ea5664010ab7b7e290b071f91dc9615e3aa45f95baf75b9bccb560ab6288e639",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-05",
       "questionId": "1ffa795691ed-qcandidate-5",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-73:WORD_NUMBERING|paragraph-74|paragraph-75|paragraph-76|paragraph-77|paragraph-78|paragraph-79|paragraph-80|paragraph-81|paragraph-82|paragraph-83|paragraph-84",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -80,12 +96,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-05",
-      "reviewArtifactHash": "398607d8c044927380ac36f2348843a7b25d534da0fd6dd19497910c24ebf068",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "e1ff83766fc5e753bbb1ada9bc78742bf7b460126849165a87d04fa528c384b6",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-06",
       "questionId": "6cff0e6db838-qcandidate-29",
+      "canonicalIdentityKey": "docx-6cff0e6db838df3e::paragraph-200:WORD_NUMBERING|paragraph-201|paragraph-202|paragraph-203|paragraph-204",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "2. MIN MAX HHKG.docx",
       "previousDefectCategory": null,
@@ -96,12 +115,15 @@
         "MTEF_V3"
       ],
       "relativeReviewPath": "cases/R2-06",
-      "reviewArtifactHash": "d9d01dca8316ec81613860774312d795e34b9dd1131b01e7db35298a59c4fe02",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "7ea5e355e37b28d4ee7ce998e4291c3510f8ff7bc75ddc0295613ceb00a97a04",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-07",
       "questionId": "1ffa795691ed-qcandidate-7",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-90:WORD_NUMBERING|paragraph-91|paragraph-92|paragraph-93|paragraph-94|paragraph-95|paragraph-96",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -111,12 +133,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-07",
-      "reviewArtifactHash": "48725f3cbd3987c8acd425e259dda7affbdd136e5f2917e558bfc09f8c7ddd25",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "5263234889a372284605beb868be77d68b9fe2ddba73898ddbf3448ef027fdca",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-08",
       "questionId": "1ffa795691ed-qcandidate-8",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-97:WORD_NUMBERING|paragraph-98|paragraph-99|paragraph-100|paragraph-101",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -127,12 +152,15 @@
         "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-08",
-      "reviewArtifactHash": "99fb56062d758f13fd35594366c4789e369956c23dcbcb302d797e215c819c42",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "d05db45d8204565cb35899c4f4ea68785d2ac2b8e38ccbe6626868603c68d548",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-09",
       "questionId": "1ffa795691ed-qcandidate-9",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-102:WORD_NUMBERING|paragraph-103|paragraph-104|paragraph-105|paragraph-106|paragraph-107|paragraph-108|paragraph-109",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -144,12 +172,15 @@
         "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-09",
-      "reviewArtifactHash": "df020813b8c64bb7b8a43bbc5b14a95865f7d392efadee41c43131bfc672b10d",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "920cca0162bc579c18751818840d338ee6440e9b212dc7dafe58e1b49c29b801",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-10",
       "questionId": "1ffa795691ed-qcandidate-10",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-110:WORD_NUMBERING|paragraph-111|paragraph-112|paragraph-113|paragraph-114|paragraph-115|paragraph-116",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -159,12 +190,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-10",
-      "reviewArtifactHash": "e5197272931ac0c03ddcc828be5ce3076a601b2b5e8440aa8b527d292bd08010",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "b0590cf822febb42e479f77a900e0d38370f19dfbac69923c0755aa42c3194db",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-11",
       "questionId": "7f26811b8588-qcandidate-43",
+      "canonicalIdentityKey": "docx-7f26811b8588672c::paragraph-368:TEXTUAL_MARKER|paragraph-369|paragraph-370|paragraph-371|paragraph-372|paragraph-373|paragraph-374|paragraph-375|paragraph-376|paragraph-377|paragraph-378",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "Full-Toán thực tế 10.docx",
       "previousDefectCategory": null,
@@ -177,12 +211,15 @@
         "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-11",
-      "reviewArtifactHash": "8cde68c2061644a18db52dae71020ad75a847f8111448782f462cd738668749e",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "7ae896cd6f6fd8396f7f468f6af3f34f43884a26f81020afe814435dbfca29b0",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-12",
       "questionId": "1ffa795691ed-qcandidate-12",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-125:WORD_NUMBERING|paragraph-126|paragraph-127|paragraph-128|paragraph-129|paragraph-130",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -192,12 +229,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-12",
-      "reviewArtifactHash": "23831eb61aa76bc6422d48db46c6d8dea10d847a27f59b41fc7580cb5b0e3c4c",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "c46af22c7ef6f9d284ea49c335631fa3a8ecc8806f0fa579c41e2f264c93b2b8",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-13",
       "questionId": "1ffa795691ed-qcandidate-13",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-131:WORD_NUMBERING|paragraph-132|paragraph-133|paragraph-134",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -207,12 +247,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-13",
-      "reviewArtifactHash": "671f2b26d9a751294733e40e4ec7d3199a958577316a5750edf56d57a5e78394",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "0041c5ab808ba64b7011501dd619bf72ad38f1eb4bca11573897cd52d57c990d",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-14",
       "questionId": "1ffa795691ed-qcandidate-14",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-135:WORD_NUMBERING|paragraph-136|paragraph-137|paragraph-138|paragraph-139|paragraph-140",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -222,12 +265,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-14",
-      "reviewArtifactHash": "bcbec414cd8e52810b93fb8d3d8d1e03939f153f2f83a855ecd8286ed7e37ca0",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "1923e9482c3de7e9d6f6d44cd4471733c639358a6b39a88f461c74e0c89f2ee7",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-15",
       "questionId": "1ffa795691ed-qcandidate-15",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-141:WORD_NUMBERING|paragraph-142|paragraph-143|paragraph-144|paragraph-145|paragraph-146",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -238,12 +284,15 @@
         "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-15",
-      "reviewArtifactHash": "63f73d7964e3469a962319bb36d39cf630f86371aafe4f06a6973db04ecaa46a",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "85db51514d48f1a6c5cc289b1346742cb95a41a6cee1420f4950148facec2a53",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-16",
       "questionId": "1ffa795691ed-qcandidate-16",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-147:WORD_NUMBERING|paragraph-148|paragraph-149|paragraph-150|paragraph-151|paragraph-152|paragraph-153|paragraph-154|paragraph-155|paragraph-156",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -253,12 +302,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-16",
-      "reviewArtifactHash": "80dcaeb029bc9956eff3d9b50eae1ab4a4e9639f03c7766e1b7517e78a3bc726",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "bd116787de750ce3bf3d13a85e36ace477e4257dda36733002d2513ad5a8d7b4",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-17",
       "questionId": "1ffa795691ed-qcandidate-17",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-157:WORD_NUMBERING|paragraph-158|paragraph-159|paragraph-160|paragraph-161|paragraph-162",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -268,12 +320,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-17",
-      "reviewArtifactHash": "94440429a4ff03ea25e92a40b076a183d2c0de1e3529b303926f412f07d3eec3",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "b672a78943a0afba36403fbc28f27279b512a92e4e29b37364efb510aac4046a",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-18",
       "questionId": "1ffa795691ed-qcandidate-18",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-163:WORD_NUMBERING|paragraph-164|paragraph-165|paragraph-166|paragraph-167|paragraph-168",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -283,12 +338,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-18",
-      "reviewArtifactHash": "f4cedfa5a308c900863411a187ab28417e1970bf18916d4f286d0753c61e1f2c",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "36c53185bb3c4d30cdafe570e686f3bbef561566554c257b906c1d69bf594db1",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-19",
       "questionId": "1ffa795691ed-qcandidate-19",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-169:WORD_NUMBERING|paragraph-170|paragraph-171|paragraph-172|paragraph-173",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -298,12 +356,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-19",
-      "reviewArtifactHash": "fd4458e536496a7a04f969107506878036e71927e556c0b0b5b6a1b75e00a049",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "9931edb3a9c23af432f39eb2f4c0845d723585e734d7ced5bc4514ba1c99fe7a",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-20",
       "questionId": "bec93b42b430-qcandidate-50",
+      "canonicalIdentityKey": "docx-bec93b42b430a8d7::paragraph-310:WORD_NUMBERING|paragraph-311|paragraph-312|paragraph-313|paragraph-314|paragraph-315|paragraph-316|paragraph-317|paragraph-318|paragraph-319",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "SHORT_ANSWER",
       "sourceDocument": "BÀI 2. GTLN-GTNN.docx",
       "previousDefectCategory": null,
@@ -313,12 +374,15 @@
         "MTEF_V3"
       ],
       "relativeReviewPath": "cases/R2-20",
-      "reviewArtifactHash": "091e7ad7a8bcedc5c421252489f1fce71657eff9c150a824d3cec4fc299e45d1",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "edb520186b9adedcb7fc6570528958d39874356dfd842e247e1f850d7f906fa2",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-21",
       "questionId": "1ffa795691ed-qcandidate-21",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-181:WORD_NUMBERING|paragraph-182|paragraph-183|paragraph-184|paragraph-185|paragraph-186|paragraph-187",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -329,12 +393,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-21",
-      "reviewArtifactHash": "26fe5d1e47d281f5deed62daf62e56cff35943f54bd764ede265d39e11e10e1d",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "a8c0e0c0aea381812f35b8377a1695e30a146a8b75068a37636fe6461ee64876",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-22",
       "questionId": "1ffa795691ed-qcandidate-22",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-188:WORD_NUMBERING|paragraph-189|paragraph-190|paragraph-191|paragraph-192|paragraph-193",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -344,12 +411,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-22",
-      "reviewArtifactHash": "8742494bd1679436cd034bfdb2a94af1772a3815c494b0e90bb119ec6d45def4",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "df6370d6bd13fc94dbb043f341febd0f768679d1803b8181b25c0e509be73041",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-23",
       "questionId": "1ffa795691ed-qcandidate-23",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-194:WORD_NUMBERING|paragraph-195|paragraph-196|paragraph-197|paragraph-198|paragraph-199|paragraph-200|paragraph-201",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -359,12 +429,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-23",
-      "reviewArtifactHash": "cb0ef95b60deffb9e002de8cb1f06e4f14d2318de3887ca04275001b19b9caf4",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "41ec86c48d9b5e04fd24138b4794408f5a5b77b04c28c5040389553daa384d93",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-24",
       "questionId": "1ffa795691ed-qcandidate-24",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-202:WORD_NUMBERING|paragraph-203|paragraph-204|paragraph-205|paragraph-206|paragraph-207|paragraph-208|paragraph-209|paragraph-210",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -374,12 +447,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-24",
-      "reviewArtifactHash": "4ad7933b34daeff17d6e8de40d1d95a2858152786c3e04c321960351e12ddb7a",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "791a6529adf7e9c06fbc217e2cc8b968e3b48b7b68e4d02ab1a5979c8ef1e2c2",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-25",
       "questionId": "1ffa795691ed-qcandidate-25",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-211:WORD_NUMBERING|paragraph-212|paragraph-213|paragraph-214|paragraph-215|paragraph-216|paragraph-217",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -389,12 +465,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-25",
-      "reviewArtifactHash": "463b2bb98254b15b9752abe4b4f26c68b83d133e6d7f4a28042205395163e610",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "3714ae6b2a805f0f220babad1edc821878064e05286d19ee56ceb82fcec12a4c",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-26",
       "questionId": "1ffa795691ed-qcandidate-26",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-218:WORD_NUMBERING|paragraph-219|paragraph-220|paragraph-221",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -404,12 +483,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-26",
-      "reviewArtifactHash": "b5d9b146cb306c115b9f8ffd3c3142cf2c42339d4df3014bd9652ec96e7dfab6",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "36afcb1c5cb82085995e0e6a61858792ad1b158f8313d92001cbcad4e594f596",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-27",
       "questionId": "1ffa795691ed-qcandidate-27",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-222:WORD_NUMBERING|paragraph-223|paragraph-224|paragraph-225|paragraph-226",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -419,12 +501,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-27",
-      "reviewArtifactHash": "add1e0cf1e517cea091fb035104e387ede5437f96879e28b270fa6689e3e34d2",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "f1b5b5b9da23f67eb71d5cb39fceaf2724e7cfc2f0cd780ff7b5b200f81ad281",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-28",
       "questionId": "1ffa795691ed-qcandidate-28",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-227:WORD_NUMBERING|paragraph-228|paragraph-229|paragraph-230|paragraph-231|paragraph-232|paragraph-233|paragraph-234",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -435,12 +520,15 @@
         "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-28",
-      "reviewArtifactHash": "a9b7f99f34e4d4f4342fc47b9f7a706913cb2a463f2dac4353665ba68f8a4bc3",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "41071e4b6dbd3e1b898186133c69c874d4cd649c5cd1c6fe0d3e4c43cacf2025",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-29",
       "questionId": "1ffa795691ed-qcandidate-29",
+      "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-235:WORD_NUMBERING|paragraph-236|paragraph-237|paragraph-238|paragraph-239|paragraph-240|paragraph-241|paragraph-242|paragraph-243|paragraph-244|paragraph-245|section-246",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
       "previousDefectCategory": null,
@@ -450,12 +538,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-29",
-      "reviewArtifactHash": "6448d0d589c6e964566e5af2539ae71b2452934819b08376ea7219f9b4b53b2a",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "246b9ec9e9608b92ac423ac224304478ce9bb1aff05e18503042c41d910949f1",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-30",
       "questionId": "633e6a37a7bf-qcandidate-1",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-0:WORD_NUMBERING|paragraph-1|paragraph-2",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -465,12 +556,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-30",
-      "reviewArtifactHash": "145e617046f3f73c7ad0ae4b00f227da2a560fb625349e8fdb4f3ef997ea543f",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "1d27c80b9743de17e5331c4b97fc66461f120b6c07d620fdf91c6649b309ce2f",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-31",
       "questionId": "633e6a37a7bf-qcandidate-2",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-3:WORD_NUMBERING|paragraph-4|paragraph-5",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -480,12 +574,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-31",
-      "reviewArtifactHash": "21aa3cb933526227907f84db787cabec3eacecf31931ec33d6b2c781dec0d967",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "38f656bbc69bbbfe8ea1c754b85b53560070e1685e866937904d335bbb2f1dbf",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-32",
       "questionId": "633e6a37a7bf-qcandidate-3",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-6:WORD_NUMBERING|paragraph-7|paragraph-8|paragraph-9|paragraph-10",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -497,12 +594,15 @@
         "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-32",
-      "reviewArtifactHash": "ca0f17d2a3133ace98ce21786bfca4c2ab6d4fcb94e8036a62cc465dcf9f1b68",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "66c7642d926ae03f01f51991aa8061d3312c231bc50c79536818f73d8cb006fa",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-33",
       "questionId": "633e6a37a7bf-qcandidate-4",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-11:WORD_NUMBERING|paragraph-12|paragraph-13|paragraph-14",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -512,12 +612,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-33",
-      "reviewArtifactHash": "943e587aa528627cbb4fbc7a706f0b3a086922d98067823fcaf6a0a886be2514",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "290d04507a4385a5c2ee62546cd0fb439ee5edfe8f14172ec58f3c4e8af37207",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-34",
       "questionId": "633e6a37a7bf-qcandidate-5",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-15:WORD_NUMBERING",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -527,12 +630,15 @@
         "MODERN_MATH"
       ],
       "relativeReviewPath": "cases/R2-34",
-      "reviewArtifactHash": "7e47f5a9db6c56c41b667f26949e07420945c5f38587b3c905aae9a144da5901",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "ea771869e8818cb1264783f828c500bdd8cb1834fb19b9895fa9ec3bdad67e5a",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-35",
       "questionId": "f4d4446aeaf5-qcandidate-23",
+      "canonicalIdentityKey": "docx-f4d4446aeaf5ba44::paragraph-75:TEXTUAL_MARKER",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "TRUE_FALSE",
       "sourceDocument": "NK TEST APP.docx",
       "previousDefectCategory": null,
@@ -542,27 +648,33 @@
         "SHARED_CONTEXT_MATH"
       ],
       "relativeReviewPath": "cases/R2-35",
-      "reviewArtifactHash": "95c6431e55b9a9499bcb83dbbadf59399938e20f470fd8375e8e1813793cb0a6",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "6f50ddf199443be54646497af957edb675d5a11854b8165ae5358a857444794f",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-36",
-      "questionId": "f4d4446aeaf5-qcandidate-41",
+      "questionId": "f4d4446aeaf5-qslice-d09e82a2e511",
+      "canonicalIdentityKey": "docx-f4d4446aeaf5ba44::paragraph-100::question-segment-1:TEXTUAL_MARKER",
+      "canonicalSelectionKind": "PROMOTED_SPLIT",
       "questionType": "SHORT_ANSWER",
       "sourceDocument": "NK TEST APP.docx",
       "previousDefectCategory": null,
       "coverageTags": [
+        "BOUNDARY_REMEDIATION_SPLIT",
         "MATH_IN_STEM",
-        "MODERN_MATH",
-        "SHARED_CONTEXT_MATH"
+        "MODERN_MATH"
       ],
       "relativeReviewPath": "cases/R2-36",
-      "reviewArtifactHash": "47fdae015b06a9324c1112f22db060c4aa83efe823188b401ca0c2166f64c66e",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "249258be4ff3146c0dc4ebdef6ee65f6bd0fa1560db0fc5b4bc3294681be136d",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-37",
       "questionId": "633e6a37a7bf-qcandidate-8",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-20:WORD_NUMBERING|paragraph-21|paragraph-22",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -572,12 +684,15 @@
         "MODERN_MATH"
       ],
       "relativeReviewPath": "cases/R2-37",
-      "reviewArtifactHash": "cebda7fab7785c2a12035c2762e300edf596aabb60ca7ea7895d65c13d2dd300",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "3c3968aadc7460b9410f5669427052151139df06b9f2bebac858c82ea19b132d",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-38",
       "questionId": "633e6a37a7bf-qcandidate-9",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-23:WORD_NUMBERING|paragraph-24|paragraph-25|paragraph-26|paragraph-27",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "MULTIPLE_CHOICE",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -587,12 +702,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-38",
-      "reviewArtifactHash": "ccd44e7a81ddb9b6ba1977439e27e5406869b5e2a8bc511bb0a67cbd16a224a2",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "af6eefbc5b9948991272f5627170e9341d4f0fa4eb40cf4f0290b7950c36dc88",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-39",
       "questionId": "633e6a37a7bf-qcandidate-10",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-28:WORD_NUMBERING|paragraph-29",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -602,12 +720,15 @@
         "MTEF_V5"
       ],
       "relativeReviewPath": "cases/R2-39",
-      "reviewArtifactHash": "bca82aa79e4406736f98db8fecd2466271e3038d7a700f8f6ab9b336b1ba40f7",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "887ee449e4804974639bd5d9dff77be826b32ea0aaedb0afbf9d20100f35447a",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     },
     {
       "reviewCaseId": "R2-40",
       "questionId": "633e6a37a7bf-qcandidate-11",
+      "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-30:WORD_NUMBERING|paragraph-31|paragraph-32|paragraph-33|paragraph-34|paragraph-35|paragraph-36|paragraph-37",
+      "canonicalSelectionKind": "RETAINED_FROZEN",
       "questionType": "UNKNOWN",
       "sourceDocument": "1.1.docx",
       "previousDefectCategory": null,
@@ -618,8 +739,14 @@
         "MULTI_ASSET"
       ],
       "relativeReviewPath": "cases/R2-40",
-      "reviewArtifactHash": "3c3b54cbe2c6be33efd1e90bee0c2512f51d30041f438ba3499288ccb8bd7193",
-      "humanDecisionStatus": "PENDING"
+      "reviewArtifactHash": "2096cd643ff3c3c36ef4372a6520b6106ce0e19b51f3cf20cf1f82d59d14cd2c",
+      "humanDecisionStatus": "PENDING",
+      "reviewReadabilityStatus": "PASS"
     }
-  ]
+  ],
+  "reviewRenderer": "PIMATH_WORD_BETA_HUMAN_READABLE_RENDERER_V2",
+  "sourceVisibleCaseCount": 40,
+  "currentVisibleCaseCount": 40,
+  "needsSourceCheckForReadabilityCount": 0,
+  "humanReviewReadabilityQA": "PASS"
 }

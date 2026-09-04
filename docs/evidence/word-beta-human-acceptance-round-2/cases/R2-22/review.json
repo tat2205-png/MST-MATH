@@ -1,15 +1,26 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-22",
   "questionId": "1ffa795691ed-qcandidate-22",
   "questionIrId": "1ffa795691ed-qcandidate-22",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-188:WORD_NUMBERING|paragraph-189|paragraph-190|paragraph-191|paragraph-192|paragraph-193",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-188",
+      "paragraph-189",
+      "paragraph-190",
+      "paragraph-191",
+      "paragraph-192",
+      "paragraph-193"
+    ],
+    "sourceSliceIds": [
+      "paragraph-188:WORD_NUMBERING",
       "paragraph-189",
       "paragraph-190",
       "paragraph-191",
@@ -32,7 +43,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Chonửađường trònđườngkính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, bán kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>0</mn></mrow></math>$. Ta dựng đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$song song$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, cắt nửa đường tròn tại hai điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mo>,</mo><mi>N</mi></mrow></math>$, sau đó dựng hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mo>,</mo><mi>Q</mi></mrow></math>$nằm trên đường kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$như hình vẽ. Tìm diện tích lớn nhất của hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$theo$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$khi đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$thay đổi.",
+    "text": "Cho nửa đường tròn đường kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, bán kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>0</mn></mrow></math>$. Ta dựng đường thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$ song song $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, cắt nửa đường tròn tại hai điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mo>,</mo><mi>N</mi></mrow></math>$, sau đó dựng hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$ có $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mo>,</mo><mi>Q</mi></mrow></math>$ nằm trên đường kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$ như hình vẽ. Tìm diện tích lớn nhất của hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$ theo $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$ khi đường thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$ thay đổi.",
     "mathObjectIds": [
       "mtef-0cdb2838ec6b178f",
       "mtef-11aa5f52975ea8f6",
@@ -199,7 +210,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-22",
     "questionIrId": "1ffa795691ed-qcandidate-22",
     "packageId": "question-1ffa795691ed-qcandidate-22",
-    "text": "Chonửađường trònđườngkính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, bán kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>0</mn></mrow></math>$. Ta dựng đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$song song$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, cắt nửa đường tròn tại hai điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mo>,</mo><mi>N</mi></mrow></math>$, sau đó dựng hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$có$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mo>,</mo><mi>Q</mi></mrow></math>$nằm trên đường kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$như hình vẽ. Tìm diện tích lớn nhất của hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$theo$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$khi đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$thay đổi.",
+    "text": "Cho nửa đường tròn đường kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, bán kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>0</mn></mrow></math>$. Ta dựng đường thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$ song song $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$, cắt nửa đường tròn tại hai điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mo>,</mo><mi>N</mi></mrow></math>$, sau đó dựng hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$ có $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mo>,</mo><mi>Q</mi></mrow></math>$ nằm trên đường kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$ như hình vẽ. Tìm diện tích lớn nhất của hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$ theo $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$ khi đường thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>Δ</mi></mrow></math>$ thay đổi.",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -232,5 +243,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

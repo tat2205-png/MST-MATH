@@ -1,15 +1,28 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-28",
   "questionId": "1ffa795691ed-qcandidate-28",
   "questionIrId": "1ffa795691ed-qcandidate-28",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-227:WORD_NUMBERING|paragraph-228|paragraph-229|paragraph-230|paragraph-231|paragraph-232|paragraph-233|paragraph-234",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-227",
+      "paragraph-228",
+      "paragraph-229",
+      "paragraph-230",
+      "paragraph-231",
+      "paragraph-232",
+      "paragraph-233",
+      "paragraph-234"
+    ],
+    "sourceSliceIds": [
+      "paragraph-227:WORD_NUMBERING",
       "paragraph-228",
       "paragraph-229",
       "paragraph-230",
@@ -34,7 +47,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Cho một tờ giấy hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$với chiều dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>9</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$và chiều rồng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>C</mi><mo>=</mo><mn>6</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$.. Gấp tờ giấy một lần sao cho khi gấp ta được đỉnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$nằm trên cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$(xem hình sau).Tìm độ dài nhỏ nhất của nếp gấp$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>M</mi></mrow></math>$? (làm tròn kết quả đến hàng phần trăm)",
+    "text": "Cho một tờ giấy hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ với chiều dài $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>9</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$ và chiều rồng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>C</mi><mo>=</mo><mn>6</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$. . Gấp tờ giấy một lần sao cho khi gấp ta được đỉnh $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ nằm trên cạnh $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$ (xem hình sau). Tìm độ dài nhỏ nhất của nếp gấp $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>M</mi></mrow></math>$? (làm tròn kết quả đến hàng phần trăm)",
     "mathObjectIds": [
       "mtef-144388621acc6a1e",
       "mtef-26d56e99d261ab0f",
@@ -192,7 +205,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-28",
     "questionIrId": "1ffa795691ed-qcandidate-28",
     "packageId": "question-1ffa795691ed-qcandidate-28",
-    "text": "Cho một tờ giấy hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$với chiều dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>9</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$và chiều rồng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>C</mi><mo>=</mo><mn>6</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$.. Gấp tờ giấy một lần sao cho khi gấp ta được đỉnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$nằm trên cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$(xem hình sau).Tìm độ dài nhỏ nhất của nếp gấp$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>M</mi></mrow></math>$? (làm tròn kết quả đến hàng phần trăm)",
+    "text": "Cho một tờ giấy hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ với chiều dài $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>9</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$ và chiều rồng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>C</mi><mo>=</mo><mn>6</mn><mo> </mo><mi>c</mi><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$.. Gấp tờ giấy một lần sao cho khi gấp ta được đỉnh $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ nằm trên cạnh $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$ (xem hình sau). Tìm độ dài nhỏ nhất của nếp gấp $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>M</mi></mrow></math>$? (làm tròn kết quả đến hàng phần trăm)",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -226,5 +239,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

@@ -1,21 +1,25 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_FINAL_REVIEW_SELECTION_V1",
+  "schemaVersion": "PIMATH_WORD_BETA_FINAL_REVIEW_SELECTION_V2",
   "initialReviewCaseCount": 40,
+  "initialJoinedReviewCaseCount": 39,
+  "staleInitialQuestionIds": [
+    "f4d4446aeaf5-qcandidate-41"
+  ],
   "finalReviewCaseCount": 40,
   "finalSelectionChanged": true,
-  "replacedReviewCaseCount": 5,
+  "replacedReviewCaseCount": 1,
   "initialQuestionIds": [
     "1ffa795691ed-qcandidate-1",
     "1ffa795691ed-qcandidate-2",
     "1ffa795691ed-qcandidate-3",
     "1ffa795691ed-qcandidate-4",
     "1ffa795691ed-qcandidate-5",
-    "1ffa795691ed-qcandidate-6",
+    "6cff0e6db838-qcandidate-29",
     "1ffa795691ed-qcandidate-7",
     "1ffa795691ed-qcandidate-8",
     "1ffa795691ed-qcandidate-9",
     "1ffa795691ed-qcandidate-10",
-    "1ffa795691ed-qcandidate-11",
+    "7f26811b8588-qcandidate-43",
     "1ffa795691ed-qcandidate-12",
     "1ffa795691ed-qcandidate-13",
     "1ffa795691ed-qcandidate-14",
@@ -24,7 +28,7 @@
     "1ffa795691ed-qcandidate-17",
     "1ffa795691ed-qcandidate-18",
     "1ffa795691ed-qcandidate-19",
-    "1ffa795691ed-qcandidate-20",
+    "bec93b42b430-qcandidate-50",
     "1ffa795691ed-qcandidate-21",
     "1ffa795691ed-qcandidate-22",
     "1ffa795691ed-qcandidate-23",
@@ -39,8 +43,8 @@
     "633e6a37a7bf-qcandidate-3",
     "633e6a37a7bf-qcandidate-4",
     "633e6a37a7bf-qcandidate-5",
-    "633e6a37a7bf-qcandidate-6",
-    "633e6a37a7bf-qcandidate-7",
+    "f4d4446aeaf5-qcandidate-23",
+    "f4d4446aeaf5-qcandidate-41",
     "633e6a37a7bf-qcandidate-8",
     "633e6a37a7bf-qcandidate-9",
     "633e6a37a7bf-qcandidate-10",
@@ -86,22 +90,16 @@
     "7f26811b8588-qcandidate-43",
     "bec93b42b430-qcandidate-50",
     "f4d4446aeaf5-qcandidate-23",
-    "f4d4446aeaf5-qcandidate-41"
+    "f4d4446aeaf5-qslice-d09e82a2e511"
   ],
   "addedQuestionIds": [
-    "6cff0e6db838-qcandidate-29",
-    "7f26811b8588-qcandidate-43",
-    "bec93b42b430-qcandidate-50",
-    "f4d4446aeaf5-qcandidate-23",
-    "f4d4446aeaf5-qcandidate-41"
+    "f4d4446aeaf5-qslice-d09e82a2e511"
   ],
   "removedQuestionIds": [
-    "1ffa795691ed-qcandidate-6",
-    "1ffa795691ed-qcandidate-11",
-    "1ffa795691ed-qcandidate-20",
-    "633e6a37a7bf-qcandidate-6",
-    "633e6a37a7bf-qcandidate-7"
+    "f4d4446aeaf5-qcandidate-41"
   ],
   "round1MandatoryQuestionIds": [],
+  "activeRound1MandatoryQuestionIds": [],
+  "retiredRound1MandatoryQuestionIds": [],
   "round1MandatoryMissingQuestionIds": []
 }

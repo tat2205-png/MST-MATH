@@ -1,15 +1,26 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-17",
   "questionId": "1ffa795691ed-qcandidate-17",
   "questionIrId": "1ffa795691ed-qcandidate-17",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-157:WORD_NUMBERING|paragraph-158|paragraph-159|paragraph-160|paragraph-161|paragraph-162",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-157",
+      "paragraph-158",
+      "paragraph-159",
+      "paragraph-160",
+      "paragraph-161",
+      "paragraph-162"
+    ],
+    "sourceSliceIds": [
+      "paragraph-157:WORD_NUMBERING",
       "paragraph-158",
       "paragraph-159",
       "paragraph-160",
@@ -32,7 +43,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Một bác nông dân có ba tấm lưới thép B40, mỗi tấm dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>=</mo><mn>5</mn><mo>(</mo><mi>m</mi><mo>)</mo></mrow></math>$vàmuốnrào một mảnh vườn dọc bờ sông có dạng hình thang cân$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$nhưHình vẽ(bờ sông là đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$không phải rào).Hỏi bác đó có thể rào được mảnh vườn có diện tích lớn nhất là bao nhiêu mét vuông?( kết quả làm tròn ở hàng phần mười)",
+    "text": "Một bác nông dân có ba tấm lưới thép B40, mỗi tấm dài $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>=</mo><mn>5</mn><mo>(</mo><mi>m</mi><mo>)</mo></mrow></math>$ và muốn rào một mảnh vườn dọc bờ sông có dạng hình thang cân $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ như Hình vẽ (bờ sông là đường thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$ không phải rào). Hỏi bác đó có thể rào được mảnh vườn có diện tích lớn nhất là bao nhiêu mét vuông? ( kết quả làm tròn ở hàng phần mười)",
     "mathObjectIds": [
       "mtef-1fc1bae60f109a06",
       "mtef-3a43219486c65d18",
@@ -96,7 +107,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-17",
     "questionIrId": "1ffa795691ed-qcandidate-17",
     "packageId": "question-1ffa795691ed-qcandidate-17",
-    "text": "Một bác nông dân có ba tấm lưới thép B40, mỗi tấm dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>=</mo><mn>5</mn><mo>(</mo><mi>m</mi><mo>)</mo></mrow></math>$vàmuốnrào một mảnh vườn dọc bờ sông có dạng hình thang cân$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$nhưHình vẽ(bờ sông là đường thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$không phải rào).Hỏi bác đó có thể rào được mảnh vườn có diện tích lớn nhất là bao nhiêu mét vuông?( kết quả làm tròn ở hàng phần mười)",
+    "text": "Một bác nông dân có ba tấm lưới thép B40, mỗi tấm dài $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>=</mo><mn>5</mn><mo>(</mo><mi>m</mi><mo>)</mo></mrow></math>$ và muốn rào một mảnh vườn dọc bờ sông có dạng hình thang cân $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ như Hình vẽ (bờ sông là đường thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi><mi>D</mi></mrow></math>$ không phải rào). Hỏi bác đó có thể rào được mảnh vườn có diện tích lớn nhất là bao nhiêu mét vuông? ( kết quả làm tròn ở hàng phần mười)",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -125,5 +136,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

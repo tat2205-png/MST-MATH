@@ -1,15 +1,28 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-40",
   "questionId": "633e6a37a7bf-qcandidate-11",
   "questionIrId": "633e6a37a7bf-qcandidate-11",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-30:WORD_NUMBERING|paragraph-31|paragraph-32|paragraph-33|paragraph-34|paragraph-35|paragraph-36|paragraph-37",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-633e6a37a7bfd1d9",
     "documentPath": "1.1.docx",
     "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
     "sourceObjectIds": [
       "paragraph-30",
+      "paragraph-31",
+      "paragraph-32",
+      "paragraph-33",
+      "paragraph-34",
+      "paragraph-35",
+      "paragraph-36",
+      "paragraph-37"
+    ],
+    "sourceSliceIds": [
+      "paragraph-30:WORD_NUMBERING",
       "paragraph-31",
       "paragraph-32",
       "paragraph-33",
@@ -34,7 +47,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Trong một tròchơithử thách, bạn Giáp đang ở trên thuyền (vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$",
+    "text": "Trong một trò chơi thử thách, bạn Giáp đang ở trên thuyền (vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$",
     "mathObjectIds": [
       "mtef-1e4abcc1c5012814"
     ],
@@ -259,7 +272,7 @@
     "acceptanceQuestionId": "633e6a37a7bf-qcandidate-11",
     "questionIrId": "633e6a37a7bf-qcandidate-11",
     "packageId": "question-633e6a37a7bf-qcandidate-11",
-    "text": "Trong một tròchơithử thách, bạn Giáp đang ở trên thuyền (vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$",
+    "text": "Trong một trò chơi thử thách, bạn Giáp đang ở trên thuyền (vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -290,5 +303,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

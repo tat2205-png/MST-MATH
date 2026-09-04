@@ -1,15 +1,29 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-24",
   "questionId": "1ffa795691ed-qcandidate-24",
   "questionIrId": "1ffa795691ed-qcandidate-24",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-202:WORD_NUMBERING|paragraph-203|paragraph-204|paragraph-205|paragraph-206|paragraph-207|paragraph-208|paragraph-209|paragraph-210",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-202",
+      "paragraph-203",
+      "paragraph-204",
+      "paragraph-205",
+      "paragraph-206",
+      "paragraph-207",
+      "paragraph-208",
+      "paragraph-209",
+      "paragraph-210"
+    ],
+    "sourceSliceIds": [
+      "paragraph-202:WORD_NUMBERING",
       "paragraph-203",
       "paragraph-204",
       "paragraph-205",
@@ -35,7 +49,7 @@
   },
   "questionType": "MULTIPLE_CHOICE",
   "sourceRepresentation": {
-    "text": "Bên trong một sân vườn hình elip có độ dài trục lớn bằng 8 m, độ dài trục bé bằng 6 m, người ta rào thảnh một hìnhchữnhật nội tiếp elip để trồng hoa, phần còn lại để trồng rau như hình vẽ.Diện tích lớn nhất của phần trồng hoa bằng\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>4</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.",
+    "text": "Bên trong một sân vườn hình elip có độ dài trục lớn bằng 8 m, độ dài trục bé bằng 6 m, người ta rào thảnh một hình chữ nhật nội tiếp elip để trồng hoa, phần còn lại để trồng rau như hình vẽ.Diện tích lớn nhất của phần trồng hoa bằng\n\n$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\n\n$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\n\n$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>4</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\n\n$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.",
     "mathObjectIds": [
       "mtef-18ef06f35780cf98",
       "mtef-1d5cd681fe139f96",
@@ -111,7 +125,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-24",
     "questionIrId": "1ffa795691ed-qcandidate-24",
     "packageId": "question-1ffa795691ed-qcandidate-24",
-    "text": "Bên trong một sân vườn hình elip có độ dài trục lớn bằng 8 m, độ dài trục bé bằng 6 m, người ta rào thảnh một hìnhchữnhật nội tiếp elip để trồng hoa, phần còn lại để trồng rau như hình vẽ.Diện tích lớn nhất của phần trồng hoa bằng\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>4</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.",
+    "text": "Bên trong một sân vườn hình elip có độ dài trục lớn bằng 8 m, độ dài trục bé bằng 6 m, người ta rào thảnh một hình chữ nhật nội tiếp elip để trồng hoa, phần còn lại để trồng rau như hình vẽ.Diện tích lớn nhất của phần trồng hoa bằng\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>2</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>4</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mo> </mo><mi>m</mi><mn>2</mn></mrow></math>$.",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -141,5 +155,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

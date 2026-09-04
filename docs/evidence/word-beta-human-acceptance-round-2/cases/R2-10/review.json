@@ -1,15 +1,27 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-10",
   "questionId": "1ffa795691ed-qcandidate-10",
   "questionIrId": "1ffa795691ed-qcandidate-10",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-110:WORD_NUMBERING|paragraph-111|paragraph-112|paragraph-113|paragraph-114|paragraph-115|paragraph-116",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-110",
+      "paragraph-111",
+      "paragraph-112",
+      "paragraph-113",
+      "paragraph-114",
+      "paragraph-115",
+      "paragraph-116"
+    ],
+    "sourceSliceIds": [
+      "paragraph-110:WORD_NUMBERING",
       "paragraph-111",
       "paragraph-112",
       "paragraph-113",
@@ -33,7 +45,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Trên mảnh đất hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$có diện tích$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>5</mn><mo></mo><mi>m</mi><mn>2</mn></mrow></math>$, người chủ lấy một phần đất để trồng cỏ. Biết phần đất trồng cỏ này có dạng hình chữ nhật với hai đỉnh đối diện là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$, với$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$thuộc cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>D</mi><mo>.</mo></mrow></math>$Hỏi số tiền lớn nhất người chủ cần chuẩn bị để trồng cỏ (miền tô đậm) là bao nhiêu ( làm tròn đến nghìn đồng) với chi phí trồng cỏ là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>0</mn><mo>.</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow></math>$đồng/$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi><mn>2</mn></mrow></math>$?",
+    "text": "Trên mảnh đất hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ có diện tích $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>5</mn><mo></mo><mi>m</mi><mn>2</mn></mrow></math>$, người chủ lấy một phần đất để trồng cỏ. Biết phần đất trồng cỏ này có dạng hình chữ nhật với hai đỉnh đối diện là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$, với $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$ thuộc cạnh $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>D</mi><mo>.</mo></mrow></math>$ Hỏi số tiền lớn nhất người chủ cần chuẩn bị để trồng cỏ (miền tô đậm) là bao nhiêu ( làm tròn đến nghìn đồng) với chi phí trồng cỏ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>0</mn><mo>.</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow></math>$ đồng / $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi><mn>2</mn></mrow></math>$ ?",
     "mathObjectIds": [
       "mtef-30f5e7558432f220",
       "mtef-322a6d039d6252bf",
@@ -211,7 +223,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-10",
     "questionIrId": "1ffa795691ed-qcandidate-10",
     "packageId": "question-1ffa795691ed-qcandidate-10",
-    "text": "Trên mảnh đất hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$có diện tích$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>5</mn><mo></mo><mi>m</mi><mn>2</mn></mrow></math>$, người chủ lấy một phần đất để trồng cỏ. Biết phần đất trồng cỏ này có dạng hình chữ nhật với hai đỉnh đối diện là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$, với$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$thuộc cạnh$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>D</mi><mo>.</mo></mrow></math>$Hỏi số tiền lớn nhất người chủ cần chuẩn bị để trồng cỏ (miền tô đậm) là bao nhiêu ( làm tròn đến nghìn đồng) với chi phí trồng cỏ là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>0</mn><mo>.</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow></math>$đồng/$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi><mn>2</mn></mrow></math>$?",
+    "text": "Trên mảnh đất hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi></mrow></math>$ có diện tích $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mn>5</mn><mo></mo><mi>m</mi><mn>2</mn></mrow></math>$, người chủ lấy một phần đất để trồng cỏ. Biết phần đất trồng cỏ này có dạng hình chữ nhật với hai đỉnh đối diện là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$, với $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>H</mi></mrow></math>$ thuộc cạnh $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi><mi>D</mi><mo>.</mo></mrow></math>$ Hỏi số tiền lớn nhất người chủ cần chuẩn bị để trồng cỏ (miền tô đậm) là bao nhiêu ( làm tròn đến nghìn đồng) với chi phí trồng cỏ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>0</mn><mo>.</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow></math>$ đồng / $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi><mn>2</mn></mrow></math>$?",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -244,5 +256,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

@@ -1,15 +1,24 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-13",
   "questionId": "1ffa795691ed-qcandidate-13",
   "questionIrId": "1ffa795691ed-qcandidate-13",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-131:WORD_NUMBERING|paragraph-132|paragraph-133|paragraph-134",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-131",
+      "paragraph-132",
+      "paragraph-133",
+      "paragraph-134"
+    ],
+    "sourceSliceIds": [
+      "paragraph-131:WORD_NUMBERING",
       "paragraph-132",
       "paragraph-133",
       "paragraph-134"
@@ -30,7 +39,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Vào lúc 12 giờ 7 phút anhHùngchạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và đi đến điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn></mrow></math>$(km/h). Biết rằng 7 phút trước đó anh Quang chạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>0</mn></mrow></math>$(km/h) sao cho hai quãng đường của hai xe hợp nhau một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn><mo></mo><mo>∘</mo></mrow></math>$như hình vẽ dưới đây. Cho biết$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>4</mn><mn>2</mn></mrow></math>$(km) và vào lúc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$giờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>b</mi></mrow></math>$phút thì anh Quang và anh Hùng ở vị trí có cự li gần nhất để vẫy tay chào nhau ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mo>ℕ</mo><mo>*</mo></mrow></math>$). Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></math>$? Xem như hai xe đều chuyển động đều và không có tác dụng ngoại lực hay yếu tố nào khác.",
+    "text": "Vào lúc 12 giờ 7 phút anh Hùng chạy xe xuất phát từ điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ và đi đến điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ với vận tốc là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn></mrow></math>$ (km/h). Biết rằng 7 phút trước đó anh Quang chạy xe xuất phát từ điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ với vận tốc là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>0</mn></mrow></math>$ (km/h) sao cho hai quãng đường của hai xe hợp nhau một góc $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn><mo></mo><mo>∘</mo></mrow></math>$ như hình vẽ dưới đây. Cho biết $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>4</mn><mn>2</mn></mrow></math>$ (km) và vào lúc $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$ giờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>b</mi></mrow></math>$ phút thì anh Quang và anh Hùng ở vị trí có cự li gần nhất để vẫy tay chào nhau ( $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mo>ℕ</mo><mo>*</mo></mrow></math>$ ). Tính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></math>$? Xem như hai xe đều chuyển động đều và không có tác dụng ngoại lực hay yếu tố nào khác.",
     "mathObjectIds": [
       "mtef-144388621acc6a1e",
       "mtef-60cf4524756db6cb",
@@ -256,7 +265,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-13",
     "questionIrId": "1ffa795691ed-qcandidate-13",
     "packageId": "question-1ffa795691ed-qcandidate-13",
-    "text": "Vào lúc 12 giờ 7 phút anhHùngchạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và đi đến điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn></mrow></math>$(km/h). Biết rằng 7 phút trước đó anh Quang chạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>0</mn></mrow></math>$(km/h) sao cho hai quãng đường của hai xe hợp nhau một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn><mo></mo><mo>∘</mo></mrow></math>$như hình vẽ dưới đây. Cho biết$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>4</mn><mn>2</mn></mrow></math>$(km) và vào lúc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$giờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>b</mi></mrow></math>$phút thì anh Quang và anh Hùng ở vị trí có cự li gần nhất để vẫy tay chào nhau ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mo>ℕ</mo><mo>*</mo></mrow></math>$). Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></math>$? Xem như hai xe đều chuyển động đều và không có tác dụng ngoại lực hay yếu tố nào khác.",
+    "text": "Vào lúc 12 giờ 7 phút anh Hùng chạy xe xuất phát từ điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ và đi đến điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ với vận tốc là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn></mrow></math>$ (km/h). Biết rằng 7 phút trước đó anh Quang chạy xe xuất phát từ điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ với vận tốc là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>0</mn></mrow></math>$ (km/h) sao cho hai quãng đường của hai xe hợp nhau một góc $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn><mo></mo><mo>∘</mo></mrow></math>$ như hình vẽ dưới đây. Cho biết $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>4</mn><mn>2</mn></mrow></math>$ (km) và vào lúc $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$ giờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>b</mi></mrow></math>$ phút thì anh Quang và anh Hùng ở vị trí có cự li gần nhất để vẫy tay chào nhau ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mo>ℕ</mo><mo>*</mo></mrow></math>$). Tính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></math>$? Xem như hai xe đều chuyển động đều và không có tác dụng ngoại lực hay yếu tố nào khác.",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -293,5 +302,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

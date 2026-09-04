@@ -1,15 +1,32 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-05",
   "questionId": "1ffa795691ed-qcandidate-5",
   "questionIrId": "1ffa795691ed-qcandidate-5",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-73:WORD_NUMBERING|paragraph-74|paragraph-75|paragraph-76|paragraph-77|paragraph-78|paragraph-79|paragraph-80|paragraph-81|paragraph-82|paragraph-83|paragraph-84",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-73",
+      "paragraph-74",
+      "paragraph-75",
+      "paragraph-76",
+      "paragraph-77",
+      "paragraph-78",
+      "paragraph-79",
+      "paragraph-80",
+      "paragraph-81",
+      "paragraph-82",
+      "paragraph-83",
+      "paragraph-84"
+    ],
+    "sourceSliceIds": [
+      "paragraph-73:WORD_NUMBERING",
       "paragraph-74",
       "paragraph-75",
       "paragraph-76",
@@ -38,7 +55,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Nhà thầy Hùng cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>.</mo></mrow></math>$Mỗi buổi sáng thầy chạy bộ từ nhà ra bờ biển sau đó chạy dọc bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi><mo>,</mo></mrow></math>$rồi thầychạyquachợ hải sản để lấy thức ăn trong ngày, cuối cùng thầy chạy về nhà. Biết chợ hải sản cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi></mrow></math>$và cách nhà thầy Hùng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>,</mo></mrow></math>$tính quãng đường ngắn nhất mà thầy Hùng đã chạy trong mỗi buổi sáng (đơn vị$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi></mrow></math>$và làm tròn đến hàng đơn vị).",
+    "text": "Nhà thầy Hùng cách bờ biển $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>.</mo></mrow></math>$ Mỗi buổi sáng thầy chạy bộ từ nhà ra bờ biển sau đó chạy dọc bờ biển $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi><mo>,</mo></mrow></math>$ rồi thầy chạy qua chợ hải sản để lấy thức ăn trong ngày, cuối cùng thầy chạy về nhà. Biết chợ hải sản cách bờ biển $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi></mrow></math>$ và cách nhà thầy Hùng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>,</mo></mrow></math>$ tính quãng đường ngắn nhất mà thầy Hùng đã chạy trong mỗi buổi sáng (đơn vị $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi></mrow></math>$ và làm tròn đến hàng đơn vị).",
     "mathObjectIds": [
       "mtef-363c81406bbd1b51",
       "mtef-4901ed4c5bf48e0a",
@@ -126,7 +143,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-5",
     "questionIrId": "1ffa795691ed-qcandidate-5",
     "packageId": "question-1ffa795691ed-qcandidate-5",
-    "text": "Nhà thầy Hùng cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>.</mo></mrow></math>$Mỗi buổi sáng thầy chạy bộ từ nhà ra bờ biển sau đó chạy dọc bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi><mo>,</mo></mrow></math>$rồi thầychạyquachợ hải sản để lấy thức ăn trong ngày, cuối cùng thầy chạy về nhà. Biết chợ hải sản cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi></mrow></math>$và cách nhà thầy Hùng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>,</mo></mrow></math>$tính quãng đường ngắn nhất mà thầy Hùng đã chạy trong mỗi buổi sáng (đơn vị$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi></mrow></math>$và làm tròn đến hàng đơn vị).",
+    "text": "Nhà thầy Hùng cách bờ biển $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>.</mo></mrow></math>$ Mỗi buổi sáng thầy chạy bộ từ nhà ra bờ biển sau đó chạy dọc bờ biển $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi><mo>,</mo></mrow></math>$ rồi thầy chạy qua chợ hải sản để lấy thức ăn trong ngày, cuối cùng thầy chạy về nhà. Biết chợ hải sản cách bờ biển $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi></mrow></math>$ và cách nhà thầy Hùng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>,</mo></mrow></math>$ tính quãng đường ngắn nhất mà thầy Hùng đã chạy trong mỗi buổi sáng (đơn vị $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi></mrow></math>$ và làm tròn đến hàng đơn vị).",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -157,5 +174,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

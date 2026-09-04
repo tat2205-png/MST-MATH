@@ -1,15 +1,26 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-18",
   "questionId": "1ffa795691ed-qcandidate-18",
   "questionIrId": "1ffa795691ed-qcandidate-18",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-163:WORD_NUMBERING|paragraph-164|paragraph-165|paragraph-166|paragraph-167|paragraph-168",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-163",
+      "paragraph-164",
+      "paragraph-165",
+      "paragraph-166",
+      "paragraph-167",
+      "paragraph-168"
+    ],
+    "sourceSliceIds": [
+      "paragraph-163:WORD_NUMBERING",
       "paragraph-164",
       "paragraph-165",
       "paragraph-166",
@@ -32,7 +43,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Một miếng nhôm có bề ngang 30 cm được uốn cong tạo thành máng dẫn nước bằng cách chia tấmnhôm thành 3 phần bằng nhau rồi gấp 2 bên lại theo một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi><mo></mo><mo></mo><mn>0</mn><mo>&lt;</mo><mi>θ</mi><mo>≤</mo><mi>π</mi><mn>2</mn><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới. Hỏi$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$bằng bao nhiêu để tạo ra máng có diện tích mặt ngang$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi></mrow></math>$lớn nhất để có thể cho nước đi qua nhiều nhất? ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$tính theo radian và làm tròn đến hàng phần trăm)",
+    "text": "Một miếng nhôm có bề ngang 30 cm được uốn cong tạo thành máng dẫn nước bằng cách chia tấm nhôm thành 3 phần bằng nhau rồi gấp 2 bên lại theo một góc $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi><mo></mo><mo></mo><mn>0</mn><mo>&lt;</mo><mi>θ</mi><mo>≤</mo><mi>π</mi><mn>2</mn><mo>(</mo><mo>)</mo></mrow></math>$ như hình vẽ dưới. Hỏi $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$ bằng bao nhiêu để tạo ra máng có diện tích mặt ngang $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi></mrow></math>$ lớn nhất để có thể cho nước đi qua nhiều nhất? ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$ tính theo radian và làm tròn đến hàng phần trăm)",
     "mathObjectIds": [
       "mtef-919f81132e4de2e1",
       "mtef-f1697478fbddcd51",
@@ -107,7 +118,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-18",
     "questionIrId": "1ffa795691ed-qcandidate-18",
     "packageId": "question-1ffa795691ed-qcandidate-18",
-    "text": "Một miếng nhôm có bề ngang 30 cm được uốn cong tạo thành máng dẫn nước bằng cách chia tấmnhôm thành 3 phần bằng nhau rồi gấp 2 bên lại theo một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi><mo></mo><mo></mo><mn>0</mn><mo>&lt;</mo><mi>θ</mi><mo>≤</mo><mi>π</mi><mn>2</mn><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới. Hỏi$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$bằng bao nhiêu để tạo ra máng có diện tích mặt ngang$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi></mrow></math>$lớn nhất để có thể cho nước đi qua nhiều nhất? ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$tính theo radian và làm tròn đến hàng phần trăm)",
+    "text": "Một miếng nhôm có bề ngang 30 cm được uốn cong tạo thành máng dẫn nước bằng cách chia tấm nhôm thành 3 phần bằng nhau rồi gấp 2 bên lại theo một góc $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi><mo></mo><mo></mo><mn>0</mn><mo>&lt;</mo><mi>θ</mi><mo>≤</mo><mi>π</mi><mn>2</mn><mo>(</mo><mo>)</mo></mrow></math>$ như hình vẽ dưới. Hỏi $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$ bằng bao nhiêu để tạo ra máng có diện tích mặt ngang $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi></mrow></math>$ lớn nhất để có thể cho nước đi qua nhiều nhất? ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$ tính theo radian và làm tròn đến hàng phần trăm)",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -136,5 +147,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

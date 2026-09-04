@@ -14,6 +14,7 @@
       "UNKNOWN": 333
     },
     "mathReferenceCount": 5888,
+    "uniqueQuestionScopedMathCount": 5255,
     "assetReferenceCount": 579,
     "canonicalAuthorityCommit": "1741ad4915e50ecba99c5ff5971cd8e6bb20b8ed",
     "canonicalDeltaVs668": 0
@@ -262,6 +263,23 @@
       "qaStatus": "PASS"
     }
   ],
+  "mathOwnershipReconciliation": {
+    "schemaVersion": "PIMATH_WORD_BETA_CANONICAL_MATH_OWNERSHIP_RECONCILIATION_V1",
+    "canonicalQuestionCount": 668,
+    "sourceUniqueMathIdentityCount": 5473,
+    "questionIrReferenceCount": 5888,
+    "packageReferenceCount": 5888,
+    "uniqueQuestionScopedMathCount": 5255,
+    "duplicateQuestionMathOwnershipLinkCount": 633,
+    "technicalBaselineOwnershipLinkCount": 5949,
+    "ownershipLinkDeltaVsTechnicalBaseline": -61,
+    "missingQuestionMathSourceCount": 0,
+    "missingQuestionMathSourceKeys": [],
+    "questionPackageMathMultisetEqualityQA": "PASS",
+    "questionMathSourceExistenceQA": "PASS",
+    "mathReferenceIntegrityQA": "PASS",
+    "note": "Source unique math objects and question ownership links are different populations. Duplicate ownership links may be valid for shared context; the blocking invariants are source existence and exact QuestionIR↔Package multiset preservation."
+  },
   "certification": {
     "frozenBoundaryCount": 668,
     "questionIRCount": 668,
@@ -277,6 +295,7 @@
       "UNKNOWN": 333
     },
     "mathReferenceCount": 5888,
+    "uniqueQuestionScopedMathCount": 5255,
     "assetReferenceCount": 579,
     "canonicalAuthorityCommit": "1741ad4915e50ecba99c5ff5971cd8e6bb20b8ed",
     "canonicalDeltaVs668": 0,
@@ -294,6 +313,7 @@
       "questionTypeAccounting": true,
       "questionTypeSemantic": true,
       "package": true,
+      "mathReferenceIntegrity": true,
       "sourceObjectAccounting": true,
       "sourceCorpusImmutability": true
     },

@@ -13,6 +13,7 @@
     "UNKNOWN": 333
   },
   "mathReferenceCount": 5888,
+  "uniqueQuestionScopedMathCount": 5255,
   "assetReferenceCount": 579,
   "canonicalAuthorityCommit": "1741ad4915e50ecba99c5ff5971cd8e6bb20b8ed",
   "canonicalDeltaVs668": 0,
@@ -30,6 +31,7 @@
     "questionTypeAccounting": true,
     "questionTypeSemantic": true,
     "package": true,
+    "mathReferenceIntegrity": true,
     "sourceObjectAccounting": true,
     "sourceCorpusImmutability": true
   },

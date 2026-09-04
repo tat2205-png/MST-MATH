@@ -1,37 +1,54 @@
 # Review Case R2-27
 
-Question ID: 1ffa795691ed-qcandidate-27
-QuestionIR ID: 1ffa795691ed-qcandidate-27
-Source document: 1. MIN MAX -HH PHẲNG.docx
-Question type: UNKNOWN
-Risk tags: ASSET_BEARING, MATH_IN_STEM, MTEF_V5
+- **Question ID:** 1ffa795691ed-qcandidate-27
+- **QuestionIR ID:** 1ffa795691ed-qcandidate-27
+- **Canonical selection:** RETAINED_FROZEN
+- **Source document:** 1. MIN MAX -HH PHẲNG.docx
+- **Question type:** UNKNOWN
+- **Risk tags:** ASSET_BEARING, MATH_IN_STEM, MTEF_V5
 
-## A. Current source-backed question
+## A. Source document reconstruction
 
-Một màn hình$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>P</mi></mrow></math>$có chiều cao 1,6 mét được đặt thẳng đứng và mép dưới của màn hình cách mặt đất một khoảng$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>M</mi></mrow></math>$bằng 1,9 mét. Một chiếc đèn chiếu sáng màn hình đặt ở vị trí$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi></mrow></math>$trên mặt đất (xem hình minh họa). Để góc chiếu sáng$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>O</mi><mi>P</mi></mrow></math>$.lớn nhất thì độ dài đoạn$<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mi>M</mi></mrow></math>$bằng bao nhiêu? (làm tròn kết quả đến hàng phần trăm).
+Một màn hình $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>P</mi></mrow></math>$ có chiều cao 1,6 mét được đặt thẳng đứng và mép dưới của màn hình cách mặt đất một khoảng $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>M</mi></mrow></math>$ bằng 1,9 mét. Một chiếc đèn chiếu sáng màn hình đặt ở vị trí $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi></mrow></math>$ trên mặt đất (xem hình minh họa). Để góc chiếu sáng $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>O</mi><mi>P</mi></mrow></math>$.  lớn nhất thì độ dài đoạn $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mi>M</mi></mrow></math>$ bằng bao nhiêu? (làm tròn kết quả đến hàng phần trăm).
 
-## B. Answer
+## B. Current PiMath QuestionIR
+
+**Stem**
+
+Một màn hình $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>P</mi></mrow></math>$ có chiều cao 1,6 mét được đặt thẳng đứng và mép dưới của màn hình cách mặt đất một khoảng $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>M</mi></mrow></math>$ bằng 1,9 mét. Một chiếc đèn chiếu sáng màn hình đặt ở vị trí $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi></mrow></math>$ trên mặt đất (xem hình minh họa). Để góc chiếu sáng $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><mi>O</mi><mi>P</mi></mrow></math>$. lớn nhất thì độ dài đoạn $<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mi>M</mi></mrow></math>$ bằng bao nhiêu? (làm tròn kết quả đến hàng phần trăm).
+
+## C. Answer / Solution
+
+### Answer
 
 [NO_ANSWER_TEXT]
 
-## C. Solution
+### Solution
 
 [NO_SOLUTION_TEXT]
 
-## D. Math / Assets
+## D. Technical evidence
 
-Math formats: MTEF_V5
-Math roles: MATH_IN_STEM
-Math objects: mtef-0756caecd509f4dc, mtef-2e25e7db235b4999, mtef-3a7262dfccac51e5, mtef-a942dba1b1866640, mtef-c732723b21193371
-Assets: asset-f1d23eb8d636
+- **Canonical identity:** docx-1ffa795691edd5c5::paragraph-222:WORD_NUMBERING|paragraph-223|paragraph-224|paragraph-225|paragraph-226
+- **Source slice count:** 5
+- **Math formats:** MTEF_V5
+- **Math roles:** MATH_IN_STEM
+- **Math object count:** 5
+- **Asset count:** 1
+- **Math objects:** mtef-0756caecd509f4dc, mtef-2e25e7db235b4999, mtef-3a7262dfccac51e5, mtef-a942dba1b1866640, mtef-c732723b21193371
+- **Assets:** asset-f1d23eb8d636
 
 ## E. Human Review
 
+Compare **A** with **B**, then check Answer/Solution and the original DOCX when needed.
+
 Decision:
-[ ] ACCEPT
-[ ] MINOR_NON_BLOCKING
-[ ] BLOCKING
-[ ] NEEDS_SOURCE_CHECK
+- [ ] ACCEPT
+- [ ] MINOR_NON_BLOCKING
+- [ ] BLOCKING
+- [ ] NEEDS_SOURCE_CHECK
+
+Record the final decision in [`HUMAN_DECISIONS.md`](../../HUMAN_DECISIONS.md).
 
 Comment:
 

@@ -1,15 +1,28 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-09",
   "questionId": "1ffa795691ed-qcandidate-9",
   "questionIrId": "1ffa795691ed-qcandidate-9",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-102:WORD_NUMBERING|paragraph-103|paragraph-104|paragraph-105|paragraph-106|paragraph-107|paragraph-108|paragraph-109",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-102",
+      "paragraph-103",
+      "paragraph-104",
+      "paragraph-105",
+      "paragraph-106",
+      "paragraph-107",
+      "paragraph-108",
+      "paragraph-109"
+    ],
+    "sourceSliceIds": [
+      "paragraph-102:WORD_NUMBERING",
       "paragraph-103",
       "paragraph-104",
       "paragraph-105",
@@ -34,7 +47,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Một cái hồ rộng có hình chữ nhật. Tại một góc hồ người ta đóng một cái cọc ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>K</mi></mrow></math>$cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>m</mi></mrow></math>$và cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn><mi>m</mi></mrow></math>$, rồi dùng một cây sào thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>Q</mi></mrow></math>$ngănmộtgóc của hồ để thả bèo (như hình vẽ). Tính chiều dài ngắn nhất của cây sào để cây sào có thể chạm vào hai bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></math>$và cây cọc (kết quả làm tròn đến hàng đơn vị của mét).",
+    "text": "Một cái hồ rộng có hình chữ nhật. Tại một góc hồ người ta đóng một cái cọc ở vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>K</mi></mrow></math>$ cách bờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>m</mi></mrow></math>$ và cách bờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn><mi>m</mi></mrow></math>$, rồi dùng một cây sào thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>Q</mi></mrow></math>$ ngăn một góc của hồ để thả bèo (như hình vẽ). Tính chiều dài ngắn nhất của cây sào để cây sào có thể chạm vào hai bờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></math>$ và cây cọc (kết quả làm tròn đến hàng đơn vị của mét).",
     "mathObjectIds": [
       "mtef-0b9b412ccaa49c46",
       "mtef-207ae618315d5882",
@@ -160,7 +173,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-9",
     "questionIrId": "1ffa795691ed-qcandidate-9",
     "packageId": "question-1ffa795691ed-qcandidate-9",
-    "text": "Một cái hồ rộng có hình chữ nhật. Tại một góc hồ người ta đóng một cái cọc ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>K</mi></mrow></math>$cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>m</mi></mrow></math>$và cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn><mi>m</mi></mrow></math>$, rồi dùng một cây sào thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>Q</mi></mrow></math>$ngănmộtgóc của hồ để thả bèo (như hình vẽ). Tính chiều dài ngắn nhất của cây sào để cây sào có thể chạm vào hai bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></math>$và cây cọc (kết quả làm tròn đến hàng đơn vị của mét).",
+    "text": "Một cái hồ rộng có hình chữ nhật. Tại một góc hồ người ta đóng một cái cọc ở vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>K</mi></mrow></math>$ cách bờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>m</mi></mrow></math>$ và cách bờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn><mi>m</mi></mrow></math>$, rồi dùng một cây sào thẳng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>Q</mi></mrow></math>$ ngăn một góc của hồ để thả bèo (như hình vẽ). Tính chiều dài ngắn nhất của cây sào để cây sào có thể chạm vào hai bờ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></math>$ và cây cọc (kết quả làm tròn đến hàng đơn vị của mét).",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -197,5 +210,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

@@ -1,15 +1,24 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-26",
   "questionId": "1ffa795691ed-qcandidate-26",
   "questionIrId": "1ffa795691ed-qcandidate-26",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-218:WORD_NUMBERING|paragraph-219|paragraph-220|paragraph-221",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-218",
+      "paragraph-219",
+      "paragraph-220",
+      "paragraph-221"
+    ],
+    "sourceSliceIds": [
+      "paragraph-218:WORD_NUMBERING",
       "paragraph-219",
       "paragraph-220",
       "paragraph-221"
@@ -30,7 +39,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Từ một tấmbìahình quạt tròn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo></mrow></math>$có bán kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>A</mi><mo>=</mo><mi>O</mi><mi>B</mi><mo>=</mo><mi>r</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo><mo>=</mo><mn>4</mn><mn>5</mn><mn>0</mn></mrow></math>$.Cẳt ra một hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$như hình vẽ.Tính diện tích hình chữ nhật?",
+    "text": "Từ một tấm bìa hình quạt tròn $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo></mrow></math>$ có bán kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>A</mi><mo>=</mo><mi>O</mi><mi>B</mi><mo>=</mo><mi>r</mi></mrow></math>$ và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo><mo>=</mo><mn>4</mn><mn>5</mn><mn>0</mn></mrow></math>$.Cẳt ra một hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$ như hình vẽ.Tính diện tích hình chữ nhật?",
     "mathObjectIds": [
       "mtef-8796a12580d4b560",
       "mtef-8f5834e5aa5e3937",
@@ -106,7 +115,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-26",
     "questionIrId": "1ffa795691ed-qcandidate-26",
     "packageId": "question-1ffa795691ed-qcandidate-26",
-    "text": "Từ một tấmbìahình quạt tròn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo></mrow></math>$có bán kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>A</mi><mo>=</mo><mi>O</mi><mi>B</mi><mo>=</mo><mi>r</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo><mo>=</mo><mn>4</mn><mn>5</mn><mn>0</mn></mrow></math>$.Cẳt ra một hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$như hình vẽ.Tính diện tích hình chữ nhật?",
+    "text": "Từ một tấm bìa hình quạt tròn $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo></mrow></math>$ có bán kính $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>A</mi><mo>=</mo><mi>O</mi><mi>B</mi><mo>=</mo><mi>r</mi></mrow></math>$ và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo><mo>=</mo><mn>4</mn><mn>5</mn><mn>0</mn></mrow></math>$.Cẳt ra một hình chữ nhật $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$ như hình vẽ.Tính diện tích hình chữ nhật?",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -136,5 +145,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

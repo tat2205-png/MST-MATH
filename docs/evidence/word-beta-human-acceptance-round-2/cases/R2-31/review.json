@@ -1,15 +1,23 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-31",
   "questionId": "633e6a37a7bf-qcandidate-2",
   "questionIrId": "633e6a37a7bf-qcandidate-2",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-633e6a37a7bfd1d9::paragraph-3:WORD_NUMBERING|paragraph-4|paragraph-5",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-633e6a37a7bfd1d9",
     "documentPath": "1.1.docx",
     "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
     "sourceObjectIds": [
       "paragraph-3",
+      "paragraph-4",
+      "paragraph-5"
+    ],
+    "sourceSliceIds": [
+      "paragraph-3:WORD_NUMBERING",
       "paragraph-4",
       "paragraph-5"
     ],
@@ -29,7 +37,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Một công ty muốn làm một đường ống dẫn từ một điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$trên bờ đến một điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$trên một hòn đảo. Hòn đảo cách bờ biển 6 km. Để thực hiện, công ty dự định xây dựng phần đường ống trên bờ từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$và đường ống dưới nước từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$đến$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$(hình vẽ).Biết giá để xây đường ống trên bờ là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$mỗi km, và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$mỗi km để xây dưới nước. Đoạn đường từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến B là bao nhiêu km để tổng chi phí xây dựng lắp đặt từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$khoảng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>7</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$(kết quả làm tròn đến chữ số thập phân thứ nhất)?",
+    "text": "Một công ty muốn làm một đường ống dẫn từ một điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ trên bờ đến một điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ trên một hòn đảo. Hòn đảo cách bờ biển 6 km. Để thực hiện, công ty dự định xây dựng phần đường ống trên bờ từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ và đường ống dưới nước từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ đến $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ (hình vẽ).\n\nBiết giá để xây đường ống trên bờ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$ mỗi km, và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$ mỗi km để xây dưới nước. Đoạn đường từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến B là bao nhiêu km để tổng chi phí xây dựng lắp đặt từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ khoảng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>7</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$ (kết quả làm tròn đến chữ số thập phân thứ nhất)?",
     "mathObjectIds": [
       "mtef-144388621acc6a1e",
       "mtef-33cd45506a1dff4e",
@@ -624,7 +632,7 @@
     "acceptanceQuestionId": "633e6a37a7bf-qcandidate-2",
     "questionIrId": "633e6a37a7bf-qcandidate-2",
     "packageId": "question-633e6a37a7bf-qcandidate-2",
-    "text": "Một công ty muốn làm một đường ống dẫn từ một điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$trên bờ đến một điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$trên một hòn đảo. Hòn đảo cách bờ biển 6 km. Để thực hiện, công ty dự định xây dựng phần đường ống trên bờ từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$và đường ống dưới nước từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$đến$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$(hình vẽ).Biết giá để xây đường ống trên bờ là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$mỗi km, và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$mỗi km để xây dưới nước. Đoạn đường từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến B là bao nhiêu km để tổng chi phí xây dựng lắp đặt từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$khoảng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>7</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$(kết quả làm tròn đến chữ số thập phân thứ nhất)?",
+    "text": "Một công ty muốn làm một đường ống dẫn từ một điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ trên bờ đến một điểm $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ trên một hòn đảo. Hòn đảo cách bờ biển 6 km. Để thực hiện, công ty dự định xây dựng phần đường ống trên bờ từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ và đường ống dưới nước từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ đến $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ (hình vẽ). Biết giá để xây đường ống trên bờ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$ mỗi km, và $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$ mỗi km để xây dưới nước. Đoạn đường từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến B là bao nhiêu km để tổng chi phí xây dựng lắp đặt từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$ khoảng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>7</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mi>U</mi><mi>S</mi><mi>D</mi></mrow></math>$ (kết quả làm tròn đến chữ số thập phân thứ nhất)?",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -656,5 +664,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }

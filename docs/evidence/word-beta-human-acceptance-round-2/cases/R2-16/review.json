@@ -1,15 +1,30 @@
 {
-  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V4",
   "reviewCaseId": "R2-16",
   "questionId": "1ffa795691ed-qcandidate-16",
   "questionIrId": "1ffa795691ed-qcandidate-16",
   "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalSelectionKind": "RETAINED_FROZEN",
+  "canonicalIdentityKey": "docx-1ffa795691edd5c5::paragraph-147:WORD_NUMBERING|paragraph-148|paragraph-149|paragraph-150|paragraph-151|paragraph-152|paragraph-153|paragraph-154|paragraph-155|paragraph-156",
+  "identityContinuity": "PRESERVED_LEGACY_ACCEPTANCE_ID",
   "source": {
     "documentId": "docx-1ffa795691edd5c5",
     "documentPath": "1. MIN MAX -HH PHẲNG.docx",
     "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
     "sourceObjectIds": [
       "paragraph-147",
+      "paragraph-148",
+      "paragraph-149",
+      "paragraph-150",
+      "paragraph-151",
+      "paragraph-152",
+      "paragraph-153",
+      "paragraph-154",
+      "paragraph-155",
+      "paragraph-156"
+    ],
+    "sourceSliceIds": [
+      "paragraph-147:WORD_NUMBERING",
       "paragraph-148",
       "paragraph-149",
       "paragraph-150",
@@ -36,7 +51,7 @@
   },
   "questionType": "UNKNOWN",
   "sourceRepresentation": {
-    "text": "Người ta muốn lắp một ống dẫn dầu từ nhà máy lọc dầu ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đếnkhochứa dầu đặt ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$qua một con sông rộng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn></mrow></math>$km, dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn></mrow></math>$km. Chi phí lắp đặt đường ống dẫn dầu trên mặt đất để nối từ nhà máy lọc dầu đến trạm trung chuyển tại vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn></mrow></math>$tỷ VNĐ/$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$km và chi phí lắp đặt đường ống dẫn dầu dưới dòng sông để nối từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$đến kho chứa dầu tại vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn></mrow></math>$tỷ VNĐ/$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$km (như hình vẽ)Hỏi chi phí lắp đặt ít nhất, cần đặt vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$cách nhà máy lọc dầu là bao nhiêu kilômét? (làm tròn kết quả đến hàng phần trăm)",
+    "text": "Người ta muốn lắp một ống dẫn dầu từ nhà máy lọc dầu ở vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến kho chứa dầu đặt ở vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ qua một con sông rộng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn></mrow></math>$ km, dài $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn></mrow></math>$ km. Chi phí lắp đặt đường ống dẫn dầu trên mặt đất để nối từ nhà máy lọc dầu đến trạm trung chuyển tại vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn></mrow></math>$ tỷ VNĐ/ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$ km và chi phí lắp đặt đường ống dẫn dầu dưới dòng sông để nối từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$ đến kho chứa dầu tại vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn></mrow></math>$ tỷ VNĐ/ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$ km (như hình vẽ)\n\nHỏi chi phí lắp đặt ít nhất, cần đặt vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$ cách nhà máy lọc dầu là bao nhiêu kilômét? (làm tròn kết quả đến hàng phần trăm)",
     "mathObjectIds": [
       "mtef-101dad64805215b8",
       "mtef-1800d3108aacdd77",
@@ -314,7 +329,7 @@
     "acceptanceQuestionId": "1ffa795691ed-qcandidate-16",
     "questionIrId": "1ffa795691ed-qcandidate-16",
     "packageId": "question-1ffa795691ed-qcandidate-16",
-    "text": "Người ta muốn lắp một ống dẫn dầu từ nhà máy lọc dầu ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đếnkhochứa dầu đặt ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$qua một con sông rộng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn></mrow></math>$km, dài$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn></mrow></math>$km. Chi phí lắp đặt đường ống dẫn dầu trên mặt đất để nối từ nhà máy lọc dầu đến trạm trung chuyển tại vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn></mrow></math>$tỷ VNĐ/$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$km và chi phí lắp đặt đường ống dẫn dầu dưới dòng sông để nối từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$đến kho chứa dầu tại vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn></mrow></math>$tỷ VNĐ/$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$km (như hình vẽ)Hỏi chi phí lắp đặt ít nhất, cần đặt vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$cách nhà máy lọc dầu là bao nhiêu kilômét? (làm tròn kết quả đến hàng phần trăm)",
+    "text": "Người ta muốn lắp một ống dẫn dầu từ nhà máy lọc dầu ở vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$ đến kho chứa dầu đặt ở vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ qua một con sông rộng $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn></mrow></math>$ km, dài $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn></mrow></math>$ km. Chi phí lắp đặt đường ống dẫn dầu trên mặt đất để nối từ nhà máy lọc dầu đến trạm trung chuyển tại vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn></mrow></math>$ tỷ VNĐ/ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$ km và chi phí lắp đặt đường ống dẫn dầu dưới dòng sông để nối từ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$ đến kho chứa dầu tại vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$ là $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn></mrow></math>$ tỷ VNĐ/ $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn></mrow></math>$ km (như hình vẽ) Hỏi chi phí lắp đặt ít nhất, cần đặt vị trí $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi></mrow></math>$ cách nhà máy lọc dầu là bao nhiêu kilômét? (làm tròn kết quả đến hàng phần trăm)",
     "answer": "",
     "solution": "",
     "mathObjectIds": [
@@ -348,5 +363,6 @@
     "decision": null,
     "comment": null,
     "blockingDefectCategory": null
-  }
+  },
+  "reviewReadabilityStatus": "PASS"
 }
