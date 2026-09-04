@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { resolveRendererAdapterValue, resolveRendererColor, resolveRendererTypography } from "../src/config/pimathRendererProvenance.ts";
+import { resolveRendererAdapterValue, resolveRendererColor, resolveRendererTypography } from "../src/config/mstMathRendererProvenance.ts";
 
 const color = resolveRendererColor("amber");
 assert.equal(color.value, "#D9911B");
