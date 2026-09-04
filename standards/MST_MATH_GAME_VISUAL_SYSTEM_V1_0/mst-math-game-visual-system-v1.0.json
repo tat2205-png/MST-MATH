@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "MST_MATH_GAME_VISUAL_SYSTEM_V1.0",
+  "status": "DRAFT_FOR_HUMAN_APPROVAL",
+  "canonical": false,
+  "canonicalCandidate": true,
+  "root": "MST-MATH-DNA-V1.0",
+  "inherits": [
+    "GAME_01_OLYMPIA_REFERENCE_V1",
+    "NA_MATH_DESIGN_SYSTEM_V1_3",
+    "NA_MATH_TYPOGRAPHY_STANDARD_V1_0",
+    "NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0",
+    "MST-MATH-DNA-SEMANTIC-ICONS-V1.1",
+    "MST_MATH_ACCESSIBILITY_CANONICAL_V1.0"
+  ],
+  "scope": "CLASSROOM_GAME_VISUAL_LAYER_ONLY",
+  "principle": ["MATH_FIRST", "GAME_SECOND", "DECORATION_THIRD"],
+  "display": {
+    "canonicalAspectRatio": "16:9",
+    "canonicalResolution": "1920x1080",
+    "primaryEnvironment": "CLASSROOM_TV_PROJECTOR",
+    "safeMarginPx": 72,
+    "minimumViewingPriority": "QUESTION_AND_MATH"
+  },
+  "screenComposition": {
+    "questionScreen": {
+      "top": ["ROUND_TITLE", "TIMER"],
+      "mainLeft": "SCOREBOARD",
+      "mainRight": ["QUESTION", "FORMULA_OR_IMAGE"],
+      "bottom": "RESPONSE_STATE",
+      "questionRegionPriority": "HIGHEST",
+      "overlapAllowed": false
+    },
+    "leaderboardScreen": {"primary":"RANKED_LIST","secondary":"ROUND_STATE","decorativeMotion":"MINIMAL"},
+    "roundIntroScreen": {"primary":"ROUND_TITLE","secondary":"RULE_OR_OBJECTIVE","durationPurpose":"ORIENTATION"},
+    "answerRevealScreen": {"primary":"ANSWER_STATE","secondary":"ANSWER","solution":"TEACHER_REQUEST_ONLY"},
+    "winnerScreen": {"primary":"WINNER_AND_FINAL_SCORE","motion":"ONE_PURPOSEFUL_REVEAL"}
+  },
+  "fontBindings": {
+    "ui": "Source Sans 3",
+    "questionReading": "Libertinus Serif",
+    "math": "Libertinus Math",
+    "academicTitleOptional": "STIX Two Text"
+  },
+  "typeScale1080pPx": {
+    "gameTitle": {"size": 46, "lineHeight": 56, "familyRole":"ui", "weight":"Bold"},
+    "roundTitle": {"size": 36, "lineHeight": 44, "familyRole":"ui", "weight":"Bold"},
+    "question": {"size": 38, "lineHeight": 50, "familyRole":"questionReading"},
+    "option": {"size": 32, "lineHeight": 42, "familyRole":"questionReading"},
+    "displayMath": {"size": 42, "lineHeight": 54, "familyRole":"math", "allowedRange":[36,48]},
+    "timer": {"size": 58, "lineHeight": 64, "familyRole":"ui", "weight":"Bold"},
+    "scoreboardName": {"size": 26, "lineHeight": 32, "familyRole":"ui"},
+    "scoreboardScore": {"size": 32, "lineHeight": 38, "familyRole":"ui", "weight":"Bold"},
+    "responseState": {"size": 30, "lineHeight": 38, "familyRole":"ui", "weight":"Semibold"},
+    "leaderboard": {"size": 32, "lineHeight": 40, "familyRole":"ui"},
+    "answer": {"size": 36, "lineHeight": 46, "familyRole":"questionReading", "weight":"Semibold"},
+    "helper": {"size": 22, "lineHeight": 28, "familyRole":"ui"}
+  },
+  "colorBindings": {
+    "noOwnPalette": true,
+    "surface": "#FCFCFA",
+    "text": "#18212B",
+    "muted": "#66717D",
+    "line": "#D8E0E6",
+    "brandPrimary": "#0C2D57",
+    "brandSecondary": "#0C9A94",
+    "eventEmphasis": "#D9911B",
+    "confirmedSuccess": "#2F8F68",
+    "challengeAccent": "#6B4FA3",
+    "informationAccent": "#1E63B5"
+  },
+  "semanticFeedback": {
+    "correct": {"text":"ĐÚNG","colorRole":"confirmedSuccess","iconRole":"ANSWER","audioMaySupplement":true,"colorOnly":false},
+    "wrong": {"text":"SAI","colorRole":"text","borderRole":"line","iconRole":"WARNING","audioMaySupplement":true,"colorOnly":false,"newRedTokenForbidden":true},
+    "timeWarning": {"textRequired":true,"colorRole":"eventEmphasis","iconRole":"WARNING","audioMaySupplement":true,"colorOnly":false},
+    "timeUp": {"text":"HẾT GIỜ","visibleStateRequired":true,"audioMaySupplement":true,"colorOnly":false},
+    "winner": {"textRequired":true,"colorRole":"confirmedSuccess","iconRole":"ANSWER","colorOnly":false}
+  },
+  "iconPolicy": {
+    "authority": "MST-MATH-DNA-SEMANTIC-ICONS-V1.1",
+    "semanticOnly": true,
+    "decorativeIconNoise": false,
+    "unregisteredSemanticIcon": "FAIL_CLOSED",
+    "timerAndScoreMayUseTextNumeralsWithoutNewIcons": true
+  },
+  "spacing": {
+    "baseScalePx": [8, 12, 16, 24, 32, 48],
+    "questionInternalPaddingPx": 32,
+    "scoreboardInternalPaddingPx": 24,
+    "minimumGutterPx": 24,
+    "touchControlMinimumPx": 44
+  },
+  "motion": {
+    "purposefulOnly": true,
+    "oneNewInformationPerPrimaryAnimation": true,
+    "allowed": ["QUESTION_REVEAL", "TIMER_START", "TIMER_WARNING", "ANSWER_LOCK", "ANSWER_REVEAL", "CORRECT_FLASH", "WRONG_FLASH", "SCORE_COUNT", "RANK_MOVE", "CLUE_REVEAL", "ROUND_TRANSITION", "WINNER_REVEAL"],
+    "forbidden": ["DECORATIVE_LOOP", "RANDOM_SPIN", "EXCESSIVE_ZOOM", "CONSTANT_BACKGROUND_MOTION", "MOTION_THAT_OBSCURES_MATH"],
+    "reducedMotionSupported": true
+  },
+  "readability": {
+    "fontShrinkToHideOverflow": false,
+    "questionMayWrap": true,
+    "mathMayClip": false,
+    "scrollDuringTimedQuestion": false,
+    "preferQuestionSimplificationOrScreenSplitOverShrink": true,
+    "teacherSolutionHiddenUntilRequested": true
+  },
+  "qa": [
+    "GAME_16_9_CLASSROOM_DISPLAY_PASS",
+    "GAME_QUESTION_READABILITY_PASS",
+    "GAME_MATH_READABILITY_PASS",
+    "GAME_TIMER_READABILITY_PASS",
+    "GAME_SCOREBOARD_OVERFLOW_PASS",
+    "GAME_NON_COLOR_ONLY_FEEDBACK_PASS",
+    "GAME_REDUCED_MOTION_PASS",
+    "GAME_ICON_AUTHORITY_PASS",
+    "GAME_NO_LOCAL_PALETTE_PASS",
+    "GAME_NO_PARALLEL_DESIGN_SYSTEM_PASS"
+  ]
+}
