@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "PIMATH_MODULE_IMPLEMENTATION_REGISTRY_V1",
+  "id": "MST_MATH_MODULE_IMPLEMENTATION_REGISTRY_V1",
   "status": "STANDARDIZATION_CANDIDATE",
+  "legacyRegistryIds": ["PIMATH_MODULE_IMPLEMENTATION_REGISTRY_V1"],
   "policy": {
     "migrationMode": "REGISTRY_FIRST_NON_DESTRUCTIVE",
     "bulkSourceMove": false,
@@ -13,20 +14,14 @@
     {
       "canonicalId": "QUESTION_BANK",
       "canonicalRole": "SOURCE_ASSESSMENT_CORE",
-      "implementations": [
-        "src/modules/question-bank"
-      ],
+      "implementations": ["src/modules/question-bank"],
       "classification": "ALREADY_ALIGNED",
       "authority": "DOMAIN_CORE"
     },
     {
       "canonicalId": "DOCUMENT_ENGINE",
       "canonicalRole": "DOCUMENT_PROCESSING_AND_OUTPUT",
-      "implementations": [
-        "src/modules/document-ingest",
-        "src/modules/document-engine",
-        "src/modules/document-export"
-      ],
+      "implementations": ["src/modules/document-ingest", "src/modules/document-engine", "src/modules/document-export"],
       "classification": "CANONICAL_GROUP",
       "authority": "DOCUMENT_PIPELINE",
       "migration": {
@@ -40,11 +35,7 @@
     {
       "canonicalId": "MATH_ENGINE",
       "canonicalRole": "MATHEMATICAL_AUTHORITY",
-      "implementations": [
-        "src/modules/math-ir",
-        "src/modules/math-authoring-verification",
-        "src/modules/intelligent-math-runtime"
-      ],
+      "implementations": ["src/modules/math-ir", "src/modules/math-authoring-verification", "src/modules/intelligent-math-runtime"],
       "classification": "CANONICAL_GROUP",
       "authorityModel": {
         "semanticAuthority": "src/modules/math-ir",
@@ -55,11 +46,7 @@
     {
       "canonicalId": "GEOMETRY_ENGINE",
       "canonicalRole": "SEMANTIC_GEOMETRY_AUTHORITY",
-      "implementations": [
-        "src/modules/geometry-engine",
-        "src/modules/dynamic-geometry",
-        "src/modules/constraint-orchestration"
-      ],
+      "implementations": ["src/modules/geometry-engine", "src/modules/dynamic-geometry", "src/modules/constraint-orchestration"],
       "classification": "CANONICAL_GROUP",
       "authorityModel": {
         "semanticAuthority": "src/modules/geometry-engine",
@@ -69,50 +56,35 @@
       "migration": {
         "required": true,
         "type": "BOUNDARY_EXTRACTION",
-        "legacyCoupling": [
-          "src/modules/fold-3d",
-          "src/modules/pattern-fold"
-        ],
+        "legacyCoupling": ["src/modules/fold-3d", "src/modules/pattern-fold"],
         "physicalMoveRequired": false
       }
     },
     {
       "canonicalId": "VISUAL_PEDAGOGY",
       "canonicalRole": "PLANNING_AND_VALIDATION",
-      "implementations": [
-        "src/modules/visual-pedagogy"
-      ],
+      "implementations": ["src/modules/visual-pedagogy"],
       "classification": "ALREADY_ALIGNED",
       "authority": "NON_MATHEMATICAL_VALIDATION"
     },
     {
       "canonicalId": "GEOGEBRA",
       "canonicalRole": "INTERACTIVE_OUTPUT_ADAPTER",
-      "implementations": [
-        "src/modules/geogebra"
-      ],
+      "implementations": ["src/modules/geogebra"],
       "classification": "NEEDS_BOUNDARY_DECOUPLING",
       "authority": "NON_AUTHORITATIVE_ADAPTER",
       "migration": {
         "required": true,
         "type": "GENERIC_ADAPTER_BOUNDARY",
         "currentDependency": "src/modules/pattern-fold",
-        "targetFlow": [
-          "SEMANTIC_GEOMETRY",
-          "GEOGEBRA_CONSTRUCTION_IR",
-          "GEOGEBRA_RUNTIME_ADAPTER"
-        ],
+        "targetFlow": ["SEMANTIC_GEOMETRY", "GEOGEBRA_CONSTRUCTION_IR", "GEOGEBRA_RUNTIME_ADAPTER"],
         "physicalMoveRequired": false
       }
     },
     {
       "canonicalId": "FOLD",
       "canonicalRole": "GEOMETRY_DOMAIN_AND_OUTPUT",
-      "implementations": [
-        "src/modules/fold-3d",
-        "src/modules/pattern-fold",
-        "src/modules/surface-shortest-path"
-      ],
+      "implementations": ["src/modules/fold-3d", "src/modules/pattern-fold", "src/modules/surface-shortest-path"],
       "classification": "CANONICAL_DOMAIN_GROUP",
       "authority": "DOMAIN_SPECIFIC",
       "mustNotReplace": "GEOMETRY_ENGINE"
@@ -135,41 +107,22 @@
     {
       "canonicalId": "CLASSROOM_GAME",
       "canonicalRole": "GAME_OUTPUT",
-      "implementations": [
-        "src/modules/classroom-game"
-      ],
+      "implementations": ["src/modules/classroom-game"],
       "classification": "ALREADY_ALIGNED",
       "authority": "QUESTION_BANK_CONSUMER"
     },
     {
       "canonicalId": "NLS_SOURCE_REGISTRY",
       "canonicalRole": "CURRICULUM_SOURCE_INDEX",
-      "implementations": [
-        "src/modules/nls-source-registry"
-      ],
+      "implementations": ["src/modules/nls-source-registry"],
       "classification": "ALREADY_ALIGNED",
       "authority": "SOURCE_INDEX"
     }
   ],
   "supportingLayers": [
-    {
-      "id": "EXAM_QA",
-      "implementation": "src/modules/exam-qa",
-      "role": "ASSESSMENT_VALIDATION_SERVICE",
-      "authority": "VALIDATION_ONLY"
-    },
-    {
-      "id": "DYNAMIC_WORKSPACE",
-      "implementation": "src/modules/dynamic-workspace",
-      "role": "APPLICATION_WORKSPACE_ORCHESTRATOR",
-      "authority": "NON_AUTHORITATIVE"
-    },
-    {
-      "id": "CONSTRAINT_ORCHESTRATION",
-      "implementation": "src/modules/constraint-orchestration",
-      "role": "CONSTRAINT_SOLVER_TRANSACTION_LAYER",
-      "authority": "EXECUTION_LAYER"
-    }
+    {"id":"EXAM_QA","implementation":"src/modules/exam-qa","role":"ASSESSMENT_VALIDATION_SERVICE","authority":"VALIDATION_ONLY"},
+    {"id":"DYNAMIC_WORKSPACE","implementation":"src/modules/dynamic-workspace","role":"APPLICATION_WORKSPACE_ORCHESTRATOR","authority":"NON_AUTHORITATIVE"},
+    {"id":"CONSTRAINT_ORCHESTRATION","implementation":"src/modules/constraint-orchestration","role":"CONSTRAINT_SOLVER_TRANSACTION_LAYER","authority":"EXECUTION_LAYER"}
   ],
   "invariants": [
     "MATHEMATICAL_SEMANTICS_PRECEDE_RENDERING",

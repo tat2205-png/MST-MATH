@@ -1,7 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "PIMATH_AUTHORITY_REGISTRY_V1",
+  "id": "MST_MATH_AUTHORITY_REGISTRY_V1",
   "status": "CANONICAL",
+  "canonicalRoot": "MST-MATH-DNA-V1.0",
+  "legacyRegistryIds": ["PIMATH_AUTHORITY_REGISTRY_V1"],
   "authorityOrder": [
     "MASTER",
     "APPROVED_ARTIFACT",
@@ -9,6 +11,10 @@
     "MODULE_TASK"
   ],
   "masterSources": [
+    "docs/project/MST_MATH_PROJECT_MASTER_MAP.md",
+    "project-state/MST-MATH-PROJECT-STATE.json"
+  ],
+  "historicalSources": [
     "docs/project/PROJECT_MASTER_MAP.md",
     "project-state/PIMATH-PROJECT-STATE.json"
   ],
@@ -16,6 +22,7 @@
     "A lower authority may not override a higher authority.",
     "LOCKED, CANONICAL, APPROVED, MASTER and DONE artifacts are immutable unless explicitly reopened by the human product owner.",
     "Historical roadmaps and release documents are reference material unless explicitly named current authority.",
-    "Renderers and adapters never become mathematical source of truth."
+    "Renderers and adapters never become mathematical source of truth.",
+    "PIMATH-prefixed identities are compatibility/history only and cannot be emitted as new canonical authority."
   ]
 }

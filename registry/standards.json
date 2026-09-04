@@ -1,100 +1,44 @@
 {
   "schemaVersion": 1,
   "standards": [
-    {
-      "id": "PIMATH-DNA-V1.0",
-      "status": "LOCKED_CANONICAL_GLOBAL",
-      "path": "registry/brand-root.json",
-      "implementation": "src/config/naMathBrandRoot.ts"
-    },
-    {
-      "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.0",
-      "status": "LOCKED",
-      "canonical": true,
-      "approved": true,
-      "path": "registry/pimath-dna-global-baseline-v1.0.json",
-      "root": "PIMATH-DNA-V1.0"
-    },
-    {
-      "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.1",
-      "status": "LOCKED",
-      "canonical": true,
-      "approved": true,
-      "humanApproved": true,
-      "path": "registry/pimath-dna-global-baseline-v1.1.json",
-      "root": "PIMATH-DNA-V1.0",
-      "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.0"
-    },
-    {
-      "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
-      "status": "LOCKED_COMPATIBILITY_CANONICAL_HISTORY",
-      "path": "registry/pimath-dna-icons.json",
-      "implementation": "src/config/naMathBrandRoot.ts"
-    },
-    {
-      "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
-      "status": "LOCKED_CANONICAL_GLOBAL",
-      "canonical": true,
-      "approved": true,
-      "humanApproved": true,
-      "path": "registry/pimath-dna-icons-v1.1.json",
-      "implementation": "src/config/naMathBrandRoot.ts",
-      "supersedes": "PIMATH-DNA-SEMANTIC-ICONS-V1.0"
-    },
-    {
-      "id": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
-      "status": "LOCKED",
-      "canonical": true,
-      "approved": true,
-      "path": "registry/pimath-dna-dynamic-geometry-visualization-v1.0.json",
-      "root": "PIMATH-DNA-V1.0"
-    },
-    { "id": "PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-fold-layout-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    { "id": "PIMATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-2d-dynamic-visualization-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    { "id": "PIMATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-2d-min-max-visualization-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    { "id": "PIMATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-developable-geometry-kernel-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    {
-      "id": "NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0",
-      "status": "COMPATIBILITY_ALIAS",
-      "aliasOf": "PIMATH-DNA-V1.0",
-      "path": "registry/brand-root.json"
-    },
-    {
-      "id": "NA_MATH_SYSTEM_BASELINE_V2_6",
-      "status": "LOCKED",
-      "path": "standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK"
-    },
-    {
-      "id": "NA_MATH_LAYOUT_V1_3",
-      "status": "CANONICAL_LOCKED",
-      "path": "standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0"
-    },
-    {
-      "id": "NA_MATH_TYPOGRAPHY_STANDARD_V1_0",
-      "status": "LOCKED_OVERLAY",
-      "scope": "TYPOGRAPHY_ROLES_ONLY",
-      "path": "standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0"
-    },
-    {
-      "id": "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0",
-      "status": "LOCKED_CANONICAL_APPROVED",
-      "path": "standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0"
-    },
-    {
-      "id": "NA_MATH_VIDEO_GOLDEN_START_MID_END_V1",
-      "status": "LOCKED_APPROVED",
-      "path": "standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"
-    },
-    {
-      "id": "NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1",
-      "status": "CANONICAL",
-      "path": "docs/standards/NA-MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1.md",
-      "implementation": "src/config/naMathFoldVisualStandardV1.ts"
-    },
-    {
-      "id": "GAME_01_OLYMPIA_REFERENCE_V1",
-      "status": "APPROVED",
-      "path": "docs/game/GAME-01-OLYMPIA-REFERENCE-V1.0.md"
-    }
+    {"id":"MST-MATH-DNA-V1.0","status":"LOCKED_CANONICAL_GLOBAL","canonical":true,"approved":true,"path":"registry/mst-math-brand-root.json","implementation":"src/config/mstMathBrandRoot.ts"},
+    {"id":"PIMATH-DNA-V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST-MATH-DNA-V1.0","path":"registry/brand-root.json"},
+
+    {"id":"MST_MATH_DNA_GLOBAL_BASELINE_V1.0","status":"LOCKED","canonical":true,"approved":true,"path":"registry/mst-math-dna-global-baseline-v1.0.json","root":"MST-MATH-DNA-V1.0"},
+    {"id":"PIMATH_DNA_GLOBAL_BASELINE_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_GLOBAL_BASELINE_V1.0","path":"registry/pimath-dna-global-baseline-v1.0.json"},
+    {"id":"MST_MATH_DNA_GLOBAL_BASELINE_V1.1","status":"LOCKED","canonical":true,"approved":true,"humanApproved":true,"path":"registry/mst-math-dna-global-baseline-v1.1.json","root":"MST-MATH-DNA-V1.0","inherits":"MST_MATH_DNA_GLOBAL_BASELINE_V1.0"},
+    {"id":"PIMATH_DNA_GLOBAL_BASELINE_V1.1","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_GLOBAL_BASELINE_V1.1","path":"registry/pimath-dna-global-baseline-v1.1.json"},
+
+    {"id":"MST-MATH-DNA-SEMANTIC-ICONS-V1.0","status":"LOCKED_COMPATIBILITY_CANONICAL_HISTORY","canonical":false,"path":"registry/mst-math-dna-icons-v1.0.json","implementation":"src/config/mstMathBrandRoot.ts"},
+    {"id":"PIMATH-DNA-SEMANTIC-ICONS-V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST-MATH-DNA-SEMANTIC-ICONS-V1.0","path":"registry/pimath-dna-icons.json"},
+    {"id":"MST-MATH-DNA-SEMANTIC-ICONS-V1.1","status":"LOCKED_CANONICAL_GLOBAL","canonical":true,"approved":true,"humanApproved":true,"path":"registry/mst-math-dna-icons-v1.1.json","implementation":"src/config/mstMathBrandRoot.ts","supersedes":"MST-MATH-DNA-SEMANTIC-ICONS-V1.0"},
+    {"id":"PIMATH-DNA-SEMANTIC-ICONS-V1.1","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST-MATH-DNA-SEMANTIC-ICONS-V1.1","path":"registry/pimath-dna-icons-v1.1.json"},
+
+    {"id":"MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0","status":"LOCKED","canonical":true,"approved":true,"path":"registry/mst-math-dna-dynamic-geometry-visualization-v1.0.json","root":"MST-MATH-DNA-V1.0"},
+    {"id":"PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0","path":"registry/pimath-dna-dynamic-geometry-visualization-v1.0.json"},
+    {"id":"MST_MATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0","status":"LOCKED","canonical":true,"approved":true,"path":"registry/mst-math-dna-geogebra-fold-layout-v1.0.json","root":"MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0"},
+    {"id":"PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0","path":"registry/pimath-dna-geogebra-fold-layout-v1.0.json"},
+    {"id":"MST_MATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0","status":"LOCKED","canonical":true,"approved":true,"path":"registry/mst-math-dna-geogebra-2d-dynamic-visualization-v1.0.json","root":"MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0"},
+    {"id":"PIMATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0","path":"registry/pimath-dna-geogebra-2d-dynamic-visualization-v1.0.json"},
+    {"id":"MST_MATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0","status":"LOCKED","canonical":true,"approved":true,"path":"registry/mst-math-dna-geogebra-2d-min-max-visualization-v1.0.json","root":"MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0"},
+    {"id":"PIMATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0","path":"registry/pimath-dna-geogebra-2d-min-max-visualization-v1.0.json"},
+    {"id":"MST_MATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0","status":"LOCKED","canonical":true,"approved":true,"path":"registry/mst-math-developable-geometry-kernel-v1.0.json","root":"MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0"},
+    {"id":"PIMATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0","path":"registry/pimath-developable-geometry-kernel-v1.0.json"},
+
+    {"id":"MST_MATH_ACCESSIBILITY_CANONICAL_V1.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_ACCESSIBILITY_CANONICAL_V1_0/mst-math-accessibility-canonical-v1.0.json"},
+    {"id":"PIMATH_ACCESSIBILITY_CANONICAL_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_ACCESSIBILITY_CANONICAL_V1.0","path":"standards/PIMATH_ACCESSIBILITY_CANONICAL_V1_0/pimath-accessibility-canonical-v1.0.json"},
+    {"id":"MST_MATH_VOICE_NARRATION_CANONICAL_V1.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_VOICE_NARRATION_CANONICAL_V1_0/mst-math-voice-narration-canonical-v1.0.json"},
+    {"id":"PIMATH_VOICE_NARRATION_CANONICAL_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_VOICE_NARRATION_CANONICAL_V1.0","path":"standards/PIMATH_VOICE_NARRATION_CANONICAL_V1_0/pimath-voice-narration-canonical-v1.0.json"},
+    {"id":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","status":"LOCKED_CANONICAL_APPROVED","canonical":true,"approved":true,"path":"standards/MST_MATH_VIDEO_VISUAL_CANONICAL_V2_0/mst-math-video-visual-canonical-v2.0.json"},
+    {"id":"PIMATH_VIDEO_VISUAL_CANONICAL_V2.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","path":"standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json"},
+
+    {"id":"NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0","status":"COMPATIBILITY_ALIAS","aliasOf":"MST-MATH-DNA-V1.0","path":"registry/mst-math-brand-root.json"},
+    {"id":"NA_MATH_SYSTEM_BASELINE_V2_6","status":"LOCKED","path":"standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK"},
+    {"id":"NA_MATH_LAYOUT_V1_3","status":"CANONICAL_LOCKED","path":"standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0"},
+    {"id":"NA_MATH_TYPOGRAPHY_STANDARD_V1_0","status":"LOCKED_OVERLAY","scope":"TYPOGRAPHY_ROLES_ONLY","path":"standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0"},
+    {"id":"NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0","status":"LOCKED_CANONICAL_APPROVED","path":"standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0"},
+    {"id":"NA_MATH_VIDEO_GOLDEN_START_MID_END_V1","status":"LOCKED_APPROVED","path":"standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"},
+    {"id":"NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1","status":"CANONICAL","path":"docs/standards/NA-MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1.md","implementation":"src/config/naMathFoldVisualStandardV1.ts"},
+    {"id":"GAME_01_OLYMPIA_REFERENCE_V1","status":"APPROVED","path":"docs/game/GAME-01-OLYMPIA-REFERENCE-V1.0.md"}
   ]
 }
