@@ -84,8 +84,31 @@ const continuationOwnershipQA = Boolean(
   !aiFooterContamination
 ) ? "PASS" : "FAIL";
 
+const diagnosticContent = (block: (typeof document.blocks)[number]) => block.content.map((content, contentIndex) => ({
+  contentIndex,
+  type: content.type,
+  sourceLocation: content.sourceLocation ?? null,
+  value: content.type === "text"
+    ? content.value
+    : content.type === "math"
+      ? `[MATH:${content.math.id ?? ""}]`
+      : content.type === "figure"
+        ? `[FIGURE:${content.figureId}]`
+        : "[TABLE]",
+}));
+
+const footerDiagnostics = continuationOwnershipQA === "PASS"
+  ? []
+  : document.blocks.slice(-12).map((block) => ({
+      id: block.id,
+      order: block.order,
+      kind: block.kind,
+      sourceLocation: block.sourceLocation,
+      content: diagnosticContent(block),
+    }));
+
 const evidence = {
-  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V4",
+  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V5",
   sourceDocument: SOURCE,
   sourceHash: document.sourceHash,
   expectedSourceHash: EXPECTED_SOURCE_HASH,
@@ -112,6 +135,7 @@ const evidence = {
   isolatedContinuationCandidateCount: isolatedContinuationCandidates.length,
   isolatedContinuationCandidates,
   continuationOwnershipQA,
+  footerDiagnostics,
   diagnosis: continuationOwnershipQA === "PASS"
     ? "QUESTION_SOURCE_SLICE_CONTINUATION_REMEDIATED_WITH_REFERENCE_ANSWER_ISOLATED"
     : "QUESTION_SOURCE_SLICE_CONTINUATION_STILL_BROKEN",
@@ -140,6 +164,7 @@ console.log(JSON.stringify({
   aiFooterContamination: evidence.aiFooterContamination,
   isolatedContinuationCandidateCount: evidence.isolatedContinuationCandidateCount,
   continuationOwnershipQA: evidence.continuationOwnershipQA,
+  footerDiagnostics: evidence.footerDiagnostics,
   diagnosis: evidence.diagnosis,
   evidencePath: OUT,
 }));
