@@ -15,12 +15,24 @@ class MathNotationError(ValueError):
 def _load_registry() -> dict[str, Any]:
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
     entries = registry.get("entries")
+    output_channels = registry.get("outputChannels")
+    notation_profiles = registry.get("notationProfiles", [])
+
     if not isinstance(entries, list) or not entries:
         raise MathNotationError("MATH_NOTATION_REGISTRY_INVALID: entries must be a non-empty list")
+    if not isinstance(output_channels, list) or not output_channels:
+        raise MathNotationError("MATH_NOTATION_REGISTRY_INVALID: outputChannels must be a non-empty list")
+    if not isinstance(notation_profiles, list) or any(
+        not isinstance(profile, str) or not profile for profile in notation_profiles
+    ) or len(set(notation_profiles)) != len(notation_profiles):
+        raise MathNotationError(
+            "MATH_NOTATION_REGISTRY_INVALID: notationProfiles must contain unique non-empty IDs"
+        )
 
     symbol_ids: set[str] = set()
     token_owners: dict[str, str] = {}
-    declared_profiles = set(registry.get("notationProfiles", []))
+    declared_profiles = set(notation_profiles)
+    declared_outputs = set(output_channels)
     for entry in entries:
         symbol_id = entry.get("symbolId")
         if not isinstance(symbol_id, str) or not symbol_id:
@@ -28,6 +40,16 @@ def _load_registry() -> dict[str, Any]:
         if symbol_id in symbol_ids:
             raise MathNotationError(f"MATH_NOTATION_REGISTRY_INVALID: duplicate symbolId {symbol_id}")
         symbol_ids.add(symbol_id)
+
+        entry_outputs = entry.get("outputs")
+        if not isinstance(entry_outputs, list) or not entry_outputs:
+            raise MathNotationError(
+                f"MATH_NOTATION_REGISTRY_INVALID: outputs are required for {symbol_id}"
+            )
+        if any(output not in declared_outputs for output in entry_outputs):
+            raise MathNotationError(
+                f"MATH_NOTATION_REGISTRY_INVALID: {symbol_id} declares an unknown output"
+            )
 
         for profile_id in (entry.get("profileSemantics") or {}).keys():
             if profile_id not in declared_profiles:
@@ -75,6 +97,11 @@ def _matches_at(source: str, offset: int, token: str) -> bool:
     return True
 
 
+def _validate_profile(profile_id: str | None) -> None:
+    if profile_id is not None and profile_id not in REGISTRY.get("notationProfiles", []):
+        raise MathNotationError(f"MATH_NOTATION_AMBIGUITY: unknown notation profile {profile_id}")
+
+
 def _effective_semantics(entry: dict[str, Any], profile_id: str | None) -> tuple[str, str]:
     profile_semantics = entry.get("profileSemantics") or {}
     if not profile_semantics:
@@ -97,6 +124,10 @@ def prepare_math_notation(
     profile_id: str | None = DEFAULT_NOTATION_PROFILE,
     output: str | None = None,
 ) -> dict[str, Any]:
+    _validate_profile(profile_id)
+    if output is not None and output not in REGISTRY.get("outputChannels", []):
+        raise MathNotationError(f"MATH_NOTATION_RENDER_FAILURE: unknown output channel {output}")
+
     indexed: list[tuple[str, dict[str, Any]]] = []
     for entry in REGISTRY["entries"]:
         indexed.extend((token, entry) for token in _entry_tokens(entry))
