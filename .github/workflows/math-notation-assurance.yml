@@ -52,6 +52,12 @@ jobs:
       - name: TypeScript contract check
         run: npm run lint
 
+      - name: Architecture boundary check
+        run: npm run arch:check
+
+      - name: Production build
+        run: npm run build
+
       - name: Math Notation token + Document/TTS QA
         run: npm run qa:math-notation
 
