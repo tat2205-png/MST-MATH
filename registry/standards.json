@@ -2,51 +2,57 @@
   "schemaVersion": 1,
   "standards": [
     {
-      "id": "PIMATH-DNA-V1.0",
+      "id": "MST-MATH-DNA-V1.0",
       "status": "LOCKED_CANONICAL_GLOBAL",
       "path": "registry/brand-root.json",
       "implementation": "src/config/naMathBrandRoot.ts"
     },
     {
+      "id": "PIMATH-DNA-V1.0",
+      "status": "COMPATIBILITY_ALIAS",
+      "aliasOf": "MST-MATH-DNA-V1.0",
+      "path": "registry/brand-root.json"
+    },
+    {
       "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.0",
-      "status": "LOCKED",
+      "status": "LOCKED_LEGACY_CHILD",
       "canonical": true,
       "approved": true,
       "path": "registry/pimath-dna-global-baseline-v1.0.json",
-      "root": "PIMATH-DNA-V1.0"
+      "root": "MST-MATH-DNA-V1.0"
     },
     {
       "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.1",
-      "status": "LOCKED",
+      "status": "LOCKED_LEGACY_CHILD",
       "canonical": true,
       "approved": true,
       "humanApproved": true,
       "path": "registry/pimath-dna-global-baseline-v1.1.json",
-      "root": "PIMATH-DNA-V1.0",
+      "root": "MST-MATH-DNA-V1.0",
       "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.0"
     },
     {
       "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
-      "status": "LOCKED_CANONICAL_GLOBAL",
+      "status": "LOCKED_LEGACY_CHILD",
       "path": "registry/pimath-dna-icons.json",
       "implementation": "src/config/naMathBrandRoot.ts"
     },
     {
       "id": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
-      "status": "LOCKED",
+      "status": "LOCKED_LEGACY_CHILD",
       "canonical": true,
       "approved": true,
       "path": "registry/pimath-dna-dynamic-geometry-visualization-v1.0.json",
-      "root": "PIMATH-DNA-V1.0"
+      "root": "MST-MATH-DNA-V1.0"
     },
-    { "id": "PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-fold-layout-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    { "id": "PIMATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-2d-dynamic-visualization-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    { "id": "PIMATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-2d-min-max-visualization-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
-    { "id": "PIMATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0", "status": "LOCKED", "canonical": true, "approved": true, "path": "registry/pimath-developable-geometry-kernel-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
+    { "id": "PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0", "status": "LOCKED_LEGACY_CHILD", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-fold-layout-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
+    { "id": "PIMATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0", "status": "LOCKED_LEGACY_CHILD", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-2d-dynamic-visualization-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
+    { "id": "PIMATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0", "status": "LOCKED_LEGACY_CHILD", "canonical": true, "approved": true, "path": "registry/pimath-dna-geogebra-2d-min-max-visualization-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
+    { "id": "PIMATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0", "status": "LOCKED_LEGACY_CHILD", "canonical": true, "approved": true, "path": "registry/pimath-developable-geometry-kernel-v1.0.json", "root": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0" },
     {
       "id": "NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0",
       "status": "COMPATIBILITY_ALIAS",
-      "aliasOf": "PIMATH-DNA-V1.0",
+      "aliasOf": "MST-MATH-DNA-V1.0",
       "path": "registry/brand-root.json"
     },
     {
