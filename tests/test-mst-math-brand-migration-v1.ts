@@ -20,22 +20,22 @@ assert.equal(brandRoot.architecture.product, "MST-MATH");
 assert.equal(resolveBrand(), MST_MATH_DNA);
 assert.equal(PIMATH_DNA, MST_MATH_DNA, "Legacy PiMath code export must be a compatibility alias, not a parallel authority");
 
-const legacyRootAlias = brandRoot.legacyAliases.find((entry) => entry.id === "PIMATH-DNA-V1.0");
+const legacyRootAlias = brandRoot.legacyAliases.find((entry) => entry.id === "PIMATH-DNA-V1.0") as any;
 assert.equal(legacyRootAlias?.classification, "COMPATIBILITY_ALIAS");
 assert.equal(legacyRootAlias?.aliasOf, "MST-MATH-DNA-V1.0");
 assert.equal(legacyRootAlias?.authority, false);
 
 assert.equal(outputProfiles.parentBrandId, "MST-MATH-DNA-V1.0");
 for (const profileId of ["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"] as const) {
-  const profile = outputProfiles.profiles.find((entry) => entry.profileId === profileId);
+  const profile = outputProfiles.profiles.find((entry) => entry.profileId === profileId) as any;
   assert.equal(profile?.inheritedFrom, "MST-MATH-DNA-V1.0");
 }
-const legacyVideoProfile = outputProfiles.profiles.find((entry) => entry.profileId === "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0");
+const legacyVideoProfile = outputProfiles.profiles.find((entry) => entry.profileId === "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0") as any;
 assert.equal(legacyVideoProfile?.inheritedFrom, "PIMATH-DNA-V1.0");
 assert.equal(legacyVideoProfile?.resolvedInheritedFrom, "MST-MATH-DNA-V1.0");
 
-const mstRoot = standards.standards.find((entry) => entry.id === "MST-MATH-DNA-V1.0");
-const piRoot = standards.standards.find((entry) => entry.id === "PIMATH-DNA-V1.0");
+const mstRoot = standards.standards.find((entry) => entry.id === "MST-MATH-DNA-V1.0") as any;
+const piRoot = standards.standards.find((entry) => entry.id === "PIMATH-DNA-V1.0") as any;
 assert.equal(mstRoot?.status, "LOCKED_CANONICAL_GLOBAL");
 assert.equal(piRoot?.status, "COMPATIBILITY_ALIAS");
 assert.equal(piRoot?.aliasOf, "MST-MATH-DNA-V1.0");
