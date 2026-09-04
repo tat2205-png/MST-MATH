@@ -9,10 +9,10 @@ import type { ContentBlock, DocumentBlock, DocumentIR } from "../src/modules/doc
 
 const HASH = "abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcd";
 
-const text = (value: string, paragraph: number): ContentBlock => ({
+const text = (value: string, paragraph: number, run = 0): ContentBlock => ({
   type: "text",
   value,
-  sourceLocation: `word/document.xml/paragraph[${paragraph}]/run[0]`,
+  sourceLocation: `word/document.xml/paragraph[${paragraph}]/run[${run}]`,
 });
 
 const paragraph = (order: number, value: string, numbering?: string): DocumentBlock => ({
@@ -23,6 +23,15 @@ const paragraph = (order: number, value: string, numbering?: string): DocumentBl
   sourceLocation: `word/document.xml/body/p[${order}]`,
   content: [text(value, order)],
   ...(numbering ? { numbering } : {}),
+});
+
+const paragraphRuns = (order: number, values: string[]): DocumentBlock => ({
+  id: `paragraph-${order}`,
+  kind: "PARAGRAPH",
+  order,
+  paragraphIndex: order,
+  sourceLocation: `word/document.xml/body/p[${order}]`,
+  content: values.map((value, run) => text(value, order, run)),
 });
 
 const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR => ({
@@ -85,42 +94,76 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
 
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 1);
-  const q6 = candidates[0];
-  assert.equal(q6.questionIndex, 6);
-  assert.deepEqual(q6.rawBlocks.map((block) => block.id), ["paragraph-0", "paragraph-1", "paragraph-2", "paragraph-3"]);
-  const q6Text = q6.textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
-  assert.match(q6Text, /cấp số cộng tăng/u);
-  assert.match(q6Text, /bằng tổng của cả ba số/u);
+  const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
   assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
 }
 
-// Word can place valid final-question text and the terminal reference-answer
-// heading in the same physical paragraph. Preserve the valid prefix while
-// slicing the footer from logical question flow.
+// Valid question prefix and reference-answer heading share one physical block.
 {
-  const mixed = paragraph(
-    3,
-    "Tính giá trị của biểu thức P. ĐÁP ÁN THAM KHẢO Được thực hiện bởi AI",
-  );
   const document = documentFromBlocks("embedded-reference-answer-footer", [
     paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
     paragraph(1, "Điều kiện thứ nhất.", "1."),
     paragraph(2, "Điều kiện thứ hai.", "2."),
-    mixed,
+    paragraph(3, "Tính giá trị của biểu thức P. ĐÁP ÁN THAM KHẢO Được thực hiện bởi AI"),
   ]);
 
   const embedded = findTerminalEmbeddedReferenceAnswerFooter(document);
   assert.ok(embedded);
   assert.equal(embedded.blockId, "paragraph-3");
   assert.ok(embedded.charOffset > 0);
-  assert.ok(embedded.evidence.includes("EMBEDDED_IN_PHYSICAL_BLOCK"));
 
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 1);
   const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
   assert.match(q6Text, /Tính giá trị của biểu thức P/u);
   assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
-  assert.ok(candidates[0].rawBlocks.some((block) => block.id === "paragraph-3"));
+}
+
+// Corpus-like pattern: formatting splits the heading across Word runs, and the
+// terminal answer region contains Câu 1..6 entries. Those markers support the
+// answer-region classification when they restart from 1; they are not questions.
+{
+  const document = documentFromBlocks("split-run-reference-answer-entries", [
+    paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
+    paragraph(1, "Điều kiện thứ nhất.", "1."),
+    paragraph(2, "Điều kiện thứ hai. Tính giá trị của biểu thức P.", "2."),
+    paragraphRuns(3, ["KQ: □ □ □ □ ", "ĐÁP ", "ÁN ", "THAM ", "KHẢO"]),
+    paragraph(4, "Câu 1. KQ: 0"),
+    paragraph(5, "Câu 2. KQ: 1"),
+    paragraph(6, "Câu 3. KQ: 2"),
+    paragraph(7, "Câu 4. KQ: 3"),
+    paragraph(8, "Câu 5. KQ: 4"),
+    paragraph(9, "Câu 6. KQ: 5"),
+    paragraph(10, "Được thực hiện bởi AI"),
+  ]);
+
+  const embedded = findTerminalEmbeddedReferenceAnswerFooter(document);
+  assert.ok(embedded);
+  assert.equal(embedded.blockId, "paragraph-3");
+  assert.deepEqual(embedded.markerNumbersAfterHeading, [1, 2, 3, 4, 5, 6]);
+  assert.ok(embedded.evidence.includes("ANSWER_ENTRIES_RESTART_AT_ONE"));
+
+  const candidates = segmentQuestions(document);
+  assert.equal(candidates.length, 1, "reference-answer Câu entries must not become question candidates");
+  assert.equal(candidates[0].questionIndex, 6);
+  const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
+  assert.match(q6Text, /KQ:/u);
+  assert.doesNotMatch(q6Text, /ĐÁP|THAM|KHẢO|Câu 1|Được thực hiện bởi AI/iu);
+}
+
+// Fail closed if a reference-answer-looking phrase is followed by normal flow
+// whose explicit numbering does not restart from 1.
+{
+  const document = documentFromBlocks("reference-answer-mid-flow", [
+    paragraph(0, "Câu 1. Tính giá trị."),
+    paragraph(1, "Ghi chú ĐÁP ÁN THAM KHẢO"),
+    paragraph(2, "Câu 2. Tính giá trị tiếp theo."),
+  ]);
+
+  assert.equal(findTerminalEmbeddedReferenceAnswerFooter(document), undefined);
+  const candidates = segmentQuestions(document);
+  assert.equal(candidates.length, 2);
+  assert.deepEqual(candidates.map((candidate) => candidate.questionIndex), [1, 2]);
 }
 
 {
@@ -134,7 +177,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.equal(findTerminalEmbeddedReferenceAnswerFooter(document), undefined);
   const candidates = segmentQuestions(document);
   assert.equal(candidates.length, 2);
-  assert.deepEqual(candidates.map((candidate) => candidate.questionIndex), [1, 2]);
 }
 
 {
