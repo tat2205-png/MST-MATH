@@ -5,7 +5,7 @@ import {
   VideoSpecification,
   VisualSpecification,
 } from "../../src/types/mathSchema.js";
-import { resolvePdfLatexAuthority } from "../../src/config/naMathBrandRoot.js";
+import { resolvePdfLatexAuthority } from "../../src/config/mstMathBrandRoot.js";
 
 export class ExportService {
   generateStandaloneTeX(
@@ -17,10 +17,10 @@ export class ExportService {
   ): string {
     const authority = resolvePdfLatexAuthority(profileId);
     const dateStr = new Date().toLocaleDateString("vi-VN");
-    
+
     return `% ====================================================================
-% PiMath / ${authority.brand.standardId} / ${authority.profile.profileId}
-% MATH AI VIDEO STUDIO - High-School Mathematics Document
+% MST-MATH / ${authority.brand.standardId} / ${authority.profile.profileId}
+% MST-MATH — Math AI Studio — High-School Mathematics Document
 % Generated on: ${dateStr}
 % Domain: ${problemIR.domain} | Topic: ${problemIR.topic} | Grade: ${problemIR.grade}
 % ====================================================================
@@ -68,7 +68,7 @@ export class ExportService {
 \\begin{center}
   {\\Large\\bfseries BÀI TOÁN VÀ LỜI GIẢI SƯ PHẠM CHUẨN MỰC}\\\\[4pt]
   {\\normalsize\\color{mathprimary} Chủ đề: ${problemIR.topic} (${problemIR.domain} - ${problemIR.grade})}\\\\[2pt]
-  {\\footnotesize\\color{gray} Được biên soạn tự động bởi MATH AI VIDEO STUDIO}
+  {\\footnotesize\\color{gray} Được biên soạn tự động bởi MST-MATH — Math AI Studio}
 \\end{center}
 
 \\vspace{0.5cm}
