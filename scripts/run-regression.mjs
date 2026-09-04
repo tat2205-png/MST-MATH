@@ -3,6 +3,16 @@ import process from "node:process";
 
 const suites = [
   "tests/test-mst-math-canonical-migration.ts",
+  "tests/test-mst-math-dna-runtime-resolver.ts",
+  "tests/test-mst-math-dna-accessibility-voice.ts",
+  "tests/test-mst-math-dna-component-authority.ts",
+  "tests/test-mst-math-dna-global-baseline-lock.ts",
+  "tests/test-mst-math-dna-dynamic-geometry-visualization-v1.ts",
+  "tests/test-na-math-brand-01.ts",
+  "tests/test-renderer-provenance-gate-5.ts",
+  "tests/test-exam-runtime-authority-gate-3.ts",
+  "tests/test-exam-profiles-canonicalization.ts",
+  "tests/test-na-math-v2.6.ts",
   "tests/test-mv2-constraint-orchestration.ts",
   "tests/test-mv2-dev-inspector.ts",
   "tests/test-math-ir-dynamic-semantics-v1.ts",
