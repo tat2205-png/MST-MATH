@@ -62,6 +62,31 @@ export interface MathNotationResolution {
   issue?: MathNotationIssue;
 }
 
+export interface MathNotationSemanticToken {
+  token: string;
+  canonicalLatex: string;
+  symbolId: string;
+  semantic: string;
+  spokenVi: string;
+  start: number;
+  end: number;
+}
+
+export interface MathNotationEnvelope {
+  status: "PASS" | "FAIL";
+  source: string;
+  canonicalLatex?: string;
+  notationProfileId?: string;
+  semanticTokens: MathNotationSemanticToken[];
+  semanticSignature: string[];
+  issues: MathNotationIssue[];
+}
+
+export interface PrepareMathNotationOptions {
+  profileId?: string;
+  output?: MathNotationOutputChannel;
+}
+
 function isOutputChannel(value: unknown): value is MathNotationOutputChannel {
   return typeof value === "string" && (MATH_NOTATION_OUTPUT_CHANNELS as readonly string[]).includes(value);
 }
@@ -278,4 +303,120 @@ export function canonicalizeMathNotationToken(
   const resolution = resolveMathNotationToken(registry, token, profileId);
   if (resolution.status === "FAIL" || !resolution.entry) return resolution;
   return { ...resolution, canonicalLatex: resolution.entry.canonicalLatex };
+}
+
+function isAsciiLetter(character: string | undefined): boolean {
+  return Boolean(character && /[A-Za-z]/.test(character));
+}
+
+function tokenMatchesAt(source: string, offset: number, token: string): boolean {
+  if (!source.startsWith(token, offset)) return false;
+  // LaTeX control words end at the first non-letter. Prevent matching \\in inside \\infty-like commands.
+  if (/^\\[A-Za-z]+$/.test(token)) {
+    const next = source[offset + token.length];
+    if (isAsciiLetter(next)) return false;
+  }
+  return true;
+}
+
+interface IndexedNotationToken {
+  token: string;
+  entry: MathNotationEntry;
+}
+
+function buildExpressionTokenIndex(registry: MathNotationRegistry): IndexedNotationToken[] {
+  const indexed: IndexedNotationToken[] = [];
+  for (const entry of registry.entries) {
+    for (const token of tokenKeys(entry)) indexed.push({ token, entry });
+  }
+  return indexed.sort((a, b) => b.token.length - a.token.length || a.token.localeCompare(b.token));
+}
+
+/**
+ * Prepares a mathematical expression for an output adapter without pretending to parse all mathematics.
+ * Math IR remains the mathematical source of truth; this function only canonicalizes registered notation
+ * tokens and records a semantic signature for cross-output verification.
+ */
+export function prepareMathNotationExpression(
+  registry: MathNotationRegistry,
+  source: string,
+  options: PrepareMathNotationOptions = {},
+): MathNotationEnvelope {
+  const registryValidation = validateMathNotationRegistry(registry);
+  if (registryValidation.status === "FAIL") {
+    return {
+      status: "FAIL",
+      source,
+      ...(options.profileId ? { notationProfileId: options.profileId } : {}),
+      semanticTokens: [],
+      semanticSignature: [],
+      issues: registryValidation.issues,
+    };
+  }
+
+  const tokenIndex = buildExpressionTokenIndex(registry);
+  const semanticTokens: MathNotationSemanticToken[] = [];
+  const issues: MathNotationIssue[] = [];
+  let canonicalLatex = "";
+  let cursor = 0;
+
+  while (cursor < source.length) {
+    const match = tokenIndex.find((candidate) => tokenMatchesAt(source, cursor, candidate.token));
+    if (!match) {
+      canonicalLatex += source[cursor];
+      cursor += 1;
+      continue;
+    }
+
+    const resolution = options.output
+      ? validateMathNotationRenderable(registry, match.token, options.output, options.profileId)
+      : resolveMathNotationToken(registry, match.token, options.profileId);
+
+    if (resolution.status === "FAIL" || !resolution.entry || !resolution.effectiveSemantic || !resolution.effectiveSpokenVi) {
+      if (resolution.issue) issues.push(resolution.issue);
+      canonicalLatex += match.token;
+      cursor += match.token.length;
+      continue;
+    }
+
+    const canonical = resolution.entry.canonicalLatex;
+    semanticTokens.push({
+      token: match.token,
+      canonicalLatex: canonical,
+      symbolId: resolution.entry.symbolId,
+      semantic: resolution.effectiveSemantic,
+      spokenVi: resolution.effectiveSpokenVi,
+      start: cursor,
+      end: cursor + match.token.length,
+    });
+    canonicalLatex += canonical;
+    cursor += match.token.length;
+  }
+
+  const semanticSignature = semanticTokens.map((item) => `${item.symbolId}:${item.semantic}`);
+  return {
+    status: issues.length === 0 ? "PASS" : "FAIL",
+    source,
+    canonicalLatex: issues.length === 0 ? canonicalLatex : undefined,
+    ...(options.profileId ? { notationProfileId: options.profileId } : {}),
+    semanticTokens,
+    semanticSignature,
+    issues,
+  };
+}
+
+export function verifyMathNotationSemanticSignature(
+  before: MathNotationEnvelope,
+  after: MathNotationEnvelope,
+): MathNotationIssue | undefined {
+  if (before.status === "FAIL") return before.issues[0];
+  if (after.status === "FAIL") return after.issues[0];
+  if (before.semanticSignature.length !== after.semanticSignature.length
+      || before.semanticSignature.some((item, index) => item !== after.semanticSignature[index])) {
+    return {
+      code: "MATH_NOTATION_SEMANTIC_LOSS",
+      message: `Notation semantic signature changed from ${JSON.stringify(before.semanticSignature)} to ${JSON.stringify(after.semanticSignature)}.`,
+    };
+  }
+  return undefined;
 }
