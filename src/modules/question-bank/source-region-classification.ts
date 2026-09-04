@@ -14,11 +14,21 @@ export interface AnswerSolutionAppendixRegion {
   evidence: string[];
 }
 
+export interface EmbeddedReferenceAnswerFooter {
+  blockId: string;
+  blockOrder: number;
+  contentIndex: number;
+  charOffset: number;
+  markerText: string;
+  evidence: string[];
+}
+
 const explicitMarkerPattern = /\b(?:Câu|Bài|Question)\s*(\d+)\s*[:.)]/giu;
 const questionSectionPattern = /^(?:PHẦN\s+(?:I|II|III|IV|V)|TRẮC NGHIỆM|ĐÚNG\s*\/\s*SAI|TRẢ LỜI NGẮN|TỰ LUẬN)\b/iu;
 const answerHeadingPattern = /^(?:đáp\s*án|answer)\b/iu;
 const solutionHeadingPattern = /^(?:lời\s*giải|hướng\s*dẫn\s*giải|solution)\b/iu;
 const referenceAnswerHeadingPattern = /^(?:đáp\s*án\s+tham\s+khảo|reference\s+answers?)(?:\s|$|[:\-–—])/iu;
+const embeddedReferenceAnswerPattern = /(?<![\p{L}\p{N}_])(?:đáp\s*án\s+tham\s+khảo|reference\s+answers?)(?=\s|$|[:\-–—])/iu;
 const resultCuePattern = /\b(?:KQ|Kết\s*quả|Đáp\s*án)\s*:/giu;
 const reasoningCuePattern = /(?<![\p{L}\p{N}_])(?:ta\s+có|vì|do\s+đó|suy\s+ra|dựa\s+vào|vậy|đây\s+là\s+bài\s+toán)(?![\p{L}\p{N}_])/giu;
 
@@ -66,6 +76,63 @@ function cueCounts(blocks: DocumentBlock[]) {
   };
 }
 
+function hasLaterQuestionStructure(blocks: DocumentBlock[], blockIndex: number, contentIndex: number, charOffset: number): boolean {
+  const block = blocks[blockIndex];
+  const suffixContent: ContentBlock[] = [];
+  for (let i = contentIndex; i < block.content.length; i += 1) {
+    const content = block.content[i];
+    if (i === contentIndex && content.type === "text") {
+      suffixContent.push({ ...content, value: content.value.slice(charOffset) });
+    } else {
+      suffixContent.push(content);
+    }
+  }
+
+  const laterBlocks = blocks.slice(blockIndex + 1);
+  const laterText = [visibleText(suffixContent), ...laterBlocks.map(blockText)].join(" ").trim();
+  if (explicitMarkerPattern.test(laterText)) return true;
+  return laterBlocks.some((candidate) => isQuestionSectionHeading(blockText(candidate)));
+}
+
+/**
+ * Locate a strong reference-answer footer even when Word stores the heading in
+ * the same physical paragraph as the final valid question content. The footer
+ * is considered terminal only when no later question marker/section exists.
+ * DocumentIR is not mutated; consumers can slice the logical question content
+ * while preserving the physical source object for provenance.
+ */
+export function findTerminalEmbeddedReferenceAnswerFooter(document: DocumentIR): EmbeddedReferenceAnswerFooter | undefined {
+  const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
+
+  for (let blockIndex = 0; blockIndex < blocks.length; blockIndex += 1) {
+    const block = blocks[blockIndex];
+    for (let contentIndex = 0; contentIndex < block.content.length; contentIndex += 1) {
+      const content = block.content[contentIndex];
+      if (content.type !== "text") continue;
+      const match = embeddedReferenceAnswerPattern.exec(content.value);
+      embeddedReferenceAnswerPattern.lastIndex = 0;
+      if (!match || match.index === undefined) continue;
+
+      if (hasLaterQuestionStructure(blocks, blockIndex, contentIndex, match.index)) continue;
+
+      return {
+        blockId: block.id,
+        blockOrder: block.order,
+        contentIndex,
+        charOffset: match.index,
+        markerText: match[0],
+        evidence: [
+          "REFERENCE_ANSWER_HEADING",
+          "EMBEDDED_IN_PHYSICAL_BLOCK",
+          "TERMINAL_DOCUMENT_REGION",
+        ],
+      };
+    }
+  }
+
+  return undefined;
+}
+
 /**
  * Detect document-level answer/solution appendices conservatively.
  *
@@ -82,8 +149,8 @@ function cueCounts(blocks: DocumentBlock[]) {
  *
  * A terminal heading explicitly saying "ĐÁP ÁN THAM KHẢO" / "Reference answer"
  * is a stronger structural signal and is accepted as an ANSWER appendix even
- * when it contains no repeated Câu markers. This handles footer-style reference
- * answer material without weakening ordinary inline "Đáp án: ..." handling.
+ * when it contains no repeated Câu markers. Embedded same-paragraph footer cases
+ * are handled by findTerminalEmbeddedReferenceAnswerFooter().
  *
  * If the evidence is insufficient we fail closed and leave blocks in normal
  * question flow for later review instead of silently excluding them.
@@ -98,8 +165,6 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
     const kind = answerSolutionHeadingKind(headingText);
     if (!kind) continue;
 
-    // Global appendix headings are visually heading-like. Avoid treating a full
-    // inline worked solution paragraph beginning with "Lời giải" as a region.
     if (headingText.length > 120) continue;
 
     let endIndex = blocks.length;
@@ -110,8 +175,6 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
       }
     }
 
-    // A document-level appendix is terminal. If another explicit question
-    // section follows, this heading belongs to local/interleaved content.
     if (endIndex !== blocks.length) continue;
 
     const regionBlocks = blocks.slice(i + 1, endIndex);
@@ -172,7 +235,6 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
       ],
     });
 
-    // Do not discover nested appendix starts inside a region already accepted.
     i = Math.max(i, endIndex - 1);
   }
 
