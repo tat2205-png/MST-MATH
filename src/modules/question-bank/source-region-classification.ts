@@ -20,6 +20,7 @@ export interface EmbeddedReferenceAnswerFooter {
   contentIndex: number;
   charOffset: number;
   markerText: string;
+  markerNumbersAfterHeading: number[];
   evidence: string[];
 }
 
@@ -76,58 +77,139 @@ function cueCounts(blocks: DocumentBlock[]) {
   };
 }
 
-function hasLaterQuestionStructure(blocks: DocumentBlock[], blockIndex: number, contentIndex: number, charOffset: number): boolean {
-  const block = blocks[blockIndex];
-  const suffixContent: ContentBlock[] = [];
+interface AggregatedTextRun {
+  contentIndex: number;
+  aggregateStart: number;
+  aggregateEnd: number;
+  value: string;
+}
+
+function aggregateTextRuns(block: DocumentBlock): { value: string; runs: AggregatedTextRun[] } {
+  let value = "";
+  const runs: AggregatedTextRun[] = [];
+  block.content.forEach((content, contentIndex) => {
+    if (content.type !== "text") return;
+    const aggregateStart = value.length;
+    value += content.value;
+    runs.push({
+      contentIndex,
+      aggregateStart,
+      aggregateEnd: value.length,
+      value: content.value,
+    });
+  });
+  return { value, runs };
+}
+
+function markerPositionInBlock(block: DocumentBlock): {
+  contentIndex: number;
+  charOffset: number;
+  markerText: string;
+} | undefined {
+  const aggregate = aggregateTextRuns(block);
+  const match = embeddedReferenceAnswerPattern.exec(aggregate.value);
+  if (!match || match.index === undefined) return undefined;
+
+  const run = aggregate.runs.find(
+    (candidate) => match.index >= candidate.aggregateStart && match.index < candidate.aggregateEnd,
+  );
+  if (!run) return undefined;
+
+  return {
+    contentIndex: run.contentIndex,
+    charOffset: match.index - run.aggregateStart,
+    markerText: match[0],
+  };
+}
+
+function suffixContentFrom(
+  block: DocumentBlock,
+  contentIndex: number,
+  charOffset: number,
+): ContentBlock[] {
+  const suffix: ContentBlock[] = [];
   for (let i = contentIndex; i < block.content.length; i += 1) {
     const content = block.content[i];
     if (i === contentIndex && content.type === "text") {
-      suffixContent.push({ ...content, value: content.value.slice(charOffset) });
+      suffix.push({ ...content, value: content.value.slice(charOffset) });
     } else {
-      suffixContent.push(content);
+      suffix.push(content);
     }
   }
+  return suffix;
+}
 
+function terminalReferenceAnswerEvidence(
+  blocks: DocumentBlock[],
+  blockIndex: number,
+  contentIndex: number,
+  charOffset: number,
+): { accepted: boolean; markerNumbers: number[]; evidence: string[] } {
+  const block = blocks[blockIndex];
+  const suffixContent = suffixContentFrom(block, contentIndex, charOffset);
   const laterBlocks = blocks.slice(blockIndex + 1);
-  const laterText = [visibleText(suffixContent), ...laterBlocks.map(blockText)].join(" ").trim();
-  if (explicitMarkerPattern.test(laterText)) return true;
-  return laterBlocks.some((candidate) => isQuestionSectionHeading(blockText(candidate)));
+
+  // A new explicit question section after the reference-answer heading means
+  // the heading is not terminal document answer material.
+  if (laterBlocks.some((candidate) => isQuestionSectionHeading(blockText(candidate)))) {
+    return { accepted: false, markerNumbers: [], evidence: [] };
+  }
+
+  const markerNumbers = [
+    ...explicitQuestionMarkerNumbers(suffixContent),
+    ...laterBlocks.flatMap((candidate) => explicitQuestionMarkerNumbers(candidate.content)),
+  ];
+
+  // Câu/Bài labels after a terminal reference-answer heading are expected
+  // answer entries. When they exist, they must restart from 1; otherwise fail
+  // closed because the region could still be normal question flow.
+  if (markerNumbers.length > 0 && markerNumbers[0] !== 1) {
+    return { accepted: false, markerNumbers, evidence: [] };
+  }
+
+  return {
+    accepted: true,
+    markerNumbers,
+    evidence: [
+      "REFERENCE_ANSWER_HEADING",
+      "EMBEDDED_IN_PHYSICAL_BLOCK",
+      "TERMINAL_DOCUMENT_REGION",
+      ...(markerNumbers.length > 0 ? ["ANSWER_ENTRIES_RESTART_AT_ONE"] : []),
+    ],
+  };
 }
 
 /**
- * Locate a strong reference-answer footer even when Word stores the heading in
- * the same physical paragraph as the final valid question content. The footer
- * is considered terminal only when no later question marker/section exists.
- * DocumentIR is not mutated; consumers can slice the logical question content
- * while preserving the physical source object for provenance.
+ * Locate a terminal reference-answer footer even when Word splits the heading
+ * across several text runs or stores it inside the final question paragraph.
+ * Answer-entry labels such as Câu 1..N after the heading are treated as evidence
+ * of an answer region when numbering restarts at 1, not as new questions.
  */
 export function findTerminalEmbeddedReferenceAnswerFooter(document: DocumentIR): EmbeddedReferenceAnswerFooter | undefined {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
 
   for (let blockIndex = 0; blockIndex < blocks.length; blockIndex += 1) {
     const block = blocks[blockIndex];
-    for (let contentIndex = 0; contentIndex < block.content.length; contentIndex += 1) {
-      const content = block.content[contentIndex];
-      if (content.type !== "text") continue;
-      const match = embeddedReferenceAnswerPattern.exec(content.value);
-      embeddedReferenceAnswerPattern.lastIndex = 0;
-      if (!match || match.index === undefined) continue;
+    const marker = markerPositionInBlock(block);
+    if (!marker) continue;
 
-      if (hasLaterQuestionStructure(blocks, blockIndex, contentIndex, match.index)) continue;
+    const terminal = terminalReferenceAnswerEvidence(
+      blocks,
+      blockIndex,
+      marker.contentIndex,
+      marker.charOffset,
+    );
+    if (!terminal.accepted) continue;
 
-      return {
-        blockId: block.id,
-        blockOrder: block.order,
-        contentIndex,
-        charOffset: match.index,
-        markerText: match[0],
-        evidence: [
-          "REFERENCE_ANSWER_HEADING",
-          "EMBEDDED_IN_PHYSICAL_BLOCK",
-          "TERMINAL_DOCUMENT_REGION",
-        ],
-      };
-    }
+    return {
+      blockId: block.id,
+      blockOrder: block.order,
+      contentIndex: marker.contentIndex,
+      charOffset: marker.charOffset,
+      markerText: marker.markerText,
+      markerNumbersAfterHeading: terminal.markerNumbers,
+      evidence: terminal.evidence,
+    };
   }
 
   return undefined;
@@ -135,25 +217,6 @@ export function findTerminalEmbeddedReferenceAnswerFooter(document: DocumentIR):
 
 /**
  * Detect document-level answer/solution appendices conservatively.
- *
- * A short "Lời giải" paragraph inside normal question flow must never cause all
- * later questions to disappear. A general answer/solution region is promoted to
- * document-level appendix only when all of the following source-backed signals
- * agree:
- *   1) the heading is short and explicit;
- *   2) the region runs to the physical end of the document rather than stopping
- *      at a later question section;
- *   3) repeated question-entry labels occur after the heading;
- *   4) appendix numbering restarts at question 1;
- *   5) there is repeated answer/reasoning evidence.
- *
- * A terminal heading explicitly saying "ĐÁP ÁN THAM KHẢO" / "Reference answer"
- * is a stronger structural signal and is accepted as an ANSWER appendix even
- * when it contains no repeated Câu markers. Embedded same-paragraph footer cases
- * are handled by findTerminalEmbeddedReferenceAnswerFooter().
- *
- * If the evidence is insufficient we fail closed and leave blocks in normal
- * question flow for later review instead of silently excluding them.
  */
 export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerSolutionAppendixRegion[] {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
@@ -164,7 +227,6 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
     const headingText = blockText(heading);
     const kind = answerSolutionHeadingKind(headingText);
     if (!kind) continue;
-
     if (headingText.length > 120) continue;
 
     let endIndex = blocks.length;
@@ -174,7 +236,6 @@ export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerS
         break;
       }
     }
-
     if (endIndex !== blocks.length) continue;
 
     const regionBlocks = blocks.slice(i + 1, endIndex);
