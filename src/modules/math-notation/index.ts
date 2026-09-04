@@ -91,6 +91,10 @@ function isOutputChannel(value: unknown): value is MathNotationOutputChannel {
   return typeof value === "string" && (MATH_NOTATION_OUTPUT_CHANNELS as readonly string[]).includes(value);
 }
 
+function isFailureCode(value: unknown): value is MathNotationFailureCode {
+  return typeof value === "string" && (MATH_NOTATION_FAILURE_CODES as readonly string[]).includes(value);
+}
+
 function isProfileSemantics(value: unknown): value is Record<string, MathNotationProfileSemantic> {
   if (value === undefined) return true;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
@@ -127,6 +131,22 @@ function isEntry(value: unknown): value is MathNotationEntry {
 
 function tokenKeys(entry: MathNotationEntry): string[] {
   return [entry.canonicalLatex, ...(entry.unicode ? [entry.unicode] : []), ...entry.aliases];
+}
+
+function profileIsDeclared(registry: MathNotationRegistry, profileId: string): boolean {
+  return (registry.notationProfiles ?? []).includes(profileId);
+}
+
+function invalidProfile(profileId: string): MathNotationResolution {
+  return {
+    status: "FAIL",
+    profileId,
+    issue: {
+      code: "MATH_NOTATION_AMBIGUITY",
+      profileId,
+      message: `Unknown notation profile: ${profileId}.`,
+    },
+  };
 }
 
 function resolveEffectiveSemantics(entry: MathNotationEntry, profileId?: string): MathNotationResolution {
@@ -186,12 +206,27 @@ export function validateMathNotationRegistry(value: unknown): MathNotationRegist
   if (typeof registry.standardId !== "string" || registry.standardId.length === 0) {
     issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", message: "standardId is required." });
   }
+  if (typeof registry.version !== "string" || registry.version.length === 0) {
+    issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", message: "version is required." });
+  }
+  if (!Array.isArray(registry.outputChannels) || registry.outputChannels.length === 0 || !registry.outputChannels.every(isOutputChannel)) {
+    issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", message: "outputChannels must contain valid declared channels." });
+  }
+  if (!Array.isArray(registry.failureCodes) || registry.failureCodes.length === 0 || !registry.failureCodes.every(isFailureCode)) {
+    issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", message: "failureCodes must contain valid notation failure codes." });
+  }
+  if (registry.notationProfiles !== undefined && (!Array.isArray(registry.notationProfiles)
+      || registry.notationProfiles.some((profile) => typeof profile !== "string" || profile.length === 0)
+      || new Set(registry.notationProfiles).size !== registry.notationProfiles.length)) {
+    issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", message: "notationProfiles must contain unique non-empty profile IDs." });
+  }
   if (!Array.isArray(registry.entries)) {
     issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", message: "entries must be an array." });
     return { status: "FAIL", issues };
   }
 
   const declaredProfiles = new Set(Array.isArray(registry.notationProfiles) ? registry.notationProfiles : []);
+  const declaredOutputs = new Set(Array.isArray(registry.outputChannels) ? registry.outputChannels : []);
   const symbolIds = new Set<string>();
   const tokenOwners = new Map<string, string>();
   for (const rawEntry of registry.entries) {
@@ -204,6 +239,16 @@ export function validateMathNotationRegistry(value: unknown): MathNotationRegist
       issues.push({ code: "MATH_NOTATION_REGISTRY_INVALID", symbolId: entry.symbolId, message: `Duplicate symbolId: ${entry.symbolId}` });
     }
     symbolIds.add(entry.symbolId);
+
+    for (const output of entry.outputs) {
+      if (!declaredOutputs.has(output)) {
+        issues.push({
+          code: "MATH_NOTATION_REGISTRY_INVALID",
+          symbolId: entry.symbolId,
+          message: `${entry.symbolId} declares output ${output} outside registry.outputChannels.`,
+        });
+      }
+    }
 
     for (const profileId of Object.keys(entry.profileSemantics ?? {})) {
       if (!declaredProfiles.has(profileId)) {
@@ -239,6 +284,8 @@ export function resolveMathNotationToken(
   token: string,
   profileId?: string,
 ): MathNotationResolution {
+  if (profileId && !profileIsDeclared(registry, profileId)) return invalidProfile(profileId);
+
   const normalized = token.trim();
   if (!normalized) {
     return { status: "FAIL", issue: { code: "MATH_NOTATION_UNKNOWN_TOKEN", token, message: "Notation token cannot be empty." } };
@@ -351,6 +398,18 @@ export function prepareMathNotationExpression(
       semanticTokens: [],
       semanticSignature: [],
       issues: registryValidation.issues,
+    };
+  }
+
+  if (options.profileId && !profileIsDeclared(registry, options.profileId)) {
+    const resolution = invalidProfile(options.profileId);
+    return {
+      status: "FAIL",
+      source,
+      notationProfileId: options.profileId,
+      semanticTokens: [],
+      semanticSignature: [],
+      issues: resolution.issue ? [resolution.issue] : [],
     };
   }
 
