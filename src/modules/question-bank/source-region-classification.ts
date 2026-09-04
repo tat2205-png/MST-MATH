@@ -78,48 +78,53 @@ function cueCounts(blocks: DocumentBlock[]) {
 }
 
 interface AggregatedTextRun {
+  blockIndex: number;
+  blockId: string;
+  blockOrder: number;
   contentIndex: number;
   aggregateStart: number;
   aggregateEnd: number;
-  value: string;
 }
 
 /**
- * Build the same logical visible-text contract used by `visibleText`, while
- * retaining an offset map back to the original Word content run. A virtual
- * space is inserted between ContentBlocks because review rendering and semantic
- * classification already treat those boundaries as visible separation. This
- * prevents formatting-only run boundaries from gluing words together (for
- * example `...result` + `ĐÁP` or `ĐÁP` + `ÁN`) and keeps footer detection
- * consistent with the text shown to reviewers.
+ * Build one document-visible text stream while retaining exact source offsets.
+ * Virtual spaces between text runs and physical blocks mirror the visible-text
+ * contract used by review rendering, so formatting-only Word boundaries cannot
+ * hide a semantic heading such as "ĐÁP ÁN THAM KHẢO".
  */
-function aggregateTextRuns(block: DocumentBlock): { value: string; runs: AggregatedTextRun[] } {
+function aggregateDocumentTextRuns(blocks: DocumentBlock[]): { value: string; runs: AggregatedTextRun[] } {
   let value = "";
   const runs: AggregatedTextRun[] = [];
 
-  block.content.forEach((content, contentIndex) => {
-    if (contentIndex > 0) value += " ";
-    if (content.type !== "text") return;
-
-    const aggregateStart = value.length;
-    value += content.value;
-    runs.push({
-      contentIndex,
-      aggregateStart,
-      aggregateEnd: value.length,
-      value: content.value,
+  blocks.forEach((block, blockIndex) => {
+    block.content.forEach((content, contentIndex) => {
+      if (content.type !== "text") return;
+      if (value.length > 0) value += " ";
+      const aggregateStart = value.length;
+      value += content.value;
+      runs.push({
+        blockIndex,
+        blockId: block.id,
+        blockOrder: block.order,
+        contentIndex,
+        aggregateStart,
+        aggregateEnd: value.length,
+      });
     });
   });
 
   return { value, runs };
 }
 
-function markerPositionInBlock(block: DocumentBlock): {
+function markerPositionInDocument(blocks: DocumentBlock[]): {
+  blockIndex: number;
+  blockId: string;
+  blockOrder: number;
   contentIndex: number;
   charOffset: number;
   markerText: string;
 } | undefined {
-  const aggregate = aggregateTextRuns(block);
+  const aggregate = aggregateDocumentTextRuns(blocks);
   const match = embeddedReferenceAnswerPattern.exec(aggregate.value);
   if (!match || match.index === undefined) return undefined;
 
@@ -129,6 +134,9 @@ function markerPositionInBlock(block: DocumentBlock): {
   if (!run) return undefined;
 
   return {
+    blockIndex: run.blockIndex,
+    blockId: run.blockId,
+    blockOrder: run.blockOrder,
     contentIndex: run.contentIndex,
     charOffset: match.index - run.aggregateStart,
     markerText: match[0],
@@ -162,6 +170,7 @@ function terminalReferenceAnswerEvidence(
   const suffixContent = suffixContentFrom(block, contentIndex, charOffset);
   const laterBlocks = blocks.slice(blockIndex + 1);
 
+  // A later explicit question section means this is not a terminal footer.
   if (laterBlocks.some((candidate) => isQuestionSectionHeading(blockText(candidate)))) {
     return { accepted: false, markerNumbers: [], evidence: [] };
   }
@@ -171,6 +180,8 @@ function terminalReferenceAnswerEvidence(
     ...laterBlocks.flatMap((candidate) => explicitQuestionMarkerNumbers(candidate.content)),
   ];
 
+  // Explicit Câu/Bài labels after a reference-answer heading are answer entries
+  // only when the sequence restarts from 1. Otherwise fail closed.
   if (markerNumbers.length > 0 && markerNumbers[0] !== 1) {
     return { accepted: false, markerNumbers, evidence: [] };
   }
@@ -180,7 +191,7 @@ function terminalReferenceAnswerEvidence(
     markerNumbers,
     evidence: [
       "REFERENCE_ANSWER_HEADING",
-      "EMBEDDED_IN_PHYSICAL_BLOCK",
+      "VISIBLE_TEXT_AGGREGATE",
       "TERMINAL_DOCUMENT_REGION",
       ...(markerNumbers.length > 0 ? ["ANSWER_ENTRIES_RESTART_AT_ONE"] : []),
     ],
@@ -189,38 +200,32 @@ function terminalReferenceAnswerEvidence(
 
 /**
  * Locate a terminal reference-answer footer even when Word splits the heading
- * across several text runs or stores it inside the final question paragraph.
- * Answer-entry labels such as Câu 1..N after the heading are treated as evidence
- * of an answer region when numbering restarts at 1, not as new questions.
+ * across several runs and/or physical paragraphs. The returned start location
+ * always maps back to the original block/run so downstream segmentation can
+ * slice only the logical question prefix without mutating DocumentIR.
  */
 export function findTerminalEmbeddedReferenceAnswerFooter(document: DocumentIR): EmbeddedReferenceAnswerFooter | undefined {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
+  const marker = markerPositionInDocument(blocks);
+  if (!marker) return undefined;
 
-  for (let blockIndex = 0; blockIndex < blocks.length; blockIndex += 1) {
-    const block = blocks[blockIndex];
-    const marker = markerPositionInBlock(block);
-    if (!marker) continue;
+  const terminal = terminalReferenceAnswerEvidence(
+    blocks,
+    marker.blockIndex,
+    marker.contentIndex,
+    marker.charOffset,
+  );
+  if (!terminal.accepted) return undefined;
 
-    const terminal = terminalReferenceAnswerEvidence(
-      blocks,
-      blockIndex,
-      marker.contentIndex,
-      marker.charOffset,
-    );
-    if (!terminal.accepted) continue;
-
-    return {
-      blockId: block.id,
-      blockOrder: block.order,
-      contentIndex: marker.contentIndex,
-      charOffset: marker.charOffset,
-      markerText: marker.markerText,
-      markerNumbersAfterHeading: terminal.markerNumbers,
-      evidence: terminal.evidence,
-    };
-  }
-
-  return undefined;
+  return {
+    blockId: marker.blockId,
+    blockOrder: marker.blockOrder,
+    contentIndex: marker.contentIndex,
+    charOffset: marker.charOffset,
+    markerText: marker.markerText,
+    markerNumbersAfterHeading: terminal.markerNumbers,
+    evidence: terminal.evidence,
+  };
 }
 
 /** Detect document-level answer/solution appendices conservatively. */
