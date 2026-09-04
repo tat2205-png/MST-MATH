@@ -2,7 +2,11 @@ import { validateQuestion as runExamQa } from "../exam-qa/engine.js";
 import { AssetRegistry } from "./assets.js";
 import { detectDuplicate } from "./duplicate.js";
 import { toExamQuestion } from "./examAdapter.js";
-import { ingestDocxQuestions, ingestDocxQuestionsForRuntime } from "./pipeline.js";
+import {
+  ingestDocxQuestions,
+  ingestDocxQuestionsForRuntime,
+  type QuestionImportContext,
+} from "./pipeline.js";
 import type { DuplicateResult, QuestionBankRepository, QuestionBankSnapshot, QuestionObject } from "./types.js";
 import { validateQuestion } from "./schema.js";
 import { analyzeRelation, familyIdFor } from "./relations.js";
@@ -11,8 +15,23 @@ export interface BankImportResult { imported: QuestionObject[]; duplicates: Dupl
 function statusQuestion(question: QuestionObject): QuestionObject { const structural = validateQuestion(question); const exam = runExamQa(toExamQuestion(question)); const issueCodes = exam.issues.map(x => x.code); const invalid = structural.some(x => x.level === "FAIL") || exam.status === "BLOCKED" || exam.status === "NOT_TESTED"; return { ...question, schemaVersion: 1, validationStatus: invalid ? "INVALID" : structural.some(x => x.level === "WARNING") || exam.status === "REVIEW_REQUIRED" ? "REVIEW_REQUIRED" : "VALID", bankStatus: invalid ? "QUARANTINED" : "REVIEW", examQa: { status: exam.status, issueCodes }, warnings: [...new Set([...question.warnings, ...structural.filter(x => x.level !== "PASS").map(x => x.code), ...issueCodes])] }; }
 export class QuestionBankService {
   constructor(private readonly repository: QuestionBankRepository) {}
-  importDocx(bytes: Uint8Array, name: string): BankImportResult { return this.importPipeline(ingestDocxQuestions(bytes, name)); }
-  async importDocxForRuntime(bytes: Uint8Array, name: string): Promise<BankImportResult> { return this.importPipeline(await ingestDocxQuestionsForRuntime(bytes, name)); }
+  importDocx(
+    bytes: Uint8Array,
+    name: string,
+    context?: QuestionImportContext,
+  ): BankImportResult {
+    return this.importPipeline(ingestDocxQuestions(bytes, name, context));
+  }
+
+  async importDocxForRuntime(
+    bytes: Uint8Array,
+    name: string,
+    context?: QuestionImportContext,
+  ): Promise<BankImportResult> {
+    return this.importPipeline(
+      await ingestDocxQuestionsForRuntime(bytes, name, context),
+    );
+  }
   private importPipeline(pipeline: ReturnType<typeof ingestDocxQuestions>): BankImportResult {
     const before = this.repository.load(); const questions = [...before.questions]; const orphanFigures = [...before.orphanFigures]; const registry = new AssetRegistry(); [...questions.flatMap(q => q.figures), ...orphanFigures].forEach(f => registry.register(f));
     const imported: QuestionObject[] = [], duplicates: DuplicateResult[] = [], diagnostics: ImportDiagnostic[] = []; const relations = before.relations ?? { schemaVersion: 1 as const, relations: [], families: [], duplicateAudit: [] };

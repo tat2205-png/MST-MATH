@@ -26,7 +26,26 @@ export type QuestionType = "MULTIPLE_CHOICE" | "TRUE_FALSE" | "SHORT_ANSWER" | "
 export interface DocumentQuestionCandidate { id: string; questionIndex?: number; questionLabel?: string; section?: string; rawBlocks: DocumentBlock[]; textBlocks: ContentBlock[]; mathBlocks: MathNode[]; figureAnchors: string[]; questionTypeCandidate: QuestionType; sourceLocations: string[]; parseWarnings: string[] }
 export interface QuestionOption { label: string; content: ContentBlock[] }
 export interface TrueFalseItem { label: string; content: ContentBlock[] }
-export interface SourceProvenance { document: string; sourceHash: string; blockIds: string[]; sourceLocations: string[] }
+export interface SourceProvenance {
+  document: string;
+  sourceHash: string;
+  blockIds: string[];
+  sourceLocations: string[];
+
+  /**
+   * Hash of the artifact actually parsed after a non-destructive
+   * preprocessing transformation such as Word SAFE CLEAN.
+   *
+   * sourceHash remains the immutable original-source identity.
+   */
+  processingSha256?: string;
+
+  /**
+   * Ordered, deterministic transformations applied between the immutable
+   * source and the processing artifact.
+   */
+  transformationHistory?: string[];
+}
 export interface FigureAssociation { figureId: string; questionId?: string; status: "CONFIRMED" | "AMBIGUOUS" | "UNASSIGNED"; confidence: 0 | 1; evidence: string[] }
 export type QuestionBankStatus = "REVIEW" | "QUARANTINED" | "APPROVED";
 export interface QuestionObject { schemaVersion?: 1; id: string; source: SourceProvenance; section?: string; index?: number; type: QuestionType; stem: ContentBlock[]; options: QuestionOption[]; trueFalseItems: TrueFalseItem[]; shortAnswer?: ContentBlock[]; answer?: ContentBlock[]; solution?: ContentBlock[]; subquestions: Array<{ label: string; content: ContentBlock[] }>; figures: FigureRecord[]; figureAssociations: FigureAssociation[]; metadata: Record<string, string>; warnings: string[]; validationStatus: "VALID" | "REVIEW_REQUIRED" | "INVALID"; bankStatus?: QuestionBankStatus; duplicateState?: "UNIQUE" | "DUPLICATE" | "POSSIBLE_DUPLICATE"; examQa?: { status: "READY" | "REVIEW_REQUIRED" | "BLOCKED" | "NOT_TESTED"; issueCodes: string[] } }

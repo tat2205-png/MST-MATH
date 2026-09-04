@@ -7,7 +7,11 @@ import { QuestionBankExportService, type ExportAudience, type ExportFormat } fro
 import { JsonQuestionBankRepository } from "../../src/modules/question-bank/repository.js";
 import { QuestionSearchService } from "../../src/modules/question-bank/search.js";
 import type { FigureRecord, QuestionBankRepository, QuestionObject, QuestionSearchQuery } from "../../src/modules/question-bank/types.js";
-import { preflightDocx, type WordPreflightReport } from "../../src/modules/word-preflight/index.js";
+import {
+  safeCleanDocx,
+  type WordPreflightReport,
+  type WordSafeCleanResult,
+} from "../../src/modules/word-preflight/index.js";
 import type {
   AssessmentWorkflowResult,
   ExportWorkflowRequest,
@@ -72,11 +76,77 @@ function wordPreflightDiagnostics(report: WordPreflightReport): ImportDiagnostic
   return diagnostics;
 }
 
-function preflightImportBytes(bytes: Uint8Array, fileName: string): ImportDiagnostic[] {
-  const report = preflightDocx(bytes, path.basename(fileName));
-  const blockers = report.issues.filter((issue) => issue.severity === "ERROR");
-  if (blockers.length) throw new Error(`INVALID_DOCUMENT: Word preflight blocked this file (${blockers.map((issue) => issue.code).join(", ")}).`);
-  return wordPreflightDiagnostics(report);
+function wordSafeCleanDiagnostics(
+  result: WordSafeCleanResult,
+): ImportDiagnostic[] {
+  return [
+    {
+      code: "WORD_SAFE_CLEAN_APPLIED",
+      severity: "INFO",
+      details: {
+        version: result.version,
+        sourceSha256: result.sourceSha256,
+        outputSha256: result.outputSha256,
+        suggestedOutputFileName: result.suggestedOutputFileName,
+        changes: result.changes,
+        protectedFingerprintMatch: result.protectedFingerprintMatch,
+        sourceBytesMutated: result.sourceBytesMutated,
+        safeCleanQa: result.safeCleanQa,
+        afterHealthScore: result.after.healthScore,
+        afterRiskLevel: result.after.riskLevel,
+      },
+    },
+    {
+      code: "WORD_SOURCE_IDENTITY_LOCKED",
+      severity: "INFO",
+      details: {
+        sourceDocument: result.originalFileName,
+        sourceSha256: result.sourceSha256,
+        processingSha256: result.outputSha256,
+        sourceBytesMutated: false,
+      },
+    },
+  ];
+}
+
+function prepareImportBytes(
+  bytes: Uint8Array,
+  fileName: string,
+) {
+  const sourceDocument = path.basename(fileName);
+
+  let cleaned: WordSafeCleanResult;
+
+  try {
+    cleaned = safeCleanDocx(bytes, sourceDocument);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+
+    if (message.startsWith("WORD_PREFLIGHT_BLOCKED")) {
+      throw new Error(`INVALID_DOCUMENT: ${message}`);
+    }
+
+    throw error;
+  }
+
+  const transformationHistory = [
+    `PIMATH_WORD_SAFE_CLEAN:${cleaned.version}:${cleaned.sourceSha256}->${cleaned.outputSha256}`,
+  ];
+
+  return {
+    processingBytes: cleaned.bytes,
+    sourceDocument,
+    context: {
+      sourceDocument,
+      sourceSha256: cleaned.sourceSha256,
+      processingSha256: cleaned.outputSha256,
+      transformationHistory,
+    },
+    diagnostics: [
+      ...wordPreflightDiagnostics(cleaned.before),
+      ...wordSafeCleanDiagnostics(cleaned),
+    ],
+  };
 }
 
 export class TeacherWorkflowService {
@@ -119,19 +189,58 @@ export class TeacherWorkflowService {
   }
 
   importDocx(base64: string, fileName: string): ImportWorkflowResult {
-    if (!fileName.toLocaleLowerCase().endsWith(".docx")) throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
-    const bytes = new Uint8Array(Buffer.from(base64, "base64"));
-    if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
-    const preflightDiagnostics = preflightImportBytes(bytes, fileName);
-    const result = this.bank.importDocx(bytes, path.basename(fileName));
-    return { imported: result.imported.map(questionForClient), diagnostics: [...preflightDiagnostics, ...result.diagnostics], summary: this.summary() };
+    if (!fileName.toLocaleLowerCase().endsWith(".docx")) {
+      throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
+    }
+
+    const sourceBytes = new Uint8Array(Buffer.from(base64, "base64"));
+
+    if (!sourceBytes.length) {
+      throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
+    }
+
+    const prepared = prepareImportBytes(sourceBytes, fileName);
+
+    const result = this.bank.importDocx(
+      prepared.processingBytes,
+      prepared.sourceDocument,
+      prepared.context,
+    );
+
+    return {
+      imported: result.imported.map(questionForClient),
+      diagnostics: [...prepared.diagnostics, ...result.diagnostics],
+      summary: this.summary(),
+    };
   }
 
-  async importDocxForRuntime(base64: string, fileName: string): Promise<ImportWorkflowResult> {
-    if (!fileName.toLocaleLowerCase().endsWith(".docx")) throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
-    const bytes = new Uint8Array(Buffer.from(base64, "base64")); if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
-    const preflightDiagnostics = preflightImportBytes(bytes, fileName);
-    const result = await this.bank.importDocxForRuntime(bytes, path.basename(fileName)); return { imported: result.imported.map(questionForClient), diagnostics: [...preflightDiagnostics, ...result.diagnostics], summary: this.summary() };
+  async importDocxForRuntime(
+    base64: string,
+    fileName: string,
+  ): Promise<ImportWorkflowResult> {
+    if (!fileName.toLocaleLowerCase().endsWith(".docx")) {
+      throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
+    }
+
+    const sourceBytes = new Uint8Array(Buffer.from(base64, "base64"));
+
+    if (!sourceBytes.length) {
+      throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
+    }
+
+    const prepared = prepareImportBytes(sourceBytes, fileName);
+
+    const result = await this.bank.importDocxForRuntime(
+      prepared.processingBytes,
+      prepared.sourceDocument,
+      prepared.context,
+    );
+
+    return {
+      imported: result.imported.map(questionForClient),
+      diagnostics: [...prepared.diagnostics, ...result.diagnostics],
+      summary: this.summary(),
+    };
   }
 
   approve(ids: string[]): WorkflowSummary {
