@@ -36,6 +36,7 @@ import type {
   VideoWorkflowResult,
   WorkflowSummary,
 } from "../../services/teacherWorkflowTypes.js";
+import { deriveTeacherWorkflowState } from "../../services/teacherWorkflowTypes.js";
 
 type BusyTask = "import" | "approve" | "query" | "assessment" | "game" | "video" | "export" | null;
 type Notice = { tone: "error" | "success" | "warning"; title: string; message: string };
@@ -166,6 +167,15 @@ export function TeacherWorkspace({ onOpenStudio }: { onOpenStudio: () => void })
   const [includeSolutions, setIncludeSolutions] = useState(false);
   const [exportResult, setExportResult] = useState<ExportWorkflowResult | null>(null);
 
+  const workflowState = useMemo(() => deriveTeacherWorkflowState({
+    sourceReady: Boolean(file || importResult || (summary && summary.counts.TOTAL > 0)),
+    processing: busy === "import" || busy === "approve" || busy === "query",
+    processingError: notice?.tone === "error",
+    designReady: Boolean(assessment),
+    qa: assessment ? (questions.some((question) => question.examQa?.status === "BLOCKED" || question.validationStatus === "INVALID") ? "FAIL" : "PASS") : undefined,
+    exportReady: Boolean(assessment && summary?.readiness.actions.export.ready),
+  }), [assessment, busy, file, importResult, notice, questions, summary]);
+
   const loadSummary = useCallback(async () => {
     try { setSummary(await api<WorkflowSummary>("/api/teacher-workflow/status")); }
     catch (error) { setNotice({ tone: "error", title: "Không thể tải trạng thái", message: error instanceof Error ? error.message : String(error) }); }
@@ -263,7 +273,10 @@ export function TeacherWorkspace({ onOpenStudio }: { onOpenStudio: () => void })
   };
 
   const runExport = async () => {
-    if (!assessment) return;
+    if (!assessment || workflowState !== "EXPORT_READY") {
+      setNotice({ tone: "error", title: "Chưa thể xuất", message: workflowState === "QA_REQUIRED" ? "QA chưa PASS; cần hoàn tất duyệt và kiểm tra trước khi xuất." : "Quy trình chưa sẵn sàng để xuất." });
+      return;
+    }
     setBusy("export");
     try { const result = await api<ExportWorkflowResult>("/api/teacher-workflow/exports", { assessmentId: assessment.assessment.id, audience: exportAudience, formats: exportFormats, includeAnswers: exportAudience === "TEACHER" && includeAnswers, includeSolutions: exportAudience === "TEACHER" && includeSolutions, filename: "de-kiem-tra" }); setExportResult(result); setArea("export"); }
     catch (error) { setNotice({ tone: "error", title: "Xuất bản thất bại", message: error instanceof Error ? error.message : String(error) }); }
@@ -271,7 +284,11 @@ export function TeacherWorkspace({ onOpenStudio }: { onOpenStudio: () => void })
   };
 
   const toggleSelected = (id: string) => setSelectedIds((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
-  const navigate = (next: TeacherArea) => { setArea(next); setNotice(null); };
+  const navigate = (next: TeacherArea) => {
+    const blocked = (next === "review" && !file && !importResult) || (next === "assessment" && !summary?.counts.APPROVED) || (next === "export" && workflowState !== "EXPORT_READY");
+    if (blocked) { setNotice({ tone: "warning", title: "Chưa thể chuyển bước", message: next === "export" ? "QA phải PASS và phải có đề thiết kế trước khi xuất." : "Hoàn tất bước trước trong quy trình để tiếp tục." }); return; }
+    setArea(next); setNotice(null);
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -315,7 +332,7 @@ export function TeacherWorkspace({ onOpenStudio }: { onOpenStudio: () => void })
 
         {area === "export" && <section className="grid gap-6 lg:grid-cols-[380px_1fr]"><div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"><h1 className="text-xl font-bold">Xuất đề và tài liệu</h1><p className="mt-2 text-sm text-slate-600">Dùng QB-2D. Chế độ học sinh luôn chặn đáp án và lời giải.</p><FormSelect label="Đối tượng" value={exportAudience} onChange={(value) => { setExportAudience(value as ExportAudience); if (value === "STUDENT") { setIncludeAnswers(false); setIncludeSolutions(false); } }} options={[["STUDENT", "Học sinh"], ["TEACHER", "Giáo viên"]]} /><fieldset className="mt-4"><legend className="text-xs font-semibold">Định dạng</legend><div className="mt-2 grid grid-cols-2 gap-2">{(["JSON", "LATEX", "DOCX", "PDF"] as ExportFormat[]).map((format) => <label key={format} className="flex items-center gap-2 rounded-lg border border-slate-200 p-2 text-sm"><input type="checkbox" checked={exportFormats.includes(format)} onChange={() => setExportFormats((current) => current.includes(format) ? current.filter((item) => item !== format) : [...current, format])} />{format}</label>)}</div></fieldset><label className="mt-4 flex items-center gap-2 text-sm"><input type="checkbox" disabled={exportAudience === "STUDENT"} checked={includeAnswers} onChange={(e) => setIncludeAnswers(e.target.checked)} />Kèm đáp án</label><label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" disabled={exportAudience === "STUDENT"} checked={includeSolutions} onChange={(e) => setIncludeSolutions(e.target.checked)} />Kèm lời giải</label>{exportAudience === "STUDENT" && <p className="mt-2 text-xs text-amber-700">Đáp án, lời giải và metadata giáo viên bị khóa trong bản học sinh.</p>}<button disabled={!assessment || !exportFormats.length || busy !== null} onClick={runExport} className="mt-5 w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-40">Tạo artifact thực tế</button></div><div>{!assessment ? <Empty title="Chưa có Assessment để xuất" action="Tạo đề" onAction={() => navigate("assessment")} /> : !exportResult ? <Empty title="Chưa có artifact xuất bản" action="Chọn định dạng và xuất" onAction={runExport} /> : <div className="rounded-xl border border-emerald-200 bg-white p-5 shadow-sm"><StatusBadge status="READY" /><h2 className="mt-2 text-lg font-bold">Artifact đã tạo</h2><p className="mt-1 text-xs text-slate-500">{exportResult.audience} · {exportResult.questionIds.length} Question ID</p><div className="mt-4 space-y-3">{exportResult.artifacts.map((artifact) => <div key={artifact.format} className="rounded-lg border border-slate-200 p-3"><div className="flex items-center justify-between"><strong>{artifact.format}</strong><span className="text-xs text-slate-500">{artifact.bytes} bytes</span></div><p className="mt-1 break-all font-mono text-xs text-slate-500">{artifact.path}</p><span className="mt-2 inline-block text-xs font-semibold text-emerald-700">Đã xác minh tồn tại · SHA-256 {artifact.sha256.slice(0, 12)}…</span></div>)}</div></div>}</div></section>}
       </main>
-      <footer className="border-t border-slate-200 bg-white px-4 py-3 text-center text-xs text-slate-500">Teacher Workflow · Dữ liệu nghiệp vụ đi qua các service authoritative · Chẩn đoán runtime nằm trong Studio chuyên sâu</footer>
+      <footer className="border-t border-slate-200 bg-white px-4 py-3 text-center text-xs text-slate-500">Teacher Workflow · Trạng thái: {workflowState} · Dữ liệu nghiệp vụ đi qua các service authoritative</footer>
     </div>
   );
 }

@@ -5,6 +5,14 @@ import type { GameResult, GameSession, StudentGameQuestion } from "../modules/cl
 import type { RenderJobRequest } from "../types/localRender.js";
 
 export type TeacherWorkflowState =
+  | "SOURCE_READY"
+  | "PROCESSING"
+  | "PROCESS_READY"
+  | "DESIGN_READY"
+  | "QA_REQUIRED"
+  | "QA_PASS"
+  | "EXPORT_READY"
+  | "ERROR"
   | "EMPTY"
   | "IMPORTING"
   | "REVIEW_REQUIRED"
@@ -33,6 +41,26 @@ export interface WorkflowSummary {
   readiness: WorkflowReadiness;
   supportedImports: ["DOCX"];
   supportedExports: ExportFormat[];
+}
+
+export interface TeacherWorkflowStateInput {
+  sourceReady: boolean;
+  processing: boolean;
+  processingError?: boolean;
+  designReady: boolean;
+  qa?: "PASS" | "WARN" | "REVIEW_REQUIRED" | "FAIL";
+  exportReady: boolean;
+}
+
+/** Pure UI projection of authoritative service outcomes. It never infers math truth. */
+export function deriveTeacherWorkflowState(input: TeacherWorkflowStateInput): TeacherWorkflowState {
+  if (input.processingError) return "ERROR";
+  if (!input.sourceReady) return "EMPTY";
+  if (input.processing) return "PROCESSING";
+  if (!input.designReady) return "PROCESS_READY";
+  if (!input.qa || input.qa === "REVIEW_REQUIRED" || input.qa === "WARN") return "QA_REQUIRED";
+  if (input.qa === "FAIL") return "ERROR";
+  return input.exportReady ? "EXPORT_READY" : "QA_PASS";
 }
 
 export interface ImportWorkflowResult {
