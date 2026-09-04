@@ -26,9 +26,13 @@ assert.equal(legacyRootAlias?.aliasOf, "MST-MATH-DNA-V1.0");
 assert.equal(legacyRootAlias?.authority, false);
 
 assert.equal(outputProfiles.parentBrandId, "MST-MATH-DNA-V1.0");
-for (const profile of outputProfiles.profiles) {
-  if ("inheritedFrom" in profile && profile.inheritedFrom) assert.equal(profile.inheritedFrom, "MST-MATH-DNA-V1.0");
+for (const profileId of ["P06_EXAM_SCHOOL", "P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_VSAT", "P06_EXAM_SAT"] as const) {
+  const profile = outputProfiles.profiles.find((entry) => entry.profileId === profileId);
+  assert.equal(profile?.inheritedFrom, "MST-MATH-DNA-V1.0");
 }
+const legacyVideoProfile = outputProfiles.profiles.find((entry) => entry.profileId === "PIMATH_VIDEO_VISUAL_CANONICAL_V2.0");
+assert.equal(legacyVideoProfile?.inheritedFrom, "PIMATH-DNA-V1.0");
+assert.equal(legacyVideoProfile?.resolvedInheritedFrom, "MST-MATH-DNA-V1.0");
 
 const mstRoot = standards.standards.find((entry) => entry.id === "MST-MATH-DNA-V1.0");
 const piRoot = standards.standards.find((entry) => entry.id === "PIMATH-DNA-V1.0");
@@ -66,6 +70,8 @@ assert.doesNotMatch(tex, /% PiMath \/ MST-MATH-DNA-V1\.0/);
 
 console.log("MST_MATH_CANONICAL_ROOT_QA=PASS");
 console.log("MST_MATH_OUTPUT_PROFILE_PARENT_QA=PASS");
+console.log("MST_MATH_ACTIVE_PROFILE_LINEAGE_QA=PASS");
+console.log("PIMATH_LEGACY_VIDEO_LINEAGE_COMPATIBILITY_QA=PASS");
 console.log("MST_MATH_RUNTIME_AUTHORITY_QA=PASS");
 console.log("PIMATH_COMPATIBILITY_ALIAS_NOT_AUTHORITY_QA=PASS");
 console.log("MST_MATH_GENERATED_OUTPUT_IDENTITY_QA=PASS");
