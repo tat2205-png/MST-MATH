@@ -147,9 +147,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.doesNotMatch(q6Text, /ĐÁP|THAM|KHẢO|Câu 1|Được thực hiện bởi AI/iu);
 }
 
-// Corpus-backed structural variant: the footer words can be split across
-// physical Word paragraphs, not only formatting runs. Detection must operate on
-// the document-visible stream and slice from the first physical source block.
 {
   const document = documentFromBlocks("cross-paragraph-reference-answer", [
     paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
@@ -178,6 +175,30 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   const q6Text = candidates[0].textBlocks.map((block) => block.type === "text" ? block.value : "").join(" ");
   assert.match(q6Text, /KQ:/u);
   assert.doesNotMatch(q6Text, /ĐÁP|ÁN|THAM KHẢO|Câu 1|Được thực hiện bởi AI/iu);
+}
+
+// Regression: an earlier non-terminal phrase must not mask a later genuine
+// terminal reference-answer footer. The finder evaluates every marker and
+// selects the latest one that satisfies the terminal evidence gate.
+{
+  const document = documentFromBlocks("multiple-reference-markers", [
+    paragraph(0, "Câu 1. Tính giá trị."),
+    paragraph(1, "Ghi chú ĐÁP ÁN THAM KHẢO tạm thời."),
+    paragraph(2, "Câu 2. Tính giá trị tiếp theo."),
+    paragraph(3, "Câu 6. Xét đồng thời hai điều kiện sau:"),
+    paragraph(4, "Điều kiện thứ nhất.", "1."),
+    paragraph(5, "Điều kiện thứ hai. Tính giá trị của biểu thức P.", "2."),
+    paragraph(6, "KQ: □ □ □ □ ĐÁP ÁN THAM KHẢO"),
+    paragraph(7, "Câu 1. KQ: 0"),
+    paragraph(8, "Câu 2. KQ: 1"),
+    paragraph(9, "Được thực hiện bởi AI"),
+  ]);
+
+  const embedded = findTerminalEmbeddedReferenceAnswerFooter(document);
+  assert.ok(embedded);
+  assert.equal(embedded.blockId, "paragraph-6");
+  assert.deepEqual(embedded.markerNumbersAfterHeading, [1, 2]);
+  assert.ok(embedded.evidence.includes("MULTIPLE_REFERENCE_MARKERS_EVALUATED"));
 }
 
 {
