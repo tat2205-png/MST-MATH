@@ -86,6 +86,15 @@ interface AggregatedTextRun {
   aggregateEnd: number;
 }
 
+interface DocumentMarkerPosition {
+  blockIndex: number;
+  blockId: string;
+  blockOrder: number;
+  contentIndex: number;
+  charOffset: number;
+  markerText: string;
+}
+
 /**
  * Build one document-visible text stream while retaining exact source offsets.
  * Virtual spaces between text runs and physical blocks mirror the visible-text
@@ -116,31 +125,29 @@ function aggregateDocumentTextRuns(blocks: DocumentBlock[]): { value: string; ru
   return { value, runs };
 }
 
-function markerPositionInDocument(blocks: DocumentBlock[]): {
-  blockIndex: number;
-  blockId: string;
-  blockOrder: number;
-  contentIndex: number;
-  charOffset: number;
-  markerText: string;
-} | undefined {
+function markerPositionsInDocument(blocks: DocumentBlock[]): DocumentMarkerPosition[] {
   const aggregate = aggregateDocumentTextRuns(blocks);
-  const match = embeddedReferenceAnswerPattern.exec(aggregate.value);
-  if (!match || match.index === undefined) return undefined;
+  const pattern = new RegExp(embeddedReferenceAnswerPattern.source, "giu");
+  const positions: DocumentMarkerPosition[] = [];
 
-  const run = aggregate.runs.find(
-    (candidate) => match.index >= candidate.aggregateStart && match.index < candidate.aggregateEnd,
-  );
-  if (!run) return undefined;
+  for (const match of aggregate.value.matchAll(pattern)) {
+    if (match.index === undefined) continue;
+    const run = aggregate.runs.find(
+      (candidate) => match.index! >= candidate.aggregateStart && match.index! < candidate.aggregateEnd,
+    );
+    if (!run) continue;
 
-  return {
-    blockIndex: run.blockIndex,
-    blockId: run.blockId,
-    blockOrder: run.blockOrder,
-    contentIndex: run.contentIndex,
-    charOffset: match.index - run.aggregateStart,
-    markerText: match[0],
-  };
+    positions.push({
+      blockIndex: run.blockIndex,
+      blockId: run.blockId,
+      blockOrder: run.blockOrder,
+      contentIndex: run.contentIndex,
+      charOffset: match.index - run.aggregateStart,
+      markerText: match[0],
+    });
+  }
+
+  return positions;
 }
 
 function suffixContentFrom(
@@ -200,32 +207,41 @@ function terminalReferenceAnswerEvidence(
 
 /**
  * Locate a terminal reference-answer footer even when Word splits the heading
- * across several runs and/or physical paragraphs. The returned start location
- * always maps back to the original block/run so downstream segmentation can
- * slice only the logical question prefix without mutating DocumentIR.
+ * across several runs and/or physical paragraphs. Documents may contain an
+ * earlier non-terminal phrase that looks like a reference-answer heading, so we
+ * must evaluate every marker rather than stopping after the first rejected one.
+ * Search from the end of the document toward the beginning and select the first
+ * marker that satisfies the terminal evidence gate.
  */
 export function findTerminalEmbeddedReferenceAnswerFooter(document: DocumentIR): EmbeddedReferenceAnswerFooter | undefined {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
-  const marker = markerPositionInDocument(blocks);
-  if (!marker) return undefined;
+  const markers = markerPositionsInDocument(blocks);
 
-  const terminal = terminalReferenceAnswerEvidence(
-    blocks,
-    marker.blockIndex,
-    marker.contentIndex,
-    marker.charOffset,
-  );
-  if (!terminal.accepted) return undefined;
+  for (let i = markers.length - 1; i >= 0; i -= 1) {
+    const marker = markers[i];
+    const terminal = terminalReferenceAnswerEvidence(
+      blocks,
+      marker.blockIndex,
+      marker.contentIndex,
+      marker.charOffset,
+    );
+    if (!terminal.accepted) continue;
 
-  return {
-    blockId: marker.blockId,
-    blockOrder: marker.blockOrder,
-    contentIndex: marker.contentIndex,
-    charOffset: marker.charOffset,
-    markerText: marker.markerText,
-    markerNumbersAfterHeading: terminal.markerNumbers,
-    evidence: terminal.evidence,
-  };
+    return {
+      blockId: marker.blockId,
+      blockOrder: marker.blockOrder,
+      contentIndex: marker.contentIndex,
+      charOffset: marker.charOffset,
+      markerText: marker.markerText,
+      markerNumbersAfterHeading: terminal.markerNumbers,
+      evidence: [
+        ...terminal.evidence,
+        ...(markers.length > 1 ? ["MULTIPLE_REFERENCE_MARKERS_EVALUATED"] : []),
+      ],
+    };
+  }
+
+  return undefined;
 }
 
 /** Detect document-level answer/solution appendices conservatively. */
