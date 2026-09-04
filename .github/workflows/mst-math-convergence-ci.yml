@@ -56,8 +56,10 @@ jobs:
       - name: Regression
         run: npm run qa:regression
 
-      - name: Canonical brand and semantic-icon contract
-        run: node --import tsx tests/test-na-math-brand-01.ts
+      - name: Canonical brand, semantic-icon, and standard-family authority contracts
+        run: |
+          node --import tsx tests/test-na-math-brand-01.ts
+          node --import tsx tests/test-mst-math-standard-authority-unification-v1.ts
 
       - name: P0 runtime truth contract
         run: node --import tsx tests/test-mst-math-p0-runtime-truth-v1.ts
