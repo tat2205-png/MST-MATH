@@ -4,7 +4,11 @@ import re
 
 from manim import MathTex, Tex, Text
 
-from manim_toolkit.math_notation import DEFAULT_NOTATION_PROFILE, canonicalize_math_expression
+from manim_toolkit.math_notation import (
+    DEFAULT_NOTATION_PROFILE,
+    canonicalize_math_expression,
+    prepare_math_notation,
+)
 
 
 def normalize_latex(raw: str) -> str:
@@ -45,13 +49,16 @@ def safe_tex(
     notation_profile_id: str = DEFAULT_NOTATION_PROFILE,
 ):
     latex = validate_latex_string(value)
-    math_like = bool(re.search(r"\\(?:frac|sqrt|sum|int|prod|lim)\b|[_^=]", latex))
+    prepared = prepare_math_notation(
+        latex,
+        profile_id=notation_profile_id,
+        output="VIDEO",
+    )
+    math_like = bool(prepared["semanticTokens"]) or bool(
+        re.search(r"\\(?:frac|sqrt|sum|int|prod|lim)\b|[_^=]", latex)
+    )
     if math_like:
-        latex = canonicalize_math_expression(
-            latex,
-            profile_id=notation_profile_id,
-            output="VIDEO",
-        )
+        latex = prepared["canonicalLatex"]
     expression = f"${latex}$" if math_like else latex
     return Tex(expression, font_size=font_size, color=color)
 
