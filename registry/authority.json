@@ -11,8 +11,12 @@
     "MODULE_TASK"
   ],
   "masterSources": [
-    "docs/project/PROJECT_MASTER_MAP.md",
+    "docs/project/MST_MATH_PROJECT_MASTER_MAP.md",
     "project-state/MST-MATH-PROJECT-STATE.json"
+  ],
+  "historicalSources": [
+    "docs/project/PROJECT_MASTER_MAP.md",
+    "project-state/PIMATH-PROJECT-STATE.json"
   ],
   "rules": [
     "A lower authority may not override a higher authority.",
