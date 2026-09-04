@@ -1,0 +1,3 @@
+{
+  "schema_version":"MST-MATH-PROJECT-STATE-V1","product":"MST-MATH","implementation":"Math AI Studio","canonical_root":"MST-MATH-DNA-V1.0","canonical_migration":"MST_MATH_CANONICAL_ID_MIGRATION_V1","legacy_state_source":"project-state/PIMATH-PROJECT-STATE.json","legacy_state_classification":"HISTORICAL_COMPATIBILITY_SOURCE","rule":"New state updates must use MST-MATH naming and must not create new PIMATH-prefixed authorities."
+}
