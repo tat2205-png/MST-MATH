@@ -9,7 +9,7 @@ const typography = resolveRendererTypography("math");
 assert.equal(typography.value, "Libertinus Math");
 assert.equal(typography.provenance, "CANONICAL_BINDING");
 const adapter = resolveRendererAdapterValue("#D9911B", "manim");
-assert.equal(adapter.upstream, "PIMATH-DNA-V1.0");
+assert.equal(adapter.upstream, "MST-MATH-DNA-V1.0");
 assert.equal(adapter.provenance, "ADAPTER_BOUNDARY");
 console.log("RENDERER_PROVENANCE_RESOLVED=PASS");
 console.log("COLOR_AUTHORITY_PROVENANCE=PASS");
