@@ -1,4 +1,5 @@
 import { validateMathIR, type MathDocument, type MathExpression, type MathMetadata } from "../../math-ir/index.js";
+import { DEFAULT_MST_MATH_NOTATION_PROFILE, prepareMstMathNotation } from "../../math-notation/authority.js";
 import type { DocumentConversionReport, DocumentEngineIssue, LatexSerializationResult } from "../types.js";
 import { resolvePdfLatexAuthority } from "../../../config/naMathBrandRoot.js";
 
@@ -11,8 +12,27 @@ function escapeText(value: string): string {
 
 function escapePath(value: string): string { return value.replace(/\\/g, "/").replace(/[{}%#]/g, (char) => `\\${char}`); }
 
-function expressionLatex(expression: MathExpression | undefined, issues: DocumentEngineIssue[], path: string): string {
-  if (expression?.latex) return expression.latex;
+function expressionLatex(
+  expression: MathExpression | undefined,
+  issues: DocumentEngineIssue[],
+  path: string,
+  notationProfileId: string,
+): string {
+  if (expression?.latex) {
+    const prepared = prepareMstMathNotation(expression.latex, { profileId: notationProfileId, output: "PDF" });
+    if (prepared.status === "FAIL" || !prepared.canonicalLatex) {
+      for (const issue of prepared.issues) {
+        issues.push({
+          code: issue.code,
+          severity: "error",
+          path,
+          message: `Math notation validation failed for ${expression.id}: ${issue.message}`,
+        });
+      }
+      return expression.latex;
+    }
+    return prepared.canonicalLatex;
+  }
   issues.push({ code: "UNSUPPORTED_EXPRESSION_SERIALIZATION", severity: "warning", path, message: "Expression has no deterministic LaTeX representation." });
   return `\\text{[unsupported expression: ${escapeText(expression?.raw ?? "unknown")}]}`;
 }
@@ -23,13 +43,31 @@ function fragmentsFrom(metadata: MathMetadata | undefined): Fragment[] | undefin
   return fragments.filter((item): item is Fragment => typeof item === "object" && item !== null && ["text", "math"].includes(String((item as Fragment).type)));
 }
 
-function renderMixed(text: string, expressionIds: string[] | undefined, metadata: MathMetadata | undefined, expressions: Map<string, MathExpression>, issues: DocumentEngineIssue[], path: string): string {
+function renderMixed(
+  text: string,
+  expressionIds: string[] | undefined,
+  metadata: MathMetadata | undefined,
+  expressions: Map<string, MathExpression>,
+  issues: DocumentEngineIssue[],
+  path: string,
+  notationProfileId: string,
+): string {
   const fragments = fragmentsFrom(metadata);
-  if (fragments) return fragments.map((fragment) => fragment.type === "text" ? escapeText(fragment.text ?? "") : `$${expressionLatex(expressions.get(fragment.expressionId ?? ""), issues, path)}$`).join("");
-  return `${escapeText(text)}${(expressionIds ?? []).map((id) => ` $${expressionLatex(expressions.get(id), issues, path)}$`).join("")}`;
+  if (fragments) {
+    return fragments.map((fragment) => fragment.type === "text"
+      ? escapeText(fragment.text ?? "")
+      : `$${expressionLatex(expressions.get(fragment.expressionId ?? ""), issues, path, notationProfileId)}$`).join("");
+  }
+  return `${escapeText(text)}${(expressionIds ?? []).map((id) => ` $${expressionLatex(expressions.get(id), issues, path, notationProfileId)}$`).join("")}`;
 }
 
-function tableLatex(metadata: MathMetadata | undefined, expressions: Map<string, MathExpression>, issues: DocumentEngineIssue[], path: string): string {
+function tableLatex(
+  metadata: MathMetadata | undefined,
+  expressions: Map<string, MathExpression>,
+  issues: DocumentEngineIssue[],
+  path: string,
+  notationProfileId: string,
+): string {
   const rows = metadata?.adapterMetadata?.rows;
   if (!Array.isArray(rows) || !rows.every(Array.isArray)) {
     issues.push({ code: "LATEX_SERIALIZATION_FAILURE", severity: "error", path, message: "Table data is missing or malformed." });
@@ -41,14 +79,26 @@ function tableLatex(metadata: MathMetadata | undefined, expressions: Map<string,
     return cell.map((paragraph: unknown) => {
       if (typeof paragraph !== "object" || paragraph === null) return "";
       const record = paragraph as { text?: string; fragments?: Fragment[] };
-      return renderMixed(record.text ?? "", undefined, { adapterMetadata: { fragments: record.fragments ?? [] } }, expressions, issues, path);
+      return renderMixed(
+        record.text ?? "",
+        undefined,
+        { adapterMetadata: { fragments: record.fragments ?? [] } },
+        expressions,
+        issues,
+        path,
+        notationProfileId,
+      );
     }).join(" ");
   }).concat(Array(Math.max(0, width - row.length)).fill("")).join(" & ")).join(" \\\\ \n");
   return `\\begin{center}\n\\begin{tabular}{|${"c|".repeat(width)}}\n\\hline\n${rendered} \\\\ \n\\hline\n\\end{tabular}\n\\end{center}`;
 }
 
-export function mathIRToLatex(document: MathDocument, options: { profileId?: string } = {}): LatexSerializationResult {
+export function mathIRToLatex(
+  document: MathDocument,
+  options: { profileId?: string; notationProfileId?: string } = {},
+): LatexSerializationResult {
   const authority = resolvePdfLatexAuthority(options.profileId);
+  const notationProfileId = options.notationProfileId ?? DEFAULT_MST_MATH_NOTATION_PROFILE;
   const issues: DocumentEngineIssue[] = [];
   const validation = validateMathIR(document);
   if (validation.status === "FAIL") {
@@ -64,16 +114,18 @@ export function mathIRToLatex(document: MathDocument, options: { profileId?: str
     const path = `section:${section.id}/block:${block.id}`;
     if (block.type !== "list_item") closeList();
     switch (block.type) {
-      case "paragraph": body.push(`${renderMixed(block.text, block.expressionIds, block.metadata, expressions, issues, path)}\n`); break;
+      case "paragraph": body.push(`${renderMixed(block.text, block.expressionIds, block.metadata, expressions, issues, path, notationProfileId)}\n`); break;
       case "heading": {
         const command = block.level <= 1 ? "section" : block.level === 2 ? "subsection" : "subsubsection";
-        body.push(`\\${command}{${renderMixed(block.text, block.expressionIds, block.metadata, expressions, issues, path)}}`); break;
+        body.push(`\\${command}{${renderMixed(block.text, block.expressionIds, block.metadata, expressions, issues, path, notationProfileId)}}`); break;
       }
-      case "equation": body.push(block.display ? `\\[\n${expressionLatex(expressions.get(block.expressionId), issues, path)}\n\\]` : `$${expressionLatex(expressions.get(block.expressionId), issues, path)}$`); break;
+      case "equation": body.push(block.display
+        ? `\\[\n${expressionLatex(expressions.get(block.expressionId), issues, path, notationProfileId)}\n\\]`
+        : `$${expressionLatex(expressions.get(block.expressionId), issues, path, notationProfileId)}$`); break;
       case "list_item": {
         const environment = block.ordered ? "enumerate" : "itemize";
         if (openList !== environment) { closeList(); openList = environment; body.push(`\\begin{${environment}}`); }
-        body.push(`\\item ${renderMixed(block.text, block.expressionIds, block.metadata, expressions, issues, path)}`); break;
+        body.push(`\\item ${renderMixed(block.text, block.expressionIds, block.metadata, expressions, issues, path, notationProfileId)}`); break;
       }
       case "page_break": body.push("\\newpage"); break;
       case "image_reference": {
@@ -82,12 +134,13 @@ export function mathIRToLatex(document: MathDocument, options: { profileId?: str
         else body.push(`\\begin{center}\n\\includegraphics[width=0.9\\linewidth]{${escapePath(asset.uri)}}\n\\end{center}`);
         break;
       }
-      case "table_reference": body.push(tableLatex(assets.get(block.tableId)?.metadata, expressions, issues, path)); break;
+      case "table_reference": body.push(tableLatex(assets.get(block.tableId)?.metadata, expressions, issues, path, notationProfileId)); break;
       case "problem_reference": body.push(`\\textit{[Problem reference: ${escapeText(block.problemId)}]}`); break;
     }
   }
   closeList();
   body.unshift(`% PiMath / ${authority.brand.standardId} / ${authority.profile.profileId}`);
+  body.unshift(`% Math notation: PIMATH-DNA-MATH-NOTATION-V1.0 / profile ${notationProfileId}`);
   body.unshift(`% Canonical references: ${authority.layout}, ${authority.typography}, ${authority.color}`);
   const latex = `\\documentclass[12pt,a4paper]{article}\n\n\\usepackage[utf8]{inputenc}\n\\usepackage[T5]{fontenc}\n\\usepackage[vietnamese]{babel}\n\\usepackage{amsmath,amssymb}\n\\usepackage{graphicx}\n\\usepackage{array}\n\n\\title{${escapeText(document.title ?? "Math AI Studio Document")}}\n\n\\begin{document}\n\\maketitle\n\n${body.join("\n\n")}\n\n\\end{document}\n`;
   const status = issues.some((issue) => issue.severity === "error") ? "FAIL" : issues.length ? "PARTIAL" : "PASS";
