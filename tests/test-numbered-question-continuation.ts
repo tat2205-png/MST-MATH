@@ -98,7 +98,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
 }
 
-// Valid question prefix and reference-answer heading share one physical block.
 {
   const document = documentFromBlocks("embedded-reference-answer-footer", [
     paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
@@ -119,15 +118,17 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.doesNotMatch(q6Text, /ĐÁP ÁN THAM KHẢO|Được thực hiện bởi AI/iu);
 }
 
-// Corpus-like pattern: formatting splits the heading across Word runs, and the
-// terminal answer region contains Câu 1..6 entries. Those markers support the
-// answer-region classification when they restart from 1; they are not questions.
+// Corpus-like pattern: formatting splits the heading across Word runs with no
+// literal spaces in the run payloads. The semantic visible-text layer must
+// insert virtual separation exactly as review rendering does, then map the
+// detected marker back to the original run for lossless slicing. Câu 1..6 below
+// the heading are answer entries because numbering restarts at 1.
 {
   const document = documentFromBlocks("split-run-reference-answer-entries", [
     paragraph(0, "Câu 6. Xét đồng thời hai điều kiện sau:"),
     paragraph(1, "Điều kiện thứ nhất.", "1."),
     paragraph(2, "Điều kiện thứ hai. Tính giá trị của biểu thức P.", "2."),
-    paragraphRuns(3, ["KQ: □ □ □ □ ", "ĐÁP ", "ÁN ", "THAM ", "KHẢO"]),
+    paragraphRuns(3, ["KQ: □ □ □ □", "ĐÁP", "ÁN", "THAM", "KHẢO"]),
     paragraph(4, "Câu 1. KQ: 0"),
     paragraph(5, "Câu 2. KQ: 1"),
     paragraph(6, "Câu 3. KQ: 2"),
@@ -140,6 +141,8 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   const embedded = findTerminalEmbeddedReferenceAnswerFooter(document);
   assert.ok(embedded);
   assert.equal(embedded.blockId, "paragraph-3");
+  assert.equal(embedded.contentIndex, 1);
+  assert.equal(embedded.charOffset, 0);
   assert.deepEqual(embedded.markerNumbersAfterHeading, [1, 2, 3, 4, 5, 6]);
   assert.ok(embedded.evidence.includes("ANSWER_ENTRIES_RESTART_AT_ONE"));
 
@@ -151,8 +154,6 @@ const documentFromBlocks = (name: string, blocks: DocumentBlock[]): DocumentIR =
   assert.doesNotMatch(q6Text, /ĐÁP|THAM|KHẢO|Câu 1|Được thực hiện bởi AI/iu);
 }
 
-// Fail closed if a reference-answer-looking phrase is followed by normal flow
-// whose explicit numbering does not restart from 1.
 {
   const document = documentFromBlocks("reference-answer-mid-flow", [
     paragraph(0, "Câu 1. Tính giá trị."),
