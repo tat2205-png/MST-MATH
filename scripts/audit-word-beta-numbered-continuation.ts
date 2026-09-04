@@ -11,18 +11,23 @@ import {
 
 const CORPUS_ROOT = process.env.PIMATH_WORD_REAL_CORPUS ?? join(homedir(), "PiMath-Acceptance", "word-real");
 const SOURCE = "NK TEST APP.docx";
+const EXPECTED_SOURCE_HASH = "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9";
+const EXPECTED_CANDIDATE_COUNT = 40;
 const OUT = "docs/evidence/word-beta-human-acceptance-round-2/R2-36-numbered-continuation-audit.json";
 
 const bytes = new Uint8Array(readFileSync(join(CORPUS_ROOT, SOURCE)));
 const document = ingestDocx({ name: SOURCE, bytes }).document;
 if (!document) throw new Error("DOCUMENT_IR_NOT_CREATED:NK_TEST_APP");
 
+const sourceHashQA = document.sourceHash === EXPECTED_SOURCE_HASH ? "PASS" : "FAIL";
 const appendixRegions = findAnswerSolutionAppendixRegions(document);
 const referenceAnswerRegions = appendixRegions.filter((region) => region.evidence.includes("REFERENCE_ANSWER_HEADING"));
 const embeddedReferenceAnswerFooter = findTerminalEmbeddedReferenceAnswerFooter(document);
 const candidates = segmentQuestions(document);
 const questions = segmentCanonicalQuestions(document);
 if (candidates.length !== questions.length) throw new Error(`SEGMENTATION_QIR_LENGTH_MISMATCH:${candidates.length}:${questions.length}`);
+
+const candidateCountQA = candidates.length === EXPECTED_CANDIDATE_COUNT ? "PASS" : "FAIL";
 
 const textOf = (candidate: (typeof candidates)[number]) => candidate.textBlocks
   .map((block) => block.type === "text" ? block.value : block.type === "math" ? `[MATH:${block.math.id ?? ""}]` : block.type === "figure" ? `[FIGURE:${block.figureId}]` : "")
@@ -47,6 +52,12 @@ const paragraph102Owned = q6SourceObjectIds.includes("paragraph-102");
 const referenceAnswerContamination = /ĐÁP\s*ÁN\s+THAM\s+KHẢO/iu.test(q6Text);
 const aiFooterContamination = /Được\s+thực\s+hiện\s+bởi\s+AI/iu.test(q6Text);
 const referenceAnswerRegionFound = referenceAnswerRegions.length >= 1 || Boolean(embeddedReferenceAnswerFooter);
+const answerEntryRestartQA = !embeddedReferenceAnswerFooter ||
+  embeddedReferenceAnswerFooter.markerNumbersAfterHeading.length === 0 ||
+  embeddedReferenceAnswerFooter.markerNumbersAfterHeading[0] === 1
+  ? "PASS"
+  : "FAIL";
+
 const isolatedContinuationCandidates = candidates
   .map((candidate, index) => ({
     ordinal: index + 1,
@@ -58,6 +69,8 @@ const isolatedContinuationCandidates = candidates
   .filter((row) => !q6 || row.ordinal !== q6.index + 1);
 
 const continuationOwnershipQA = Boolean(
+  sourceHashQA === "PASS" &&
+  candidateCountQA === "PASS" &&
   q6 &&
   condition1Present &&
   condition2Present &&
@@ -66,15 +79,20 @@ const continuationOwnershipQA = Boolean(
   paragraph102Owned &&
   isolatedContinuationCandidates.length === 0 &&
   referenceAnswerRegionFound &&
+  answerEntryRestartQA === "PASS" &&
   !referenceAnswerContamination &&
   !aiFooterContamination
 ) ? "PASS" : "FAIL";
 
 const evidence = {
-  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V3",
+  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V4",
   sourceDocument: SOURCE,
   sourceHash: document.sourceHash,
+  expectedSourceHash: EXPECTED_SOURCE_HASH,
+  sourceHashQA,
   totalCandidates: candidates.length,
+  expectedCandidateCount: EXPECTED_CANDIDATE_COUNT,
+  candidateCountQA,
   q6CandidateOrdinal: q6 ? q6.index + 1 : null,
   q6QuestionIrId: q6?.question.id ?? null,
   q6SourceObjectIds,
@@ -88,6 +106,7 @@ const evidence = {
   referenceAnswerRegionFound,
   referenceAnswerRegions,
   embeddedReferenceAnswerFooter: embeddedReferenceAnswerFooter ?? null,
+  answerEntryRestartQA,
   referenceAnswerContamination,
   aiFooterContamination,
   isolatedContinuationCandidateCount: isolatedContinuationCandidates.length,
@@ -100,7 +119,11 @@ const evidence = {
 
 writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
 console.log(JSON.stringify({
+  sourceHash: evidence.sourceHash,
+  sourceHashQA: evidence.sourceHashQA,
   totalCandidates: evidence.totalCandidates,
+  expectedCandidateCount: evidence.expectedCandidateCount,
+  candidateCountQA: evidence.candidateCountQA,
   q6CandidateOrdinal: evidence.q6CandidateOrdinal,
   q6QuestionIrId: evidence.q6QuestionIrId,
   q6SourceObjectIds: evidence.q6SourceObjectIds,
@@ -112,6 +135,7 @@ console.log(JSON.stringify({
   paragraph102Owned: evidence.paragraph102Owned,
   referenceAnswerRegionFound: evidence.referenceAnswerRegionFound,
   embeddedReferenceAnswerFooter: evidence.embeddedReferenceAnswerFooter,
+  answerEntryRestartQA: evidence.answerEntryRestartQA,
   referenceAnswerContamination: evidence.referenceAnswerContamination,
   aiFooterContamination: evidence.aiFooterContamination,
   isolatedContinuationCandidateCount: evidence.isolatedContinuationCandidateCount,
