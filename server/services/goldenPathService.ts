@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve as resolvePath } from "node:path";
 import { evaluateMathGate, MathGateResult } from "./mathVerificationGate.js";
 import { NA_MATH_VIDEO_PROFILE } from "../../src/config/naMathStandardV26.js";
-import { resolveConsumerProfile, resolveIcon } from "../../src/config/naMathBrandRoot.js";
+import { resolveConsumerProfile, resolveIcon } from "../../src/config/mstMathBrandRoot.js";
 
 export type GoldenStageStatus = "PASS" | "BLOCKED" | "PENDING" | "FAILED";
 
@@ -279,7 +279,7 @@ MUTED = "#66717D"
 LINE = "#D8E0E6"
 
 def semantic_icon(role, color=BRAND_NAVY):
-    path = "/tmp/pimath_icon_" + role + ".svg"
+    path = "/tmp/mst_math_icon_" + role + ".svg"
     with open(path, "w", encoding="utf-8") as handle:
         handle.write(ICON_SVG[role].replace("currentColor", color))
     return SVGMobject(path).scale(0.12)
@@ -341,7 +341,7 @@ class GoldenLinearSystem(Scene):
     quality: "preview",
     action: "render",
     files: [{ path: "main.py", content: code }],
-    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], iconAuthority: "PIMATH-DNA-SEMANTIC-ICONS-V1.0", iconRoles, resolution: "1080p", fps: 30 } },
+    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], iconAuthority: "MST-MATH-DNA-SEMANTIC-ICONS-V1.1", iconRoles, resolution: "1080p", fps: 30 } },
     videoSpec: { video_title: "Golden Path: Hệ phương trình", total_duration_seconds: 28, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenePlan.scenes.map((scene) => ({ scene_id: scene.id, scene_index: scene.index, title: scene.title, learning_goal: scene.title, math_content: { latex: scene.math, explanation: scene.visualAction }, visual_objects: [scene.visualAction], animations: [{ type: "Write" as const, target: scene.visualAction, duration: 2 }], narration: { text_vi: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.text || "", voice_tone: "step_by_step" as const, duration_hint_seconds: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.durationSeconds || 2 } })), manim_python_code: code },
     outputFormat: "mp4",
     resolution: "1080p",
