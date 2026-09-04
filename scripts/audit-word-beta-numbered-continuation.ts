@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
 import { segmentQuestions } from "../src/modules/question-bank/segmentation.js";
 import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
+import { findAnswerSolutionAppendixRegions } from "../src/modules/question-bank/source-region-classification.js";
 
 const CORPUS_ROOT = process.env.PIMATH_WORD_REAL_CORPUS ?? join(homedir(), "PiMath-Acceptance", "word-real");
 const SOURCE = "NK TEST APP.docx";
@@ -13,6 +14,8 @@ const bytes = new Uint8Array(readFileSync(join(CORPUS_ROOT, SOURCE)));
 const document = ingestDocx({ name: SOURCE, bytes }).document;
 if (!document) throw new Error("DOCUMENT_IR_NOT_CREATED:NK_TEST_APP");
 
+const appendixRegions = findAnswerSolutionAppendixRegions(document);
+const referenceAnswerRegions = appendixRegions.filter((region) => region.evidence.includes("REFERENCE_ANSWER_HEADING"));
 const candidates = segmentQuestions(document);
 const questions = segmentCanonicalQuestions(document);
 if (candidates.length !== questions.length) throw new Error(`SEGMENTATION_QIR_LENGTH_MISMATCH:${candidates.length}:${questions.length}`);
@@ -37,6 +40,9 @@ const condition2Present = /bằng\s+tổng\s+của\s+cả\s+ba\s+số/iu.test(q6
 const finalRequestPresent = /Tính\s+giá\s+trị\s+của\s+biểu\s+thức/iu.test(q6Text);
 const paragraph101Owned = q6SourceObjectIds.includes("paragraph-101");
 const paragraph102Owned = q6SourceObjectIds.includes("paragraph-102");
+const referenceAnswerContamination = /ĐÁP\s*ÁN\s+THAM\s+KHẢO/iu.test(q6Text);
+const aiFooterContamination = /Được\s+thực\s+hiện\s+bởi\s+AI/iu.test(q6Text);
+const referenceAnswerRegionFound = referenceAnswerRegions.length >= 1;
 const isolatedContinuationCandidates = candidates
   .map((candidate, index) => ({
     ordinal: index + 1,
@@ -54,11 +60,14 @@ const continuationOwnershipQA = Boolean(
   finalRequestPresent &&
   paragraph101Owned &&
   paragraph102Owned &&
-  isolatedContinuationCandidates.length === 0
+  isolatedContinuationCandidates.length === 0 &&
+  referenceAnswerRegionFound &&
+  !referenceAnswerContamination &&
+  !aiFooterContamination
 ) ? "PASS" : "FAIL";
 
 const evidence = {
-  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V1",
+  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V2",
   sourceDocument: SOURCE,
   sourceHash: document.sourceHash,
   totalCandidates: candidates.length,
@@ -72,10 +81,16 @@ const evidence = {
   finalRequestPresent,
   paragraph101Owned,
   paragraph102Owned,
+  referenceAnswerRegionFound,
+  referenceAnswerRegions,
+  referenceAnswerContamination,
+  aiFooterContamination,
   isolatedContinuationCandidateCount: isolatedContinuationCandidates.length,
   isolatedContinuationCandidates,
   continuationOwnershipQA,
-  diagnosis: continuationOwnershipQA === "PASS" ? "QUESTION_SOURCE_SLICE_CONTINUATION_REMEDIATED" : "QUESTION_SOURCE_SLICE_CONTINUATION_STILL_BROKEN",
+  diagnosis: continuationOwnershipQA === "PASS"
+    ? "QUESTION_SOURCE_SLICE_CONTINUATION_REMEDIATED_WITH_REFERENCE_ANSWER_ISOLATED"
+    : "QUESTION_SOURCE_SLICE_CONTINUATION_STILL_BROKEN",
 };
 
 writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
@@ -90,6 +105,9 @@ console.log(JSON.stringify({
   finalRequestPresent: evidence.finalRequestPresent,
   paragraph101Owned: evidence.paragraph101Owned,
   paragraph102Owned: evidence.paragraph102Owned,
+  referenceAnswerRegionFound: evidence.referenceAnswerRegionFound,
+  referenceAnswerContamination: evidence.referenceAnswerContamination,
+  aiFooterContamination: evidence.aiFooterContamination,
   isolatedContinuationCandidateCount: evidence.isolatedContinuationCandidateCount,
   continuationOwnershipQA: evidence.continuationOwnershipQA,
   diagnosis: evidence.diagnosis,
