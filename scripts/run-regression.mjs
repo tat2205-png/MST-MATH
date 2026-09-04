@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import process from "node:process";
 
 const suites = [
+  "tests/test-mst-math-canonical-migration.ts",
   "tests/test-mv2-constraint-orchestration.ts",
   "tests/test-mv2-dev-inspector.ts",
   "tests/test-math-ir-dynamic-semantics-v1.ts",
