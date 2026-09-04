@@ -14,6 +14,7 @@ npm run lint
 echo ""
 echo "===== 2. FOCUSED CONTINUATION + FOOTER REGRESSION ====="
 node --import tsx tests/test-numbered-question-continuation.ts
+node --import tsx tests/test-reference-answer-subsections.ts
 
 echo ""
 echo "===== 3. REAL R2-36 SOURCE AUDIT ====="
