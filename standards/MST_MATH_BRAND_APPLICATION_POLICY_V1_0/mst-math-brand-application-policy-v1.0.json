@@ -20,12 +20,12 @@
     "primary": "MST-MATH",
     "secondaryDescriptor": "Math AI Studio",
     "version": "TERTIARY_METADATA",
-    "rule": "MST-MATH must remain visually primary wherever the product brand is displayed."
+    "rule": "This hierarchy applies to product UI/chrome only. Learning artifacts do not display promotional brand identity."
   },
   "typographyBinding": {
     "noIndependentBrandFont": true,
     "appUiBrandText": "Source Sans 3 Semibold/Bold via MST-MATH UI typography authority",
-    "documentBrandText": "XCharter or STIX Two Text via approved document heading/header role",
+    "artifactBrandText": "NOT_DISPLAYED_BY_DEFAULT",
     "mathInBrandLockup": "NOT_APPLICABLE_UNLESS_HUMAN_APPROVED_GRAPHIC_MARK"
   },
   "colorBinding": {
@@ -43,29 +43,37 @@
       "pseudoLogo": "FORBIDDEN",
       "largeDecorativeLogo": "FORBIDDEN_UNTIL_APPROVED"
     },
-    "document": {
-      "brandPlacement": "PROFILE_CONTROLLED_HEADER_OR_FOOTER",
-      "watermarkDefault": false,
-      "formalExamBranding": "MINIMAL",
-      "contentObscuringBrandMark": false
+    "learningArtifacts": {
+      "authority": "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0",
+      "showMstMathBrand": false,
+      "showProductDescriptor": false,
+      "showLogo": false,
+      "showWatermark": false,
+      "showPromotionalHeaderFooter": false,
+      "showMarketingTagline": false,
+      "visibleIdentity": "LEARNING_CONTENT_TITLE_AND_RELEVANT_SEMANTIC_ICON_ONLY"
     },
     "video": {
-      "brandPlacement": "SAFE_ZONE_ONLY",
-      "persistentLargeWatermark": false,
-      "mathOrFigureObstruction": false
+      "authority": "MST_MATH_OUTPUT_CONTENT_PRESENTATION_POLICY_V1.0",
+      "showMstMathBrand": false,
+      "showProductDescriptor": false,
+      "showLogo": false,
+      "showWatermark": false,
+      "showPromotionalIntroOutro": false,
+      "showMarketingTagline": false
     },
     "game": {
-      "brandPlacement": "LOBBY_ROUND_INTRO_OR_SMALL_SAFE_CHROME",
+      "brandPlacement": "PRODUCT_UI_ONLY_UNLESS_OUTPUT_POLICY_EXPLICITLY_ALLOWS",
       "persistentLargeLogo": false,
       "questionObstruction": false
     },
     "geogebraFold": {
-      "brandPlacement": "UI_CHROME_ONLY",
+      "brandPlacement": "PRODUCT_UI_CHROME_ONLY",
       "geometryCanvasObstruction": false
     }
   },
   "clearSpace": {
-    "textBrandMinimum": "1x current cap-height around primary brand text where practical",
+    "textBrandMinimum": "1x current cap-height around primary brand text where product UI displays the brand",
     "rule": "Brand label may not collide with controls, math, figures, question text or page trim."
   },
   "governance": {
@@ -74,13 +82,14 @@
     "emojiOrMathGlyphLogoFallback": false,
     "brandTextMayBeLocalized": false,
     "descriptorMayBeLocalized": false,
-    "graphicLogoRequiresHumanApproval": true
+    "graphicLogoRequiresHumanApproval": true,
+    "learningArtifactRendererMayAddBranding": false
   },
   "qa": [
-    "PRIMARY_BRAND_NAME_IS_MST_MATH",
+    "PRIMARY_BRAND_NAME_IS_MST_MATH_IN_PRODUCT_UI",
     "NO_PSEUDO_LOGO_PASS",
     "NO_LOCAL_BRAND_PALETTE_PASS",
-    "BRAND_DOES_NOT_OBSCURE_MATH_PASS",
-    "FORMAL_EXAM_BRANDING_MINIMAL_PASS"
+    "NO_PROMOTIONAL_BRANDING_IN_LEARNING_ARTIFACTS_PASS",
+    "NO_PROMOTIONAL_BRANDING_IN_VIDEO_PASS"
   ]
 }
