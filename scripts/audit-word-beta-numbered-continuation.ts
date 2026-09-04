@@ -1,0 +1,99 @@
+import { readFileSync, writeFileSync } from "node:fs";
+import { homedir } from "node:os";
+import { join } from "node:path";
+import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
+import { segmentQuestions } from "../src/modules/question-bank/segmentation.js";
+import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
+
+const CORPUS_ROOT = process.env.PIMATH_WORD_REAL_CORPUS ?? join(homedir(), "PiMath-Acceptance", "word-real");
+const SOURCE = "NK TEST APP.docx";
+const OUT = "docs/evidence/word-beta-human-acceptance-round-2/R2-36-numbered-continuation-audit.json";
+
+const bytes = new Uint8Array(readFileSync(join(CORPUS_ROOT, SOURCE)));
+const document = ingestDocx({ name: SOURCE, bytes }).document;
+if (!document) throw new Error("DOCUMENT_IR_NOT_CREATED:NK_TEST_APP");
+
+const candidates = segmentQuestions(document);
+const questions = segmentCanonicalQuestions(document);
+if (candidates.length !== questions.length) throw new Error(`SEGMENTATION_QIR_LENGTH_MISMATCH:${candidates.length}:${questions.length}`);
+
+const textOf = (candidate: (typeof candidates)[number]) => candidate.textBlocks
+  .map((block) => block.type === "text" ? block.value : block.type === "math" ? `[MATH:${block.math.id ?? ""}]` : block.type === "figure" ? `[FIGURE:${block.figureId}]` : "")
+  .join(" ")
+  .replace(/\s+/gu, " ")
+  .trim();
+
+const q6Indexes = candidates
+  .map((candidate, index) => ({ candidate, question: questions[index], index, text: textOf(candidate) }))
+  .filter((row) => row.candidate.questionIndex === 6 && /hai\s+điều\s+kiện\s+sau\s*:/iu.test(row.text));
+
+const q6 = q6Indexes.length === 1 ? q6Indexes[0] : undefined;
+const q6SourceObjectIds = q6 ? [...new Set(q6.candidate.rawBlocks.map((block) => block.id))] : [];
+const q6SourceSliceIds = q6?.question.sourceSliceIds ?? [];
+const q6Text = q6?.text ?? "";
+
+const condition1Present = /cấp\s+số\s+cộng\s+tăng/iu.test(q6Text);
+const condition2Present = /bằng\s+tổng\s+của\s+cả\s+ba\s+số/iu.test(q6Text);
+const finalRequestPresent = /Tính\s+giá\s+trị\s+của\s+biểu\s+thức/iu.test(q6Text);
+const paragraph101Owned = q6SourceObjectIds.includes("paragraph-101");
+const paragraph102Owned = q6SourceObjectIds.includes("paragraph-102");
+const isolatedContinuationCandidates = candidates
+  .map((candidate, index) => ({
+    ordinal: index + 1,
+    questionIndex: candidate.questionIndex ?? null,
+    sourceObjectIds: [...new Set(candidate.rawBlocks.map((block) => block.id))],
+    text: textOf(candidate),
+  }))
+  .filter((row) => row.sourceObjectIds.includes("paragraph-101") || row.sourceObjectIds.includes("paragraph-102"))
+  .filter((row) => !q6 || row.ordinal !== q6.index + 1);
+
+const continuationOwnershipQA = Boolean(
+  q6 &&
+  condition1Present &&
+  condition2Present &&
+  finalRequestPresent &&
+  paragraph101Owned &&
+  paragraph102Owned &&
+  isolatedContinuationCandidates.length === 0
+) ? "PASS" : "FAIL";
+
+const evidence = {
+  schemaVersion: "PIMATH_R2_36_NUMBERED_CONTINUATION_AUDIT_V1",
+  sourceDocument: SOURCE,
+  sourceHash: document.sourceHash,
+  totalCandidates: candidates.length,
+  q6CandidateOrdinal: q6 ? q6.index + 1 : null,
+  q6QuestionIrId: q6?.question.id ?? null,
+  q6SourceObjectIds,
+  q6SourceSliceIds,
+  q6Text,
+  condition1Present,
+  condition2Present,
+  finalRequestPresent,
+  paragraph101Owned,
+  paragraph102Owned,
+  isolatedContinuationCandidateCount: isolatedContinuationCandidates.length,
+  isolatedContinuationCandidates,
+  continuationOwnershipQA,
+  diagnosis: continuationOwnershipQA === "PASS" ? "QUESTION_SOURCE_SLICE_CONTINUATION_REMEDIATED" : "QUESTION_SOURCE_SLICE_CONTINUATION_STILL_BROKEN",
+};
+
+writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
+console.log(JSON.stringify({
+  totalCandidates: evidence.totalCandidates,
+  q6CandidateOrdinal: evidence.q6CandidateOrdinal,
+  q6QuestionIrId: evidence.q6QuestionIrId,
+  q6SourceObjectIds: evidence.q6SourceObjectIds,
+  q6SourceSliceCount: evidence.q6SourceSliceIds.length,
+  condition1Present: evidence.condition1Present,
+  condition2Present: evidence.condition2Present,
+  finalRequestPresent: evidence.finalRequestPresent,
+  paragraph101Owned: evidence.paragraph101Owned,
+  paragraph102Owned: evidence.paragraph102Owned,
+  isolatedContinuationCandidateCount: evidence.isolatedContinuationCandidateCount,
+  continuationOwnershipQA: evidence.continuationOwnershipQA,
+  diagnosis: evidence.diagnosis,
+  evidencePath: OUT,
+}));
+
+if (continuationOwnershipQA !== "PASS") process.exitCode = 1;
