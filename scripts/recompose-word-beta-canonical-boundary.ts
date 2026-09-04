@@ -85,6 +85,7 @@ for (const file of files) {
   if (!document) throw new Error(`DOCUMENT_IR_NOT_CREATED:${file}`);
   const sourceDocumentId = document.sourceDocumentId ?? document.id ?? document.sourceHash;
   const appendixRegions = findAnswerSolutionAppendixRegions(document);
+  const appendixSourceObjectIds = new Set(appendixRegions.flatMap(region => region.sourceObjectIds));
   const sourceCandidates = segmentQuestions(document);
   const questions = segmentCanonicalQuestions(document);
   if (sourceCandidates.length !== questions.length) {
@@ -96,16 +97,18 @@ for (const file of files) {
   );
 
   for (const authority of authorityRowsForDocument) {
-    const inAnswerSolutionAppendix = appendixRegions.some(region => {
-      const regionIds = new Set(region.sourceObjectIds);
-      return authority.sourceObjectIds.length > 0 && authority.sourceObjectIds.every(id => regionIds.has(id));
-    });
+    const sourceObjectIdsInAnswerSolutionAppendix = authority.sourceObjectIds.filter(id => appendixSourceObjectIds.has(id));
+    const inAnswerSolutionAppendix =
+      authority.sourceObjectIds.length > 0 &&
+      sourceObjectIdsInAnswerSolutionAppendix.length === authority.sourceObjectIds.length;
+
     frozenRows.push({
       authorityOrdinal: manifestAuthority.indexOf(authority) + 1,
       questionId: authority.questionId,
       sourceDocumentId: authority.sourceDocumentId,
       sourceObjectIds: [...authority.sourceObjectIds],
       inAnswerSolutionAppendix,
+      sourceObjectIdsInAnswerSolutionAppendix,
     });
   }
 
@@ -164,9 +167,11 @@ const authorityQA =
 const identityQA = selectedIdentityUniqueCount === result.selectedQuestionCount;
 const remapQA = result.qa === "PASS";
 const qa = authorityQA && identityQA && remapQA ? "PASS" : "FAIL";
+const selectedCountMatchesFrozenAuthority = result.selectedQuestionCount === EXPECTED_AUTHORITY_COUNT;
+const humanCanonicalCountDecisionRequired = qa && !selectedCountMatchesFrozenAuthority;
 
 const evidence = {
-  schemaVersion: "PIMATH_CANONICAL_BOUNDARY_RECOMPOSITION_V1",
+  schemaVersion: "PIMATH_CANONICAL_BOUNDARY_RECOMPOSITION_V2",
   authority: {
     commit: AUTHORITY_COMMIT,
     frozenBoundaryCount: EXPECTED_AUTHORITY_COUNT,
@@ -184,6 +189,8 @@ const evidence = {
   promotedSplitCount: result.promotedSplitCount,
   selectedQuestionCount: result.selectedQuestionCount,
   canonicalDeltaVs668: result.selectedQuestionCount - EXPECTED_AUTHORITY_COUNT,
+  selectedCountMatchesFrozenAuthority,
+  humanCanonicalCountDecisionRequired,
   unresolvedFrozenCount: result.unresolvedFrozenCount,
   ambiguousFrozenCount: result.ambiguousFrozenCount,
   ambiguousPromotionCount: result.ambiguousPromotionCount,
@@ -201,7 +208,8 @@ const evidence = {
   identityQA: identityQA ? "PASS" : "FAIL",
   remapQA: remapQA ? "PASS" : "FAIL",
   canonicalBoundaryRecompositionQA: qa,
-  note: "The 668 human-approved baseline is the frozen authority. Current boundaries are remapped by source identity, not candidate ordinal. A frozen question may be retired only when its complete physical source range is classified as an answer/solution appendix. A new current question may be promoted only as a high-confidence explicit intra-block split child overlapping a retained frozen authority range.",
+  canonicalCountDecisionQA: selectedCountMatchesFrozenAuthority ? "PASS" : "HUMAN_DECISION_REQUIRED",
+  note: "The 668 human-approved baseline remains the frozen authority. Current boundaries are remapped by source identity, not candidate ordinal. A frozen row may retire when its complete physical source range is an answer/solution appendix, or when every non-appendix source object is uniquely proven to be continuation content owned by an earlier explicit current question and any remaining tail belongs to an appendix. Source-backed remap QA is intentionally separate from the human decision required when the resulting selected count differs from the frozen authority count.",
 };
 
 writeFileSync(OUT, JSON.stringify(evidence, null, 2) + "\n");
@@ -213,6 +221,8 @@ console.log(JSON.stringify({
   promotedSplitCount: evidence.promotedSplitCount,
   selectedQuestionCount: evidence.selectedQuestionCount,
   canonicalDeltaVs668: evidence.canonicalDeltaVs668,
+  selectedCountMatchesFrozenAuthority: evidence.selectedCountMatchesFrozenAuthority,
+  humanCanonicalCountDecisionRequired: evidence.humanCanonicalCountDecisionRequired,
   unresolvedFrozenCount: evidence.unresolvedFrozenCount,
   ambiguousFrozenCount: evidence.ambiguousFrozenCount,
   ambiguousPromotionCount: evidence.ambiguousPromotionCount,
@@ -221,6 +231,7 @@ console.log(JSON.stringify({
   identityQA: evidence.identityQA,
   remapQA: evidence.remapQA,
   canonicalBoundaryRecompositionQA: evidence.canonicalBoundaryRecompositionQA,
+  canonicalCountDecisionQA: evidence.canonicalCountDecisionQA,
   evidencePath: OUT,
 }));
 
