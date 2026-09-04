@@ -61,7 +61,7 @@ class OmmlParser {
       const value = this.group();
       if (kind === "sub") sub = value; else sup = value;
     }
-    if (sub && sup) return `<m:sSubSup><m:e>${base}</m:e><m:sub>${sub}</m:sub><m:sup>${sup}</m:sup></m:sSubSup>`;
+    if (sub && sup) return `<m:sSubSup><m:e>${base}</m:e><m:sub>${sub}</m:sub><m:sup>${sup}</m:sSubSup>`;
     if (sub) return `<m:sSub><m:e>${base}</m:e><m:sub>${sub}</m:sub></m:sSub>`;
     if (sup) return `<m:sSup><m:e>${base}</m:e><m:sup>${sup}</m:sup></m:sSup>`;
     return base;
@@ -109,7 +109,14 @@ export function serializeMathNodeToOmml(node: MathNode, options: { notationProfi
     throw new DocxRenderError(issue?.code ?? "MATH_NOTATION_RENDER_FAILURE", issue?.message ?? "DOCX notation preparation failed.");
   }
 
-  const validation = NA_MATH_STANDARD_V2_6.validateMathSource(prepared.canonicalLatex);
-  if (validation.status !== "PASS") throw new DocxRenderError(validation.status, validation.reasons.join("; "));
-  return `<m:oMath><m:oMathPr><m:ctrlPr><w:rPr><w:rFonts w:ascii="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}" w:hAnsi="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></w:rPr></m:ctrlPr></m:oMathPr>${new OmmlParser(tokenize(prepared.canonicalLatex)).parse()}</m:oMath>`;
+  // The locked V2.6 validator owns the predecessor whitelist. A successor may introduce
+  // additional registry-authorized control words without mutating that locked whitelist.
+  // Preserve all legacy blocking reasons except UNKNOWN_CANONICAL_SYMBOL; the OMML parser
+  // below remains fail-closed and rejects every command it cannot serialize explicitly.
+  const legacyValidation = NA_MATH_STANDARD_V2_6.validateMathSource(prepared.canonicalLatex);
+  const legacyBlockingReasons = legacyValidation.reasons.filter((reason) => !reason.startsWith("UNKNOWN_CANONICAL_SYMBOL:"));
+  if (legacyBlockingReasons.length) throw new DocxRenderError("BLOCK_RENDER", legacyBlockingReasons.join("; "));
+
+  const ommlBody = new OmmlParser(tokenize(prepared.canonicalLatex)).parse();
+  return `<m:oMath><m:oMathPr><m:ctrlPr><w:rPr><w:rFonts w:ascii="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}" w:hAnsi="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></w:rPr></m:ctrlPr></m:oMathPr>${ommlBody}</m:oMath>`;
 }
