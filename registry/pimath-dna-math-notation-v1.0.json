@@ -7,6 +7,7 @@
   "approvalRequired": true,
   "changeClass": "NEW_STANDARD_ADDITIVE",
   "lockedPredecessorsModified": false,
+  "notationProfiles": ["VN_GDPT2018"],
   "outputChannels": ["PDF", "DOCX", "HTML", "SLIDES", "VIDEO", "TTS"],
   "failureCodes": [
     "MATH_NOTATION_AMBIGUITY",
@@ -18,8 +19,9 @@
   "entries": [
     {"symbolId":"membership.in","semantic":"SET_MEMBERSHIP","canonicalLatex":"\\in","unicode":"∈","aliases":[],"spokenVi":"thuộc","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
     {"symbolId":"membership.not_in","semantic":"SET_NON_MEMBERSHIP","canonicalLatex":"\\notin","unicode":"∉","aliases":[],"spokenVi":"không thuộc","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
-    {"symbolId":"set.subset","semantic":"PROPER_SUBSET","canonicalLatex":"\\subset","unicode":"⊂","aliases":[],"spokenVi":"là tập con thực sự của","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
-    {"symbolId":"set.subseteq","semantic":"SUBSET_OR_EQUAL","canonicalLatex":"\\subseteq","unicode":"⊆","aliases":[],"spokenVi":"là tập con của","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
+    {"symbolId":"set.subset","semantic":"PROFILE_DEPENDENT_SET_INCLUSION","canonicalLatex":"\\subset","unicode":"⊂","aliases":[],"spokenVi":"tập con","category":"set","profileSemantics":{"VN_GDPT2018":{"semantic":"SUBSET_INCLUSIVE","spokenVi":"là tập con của"}},"outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
+    {"symbolId":"set.subseteq","semantic":"SUBSET_INCLUSIVE","canonicalLatex":"\\subseteq","unicode":"⊆","aliases":[],"spokenVi":"là tập con của","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
+    {"symbolId":"set.proper_subset","semantic":"PROPER_SUBSET","canonicalLatex":"\\subsetneq","unicode":"⊊","aliases":[],"spokenVi":"là tập con thực sự của","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
     {"symbolId":"set.union","semantic":"SET_UNION","canonicalLatex":"\\cup","unicode":"∪","aliases":[],"spokenVi":"hợp","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
     {"symbolId":"set.intersection","semantic":"SET_INTERSECTION","canonicalLatex":"\\cap","unicode":"∩","aliases":[],"spokenVi":"giao","category":"set","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
     {"symbolId":"logic.implies","semantic":"IMPLIES","canonicalLatex":"\\Rightarrow","unicode":"⇒","aliases":["\\implies"],"spokenVi":"suy ra","category":"logic","outputs":["PDF","DOCX","HTML","SLIDES","VIDEO","TTS"]},
