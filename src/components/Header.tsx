@@ -85,15 +85,20 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="bg-slate-900 text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
-            {/* Logo & Branding */}
+            {/* Product & application identity */}
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center font-bold text-xl text-white shadow-sm">
                 Σ
               </div>
               <div className="flex items-center space-x-2">
-                <h1 className="text-base font-semibold tracking-tight text-white">
-                  MATH AI STUDIO
-                </h1>
+                <div className="leading-tight">
+                  <h1 className="text-base font-semibold tracking-tight text-white">
+                    MST-MATH
+                  </h1>
+                  <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400">
+                    Math AI Studio
+                  </div>
+                </div>
                 <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-blue-600/30 text-blue-300 border border-blue-500/40">
                   V1 CORE
                 </span>
