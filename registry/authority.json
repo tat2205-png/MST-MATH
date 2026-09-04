@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "PIMATH_AUTHORITY_REGISTRY_V1",
+  "id": "MST_MATH_AUTHORITY_REGISTRY_V1",
   "status": "CANONICAL",
   "authorityOrder": [
     "MASTER",
@@ -9,6 +9,10 @@
     "MODULE_TASK"
   ],
   "masterSources": [
+    "docs/project/MST_MATH_PROJECT_MASTER_MAP.md",
+    "project-state/MST-MATH-PROJECT-STATE.json"
+  ],
+  "legacyReferenceSources": [
     "docs/project/PROJECT_MASTER_MAP.md",
     "project-state/PIMATH-PROJECT-STATE.json"
   ],
@@ -16,6 +20,7 @@
     "A lower authority may not override a higher authority.",
     "LOCKED, CANONICAL, APPROVED, MASTER and DONE artifacts are immutable unless explicitly reopened by the human product owner.",
     "Historical roadmaps and release documents are reference material unless explicitly named current authority.",
-    "Renderers and adapters never become mathematical source of truth."
+    "Renderers and adapters never become mathematical source of truth.",
+    "Legacy PiMath artifacts do not become a parallel identity authority; they are history or compatibility references only."
   ]
 }
