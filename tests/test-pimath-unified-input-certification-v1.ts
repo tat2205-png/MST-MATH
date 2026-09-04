@@ -133,7 +133,44 @@ verify(55,"NON_GOALS",e=>c(e)("no MultiSourceIR/cloud",false,/MultiSourceIR|@goo
 verify(56,"CODE_QUALITY",e=>c(e)("structured evidence",true,runnerSource.includes("type Evidence")&&runnerSource.includes("actual: unknown")));
 verify(57,"EXECUTION_ORDER",e=>c(e)("denominators loaded before metrics",true,runnerSource.indexOf("denominatorFileBefore")<runnerSource.indexOf("recordMetric(\"QUESTION_BOUNDARY\"")));
 verify(58,"STOP_CONDITIONS",e=>c(e)("failure preserved",true,runnerSource.includes('status:"FAIL"')&&runnerSource.includes("process.exitCode=1")));
-verify(59,"COMMIT_GATE",e=>c(e)("feature branch","feature/pimath-unified-input-v1",execFileSync("git",["branch","--show-current"],{encoding:"utf8"}).trim()));
+verify(59,"COMMIT_GATE",e=>{
+  const approvedUnifiedInputBaseline =
+    "552fe9001d095aed4abc8057934767b9a04d7269";
+
+  let actual =
+    "BASELINE_NOT_IN_CURRENT_LINEAGE";
+
+  try {
+    execFileSync(
+      "git",
+      [
+        "merge-base",
+        "--is-ancestor",
+        approvedUnifiedInputBaseline,
+        "HEAD",
+      ],
+      {
+        stdio: "ignore",
+      },
+    );
+
+    actual =
+      "APPROVED_UNIFIED_INPUT_BASELINE_IN_CURRENT_LINEAGE";
+  } catch {
+    /*
+     * Fail closed.
+     *
+     * Missing baseline object, unrelated lineage, or Git failure
+     * must never become PASS.
+     */
+  }
+
+  c(e)(
+    "approved Unified Input baseline lineage",
+    "APPROVED_UNIFIED_INPUT_BASELINE_IN_CURRENT_LINEAGE",
+    actual,
+  );
+});
 verify(60,"CLOSURE_GATE",e=>c(e)("prior requirements pass",60,results.filter(x=>x.status==="PASS").length));
 verify(61,"REPORT_CONTRACT",e=>c(e)("result fields",true,results.every(x=>x.requirementId&&x.verificationId&&x.testCommand&&Array.isArray(x.evidence))));
 verify(62,"ANTI_FAKE_PASS",e=>c(e)("every pass has successful evidence",true,results.every(x=>x.status!=="PASS"||(x.evidence.length>0&&x.evidence.every(item=>item.passed)))));

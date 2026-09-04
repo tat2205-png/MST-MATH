@@ -2,6 +2,7 @@ import { parseDocx } from "./document.js";
 import { normalizeCandidate } from "./extraction.js";
 import { associateFigures } from "./figures.js";
 import { segmentQuestions } from "./segmentation.js";
+import { disambiguateQuestionObjectIds } from "./question-identity.js";
 import { deriveBrowserSafeFigures } from "./wmf.js";
 import type {
   DocumentIR,
@@ -138,43 +139,6 @@ function attachProcessingProvenance(
   };
 }
 
-/**
- * Existing canonical IDs remain untouched when unique.
- *
- * Only collisions caused by repeated question numbering
- * (for example PHẦN I Câu 1 and PHẦN II Câu 1)
- * receive a deterministic candidate suffix.
- */
-function disambiguateQuestionIds(
-  questions: QuestionObject[],
-  candidates: DocumentQuestionCandidate[],
-): QuestionObject[] {
-  const counts = new Map<string, number>();
-
-  for (const question of questions) {
-    counts.set(question.id, (counts.get(question.id) ?? 0) + 1);
-  }
-
-  return questions.map((question, index) => {
-    if ((counts.get(question.id) ?? 0) <= 1) {
-      return question;
-    }
-
-    const id =
-      `${question.id}-${candidates[index]?.id ?? `candidate-${index + 1}`}`;
-
-    return {
-      ...question,
-      id,
-
-      figureAssociations: question.figureAssociations.map((association) => ({
-        ...association,
-        questionId: id,
-      })),
-    };
-  });
-}
-
 function finish(
   document: DocumentIR,
   context?: QuestionImportContext,
@@ -190,7 +154,7 @@ function finish(
     ),
   );
 
-  const questions = disambiguateQuestionIds(normalized, candidates);
+  const questions = disambiguateQuestionObjectIds(normalized, candidates);
 
   const figureAssociations = associateFigures(document, questions);
 

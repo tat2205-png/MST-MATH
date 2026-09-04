@@ -122,7 +122,36 @@ export function segmentQuestions(
 
   for (const block of document.blocks) {
     const value = textOf(block.content).trim();
-    if (!value) continue;
+
+    /*
+     * OMML-only, figure-only and table-only source blocks are still
+     * semantic content. Once a question is open they belong to it.
+     */
+    if (!value) {
+      /*
+       * SECTION is structural authority, even when the parser emits it
+       * without visible text. It terminates the active question.
+       */
+      if (block.kind === "SECTION") {
+        flush();
+        continue;
+      }
+
+      /*
+       * OMML-only, figure-only and table-only blocks still contain
+       * semantic ContentBlock values and must remain attached to the
+       * currently open question.
+       *
+       * A truly empty paragraph (for example a page-break-only block)
+       * has no semantic ContentBlock and must not pollute question
+       * provenance/ownership.
+       */
+      if (current.length && block.content.length > 0) {
+        current.push(block);
+      }
+
+      continue;
+    }
 
     const marker = explicitQuestion.exec(value);
 
