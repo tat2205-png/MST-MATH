@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "MST-MATH-PROJECT-STATE-V1",
+  "status": "ACTIVE_MIGRATION",
+  "updatedDate": "2026-09-04",
+  "identity": {
+    "product": "MST-MATH",
+    "application": "Math AI Studio",
+    "standardsLayer": "NA-MATH",
+    "canonicalBrandRoot": "MST-MATH-DNA-V1.0"
+  },
+  "migration": {
+    "id": "MST_MATH_BRAND_MIGRATION_V1",
+    "branch": "chore/mst-math-brand-migration-v1",
+    "baseBranch": "feature/pimath-unified-input-v1",
+    "baseSha": "552fe9001d095aed4abc8057934767b9a04d7269",
+    "mode": "NON_DESTRUCTIVE_COMPATIBILITY_FIRST",
+    "legacyProduct": "PiMath",
+    "legacyRootId": "PIMATH-DNA-V1.0",
+    "legacyState": "project-state/PIMATH-PROJECT-STATE.json",
+    "legacyMasterMap": "docs/project/PROJECT_MASTER_MAP.md",
+    "migrationPlan": "docs/migrations/MST_MATH_BRAND_MIGRATION_V1.md"
+  },
+  "inheritedBaseline": {
+    "unifiedInput": "PRESENT_IN_BASE_LINEAGE",
+    "wordPreflightSafeClean": "PRESENT_IN_BASE_LINEAGE",
+    "mcqFourOptionAdaptiveLayout": "PRESENT_IN_BASE_LINEAGE",
+    "readonlyInputCertification": "PRESENT_IN_BASE_LINEAGE",
+    "questionBank": "PRESERVE_EXISTING_AUTHORITY",
+    "documentIR": "PRESERVE_EXISTING_AUTHORITY",
+    "geometry": "PRESERVE_EXISTING_AUTHORITY",
+    "examProfiles": "PRESERVE_EXISTING_SEMANTICS",
+    "gdpt2018Kntt": "PRESERVE_EXISTING_SEMANTICS"
+  },
+  "brandMigrationStatus": {
+    "M0_inventory_and_freeze": "IN_PROGRESS",
+    "M1_root_identity_compatibility": "IN_PROGRESS",
+    "M2_runtime_code_rename": "IN_PROGRESS",
+    "M3_child_standard_successors": "NOT_STARTED",
+    "M4_active_docs_and_paths": "IN_PROGRESS",
+    "M5_repo_and_local_workspace": "NOT_STARTED",
+    "M6_quality_gates": "NOT_RUN"
+  },
+  "invariants": [
+    "Do not rewrite certified PiMath V1 history merely to erase the old name.",
+    "Do not mutate DocumentIR, QuestionIR, Question Bank semantics, math semantics, geometry semantics, exam semantics, GDPT 2018 rules, or KNTT notation as part of a brand-only migration.",
+    "Legacy PiMath identifiers may remain only where historical truth or compatibility requires them.",
+    "All new active product-facing identity must use MST-MATH.",
+    "Remote repository rename is deferred until build, architecture, regression, and brand-scan gates pass."
+  ],
+  "nextGate": "COMPLETE_ACTIVE_RUNTIME_AND_REGISTRY_RENAME_THEN_RUN_QA"
+}
