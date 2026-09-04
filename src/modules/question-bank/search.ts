@@ -173,6 +173,7 @@ function buildSnapshotQueryIndexes(
 
     const sourceRelated =
       relatedQuestionIdsByQuestion.get(relation.sourceQuestionId) ?? new Set();
+    sourceRelated.add(relation.sourceQuestionId);
     sourceRelated.add(relation.targetQuestionId);
     relatedQuestionIdsByQuestion.set(
       relation.sourceQuestionId,
@@ -181,6 +182,7 @@ function buildSnapshotQueryIndexes(
 
     const targetRelated =
       relatedQuestionIdsByQuestion.get(relation.targetQuestionId) ?? new Set();
+    targetRelated.add(relation.targetQuestionId);
     targetRelated.add(relation.sourceQuestionId);
     relatedQuestionIdsByQuestion.set(
       relation.targetQuestionId,
