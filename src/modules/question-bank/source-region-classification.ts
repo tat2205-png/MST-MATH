@@ -84,11 +84,23 @@ interface AggregatedTextRun {
   value: string;
 }
 
+/**
+ * Build the same logical visible-text contract used by `visibleText`, while
+ * retaining an offset map back to the original Word content run. A virtual
+ * space is inserted between ContentBlocks because review rendering and semantic
+ * classification already treat those boundaries as visible separation. This
+ * prevents formatting-only run boundaries from gluing words together (for
+ * example `...result` + `ĐÁP` or `ĐÁP` + `ÁN`) and keeps footer detection
+ * consistent with the text shown to reviewers.
+ */
 function aggregateTextRuns(block: DocumentBlock): { value: string; runs: AggregatedTextRun[] } {
   let value = "";
   const runs: AggregatedTextRun[] = [];
+
   block.content.forEach((content, contentIndex) => {
+    if (contentIndex > 0) value += " ";
     if (content.type !== "text") return;
+
     const aggregateStart = value.length;
     value += content.value;
     runs.push({
@@ -98,6 +110,7 @@ function aggregateTextRuns(block: DocumentBlock): { value: string; runs: Aggrega
       value: content.value,
     });
   });
+
   return { value, runs };
 }
 
@@ -149,8 +162,6 @@ function terminalReferenceAnswerEvidence(
   const suffixContent = suffixContentFrom(block, contentIndex, charOffset);
   const laterBlocks = blocks.slice(blockIndex + 1);
 
-  // A new explicit question section after the reference-answer heading means
-  // the heading is not terminal document answer material.
   if (laterBlocks.some((candidate) => isQuestionSectionHeading(blockText(candidate)))) {
     return { accepted: false, markerNumbers: [], evidence: [] };
   }
@@ -160,9 +171,6 @@ function terminalReferenceAnswerEvidence(
     ...laterBlocks.flatMap((candidate) => explicitQuestionMarkerNumbers(candidate.content)),
   ];
 
-  // Câu/Bài labels after a terminal reference-answer heading are expected
-  // answer entries. When they exist, they must restart from 1; otherwise fail
-  // closed because the region could still be normal question flow.
   if (markerNumbers.length > 0 && markerNumbers[0] !== 1) {
     return { accepted: false, markerNumbers, evidence: [] };
   }
@@ -215,9 +223,7 @@ export function findTerminalEmbeddedReferenceAnswerFooter(document: DocumentIR):
   return undefined;
 }
 
-/**
- * Detect document-level answer/solution appendices conservatively.
- */
+/** Detect document-level answer/solution appendices conservatively. */
 export function findAnswerSolutionAppendixRegions(document: DocumentIR): AnswerSolutionAppendixRegion[] {
   const blocks = [...document.blocks].sort((a, b) => a.order - b.order);
   const regions: AnswerSolutionAppendixRegion[] = [];
