@@ -6,6 +6,8 @@ on:
       - "registry/pimath-dna-math-notation-v1.0.json"
       - "src/modules/math-notation/**"
       - "src/modules/document-engine/latex/serializer.ts"
+      - "src/modules/document-export/docx/omml.ts"
+      - "src/components/MathView.tsx"
       - "src/utils/pronunciation.ts"
       - "manim_toolkit/math_notation.py"
       - "manim_toolkit/latex_utils.py"
@@ -19,6 +21,8 @@ on:
       - "registry/pimath-dna-math-notation-v1.0.json"
       - "src/modules/math-notation/**"
       - "src/modules/document-engine/latex/serializer.ts"
+      - "src/modules/document-export/docx/omml.ts"
+      - "src/components/MathView.tsx"
       - "src/utils/pronunciation.ts"
       - "tests/test-math-notation-*.ts"
       - "package.json"
@@ -46,5 +50,8 @@ jobs:
       - name: TypeScript contract check
         run: npm run lint
 
-      - name: Math Notation token + integration QA
+      - name: Math Notation token + Document/TTS QA
         run: npm run qa:math-notation
+
+      - name: HTML + DOCX cross-output QA
+        run: node --import tsx tests/test-math-notation-cross-output-v1.ts
