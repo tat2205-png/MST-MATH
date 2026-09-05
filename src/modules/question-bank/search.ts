@@ -1,14 +1,229 @@
-import type { ContentBlock, QueryDiagnostic, QuestionBankRepository, QuestionObject, QuestionQueryResult, QuestionSearchQuery, QuestionSortField, QuestionType, QuestionBankStatus } from "./types.js";
+import type {
+  ContentBlock,
+  QueryDiagnostic,
+  QuestionBankRepository,
+  QuestionBankStatus,
+  QuestionObject,
+  QuestionQueryResult,
+  QuestionRelationType,
+  QuestionSearchQuery,
+  QuestionSortField,
+  QuestionType,
+} from "./types.js";
 import { relationTypesForQuestion } from "./relations.js";
-const types = new Set<QuestionType>(["MULTIPLE_CHOICE","TRUE_FALSE","SHORT_ANSWER","ESSAY","UNKNOWN"]); const statuses = new Set<QuestionBankStatus>(["APPROVED","REVIEW","QUARANTINED"]); const sorts = new Set<QuestionSortField>(["ID","INDEX","SOURCE_DOCUMENT","TYPE","STATUS"]); const duplicateStates = new Set(["UNIQUE","DUPLICATE","POSSIBLE_DUPLICATE"]);
-const render = (blocks: ContentBlock[]): string => blocks.map((block) => block.type === "text" ? block.value : block.type === "math" ? `${block.math.latex ?? ""} ${block.math.normalized ?? ""} ${block.math.sourceRaw}` : block.type === "figure" ? block.figureId : block.cells.flat().map((cell) => render([cell])).join(" ")).join(" ");
-export function searchableQuestionText(question: QuestionObject): string { return [render(question.stem), ...question.options.map((x) => render(x.content)), ...question.trueFalseItems.map((x) => render(x.content)), ...question.subquestions.map((x) => render(x.content)), render(question.shortAnswer ?? []), render(question.solution ?? []), Object.values(question.metadata).join(" "), question.source.document, question.section ?? ""].join(" ").normalize("NFC").toLocaleLowerCase("vi"); }
-function validated(raw: QuestionSearchQuery): { query: QuestionSearchQuery; warnings: QueryDiagnostic[] } { const warnings: QueryDiagnostic[] = []; const query = structuredClone(raw); const badType = query.types?.some((x) => !types.has(x)); const badStatus = query.statuses?.some((x) => !statuses.has(x)); const badDuplicate = query.duplicateStates?.some((x) => !duplicateStates.has(x)); if (badType || badStatus || badDuplicate) { warnings.push({ code: "UNKNOWN_FILTER", message: "One or more filter values are unknown." }); if (badType) query.types = []; if (badStatus) query.statuses = []; if (badDuplicate) query.duplicateStates = []; } if (query.sort && !sorts.has(query.sort.field)) { warnings.push({ code: "INVALID_SORT", message: "Unknown sort field; ID ascending was used." }); query.sort = { field: "ID", direction: "ASC" }; } if (query.offset !== undefined && (!Number.isInteger(query.offset) || query.offset < 0) || query.limit !== undefined && (!Number.isInteger(query.limit) || query.limit < 1 || query.limit > 100)) { warnings.push({ code: "INVALID_PAGINATION", message: "Pagination must use offset >= 0 and limit 1..100; defaults were used." }); query.offset = 0; query.limit = 50; } return { query, warnings }; }
-function compare(field: QuestionSortField, a: QuestionObject, b: QuestionObject): number { const av = field === "INDEX" ? a.index ?? Number.MAX_SAFE_INTEGER : field === "SOURCE_DOCUMENT" ? a.source.document : field === "TYPE" ? a.type : field === "STATUS" ? a.bankStatus ?? "" : a.id; const bv = field === "INDEX" ? b.index ?? Number.MAX_SAFE_INTEGER : field === "SOURCE_DOCUMENT" ? b.source.document : field === "TYPE" ? b.type : field === "STATUS" ? b.bankStatus ?? "" : b.id; return typeof av === "number" && typeof bv === "number" ? av - bv : String(av).localeCompare(String(bv), "vi"); }
+
+const types = new Set<QuestionType>([
+  "MULTIPLE_CHOICE",
+  "TRUE_FALSE",
+  "SHORT_ANSWER",
+  "ESSAY",
+  "UNKNOWN",
+]);
+const statuses = new Set<QuestionBankStatus>(["APPROVED", "REVIEW", "QUARANTINED"]);
+const sorts = new Set<QuestionSortField>(["ID", "INDEX", "SOURCE_DOCUMENT", "TYPE", "STATUS"]);
+const duplicateStates = new Set(["UNIQUE", "DUPLICATE", "POSSIBLE_DUPLICATE"]);
+const relationTypes = new Set<QuestionRelationType>([
+  "EXACT_DUPLICATE",
+  "POSSIBLE_DUPLICATE",
+  "PARAMETRIC_VARIANT",
+  "SHARED_STEM",
+  "SHARED_DATA",
+  "SHARED_FIGURE",
+  "DEPENDENT_ON",
+  "DERIVED_FROM",
+  "SOURCE_CONFLICT",
+  "NONE",
+]);
+
+const render = (blocks: ContentBlock[]): string =>
+  blocks
+    .map((block) =>
+      block.type === "text"
+        ? block.value
+        : block.type === "math"
+          ? `${block.math.latex ?? ""} ${block.math.normalized ?? ""} ${block.math.sourceRaw}`
+          : block.type === "figure"
+            ? block.figureId
+            : block.cells.flat().map((cell) => render([cell])).join(" "),
+    )
+    .join(" ");
+
+export function searchableQuestionText(question: QuestionObject): string {
+  return [
+    render(question.stem),
+    ...question.options.map((x) => render(x.content)),
+    ...question.trueFalseItems.map((x) => render(x.content)),
+    ...question.subquestions.map((x) => render(x.content)),
+    render(question.shortAnswer ?? []),
+    render(question.solution ?? []),
+    Object.values(question.metadata).join(" "),
+    question.source.document,
+    question.section ?? "",
+  ]
+    .join(" ")
+    .normalize("NFC")
+    .toLocaleLowerCase("vi");
+}
+
+function validated(raw: QuestionSearchQuery): {
+  query: QuestionSearchQuery;
+  warnings: QueryDiagnostic[];
+  reject: boolean;
+} {
+  const warnings: QueryDiagnostic[] = [];
+  const query = structuredClone(raw);
+  const badType = query.types?.some((x) => !types.has(x));
+  const badStatus = query.statuses?.some((x) => !statuses.has(x));
+  const badDuplicate = query.duplicateStates?.some((x) => !duplicateStates.has(x));
+  const badRelation = query.relationTypes?.some((x) => !relationTypes.has(x));
+  const reject = Boolean(badType || badStatus || badDuplicate || badRelation);
+
+  if (reject) {
+    warnings.push({
+      code: "UNKNOWN_FILTER",
+      message: "One or more filter values are unknown; retrieval failed closed.",
+    });
+  }
+
+  if (query.sort && !sorts.has(query.sort.field)) {
+    warnings.push({ code: "INVALID_SORT", message: "Unknown sort field; ID ascending was used." });
+    query.sort = { field: "ID", direction: "ASC" };
+  }
+
+  if (
+    (query.offset !== undefined && (!Number.isInteger(query.offset) || query.offset < 0)) ||
+    (query.limit !== undefined && (!Number.isInteger(query.limit) || query.limit < 1 || query.limit > 100))
+  ) {
+    warnings.push({
+      code: "INVALID_PAGINATION",
+      message: "Pagination must use offset >= 0 and limit 1..100; defaults were used.",
+    });
+    query.offset = 0;
+    query.limit = 50;
+  }
+
+  return { query, warnings, reject };
+}
+
+function compare(field: QuestionSortField, a: QuestionObject, b: QuestionObject): number {
+  const av =
+    field === "INDEX"
+      ? a.index ?? Number.MAX_SAFE_INTEGER
+      : field === "SOURCE_DOCUMENT"
+        ? a.source.document
+        : field === "TYPE"
+          ? a.type
+          : field === "STATUS"
+            ? a.bankStatus ?? ""
+            : a.id;
+  const bv =
+    field === "INDEX"
+      ? b.index ?? Number.MAX_SAFE_INTEGER
+      : field === "SOURCE_DOCUMENT"
+        ? b.source.document
+        : field === "TYPE"
+          ? b.type
+          : field === "STATUS"
+            ? b.bankStatus ?? ""
+            : b.id;
+  return typeof av === "number" && typeof bv === "number"
+    ? av - bv
+    : String(av).localeCompare(String(bv), "vi");
+}
+
 export class QuestionSearchService {
   constructor(private readonly repository: QuestionBankRepository) {}
-  getById(id: string): QuestionObject | undefined { const found = this.repository.load().questions.find((x) => x.id === id); return found && structuredClone(found); }
-  query(raw: QuestionSearchQuery = {}): QuestionQueryResult { const { query, warnings } = validated(raw); const snapshot = this.repository.load(); const terms = query.text?.normalize("NFC").toLocaleLowerCase("vi").trim().split(/\s+/u).filter(Boolean) ?? []; let items = snapshot.questions.filter((q) => (query.includeQuarantined || query.statuses?.includes("QUARANTINED") || q.bankStatus !== "QUARANTINED") && (!query.ids?.length || query.ids.includes(q.id)) && (!query.types?.length || query.types.includes(q.type)) && (!query.statuses?.length || q.bankStatus !== undefined && query.statuses.includes(q.bankStatus)) && (!query.sourceDocuments?.length || query.sourceDocuments.includes(q.source.document)) && (!query.sourceIndices?.length || q.index !== undefined && query.sourceIndices.includes(q.index)) && (query.hasFigures === undefined || (q.figureAssociations.some((x) => x.status === "CONFIRMED") === query.hasFigures)) && (!query.duplicateStates?.length || q.duplicateState !== undefined && query.duplicateStates.includes(q.duplicateState)) && (!query.relationTypes?.length || query.relationTypes.some(type => relationTypesForQuestion(snapshot.relations, q.id).includes(type))) && (!query.familyIds?.length || snapshot.relations?.families.some(f => query.familyIds?.includes(f.familyId) && f.memberQuestionIds.includes(q.id))) && (!query.relatedToQuestionId || snapshot.relations?.relations.some(r => (r.sourceQuestionId === query.relatedToQuestionId || r.targetQuestionId === query.relatedToQuestionId) && (r.sourceQuestionId === q.id || r.targetQuestionId === q.id))) && (!query.metadata || Object.entries(query.metadata).every(([key,value]) => q.metadata[key] === value)) && (!terms.length || terms.every((term) => searchableQuestionText(q).includes(term)))); const sort = query.sort ?? { field: "ID" as const, direction: "ASC" as const }; items = items.map((item, order) => ({ item, order })).sort((a,b) => { const value = compare(sort.field, a.item, b.item); return (sort.direction === "DESC" ? -value : value) || a.order - b.order || a.item.id.localeCompare(b.item.id); }).map((x) => x.item); const total = items.length; const offset = query.offset ?? 0, limit = query.limit ?? 50; items = items.slice(offset, offset + limit).map((x) => structuredClone(x)); if (!total) warnings.push({ code: "NO_RESULTS", message: "No questions matched the query." }); return { items, total, query: structuredClone(query), warnings };
+
+  getById(id: string): QuestionObject | undefined {
+    const found = this.repository.load().questions.find((x) => x.id === id);
+    return found && structuredClone(found);
   }
-  approvedForReuse(query: Omit<QuestionSearchQuery,"statuses"|"includeQuarantined"> = {}): QuestionQueryResult { return this.query({ ...query, statuses: ["APPROVED"], includeQuarantined: false }); }
+
+  /**
+   * Consumer-safe lookup for reuse surfaces. This intentionally does not replace
+   * getById(), which remains available for review/admin workflows.
+   */
+  getApprovedById(id: string): QuestionObject | undefined {
+    const found = this.repository
+      .load()
+      .questions.find((x) => x.id === id && x.bankStatus === "APPROVED");
+    return found && structuredClone(found);
+  }
+
+  query(raw: QuestionSearchQuery = {}): QuestionQueryResult {
+    const { query, warnings, reject } = validated(raw);
+    if (reject) return { items: [], total: 0, query: structuredClone(query), warnings };
+
+    const snapshot = this.repository.load();
+    const terms =
+      query.text
+        ?.normalize("NFC")
+        .toLocaleLowerCase("vi")
+        .trim()
+        .split(/\s+/u)
+        .filter(Boolean) ?? [];
+
+    let items = snapshot.questions.filter(
+      (q) =>
+        (query.includeQuarantined ||
+          query.statuses?.includes("QUARANTINED") ||
+          q.bankStatus !== "QUARANTINED") &&
+        (!query.ids?.length || query.ids.includes(q.id)) &&
+        (!query.types?.length || query.types.includes(q.type)) &&
+        (!query.statuses?.length ||
+          (q.bankStatus !== undefined && query.statuses.includes(q.bankStatus))) &&
+        (!query.sourceDocuments?.length || query.sourceDocuments.includes(q.source.document)) &&
+        (!query.sourceIndices?.length ||
+          (q.index !== undefined && query.sourceIndices.includes(q.index))) &&
+        (query.hasFigures === undefined ||
+          q.figureAssociations.some((x) => x.status === "CONFIRMED") === query.hasFigures) &&
+        (!query.duplicateStates?.length ||
+          (q.duplicateState !== undefined && query.duplicateStates.includes(q.duplicateState))) &&
+        (!query.relationTypes?.length ||
+          query.relationTypes.some((type) =>
+            relationTypesForQuestion(snapshot.relations, q.id).includes(type),
+          )) &&
+        (!query.familyIds?.length ||
+          snapshot.relations?.families.some(
+            (family) =>
+              query.familyIds?.includes(family.familyId) && family.memberQuestionIds.includes(q.id),
+          )) &&
+        (!query.relatedToQuestionId ||
+          snapshot.relations?.relations.some(
+            (relation) =>
+              (relation.sourceQuestionId === query.relatedToQuestionId ||
+                relation.targetQuestionId === query.relatedToQuestionId) &&
+              (relation.sourceQuestionId === q.id || relation.targetQuestionId === q.id),
+          )) &&
+        (!query.metadata ||
+          Object.entries(query.metadata).every(([key, value]) => q.metadata[key] === value)) &&
+        (!terms.length || terms.every((term) => searchableQuestionText(q).includes(term))),
+    );
+
+    const sort = query.sort ?? { field: "ID" as const, direction: "ASC" as const };
+    items = items
+      .map((item, order) => ({ item, order }))
+      .sort((a, b) => {
+        const value = compare(sort.field, a.item, b.item);
+        return (
+          (sort.direction === "DESC" ? -value : value) ||
+          a.order - b.order ||
+          a.item.id.localeCompare(b.item.id)
+        );
+      })
+      .map((x) => x.item);
+
+    const total = items.length;
+    const offset = query.offset ?? 0;
+    const limit = query.limit ?? 50;
+    items = items.slice(offset, offset + limit).map((x) => structuredClone(x));
+    if (!total) warnings.push({ code: "NO_RESULTS", message: "No questions matched the query." });
+    return { items, total, query: structuredClone(query), warnings };
+  }
+
+  approvedForReuse(
+    query: Omit<QuestionSearchQuery, "statuses" | "includeQuarantined"> = {},
+  ): QuestionQueryResult {
+    return this.query({ ...query, statuses: ["APPROVED"], includeQuarantined: false });
+  }
 }
