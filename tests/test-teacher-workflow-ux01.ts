@@ -76,6 +76,19 @@ check(uiSource.includes("sm:grid-cols") && uiSource.includes("overflow-x-auto"),
 check(uiSource.includes("Đang xử lý") && uiSource.includes("disabled={busy !== null}"), "DOUBLE_SUBMIT_PREVENTION_QA");
 check(uiSource.includes("MAS_INT_01_RUNTIME_READINESS") || serverSource.includes("MAS_INT_01_RUNTIME_READINESS"), "RUNTIME_READINESS_UI_QA");
 
+const downgradedForVideo = repository.load();
+const downgradedVideoQuestion = downgradedForVideo.questions.find((question) => question.id === supportedVideoQuestion.id);
+if (!downgradedVideoQuestion) throw new Error("VIDEO_REUSE_FIXTURE_NOT_FOUND");
+downgradedVideoQuestion.bankStatus = "QUARANTINED";
+repository.replace(downgradedForVideo);
+let videoReuseBlocked = false;
+try {
+  service.prepareVideo(supportedVideoQuestion.id);
+} catch (error) {
+  videoReuseBlocked = error instanceof Error && error.message === `VIDEO_QUESTION_NOT_APPROVED:${supportedVideoQuestion.id}`;
+}
+check(videoReuseBlocked, "VIDEO_REUSE_AUTHORITY_QA");
+
 console.log("TEACHER_GOLDEN_WORKFLOW_SMOKE_QA=PASS");
 console.log("REAL_SERVICE_UI_INTEGRATION_QA=PASS");
 console.log("UX_01_CONTRACT_QA=PASS");
