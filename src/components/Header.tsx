@@ -28,6 +28,8 @@ interface HeaderProps {
   isProcessing: boolean;
 }
 
+type ProviderUiStatus = "CONNECTED" | "CHECKING" | "NOT_CONFIGURED" | "NOT_CHECKED" | "ERROR";
+
 export const Header: React.FC<HeaderProps> = ({
   currentTab,
   onSelectTab,
@@ -43,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSkills,
   isProcessing,
 }) => {
-  const [providerStatus, setProviderStatus] = useState<"CONNECTED" | "CHECKING" | "ERROR">("CHECKING");
+  const [providerStatus, setProviderStatus] = useState<ProviderUiStatus>("CHECKING");
   const [activeModel, setActiveModel] = useState<string>("Gemini Flash");
 
   const checkProviderHealth = async () => {
@@ -51,9 +53,21 @@ export const Header: React.FC<HeaderProps> = ({
     try {
       const res = await fetch("/api/health");
       const data = await res.json();
-      if (data.status === "ok" && data.provider_configured) {
+      if (data.status !== "ok") {
+        setProviderStatus("ERROR");
+        return;
+      }
+
+      if (!data.provider_configured || data.provider_status === "NOT_CONFIGURED") {
+        setProviderStatus("NOT_CONFIGURED");
+        return;
+      }
+
+      if (data.current_model) setActiveModel(data.current_model);
+      if (data.provider_status === "CONNECTED") {
         setProviderStatus("CONNECTED");
-        if (data.current_model) setActiveModel(data.current_model);
+      } else if (data.provider_status === "NOT_CHECKED") {
+        setProviderStatus("NOT_CHECKED");
       } else {
         setProviderStatus("ERROR");
       }
@@ -75,13 +89,33 @@ export const Header: React.FC<HeaderProps> = ({
     { id: "qa", label: "6. QA Kiểm định", icon: ShieldCheck, ready: hasVerification },
   ];
 
+  const providerTitle =
+    providerStatus === "CONNECTED"
+      ? `Gemini Connected (${activeModel})`
+      : providerStatus === "CHECKING"
+        ? "Checking provider state..."
+        : providerStatus === "NOT_CONFIGURED"
+          ? "Gemini is not configured"
+          : providerStatus === "NOT_CHECKED"
+            ? "Gemini is configured but connectivity has not been checked"
+            : "Gemini connection error";
+
+  const providerDot =
+    providerStatus === "CONNECTED"
+      ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"
+      : providerStatus === "CHECKING"
+        ? "bg-amber-400 animate-pulse"
+        : providerStatus === "NOT_CHECKED"
+          ? "bg-amber-400"
+          : providerStatus === "NOT_CONFIGURED"
+            ? "bg-slate-500"
+            : "bg-rose-500";
+
   return (
     <header className="sticky top-0 z-40">
-      {/* Top Navbar */}
       <div className="bg-slate-900 text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
-            {/* Logo & Branding */}
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center font-bold text-xl text-white shadow-sm">
                 Σ
@@ -96,9 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
             </div>
 
-            {/* Status Pills & Controls */}
             <div className="flex items-center space-x-3">
-              {/* Dynamic Provider Pill */}
               <div className="flex items-center space-x-2 bg-slate-800 px-3 py-1.5 rounded border border-slate-700 text-xs">
                 <span className="text-slate-400 font-mono">PROVIDER:</span>
                 <select
@@ -109,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
                   className="bg-transparent text-blue-400 font-mono font-bold focus:outline-none cursor-pointer pr-1"
                 >
                   <option value="gemini" className="bg-slate-900 text-slate-200 font-sans">
-                    Gemini (Active V1)
+                    Gemini
                   </option>
                   <option value="openai" disabled className="bg-slate-900 text-slate-500 font-sans">
                     OpenAI (Not Configured)
@@ -118,25 +150,9 @@ export const Header: React.FC<HeaderProps> = ({
                     DeepSeek (Not Configured)
                   </option>
                 </select>
-                <div
-                  title={
-                    providerStatus === "CONNECTED"
-                      ? `Gemini Connected (${activeModel})`
-                      : providerStatus === "CHECKING"
-                      ? "Checking connection..."
-                      : "Gemini Connection Error"
-                  }
-                  className={`w-2 h-2 rounded-full ${
-                    providerStatus === "CONNECTED"
-                      ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"
-                      : providerStatus === "CHECKING"
-                      ? "bg-amber-400 animate-ping"
-                      : "bg-rose-500"
-                  }`}
-                />
+                <div title={providerTitle} className={`w-2 h-2 rounded-full ${providerDot}`} />
               </div>
 
-              {/* Renderer Pill: explicitly Disabled/Placeholder in V1 */}
               <div className="hidden sm:flex items-center space-x-2 bg-slate-800/80 px-3 py-1.5 rounded border border-slate-700/60 text-xs">
                 <span className="text-slate-400 font-mono">RENDERER:</span>
                 <span className="text-slate-400 font-mono">Python/Manim</span>
@@ -146,7 +162,6 @@ export const Header: React.FC<HeaderProps> = ({
                 <div className="w-1.5 h-1.5 rounded-full bg-slate-500" title="Disabled in V1"></div>
               </div>
 
-              {/* Skills button: do not fabricate a runtime-active count. */}
               <button
                 id="skills-header-btn"
                 onClick={onOpenSkills}
@@ -156,7 +171,6 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>Skills</span>
               </button>
 
-              {/* Ecosystem */}
               <button
                 id="integrations-btn"
                 onClick={onOpenIntegrations}
@@ -166,7 +180,6 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>Ecosystem</span>
               </button>
 
-              {/* Export modal trigger */}
               <button
                 id="export-modal-btn"
                 onClick={onOpenExport}
@@ -185,7 +198,6 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Navigation Bar (White Toolbar with Clean Underlines) */}
       <nav className="flex bg-white border-b border-slate-200 px-4 sm:px-8 overflow-x-auto shadow-xs">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
           <div className="flex space-x-1 sm:space-x-2">
@@ -201,8 +213,8 @@ export const Header: React.FC<HeaderProps> = ({
                     isActive
                       ? "border-blue-600 text-blue-600 bg-blue-50/70 font-semibold"
                       : tab.ready
-                      ? "border-transparent text-slate-600 hover:text-blue-600 hover:bg-slate-50"
-                      : "border-transparent text-slate-400 hover:text-slate-500"
+                        ? "border-transparent text-slate-600 hover:text-blue-600 hover:bg-slate-50"
+                        : "border-transparent text-slate-400 hover:text-slate-500"
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${isActive ? "text-blue-600" : tab.ready ? "text-slate-500" : "text-slate-400"}`} />

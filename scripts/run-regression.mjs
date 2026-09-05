@@ -79,6 +79,9 @@ const suites = [
   "tests/test-mcq-four-option-adaptive-layout-v1.ts",
   "tests/test-pimath-unified-input-certification-readonly-v1.ts",
   "tests/test-teacher-workflow-ux01.ts",
+  "tests/test-qa-evidence-truth-v1.ts",
+  "tests/test-provider-runtime-truth-v1.ts",
+  "tests/test-ai-visual-fail-closed-v1.ts",
 ];
 
 let failed = 0;
