@@ -21,12 +21,38 @@ const textOf = (blocks: ContentBlock[]): string =>
  * are NOT question boundaries. They may be chapter headings, theorem steps,
  * enumerations, solution steps, or Word auto-numbered prose.
  *
- * Only explicit Câu/Bài markers are authoritative at this layer.
+ * Explicit Câu/Bài markers are authoritative. Word structural numbering may
+ * also open a question only when the numbering definition itself explicitly
+ * renders a top-level decimal Câu/Bài label.
  */
 const explicitQuestion = /^(Câu|Bài)\s*(\d+)\s*[.:)]\s*/iu;
 
 const section =
   /^(PHẦN\s+(?:I|II|III|IV|V)|TRẮC NGHIỆM|ĐÚNG\s*\/\s*SAI|TRẢ LỜI NGẮN|TỰ LUẬN|BÀI TẬP)/iu;
+
+function structuralQuestionBoundary(
+  block: DocumentBlock,
+): { label: string; index: number } | undefined {
+  const meta = block.numberingMeta;
+  if (!meta || meta.level !== 0 || meta.ordinal === undefined || !meta.label) {
+    return undefined;
+  }
+
+  if (!/^(?:decimal|decimalZero)$/iu.test(meta.format ?? "")) {
+    return undefined;
+  }
+
+  if (!/^(?:Câu|Bài)\s*%1(?:\s*[.:)]?\s*)$/iu.test((meta.levelText ?? "").trim())) {
+    return undefined;
+  }
+
+  const label = meta.label.trim();
+  if (!/^(?:Câu|Bài)\s*\d+\s*[.:)]?\s*$/iu.test(label)) {
+    return undefined;
+  }
+
+  return { label, index: meta.ordinal };
+}
 
 function isUppercaseBaiHeading(value: string): boolean {
   const match = /^Bài\s+\d+\s*[.:)]\s*(.+)$/iu.exec(value);
@@ -41,6 +67,12 @@ function isUppercaseBaiHeading(value: string): boolean {
   //
   // These are document/chapter headings, not Question Bank items.
   return letters.length >= 4 && !/\p{Ll}/u.test(remainder);
+}
+
+function isUppercaseStructuralBaiHeading(label: string, value: string): boolean {
+  if (!/^Bài\b/iu.test(label)) return false;
+  const letters = value.match(/\p{L}/gu) ?? [];
+  return letters.length >= 4 && !/\p{Ll}/u.test(value);
 }
 
 function typeFor(
@@ -154,31 +186,39 @@ export function segmentQuestions(
     }
 
     const marker = explicitQuestion.exec(value);
+    const structuralMarker = structuralQuestionBoundary(block);
 
     // "BÀI 31. ĐẠO HÀM..." is a document heading, not a question.
-    if (marker?.[1].toLocaleLowerCase("vi-VN") === "bài" &&
-        isUppercaseBaiHeading(value)) {
+    if (
+      (marker?.[1].toLocaleLowerCase("vi-VN") === "bài" &&
+        isUppercaseBaiHeading(value)) ||
+      (structuralMarker &&
+        isUppercaseStructuralBaiHeading(structuralMarker.label, value))
+    ) {
       flush();
-      currentSection = value;
+      currentSection = structuralMarker
+        ? `${structuralMarker.label} ${value}`.trim()
+        : value;
       continue;
     }
 
     const sectionMatch = section.exec(value);
 
     // Generic Word Heading blocks also terminate an active question, unless
-    // the heading itself is an explicit Câu/Bài marker.
-    if (!marker && (sectionMatch || block.kind === "SECTION")) {
+    // the heading itself is an explicit/verified structural Câu/Bài marker.
+    if (!marker && !structuralMarker && (sectionMatch || block.kind === "SECTION")) {
       flush();
       currentSection = value;
       continue;
     }
 
-    // Strict boundary: only explicit Câu/Bài.
-    if (marker) {
+    // Strict boundary: explicit Câu/Bài or a verified structural Câu/Bài
+    // numbering definition. Bare numeric paragraphs remain non-authoritative.
+    if (marker || structuralMarker) {
       flush();
 
-      label = marker[0].trim();
-      index = Number(marker[2]);
+      label = marker ? marker[0].trim() : structuralMarker!.label;
+      index = marker ? Number(marker[2]) : structuralMarker!.index;
       current.push(block);
       continue;
     }
