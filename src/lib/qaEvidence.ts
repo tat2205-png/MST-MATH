@@ -45,10 +45,12 @@ export function deriveQaEvidence(
 
   const isGeometryDomain = domain.includes("hình") || domain.includes("không gian");
   const isGraphDomain =
-    domain.includes("giải tích") ||
     domain.includes("đồ thị") ||
     topic.includes("hàm số") ||
-    problemText.includes("đồ thị");
+    topic.includes("đồ thị") ||
+    problemText.includes("hàm số") ||
+    problemText.includes("đồ thị") ||
+    /\bf\s*\(\s*x\s*\)/iu.test(problemIR?.problem ?? "");
 
   const geometry = !isGeometryDomain
     ? "NOT_APPLICABLE"
