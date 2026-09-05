@@ -1,11 +1,29 @@
 import { createHash } from "node:crypto";
 import { unzipSync } from "fflate";
 import { parseOmml } from "./omml.js";
-import type { ContentBlock, DocumentBlock, DocumentIR, FigureRecord } from "./types.js";
+import type { ContentBlock, DocumentBlock, DocumentIR, FigureRecord, WordNumberingMeta } from "./types.js";
 const decode = (s: string) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const mime = (path?: string) => path?.endsWith(".png") ? "image/png" : path?.match(/\.jpe?g$/i) ? "image/jpeg" : path?.endsWith(".svg") ? "image/svg+xml" : path?.endsWith(".wmf") ? "image/wmf" : path?.endsWith(".emf") ? "image/emf" : "application/octet-stream";
 const numberStyle = (style: string, name: string) => Number.parseFloat(new RegExp(`(?:^|;)${name}:([^;]+)`, "i").exec(style)?.[1] ?? "0");
 const sourceFormat = (path?: string) => path?.split(".").at(-1)?.toUpperCase() ?? "UNKNOWN";
+const attr = (xml: string, name: string) => new RegExp(`(?:w:)?${name}="([^"]+)"`, "i").exec(xml)?.[1];
+type NumberingLevel = { format?: string; levelText?: string; start?: number };
+function numberingDefinitions(xml: string) {
+  const levels = new Map<string, NumberingLevel>(); const abstracts = new Map<string, string>(); const overrides = new Map<string, number>();
+  for (const a of xml.matchAll(/<w:abstractNum\b[^>]*w:abstractNumId="([^"]+)"[\s\S]*?<\/w:abstractNum>/gi)) {
+    for (const l of a[0].matchAll(/<w:lvl\b[^>]*w:ilvl="(\d+)"[\s\S]*?<\/w:lvl>/gi)) { const id = `${a[1]}:${l[1]}`; levels.set(id, { format: attr(/<w:numFmt\b[^>]*\/?>/i.exec(l[0])?.[0] ?? "", "val"), levelText: attr(/<w:lvlText\b[^>]*\/?>/i.exec(l[0])?.[0] ?? "", "val"), start: Number(attr(/<w:start\b[^>]*\/?>/i.exec(l[0])?.[0] ?? "", "val") ?? "1") }); }
+  }
+  for (const n of xml.matchAll(/<w:num\b[^>]*w:numId="([^"]+)"[\s\S]*?<\/w:num>/gi)) abstracts.set(n[1], attr(/<w:abstractNumId\b[^>]*\/?>/i.exec(n[0])?.[0] ?? "", "val") ?? "");
+  for (const n of xml.matchAll(/<w:num\b[^>]*w:numId="([^"]+)"[\s\S]*?<\/w:num>/gi)) for (const o of n[0].matchAll(/<w:lvlOverride\b[^>]*w:ilvl="(\d+)"[\s\S]*?<\/w:lvlOverride>/gi)) { const start = attr(/<w:startOverride\b[^>]*\/?>/i.exec(o[0])?.[0] ?? "", "val"); if (start) overrides.set(`${n[1]}:${o[1]}`, Number(start)); }
+  return { levels, abstracts, overrides };
+}
+function paragraphNumbering(xml: string, defs: ReturnType<typeof numberingDefinitions>, counters: Map<string, number>): WordNumberingMeta | undefined {
+  const ppr = /<w:pPr\b[\s\S]*?<\/w:pPr>/i.exec(xml)?.[0] ?? xml; const numPr = /<w:numPr\b[\s\S]*?<\/w:numPr>/i.exec(ppr)?.[0]; if (!numPr) return undefined;
+  const numId = attr(/<w:numId\b[^>]*\/?>/i.exec(numPr)?.[0] ?? "", "val"); const level = Number(attr(/<w:ilvl\b[^>]*\/?>/i.exec(numPr)?.[0] ?? "", "val") ?? "0"); if (!numId) return undefined;
+  const definition = defs.levels.get(`${defs.abstracts.get(numId) ?? ""}:${level}`); if (!definition) return { numId, level };
+  const key = `${numId}:${level}`; const start = defs.overrides.get(key) ?? definition.start ?? 1; const ordinal = (counters.get(key) ?? start - 1) + 1; counters.set(key, ordinal);
+  return { numId, level, format: definition.format, levelText: definition.levelText, start, ordinal, label: definition.levelText?.replace(/%1/g, String(ordinal)) };
+}
 export function classifyAssetRole(markup: string, mediaPath?: string, inVmlGroup = false) {
   if (/<w:object\b|<o:OLEObject\b/i.test(markup)) {
     const progId = /\bProgID="([^"]+)"/i.exec(markup)?.[1] ?? "";
@@ -54,9 +72,9 @@ function paragraphContent(xml: string, location: string, rels: Map<string, strin
   }, []);
 }
 export function parseDocx(bytes: Uint8Array, sourceDocument: string, options: { canonicalVml?: boolean } = {}): DocumentIR {
-  const files = unzipSync(bytes); const raw = files["word/document.xml"]; if (!raw) throw new Error("INVALID_DOCX_DOCUMENT_XML_MISSING"); const xml = new TextDecoder().decode(raw); const relRaw = files["word/_rels/document.xml.rels"]; const rels = relationships(relRaw ? new TextDecoder().decode(relRaw) : "");
+  const files = unzipSync(bytes); const raw = files["word/document.xml"]; if (!raw) throw new Error("INVALID_DOCX_DOCUMENT_XML_MISSING"); const xml = new TextDecoder().decode(raw); const relRaw = files["word/_rels/document.xml.rels"]; const rels = relationships(relRaw ? new TextDecoder().decode(relRaw) : ""); const defs = numberingDefinitions(files["word/numbering.xml"] ? new TextDecoder().decode(files["word/numbering.xml"]) : ""); const counters = new Map<string, number>();
   const figures: FigureRecord[] = [], blocks: DocumentBlock[] = [], warnings: string[] = []; const body = /<w:body\b[^>]*>([\s\S]*?)<\/w:body>/i.exec(xml)?.[1] ?? xml; const top = /<w:(p|tbl)\b[\s\S]*?<\/w:\1>/gi; let match, paragraphIndex = 0, order = 0;
-  while ((match = top.exec(body))) { const location = `word/document.xml:${match[1]}:${order}`; if (match[1] === "p") { const style = /<w:pStyle\b[^>]*w:val="([^"]+)"/i.exec(match[0])?.[1]; const numbering = /<w:numId\b[^>]*w:val="([^"]+)"/i.exec(match[0])?.[1]; const content = paragraphContent(match[0], location, rels, files, figures, paragraphIndex, undefined, options.canonicalVml); if (content.length) blocks.push({ id: `block-${order}`, kind: /^heading/i.test(style ?? "") ? "SECTION" : "PARAGRAPH", order, paragraphIndex, style, numbering, boldLabel: /<w:b\b/i.test(match[0]), content, sourceLocation: location }); paragraphIndex++; }
+  while ((match = top.exec(body))) { const location = `word/document.xml:${match[1]}:${order}`; if (match[1] === "p") { const style = /<w:pStyle\b[^>]*w:val="([^"]+)"/i.exec(match[0])?.[1]; const numbering = /<w:numId\b[^>]*w:val="([^"]+)"/i.exec(match[0])?.[1]; const numberingMeta = paragraphNumbering(match[0], defs, counters); const content = paragraphContent(match[0], location, rels, files, figures, paragraphIndex, undefined, options.canonicalVml); if (content.length) blocks.push({ id: `block-${order}`, kind: /^heading/i.test(style ?? "") ? "SECTION" : "PARAGRAPH", order, paragraphIndex, style, numbering, numberingMeta, boldLabel: /<w:b\b/i.test(match[0]), content, sourceLocation: location }); paragraphIndex++; }
     else { const cells: ContentBlock[][] = []; let cell; const cellRe = /<w:tc\b[\s\S]*?<\/w:tc>/gi; let cellIndex = 0; while ((cell = cellRe.exec(match[0]))) cells.push(paragraphContent(cell[0], `${location}:cell:${cellIndex}`, rels, files, figures, paragraphIndex, `${order}:${cellIndex++}`, options.canonicalVml)); blocks.push({ id: `block-${order}`, kind: "TABLE", order, paragraphIndex, content: [{ type: "table", cells, sourceLocation: location }], sourceLocation: location }); }
     order++;
   }

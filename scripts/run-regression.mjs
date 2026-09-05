@@ -43,6 +43,7 @@ const suites = [
   "tests/test-question-bank-qb1b.ts",
   "tests/test-question-bank-qb1c.ts",
   "tests/test-question-bank-pipeline.ts",
+  "tests/test-mst-math-docx-structural-numbering-convergence-v1.ts",
   "tests/test-question-bank-qb1d.ts",
   "tests/test-question-bank-qb1e.ts",
   "tests/test-question-bank-qb1f.ts",
