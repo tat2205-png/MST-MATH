@@ -1,0 +1,39 @@
+{
+  "id": "MST_MATH_DNA_GLOBAL_BASELINE_V1.0",
+  "status": "LOCKED",
+  "canonical": true,
+  "approved": true,
+  "root": "MST-MATH-DNA-V1.0",
+  "migratedFrom": "PIMATH_DNA_GLOBAL_BASELINE_V1.0",
+  "authorityReferences": {
+    "typography": "NA_MATH_TYPOGRAPHY_STANDARD_V1_0",
+    "color": "NA_MATH_OUTPUT_COLOR_SYSTEM_V1_0",
+    "mathNotation": "NA_MATH_SYSTEM_BASELINE_V2_6",
+    "semanticGeometry": "NA_MATH_GEOMETRY_RULES_V1_8_GEO8",
+    "icons": "MST-MATH-DNA-SEMANTIC-ICONS-V1.0",
+    "components": "NA_MATH_DESIGN_SYSTEM_V1_3",
+    "accessibility": "MST_MATH_ACCESSIBILITY_CANONICAL_V1.0",
+    "voice": "MST_MATH_VOICE_NARRATION_CANONICAL_V1.0",
+    "exam": ["P06_EXAM_THPTQG", "P06_EXAM_DGNL", "P06_EXAM_SAT", "P06_EXAM_VSAT"],
+    "video": "MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0"
+  },
+  "adapterRoles": {"geogebra":"ADAPTER_BOUNDARY","threejs":"ADAPTER_BOUNDARY","ttsProvider":"ADAPTER_BOUNDARY"},
+  "runtimeBindings": {
+    "mathNotation": "MST-MATH DNA",
+    "semanticGeometry": "MST-MATH DNA",
+    "component": "MST-MATH DNA",
+    "accessibility": "MST-MATH DNA",
+    "voice": "MST-MATH DNA",
+    "THPTQG": "P06_EXAM_THPTQG",
+    "DGNL": "P06_EXAM_DGNL",
+    "SAT": "P06_EXAM_SAT",
+    "VSAT": "P06_EXAM_VSAT",
+    "video": "MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0",
+    "geogebra": "Semantic Geometry Authority → MST-MATH resolver → ADAPTER_BOUNDARY",
+    "threejs": "MST-MATH renderer provenance → ADAPTER_BOUNDARY",
+    "tts": "Voice authority → TTS ADAPTER_BOUNDARY"
+  },
+  "videoLock": {"authority":"MST_MATH_VIDEO_VISUAL_CANONICAL_V2.0","questionTop":"PASS","solutionLeft":"PASS","geometryRight":"PASS","figureAnchor":"FIXED","solutionReveal":"PROGRESSIVE","canonicalTag":"mst-math-dna-video-canonical-v2.0"},
+  "lineage": {"videoCanonicalCommit":"f5971c0","globalClosureReadyCommit":"a7f8a9e","historicalVideoAuthorityBaseline":"fab0743"},
+  "immutabilityPolicy": ["Child authorities may evolve only through explicit new versions.","Renderer/runtime adapters may not override authorities.","No silent canonical mutation.","No generic output profile may override dedicated profiles.","A new competing authority requires explicit human approval.","Legacy aliases remain compatibility-only.","Fail-closed for unresolved authority conflicts."]
+}

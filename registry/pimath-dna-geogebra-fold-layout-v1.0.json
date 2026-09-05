@@ -1,1 +1,1 @@
-{"id":"PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0","status":"LOCKED","canonical":true,"approved":true,"humanApproved":true,"masterStandard":"PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0","scope":"fold.layout"}
+{"id":"PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0","status":"COMPATIBILITY_ALIAS","canonical":false,"deprecated":true,"aliasOf":"MST_MATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0","replacementPath":"registry/mst-math-dna-geogebra-fold-layout-v1.0.json"}
