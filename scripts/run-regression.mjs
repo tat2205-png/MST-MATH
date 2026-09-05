@@ -47,6 +47,7 @@ const suites = [
   "tests/test-question-bank-qb1d.ts",
   "tests/test-question-bank-qb1e.ts",
   "tests/test-question-bank-qb1f.ts",
+  "tests/test-question-bank-retrieval-authority-v1.ts",
   "tests/test-question-bank-qb2a.ts",
   "tests/test-question-bank-data-access-performance-v1.ts",
   "tests/test-question-bank-qb2b.ts",
