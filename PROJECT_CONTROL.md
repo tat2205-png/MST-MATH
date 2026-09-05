@@ -1,19 +1,20 @@
 # MST-MATH — PROJECT CONTROL / MASTER STATUS
 
-> Operational source of truth for the current MST-MATH stabilization and coordination program.
+> Operational source of truth for the current MST-MATH stabilization, coordination, and final-product convergence program.
 > Historical certification/release evidence remains immutable and is not rewritten here.
 
 LAST_UPDATED=2026-09-05
-CONTROL_MODE=STABILIZATION_AND_COORDINATION
+CONTROL_MODE=FINAL_PRODUCT_CONVERGENCE
 EXECUTION_MODEL=PARALLEL_BOUNDED_PC_MAC
 FEATURE_EXPANSION=FROZEN_UNLESS_INDEPENDENT_AND_EXPLICITLY_APPROVED
 MAIN_PROMOTION=BLOCKED_UNTIL_STABLE_BASELINE
 REPORT_GOVERNANCE=RECEIVE_AND_REVIEW_ACTIVE_WORKSTREAM_REPORTS_BEFORE_NEXT_ASSIGNMENT
 CONTROL_ROOM_IS_SINGLE_CONVERGENCE_POINT=YES
+FINAL_PRODUCT_CONVERGENCE_ISSUE=33
 
 ---
 
-# 0. ACTIVE CONTROL ROOM DIRECTIVE — 2026-09-05
+# 0. ACTIVE CONTROL ROOM DIRECTIVE
 
 PRIORITY=HIGH
 STATUS=ACTIVE_COORDINATION
@@ -22,7 +23,7 @@ STATUS=ACTIVE_COORDINATION
 
 MAC_STATUS=RUNNING
 MAC_FINAL_REPORT=NOT_RECEIVED
-MAC_CURRENT_TASK=CONTINUE_CURRENT_ASSIGNED_WORK
+MAC_CURRENT_TASK=MAC-B3_AUTHORITATIVE_TEACHER_WORKSPACE_CONSUMER
 MAC_NEW_FEATURE=FORBIDDEN
 MAC_PC_PROTECTED_SCOPE_TOUCH=FORBIDDEN
 
@@ -43,7 +44,7 @@ PC may not self-assign the next task while Mac remains active.
 
 ## Mandatory convergence cycle
 
-`REPORT → VERIFY → PATH_COLLISION_CHECK → SEMANTIC_CONTRACT_COLLISION_CHECK → CANONICAL_GOVERNANCE_CHECK → REGRESSION_TEST_CHECK → MASTER_STATUS_UPDATE → NEXT_TASK_ASSIGNMENT`
+`REPORT → VERIFY → PATH_COLLISION_CHECK → SEMANTIC_CONTRACT_COLLISION_CHECK → CANONICAL_GOVERNANCE_CHECK → REGRESSION_TEST_CHECK → CONVERGE → MASTER_STATUS_UPDATE → NEXT_TASK_ASSIGNMENT`
 
 Forbidden transition:
 
@@ -88,11 +89,11 @@ PRODUCT_UMBRELLA=MST-MATH
 APPLICATION=Math AI Studio
 STANDARDS_LAYER=NA-MATH
 
-Target identity architecture:
+Target architecture:
 
-`MST-MATH → MST-MATH-DNA-V1.0 → canonical authorities → output profiles → renderers`
+`MST-MATH → product DNA/root → canonical authorities → output profiles → QA → renderers`
 
-Legacy `PIMATH-*` machine IDs and certified PiMath history remain compatibility/history evidence. No blind global rename.
+Legacy PiMath history and compatibility IDs are preserved until a controlled successor migration is reconciled on the current convergence lineage. No blind global rename and no side-lineage canonical promotion.
 
 Primary workflow:
 
@@ -100,13 +101,14 @@ Primary workflow:
 
 Locked operating principles:
 - UI does not own business truth.
-- AI proposes; deterministic engines validate; QA gates; renderers publish.
+- AI proposes; deterministic/specialist engines validate; QA gates; renderers publish.
 - Math/Geometry correctness precedes visual approval.
 - provenance/source fidelity are mandatory.
 - AUTHOR ONCE — RENDER MANY.
 - one semantic source must preserve meaning across outputs.
 - UNKNOWN is not PASS.
 - local PASS is not workstream completion.
+- one semantic family has one active canonical authority.
 
 ---
 
@@ -118,45 +120,122 @@ MAIN_STATUS=FROZEN_FOR_STABILIZATION
 MAIN_BRANCH_PROTECTION=OFF
 MAIN_REQUIRED_CHECKS=OFF
 
-CONVERGENCE_BRANCH=integration/mst-math-convergence-v1
+SOLE_CONVERGENCE_BRANCH=integration/mst-math-convergence-v1
 CONVERGENCE_HEAD=c80c8afa413e8090a14d3ea80c62db9560a1ffde
 CONVERGENCE_STATUS=P0_AND_STANDARD_AUTHORITY_CONVERGED
 
-AUTHORITY_CONVERGENCE_PR=15
-AUTHORITY_CONVERGENCE_PR_STATUS=MERGED
-
 P0_RUNTIME_TRUTH_PR=20
 P0_RUNTIME_TRUTH_MERGE_COMMIT=f74f0e199e2973c2cabb214ee441f9577824bbc8
-P0_RUNTIME_TRUTH_STATUS=MERGED_TO_CONVERGENCE_POST_MERGE_CI_PASSED
+P0_RUNTIME_TRUTH_STATUS=MERGED_POST_MERGE_CI_PASS
 
 STANDARD_AUTHORITY_UNIFICATION_PR=25
 STANDARD_AUTHORITY_UNIFICATION_MERGE_COMMIT=c80c8afa413e8090a14d3ea80c62db9560a1ffde
-STANDARD_AUTHORITY_UNIFICATION_STATUS=MERGED_TO_CONVERGENCE_POST_MERGE_CI_PASSED
+STANDARD_AUTHORITY_UNIFICATION_STATUS=MERGED_POST_MERGE_CI_PASS
 
 DATA_ACCESS_OPTIMIZATION_PR=31
-DATA_ACCESS_OPTIMIZATION_BRANCH=perf/mst-math-data-access-v1
 DATA_ACCESS_OPTIMIZATION_HEAD=ec733d8bb01100685f77a8e4fd589b8bba63089e
 DATA_ACCESS_OPTIMIZATION_STATUS=DRAFT_CI_GREEN_NOT_MERGED
-DATA_ACCESS_OPTIMIZATION_SELF_PROMOTION=FORBIDDEN
-
-PC_AUTHORITY_BRANCH=fix/mst-math-canonical-question-integrity-v1
-PC_AUTHORITY_HEAD=cc34f55c9ca4341a3ae0c0b45c8caab0f179736a
-PC_AUTHORITY_STATUS=PRESERVED_AS_EVIDENCE_AUTHORITY_NOW_CONVERGED
-
-MAC_LEGACY_BRANCH=feature/mac-b-human-acceptance-remediation-v1
-MAC_LEGACY_STATUS=STALE_REFERENCE_ONLY_DO_NOT_MERGE_WHOLE
+DATA_ACCESS_OPTIMIZATION_CLASS=DIRECT_CONVERGENCE_CANDIDATE
 
 MAC_ACTIVE_BRANCH=audit/mac-b-teacher-readiness-consumer-v1
-MAC_ACTIVE_BASE=4ad5c66ec5486cc0459aceff2047e75d20a0be5a
-MAC_ACTIVE_STATUS=RUNNING_AUTHORIZED_BOUNDED_UI_CONSUMER_WORK
-
-BRAND_BRANCH=chore/mst-math-brand-migration-v1
-BRAND_PR=8
-BRAND_STATUS=HOLD_OLD_LINEAGE_REBUILD_FROM_FRESH_CONVERGENCE_LATER
+MAC_REMOTE_HEAD=4ad5c66ec5486cc0459aceff2047e75d20a0be5a
+MAC_ACTIVE_STATUS=RUNNING_LOCAL_WORK_NOT_YET_REPORTED
 
 ---
 
-# 3. CURRENT WORKSTREAM STATUS
+# 3. OPEN PR CONVERGENCE MATRIX
+
+Rule:
+
+`SIDE_LINEAGE_PR != DIRECT_MERGE_CANDIDATE`
+
+All active feature/authority work must eventually be reconciled against the sole convergence branch.
+
+## PR #31 — Question Bank data access
+
+CLASS=DIRECT_CONVERGENCE_CANDIDATE
+STATUS=DRAFT_CI_GREEN
+BASE=integration/mst-math-convergence-v1
+DECISION=MERGE_HOLD_UNTIL_MAC_B3_REPORT_AND_COLLISION_REVIEW
+
+## PR #26 — Canonical MST-MATH migration
+
+CLASS=SELECTIVE_TRANSPLANT_REQUIRED
+STATUS=DRAFT
+BASE=main_STALE_RELATIVE_TO_CONVERGENCE
+RISK=84_FILES_SHARED_AUTHORITY_REGISTRY_RUNTIME_IDENTITY
+DECISION=DO_NOT_DIRECT_MERGE
+
+Before transplant:
+- reconcile current standards-family authority
+- reconcile compatibility-ID policy
+- separate human-facing brand migration from machine-authority migration
+- rerun full convergence gates
+
+## PR #27 — Output Visual Identity
+
+CLASS=DEPENDENT_TRANSPLANT_AFTER_IDENTITY_RECONCILIATION
+STATUS=DRAFT
+BASE=PR26_SIDE_LINEAGE
+DECISION=DO_NOT_DIRECT_MERGE
+
+Preserve:
+- approved content-presentation policy
+- pedagogical reflow rules
+- student workspace rules
+- answer/end-of-document policy
+
+But split authority payload from runtime implementation and re-certify on convergence.
+
+## PR #29 — Math Notation Assurance
+
+CLASS=VALUABLE_TRANSPLANT_REQUIRED
+STATUS=DRAFT
+BASE=main_STALE_RELATIVE_TO_CONVERGENCE
+TARGETED_CI=PASS
+FULL_CONVERGENCE_CERTIFICATION=NOT_YET_DONE
+DECISION=DO_NOT_DIRECT_MERGE
+
+Preserve registry/adapter/test design, but transplant only after authority collision review and broader output evidence.
+
+## PR #32 — Semantic Icons V1.2
+
+CLASS=HUMAN_APPROVED_SUCCESSOR_HOLD
+STATUS=DRAFT
+BASE=PR27_SIDE_LINEAGE
+REPO_LEVEL_CI=NOT_PROVEN
+RUNTIME_ACTIVATION=FORBIDDEN
+DECISION=IMPORT_AS_INACTIVE_VERSIONED_SUCCESSOR_ONLY_AFTER_CONVERGENCE_REVIEW
+
+## PR #9 — Input/Output + P01 architecture docs
+
+CLASS=DOC_ONLY_TRANSPLANT_CANDIDATE
+STATUS=DRAFT
+DECISION=TRANSPLANT_DOCS_TO_CURRENT_CONVERGENCE; DO_NOT_MERGE_OLD_BASE
+
+## PR #8 — Old brand migration
+
+CLASS=SUPERSEDE_CANDIDATE_EVIDENCE_ONLY
+STATUS=DRAFT
+DECISION=DO_NOT_MERGE; RETAIN_HISTORY_UNTIL_SUCCESSOR_RECONCILIATION_COMPLETE
+
+## PR #4 — Legacy Document/Question Bank
+
+CLASS=FORENSIC_SOURCE_ONLY
+STATUS=DRAFT
+DECISION=NO_FULL_MERGE
+
+Selective future recovery only:
+- CFB
+- MathType/MTEF semantic recovery
+- OMML completion
+- source-region classification if corpus proves need
+
+Current DocumentIR / QuestionIR remain authority.
+
+---
+
+# 4. CURRENT WORKSTREAM STATUS
 
 ## PC — Workstream A
 
@@ -166,33 +245,32 @@ Reports received and reviewed:
 - `MST_MATH_PC_S2_REPORT`
 - `MST_MATH_PC_LEGACY_CAPABILITY_AUDIT_REPORT`
 
-Architecture decisions from legacy audit:
+Architecture decisions:
 - MathType/MTEF semantic recovery is a valid missing capability.
 - recovery must be through Document Engine adapters.
 - current DocumentIR and QuestionIR remain authority.
 - legacy identity authority must not return.
 - full PR #4 merge/cherry-pick is forbidden.
-- source-region classification is retained as a future bounded capability.
+- source-region classification is future bounded capability.
 
-Current PC directive:
+Current directive:
 
-`PRESERVE_CURRENT_WORK → DO_NOT_OPEN_NEW_UNAPPROVED_TASK → PROTECT_BACKEND/QUESTION_BANK/CONTRACTS → REPORT_STATUS → WAIT_FOR_CONTROL_ROOM`
-
-PR #31 note:
-- CI PASS does not equal permission for PC to start another task.
-- PR #31 remains draft and not merged while cross-machine coordination is pending.
+`PRESERVE_CURRENT_WORK → NO_NEW_UNAPPROVED_TASK → PROTECT_BACKEND/QUESTION_BANK/CONTRACTS → WAIT_FOR_CONTROL_ROOM`
 
 ## Mac — Workstream B
 
 ROLE=TEACHER_WORKSPACE_UI_CONSUMER_HUMAN_ACCEPTANCE
+ACTIVE_TASK=MAC-B3_AUTHORITATIVE_TEACHER_WORKSPACE_CONSUMER
+REPORT=MST_MATH_MAC_B3_REPORT_PENDING
 
-Active task:
-`MAC-B3 — AUTHORITATIVE TEACHER WORKSPACE CONSUMER`
+Required invariant:
+
+`UI_CONSUMES_AUTHORITY; UI_DOES_NOT_RECREATE_AUTHORITY`
 
 Allowed ownership:
 - `src/components/teacher/**`
 - `src/services/teacherWorkflowTypes.ts`
-- focused Teacher Workspace consumer tests/evidence
+- focused consumer tests/evidence
 
 Forbidden:
 - backend readiness authority
@@ -200,124 +278,103 @@ Forbidden:
 - segmentation/question identity
 - server export guard
 - PC Input/Question paths
-- Semantic Icon registry
-- Brand migration
+- semantic icon registry
+- brand migration
 - Geometry/FOLD
-- unrelated runtime/data-access branches
-
-Required invariant:
-`UI_CONSUMES_AUTHORITY; UI_DOES_NOT_RECREATE_AUTHORITY`
-
-Mac report status:
-`MST_MATH_MAC_B3_REPORT=PENDING`
-
-Mac completion rule:
-
-`CURRENT_TASK_COMPLETED → REQUIRED_QA_COMPLETED → FINAL_REPORT_GENERATED → REPORT_SENT_TO_CONTROL_ROOM`
+- unrelated data-access work
 
 ---
 
-# 4. REPORT / DECISION GOVERNANCE
+# 5. FINAL PRODUCT CONVERGENCE PROGRAM
 
-Mandatory cycle:
+TRACKING_ISSUE=33
+TARGET=ONE_STABLE_PRODUCT_LINEAGE
 
-`ASSIGN → EXECUTE → STOP → REPORT → VERIFY → RE-AUDIT → PATH_COLLISION_CHECK → SEMANTIC_CONTRACT_COLLISION_CHECK → CANONICAL_CHECK → TEST_CHECK → UPDATE_MASTER → DECIDE → NEXT_ASSIGNMENT`
+## C0 — Governance truth
+1. receive Mac B3 final report
+2. verify report against actual diff/tests
+3. collision-check Mac vs current convergence and PR #31
+4. update Master Control
 
-Rules:
-- NO REPORT → NO NEXT TASK.
-- NO LIVE VERIFICATION → NO PASS CLAIM.
-- NO MASTER UPDATE → NO NEW ASSIGNMENT.
-- NO CROSS-WORKSTREAM CHECK → NO PARALLEL WRITE.
-- a workstream that finishes first waits; it does not self-start the next task.
-- partial/local PASS never equals full workstream completion.
-- PC and Mac may execute in parallel but may not self-coordinate parallel writes.
+## C1 — Stabilization convergence
+1. converge PR #31 if collision-free
+2. post-merge convergence CI
+3. remediate evidence-driven QA / proxy-PASS debt
+4. remediate provider runtime-state semantics
+5. open only bounded data-call improvements
 
-Assignment contract must state:
+## C2 — Product authority convergence
+1. create identity successor from fresh convergence
+2. transplant Math Notation Assurance
+3. transplant Output Content Presentation policy
+4. import Semantic Icons V1.2 as inactive approved successor
+5. activate no successor without root/binding successor + regression + human approval
 
-`TASK_OWNER=PC|MAC`
+## C3 — Teacher product surface
+1. authoritative Teacher Workspace
+2. Teacher Home / Advanced Studio boundary
+3. Contextual AI Actions
+4. evidence-driven QA UI
+5. accessibility/classroom readability
 
-`ALLOWED_PATHS=`
+## C4 — Input fidelity and data scale
+1. selective MathType/MTEF recovery
+2. lightweight DTO + lazy figure assets
+3. binary upload + original-byte SHA256
+4. unified Source Router
+5. Verified Artifact Envelope / BankContext
+6. benchmark 1k/10k/50k → decide FTS/SQLite/AssetStore
 
-`FORBIDDEN_PATHS=`
+## C5 — Output/golden products
+1. P01 real learning-material golden
+2. DOCX/PDF/HTML/Slides/Video cross-render certification
+3. output-policy enforcement
+4. semantic-icon multi-render certification
+5. human acceptance
 
-`SHARED_CONTRACT_POLICY=`
+## C6 — Promotion
 
-`CANONICAL_POLICY=`
-
-`REQUIRED_TESTS=`
-
-`STOP_CONDITIONS=`
-
-Decision states:
-`ACCEPT / ACCEPT_WITH_RISK / REMEDIATE / HOLD / BLOCK / CONVERGE / CLOSE`
+Promote convergence to main only after stable-baseline gates and appropriate human acceptance pass on one lineage.
 
 ---
 
-# 5. CLEANUP / DATAFLOW PROGRAM STATUS
+# 6. CLEANUP / DATAFLOW PROGRAM
 
-CLEAN_UNIFY_PROGRAM=PLANNED
+CLEAN_UNIFY_PROGRAM=ACTIVE_PLANNING
 PLANNING_BRANCH=planning/mst-math-clean-unify-v1
-IMPLEMENTATION_ROUND=HOLD_UNTIL_MACHINE_REPORT_RECONCILIATION
+IMPLEMENTATION_ROUND=HOLD_UNTIL_MAC_REPORT_RECONCILIATION
+DATAFLOW_ISSUE=30
 
-Dataflow principle:
+Core rule:
 
 `DECODE ONCE → NORMALIZE ONCE → CLASSIFY ONCE → VERIFY CONDITIONALLY → CACHE EVIDENCE → RENDER ON DEMAND`
 
-Issue #30 tracks Dataflow Optimization.
-
-PR #31 currently proves a bounded data-access optimization direction:
-- repository snapshot cache
-- snapshot query reuse
+PR #31 proves:
+- repository decoded-snapshot cache
+- pure snapshot query path
 - assessment single-snapshot access
-- deterministic import candidate indexes
+- deterministic candidate indexes
 - regression guard
 - benchmark harness
 
 PR31_CI_CORE_QUALITY=PASS
 PR31_CI_QUESTION_AUTHORITY=PASS
-PR31_MERGE=HOLD_FOR_CONTROL_ROOM_RECONCILIATION
+PR31_MERGE=HOLD
 
-Future dataflow work remains unassigned:
-- binary/multipart document upload instead of base64 JSON
-- lazy figure delivery
-- server-side artifact IDs/content hashes
-- deterministic-first verification routing
-- Verified Artifact Envelope
-- Visual/Scene IR renderer-on-demand
-- DOCX no-op fast path
-- benchmark-driven JSON vs SQLite decision
+Next data-line priorities after report gate:
+1. observability bytes/latency/cache/AI calls
+2. lightweight Question DTO + lazy assets
+3. multipart/binary upload + source hash
+4. unified Source Router
+5. artifact IDs/content hashes
+6. shared BankContext
+7. intent DAG + deterministic-first routing
+8. fail-closed VisualIR / SceneIR renderer split
+9. benchmark-driven storage evolution
 
----
+Optimization rule:
 
-# 6. IDEA / IMPROVEMENT GOVERNANCE
-
-IDEA_BACKLOG_ISSUE=23
-STATUS=ACTIVE_CONTROL_BACKLOG
-
-Governing rule:
-`IDEA_CAPTURED != APPROVED != SCHEDULED != IMPLEMENTED != CANONICAL`
-
-Lifecycle:
-`CAPTURE → CLASSIFY → REVIEW → SCORE → CONFLICT_CHECK → ROADMAP_POSITION → IMPLEMENT/HOLD/REJECT → RE-AUDIT`
-
-Retained directions include:
-- Teacher Home V2 / Teacher-first launcher
-- Recent Work / Quick Tools
-- Friendly Academic Workspace Icons
-- Classroom Tools Foundation
-- Classroom Activity Engine
-- Contextual AI Action Bar
-- Evidence-driven QA
-- AI evidence-state model
-- Real-World Question Validation
-- Quick Math as façade over existing Math/Graph/Verifier engines
-- Semantic Geometry Tools / Compass golden case after SG-0A
-- P01 real executable learning-material golden case
-- provider status semantics cleanup
-- legacy MathType/MTEF/OMML capability reconciliation
-- dataflow optimization and benchmark-driven storage evolution
-
-Ideas may evolve during stabilization but implementation remains HOLD unless explicitly promoted by Control Room.
+`REMOVE_DUPLICATE_WORK_NOT_SAFETY_RESPONSIBILITY`
 
 ---
 
@@ -325,43 +382,49 @@ Ideas may evolve during stabilization but implementation remains HOLD unless exp
 
 Active rule:
 
-`ONE SEMANTIC FAMILY → ONE ACTIVE CANONICAL AUTHORITY`
+`ONE_SEMANTIC_FAMILY → ONE_ACTIVE_CANONICAL_AUTHORITY`
 
 But:
 
-`SAME FAMILY != SAME SCOPE`
+`SAME_FAMILY != SAME_SCOPE`
 
 Historical/compatibility standards are preserved and not rewritten.
 
 For locked/canonical/approved standards:
 - no direct in-place semantic edit
-- successor version required for semantic change
+- successor version required
 - impact analysis required
 - conflict check required
 - regression required
-- human approval required before successor becomes canonical/locked
+- human approval required before canonical/locked activation
 
-Semantic Icon active authority:
-`PIMATH-DNA-SEMANTIC-ICONS-V1.1`
+Current semantic-icon runtime authority on convergence remains V1.1 until a versioned successor binding is explicitly certified and approved.
 
-Legacy V1.0 remains compatibility/history only.
+PR #32 V1.2 is an approved successor candidate, not active runtime authority.
 
 ---
 
 # 8. OPEN CONTROL ITEMS
 
-ISSUE_11=Semantic Icon V1.1 convergence / multi-render certification
+ISSUE_11=Semantic Icon convergence / multi-render certification
 ISSUE_13=Protect main / required CI
 ISSUE_14=P01 real learning-material golden case
 ISSUE_21=Legacy MathType/MTEF/OMML capability reconciliation
 ISSUE_22=Provider connection-state semantics
 ISSUE_23=Idea & Improvement Backlog
-ISSUE_24=Real-World Question Validation runtime convergence
+ISSUE_24=Real-World Question Validation
 ISSUE_28=Product/Pedagogy/AI/UX re-audit
 ISSUE_30=Dataflow Optimization
-PR_31=Question Bank data-access optimization draft
+ISSUE_33=Final Product Convergence V1
 
-P0/P1 classification remains evidence-driven; no issue is closed without exit evidence.
+PR_31=DATA_ACCESS_DIRECT_CONVERGENCE_CANDIDATE
+PR_26=IDENTITY_TRANSPLANT_REQUIRED
+PR_27=OUTPUT_VISUAL_TRANSPLANT_REQUIRED
+PR_29=NOTATION_TRANSPLANT_REQUIRED
+PR_32=ICON_SUCCESSOR_HOLD
+PR_9=P01_DOC_TRANSPLANT_CANDIDATE
+PR_8=OLD_BRAND_SUPERSEDE_CANDIDATE
+PR_4=LEGACY_FORENSIC_SOURCE_ONLY
 
 ---
 
@@ -370,13 +433,14 @@ P0/P1 classification remains evidence-driven; no issue is closed without exit ev
 B1=MAC_B3_REPORT_PENDING
 B2=CROSS_MACHINE_RECONCILIATION_PENDING
 B3=MAIN_BRANCH_PROTECTION_OFF
-B4=BRAND_MIGRATION_NOT_CONVERGED
+B4=PRODUCT_IDENTITY_SIDE_LINEAGES_NOT_RECONCILED
 B5=P01_REAL_GOLDEN_CASE_NOT_RUN
 B6=VIDEO_LOCAL_PORTABILITY_WORK_REQUIRES_SAFE_DISPOSITION
 B7=LEGACY_PR4_CAPABILITY_NOT_IMPLEMENTATION_CONVERGED
 B8=PROVIDER_STATUS_SEMANTICS_NOT_YET_CLEAN
 B9=QA_PROXY_PASS_DEBT_REQUIRES_EVIDENCE_DRIVEN_REMEDIATION
-B10=DATAFLOW_PR31_GREEN_BUT_NOT_YET_RECONCILED_WITH_ACTIVE_MAC_WORK
+B10=PR31_GREEN_BUT_HELD_FOR_MAC_COLLISION_REVIEW
+B11=PR26_PR27_PR29_PR32_SIDE_LINEAGE_CHAIN_REQUIRES_TRANSPLANT_NOT_MERGE
 
 No blocker may be hidden or downgraded without evidence.
 
@@ -398,12 +462,15 @@ R11 AUDIT EXISTING CAPABILITY BEFORE REIMPLEMENTING
 R12 FREEZE PRODUCER CONTRACT DURING CONSUMER WORK
 R13 SMALL BOUNDED PR > MASS CLEANUP
 R14 CRITICAL AUTHORITY TESTS REQUIRE EXPLICIT CI GATES
-R15 TRANSIENT EXTERNAL SECURITY-SERVICE FAILURE != PROVEN VULNERABILITY
-R16 STANDARD TOOLCHAIN AMBIENT TYPES MUST BE EXPLICITLY DECLARED
+R15 TRANSIENT_EXTERNAL_FAILURE != PROVEN_VULNERABILITY
+R16 STANDARD_TOOLCHAIN_TYPES_MUST_BE_EXPLICIT
 R17 LOCAL_OR_PARTIAL_PASS != WORKSTREAM_COMPLETE
 R18 PARALLEL_EXECUTION != PARALLEL_SELF_COORDINATION
 R19 SHARED_AUTHORITY_REQUIRES_SINGLE_WRITER
 R20 PERFORMANCE_OPTIMIZATION_MUST_PRESERVE_SEMANTICS_AND_BE_BENCHMARK_DRIVEN
+R21 ONE_PROJECT=ONE_CONVERGENCE_TARGET
+R22 HUMAN_APPROVED_SUCCESSOR != ACTIVE_RUNTIME_AUTHORITY
+R23 SIDE_LINEAGE_GREEN != SAFE_DIRECT_MERGE
 
 ---
 
@@ -421,22 +488,25 @@ Required on one lineage:
 - EXPORT_GUARD_GATE=PASS
 - FAIL_CLOSED_GATE=PASS
 - P0_RUNTIME_TRUTH_GATE=PASS
-- SEMANTIC_ICON_SINGLE_SOURCE_GATE=PASS
-- BRAND_IDENTITY_CONVERGENCE_GATE=PASS
+- STANDARD_AUTHORITY_GATE=PASS
+- PRODUCT_IDENTITY_CONVERGENCE_GATE=PASS
+- DATAFLOW_REGRESSION_GATE=PASS
+- NO_PARALLEL_ACTIVE_AUTHORITY=YES
 - NO_HIDDEN_DIRTY_DEPENDENCY=YES
 
 Then:
 - P01_REAL_E2E_GATE=PASS
-- branch protection + required checks ON
+- cross-output golden evidence as required
+- branch protection + required checks ON or explicit release-blocking disposition
 - Human Acceptance appropriate to promoted product surface
 
-Only then may the project leave STABILIZATION.
+Only then may the project leave STABILIZATION and be promoted to `main` by controlled PR.
 
 ---
 
-CURRENT_DECISION=MAC_CONTINUES_CURRENT_TASK_PC_PRESERVES_AND_HOLDS
-NEXT_HARD_GATE=RECEIVE_MAC_B3_FINAL_REPORT_THEN_CONTROL_ROOM_RECONCILE_ACTIVE_PC_MAC_STATE
-NEXT_MAJOR_ACTION=WAIT_FOR_MACHINE_REPORTS_RECONCILE_THEN_ASSIGN
+CURRENT_DECISION=FINAL_PRODUCT_CONVERGENCE_PROGRAM_ACTIVE_BUT_WRITE_CONVERGENCE_HOLDS_FOR_MAC_B3_REPORT
+NEXT_HARD_GATE=RECEIVE_MAC_B3_FINAL_REPORT_THEN_VERIFY_AND_COLLISION_CHECK
+NEXT_CONVERGENCE_CANDIDATE=PR31_IF_MAC_COLLISION_CHECK_PASS
 NEXT_ASSIGNMENT=HOLD
 
-CONTROL_ROOM_DIRECTIVE=REPORT_VERIFY_RECONCILE_ASSIGN
+CONTROL_ROOM_DIRECTIVE=REPORT_VERIFY_RECONCILE_CONVERGE_ASSIGN
