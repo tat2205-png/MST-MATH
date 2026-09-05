@@ -365,8 +365,11 @@ export class AssessmentService {
   materialize(assessment: Assessment): QuestionObject[] {
     return assessment.sections.flatMap((section) =>
       section.questionRefs.map((ref) => {
-        const question = this.search.getApprovedById(ref.questionId);
-        if (!question) throw new Error(`ASSESSMENT_QUESTION_NOT_APPROVED:${ref.questionId}`);
+        const question = this.search.getById(ref.questionId);
+        if (!question) throw new Error(`ASSESSMENT_QUESTION_NOT_FOUND:${ref.questionId}`);
+        if (question.bankStatus !== "APPROVED") {
+          throw new Error(`ASSESSMENT_QUESTION_NOT_APPROVED:${ref.questionId}`);
+        }
         if (
           question.type !== ref.type ||
           question.source.document !== ref.source.document ||
