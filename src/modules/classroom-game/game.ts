@@ -1,338 +1,36 @@
 import { createHash } from "node:crypto";
-import type {
-  Assessment,
-  AssessmentAnswerManifest,
-  AssessmentQuestionRef,
-} from "../question-bank/assessment.js";
+import type { Assessment, AssessmentAnswerManifest, AssessmentQuestionRef } from "../question-bank/assessment.js";
 import type { ContentBlock, QuestionBankRepository, QuestionObject } from "../question-bank/types.js";
 import { resolveConsumerProfile } from "../../config/naMathBrandRoot.js";
 import { QuestionSearchService } from "../question-bank/search.js";
 
 export type GameMode = "QUIZ" | "ROUND_BASED" | "SPEED_ROUND" | "SEQUENTIAL";
-export type GameState =
-  | "CREATED"
-  | "READY"
-  | "ACTIVE"
-  | "QUESTION_OPEN"
-  | "QUESTION_CLOSED"
-  | "ROUND_COMPLETE"
-  | "COMPLETE";
-export interface GameRoundSpec {
-  id: string;
-  title?: string;
-  assessmentSectionIds: string[];
-  orderPolicy?: "FIXED" | "SEEDED_SHUFFLE";
-  timeLimitMs?: number;
-  pointsPerQuestion: number;
-  multiplier?: number;
-}
-export interface GameSpec {
-  seed: string | number;
-  mode: GameMode;
-  rounds: GameRoundSpec[];
-  participants: string[];
-}
-export interface GameQuestionRef extends AssessmentQuestionRef {
-  roundId: string;
-}
-export interface GameRound {
-  id: string;
-  title?: string;
-  questionRefs: GameQuestionRef[];
-  timeLimitMs?: number;
-  pointsPerQuestion: number;
-  multiplier: number;
-}
-export interface GameAnswerRecord {
-  participantId: string;
-  questionId: string;
-  roundId: string;
-  evaluation:
-    | "CORRECT"
-    | "INCORRECT"
-    | "MANUAL_EVALUATION_REQUIRED"
-    | "UNRESOLVED_ANSWER";
-  awardedPoints: number;
-  submittedAtMs: number;
-}
-export interface GameSession {
-  schemaVersion: 1;
-  id: string;
-  assessmentId: string;
-  seed: string;
-  mode: GameMode;
-  rounds: GameRound[];
-  participants: string[];
-  state: GameState;
-  currentRoundIndex: number;
-  currentQuestionIndex: number;
-  questionOpenedAtMs?: number;
-  questionClosesAtMs?: number;
-  answers: GameAnswerRecord[];
-  scoreState: Record<string, number>;
-  provenance: { assessmentId: string; questionIds: string[] };
-}
-export interface StudentGameQuestion {
-  id: string;
-  type: QuestionObject["type"];
-  stem: ContentBlock[];
-  options: QuestionObject["options"];
-  trueFalseItems: QuestionObject["trueFalseItems"];
-  subquestions: QuestionObject["subquestions"];
-  figures: QuestionObject["figures"];
-  source: QuestionObject["source"];
-}
-export interface GameResult {
-  sessionId: string;
-  assessmentId: string;
-  questionResults: GameAnswerRecord[];
-  roundResults: Array<{ roundId: string; score: number }>;
-  totalScore: number;
-  participantScores: Record<string, number>;
-  provenance: GameSession["provenance"];
-}
+export type GameState = "CREATED" | "READY" | "ACTIVE" | "QUESTION_OPEN" | "QUESTION_CLOSED" | "ROUND_COMPLETE" | "COMPLETE";
+export interface GameRoundSpec { id: string; title?: string; assessmentSectionIds: string[]; orderPolicy?: "FIXED" | "SEEDED_SHUFFLE"; timeLimitMs?: number; pointsPerQuestion: number; multiplier?: number }
+export interface GameSpec { seed: string | number; mode: GameMode; rounds: GameRoundSpec[]; participants: string[] }
+export interface GameQuestionRef extends AssessmentQuestionRef { roundId: string }
+export interface GameRound { id: string; title?: string; questionRefs: GameQuestionRef[]; timeLimitMs?: number; pointsPerQuestion: number; multiplier: number }
+export interface GameAnswerRecord { participantId: string; questionId: string; roundId: string; evaluation: "CORRECT" | "INCORRECT" | "MANUAL_EVALUATION_REQUIRED" | "UNRESOLVED_ANSWER"; awardedPoints: number; submittedAtMs: number }
+export interface GameSession { schemaVersion: 1; id: string; assessmentId: string; seed: string; mode: GameMode; rounds: GameRound[]; participants: string[]; state: GameState; currentRoundIndex: number; currentQuestionIndex: number; questionOpenedAtMs?: number; questionClosesAtMs?: number; answers: GameAnswerRecord[]; scoreState: Record<string,number>; provenance: { assessmentId: string; questionIds: string[] } }
+export interface StudentGameQuestion { id: string; type: QuestionObject["type"]; stem: ContentBlock[]; options: QuestionObject["options"]; trueFalseItems: QuestionObject["trueFalseItems"]; subquestions: QuestionObject["subquestions"]; figures: QuestionObject["figures"]; source: QuestionObject["source"] }
+export interface GameResult { sessionId: string; assessmentId: string; questionResults: GameAnswerRecord[]; roundResults: Array<{ roundId: string; score: number }>; totalScore: number; participantScores: Record<string,number>; provenance: GameSession["provenance"] }
 
-const digest = (value: unknown) =>
-  createHash("sha256").update(JSON.stringify(value)).digest("hex");
-function shuffle<T>(values: T[], seed: string): T[] {
-  let state = Number.parseInt(digest(seed).slice(0, 8), 16) || 1;
-  const copy = [...values];
-  for (let i = copy.length - 1; i > 0; i--) {
-    state = (Math.imul(state, 1103515245) + 12345) >>> 0;
-    const j = state % (i + 1);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-const text = (blocks?: ContentBlock[]) =>
-  blocks
-    ?.map((block) =>
-      block.type === "text"
-        ? block.value
-        : block.type === "math"
-          ? block.math.latex ?? block.math.sourceRaw
-          : "",
-    )
-    .join(" ")
-    .normalize("NFC")
-    .trim() ?? "";
-const transitions: Record<GameState, GameState[]> = {
-  CREATED: ["READY"],
-  READY: ["ACTIVE"],
-  ACTIVE: ["QUESTION_OPEN", "ROUND_COMPLETE", "COMPLETE"],
-  QUESTION_OPEN: ["QUESTION_CLOSED"],
-  QUESTION_CLOSED: ["QUESTION_OPEN", "ROUND_COMPLETE", "COMPLETE"],
-  ROUND_COMPLETE: ["ACTIVE", "COMPLETE"],
-  COMPLETE: [],
-};
-
+const digest = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
+function shuffle<T>(values: T[], seed: string): T[] { let state = Number.parseInt(digest(seed).slice(0,8),16) || 1; const copy = [...values]; for (let i = copy.length - 1; i > 0; i--) { state = (Math.imul(state,1103515245) + 12345) >>> 0; const j = state % (i + 1); [copy[i],copy[j]] = [copy[j],copy[i]]; } return copy; }
+const text = (blocks?: ContentBlock[]) => blocks?.map((block) => block.type === "text" ? block.value : block.type === "math" ? block.math.latex ?? block.math.sourceRaw : "").join(" ").normalize("NFC").trim() ?? "";
+const transitions: Record<GameState,GameState[]> = { CREATED: ["READY"], READY: ["ACTIVE"], ACTIVE: ["QUESTION_OPEN","ROUND_COMPLETE","COMPLETE"], QUESTION_OPEN: ["QUESTION_CLOSED"], QUESTION_CLOSED: ["QUESTION_OPEN","ROUND_COMPLETE","COMPLETE"], ROUND_COMPLETE: ["ACTIVE","COMPLETE"], COMPLETE: [] };
 export class ClassroomGameService {
   readonly outputProfile = resolveConsumerProfile("GAME");
   private readonly search: QuestionSearchService;
-  private readonly answers = new Map<string, ContentBlock[]>();
-
-  constructor(
-    private readonly repository: QuestionBankRepository,
-    manifest: AssessmentAnswerManifest,
-  ) {
-    this.search = new QuestionSearchService(repository);
-    manifest.entries.forEach((entry) => {
-      if (entry.answer) this.answers.set(entry.questionId, structuredClone(entry.answer));
-    });
-  }
-
-  create(assessment: Assessment, spec: GameSpec): GameSession {
-    if (
-      !spec.participants.length ||
-      !spec.rounds.length ||
-      spec.rounds.some(
-        (round) =>
-          !round.id.trim() ||
-          round.pointsPerQuestion < 0 ||
-          (round.multiplier !== undefined && round.multiplier < 0) ||
-          (round.timeLimitMs !== undefined && round.timeLimitMs <= 0),
-      )
-    ) {
-      throw new Error("INVALID_GAME_SPEC");
-    }
-    const sectionMap = new Map(assessment.sections.map((section) => [section.id, section]));
-    const seen = new Set<string>();
-    const rounds = spec.rounds.map((round) => {
-      let refs = round.assessmentSectionIds
-        .flatMap((id) => {
-          const section = sectionMap.get(id);
-          if (!section) throw new Error(`GAME_SECTION_NOT_FOUND:${id}`);
-          return section.questionRefs;
-        })
-        .filter((ref) => {
-          if (seen.has(ref.questionId)) return false;
-          seen.add(ref.questionId);
-          return true;
-        });
-      if (round.orderPolicy === "SEEDED_SHUFFLE") {
-        refs = shuffle(refs, `${spec.seed}:${round.id}`);
-      }
-      return {
-        id: round.id,
-        title: round.title,
-        questionRefs: refs.map((ref) => ({ ...structuredClone(ref), roundId: round.id })),
-        timeLimitMs: round.timeLimitMs,
-        pointsPerQuestion: round.pointsPerQuestion,
-        multiplier: round.multiplier ?? 1,
-      };
-    });
-    const seed = String(spec.seed);
-    return {
-      schemaVersion: 1,
-      id: `game-${digest({ assessmentId: assessment.id, spec }).slice(0, 16)}`,
-      assessmentId: assessment.id,
-      seed,
-      mode: spec.mode,
-      rounds,
-      participants: [...spec.participants],
-      state: "CREATED",
-      currentRoundIndex: 0,
-      currentQuestionIndex: 0,
-      answers: [],
-      scoreState: Object.fromEntries(spec.participants.map((id) => [id, 0])),
-      provenance: {
-        assessmentId: assessment.id,
-        questionIds: rounds.flatMap((round) => round.questionRefs.map((ref) => ref.questionId)),
-      },
-    };
-  }
-
-  transition(session: GameSession, next: GameState): void {
-    if (!transitions[session.state].includes(next)) {
-      throw new Error(`ILLEGAL_GAME_TRANSITION:${session.state}->${next}`);
-    }
-    session.state = next;
-  }
-
-  openQuestion(session: GameSession, nowMs: number): GameQuestionRef {
-    if (session.state !== "ACTIVE" && session.state !== "QUESTION_CLOSED") {
-      throw new Error("GAME_NOT_READY_TO_OPEN_QUESTION");
-    }
-    const round = session.rounds[session.currentRoundIndex];
-    const ref = round?.questionRefs[session.currentQuestionIndex];
-    if (!ref) throw new Error("GAME_QUESTION_NOT_FOUND");
-    this.transition(session, "QUESTION_OPEN");
-    session.questionOpenedAtMs = nowMs;
-    session.questionClosesAtMs =
-      round.timeLimitMs === undefined ? undefined : nowMs + round.timeLimitMs;
-    return structuredClone(ref);
-  }
-
-  studentQuestion(ref: GameQuestionRef): StudentGameQuestion {
-    const q = this.search.getApprovedById(ref.questionId);
-    if (!q) throw new Error(`GAME_QUESTION_NOT_APPROVED:${ref.questionId}`);
-    if (
-      q.type !== ref.type ||
-      q.source.document !== ref.source.document ||
-      q.source.sourceHash !== ref.source.sourceHash
-    ) {
-      throw new Error(`GAME_QUESTION_STALE:${ref.questionId}`);
-    }
-    return {
-      id: q.id,
-      type: q.type,
-      stem: q.stem,
-      options: q.options,
-      trueFalseItems: q.trueFalseItems,
-      subquestions: q.subquestions,
-      figures: q.figures,
-      source: q.source,
-    };
-  }
-
-  submit(
-    session: GameSession,
-    participantId: string,
-    response: string,
-    nowMs: number,
-  ): GameAnswerRecord {
-    if (session.state !== "QUESTION_OPEN" || !session.participants.includes(participantId)) {
-      throw new Error("GAME_ANSWER_NOT_ALLOWED");
-    }
-    const round = session.rounds[session.currentRoundIndex];
-    const ref = round.questionRefs[session.currentQuestionIndex];
-    const question = this.search.getApprovedById(ref.questionId);
-    if (!question) throw new Error(`GAME_QUESTION_NOT_APPROVED:${ref.questionId}`);
-    if (
-      question.type !== ref.type ||
-      question.source.document !== ref.source.document ||
-      question.source.sourceHash !== ref.source.sourceHash
-    ) {
-      throw new Error(`GAME_QUESTION_STALE:${ref.questionId}`);
-    }
-
-    let evaluation: GameAnswerRecord["evaluation"];
-    if (question.type === "ESSAY") {
-      evaluation = "MANUAL_EVALUATION_REQUIRED";
-    } else {
-      const expected = text(this.answers.get(question.id));
-      evaluation = !expected
-        ? "UNRESOLVED_ANSWER"
-        : response.normalize("NFC").trim() === expected
-          ? "CORRECT"
-          : "INCORRECT";
-    }
-    const onTime = session.questionClosesAtMs === undefined || nowMs <= session.questionClosesAtMs;
-    const awardedPoints =
-      evaluation === "CORRECT" && onTime ? round.pointsPerQuestion * round.multiplier : 0;
-    const record = {
-      participantId,
-      questionId: question.id,
-      roundId: round.id,
-      evaluation,
-      awardedPoints,
-      submittedAtMs: nowMs,
-    };
-    session.answers.push(record);
-    session.scoreState[participantId] += awardedPoints;
-    return structuredClone(record);
-  }
-
-  closeQuestion(session: GameSession): void {
-    this.transition(session, "QUESTION_CLOSED");
-    session.currentQuestionIndex += 1;
-    session.questionOpenedAtMs = undefined;
-    session.questionClosesAtMs = undefined;
-  }
-
-  completeRound(session: GameSession): void {
-    if (session.state !== "QUESTION_CLOSED" && session.state !== "ACTIVE") {
-      throw new Error("GAME_ROUND_NOT_CLOSABLE");
-    }
-    const round = session.rounds[session.currentRoundIndex];
-    if (session.currentQuestionIndex < round.questionRefs.length) {
-      throw new Error("GAME_ROUND_HAS_OPEN_QUESTIONS");
-    }
-    this.transition(session, "ROUND_COMPLETE");
-  }
-
-  nextRound(session: GameSession): void {
-    if (session.state !== "ROUND_COMPLETE") throw new Error("GAME_ROUND_NOT_COMPLETE");
-    session.currentRoundIndex += 1;
-    session.currentQuestionIndex = 0;
-    this.transition(session, session.currentRoundIndex < session.rounds.length ? "ACTIVE" : "COMPLETE");
-  }
-
-  result(session: GameSession): GameResult {
-    if (session.state !== "COMPLETE") throw new Error("GAME_NOT_COMPLETE");
-    return {
-      sessionId: session.id,
-      assessmentId: session.assessmentId,
-      questionResults: structuredClone(session.answers),
-      roundResults: session.rounds.map((round) => ({
-        roundId: round.id,
-        score: session.answers
-          .filter((answer) => answer.roundId === round.id)
-          .reduce((sum, answer) => sum + answer.awardedPoints, 0),
-      })),
-      totalScore: Object.values(session.scoreState).reduce((sum, value) => sum + value, 0),
-      participantScores: { ...session.scoreState },
-      provenance: structuredClone(session.provenance),
-    };
-  }
+  private readonly answers = new Map<string,ContentBlock[]>();
+  constructor(private readonly repository: QuestionBankRepository, manifest: AssessmentAnswerManifest) { this.search = new QuestionSearchService(repository); manifest.entries.forEach((entry) => { if (entry.answer) this.answers.set(entry.questionId,structuredClone(entry.answer)); }); }
+  create(assessment: Assessment, spec: GameSpec): GameSession { if (!spec.participants.length || !spec.rounds.length || spec.rounds.some((round) => !round.id.trim() || round.pointsPerQuestion < 0 || round.multiplier !== undefined && round.multiplier < 0 || round.timeLimitMs !== undefined && round.timeLimitMs <= 0)) throw new Error("INVALID_GAME_SPEC"); const sectionMap = new Map(assessment.sections.map((section) => [section.id,section])); const seen = new Set<string>(); const rounds = spec.rounds.map((round) => { let refs = round.assessmentSectionIds.flatMap((id) => { const section = sectionMap.get(id); if (!section) throw new Error(`GAME_SECTION_NOT_FOUND:${id}`); return section.questionRefs; }).filter((ref) => { if (seen.has(ref.questionId)) return false; seen.add(ref.questionId); return true; }); if (round.orderPolicy === "SEEDED_SHUFFLE") refs = shuffle(refs,`${spec.seed}:${round.id}`); return { id: round.id, title: round.title, questionRefs: refs.map((ref) => ({ ...structuredClone(ref), roundId: round.id })), timeLimitMs: round.timeLimitMs, pointsPerQuestion: round.pointsPerQuestion, multiplier: round.multiplier ?? 1 }; }); const seed = String(spec.seed); return { schemaVersion: 1, id: `game-${digest({ assessmentId: assessment.id,spec }).slice(0,16)}`, assessmentId: assessment.id, seed, mode: spec.mode, rounds, participants: [...spec.participants], state: "CREATED", currentRoundIndex: 0, currentQuestionIndex: 0, answers: [], scoreState: Object.fromEntries(spec.participants.map((id) => [id,0])), provenance: { assessmentId: assessment.id, questionIds: rounds.flatMap((round) => round.questionRefs.map((ref) => ref.questionId)) } }; }
+  transition(session: GameSession, next: GameState): void { if (!transitions[session.state].includes(next)) throw new Error(`ILLEGAL_GAME_TRANSITION:${session.state}->${next}`); session.state = next; }
+  openQuestion(session: GameSession, nowMs: number): GameQuestionRef { if (session.state !== "ACTIVE" && session.state !== "QUESTION_CLOSED") throw new Error("GAME_NOT_READY_TO_OPEN_QUESTION"); const round = session.rounds[session.currentRoundIndex], ref = round?.questionRefs[session.currentQuestionIndex]; if (!ref) throw new Error("GAME_QUESTION_NOT_FOUND"); this.transition(session,"QUESTION_OPEN"); session.questionOpenedAtMs = nowMs; session.questionClosesAtMs = round.timeLimitMs === undefined ? undefined : nowMs + round.timeLimitMs; return structuredClone(ref); }
+  studentQuestion(ref: GameQuestionRef): StudentGameQuestion { const q = this.search.getById(ref.questionId); if (!q) throw new Error(`GAME_QUESTION_NOT_FOUND:${ref.questionId}`); if (q.bankStatus !== "APPROVED") throw new Error(`GAME_QUESTION_NOT_APPROVED:${ref.questionId}`); if (q.type !== ref.type || q.source.document !== ref.source.document || q.source.sourceHash !== ref.source.sourceHash) throw new Error(`GAME_QUESTION_STALE:${ref.questionId}`); return { id: q.id, type: q.type, stem: q.stem, options: q.options, trueFalseItems: q.trueFalseItems, subquestions: q.subquestions, figures: q.figures, source: q.source }; }
+  submit(session: GameSession, participantId: string, response: string, nowMs: number): GameAnswerRecord { if (session.state !== "QUESTION_OPEN" || !session.participants.includes(participantId)) throw new Error("GAME_ANSWER_NOT_ALLOWED"); const round = session.rounds[session.currentRoundIndex], ref = round.questionRefs[session.currentQuestionIndex], question = this.search.getById(ref.questionId); if (!question) throw new Error(`GAME_QUESTION_NOT_FOUND:${ref.questionId}`); if (question.bankStatus !== "APPROVED") throw new Error(`GAME_QUESTION_NOT_APPROVED:${ref.questionId}`); if (question.type !== ref.type || question.source.document !== ref.source.document || question.source.sourceHash !== ref.source.sourceHash) throw new Error(`GAME_QUESTION_STALE:${ref.questionId}`); let evaluation: GameAnswerRecord["evaluation"]; if (question.type === "ESSAY") evaluation = "MANUAL_EVALUATION_REQUIRED"; else { const expected = text(this.answers.get(question.id)); evaluation = !expected ? "UNRESOLVED_ANSWER" : response.normalize("NFC").trim() === expected ? "CORRECT" : "INCORRECT"; } const onTime = session.questionClosesAtMs === undefined || nowMs <= session.questionClosesAtMs; const awardedPoints = evaluation === "CORRECT" && onTime ? round.pointsPerQuestion * round.multiplier : 0; const record = { participantId, questionId: question.id, roundId: round.id, evaluation, awardedPoints, submittedAtMs: nowMs }; session.answers.push(record); session.scoreState[participantId] += awardedPoints; return structuredClone(record); }
+  closeQuestion(session: GameSession): void { this.transition(session,"QUESTION_CLOSED"); session.currentQuestionIndex += 1; session.questionOpenedAtMs = undefined; session.questionClosesAtMs = undefined; }
+  completeRound(session: GameSession): void { if (session.state !== "QUESTION_CLOSED" && session.state !== "ACTIVE") throw new Error("GAME_ROUND_NOT_CLOSABLE"); const round = session.rounds[session.currentRoundIndex]; if (session.currentQuestionIndex < round.questionRefs.length) throw new Error("GAME_ROUND_HAS_OPEN_QUESTIONS"); this.transition(session,"ROUND_COMPLETE"); }
+  nextRound(session: GameSession): void { if (session.state !== "ROUND_COMPLETE") throw new Error("GAME_ROUND_NOT_COMPLETE"); session.currentRoundIndex += 1; session.currentQuestionIndex = 0; this.transition(session,session.currentRoundIndex < session.rounds.length ? "ACTIVE" : "COMPLETE"); }
+  result(session: GameSession): GameResult { if (session.state !== "COMPLETE") throw new Error("GAME_NOT_COMPLETE"); return { sessionId: session.id, assessmentId: session.assessmentId, questionResults: structuredClone(session.answers), roundResults: session.rounds.map((round) => ({ roundId: round.id, score: session.answers.filter((answer) => answer.roundId === round.id).reduce((sum,answer) => sum + answer.awardedPoints,0) })), totalScore: Object.values(session.scoreState).reduce((sum,value) => sum + value,0), participantScores: { ...session.scoreState }, provenance: structuredClone(session.provenance) }; }
 }
