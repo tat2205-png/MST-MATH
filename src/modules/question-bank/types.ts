@@ -8,6 +8,7 @@ import type {
   MathNode,
   ParseStatus,
   VmlLayout,
+  WordNumberingMeta,
 } from "../document-engine/document-ir.js";
 
 export type {
@@ -20,6 +21,7 @@ export type {
   MathNode,
   ParseStatus,
   VmlLayout,
+  WordNumberingMeta,
 } from "../document-engine/document-ir.js";
 
 export type QuestionType = "MULTIPLE_CHOICE" | "TRUE_FALSE" | "SHORT_ANSWER" | "ESSAY" | "UNKNOWN";
