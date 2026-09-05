@@ -366,8 +366,11 @@ export class TeacherWorkflowService {
   }
 
   prepareVideo(questionId: string): VideoWorkflowResult {
-    const question = this.search.getById(questionId);
-    if (!question) throw new Error("QUESTION_NOT_FOUND");
+    const question = this.search.getApprovedById(questionId);
+    if (!question) {
+      if (!this.search.getById(questionId)) throw new Error("QUESTION_NOT_FOUND");
+      throw new Error(`VIDEO_QUESTION_NOT_APPROVED:${questionId}`);
+    }
     const result = this.studio.buildVideoJob(question);
     if ("status" in result) throw new Error(`${result.status}:${result.reasons.join(" ")}`);
     return { job: result.job, stages: ["PREPARING", "VERIFYING_MATH", "PLANNING_VISUAL", "RENDERING", "QA", "COMPLETE"] };
