@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import standards from "../registry/standards.json";
 import families from "../registry/standard-families.json";
-import brandRoot from "../registry/brand-root.json";
-import iconV1 from "../registry/pimath-dna-icons.json";
-import iconV11 from "../registry/pimath-dna-icons-v1.1.json";
-import baselineV1 from "../registry/pimath-dna-global-baseline-v1.0.json";
-import baselineV11 from "../registry/pimath-dna-global-baseline-v1.1.json";
-import accessibility from "../standards/PIMATH_ACCESSIBILITY_CANONICAL_V1_0/pimath-accessibility-canonical-v1.0.json";
+import brandRoot from "../registry/mst-math-brand-root.json";
+import iconV1 from "../registry/mst-math-dna-icons-v1.0.json";
+import iconV11 from "../registry/mst-math-dna-icons-v1.1.json";
+import baselineV1 from "../registry/mst-math-dna-global-baseline-v1.0.json";
+import baselineV11 from "../registry/mst-math-dna-global-baseline-v1.1.json";
+import accessibility from "../standards/MST_MATH_ACCESSIBILITY_CANONICAL_V1_0/mst-math-accessibility-canonical-v1.0.json";
 
 const entries = standards.standards as Array<Record<string, unknown>>;
 const byId = new Map(entries.map((entry) => [String(entry.id), entry]));
@@ -43,6 +43,11 @@ for (const [familyName, familySpec] of Object.entries(families.families)) {
   }
 }
 
+const identityFamily = families.families.PRODUCT_IDENTITY_ROOT;
+assert.equal(identityFamily.activeCanonical, brandRoot.standardId);
+assert.equal(brandRoot.standardId, "MST-MATH-DNA-V1.0");
+assert.equal(byId.get("PIMATH-DNA-V1.0")?.aliasOf, brandRoot.standardId);
+
 const baselineFamily = families.families.GLOBAL_BASELINE;
 assert.equal(baselineFamily.activeCanonical, baselineV11.id);
 assert.equal(baselineV11.inherits, baselineV1.id);
@@ -56,8 +61,7 @@ assert.equal(byId.get(iconV1.standardId)?.active, false);
 assert.equal(accessibility.consumes.icons, iconV11.standardId);
 assert.equal(iconFamily.consumerBindings.accessibility, iconV11.standardId);
 
-// Historical locked payloads remain unchanged even if they self-declared canonical at the time.
-// Current authority is resolved by registry classification, not by rewriting certified history.
+// Historical locked payloads remain unchanged even when the active registry supersedes them.
 assert.equal(iconV1.canonical, true);
 assert.equal(baselineV1.canonical, true);
 assert.equal(byId.get(iconV1.standardId)?.supersededBy, iconV11.standardId);
@@ -69,6 +73,7 @@ assert.equal(protectedVideoDebt[0].classification, "STALE_METADATA_NON_AUTHORITY
 assert.equal(protectedVideoDebt[0].runtimeAuthority, iconV11.standardId);
 
 const dynamicGeometry = families.families.DYNAMIC_GEOMETRY;
+assert.equal(dynamicGeometry.activeCanonical, "MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0");
 assert.ok(dynamicGeometry.specializedFacets.length >= 4);
 for (const id of dynamicGeometry.specializedFacets) assert.ok(byId.has(id));
 assert.equal(dynamicGeometry.mergePolicy, "KEEP_SPECIALIZED_FACETS_UNDER_ONE_FAMILY_ROOT");
@@ -79,6 +84,7 @@ assert.equal(families.families.FOLD_PRESENTATION.mergePolicy, "KEEP_PRESENTATION
 
 console.log("STANDARD_FAMILY_REGISTRY_QA=PASS");
 console.log("ONE_ACTIVE_CANONICAL_PER_FAMILY_QA=PASS");
+console.log("MST_MATH_PRODUCT_IDENTITY_ROOT_QA=PASS");
 console.log("GLOBAL_BASELINE_PARALLEL_AUTHORITY_COUNT=0");
 console.log("SEMANTIC_ICON_PARALLEL_AUTHORITY_COUNT=0");
 console.log("ACCESSIBILITY_ACTIVE_ICON_BINDING_QA=PASS");
