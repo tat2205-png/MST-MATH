@@ -19,13 +19,13 @@
     "GLOBAL_BASELINE": {
       "activeCanonical": "MST_MATH_DNA_GLOBAL_BASELINE_V1.1",
       "historical": ["MST_MATH_DNA_GLOBAL_BASELINE_V1.0"],
-      "compatibilityAliases": ["PIMATH_DNA_GLOBAL_BASELINE_V1.0", "PIMATH_DNA_GLOBAL_BASELINE_V1.1"],
+      "compatibilityAliases": ["PIMATH_DNA_GLOBAL_BASELINE_V1.1"],
       "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE"
     },
     "SEMANTIC_ICONS": {
       "activeCanonical": "MST-MATH-DNA-SEMANTIC-ICONS-V1.1",
       "historical": ["MST-MATH-DNA-SEMANTIC-ICONS-V1.0"],
-      "compatibilityAliases": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0", "PIMATH-DNA-SEMANTIC-ICONS-V1.1"],
+      "compatibilityAliases": ["PIMATH-DNA-SEMANTIC-ICONS-V1.1"],
       "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE",
       "runtimeEvidence": "src/config/mstMathBrandRoot.ts imports registry/mst-math-dna-icons-v1.1.json",
       "consumerBindings": {
