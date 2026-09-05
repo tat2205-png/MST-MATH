@@ -39,6 +39,12 @@ const algebraProblem = {
   topic: "Phương trình",
 } as MathProblemIR;
 
+const graphProblem = {
+  ...algebraProblem,
+  problem: "Khảo sát và vẽ đồ thị hàm số f(x)",
+  topic: "Khảo sát hàm số",
+} as MathProblemIR;
+
 const noVideo = deriveQaEvidence(geometryProblem, verification, null);
 assert.equal(noVideo.geometry, "PASS", "geometry may PASS only from geometry-specific invariant evidence");
 assert.equal(noVideo.layout, "NOT_TESTED", "video presence must not be inferred");
@@ -95,14 +101,20 @@ assert.equal(renderEvidence.python, "PASS", "successful execution is valid runti
 assert.equal(renderEvidence.manimRuntime, "PASS");
 assert.equal(renderEvidence.frame, "NOT_TESTED", "runtime completion is not frame-QA evidence");
 
-const graphWithoutCheck = deriveQaEvidence(algebraProblem, verification, null);
+assert.equal(
+  deriveQaEvidence(algebraProblem, verification, null).graph,
+  "NOT_APPLICABLE",
+  "general Đại số & Giải tích classification must not force Graph QA applicability",
+);
+
+const graphWithoutCheck = deriveQaEvidence(graphProblem, verification, null);
 assert.equal(graphWithoutCheck.graph, "NOT_TESTED", "general Math QA must not proxy Graph QA");
 
 const graphVerification: VerificationReport = {
   ...verification,
   checks: [{ id: "graph-domain", name: "Đồ thị hàm số", status: "PASS", details: "graph evidence" }],
 };
-assert.equal(deriveQaEvidence(algebraProblem, graphVerification, null).graph, "PASS");
+assert.equal(deriveQaEvidence(graphProblem, graphVerification, null).graph, "PASS");
 
 console.log("QA_DIMENSION_EVIDENCE_GATE=PASS");
 console.log("NO_PROXY_PASS_GATE=PASS");
