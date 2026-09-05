@@ -1,0 +1,22 @@
+import assert from "node:assert/strict";
+import { zipSync } from "fflate";
+import { parseDocx } from "../src/modules/question-bank/document.ts";
+import { segmentQuestions } from "../src/modules/question-bank/segmentation.ts";
+import { normalizeCandidate } from "../src/modules/question-bank/extraction.ts";
+
+const enc = new TextEncoder();
+const p = (numId: string, text: string, ilvl = "0") => `<w:p><w:pPr><w:numPr><w:ilvl w:val="${ilvl}"/><w:numId w:val="${numId}"/></w:numPr></w:pPr><w:r><w:t>${text}</w:t></w:r></w:p>`;
+const plain = (text: string) => `<w:p><w:r><w:t>${text}</w:t></w:r></w:p>`;
+const numbering = `<w:numbering><w:abstractNum w:abstractNumId="10"><w:lvl w:ilvl="0"><w:start w:val="1"/><w:numFmt w:val="decimal"/><w:lvlText w:val="Câu %1:"/></w:lvl></w:abstractNum><w:abstractNum w:abstractNumId="11"><w:lvl w:ilvl="0"><w:numFmt w:val="decimal"/><w:lvlText w:val="%1."/></w:lvl></w:abstractNum><w:num w:numId="6"><w:abstractNumId w:val="10"/></w:num><w:num w:numId="7"><w:abstractNumId w:val="10"/></w:num><w:num w:numId="8"><w:abstractNumId w:val="11"/></w:num></w:numbering>`;
+const body = [p("6", "Question one"), plain("A. one B. two C. three D. four"), p("6", "Question two"), plain("A. one B. two C. three D. four"), p("7", "Question reset"), plain("A. one B. two C. three D. four"), p("8", "Generic numbered text")].join("");
+const bytes = zipSync({ "word/document.xml": enc.encode(`<w:document><w:body>${body}</w:body></w:document>`), "word/numbering.xml": enc.encode(numbering) });
+const document = parseDocx(bytes, "structural.docx");
+const candidates = segmentQuestions(document);
+assert.deepEqual(candidates.map((x) => x.questionIndex), [1, 2, 1]);
+assert.deepEqual(candidates.map((x) => x.sequenceIndex), [1, 2, 3]);
+assert.deepEqual(candidates.map((x) => x.questionLabel), ["Câu 1:", "Câu 2:", "Câu 1:"]);
+assert.equal(candidates.length, 3);
+assert.equal(candidates.flatMap((x) => normalizeCandidate(x, document).id).length, 3);
+assert.equal(new Set(candidates.map((x) => normalizeCandidate(x, document).id)).size, 3);
+assert.equal(segmentQuestions(parseDocx(zipSync({ "word/document.xml": enc.encode(`<w:document><w:body>${p("0", "Câu 1. Legacy question")}</w:body></w:document>`) }), "legacy.docx")).length, 1);
+console.log("MST_MATH_DOCX_STRUCTURAL_NUMBERING_V1=PASS");
