@@ -35,6 +35,7 @@
     "qa:wmf": "node --import tsx tests/test-wmf-production.ts",
     "qa:q37-vml": "node --import tsx tests/test-q37-vml-real-source.ts",
     "qa:question-pagination": "node --import tsx tests/test-question-bank-pagination.ts",
+    "qa:data-access:benchmark": "node --import tsx scripts/benchmark-question-bank-data-access.ts",
     "golden:docx": "node --import tsx scripts/generate-docx-goldens.ts",
     "qa:luadraw": "python scripts/doctor_luadraw.py && node --import tsx tests/test-luadraw-contract.ts",
     "qa:luadraw:smoke": "node --import tsx scripts/run-luadraw-smoke.ts",
