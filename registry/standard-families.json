@@ -12,24 +12,24 @@
   },
   "families": {
     "PRODUCT_IDENTITY_ROOT": {
-      "activeCanonical": "PIMATH-DNA-V1.0",
-      "compatibilityAliases": ["NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0"],
-      "futureMigrationTarget": "MST-MATH-DNA-V1.0",
-      "futureMigrationTargetStatus": "NOT_YET_CANONICAL",
-      "mergePolicy": "ALIAS_COMPATIBILITY_ONLY"
+      "activeCanonical": "MST-MATH-DNA-V1.0",
+      "compatibilityAliases": ["PIMATH-DNA-V1.0", "NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0"],
+      "mergePolicy": "MST_MATH_ACTIVE_LEGACY_ALIAS_COMPATIBILITY_ONLY"
     },
     "GLOBAL_BASELINE": {
-      "activeCanonical": "PIMATH_DNA_GLOBAL_BASELINE_V1.1",
-      "historical": ["PIMATH_DNA_GLOBAL_BASELINE_V1.0"],
+      "activeCanonical": "MST_MATH_DNA_GLOBAL_BASELINE_V1.1",
+      "historical": ["MST_MATH_DNA_GLOBAL_BASELINE_V1.0"],
+      "compatibilityAliases": ["PIMATH_DNA_GLOBAL_BASELINE_V1.0", "PIMATH_DNA_GLOBAL_BASELINE_V1.1"],
       "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE"
     },
     "SEMANTIC_ICONS": {
-      "activeCanonical": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
-      "historical": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0"],
+      "activeCanonical": "MST-MATH-DNA-SEMANTIC-ICONS-V1.1",
+      "historical": ["MST-MATH-DNA-SEMANTIC-ICONS-V1.0"],
+      "compatibilityAliases": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0", "PIMATH-DNA-SEMANTIC-ICONS-V1.1"],
       "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE",
-      "runtimeEvidence": "src/config/naMathBrandRoot.ts imports registry/pimath-dna-icons-v1.1.json",
+      "runtimeEvidence": "src/config/mstMathBrandRoot.ts imports registry/mst-math-dna-icons-v1.1.json",
       "consumerBindings": {
-        "accessibility": "PIMATH-DNA-SEMANTIC-ICONS-V1.1"
+        "accessibility": "MST-MATH-DNA-SEMANTIC-ICONS-V1.1"
       },
       "knownNonAuthorityLegacyReferences": [
         {
@@ -37,18 +37,19 @@
           "field": "manifest.metadata.iconAuthority",
           "value": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
           "classification": "STALE_METADATA_NON_AUTHORITY_PROTECTED_VIDEO_SCOPE",
-          "runtimeAuthority": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+          "runtimeAuthority": "MST-MATH-DNA-SEMANTIC-ICONS-V1.1",
           "requiredAction": "RECONCILE_WITH_PROTECTED_VIDEO_WORKSTREAM_BEFORE_RELEASE"
         }
       ]
     },
     "DYNAMIC_GEOMETRY": {
-      "activeCanonical": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
+      "activeCanonical": "MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
+      "compatibilityAliases": ["PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0"],
       "specializedFacets": [
-        "PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0",
-        "PIMATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0",
-        "PIMATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0",
-        "PIMATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0"
+        "MST_MATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0",
+        "MST_MATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0",
+        "MST_MATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0",
+        "MST_MATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0"
       ],
       "mergePolicy": "KEEP_SPECIALIZED_FACETS_UNDER_ONE_FAMILY_ROOT"
     },
