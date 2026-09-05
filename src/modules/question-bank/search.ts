@@ -36,6 +36,18 @@ const duplicateStates = new Set([
   "DUPLICATE",
   "POSSIBLE_DUPLICATE",
 ]);
+const relationTypes = new Set<QuestionRelationType>([
+  "EXACT_DUPLICATE",
+  "POSSIBLE_DUPLICATE",
+  "PARAMETRIC_VARIANT",
+  "SHARED_STEM",
+  "SHARED_DATA",
+  "SHARED_FIGURE",
+  "DEPENDENT_ON",
+  "DERIVED_FROM",
+  "SOURCE_CONFLICT",
+  "NONE",
+]);
 
 const render = (blocks: ContentBlock[]): string =>
   blocks
@@ -73,6 +85,7 @@ export function searchableQuestionText(question: QuestionObject): string {
 function validated(raw: QuestionSearchQuery): {
   query: QuestionSearchQuery;
   warnings: QueryDiagnostic[];
+  reject: boolean;
 } {
   const warnings: QueryDiagnostic[] = [];
   const query = structuredClone(raw);
@@ -81,15 +94,14 @@ function validated(raw: QuestionSearchQuery): {
   const badDuplicate = query.duplicateStates?.some(
     (x) => !duplicateStates.has(x),
   );
+  const badRelation = query.relationTypes?.some((x) => !relationTypes.has(x));
+  const reject = Boolean(badType || badStatus || badDuplicate || badRelation);
 
-  if (badType || badStatus || badDuplicate) {
+  if (reject) {
     warnings.push({
       code: "UNKNOWN_FILTER",
-      message: "One or more filter values are unknown.",
+      message: "One or more filter values are unknown; retrieval failed closed.",
     });
-    if (badType) query.types = [];
-    if (badStatus) query.statuses = [];
-    if (badDuplicate) query.duplicateStates = [];
   }
 
   if (query.sort && !sorts.has(query.sort.field)) {
@@ -114,7 +126,7 @@ function validated(raw: QuestionSearchQuery): {
     query.limit = 50;
   }
 
-  return { query, warnings };
+  return { query, warnings, reject };
 }
 
 function compare(
@@ -221,7 +233,16 @@ export function queryQuestionBankSnapshot(
   snapshot: QuestionBankSnapshot,
   raw: QuestionSearchQuery = {},
 ): QuestionQueryResult {
-  const { query, warnings } = validated(raw);
+  const { query, warnings, reject } = validated(raw);
+  if (reject) {
+    return {
+      items: [],
+      total: 0,
+      query: structuredClone(query),
+      warnings,
+    };
+  }
+
   const terms =
     query.text
       ?.normalize("NFC")
@@ -383,6 +404,12 @@ export class QuestionSearchService {
     const snapshot = this.repository.load();
     const found = getQuestionByIdFromSnapshot(snapshot, id);
     return found && structuredClone(found);
+  }
+
+  getApprovedById(id: string): QuestionObject | undefined {
+    const snapshot = this.repository.load();
+    const found = getQuestionByIdFromSnapshot(snapshot, id);
+    return found?.bankStatus === "APPROVED" ? structuredClone(found) : undefined;
   }
 
   query(raw: QuestionSearchQuery = {}): QuestionQueryResult {
