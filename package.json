@@ -67,7 +67,10 @@
     "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
     "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
     "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression",
-    "qa:visual-pedagogy": "node --import tsx tests/test-visual-pedagogy-convergence.ts"
+    "qa:visual-pedagogy": "node --import tsx tests/test-visual-pedagogy-convergence.ts",
+    "pilot:ci": "npm run qa:ci && npm run qa:ingest && npm run qa:question-bank:e2e && npm run qa:assessment && npm run qa:ux-01",
+    "pilot:gate": "node scripts/pilot-gate.mjs",
+    "pilot:status": "node scripts/pilot-status.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -1,0 +1,35 @@
+name: MST-MATH Pilot Machine Gate
+
+on:
+  push:
+    branches:
+      - 'pilot/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pilot-static-machine-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Pilot CI gate
+        run: npm run pilot:ci
+
+      - name: Record scope note
+        if: always()
+        run: |
+          echo 'CI_SCOPE=architecture+typecheck+build+regression+ingest+question-bank-e2e+assessment+teacher-ux'
+          echo 'LOCAL_NATIVE_GATE_REQUIRED=python+manim+export+render-bridge+real-golden-runtime'
