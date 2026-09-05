@@ -170,7 +170,7 @@ const validSourcePolicies = new Set<AssessmentSourcePolicy>([
 export function validateAssessmentSpec(
   spec: AssessmentSpec,
 ): AssessmentDiagnostic[] {
-  const diagnostics: AssessmentDiagnostic[] = [];
+  const diagnostics = [] as AssessmentDiagnostic[];
   const seedInvalid =
     typeof spec.seed === "string"
       ? !spec.seed.trim()
@@ -475,6 +475,16 @@ export class AssessmentService {
         const question = byId.get(ref.questionId);
         if (!question) {
           throw new Error(`ASSESSMENT_QUESTION_NOT_FOUND:${ref.questionId}`);
+        }
+        if (question.bankStatus !== "APPROVED") {
+          throw new Error(`ASSESSMENT_QUESTION_NOT_APPROVED:${ref.questionId}`);
+        }
+        if (
+          question.type !== ref.type ||
+          question.source.document !== ref.source.document ||
+          question.source.sourceHash !== ref.source.sourceHash
+        ) {
+          throw new Error(`ASSESSMENT_QUESTION_STALE:${ref.questionId}`);
         }
         return structuredClone(question);
       }),
