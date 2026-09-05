@@ -26,10 +26,12 @@ jobs:
         run: npm ci
 
       - name: Pilot CI gate
+        env:
+          MST_MATH_CI_SKIP_NATIVE_PDF: '1'
         run: npm run pilot:ci
 
       - name: Record scope note
         if: always()
         run: |
-          echo 'CI_SCOPE=architecture+typecheck+build+regression+ingest+question-bank-e2e+assessment+teacher-ux'
-          echo 'LOCAL_NATIVE_GATE_REQUIRED=python+manim+export+render-bridge+real-golden-runtime'
+          echo 'CI_SCOPE=architecture+typecheck+build+non-native-regression+ingest+question-bank-e2e+assessment+teacher-ux'
+          echo 'LOCAL_NATIVE_GATE_REQUIRED=pdf-xelatex+python+manim+export+render-bridge+real-golden-runtime'

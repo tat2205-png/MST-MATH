@@ -1,7 +1,7 @@
 import { spawnSync } from "node:child_process";
 import process from "node:process";
 
-const suites = [
+const allSuites = [
   "tests/test-mv2-constraint-orchestration.ts",
   "tests/test-mv2-dev-inspector.ts",
   "tests/test-math-ir-dynamic-semantics-v1.ts",
@@ -73,6 +73,17 @@ const suites = [
   "tests/studio-real-render-contract-phase4a2.test.ts",
   "tests/test-teacher-workflow-ux01.ts",
 ];
+
+const nativePdfSuites = new Set(["tests/test-question-bank-qb2d.ts"]);
+const skipNativePdf = process.env.MST_MATH_CI_SKIP_NATIVE_PDF === "1";
+const suites = skipNativePdf
+  ? allSuites.filter((suite) => !nativePdfSuites.has(suite))
+  : allSuites;
+
+if (skipNativePdf) {
+  console.log("REGRESSION_SCOPE=CI_NON_NATIVE");
+  console.log("NATIVE_PDF_REGRESSION=DEFERRED_TO_LOCAL_PILOT_GATE");
+}
 
 let failed = 0;
 
