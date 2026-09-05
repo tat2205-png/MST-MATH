@@ -8,6 +8,7 @@ import type {
   MathNode,
   ParseStatus,
   VmlLayout,
+  WordNumberingMeta,
 } from "../document-engine/document-ir.js";
 
 export type {
@@ -20,10 +21,11 @@ export type {
   MathNode,
   ParseStatus,
   VmlLayout,
+  WordNumberingMeta,
 } from "../document-engine/document-ir.js";
 
 export type QuestionType = "MULTIPLE_CHOICE" | "TRUE_FALSE" | "SHORT_ANSWER" | "ESSAY" | "UNKNOWN";
-export interface DocumentQuestionCandidate { id: string; questionIndex?: number; questionLabel?: string; section?: string; rawBlocks: DocumentBlock[]; textBlocks: ContentBlock[]; mathBlocks: MathNode[]; figureAnchors: string[]; questionTypeCandidate: QuestionType; sourceLocations: string[]; parseWarnings: string[] }
+export interface DocumentQuestionCandidate { id: string; questionIndex?: number; questionLabel?: string; sequenceIndex?: number; section?: string; rawBlocks: DocumentBlock[]; textBlocks: ContentBlock[]; mathBlocks: MathNode[]; figureAnchors: string[]; questionTypeCandidate: QuestionType; sourceLocations: string[]; parseWarnings: string[] }
 export interface QuestionOption { label: string; content: ContentBlock[] }
 export interface TrueFalseItem { label: string; content: ContentBlock[] }
 export interface SourceProvenance { document: string; sourceHash: string; blockIds: string[]; sourceLocations: string[] }
