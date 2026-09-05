@@ -34,4 +34,74 @@ jobs:
         if: always()
         run: |
           echo 'CI_SCOPE=architecture+typecheck+build+non-native-regression+ingest+question-bank-e2e+assessment+teacher-ux'
-          echo 'LOCAL_NATIVE_GATE_REQUIRED=pdf-xelatex+python+manim+export+render-bridge+real-golden-runtime'
+          echo 'NATIVE_SCOPE=separate push-only job with Python+Manim+FFmpeg+XeLaTeX+dvisvgm+Local Render Bridge'
+
+  pilot-full-native-machine-gate:
+    if: github.event_name == 'push'
+    needs: pilot-static-machine-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout exact pilot branch head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Setup Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install native render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg \
+            dvisvgm \
+            texlive-xetex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            libcairo2-dev \
+            libpango1.0-dev \
+            pkg-config
+
+      - name: Install Node and Python dependencies
+        run: |
+          npm ci
+          uv sync --group test
+
+      - name: Verify native commands
+        run: |
+          node --version
+          python --version
+          uv --version
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+          xelatex --version | head -n 1
+          dvisvgm --version
+          uv run manim --version
+
+      - name: Full pilot machine gate
+        env:
+          PILOT_EXPECTED_BRANCH: pilot/mst-math-internal-demo-v1
+        run: npm run pilot:gate
+
+      - name: Upload pilot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mst-math-pilot-machine-evidence-${{ github.sha }}
+          path: render_output/pilot-evidence/
+          if-no-files-found: warn
+          retention-days: 14
