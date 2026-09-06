@@ -11,7 +11,6 @@ dependencies = [
     "shapely==2.1.2",
     "sympy==1.14.0",
     "z3-solver==5.1.0",
-    "mtef-py @ git+https://github.com/zhengdongjunjun/MTEF-py-FIX.git@08818cf79ee10df67cc804d486c1fd9d772e189d",
 ]
 
 [dependency-groups]
