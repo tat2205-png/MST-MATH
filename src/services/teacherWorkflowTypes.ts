@@ -21,10 +21,20 @@ export interface TeacherQuestion extends Omit<QuestionObject, "figures"> {
   figures: Array<Omit<QuestionObject["figures"][number], "bytes"> & { dataUrl?: string }>;
 }
 
+export interface WorkflowActionReadiness {
+  ready: boolean;
+  reason: string;
+}
+
 export interface WorkflowReadiness {
   source: "MAS_INT_01_RUNTIME_READINESS";
   requiredRuntimeBlockers: "NONE";
-  actions: Record<"assessment" | "game" | "video" | "export", { ready: boolean; reason: string }>;
+  actions: {
+    assessment: WorkflowActionReadiness;
+    game: WorkflowActionReadiness;
+    video: WorkflowActionReadiness;
+    export: WorkflowActionReadiness;
+  };
 }
 
 export interface WorkflowSummary {
