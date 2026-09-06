@@ -1,0 +1,1 @@
+{"status":"NOT_RUN","cases":["identical text","whitespace variation","near duplicate","math over OCR","native formula vs recognized formula","native image vs figure","scaled coordinates","distinct nearby blocks"]}

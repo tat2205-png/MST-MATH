@@ -1,0 +1,1 @@
+{"wrapper":"Equation Native","header":"1c0000000200","application":"DSMT7","mtef_version":5,"platform":1,"record_start":"after DSMT7/font metadata","five_were_not_empty":true,"root_cause":"mtef-py parsed AST but rendered empty because selectors 15 and 21 were unimplemented"}

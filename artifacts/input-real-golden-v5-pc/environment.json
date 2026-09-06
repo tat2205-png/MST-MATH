@@ -1,0 +1,1 @@
+{"os":"Windows","python":"3.11.16","paddle":"3.2.2","paddleocr":"3.7.0","numpy":"2.3.5","opencv":"4.10.0","runner":"npm run qa:input-v1","mathpix_required":false}

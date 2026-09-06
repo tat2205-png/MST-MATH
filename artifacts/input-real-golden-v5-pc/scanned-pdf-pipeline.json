@@ -1,0 +1,1 @@
+{"input":"07-pdf-scanned.pdf","pages":125,"rasterizer":"pdftoppm","semantic_adapter":"scripts/local-semantic-vision.py","status":"BLOCKED","reason":"batch page-to-DocumentIR integration not yet wired"}

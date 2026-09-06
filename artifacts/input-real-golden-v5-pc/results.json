@@ -1,0 +1,150 @@
+[
+  {
+    "golden_id": "01-word-text",
+    "filename": "01-word-text.docx",
+    "type": "WORD",
+    "parser_path": "ingestUnifiedSource(DOCX)",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [],
+    "errors": [],
+    "overall_status": "PASS",
+    "timing_ms": 17
+  },
+  {
+    "golden_id": "03-word-mathtype",
+    "filename": "03-word-mathtype.docx",
+    "type": "WORD",
+    "parser_path": "ingestUnifiedSource(DOCX)",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [
+      "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED"
+    ],
+    "errors": [],
+    "overall_status": "PASS",
+    "timing_ms": 304
+  },
+  {
+    "golden_id": "05-word-real-figure",
+    "filename": "05-word-real-figure.docx",
+    "type": "WORD",
+    "parser_path": "ingestUnifiedSource(DOCX)",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [
+      "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED"
+    ],
+    "errors": [],
+    "overall_status": "PASS",
+    "timing_ms": 299
+  },
+  {
+    "golden_id": "06-pdf-digital",
+    "filename": "06-pdf-digital.pdf",
+    "type": "PDF",
+    "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [],
+    "errors": [],
+    "overall_status": "PASS",
+    "timing_ms": 556
+  },
+  {
+    "golden_id": "07-pdf-scanned",
+    "filename": "07-pdf-scanned.pdf",
+    "type": "PDF",
+    "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+    "text_status": "BLOCKED",
+    "math_status": "BLOCKED",
+    "figure_status": "BLOCKED",
+    "structure_status": "PASS",
+    "warnings": [
+      "LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"
+    ],
+    "errors": [],
+    "overall_status": "BLOCKED",
+    "timing_ms": 485
+  },
+  {
+    "golden_id": "08-pdf-hybrid",
+    "filename": "08-pdf-hybrid.pdf",
+    "type": "PDF",
+    "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+    "text_status": "PASS",
+    "math_status": "BLOCKED",
+    "figure_status": "BLOCKED",
+    "structure_status": "PASS",
+    "warnings": [
+      "LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"
+    ],
+    "errors": [],
+    "overall_status": "BLOCKED",
+    "timing_ms": 738
+  },
+  {
+    "golden_id": "02-word-omml-successor",
+    "filename": "02-word-omml-successor.docx",
+    "type": "WORD",
+    "parser_path": "ingestUnifiedSource(DOCX)",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [],
+    "errors": [],
+    "overall_status": "PASS",
+    "timing_ms": 5
+  },
+  {
+    "golden_id": "09-image-text-math",
+    "filename": "09-image-text-math.jpg",
+    "type": "IMAGE",
+    "parser_path": "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [],
+    "errors": [],
+    "performance": {
+      "region_count": 18,
+      "text_blocks": 17,
+      "math_blocks": 1,
+      "figure_blocks": 0,
+      "provider": "PaddleOCR-PPStructureV3/Paddle-3.2.2"
+    },
+    "overall_status": "PASS",
+    "timing_ms": 66829
+  },
+  {
+    "golden_id": "10-image-math-figure",
+    "filename": "10-image-math-figure.jpg",
+    "type": "IMAGE",
+    "parser_path": "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)",
+    "text_status": "PASS",
+    "math_status": "PASS",
+    "figure_status": "PASS",
+    "structure_status": "PASS",
+    "warnings": [],
+    "errors": [],
+    "performance": {
+      "region_count": 25,
+      "text_blocks": 19,
+      "math_blocks": 4,
+      "figure_blocks": 2,
+      "provider": "PaddleOCR-PPStructureV3/Paddle-3.2.2"
+    },
+    "overall_status": "PASS",
+    "timing_ms": 79311
+  }
+]

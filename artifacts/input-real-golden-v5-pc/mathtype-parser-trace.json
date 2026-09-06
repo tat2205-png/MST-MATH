@@ -1,0 +1,1 @@
+{"before":{"objects":148,"decoded":143,"empty_latex":5,"unimplemented_selectors":[15,21]},"after":{"objects":148,"decoded":148,"empty_latex":0,"unresolved":0},"fix":"bounded bridge renderer for tmINTEG/tmINTOP using parsed AST children"}

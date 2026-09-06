@@ -23,6 +23,7 @@ def main() -> int:
 
     try:
         from mtef_py.mtef import MTEF
+        from mtef_py.record import RecordType, SelectorType
     except Exception as exc:
         items = [
             {"id": str(item.get("id", "")), "ok": False, "error": f"MTEF_PARSER_NOT_AVAILABLE: {exc}"}
@@ -30,6 +31,24 @@ def main() -> int:
         ]
         print(json.dumps({"items": items}, ensure_ascii=False))
         return 0
+
+    # mtef-py parses these real DSMT7 records into the AST but its LaTeX
+    # renderer lacks the two integral template selectors used by this corpus.
+    # Patch only those selectors; all byte parsing remains delegated to mtef-py.
+    original_make_latex = MTEF.makeLatex
+    def make_latex_with_integrals(self, ast):
+        if ast.tag == RecordType.TMPL and ast.value.selector in (SelectorType.tmINTEG, SelectorType.tmINTOP):
+            values = [original_make_latex(self, child)[0] for child in ast.children]
+            main = values[0] if values else ""
+            lower = values[1] if len(values) > 1 else ""
+            upper = values[2] if len(values) > 2 else ""
+            operator = values[3].strip() if len(values) > 3 and values[3].strip() else r"\int"
+            rendered = operator
+            if lower: rendered += f"\\limits_{{{lower}}}"
+            if upper: rendered += f"^{{{upper}}}"
+            return f"{rendered}{{{main}}}", None
+        return original_make_latex(self, ast)
+    MTEF.makeLatex = make_latex_with_integrals
 
     output: list[dict[str, Any]] = []
     for item in payload.get("items", []):
