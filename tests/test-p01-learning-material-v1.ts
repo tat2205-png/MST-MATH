@@ -8,7 +8,7 @@ function check(condition: unknown, label: string): asserts condition {
   console.log(`${label}=PASS`);
 }
 
-const png = new Uint8Array(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9WlqN4sAAAAASUVORK5CYII=", "base64"));
+const png = new Uint8Array(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYGD4DwABBAEAX+XDSwAAAABJRU5ErkJggg==", "base64"));
 
 const document: DocumentIR = {
   sourceDocument: "p01-source-backed-fixture.docx",
