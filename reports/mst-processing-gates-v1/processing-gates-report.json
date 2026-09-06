@@ -1,0 +1,102 @@
+{
+  "reportId": "MST-MATH-PROCESSING-GATES-V1",
+  "repository": "/Users/mac/Projects/mst-math-input-p01-qa-v1",
+  "completedAt": "2026-09-06T11:51:14.608Z",
+  "overall": "PASS",
+  "results": [
+    {
+      "gate": "PROCESS-GATE-1-CONTRACT",
+      "status": "PASS",
+      "message": "Đã phát hiện authority xử lí dữ liệu hiện hữu.",
+      "details": {
+        "matches": [
+          "/Users/mac/Projects/mst-math-input-p01-qa-v1/src/config/pimathRendererProvenance.ts",
+          "/Users/mac/Projects/mst-math-input-p01-qa-v1/tests/test-renderer-provenance-gate-5.ts"
+        ]
+      },
+      "timestamp": "2026-09-06T11:50:59.202Z"
+    },
+    {
+      "gate": "PROCESS-GATE-2-NORMALIZATION",
+      "status": "PASS",
+      "message": "Question Bank normalization và persistence đã PASS.",
+      "details": {
+        "status": "PASS",
+        "output": [
+          {
+            "name": "qa:question-bank",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "\n> react-example@1.6.0 qa:question-bank\n> node --import tsx tests/test-question-bank-qb1a.ts && node --import tsx tests/test-question-bank-qb1b.ts && node --import tsx tests/test-question-bank-qb1c.ts\n\nDOCUMENT_SEGMENTATION_QA=PASS\nQUESTION_BOUNDARY_QA=PASS\nOMML_PARSING_QA=PASS\nLATEX_CONVERSION_QA=PASS\nSOURCE_PRESERVATION_QA=PASS\nQB_1A_STATUS=PASS\nQUESTION_EXTRACTION_QA=PASS\nQUESTION_NORMALIZATION_QA=PASS\nQUESTION_SCHEMA_QA=PASS\nOPTION_SCOPE_QA=PASS\nTRUE_FALSE_SCOPE_QA=PASS\nSOURCE_TRACEABILITY_QA=PASS\nEXAM_QA_ADAPTER=PASS\nQB_1B_STATUS=PASS\nFIGURE_EXTRACTION_QA=PASS\nFIGURE_ASSOCIATION_QA=PASS\nORPHAN_FIGURE_QA=PASS\nSOURCE_RELATIONSHIP_QA=PASS\nNO_GUESS_ASSOCIATION_QA=PASS\nQB_1C_STATUS=PASS\n"
+          },
+          {
+            "name": "qa:question-bank:persistence",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "\n> react-example@1.6.0 qa:question-bank:persistence\n> node --import tsx tests/test-question-bank-qb1d.ts\n\nQUESTION_BANK_SCHEMA_QA=PASS\nQUESTION_PERSISTENCE_QA=PASS\nQUESTION_ROUNDTRIP_QA=PASS\nSOURCE_PROVENANCE_PERSISTENCE_QA=PASS\nMATH_PERSISTENCE_QA=PASS\nFIGURE_PERSISTENCE_QA=PASS\nASSET_REGISTRY_QA=PASS\nDUPLICATE_DETECTION_QA=PASS\nQUESTION_STATUS_QA=PASS\nEXAM_QA_INTEGRATION=PASS\nBINARY_UPLOAD_BOUNDARY_QA=PASS\nINVALID_OBJECT_FAIL_CLOSED_QA=PASS\nQB_1D_STATUS=PASS\n"
+          }
+        ]
+      },
+      "timestamp": "2026-09-06T11:50:59.930Z"
+    },
+    {
+      "gate": "PROCESS-GATE-3-SEMANTIC-QA",
+      "status": "PASS",
+      "message": "Math, relations và export semantic QA đã PASS.",
+      "details": {
+        "status": "PASS",
+        "output": [
+          {
+            "name": "qa:math",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "\n> react-example@1.6.0 qa:math\n> npx tsx tests/math-regression.ts\n\nPHASE 4B.2 deterministic math tests passed\nPHASE 4B.3 domain and extraneous-root tests passed\nPHASE 4C.1 inequality tests passed\nPHASE 4C.2 deterministic 2x2 linear system tests passed\nGOLDEN_PATH_V1: all contract tests passed\nPHASE 4B.1 math gate tests passed\nMATH_REGRESSION: total=60 passed=60 failed=0 blockedExpected=14\n"
+          },
+          {
+            "name": "qa:question-bank:relations",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "\n> react-example@1.6.0 qa:question-bank:relations\n> node --import tsx tests/test-question-bank-relations-v1.ts\n\nQUESTION_BANK_RELATIONS_V1_QA=PASS\nEXACT_DUPLICATE_QA=PASS\nPARAMETRIC_VARIANT_QA=PASS\nSHARED_FIGURE_QA=PASS\nSOURCE_CONFLICT_QA=PASS\nPROVENANCE_QA=PASS\nLEGACY_COMPATIBILITY_QA=PASS\nRELATION_SEARCH_QA=PASS\n"
+          },
+          {
+            "name": "qa:export",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "\n> react-example@1.6.0 qa:export\n> node --import tsx tests/test-question-bank-qb2d.ts && node --import tsx tests/test-question-bank-export-malformed-math.ts\n\nEXPORT_MODEL_QA=PASS\nEXPORT_SPEC_QA=PASS\nEXPORT_VALIDATION_QA=PASS\nEXPORT_FAIL_CLOSED_QA=PASS\nEXPORT_DIAGNOSTIC_QA=PASS\nEXPORT_SOURCE_IMMUTABILITY_QA=PASS\nSTUDENT_TEACHER_SEPARATION_QA=PASS\nANSWER_LEAK_PREVENTION_QA=PASS\nSTUDENT_EXPORT_PRIVACY_QA=PASS\nTEACHER_EXPORT_QA=PASS\nEXPORT_PROVENANCE_QA=PASS\nQUESTION_ID_EXPORT_QA=PASS\nQUESTION_ORDER_EXPORT_QA=PASS\nOPTION_ORDER_EXPORT_QA=PASS\nTRUE_FALSE_ORDER_EXPORT_QA=PASS\nEXPORT_VIETNAMESE_FIDELITY_QA=PASS\nEXPORT_MATH_FIDELITY_QA=PASS\nEXPORT_MATH_SYMBOL_QA=PASS\nEXPORT_FIGURE_QA=PASS\nEXPORT_ASSET_QA=PASS\nEXPORT_ASSET_DEDUP_QA=PASS\nJSON_EXPORT_QA=PASS\nJSON_SCHEMA_QA=PASS\nJSON_ROUNDTRIP_QA=PASS\nJSON_DETERMINISM_QA=PASS\nLATEX_EXPORT_QA=PASS\nLATEX_MATH_FIDELITY_QA=PASS\nLATEX_COMPILE_QA=PASS\nDOCX_EXPORT_QA=PASS\nDOCX_STRUCTURE_QA=PASS\nDOCX_MATH_QA=PASS\nDOCX_FIGURE_QA=PASS\nDOCX_ROUNDTRIP_QA=PASS\nPDF_EXPORT_QA=PASS\nPDF_LAYOUT_QA=PASS\nPDF_CONTENT_QA=PASS\nPDF_MATH_QA=PASS\nANSWER_KEY_EXPORT_QA=PASS\nSOLUTION_EXPORT_QA=PASS\nSCORING_EXPORT_QA=PASS\nASSESSMENT_SECTION_EXPORT_QA=PASS\nQUESTION_TYPE_EXPORT_QA=PASS\nEXPORT_FILENAME_QA=PASS\nEXPORT_FILESYSTEM_SAFETY_QA=PASS\nEXPORT_ATOMICITY_QA=PASS\nCROSS_FORMAT_CONSISTENCY_QA=PASS\nQUESTION_BANK_TO_EXPORT_E2E_QA=PASS\nEXPORT_ARTIFACT_QA=PASS\nEXPORT_ARCHITECTURE_QA=PASS\nQB_2D_STATUS=PASS\nPDF_ARTIFACT=/var/folders/mp/kb_nv6v577z8b7p35vq4f2h40000gn/T/malformed-math-export-cPXatX/malformed-matrix.pdf\nDOCX_ARTIFACT=/var/folders/mp/kb_nv6v577z8b7p35vq4f2h40000gn/T/malformed-math-export-cPXatX/malformed-matrix.docx\nMALFORMED_OMML_EXPORT_REGRESSION_QA=PASS\n"
+          }
+        ]
+      },
+      "timestamp": "2026-09-06T11:51:01.649Z"
+    },
+    {
+      "gate": "PROCESS-GATE-4-HUMAN-AUTHORITY",
+      "status": "PASS",
+      "message": "Human authority đã được xác nhận.",
+      "details": {},
+      "timestamp": "2026-09-06T11:51:01.649Z"
+    },
+    {
+      "gate": "PROCESS-GATE-5-ROUND-TRIP-OUTPUT",
+      "status": "PASS",
+      "message": "Regression và export round-trip đã PASS.",
+      "details": {
+        "status": "PASS",
+        "output": [
+          {
+            "name": "qa:regression",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "PORT_VIETNAMESE_FIDELITY_QA=PASS\nEXPORT_MATH_FIDELITY_QA=PASS\nEXPORT_MATH_SYMBOL_QA=PASS\nEXPORT_FIGURE_QA=PASS\nEXPORT_ASSET_QA=PASS\nEXPORT_ASSET_DEDUP_QA=PASS\nJSON_EXPORT_QA=PASS\nJSON_SCHEMA_QA=PASS\nJSON_ROUNDTRIP_QA=PASS\nJSON_DETERMINISM_QA=PASS\nLATEX_EXPORT_QA=PASS\nLATEX_MATH_FIDELITY_QA=PASS\nLATEX_COMPILE_QA=PASS\nDOCX_EXPORT_QA=PASS\nDOCX_STRUCTURE_QA=PASS\nDOCX_MATH_QA=PASS\nDOCX_FIGURE_QA=PASS\nDOCX_ROUNDTRIP_QA=PASS\nPDF_EXPORT_QA=PASS\nPDF_LAYOUT_QA=PASS\nPDF_CONTENT_QA=PASS\nPDF_MATH_QA=PASS\nANSWER_KEY_EXPORT_QA=PASS\nSOLUTION_EXPORT_QA=PASS\nSCORING_EXPORT_QA=PASS\nASSESSMENT_SECTION_EXPORT_QA=PASS\nQUESTION_TYPE_EXPORT_QA=PASS\nEXPORT_FILENAME_QA=PASS\nEXPORT_FILESYSTEM_SAFETY_QA=PASS\nEXPORT_ATOMICITY_QA=PASS\nCROSS_FORMAT_CONSISTENCY_QA=PASS\nQUESTION_BANK_TO_EXPORT_E2E_QA=PASS\nEXPORT_ARTIFACT_QA=PASS\nEXPORT_ARCHITECTURE_QA=PASS\nQB_2D_STATUS=PASS\nPASS: tests/test-question-bank-qb2d.ts\n\n============================================================\n REGRESSION: tests/studio-engine-registry.test.ts\n============================================================\nSTUDIO_ENGINE_REGISTRY_QA=PASS\nPASS: tests/studio-engine-registry.test.ts\n\n============================================================\n REGRESSION: tests/studio-image-animation-adapter.test.ts\n============================================================\nSTUDIO_IMAGE_ANIMATION_ADAPTER_QA=PASS\nPASS: tests/studio-image-animation-adapter.test.ts\n\n============================================================\n REGRESSION: tests/studio-luadraw-adapter.test.ts\n============================================================\nSTUDIO_LUADRAW_ADAPTER_QA=PASS\nPASS: tests/studio-luadraw-adapter.test.ts\n\n============================================================\n REGRESSION: tests/studio-integration-canary.test.ts\n============================================================\nSTUDIO_INTEGRATION_CANARY_QA=PASS\nPASS: tests/studio-integration-canary.test.ts\n\n============================================================\n REGRESSION: tests/studio-status-api.test.ts\n============================================================\nSTUDIO_RUNTIME_STATUS_API_QA=PASS\nPASS: tests/studio-status-api.test.ts\n\n============================================================\n REGRESSION: tests/studio-canary-api.test.ts\n============================================================\nSTUDIO_CANARY_API_QA=PASS\nPASS: tests/studio-canary-api.test.ts\n\n============================================================\n REGRESSION: tests/studio-api-validation.test.ts\n============================================================\nSTUDIO_API_VALIDATION_QA=PASS\nPASS: tests/studio-api-validation.test.ts\n\n============================================================\n REGRESSION: tests/studio-runtime-status.test.ts\n============================================================\nSTUDIO_RUNTIME_STATUS_QA=PASS\nPASS: tests/studio-runtime-status.test.ts\n\n============================================================\n REGRESSION: tests/studio-feature-flag.test.ts\n============================================================\nSTUDIO_FEATURE_FLAG_QA=PASS\nEXISTING_PRODUCTION_PIPELINE_CHANGED=NO\nSTUDIO_EXPERIMENTAL_EXECUTION_DEFAULT=OFF\nPASS: tests/studio-feature-flag.test.ts\n\n============================================================\n REGRESSION: tests/studio-orchestrator-phase3.test.ts\n============================================================\nSTUDIO_ORCHESTRATOR_QA=PASS\nPASS: tests/studio-orchestrator-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-capability-planner-phase3.test.ts\n============================================================\nSTUDIO_CAPABILITY_PLANNER_QA=PASS\nPASS: tests/studio-capability-planner-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-routing-policy-phase3.test.ts\n============================================================\nSTUDIO_ROUTING_POLICY_QA=PASS\nPASS: tests/studio-routing-policy-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-runtime-fallback-phase3.test.ts\n============================================================\nSTUDIO_RUNTIME_FALLBACK_QA=PASS\nPASS: tests/studio-runtime-fallback-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-execution-trace-phase3.test.ts\n============================================================\nSTUDIO_EXECUTION_TRACE_QA=PASS\nPASS: tests/studio-execution-trace-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-multi-engine-canary-phase3.test.ts\n============================================================\nSTUDIO_MULTI_ENGINE_CANARY_QA=PASS\nPASS: tests/studio-multi-engine-canary-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-execute-api-phase3.test.ts\n============================================================\nSTUDIO_EXECUTE_API_QA=PASS\nPASS: tests/studio-execute-api-phase3.test.ts\n\n============================================================\n REGRESSION: tests/studio-frame-qa-phase4a4.test.ts\n============================================================\nFRAME_QA_FAIL_CLOSED=PASS\nFRAME_QA_ERROR_PATH_QA=PASS\nFRAME_QA_BOUNDS_QA=PASS\nFRAME_QA_PASS_REQUIRES_ANALYSIS_QA=PASS\nFRAME_QA_PROPAGATION_QA=PASS\nTEXT_FRAME_QA=PASS\nLATEX_FRAME_QA=PASS\nGEOMETRY_FRAME_QA=PASS\nOVERLAP_REGRESSION_QA=PASS\nDETERMINISTIC_FRAME_QA_AUTHORITATIVE=TRUE\nPASS: tests/studio-frame-qa-phase4a4.test.ts\n\n============================================================\n REGRESSION: tests/studio-full-video-phase4b.test.ts\n============================================================\nSTUDIO_FULL_VIDEO_CONTRACT_QA=PASS\nSTUDIO_ARTIFACT_CONTRACT_QA=PASS\nSTUDIO_FULL_VIDEO_FAIL_CLOSED_QA=PASS\nPASS: tests/studio-full-video-phase4b.test.ts\n\n============================================================\n REGRESSION: tests/studio-manim-timeline-phase4a3.test.ts\n============================================================\nMOTION_TIMELINE_EXECUTION_QA=PASS\nTIMELINE_VALIDATION_QA=PASS\nSCENE_TIMELINE_BINDING_QA=PASS\nMANIM_COMPILER_INTEGRATION_QA=PASS\nMANIM_TOOLKIT_RUNTIME_QA=PASS\nPASS: tests/studio-manim-timeline-phase4a3.test.ts\n\n============================================================\n REGRESSION: tests/studio-real-math-phase4a1.test.ts\n============================================================\nMATH_SOLVER_INVOKED_QA=PASS\nMATH_VERIFIER_INVOKED_QA=PASS\nNO_FIXTURE_RESULT_QA=PASS\nMATH_RESULT_CONTRACT_QA=PASS\nVERIFIER_REJECTION_QA=PASS\nPASS: tests/studio-real-math-phase4a1.test.ts\n\n============================================================\n REGRESSION: tests/studio-real-render-contract-phase4a2.test.ts\n============================================================\nLOCAL_RENDERER_CONTRACT_QA=PASS\nBRIDGE_CAPABILITY_QA=PASS\nRENDERER_CAPABILITIES_QA=PASS\nREAL_RENDERER_SELECTION_QA=PASS\nRENDERER_ROUTING_TRUTH_QA=PASS\nSIMULATOR_NOT_USED_QA=PASS\nREMOTE_SAMPLE_NOT_USED_QA=PASS\nPASS: tests/studio-real-render-contract-phase4a2.test.ts\n\n============================================================\n REGRESSION: tests/test-word-preflight-safe-clean-v1.ts\n============================================================\nWORD_PREFLIGHT_METRICS_QA=PASS\nWORD_SOURCE_IMMUTABILITY_QA=PASS\nWORD_PROTECTED_FINGERPRINT_QA=PASS\nWORD_OMML_MATHTYPE_FIGURE_PRESERVATION_QA=PASS\nWORD_RELATIONSHIP_MEDIA_EMBEDDING_QA=PASS\nWORD_MACRO_FAIL_CLOSED_QA=PASS\nWORD_INVALID_PACKAGE_QA=PASS\nPIMATH_WORD_PREFLIGHT_SAFE_CLEAN_V1=PASS\nPASS: tests/test-word-preflight-safe-clean-v1.ts\n\n============================================================\n REGRESSION: tests/test-teacher-word-preflight-integration-v1.ts\n============================================================\nTEACHER_WORD_PREFLIGHT_GATE_QA=PASS\nTEACHER_WORD_SOURCE_IDENTITY_QA=PASS\nTEACHER_WORD_SAFE_CLEAN_DISCOVERY_QA=PASS\nPASS: tests/test-teacher-word-preflight-integration-v1.ts\n\n============================================================\n REGRESSION: tests/test-mcq-four-option-adaptive-layout-v1.ts\n============================================================\nMCQ_FOUR_OPTION_PLANNER_QA=PASS\nMCQ_FOUR_INLINE_QA=PASS\nMCQ_TWO_BY_TWO_QA=PASS\nMCQ_STACKED_QA=PASS\nMCQ_BLOCK_OBJECT_FAIL_CLOSED_QA=PASS\nMCQ_DOCX_TAB_LAYOUT_QA=PASS\nPIMATH_MCQ_4_OPTION_ADAPTIVE_LAYOUT_V1=PASS\nPASS: tests/test-mcq-four-option-adaptive-layout-v1.ts\n\n============================================================\n REGRESSION: tests/test-pimath-unified-input-certification-readonly-v1.ts\n============================================================\nCERTIFICATION_READONLY_ENTRYPOINT_QA=PASS\nCERTIFICATION_CANONICAL_SCRIPT_COMPATIBILITY_QA=PASS\nCERTIFICATION_NO_GIT_RESTORE_WORKAROUND_QA=PASS\nPIMATH_INPUT_CERTIFICATION_READONLY_V1=PASS\nPASS: tests/test-pimath-unified-input-certification-readonly-v1.ts\n\n============================================================\n REGRESSION: tests/test-teacher-workflow-ux01.ts\n============================================================\nIMPORT_UI_SERVICE_QA=PASS\nIMPORT_SUPPORTED_FORMAT_QA=PASS\nREVIEW_FAIL_CLOSED_QA=PASS\nPOST_QB_TRACEABILITY_QA=PASS\nQUESTION_REVIEW_UI_QA=PASS\nQUESTION_BANK_SEARCH_REUSE_QA=PASS\nQUESTION_SELECTION_ID_QA=PASS\nUX_ASSESSMENT_E2E_QA=PASS\nUX_TRACEABILITY_QA=PASS\nUX_GAME_E2E_QA=PASS\nGAME_ANSWER_ISOLATION_UI_QA=PASS\nGAME_STATE_UI_QA=PASS\nSOLUTION_VIDEO_UI_QA=PASS\nSTUDIO_ORCHESTRATOR_REUSE_QA=PASS\nUX_EXPORT_E2E_QA=PASS\nUX_ANSWER_ISOLATION_QA=PASS\nUX_SOURCE_IMMUTABILITY_QA=PASS\nHOME_WORKSPACE_QA=PASS\nUI_RUNTIME_ISOLATION_QA=PASS\nUI_STORAGE_ISOLATION_QA=PASS\nTEACHER_WORKFLOW_SERVICE_QA=PASS\nACCESSIBILITY_QA=PASS\nRESPONSIVE_LAYOUT_QA=PASS\nDOUBLE_SUBMIT_PREVENTION_QA=PASS\nRUNTIME_READINESS_UI_QA=PASS\nTEACHER_GOLDEN_WORKFLOW_SMOKE_QA=PASS\nREAL_SERVICE_UI_INTEGRATION_QA=PASS\nUX_01_CONTRACT_QA=PASS\nPASS: tests/test-teacher-workflow-ux01.ts\n\n============================================================\n REGRESSION SUMMARY: 77/77 suites passed\n============================================================\n"
+          },
+          {
+            "name": "qa:export",
+            "status": "PASS",
+            "exitCode": 0,
+            "output": "\n> react-example@1.6.0 qa:export\n> node --import tsx tests/test-question-bank-qb2d.ts && node --import tsx tests/test-question-bank-export-malformed-math.ts\n\nEXPORT_MODEL_QA=PASS\nEXPORT_SPEC_QA=PASS\nEXPORT_VALIDATION_QA=PASS\nEXPORT_FAIL_CLOSED_QA=PASS\nEXPORT_DIAGNOSTIC_QA=PASS\nEXPORT_SOURCE_IMMUTABILITY_QA=PASS\nSTUDENT_TEACHER_SEPARATION_QA=PASS\nANSWER_LEAK_PREVENTION_QA=PASS\nSTUDENT_EXPORT_PRIVACY_QA=PASS\nTEACHER_EXPORT_QA=PASS\nEXPORT_PROVENANCE_QA=PASS\nQUESTION_ID_EXPORT_QA=PASS\nQUESTION_ORDER_EXPORT_QA=PASS\nOPTION_ORDER_EXPORT_QA=PASS\nTRUE_FALSE_ORDER_EXPORT_QA=PASS\nEXPORT_VIETNAMESE_FIDELITY_QA=PASS\nEXPORT_MATH_FIDELITY_QA=PASS\nEXPORT_MATH_SYMBOL_QA=PASS\nEXPORT_FIGURE_QA=PASS\nEXPORT_ASSET_QA=PASS\nEXPORT_ASSET_DEDUP_QA=PASS\nJSON_EXPORT_QA=PASS\nJSON_SCHEMA_QA=PASS\nJSON_ROUNDTRIP_QA=PASS\nJSON_DETERMINISM_QA=PASS\nLATEX_EXPORT_QA=PASS\nLATEX_MATH_FIDELITY_QA=PASS\nLATEX_COMPILE_QA=PASS\nDOCX_EXPORT_QA=PASS\nDOCX_STRUCTURE_QA=PASS\nDOCX_MATH_QA=PASS\nDOCX_FIGURE_QA=PASS\nDOCX_ROUNDTRIP_QA=PASS\nPDF_EXPORT_QA=PASS\nPDF_LAYOUT_QA=PASS\nPDF_CONTENT_QA=PASS\nPDF_MATH_QA=PASS\nANSWER_KEY_EXPORT_QA=PASS\nSOLUTION_EXPORT_QA=PASS\nSCORING_EXPORT_QA=PASS\nASSESSMENT_SECTION_EXPORT_QA=PASS\nQUESTION_TYPE_EXPORT_QA=PASS\nEXPORT_FILENAME_QA=PASS\nEXPORT_FILESYSTEM_SAFETY_QA=PASS\nEXPORT_ATOMICITY_QA=PASS\nCROSS_FORMAT_CONSISTENCY_QA=PASS\nQUESTION_BANK_TO_EXPORT_E2E_QA=PASS\nEXPORT_ARTIFACT_QA=PASS\nEXPORT_ARCHITECTURE_QA=PASS\nQB_2D_STATUS=PASS\nPDF_ARTIFACT=/var/folders/mp/kb_nv6v577z8b7p35vq4f2h40000gn/T/malformed-math-export-xAzVK8/malformed-matrix.pdf\nDOCX_ARTIFACT=/var/folders/mp/kb_nv6v577z8b7p35vq4f2h40000gn/T/malformed-math-export-xAzVK8/malformed-matrix.docx\nMALFORMED_OMML_EXPORT_REGRESSION_QA=PASS\n"
+          }
+        ]
+      },
+      "timestamp": "2026-09-06T11:51:14.608Z"
+    }
+  ]
+}\n
