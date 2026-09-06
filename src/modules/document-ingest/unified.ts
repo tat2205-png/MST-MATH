@@ -248,18 +248,32 @@ async function recognizeWordAsset(asset: ExtractedDocxAsset, recognizer: StemRec
   const mapped = documentFromRecognition(source, output, minConfidence);
   const classes = classify(mapped.document);
   const evidence = [...output.regions];
+  const semanticContent = mapped.document.blocks.flatMap((block) => block.content);
+  const mixedPage = classes.figure > 0 && (classes.text > 0 || classes.math > 0 || classes.table > 0);
+
+  if (mixedPage) {
+    return {
+      content: semanticContent,
+      figures: mapped.document.figures,
+      diagnostics: mapped.diagnostics,
+      evidence,
+    };
+  }
+
   if (classes.figure > 0) {
     const original = figureFromAsset(asset, `word/asset:${asset.packagePath}`, "REAL_FIGURE");
     return { content: [{ type: "figure", figureId: original.id, sourceLocation: `word/asset:${asset.packagePath}` }], figures: [original], diagnostics: mapped.diagnostics, evidence };
   }
-  if (classes.math > 0) {
-    return { content: mapped.document.blocks.flatMap((block) => block.content), figures: mapped.document.figures, diagnostics: mapped.diagnostics, evidence };
+
+  if (classes.math > 0 || classes.text > 0 || classes.table > 0) {
+    return { content: semanticContent, figures: mapped.document.figures, diagnostics: mapped.diagnostics, evidence };
   }
+
   const original = figureFromAsset(asset, `word/asset:${asset.packagePath}`, "RASTER_FIGURE");
   return {
     content: [{ type: "figure", figureId: original.id, sourceLocation: `word/asset:${asset.packagePath}` }],
     figures: [original],
-    diagnostics: [...mapped.diagnostics, { code: "WORD_RASTER_ASSET_AMBIGUOUS", severity: "warning", message: `Raster asset ${asset.filename} contained no confidently detected math or figure region; preserved as a figure for review.`, sourceLocation: asset.packagePath }],
+    diagnostics: [...mapped.diagnostics, { code: "WORD_RASTER_ASSET_AMBIGUOUS", severity: "warning", message: `Raster asset ${asset.filename} contained no confidently detected text, math, table, or figure region; preserved as a figure for review.`, sourceLocation: asset.packagePath }],
     evidence,
   };
 }
