@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import base64
+import contextlib
+import io
 import json
 import sys
 from typing import Any
@@ -38,11 +40,14 @@ def main() -> int:
             continue
         try:
             ole_bytes = base64.b64decode(encoded, validate=True)
-            mtef, error = MTEF.OpenBytes(ole_bytes)
+            noisy_stdout = io.StringIO()
+            noisy_stderr = io.StringIO()
+            with contextlib.redirect_stdout(noisy_stdout), contextlib.redirect_stderr(noisy_stderr):
+                mtef, error = MTEF.OpenBytes(ole_bytes)
+                latex = mtef.Translate() if error is None and mtef is not None else None
             if error is not None or mtef is None:
                 output.append({"id": item_id, "ok": False, "error": f"MTEF_OPEN_FAILED: {normalize_error(error)}"})
                 continue
-            latex = mtef.Translate()
             if not isinstance(latex, str) or not latex.strip():
                 output.append({"id": item_id, "ok": False, "error": "MTEF_EMPTY_LATEX"})
                 continue
@@ -50,6 +55,7 @@ def main() -> int:
         except Exception as exc:  # one broken equation must not crash the document batch
             output.append({"id": item_id, "ok": False, "error": f"MTEF_DECODE_EXCEPTION: {exc}"})
 
+    # stdout is a machine protocol: emit exactly one JSON object and nothing else.
     print(json.dumps({"items": output}, ensure_ascii=False))
     return 0
 
