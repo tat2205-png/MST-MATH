@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, basename, extname } from "node:path";
 import { ingestUnifiedSource } from "../src/modules/document-ingest/unified.js";
+import { ingestSemanticPdf } from "../src/modules/document-ingest/pdf-semantic-adapter.js";
 
 type Row = Record<string, string>;
 const root = process.env.MST_MATH_INPUT_GOLDEN_ROOT || "D:\\MST-MATH-INPUT-GOLDENS";
@@ -33,9 +34,20 @@ for (const row of rows) {
     const c = out.classification; r.text_status = c.text > 0 ? "PASS" : (name.includes("text") ? "FAIL" : (name.includes("omml") && c.math > 0 ? "PASS" : "BLOCKED")); r.math_status = c.math > 0 ? "PASS" : (name.includes("omml") || name.includes("mathtype") ? "FAIL" : "PASS"); r.figure_status = c.figure > 0 ? "PASS" : (name.includes("figure") ? "FAIL" : "PASS"); r.structure_status = out.document?.blocks.length ? "PASS" : "FAIL"; r.warnings = out.diagnostics.map(d => d.code); if (out.status === "FAIL") r.errors.push(...out.diagnostics.map(d => d.code));
     if (name.includes("mathtype") && r.warnings.some((w: string) => /MATHTYPE|LEGACY_MATHTYPE/.test(w))) { r.math_status = "BLOCKED"; r.errors.push("MATHTYPE_MATH_NOT_RECOVERED"); }
   } else if (ext === ".pdf") {
-    r.parser_path = "pdftotext/pdfinfo + local semantic-recognition policy";
-    const text = run("pdftotext", ["-enc", "UTF-8", "-layout", file, "-"]); const info = run("pdfinfo", [file]); const pages = Number(info.match(/Pages:\s+(\d+)/)?.[1] || 0); r.text_status = text.trim() ? "PASS" : "BLOCKED"; r.structure_status = pages > 0 ? "PASS" : "FAIL";
-    const scanned = name.includes("scanned") || name.includes("hybrid"); r.math_status = scanned ? "BLOCKED" : /[=\\∫√²³≤≥]|x\s*\^?\s*\d/i.test(text) ? "PASS" : "BLOCKED"; r.figure_status = scanned ? "BLOCKED" : "PASS"; if (scanned) r.warnings.push("LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"); if (!text.trim() && pages === 0) r.errors.push("PDF_UNREADABLE");
+    const info = run("pdfinfo", [file]); const pages = Number(info.match(/Pages:\s+(\d+)/)?.[1] || 0); const scanned = name.includes("scanned");
+    if (!scanned && !name.includes("hybrid")) {
+      r.parser_path = "pdftotext/pdfinfo native PDF adapter";
+      const text = run("pdftotext", ["-enc", "UTF-8", "-layout", file, "-"]); r.text_status = text.trim() ? "PASS" : "BLOCKED"; r.structure_status = pages > 0 ? "PASS" : "FAIL"; r.math_status = /[=\\∫√²³≤≥]|x\s*\^?\s*\d/i.test(text) ? "PASS" : "BLOCKED"; r.figure_status = "PASS";
+    } else {
+      r.parser_path = scanned ? "ingestSemanticPdf -> PPStructureV3 batch page adapter" : "ingestSemanticPdf + pdftotext native reconciliation";
+      try {
+        const semantic = ingestSemanticPdf(bytes, name); const all = semantic.output.pages.flatMap(page => page.regions); const text = all.filter(x => x.type === "TEXT" && x.text?.trim()); const math = all.filter(x => x.type === "MATH" && x.text?.trim()); const figure = all.filter(x => x.type === "FIGURE");
+        const nativeText = run("pdftotext", ["-enc", "UTF-8", "-layout", file, "-"]);
+        r.text_status = text.length || nativeText.trim() ? "PASS" : "FAIL"; r.math_status = math.length ? "PASS" : "FAIL"; r.figure_status = figure.length || row.ExpectFigure !== "TRUE" ? "PASS" : "FAIL"; r.structure_status = pages === semantic.output.pages.length && semantic.document.blocks.length > 0 ? "PASS" : "FAIL";
+        r.performance = { pages, page_times: [], text_blocks: text.length, math_blocks: math.length, figure_blocks: figure.length, document_blocks: semantic.document.blocks.length, native_text_present: Boolean(nativeText.trim()), model_reuse: semantic.output.model_reuse, provider: semantic.output.provider, coordinate_space: "raster-page-space -> DocumentIR page provenance" };
+        r.warnings.push(scanned ? "PDF_PAGE_RASTERIZED_AND_MAPPED_TO_DOCUMENTIR" : "HYBRID_NATIVE_TEXT_RECONCILED_WITH_SEMANTIC_RASTER_REGIONS");
+      } catch (error) { r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED"; r.errors.push(`PDF_SEMANTIC_ADAPTER_FAILED:${error instanceof Error ? error.message : String(error)}`); }
+    }
   } else if (ext === ".jpg" || ext === ".jpeg" || ext === ".png" || ext === ".webp") {
     r.parser_path = "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)";
     const vision = runVision(file); const regions = vision?.[0]?.regions ?? []; const text = regions.filter((x: any) => x.type === "TEXT"); const math = regions.filter((x: any) => x.type === "MATH"); const figure = regions.filter((x: any) => x.type === "FIGURE");
