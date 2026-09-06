@@ -7,7 +7,7 @@ LAST_UPDATED=2026-09-06
 CONTROL_MODE=FINAL_COMPLETION_CUT_V1
 CONTROL_CONTRACT_ISSUE=52
 FINAL_PRODUCT_CONVERGENCE_ISSUE=33
-STATUS=PROPOSED_FOR_EXECUTION
+STATUS=EXECUTING
 FEATURE_EXPANSION=FROZEN
 NEW_CORE_ARCHITECTURE=FORBIDDEN
 SOLE_TARGET=integration/mst-math-convergence-v1
@@ -18,7 +18,7 @@ REAL_WORLD_POLICY=FAIL_OR_REVIEW_CLOSED_UNTIL_VERIFIED
 TOOLMATH_LEARNING=UX_ONLY_NO_ARCHITECTURE_COPY
 NEXT_PRODUCT_MILESTONE=DEMO_BASELINE
 PROMOTION=ONLY_AFTER_6_COMPLETION_GATES_PASS
-CURRENT_GATE=G2_QA_TRUTH
+CURRENT_GATE=G3_TEACHER_WORKFLOW
 
 ---
 
@@ -46,10 +46,12 @@ SOLE_CONVERGENCE_BRANCH=integration/mst-math-convergence-v1
 CONVERGENCE_HEAD_AUTHORITY=LIVE_GIT_REF
 LAST_VERIFIED_RUNTIME_STABILIZATION_HEAD=24f0d0355d31737ff25133ebcfdc0faafb3527fe
 FINAL_COMPLETION_CUT_CONTROL_MERGE=ac1fd402419e1983eabb1031852f8a8c84a29e56
-FINAL_COMPLETION_CUT_POST_MERGE_CI_RUN=34001220409
-FINAL_COMPLETION_CUT_POST_MERGE_CI_RUN_NUMBER=57
-FINAL_COMPLETION_CUT_POST_MERGE_CI=PASS
-CONVERGENCE_STATUS=FINAL_COMPLETION_CUT_CONTROL_TRUTH_CONVERGED
+FINAL_COMPLETION_CUT_G1_CLOSE_MERGE=4fa32b73c20da232f80534ca4c23a44f14a0e5d7
+G2_QA_TRUTH_MERGE=f1be5666a78004582b54ee6185a9c2387e7e3027
+G2_QA_TRUTH_POST_MERGE_CI_RUN=34003050996
+G2_QA_TRUTH_POST_MERGE_CI_RUN_NUMBER=61
+G2_QA_TRUTH_POST_MERGE_CI=PASS
+CONVERGENCE_STATUS=FINAL_COMPLETION_CUT_G2_CONVERGED
 
 POST_MERGE_CORE_QUALITY=PASS
 POST_MERGE_PC_QUESTION_AUTHORITY=PASS
@@ -77,6 +79,8 @@ QA_PROXY_PASS_REMEDIATION=MERGED_CI_PASS
 PROVIDER_RUNTIME_TRUTH_REMEDIATION=MERGED_CI_PASS
 CURRICULUM_AI_FAIL_CLOSED_REMEDIATION=MERGED_CI_PASS
 VISUAL_ZERO_INFERENCE_FAILURE_GATE=MERGED_CI_PASS
+REAL_WORLD_FAIL_CLOSED_PR=57
+REAL_WORLD_FAIL_CLOSED_GATE=MERGED_POST_MERGE_CI_PASS
 
 ---
 
@@ -114,8 +118,8 @@ Evidence:
 - convergence head is resolved from the live Git ref rather than a stale hardcoded SHA
 - stabilization exact-head CI PASS
 - Final Completion Cut control PR exact-head CI PASS
-- control merge `ac1fd402...` completed
-- post-merge Convergence CI run #57 PASS
+- Final Completion Cut G1 close merge `4fa32b73...` completed
+- G1 post-merge Convergence CI PASS
 - Mac R1 structural-numbering convergence PASS
 - B3 code lineage is contained in convergence
 - B3 historical report gap explicitly dispositioned with current lineage + regression evidence
@@ -125,9 +129,9 @@ Exit:
 
 ## G2 — QA TRUTH
 
-Current state: TECHNICAL_PASS_PENDING_CONTROL_CONFIRMATION
+Current state: PASS
 
-Required invariants:
+Verified invariants:
 - no proxy PASS
 - no dimension PASS without dimension-specific evidence
 - CONFIGURED != CONNECTED
@@ -136,7 +140,13 @@ Required invariants:
 - provider/visual failure cannot fabricate mathematical truth
 - unverified real-world values/assumptions cannot PASS
 
-Current implementation evidence: merged in PR #49; current convergence CI PASS.
+Evidence:
+- QA/provider/curriculum/visual stabilization merged in PR #49
+- remaining real-world fail-closed gap merged in PR #57
+- real-world domain without independent verification returns `HUMAN_REVIEW_REQUIRED` with `REAL_WORLD_UNVERIFIED`
+- ordinary non-real-world math behavior remains unchanged
+- PR #57 exact-head Convergence CI run #60 PASS
+- post-merge Convergence CI run #61 on merge `f1be5666...` PASS for core-quality and pc-question-authority
 
 Exit:
 `G2_QA_TRUTH=PASS`
@@ -201,7 +211,7 @@ Exit:
 
 ## G6 — RELEASE GOVERNANCE
 
-Current state: BLOCKED_BY_G2_TO_G5
+Current state: BLOCKED_BY_G3_TO_G5
 
 Required:
 - freeze final promotion SHA
@@ -250,6 +260,11 @@ For real-world mathematics/data:
 Rule:
 `REAL_WORLD_UNVERIFIED → NO_PASS`
 
+Current Completion Cut implementation:
+- current schema does not contain an independent real-world source/human verification authority;
+- therefore real-world domain problems fail closed to `HUMAN_REVIEW_REQUIRED` rather than inventing a PASS path;
+- adding a future verified real-world authority requires a separately governed successor decision, not an implicit provider assertion.
+
 ---
 
 # 6. AUTHORITY / VERSION GOVERNANCE
@@ -266,10 +281,10 @@ Historical `PIMATH-*` compatibility identifiers are preserved where required. Hu
 
 # 7. CURRENT BLOCKERS
 
-B1=P01_REAL_GOLDEN_NOT_RUN
-B2=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
-B3=MAIN_BRANCH_PROTECTION_OFF
-B4=TEACHER_PRODUCT_E2E_PENDING
+B1=TEACHER_PRODUCT_E2E_PENDING
+B2=P01_REAL_GOLDEN_NOT_RUN
+B3=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
+B4=MAIN_BRANCH_PROTECTION_OFF
 
 Not current blockers anymore:
 - Control Room truth / stale hardcoded convergence head
@@ -280,6 +295,7 @@ Not current blockers anymore:
 - provider configured-vs-connected remediation
 - curriculum silent Grade 12/domain defaults
 - fabricated visual fallback
+- unverified real-world automatic PASS
 
 These are closed by current convergence/control evidence and must not be reopened without regression evidence.
 
