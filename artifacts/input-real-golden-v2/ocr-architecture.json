@@ -1,0 +1,11 @@
+{
+  "engine": "PaddleOCR PPStructureV3 3.7.0",
+  "layout": "PP-DocLayout_plus-L",
+  "text": "PP-OCRv3 mobile Vietnamese/Latin recognition",
+  "formula": "PP-FormulaNet_plus-L",
+  "figure": "layout regions; figure/chart region preservation",
+  "reading_order": "PPStructure region order, then normalized DocumentIR block order",
+  "runtime_test": "BLOCKED",
+  "runtime_error": "Paddle Windows oneDNN PIR: ConvertPirAttribute2RuntimeAttribute not supported",
+  "mathpix_required": false
+}

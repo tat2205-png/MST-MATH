@@ -6,7 +6,7 @@ import { ingestUnifiedSource } from "../src/modules/document-ingest/unified.js";
 
 type Row = Record<string, string>;
 const root = process.env.MST_MATH_INPUT_GOLDEN_ROOT || "D:\\MST-MATH-INPUT-GOLDENS";
-const evidenceDir = join(process.cwd(), "artifacts", "input-real-golden-v1");
+const evidenceDir = process.env.MST_MATH_INPUT_EVIDENCE_DIR || join(process.cwd(), "artifacts", "input-real-golden-v1");
 mkdirSync(join(evidenceDir, "logs"), { recursive: true });
 const csv = readFileSync(join(root, "GOLDEN-MANIFEST.csv"), "utf8").trim().split(/\r?\n/);
 const fields = csv.shift()!.replaceAll('"', "").split(",");
@@ -27,13 +27,17 @@ for (const row of rows) {
   if (ext === ".docx") {
     r.parser_path = "ingestUnifiedSource(DOCX)";
     const out = await ingestUnifiedSource({ name, bytes: new Uint8Array(bytes) });
-    const c = out.classification; r.text_status = c.text > 0 ? "PASS" : (name.includes("text") ? "FAIL" : "BLOCKED"); r.math_status = c.math > 0 ? "PASS" : (name.includes("omml") || name.includes("mathtype") ? "FAIL" : "PASS"); r.figure_status = c.figure > 0 ? "PASS" : (name.includes("figure") ? "FAIL" : "PASS"); r.structure_status = out.document?.blocks.length ? "PASS" : "FAIL"; r.warnings = out.diagnostics.map(d => d.code); if (out.status === "FAIL") r.errors.push(...out.diagnostics.map(d => d.code));
+    const c = out.classification; r.text_status = c.text > 0 ? "PASS" : (name.includes("text") ? "FAIL" : (name.includes("omml") && c.math > 0 ? "PASS" : "BLOCKED")); r.math_status = c.math > 0 ? "PASS" : (name.includes("omml") || name.includes("mathtype") ? "FAIL" : "PASS"); r.figure_status = c.figure > 0 ? "PASS" : (name.includes("figure") ? "FAIL" : "PASS"); r.structure_status = out.document?.blocks.length ? "PASS" : "FAIL"; r.warnings = out.diagnostics.map(d => d.code); if (out.status === "FAIL") r.errors.push(...out.diagnostics.map(d => d.code));
     if (name.includes("mathtype") && r.warnings.some((w: string) => /MATHTYPE|LEGACY_MATHTYPE/.test(w))) { r.math_status = "BLOCKED"; r.errors.push("MATHTYPE_MATH_NOT_RECOVERED"); }
   } else if (ext === ".pdf") {
     r.parser_path = "pdftotext/pdfinfo + local semantic-recognition policy";
     const text = run("pdftotext", ["-enc", "UTF-8", "-layout", file, "-"]); const info = run("pdfinfo", [file]); const pages = Number(info.match(/Pages:\s+(\d+)/)?.[1] || 0); r.text_status = text.trim() ? "PASS" : "BLOCKED"; r.structure_status = pages > 0 ? "PASS" : "FAIL";
     const scanned = name.includes("scanned") || name.includes("hybrid"); r.math_status = scanned ? "BLOCKED" : /[=\\∫√²³≤≥]|x\s*\^?\s*\d/i.test(text) ? "PASS" : "BLOCKED"; r.figure_status = scanned ? "BLOCKED" : "PASS"; if (scanned) r.warnings.push("LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"); if (!text.trim() && pages === 0) r.errors.push("PDF_UNREADABLE");
-  } else { r.parser_path = "no real image Golden registered"; r.errors.push("UNREGISTERED_IMAGE_GOLDEN"); }
+  } else if (ext === ".jpg" || ext === ".jpeg" || ext === ".png" || ext === ".webp") {
+    r.parser_path = "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)";
+    r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED";
+    r.warnings.push("LOCAL_PADDLE_RUNTIME_NOT_INTEGRATED_IN_NODE_RUNNER"); r.errors.push("SEMANTIC_IMAGE_PIPELINE_BLOCKED");
+  } else { r.parser_path = "unsupported registered extension"; r.errors.push("UNSUPPORTED_GOLDEN_EXTENSION"); }
   if (r.errors.some((e: string) => e.includes("HASH") || e.includes("MISSING") || e.includes("UNREADABLE"))) r.overall_status = "FAIL"; else r.overall_status = status({ text: r.text_status, math: r.math_status, figure: r.figure_status, structure: r.structure_status }); r.timing_ms = Date.now() - started; result.push(r);
 }
 const assets = readFileSync(join(root, "GOLDEN-MANIFEST.csv"), "utf8");

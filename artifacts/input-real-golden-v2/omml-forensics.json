@@ -1,0 +1,5 @@
+{
+  "original": { "filename": "02-word-omml.docx", "native_omml": true, "omml_node_count": 32, "omml_paragraph_count": 0, "non_empty_expressions": 31, "truth": "INVALID", "reason": "one native m:oMath node is empty; production parser correctly fails closed" },
+  "successor": { "filename": "02-word-omml-successor.docx", "source": "D:\\math-ai-video-studio\\mst-input-baseline-pr62\\tests\\golden\\docx\\GOLDEN_02_NATIVE_MATH.docx", "sha256": "4865cc613fb6f94f8d1a5fdadee804f91a8c6d0a760501d6b0088ed10d92f0c6", "native_omml": true, "omml_node_count": 16, "non_empty_expressions": 16, "parser_status": "PASS" },
+  "parser_change": "Ignore non-semantic m:oMathPr properties while preserving expression content."
+}
