@@ -72,6 +72,7 @@ const suites = [
   "tests/studio-real-math-phase4a1.test.ts",
   "tests/studio-real-render-contract-phase4a2.test.ts",
   "tests/test-teacher-workflow-ux01.ts",
+  "tests/test-p01-learning-material-v1.ts",
 ];
 
 let failed = 0;
