@@ -2,6 +2,9 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import type { DocumentIR, FigureRecord } from "../document-engine/document-ir.js";
 
+export * from "./unified.js";
+export * from "./mathpix-provider.js";
+
 export type IngestKind = "PDF" | "IMAGE";
 
 export interface IngestSource {
@@ -23,6 +26,10 @@ function failure(code: string, message: string): IngestResult { return { ok: fal
 
 function extension(name: string): string { const dot = name.lastIndexOf("."); return dot < 0 ? "" : name.slice(dot).toLowerCase(); }
 
+/**
+ * Compatibility V1 ingest retained for existing callers.
+ * New MST-MATH flows should use ingestUnifiedSource(), which is semantic and fail-closed.
+ */
 export function ingestApprovedSource(source: IngestSource): IngestResult {
   if (!source || typeof source.name !== "string" || !source.name.trim()) return failure("SOURCE_METADATA_REQUIRED", "A source filename is required.");
   if (!(source.bytes instanceof Uint8Array) || source.bytes.length === 0) return failure("EMPTY_SOURCE", "The source is empty.");
