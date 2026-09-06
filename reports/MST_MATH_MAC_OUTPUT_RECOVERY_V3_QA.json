@@ -1,0 +1,25 @@
+{
+  "mission": "MST_MATH_MAC_OUTPUT_COMPLETION",
+  "recovery": "V3",
+  "baseHead": "24d3b7775a3d272b76913cf7db777cb90dd01f7f",
+  "fixture": {"label":"SYNTHETIC_CONTRACT_FIXTURE_ONLY","exerciseCount":6,"expectedPages":3,"realGolden":false},
+  "gates": {
+    "typescript": "PASS",
+    "build": "PASS",
+    "regression": "PASS_78_OF_78",
+    "htmlStandaloneKaTeX": "PASS",
+    "htmlWritingAreas": "PASS",
+    "htmlPagination": "PASS",
+    "pdf": "PASS",
+    "pdfVisual": "PASS",
+    "docxNativeMathContract": "PASS",
+    "docxNativeWordAcceptance": "PENDING",
+    "referenceComparison": "BLOCKED_MISSING_REFERENCE_PDF",
+    "e2eRealGolden": "BLOCKED_INPUT_EVIDENCE",
+    "humanAcceptance": "PENDING",
+    "demoGate": "CLOSED"
+  },
+  "canvasRecovery": {"initialState":"canvas.node missing after npm ci --ignore-scripts","command":"npm rebuild canvas --build-from-source","exitCode":0,"result":"RESTORED"},
+  "artifacts": "/Users/mac/Projects/MST-MATH-ARTIFACTS/mst-math-output-completion-v3",
+  "overall": "PASS_WITH_ACCEPTANCE_BLOCKERS"
+}

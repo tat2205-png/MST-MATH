@@ -11,6 +11,15 @@ import { P01_ICON_AUTHORITY, type P01LessonIR, type P01OutputBundle, type P01Ren
 
 const encoder = new TextEncoder();
 const digest = (value: Uint8Array | string) => createHash("sha256").update(value).digest("hex");
+const katexCssPath = new URL("../../../node_modules/katex/dist/katex.min.css", import.meta.url);
+
+function standaloneKatexCss(): string {
+  const css = readFileSync(katexCssPath, "utf8");
+  return css.replace(/url\((fonts\/[^)]+)\)/g, (_match, relativePath: string) => {
+    const font = readFileSync(new URL(`../../../node_modules/katex/dist/${relativePath}`, import.meta.url));
+    return `url(data:font/woff2;base64,${font.toString("base64")})`;
+  });
+}
 
 function htmlEscape(value: string): string {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
@@ -36,6 +45,10 @@ function typesetLatex(latex: string): string {
   } catch (error) {
     throw new Error(`P01_HTML_MATH_TYPESET_FAILED:${error instanceof Error ? error.message : String(error)}`);
   }
+}
+
+function isExerciseUnit(unit: P01LessonIR["contentModel"]["units"][number]): boolean {
+  return unit.kind !== "SECTION";
 }
 
 function figureById(lesson: P01LessonIR, id: string): FigureRecord {
@@ -65,11 +78,16 @@ function htmlBlocks(lesson: P01LessonIR, blocks: ContentBlock[]): string {
 export function renderP01Html(lesson: P01LessonIR): P01RenderedArtifact {
   const qa = validateP01LessonIR(lesson);
   if (qa.state !== "PASS") throw new Error(`P01_HTML_QA_BLOCKED:${qa.state}`);
+  let exerciseCount = 0;
   const sections = lesson.contentModel.units.map((unit) => {
     const tag = unit.kind === "SECTION" ? "section" : "div";
-    return `<${tag} class="p01-unit" data-unit-id="${htmlEscape(unit.id)}" data-source-block-id="${htmlEscape(unit.sourceBlockId)}">${htmlBlocks(lesson, unit.content)}</${tag}>`;
+    const exercise = isExerciseUnit(unit);
+    if (exercise) exerciseCount += 1;
+    const pageBreak = exercise && exerciseCount % 2 === 0 && exerciseCount < lesson.contentModel.units.filter(isExerciseUnit).length ? `<div class="p01-page-break" aria-hidden="true"></div>` : "";
+    const writing = exercise ? `<div class="p01-writing-lines" aria-label="Vùng viết bài tập ${exerciseCount}"></div>` : "";
+    return `<${tag} class="p01-unit${exercise ? " p01-exercise" : ""}" data-unit-id="${htmlEscape(unit.id)}" data-source-block-id="${htmlEscape(unit.sourceBlockId)}">${htmlBlocks(lesson, unit.content)}${writing}</${tag}>${pageBreak}`;
   }).join("\n");
-  const html = `<!doctype html>\n<html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="p01-profile" content="P01_LEARNING_MATERIAL"/><meta name="p01-icon-authority" content="${P01_ICON_AUTHORITY}"/><meta name="p01-semantic-signature" content="${lesson.semanticSignature}"/><title>${htmlEscape(lesson.source.document)}</title><style>body{font-family:system-ui,sans-serif;max-width:900px;margin:0 auto;padding:2rem;line-height:1.6}.p01-unit{margin:0 0 1rem;break-inside:avoid}.p01-math{font-family:serif}.p01-table{border-collapse:collapse;width:100%;margin:.75rem 0}.p01-table td{border:1px solid #888;padding:.4rem;vertical-align:top}figure{margin:1rem auto;float:right;max-width:42%}img{max-width:100%;height:auto}figcaption{font-size:.9rem}.p01-writing-lines{min-height:3.2cm;background:repeating-linear-gradient(to bottom,transparent 0,transparent 0.75cm,#9aa4b2 0.77cm,#9aa4b2 0.8cm);border-left:2px solid #64748b;margin:0.5rem 0;clear:left}@media print{body{max-width:none;padding:14mm}.p01-unit{break-inside:avoid}}</style>${readFileSync(new URL("../../../node_modules/katex/dist/katex.min.css", import.meta.url), "utf8")}</head><body><main aria-label="Tài liệu học tập MST-MATH">${sections}</main></body></html>`;
+  const html = `<!doctype html>\n<html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="p01-profile" content="P01_LEARNING_MATERIAL"/><meta name="p01-icon-authority" content="${P01_ICON_AUTHORITY}"/><meta name="p01-semantic-signature" content="${lesson.semanticSignature}"/><meta name="p01-pagination" content="2-exercises-per-page"/><title>${htmlEscape(lesson.source.document)}</title><style>body{font-family:'Libertinus Serif','Noto Serif',Helvetica,serif;max-width:900px;margin:0 auto;padding:2rem;line-height:1.6}.p01-unit{margin:0 0 1rem;break-inside:avoid}.p01-exercise{min-height:8cm}.p01-math{font-family:'Libertinus Math','KaTeX_Main',serif}.p01-table{border-collapse:collapse;width:100%;margin:.75rem 0}.p01-table td{border:1px solid #888;padding:.4rem;vertical-align:top}figure{margin:1rem 0 1rem auto;float:right;max-width:42%;margin-left:1rem}img{max-width:100%;height:auto}figcaption{font-size:.9rem}.p01-writing-lines{min-height:3.2cm;background:repeating-linear-gradient(to bottom,transparent 0,transparent 0.75cm,#9aa4b2 0.77cm,#9aa4b2 0.8cm);border-left:2px solid #64748b;margin:0.75rem 0;clear:left}.p01-page-break{break-before:page;page-break-before:always}@media print{body{max-width:none;padding:14mm}.p01-unit{break-inside:avoid}}</style><style>${standaloneKatexCss()}</style></head><body><main aria-label="Tài liệu học tập MST-MATH">${sections}</main></body></html>`;
   return { format: "HTML", bytes: encoder.encode(html), semanticSignature: lesson.semanticSignature, warnings: [] };
 }
 
@@ -126,11 +144,17 @@ export function renderP01Pdf(lesson: P01LessonIR): P01RenderedArtifact {
       writeFileSync(join(directory, filename), figure.bytes);
       assets.set(figure.id, filename);
     }
+    let exerciseCount = 0;
+    const totalExercises = lesson.contentModel.units.filter(isExerciseUnit).length;
     const body = lesson.contentModel.units.map((unit) => {
       const content = latexBlocks(lesson, unit.content, assets);
-      return unit.kind === "SECTION" ? `\\section*{${content}}` : `${content}\\par\n`;
+      if (!isExerciseUnit(unit)) return `\\section*{${content}}`;
+      exerciseCount += 1;
+      const writing = `${Array.from({ length: 5 }, () => "\\noindent\\rule{\\linewidth}{0.3pt}\\par\\vspace{6mm}").join("\n")}`;
+      const pageBreak = exerciseCount % 2 === 0 && exerciseCount < totalExercises ? "\\newpage\n" : "";
+      return `${content}\\par\n${writing}\n${pageBreak}`;
     }).join("\n");
-    const tex = `\\documentclass[12pt,a4paper]{article}\n\\usepackage{fontspec}\n\\usepackage{amsmath,amssymb,graphicx,array}\n\\usepackage[margin=20mm]{geometry}\n\\setmainfont{Helvetica}\n\\setlength{\\parindent}{0pt}\n\\setlength{\\parskip}{5pt}\n\\begin{document}\n${body}\n\\end{document}\n`;
+    const tex = `\\documentclass[12pt,a4paper]{article}\n\\usepackage{fontspec}\n\\usepackage{amsmath,amssymb,graphicx,array}\n\\usepackage[margin=20mm]{geometry}\n\\IfFontExistsTF{Libertinus Serif}{\\setmainfont{Libertinus Serif}}{\\setmainfont{Helvetica}}\n\\setlength{\\parindent}{0pt}\n\\setlength{\\parskip}{5pt}\n\\begin{document}\n${body}\n\\end{document}\n`;
     const texPath = join(directory, "p01.tex");
     writeFileSync(texPath, tex, "utf8");
     const run = spawnSync("xelatex", ["-interaction=nonstopmode", "-halt-on-error", "-output-directory", directory, texPath], { cwd: directory, encoding: "utf8" });
