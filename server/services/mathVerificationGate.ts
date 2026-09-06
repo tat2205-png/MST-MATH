@@ -15,6 +15,16 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
 }
 
+function requiresHumanReview(reason: string): boolean {
+  return (
+    reason.includes("NEED_MORE_INFORMATION") ||
+    reason.includes("AMBIGUOUS") ||
+    reason.includes("INCONSISTENT") ||
+    reason.includes("provenance") ||
+    reason.includes("REAL_WORLD_UNVERIFIED")
+  );
+}
+
 export function evaluateMathGate(
   problemIR: MathProblemIR | null | undefined,
   solution: MathSolution | null | undefined,
@@ -24,6 +34,12 @@ export function evaluateMathGate(
 
   if (!problemIR || problemIR.status !== "PASS") {
     reasons.push(`Problem status is not resolved: ${problemIR?.status || "MISSING"}.`);
+  }
+
+  if (problemIR?.domain === "Bài toán tối ưu & Ứng dụng thực tế") {
+    reasons.push(
+      "REAL_WORLD_UNVERIFIED: Real-world source values, assumptions, units/context, feasibility, and answer plausibility require independent source or human verification before automation can PASS."
+    );
   }
 
   if (!solution || !isRecord(solution)) {
@@ -92,7 +108,7 @@ export function evaluateMathGate(
   const result = reasons.length > 0
     ? {
         allowed: false,
-        status: reasons.some((reason) => reason.includes("NEED_MORE_INFORMATION") || reason.includes("AMBIGUOUS") || reason.includes("INCONSISTENT") || reason.includes("provenance")) ? "HUMAN_REVIEW_REQUIRED" as const : "BLOCKED" as const,
+        status: reasons.some(requiresHumanReview) ? "HUMAN_REVIEW_REQUIRED" as const : "BLOCKED" as const,
         reasons,
       }
     : { allowed: true, status: "VERIFIED_PASS" as const, reasons: [] };
@@ -100,12 +116,9 @@ export function evaluateMathGate(
     return { allowed: false, status: "HUMAN_REVIEW_REQUIRED", reasons: ["Math gate result is malformed."] };
   }
   if (reasons.length > 0) {
-    const requiresHumanReview = reasons.some((reason) =>
-      reason.includes("NEED_MORE_INFORMATION") || reason.includes("AMBIGUOUS") || reason.includes("INCONSISTENT")
-    );
     return {
       allowed: false,
-      status: requiresHumanReview ? "HUMAN_REVIEW_REQUIRED" : "BLOCKED",
+      status: reasons.some(requiresHumanReview) ? "HUMAN_REVIEW_REQUIRED" : "BLOCKED",
       reasons,
     };
   }
