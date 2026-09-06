@@ -3,7 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, basename, extname } from "node:path";
 import { ingestUnifiedSource } from "../src/modules/document-ingest/unified.js";
-import { ingestSemanticPdf } from "../src/modules/document-ingest/pdf-semantic-adapter.js";
+import { ingestHybridPdf, ingestSemanticPdf } from "../src/modules/document-ingest/pdf-semantic-adapter.js";
 
 type Row = Record<string, string>;
 const root = process.env.MST_MATH_INPUT_GOLDEN_ROOT || "D:\\MST-MATH-INPUT-GOLDENS";
@@ -44,12 +44,12 @@ for (const row of rows) {
     } else {
       r.parser_path = scanned ? "ingestSemanticPdf -> PPStructureV3 batch page adapter" : "ingestSemanticPdf + pdftotext native reconciliation";
       try {
-        const semantic = ingestSemanticPdf(bytes, name); const all = semantic.output.pages.flatMap(page => page.regions); const text = all.filter(x => x.type === "TEXT" && x.text?.trim()); const math = all.filter(x => x.type === "MATH" && x.text?.trim()); const figure = all.filter(x => x.type === "FIGURE");
+        const hybrid = name.includes("hybrid"); const semantic = hybrid ? ingestHybridPdf(bytes, name) : ingestSemanticPdf(bytes, name); const all = semantic.output.pages.flatMap(page => page.regions); const text = all.filter(x => x.type === "TEXT" && x.text?.trim()); const math = all.filter(x => x.type === "MATH" && x.text?.trim()); const figure = all.filter(x => x.type === "FIGURE");
         const nativeText = run("pdftotext", ["-enc", "UTF-8", "-layout", file, "-"]);
         const requestedStart = Number(process.env.MST_MATH_INPUT_PDF_START || 1); const requestedEnd = Number(process.env.MST_MATH_INPUT_PDF_END || pages); const expectedProcessedPages = Math.max(0, Math.min(pages, requestedEnd) - Math.max(1, requestedStart) + 1);
         r.text_status = text.length || nativeText.trim() ? "PASS" : "FAIL"; r.math_status = math.length ? "PASS" : "FAIL"; r.figure_status = figure.length || row.ExpectFigure !== "TRUE" ? "PASS" : "FAIL"; r.structure_status = semantic.output.pages.length === expectedProcessedPages && semantic.document.blocks.length > 0 ? "PASS" : "FAIL";
-        r.performance = { pages, page_times: [], text_blocks: text.length, math_blocks: math.length, figure_blocks: figure.length, document_blocks: semantic.document.blocks.length, native_text_present: Boolean(nativeText.trim()), model_reuse: semantic.output.model_reuse, provider: semantic.output.provider, coordinate_space: "raster-page-space -> DocumentIR page provenance" };
-        r.warnings.push(scanned ? "PDF_PAGE_RASTERIZED_AND_MAPPED_TO_DOCUMENTIR" : "HYBRID_NATIVE_TEXT_RECONCILED_WITH_SEMANTIC_RASTER_REGIONS");
+        r.performance = { pages, page_times: [], text_blocks: text.length, math_blocks: math.length, figure_blocks: figure.length, document_blocks: semantic.document.blocks.length, native_text_present: Boolean(nativeText.trim()), model_reuse: semantic.output.model_reuse, provider: semantic.output.provider, coordinate_space: hybrid ? "canonical-pdf-page-space" : "raster-page-space -> DocumentIR page provenance", ...(hybrid ? { reconciliation: (semantic as any).reconciliation } : {}) };
+        r.warnings.push(scanned ? "PDF_PAGE_RASTERIZED_AND_MAPPED_TO_DOCUMENTIR" : "HYBRID_NATIVE_RASTER_RECONCILED_DEDUPED_AND_MAPPED");
       } catch (error) { r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED"; r.errors.push(`PDF_SEMANTIC_ADAPTER_FAILED:${error instanceof Error ? error.message : String(error)}`); }
     }
   } else if (ext === ".jpg" || ext === ".jpeg" || ext === ".png" || ext === ".webp") {
