@@ -1,0 +1,4 @@
+{
+  "09-image-text-math.jpg": { "status": "PASS", "text_blocks": 17, "math_blocks": 1, "figure_blocks": 0, "regions": 18, "provider": "PaddleOCR-PPStructureV3/Paddle-3.2.2", "timing_ms": 64157 },
+  "10-image-math-figure.jpg": { "status": "PASS", "text_blocks": 19, "math_blocks": 4, "figure_blocks": 2, "regions": 25, "provider": "PaddleOCR-PPStructureV3/Paddle-3.2.2", "timing_ms": 80345 }
+}

@@ -1,0 +1,11 @@
+{
+  "failure_class_before_repair": "PADDLE_3_3_1_WINDOWS_ONEDNN_PIR_OPERATOR_INCOMPATIBILITY",
+  "root_cause": "Paddle 3.3.1 static executor fails ConvertPirAttribute2RuntimeAttribute during PP-DocLayout inference; import/tensor/init pass",
+  "repair": "isolated Paddle 3.2.2 package overlay with existing PaddleOCR 3.7.0 and cached models",
+  "repair_result": "PASS",
+  "python": "3.11.16",
+  "numpy": "2.3.5",
+  "opencv": "4.10.0",
+  "original_paddle": "3.3.1",
+  "repaired_paddle": "3.2.2"
+}

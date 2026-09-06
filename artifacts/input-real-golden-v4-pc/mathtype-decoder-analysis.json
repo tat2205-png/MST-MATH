@@ -1,0 +1,7 @@
+{
+  "decoder": "mtef-py via scripts/mtef_decode_bridge.py",
+  "full_ole_probe": {"decoded": 143, "empty_latex": 5},
+  "classification": "MTEF_EMPTY_LATEX_FOR_FIVE_OBJECTS",
+  "successful_example": "Equation Native / OLE object decoded to non-empty LaTeX",
+  "status": "BLOCKED_NO_SILENT_LOSS"
+}

@@ -17,6 +17,9 @@ const rows: Row[] = csv.filter(Boolean).map(line => {
 const result: any[] = [];
 const sha = (b: Buffer) => createHash("sha256").update(b).digest("hex");
 const run = (cmd: string, args: string[], input?: Buffer) => { try { return execFileSync(cmd, args, { input, encoding: "utf8", windowsHide: true, maxBuffer: 8 * 1024 * 1024 }); } catch { return ""; } };
+const visionPython = process.env.MST_MATH_INPUT_VISION_PYTHON || ["D:\\math-ai-video-studio\\mst-input-local-paddle-clean-v1\\tools\\mst-local-ocr\\.venv\\Scripts\\python.exe", join(process.cwd(), ".venv", "Scripts", "python.exe")].find((candidate) => existsSync(candidate)) || "python";
+const visionScript = join(process.cwd(), "scripts", "local-semantic-vision.py");
+const runVision = (file: string) => { try { return JSON.parse(execFileSync(visionPython, [visionScript, file], { encoding: "utf8", windowsHide: true, env: { ...process.env, PYTHONPATH: process.env.MST_MATH_INPUT_PADDLE_PACKAGES || join(process.cwd(), ".paddle-v4-packages") }, maxBuffer: 32 * 1024 * 1024 })); } catch (error) { return { error: error instanceof Error ? error.message : String(error) }; } };
 const status = (r: any) => Object.values(r).some(v => v === "FAIL") ? "FAIL" : Object.values(r).some(v => v === "BLOCKED") ? "BLOCKED" : "PASS";
 
 for (const row of rows) {
@@ -35,8 +38,9 @@ for (const row of rows) {
     const scanned = name.includes("scanned") || name.includes("hybrid"); r.math_status = scanned ? "BLOCKED" : /[=\\∫√²³≤≥]|x\s*\^?\s*\d/i.test(text) ? "PASS" : "BLOCKED"; r.figure_status = scanned ? "BLOCKED" : "PASS"; if (scanned) r.warnings.push("LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"); if (!text.trim() && pages === 0) r.errors.push("PDF_UNREADABLE");
   } else if (ext === ".jpg" || ext === ".jpeg" || ext === ".png" || ext === ".webp") {
     r.parser_path = "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)";
-    r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED";
-    r.warnings.push("LOCAL_PADDLE_RUNTIME_BLOCKED_ON_WINDOWS_PIR_ONEDNN"); r.errors.push("SEMANTIC_IMAGE_PIPELINE_BLOCKED");
+    const vision = runVision(file); const regions = vision?.[0]?.regions ?? []; const text = regions.filter((x: any) => x.type === "TEXT"); const math = regions.filter((x: any) => x.type === "MATH"); const figure = regions.filter((x: any) => x.type === "FIGURE");
+    r.text_status = text.length ? "PASS" : "FAIL"; r.math_status = math.length ? "PASS" : "FAIL"; r.figure_status = figure.length ? "PASS" : "PASS"; r.structure_status = regions.length && regions.every((x: any) => x.bbox) ? "PASS" : "FAIL"; r.performance = { region_count: regions.length, text_blocks: text.length, math_blocks: math.length, figure_blocks: figure.length, provider: vision?.[0]?.provider };
+    if (vision?.error) { r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED"; r.warnings.push("LOCAL_PADDLE_RUNTIME_BLOCKED"); r.errors.push("SEMANTIC_IMAGE_PIPELINE_BLOCKED"); }
   } else { r.parser_path = "unsupported registered extension"; r.errors.push("UNSUPPORTED_GOLDEN_EXTENSION"); }
   if (r.errors.some((e: string) => e.includes("HASH") || e.includes("MISSING") || e.includes("UNREADABLE"))) r.overall_status = "FAIL"; else r.overall_status = status({ text: r.text_status, math: r.math_status, figure: r.figure_status, structure: r.structure_status }); r.timing_ms = Date.now() - started; result.push(r);
 }

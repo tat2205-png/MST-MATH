@@ -1,0 +1,7 @@
+{
+  "manifest_validation": "PASS",
+  "rows": 9,
+  "missing_referenced_assets": 0,
+  "unregistered_golden_assets": 0,
+  "notes": "Existing manifest has legacy four-column schema; semantic expectations are inferred from canonical filenames and production output."
+}

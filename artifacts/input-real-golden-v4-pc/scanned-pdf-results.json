@@ -1,0 +1,9 @@
+{
+  "file": "07-pdf-scanned.pdf",
+  "pages": 125,
+  "native_text": "EMPTY_OR_INSUFFICIENT",
+  "rasterization": "AVAILABLE_VIA_PDFTOPPM",
+  "semantic_page_pipeline": "NOT_YET_WIRED_FOR_BATCH_PDF",
+  "status": "BLOCKED",
+  "reason": "runner does not yet promote page-raster semantic results into DocumentIR for all pages"
+}
