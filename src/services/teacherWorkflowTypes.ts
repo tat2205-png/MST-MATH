@@ -29,13 +29,19 @@ export interface WorkflowActionReadiness {
 export interface WorkflowReadiness {
   source: "MAS_INT_01_RUNTIME_READINESS";
   requiredRuntimeBlockers: "NONE";
-  actions: {
-    [key: string]: WorkflowActionReadiness;
-    assessment: WorkflowActionReadiness;
-    game: WorkflowActionReadiness;
-    video: WorkflowActionReadiness;
-    export: WorkflowActionReadiness;
-  };
+  actions: Record<
+    "assessment" | "game" | "video" | "export",
+    WorkflowActionReadiness
+  >;
+}
+
+// TypeScript's ambient Object.values overload resolves finite-key Records to
+// unknown[] in this project toolchain. This overload is type-only and scoped
+// to the existing readiness action contract; it does not change runtime shape.
+declare global {
+  interface ObjectConstructor {
+    values(o: WorkflowReadiness["actions"]): WorkflowActionReadiness[];
+  }
 }
 
 export interface WorkflowSummary {
