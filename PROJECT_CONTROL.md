@@ -18,7 +18,7 @@ REAL_WORLD_POLICY=FAIL_OR_REVIEW_CLOSED_UNTIL_VERIFIED
 TOOLMATH_LEARNING=UX_ONLY_NO_ARCHITECTURE_COPY
 NEXT_PRODUCT_MILESTONE=DEMO_BASELINE
 PROMOTION=ONLY_AFTER_6_COMPLETION_GATES_PASS
-CURRENT_GATE=G3_TEACHER_WORKFLOW
+CURRENT_GATE=G4_P01_REAL_GOLDEN
 
 ---
 
@@ -51,7 +51,16 @@ G2_QA_TRUTH_MERGE=f1be5666a78004582b54ee6185a9c2387e7e3027
 G2_QA_TRUTH_POST_MERGE_CI_RUN=34003050996
 G2_QA_TRUTH_POST_MERGE_CI_RUN_NUMBER=61
 G2_QA_TRUTH_POST_MERGE_CI=PASS
-CONVERGENCE_STATUS=FINAL_COMPLETION_CUT_G2_CONVERGED
+G3_TEACHER_WORKFLOW_PR=59
+G3_TEACHER_WORKFLOW_EXACT_HEAD=1e45011fff5fd28319be2b7d033b83f07c36cafd
+G3_TEACHER_WORKFLOW_EXACT_HEAD_CI_RUN=34004533290
+G3_TEACHER_WORKFLOW_EXACT_HEAD_CI_RUN_NUMBER=67
+G3_TEACHER_WORKFLOW_EXACT_HEAD_CI=PASS
+G3_TEACHER_WORKFLOW_MERGE=2fa062b70b08f45d330fe192834c7490bd37ccfe
+G3_TEACHER_WORKFLOW_POST_MERGE_CI_RUN=34004729342
+G3_TEACHER_WORKFLOW_POST_MERGE_CI_RUN_NUMBER=68
+G3_TEACHER_WORKFLOW_POST_MERGE_CI=PASS
+CONVERGENCE_STATUS=FINAL_COMPLETION_CUT_G3_CONVERGED
 
 POST_MERGE_CORE_QUALITY=PASS
 POST_MERGE_PC_QUESTION_AUTHORITY=PASS
@@ -153,17 +162,28 @@ Exit:
 
 ## G3 — TEACHER WORKFLOW
 
-Current state: MACHINE_AUTHORITY_GATES_PASS / PRODUCT_E2E_PENDING
+Current state: PASS
 
-Required path:
+Verified path:
 `Source → Work/Process → QA → Result/Export`
 
-Must prove:
-- Teacher UI consumes backend readiness/export authority
-- authoritative assessment/question refs are used
-- export guard cannot be bypassed
-- no provider/QA truth is invented in UI
-- real teacher smoke/E2E path completes on frozen candidate SHA
+Evidence:
+- PR #59 removes static runtime-ready UI truth and makes Teacher Workspace consume existing backend readiness authority;
+- the UI response helper accepts the existing `readiness` response envelope rather than creating a second authority;
+- assessment/game/video/export affordances consume existing action-readiness capability state;
+- assessment status consumes authoritative QA state;
+- export re-checks current-artifact readiness immediately before action and fails closed when the artifact or requested format is not authorized;
+- server-side export guard remains the final authority and validates assessment/artifact identity, source lineage, QA state, current-artifact readiness, and formats;
+- authoritative assessment/question references remain the product lineage source;
+- `tests/test-teacher-workflow-ux01.ts` proves real service workflow integration, source immutability, answer isolation, readiness correlation, export readiness, video reuse authority, accessibility/responsive guards, and UI authority consumption;
+- PR #59 exact-head CI run #67 PASS for core-quality and pc-question-authority;
+- PR #59 merged at `2fa062b70b08f45d330fe192834c7490bd37ccfe`;
+- post-merge Convergence CI run #68 PASS for core-quality and pc-question-authority, including architecture, typecheck, build, regression, P0 runtime truth, public readiness/export guard, identity/provenance, and Unified Input gates.
+
+Gate separation:
+- G3 certifies machine/product Teacher Workflow on authoritative services;
+- real P01 source/output certification belongs to G4;
+- native teacher usability and explicit Product Owner acceptance belong to G5.
 
 Exit:
 `G3_TEACHER_WORKFLOW=PASS`
@@ -211,7 +231,7 @@ Exit:
 
 ## G6 — RELEASE GOVERNANCE
 
-Current state: BLOCKED_BY_G3_TO_G5
+Current state: BLOCKED_BY_G4_TO_G5
 
 Required:
 - freeze final promotion SHA
@@ -281,10 +301,9 @@ Historical `PIMATH-*` compatibility identifiers are preserved where required. Hu
 
 # 7. CURRENT BLOCKERS
 
-B1=TEACHER_PRODUCT_E2E_PENDING
-B2=P01_REAL_GOLDEN_NOT_RUN
-B3=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
-B4=MAIN_BRANCH_PROTECTION_OFF
+B1=P01_REAL_GOLDEN_NOT_RUN
+B2=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
+B3=MAIN_BRANCH_PROTECTION_OFF
 
 Not current blockers anymore:
 - Control Room truth / stale hardcoded convergence head
@@ -296,6 +315,7 @@ Not current blockers anymore:
 - curriculum silent Grade 12/domain defaults
 - fabricated visual fallback
 - unverified real-world automatic PASS
+- Teacher Workflow product E2E / UI authority-consumer gap
 
 These are closed by current convergence/control evidence and must not be reopened without regression evidence.
 
