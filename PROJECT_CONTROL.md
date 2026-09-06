@@ -25,7 +25,7 @@ PROMOTION=ONLY_AFTER_6_COMPLETION_GATES_PASS
 
 Important correction:
 
-`MAC_B3_RECONCILIATION` now means evidence/report reconciliation, NOT code re-merge. Branch `audit/mac-b-teacher-readiness-consumer-v1@4ad5c66ec5486cc0459aceff2047e75d20a0be5a` is already an ancestor of current convergence.
+`MAC_B3_RECONCILIATION` means evidence/report reconciliation, NOT code re-merge. Branch `audit/mac-b-teacher-readiness-consumer-v1@4ad5c66ec5486cc0459aceff2047e75d20a0be5a` is already an ancestor of current convergence.
 
 No task may skip forward because a later gate appears technically ready.
 
@@ -84,13 +84,17 @@ B3_REMOTE_HEAD=4ad5c66ec5486cc0459aceff2047e75d20a0be5a
 B3_CODE_LINEAGE_IN_CURRENT_CONVERGENCE=YES
 B3_CODE_REMERGE_REQUIRED=NO
 B3_CODE_REMERGE_FORBIDDEN=YES
-B3_FINAL_REPORT=NOT_LOCATED_IN_CURRENT_CONTROL_EVIDENCE
-B3_CURRENT_ACTION=RECONCILE_REPORT_AND_EVIDENCE_ONLY
+B3_HISTORICAL_FINAL_REPORT=NOT_LOCATED
+B3_CONTROL_ROOM_EVIDENCE_DISPOSITION=docs/operations/MST_MATH_MAC_B3_EVIDENCE_DISPOSITION_20260906.md
+B3_CURRENT_CONSUMER_AUTHORITY_REGRESSION=PASS_ON_CONVERGENCE_CI_53
+B3_G1_EVIDENCE_RECONCILIATION=PASS
 
-Required disposition before G1 closes:
-- locate/verify final Mac B3 report if it exists; OR
-- issue a bounded Control Room evidence disposition based on current lineage/tests;
-- do not reopen or re-merge B3 implementation merely to satisfy stale status text.
+Control Room disposition:
+- the missing historical standalone final report is explicitly recorded as not located;
+- current lineage proves B3 code is already contained in convergence;
+- current `tests/test-teacher-workflow-ux01.ts` verifies UI/runtime isolation, UI/storage isolation, Teacher Workflow service authority, runtime-readiness consumption, source immutability, video reuse authority, and teacher workflow smoke behavior;
+- exact-head convergence regression containing that test passed on run #53;
+- no B3 implementation is reopened or re-merged solely to recreate historical reporting.
 
 Invariant:
 `UI_CONSUMES_AUTHORITY; UI_DOES_NOT_RECREATE_AUTHORITY`
@@ -101,17 +105,17 @@ Invariant:
 
 ## G1 — CONVERGENCE TRUTH
 
-Current state: PARTIAL_PASS
+Current state: CONTROL_UPDATE_PR_PENDING
 
 PASS evidence already present:
 - exact-head convergence CI PASS
 - current convergence SHA verified
 - Mac R1 structural-numbering convergence PASS
-- B3 code lineage is already contained in convergence
+- B3 code lineage is contained in convergence
+- B3 report/evidence gap explicitly dispositioned by current lineage + regression evidence
 
 Remaining:
-- this Master Status update must converge
-- Mac B3 final report/evidence must be located or explicitly dispositioned
+- this Master Status / Completion Cut control PR must pass CI, converge, and pass post-merge verification
 
 Exit:
 `G1_CONVERGENCE_TRUTH=PASS`
@@ -259,13 +263,13 @@ Historical `PIMATH-*` compatibility identifiers are preserved where required. Hu
 
 # 7. CURRENT BLOCKERS
 
-B1=PROJECT_CONTROL_UPDATE_NOT_YET_CONVERGED
-B2=MAC_B3_FINAL_REPORT_OR_EVIDENCE_DISPOSITION_PENDING
-B3=P01_REAL_GOLDEN_NOT_RUN
-B4=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
-B5=MAIN_BRANCH_PROTECTION_OFF
+B1=PROJECT_CONTROL_COMPLETION_CUT_PR_NOT_YET_CONVERGED
+B2=P01_REAL_GOLDEN_NOT_RUN
+B3=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
+B4=MAIN_BRANCH_PROTECTION_OFF
 
 Not current blockers anymore:
+- Mac B3 report/evidence reconciliation
 - PR31 merge hold
 - Mac R1 structural-numbering recovery
 - QA proxy-PASS remediation
@@ -273,7 +277,7 @@ Not current blockers anymore:
 - curriculum silent Grade 12/domain defaults
 - fabricated visual fallback
 
-These are closed by current convergence evidence and must not be reopened without regression evidence.
+These are closed by current convergence/control evidence and must not be reopened without regression evidence.
 
 ---
 
