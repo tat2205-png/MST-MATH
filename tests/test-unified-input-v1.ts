@@ -39,10 +39,16 @@ assert.equal(nativeWord.kind, "WORD");
 assert.equal(nativeWord.classification.math, 1);
 assert.equal(nativeWord.document?.blocks[0].content.some((b) => b.type === "math" && b.math.sourceType === "OMML"), true);
 
-const wordFigure = await ingestUnifiedSource({ name: "figure.docx", bytes: DOCX_FIXTURES.image });
+const wordFigure = await ingestUnifiedSource({ name: "figure.docx", bytes: DOCX_FIXTURES.image }, { recognizer: mockRecognizer });
 assert.equal(wordFigure.status, "PASS");
 assert.equal(wordFigure.classification.figure, 1);
 assert.equal(wordFigure.document?.figures.length, 1);
+assert.equal(wordFigure.document?.figures[0].semanticRole, "REAL_FIGURE");
+
+const wordFigureNoRecognizer = await ingestUnifiedSource({ name: "figure.docx", bytes: DOCX_FIXTURES.image });
+assert.equal(wordFigureNoRecognizer.status, "REVIEW_REQUIRED");
+assert.equal(wordFigureNoRecognizer.classification.figure, 1);
+assert.equal(wordFigureNoRecognizer.diagnostics.some((d) => d.code === "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED"), true);
 
 const badLegacy = await ingestUnifiedSource({ name: "legacy.docx", bytes: DOCX_FIXTURES.legacyMathType });
 assert.equal(badLegacy.status, "REVIEW_REQUIRED");
@@ -52,6 +58,7 @@ const recognizedPdf = await ingestUnifiedSource({ name: "exam.pdf", bytes: pdf, 
 assert.equal(recognizedPdf.status, "PASS");
 assert.deepEqual(recognizedPdf.classification, { text: 1, math: 1, figure: 1, table: 0 });
 assert.equal(recognizedPdf.document?.figures[0].semanticRole, "REAL_FIGURE");
+assert.equal(recognizedPdf.evidence?.length, 3);
 
 const recognizedImage = await ingestUnifiedSource({ name: "page.png", bytes: png, mimeType: "image/png" }, { recognizer: mockRecognizer });
 assert.equal(recognizedImage.status, "PASS");
@@ -75,7 +82,8 @@ assert.equal(lowConfidence.diagnostics.some((d) => d.code === "LOW_RECOGNITION_C
 assert.equal(createMathpixRecognizerFromEnv({}), undefined);
 
 console.log("UNIFIED_INPUT_WORD_OMML=PASS");
-console.log("UNIFIED_INPUT_WORD_FIGURE=PASS");
+console.log("UNIFIED_INPUT_WORD_RASTER_CLASSIFICATION=PASS");
+console.log("UNIFIED_INPUT_WORD_RASTER_FAIL_CLOSED=PASS");
 console.log("UNIFIED_INPUT_MATHTYPE_FAIL_CLOSED=PASS");
 console.log("UNIFIED_INPUT_PDF_SEMANTIC=PASS");
 console.log("UNIFIED_INPUT_IMAGE_SEMANTIC=PASS");
