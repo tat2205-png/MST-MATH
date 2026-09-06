@@ -1,6 +1,7 @@
 # MST-MATH — PROJECT CONTROL / MASTER STATUS
 
 > Operational source of truth for MST-MATH release convergence. Historical evidence remains immutable in Git history, issues, PRs, and audit reports.
+> The live Git branch ref is authoritative for the current convergence HEAD; this file records verified evidence/gate state and does not try to self-reference its own future merge SHA.
 
 LAST_UPDATED=2026-09-06
 CONTROL_MODE=FINAL_COMPLETION_CUT_V1
@@ -10,12 +11,14 @@ STATUS=PROPOSED_FOR_EXECUTION
 FEATURE_EXPANSION=FROZEN
 NEW_CORE_ARCHITECTURE=FORBIDDEN
 SOLE_TARGET=integration/mst-math-convergence-v1
+CONVERGENCE_HEAD_AUTHORITY=LIVE_GIT_REF
 PRIMARY_PRODUCT=TEACHER_WORKSPACE_PLUS_P01_GOLDEN
 PRIMARY_QUALITY_RULE=NO_EVIDENCE_NO_PASS
 REAL_WORLD_POLICY=FAIL_OR_REVIEW_CLOSED_UNTIL_VERIFIED
 TOOLMATH_LEARNING=UX_ONLY_NO_ARCHITECTURE_COPY
 NEXT_PRODUCT_MILESTONE=DEMO_BASELINE
 PROMOTION=ONLY_AFTER_6_COMPLETION_GATES_PASS
+CURRENT_GATE=G2_QA_TRUTH
 
 ---
 
@@ -25,31 +28,31 @@ PROMOTION=ONLY_AFTER_6_COMPLETION_GATES_PASS
 
 Important correction:
 
-`MAC_B3_RECONCILIATION` means evidence/report reconciliation, NOT code re-merge. Branch `audit/mac-b-teacher-readiness-consumer-v1@4ad5c66ec5486cc0459aceff2047e75d20a0be5a` is already an ancestor of current convergence.
+`MAC_B3_RECONCILIATION` means evidence/report reconciliation, NOT code re-merge. Branch `audit/mac-b-teacher-readiness-consumer-v1@4ad5c66ec5486cc0459aceff2047e75d20a0be5a` is already an ancestor of convergence.
 
 No task may skip forward because a later gate appears technically ready.
 
 ---
 
-# 1. LIVE REPOSITORY TRUTH
+# 1. VERIFIED REPOSITORY TRUTH
 
 MAIN_BRANCH=main
-MAIN_HEAD=598b35a42b284ab17d7de6ba3023458a36e8f42d
+MAIN_VERIFIED_HEAD=598b35a42b284ab17d7de6ba3023458a36e8f42d
 MAIN_STATUS=FROZEN_FOR_RELEASE_CONVERGENCE
 MAIN_BRANCH_PROTECTION=OFF
 MAIN_REQUIRED_CHECKS=OFF
 
 SOLE_CONVERGENCE_BRANCH=integration/mst-math-convergence-v1
-CONVERGENCE_HEAD=24f0d0355d31737ff25133ebcfdc0faafb3527fe
-CONVERGENCE_STATUS=C1_STABILIZATION_CONVERGED
+CONVERGENCE_HEAD_AUTHORITY=LIVE_GIT_REF
+LAST_VERIFIED_RUNTIME_STABILIZATION_HEAD=24f0d0355d31737ff25133ebcfdc0faafb3527fe
+FINAL_COMPLETION_CUT_CONTROL_MERGE=ac1fd402419e1983eabb1031852f8a8c84a29e56
+FINAL_COMPLETION_CUT_POST_MERGE_CI_RUN=34001220409
+FINAL_COMPLETION_CUT_POST_MERGE_CI_RUN_NUMBER=57
+FINAL_COMPLETION_CUT_POST_MERGE_CI=PASS
+CONVERGENCE_STATUS=FINAL_COMPLETION_CUT_CONTROL_TRUTH_CONVERGED
 
-EXACT_HEAD_CI_RUN=33974447784
-EXACT_HEAD_CI_RUN_NUMBER=53
-EXACT_HEAD_CI_STATUS=COMPLETED
-EXACT_HEAD_CI_CONCLUSION=SUCCESS
-
-EXACT_HEAD_CORE_QUALITY=PASS
-EXACT_HEAD_PC_QUESTION_AUTHORITY=PASS
+POST_MERGE_CORE_QUALITY=PASS
+POST_MERGE_PC_QUESTION_AUTHORITY=PASS
 ARCHITECTURE_GATE=PASS
 TYPECHECK_GATE=PASS
 BUILD_GATE=PASS
@@ -81,19 +84,19 @@ VISUAL_ZERO_INFERENCE_FAILURE_GATE=MERGED_CI_PASS
 
 B3_BRANCH=audit/mac-b-teacher-readiness-consumer-v1
 B3_REMOTE_HEAD=4ad5c66ec5486cc0459aceff2047e75d20a0be5a
-B3_CODE_LINEAGE_IN_CURRENT_CONVERGENCE=YES
+B3_CODE_LINEAGE_IN_CONVERGENCE=YES
 B3_CODE_REMERGE_REQUIRED=NO
 B3_CODE_REMERGE_FORBIDDEN=YES
 B3_HISTORICAL_FINAL_REPORT=NOT_LOCATED
 B3_CONTROL_ROOM_EVIDENCE_DISPOSITION=docs/operations/MST_MATH_MAC_B3_EVIDENCE_DISPOSITION_20260906.md
-B3_CURRENT_CONSUMER_AUTHORITY_REGRESSION=PASS_ON_CONVERGENCE_CI_53
+B3_CURRENT_CONSUMER_AUTHORITY_REGRESSION=PASS
 B3_G1_EVIDENCE_RECONCILIATION=PASS
 
 Control Room disposition:
 - the missing historical standalone final report is explicitly recorded as not located;
-- current lineage proves B3 code is already contained in convergence;
-- current `tests/test-teacher-workflow-ux01.ts` verifies UI/runtime isolation, UI/storage isolation, Teacher Workflow service authority, runtime-readiness consumption, source immutability, video reuse authority, and teacher workflow smoke behavior;
-- exact-head convergence regression containing that test passed on run #53;
+- lineage proves B3 code is already contained in convergence;
+- `tests/test-teacher-workflow-ux01.ts` verifies UI/runtime isolation, UI/storage isolation, Teacher Workflow service authority, runtime-readiness consumption, source immutability, video reuse authority, and teacher workflow smoke behavior;
+- convergence regression containing that test passed before and after the Final Completion Cut control merge;
 - no B3 implementation is reopened or re-merged solely to recreate historical reporting.
 
 Invariant:
@@ -105,17 +108,17 @@ Invariant:
 
 ## G1 — CONVERGENCE TRUTH
 
-Current state: CONTROL_UPDATE_PR_PENDING
+Current state: PASS
 
-PASS evidence already present:
-- exact-head convergence CI PASS
-- current convergence SHA verified
+Evidence:
+- convergence head is resolved from the live Git ref rather than a stale hardcoded SHA
+- stabilization exact-head CI PASS
+- Final Completion Cut control PR exact-head CI PASS
+- control merge `ac1fd402...` completed
+- post-merge Convergence CI run #57 PASS
 - Mac R1 structural-numbering convergence PASS
 - B3 code lineage is contained in convergence
-- B3 report/evidence gap explicitly dispositioned by current lineage + regression evidence
-
-Remaining:
-- this Master Status / Completion Cut control PR must pass CI, converge, and pass post-merge verification
+- B3 historical report gap explicitly dispositioned with current lineage + regression evidence
 
 Exit:
 `G1_CONVERGENCE_TRUTH=PASS`
@@ -133,7 +136,7 @@ Required invariants:
 - provider/visual failure cannot fabricate mathematical truth
 - unverified real-world values/assumptions cannot PASS
 
-Current implementation evidence: merged in PR #49; exact-head CI PASS.
+Current implementation evidence: merged in PR #49; current convergence CI PASS.
 
 Exit:
 `G2_QA_TRUTH=PASS`
@@ -198,7 +201,7 @@ Exit:
 
 ## G6 — RELEASE GOVERNANCE
 
-Current state: BLOCKED_BY_G1_TO_G5
+Current state: BLOCKED_BY_G2_TO_G5
 
 Required:
 - freeze final promotion SHA
@@ -263,12 +266,13 @@ Historical `PIMATH-*` compatibility identifiers are preserved where required. Hu
 
 # 7. CURRENT BLOCKERS
 
-B1=PROJECT_CONTROL_COMPLETION_CUT_PR_NOT_YET_CONVERGED
-B2=P01_REAL_GOLDEN_NOT_RUN
-B3=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
-B4=MAIN_BRANCH_PROTECTION_OFF
+B1=P01_REAL_GOLDEN_NOT_RUN
+B2=NATIVE_HUMAN_ACCEPTANCE_NOT_RUN
+B3=MAIN_BRANCH_PROTECTION_OFF
+B4=TEACHER_PRODUCT_E2E_PENDING
 
 Not current blockers anymore:
+- Control Room truth / stale hardcoded convergence head
 - Mac B3 report/evidence reconciliation
 - PR31 merge hold
 - Mac R1 structural-numbering recovery
