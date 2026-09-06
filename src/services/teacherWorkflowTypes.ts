@@ -21,10 +21,27 @@ export interface TeacherQuestion extends Omit<QuestionObject, "figures"> {
   figures: Array<Omit<QuestionObject["figures"][number], "bytes"> & { dataUrl?: string }>;
 }
 
+export interface WorkflowActionReadiness {
+  ready: boolean;
+  reason: string;
+}
+
 export interface WorkflowReadiness {
   source: "MAS_INT_01_RUNTIME_READINESS";
   requiredRuntimeBlockers: "NONE";
-  actions: Record<"assessment" | "game" | "video" | "export", { ready: boolean; reason: string }>;
+  actions: Record<
+    "assessment" | "game" | "video" | "export",
+    WorkflowActionReadiness
+  >;
+}
+
+// TypeScript's ambient Object.values overload resolves finite-key Records to
+// unknown[] in this project toolchain. This overload is type-only and scoped
+// to the existing readiness action contract; it does not change runtime shape.
+declare global {
+  interface ObjectConstructor {
+    values(o: WorkflowReadiness["actions"]): WorkflowActionReadiness[];
+  }
 }
 
 export interface WorkflowSummary {
