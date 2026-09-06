@@ -1,0 +1,7 @@
+{
+  "golden_root": "D:\\MST-MATH-INPUT-GOLDENS",
+  "registered_count": 9,
+  "classes": ["WORD_TEXT", "WORD_MATHTYPE", "WORD_FIGURE", "PDF_DIGITAL", "PDF_SCANNED", "PDF_HYBRID", "WORD_OMML_SUCCESSOR", "IMAGE_TEXT_MATH", "IMAGE_MATH_FIGURE"],
+  "original_suspect_preserved": "02-word-omml.docx",
+  "real_images_registered": 2
+}

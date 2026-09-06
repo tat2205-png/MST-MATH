@@ -1,0 +1,12 @@
+{
+  "file": "03-word-mathtype.docx",
+  "object_count": 148,
+  "prog_id": "Equation.DSMT4",
+  "cfb_valid": true,
+  "mtef_present": false,
+  "omml_fallback_present": false,
+  "preview_formats": ["WMF", "PNG", "JPG", "EMF"],
+  "preview_count": 154,
+  "recovery_method": "existing mtef-py bridge attempted; semantic decode failed",
+  "status": "BLOCKED"
+}

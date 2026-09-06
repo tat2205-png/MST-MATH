@@ -1,0 +1,9 @@
+{
+  "original_02_omml_count": 32,
+  "original_02_ommlpara_count": 0,
+  "original_02_is_real_native_omml": true,
+  "original_02_validity": "INVALID_ONE_EMPTY_EXPRESSION",
+  "successor": "02-word-omml-successor.docx",
+  "successor_omml_count": 16,
+  "successor_semantic_extraction": "PASS"
+}

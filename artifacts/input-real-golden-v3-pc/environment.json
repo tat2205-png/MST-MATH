@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-09-06T12:48:29.535Z",
+  "os": "win32",
+  "node": "v24.19.0",
+  "golden_root": "D:\\MST-MATH-INPUT-GOLDENS",
+  "runner": "npm run qa:input-v1",
+  "mathpix_required": false
+}

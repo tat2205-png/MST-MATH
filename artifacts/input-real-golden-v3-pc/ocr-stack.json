@@ -1,0 +1,9 @@
+{
+  "text_ocr": "PaddleOCR PP-OCRv3 / Tesseract available",
+  "math_recognizer": "PaddleOCR PP-FormulaNet_plus-L",
+  "layout_engine": "PaddleOCR PP-DocLayout_plus-L / PPStructureV3",
+  "models_cached": true,
+  "real_inference": "BLOCKED",
+  "error": "ConvertPirAttribute2RuntimeAttribute not supported in Windows Paddle oneDNN PIR executor",
+  "mathpix_required": false
+}

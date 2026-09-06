@@ -1,0 +1,7 @@
+{
+  "repo": "D:\\math-ai-video-studio\\mst-input-baseline-pr62",
+  "base_sha": "e89c614486e4b1bfca91078ed74f11c72fc702e2",
+  "branch": "fix/mst-math-input-complete-pc-v1",
+  "dirty_unrelated": ["uv.lock"],
+  "demo_gate": "CLOSED"
+}

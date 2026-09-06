@@ -36,7 +36,7 @@ for (const row of rows) {
   } else if (ext === ".jpg" || ext === ".jpeg" || ext === ".png" || ext === ".webp") {
     r.parser_path = "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)";
     r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED";
-    r.warnings.push("LOCAL_PADDLE_RUNTIME_NOT_INTEGRATED_IN_NODE_RUNNER"); r.errors.push("SEMANTIC_IMAGE_PIPELINE_BLOCKED");
+    r.warnings.push("LOCAL_PADDLE_RUNTIME_BLOCKED_ON_WINDOWS_PIR_ONEDNN"); r.errors.push("SEMANTIC_IMAGE_PIPELINE_BLOCKED");
   } else { r.parser_path = "unsupported registered extension"; r.errors.push("UNSUPPORTED_GOLDEN_EXTENSION"); }
   if (r.errors.some((e: string) => e.includes("HASH") || e.includes("MISSING") || e.includes("UNREADABLE"))) r.overall_status = "FAIL"; else r.overall_status = status({ text: r.text_status, math: r.math_status, figure: r.figure_status, structure: r.structure_status }); r.timing_ms = Date.now() - started; result.push(r);
 }

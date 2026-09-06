@@ -1,0 +1,17 @@
+# MST-MATH Input Real Golden V1
+
+Manifest: PASS (9 rows).
+
+- 01-word-text.docx: **PASS** (text=PASS, math=PASS, figure=PASS, structure=PASS)
+- 03-word-mathtype.docx: **BLOCKED** (text=PASS, math=BLOCKED, figure=PASS, structure=PASS) — MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED
+- 05-word-real-figure.docx: **PASS** (text=PASS, math=PASS, figure=PASS, structure=PASS) — MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; MATHTYPE_MTEF_DECODE_FAILED; WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED; LEGACY_MATHTYPE_UNRESOLVED
+- 06-pdf-digital.pdf: **PASS** (text=PASS, math=PASS, figure=PASS, structure=PASS)
+- 07-pdf-scanned.pdf: **BLOCKED** (text=BLOCKED, math=BLOCKED, figure=BLOCKED, structure=PASS) — LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA
+- 08-pdf-hybrid.pdf: **BLOCKED** (text=PASS, math=BLOCKED, figure=BLOCKED, structure=PASS) — LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA
+- 02-word-omml-successor.docx: **PASS** (text=PASS, math=PASS, figure=PASS, structure=PASS)
+- 09-image-text-math.jpg: **BLOCKED** (text=BLOCKED, math=BLOCKED, figure=BLOCKED, structure=BLOCKED) — LOCAL_PADDLE_RUNTIME_BLOCKED_ON_WINDOWS_PIR_ONEDNN
+- 10-image-math-figure.jpg: **BLOCKED** (text=BLOCKED, math=BLOCKED, figure=BLOCKED, structure=BLOCKED) — LOCAL_PADDLE_RUNTIME_BLOCKED_ON_WINDOWS_PIR_ONEDNN
+
+Image real Golden blocked: false
+
+Reproduction: `npm run qa:input-v1`
