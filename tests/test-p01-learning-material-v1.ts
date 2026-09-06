@@ -10,7 +10,7 @@ function check(condition: unknown, label: string): asserts condition {
 
 const png = new Uint8Array(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYGD4DwABBAEAX+XDSwAAAABJRU5ErkJggg==", "base64"));
 
-const document: DocumentIR = {
+export const document: DocumentIR = {
   sourceDocument: "p01-source-backed-fixture.docx",
   sourceHash: "p01-source-backed-fixture-sha256",
   provenance: {
@@ -79,7 +79,7 @@ check(qa.referencedFigureCount === 1, "P01_FIGURE_OWNERSHIP_QA");
 check(lesson.blueprint.unitIds.length === 4 && lesson.activityGraph.nodes.length === 4 && lesson.activityGraph.edges.length === 3, "P01_SOURCE_SEQUENCE_GRAPH_QA");
 check(lesson.visualRequirements.some((item) => item.kind === "EQUATION") && lesson.visualRequirements.some((item) => item.kind === "TABLE") && lesson.visualRequirements.some((item) => item.kind === "FIGURE"), "P01_VISUAL_REQUIREMENTS_SOURCE_BACKED_QA");
 
-const bundle = renderP01OutputBundle(lesson);
+export const bundle = renderP01OutputBundle(lesson);
 check(bundle.artifacts.length === 3, "P01_THREE_OUTPUTS_QA");
 check(bundle.artifacts.every((artifact) => artifact.semanticSignature === lesson.semanticSignature), "P01_CROSS_OUTPUT_SEMANTIC_EQUIVALENCE_QA");
 

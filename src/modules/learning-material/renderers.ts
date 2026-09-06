@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, join, resolve } from "node:path";
+import { renderToString } from "katex";
 import type { ContentBlock, FigureRecord } from "../document-engine/document-ir.js";
 import { renderDocumentToDocx } from "../document-export/docx/renderer.js";
 import { lessonIrToDocumentIR, validateP01LessonIR } from "./pipeline.js";
@@ -29,6 +30,14 @@ function normalizedLatex(block: Extract<ContentBlock, { type: "math" }>): string
   return source.replace(/\\right\s*$/, "\\right.");
 }
 
+function typesetLatex(latex: string): string {
+  try {
+    return renderToString(latex, { displayMode: false, throwOnError: true, strict: "error", trust: false });
+  } catch (error) {
+    throw new Error(`P01_HTML_MATH_TYPESET_FAILED:${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 function figureById(lesson: P01LessonIR, id: string): FigureRecord {
   const figure = lesson.document.figures.find((candidate) => candidate.id === id);
   if (!figure?.bytes?.length || !figure.mimeType) throw new Error(`P01_FIGURE_BYTES_REQUIRED:${id}`);
@@ -40,7 +49,7 @@ function htmlBlocks(lesson: P01LessonIR, blocks: ContentBlock[]): string {
     if (block.type === "text") return `<span class="p01-text">${htmlEscape(block.value)}</span>`;
     if (block.type === "math") {
       const latex = normalizedLatex(block);
-      return `<span class="p01-math" data-latex="${htmlEscape(latex)}" aria-label="Biểu thức toán học: ${htmlEscape(latex)}">\\(${htmlEscape(latex)}\\)</span>`;
+      return `<span class="p01-math" data-latex="${htmlEscape(latex)}" aria-label="Biểu thức toán học: ${htmlEscape(latex)}">${typesetLatex(latex)}</span>`;
     }
     if (block.type === "figure") {
       const figure = figureById(lesson, block.figureId);
@@ -60,7 +69,7 @@ export function renderP01Html(lesson: P01LessonIR): P01RenderedArtifact {
     const tag = unit.kind === "SECTION" ? "section" : "div";
     return `<${tag} class="p01-unit" data-unit-id="${htmlEscape(unit.id)}" data-source-block-id="${htmlEscape(unit.sourceBlockId)}">${htmlBlocks(lesson, unit.content)}</${tag}>`;
   }).join("\n");
-  const html = `<!doctype html>\n<html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="p01-profile" content="P01_LEARNING_MATERIAL"/><meta name="p01-icon-authority" content="${P01_ICON_AUTHORITY}"/><meta name="p01-semantic-signature" content="${lesson.semanticSignature}"/><title>${htmlEscape(lesson.source.document)}</title><style>body{font-family:system-ui,sans-serif;max-width:900px;margin:0 auto;padding:2rem;line-height:1.6}.p01-unit{margin:0 0 1rem}.p01-math{font-family:serif}.p01-table{border-collapse:collapse;width:100%;margin:.75rem 0}.p01-table td{border:1px solid #888;padding:.4rem;vertical-align:top}figure{margin:1rem auto}img{max-width:100%;height:auto}figcaption{font-size:.9rem}</style></head><body><main aria-label="Tài liệu học tập MST-MATH">${sections}</main></body></html>`;
+  const html = `<!doctype html>\n<html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="p01-profile" content="P01_LEARNING_MATERIAL"/><meta name="p01-icon-authority" content="${P01_ICON_AUTHORITY}"/><meta name="p01-semantic-signature" content="${lesson.semanticSignature}"/><title>${htmlEscape(lesson.source.document)}</title><style>body{font-family:system-ui,sans-serif;max-width:900px;margin:0 auto;padding:2rem;line-height:1.6}.p01-unit{margin:0 0 1rem;break-inside:avoid}.p01-math{font-family:serif}.p01-table{border-collapse:collapse;width:100%;margin:.75rem 0}.p01-table td{border:1px solid #888;padding:.4rem;vertical-align:top}figure{margin:1rem auto;float:right;max-width:42%}img{max-width:100%;height:auto}figcaption{font-size:.9rem}.p01-writing-lines{min-height:3.2cm;background:repeating-linear-gradient(to bottom,transparent 0,transparent 0.75cm,#9aa4b2 0.77cm,#9aa4b2 0.8cm);border-left:2px solid #64748b;margin:0.5rem 0;clear:left}@media print{body{max-width:none;padding:14mm}.p01-unit{break-inside:avoid}}</style>${readFileSync(new URL("../../../node_modules/katex/dist/katex.min.css", import.meta.url), "utf8")}</head><body><main aria-label="Tài liệu học tập MST-MATH">${sections}</main></body></html>`;
   return { format: "HTML", bytes: encoder.encode(html), semanticSignature: lesson.semanticSignature, warnings: [] };
 }
 
@@ -121,11 +130,11 @@ export function renderP01Pdf(lesson: P01LessonIR): P01RenderedArtifact {
       const content = latexBlocks(lesson, unit.content, assets);
       return unit.kind === "SECTION" ? `\\section*{${content}}` : `${content}\\par\n`;
     }).join("\n");
-    const tex = `\\documentclass[12pt,a4paper]{article}\n\\usepackage{fontspec}\n\\usepackage{amsmath,amssymb,graphicx,array}\n\\usepackage[margin=20mm]{geometry}\n\\setmainfont{Latin Modern Roman}\n\\setlength{\\parindent}{0pt}\n\\setlength{\\parskip}{5pt}\n\\begin{document}\n${body}\n\\end{document}\n`;
+    const tex = `\\documentclass[12pt,a4paper]{article}\n\\usepackage{fontspec}\n\\usepackage{amsmath,amssymb,graphicx,array}\n\\usepackage[margin=20mm]{geometry}\n\\setmainfont{Helvetica}\n\\setlength{\\parindent}{0pt}\n\\setlength{\\parskip}{5pt}\n\\begin{document}\n${body}\n\\end{document}\n`;
     const texPath = join(directory, "p01.tex");
     writeFileSync(texPath, tex, "utf8");
     const run = spawnSync("xelatex", ["-interaction=nonstopmode", "-halt-on-error", "-output-directory", directory, texPath], { cwd: directory, encoding: "utf8" });
-    if (run.error || run.status !== 0) throw new Error(`P01_PDF_XELATEX_FAILED:${run.error?.message ?? run.stderr ?? run.stdout}`);
+    if (run.error || run.status !== 0) throw new Error(`P01_PDF_XELATEX_FAILED:exit=${run.status ?? "spawn"}:${run.error?.message ?? ""}\n${run.stderr ?? ""}\n${run.stdout ?? ""}`);
     const pdfPath = join(directory, "p01.pdf");
     const bytes = new Uint8Array(readFileSync(pdfPath));
     if (!Buffer.from(bytes.subarray(0, 4)).equals(Buffer.from("%PDF"))) throw new Error("P01_PDF_SIGNATURE_INVALID");

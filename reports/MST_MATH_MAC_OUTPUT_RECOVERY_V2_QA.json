@@ -1,0 +1,25 @@
+{
+  "mission": "MST_MATH_MAC_OUTPUT_COMPLETION",
+  "recovery": "V2",
+  "preservedV1Commit": "0d74e7262048e95a7245f9e0240e62ab102bf8e1",
+  "baselineReason": "PR #61 P01 commits are direct descendants of verified convergence baseline 142f5ca; cherry-pick P01-only commits avoids merging INPUT work.",
+  "sourceCommit": "52d3f3c57d0b3a20eb86059c48bf24f446d25322",
+  "fixture": {"label": "SYNTHETIC_CONTRACT_FIXTURE_ONLY", "realGolden": false, "referenceComparison": "BLOCKED"},
+  "gates": {
+    "typescript": "PASS",
+    "build": "PASS",
+    "p01Contract": "PASS",
+    "html": "PASS",
+    "pdf": "PASS_WITH_SYNTHETIC_FIXTURE_LIMITATION",
+    "docx": "PASS_CONTRACT_ONLY",
+    "visual": "PASS_WITH_FIXTURE_LIMITATION",
+    "regression": "FAIL_65_OF_78",
+    "nativeAcceptance": "PENDING",
+    "humanAcceptance": "PENDING",
+    "e2eRealGolden": "BLOCKED",
+    "demoGate": "CLOSED"
+  },
+  "regressionFailure": "13 suites fail because node_modules/canvas lacks native canvas.node; P01 suite passes.",
+  "artifacts": "/Users/mac/Projects/MST-MATH-ARTIFACTS/mst-math-output-completion-v2",
+  "overall": "PARTIAL_BLOCKED"
+}
