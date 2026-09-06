@@ -1,0 +1,32 @@
+{
+  "mission": "MST_MATH_MAC_OUTPUT_COMPLETION_V1",
+  "worktree": "/Users/mac/Projects/mst-math-output-completion-v1",
+  "branch": "fix/mst-math-output-completion-v1",
+  "baselineHead": "142f5ca3d5b705043743b08868678b65aa1bf04e",
+  "finalHead": "5b6a2ac",
+  "referencePdf": {"path": "1. MIN MAX -HH PHẲNG(1).pdf", "status": "MISSING"},
+  "fixture": {"kind": "synthetic", "status": "NOT_RUN", "isRealGolden": false},
+  "gates": {
+    "typescript": "BLOCKED",
+    "build": "BLOCKED",
+    "docx": "BLOCKED",
+    "html": "NOT_APPLICABLE",
+    "pdf": "NOT_APPLICABLE",
+    "visualRender": "NOT_RUN",
+    "nativeWordAcceptance": "PENDING",
+    "humanAcceptance": "PENDING",
+    "e2eRealGolden": "BLOCKED",
+    "demoGate": "CLOSED"
+  },
+  "targetMatrix": [
+    {"target":"HTML","implementation":"MISSING","artifact":"NOT_RUN","qa":"NOT_APPLICABLE","dependency":"P01 HTML renderer"},
+    {"target":"PDF","implementation":"LEGACY_TEX_ONLY","artifact":"NOT_RUN","qa":"NOT_APPLICABLE","dependency":"P01 PDF renderer/reference"},
+    {"target":"DOCX","implementation":"NATIVE_OMML_RENDERER","artifact":"NOT_RUN","qa":"BLOCKED","dependency":"worktree dependencies"}
+  ],
+  "commands": [
+    {"command":"npm run lint","exitCode":127,"status":"BLOCKED","log":"/tmp/mst-math-output-completion-v1/lint.log"},
+    {"command":"npm run build","exitCode":127,"status":"BLOCKED","log":"/tmp/mst-math-output-completion-v1/build.log"},
+    {"command":"npm run qa:docx","exitCode":1,"status":"BLOCKED","log":"/tmp/mst-math-output-completion-v1/qa-docx.log"}
+  ],
+  "overall": "BLOCKED"
+}
