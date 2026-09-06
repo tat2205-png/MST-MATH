@@ -30,6 +30,7 @@ export interface WorkflowReadiness {
   source: "MAS_INT_01_RUNTIME_READINESS";
   requiredRuntimeBlockers: "NONE";
   actions: {
+    [key: string]: WorkflowActionReadiness;
     assessment: WorkflowActionReadiness;
     game: WorkflowActionReadiness;
     video: WorkflowActionReadiness;
