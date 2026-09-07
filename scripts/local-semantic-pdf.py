@@ -1,4 +1,4 @@
-import json
+﻿import json
 import os
 import subprocess
 import sys
@@ -62,4 +62,10 @@ with tempfile.TemporaryDirectory(prefix="mst-pdf-raster-") as temp:
             checkpoint_path.write_text(json.dumps(checkpoint, ensure_ascii=False), encoding="utf-8")
         print(f"SCANNED_PAGE={page_number}/{pages}", file=sys.stderr, flush=True)
 result.sort(key=lambda item: item["page"])
+# MST_MATH_UTF8_STDIO_GUARD_V1
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="strict")
+    sys.stderr.reconfigure(encoding="utf-8", errors="backslashreplace")
+except (AttributeError, ValueError):
+    pass
 print(json.dumps({"file": str(source), "pages": result, "provider": "PaddleOCR-PPStructureV3/Paddle-3.2.2", "model_reuse": True, "range": [start_page, end_page]}, ensure_ascii=False))
