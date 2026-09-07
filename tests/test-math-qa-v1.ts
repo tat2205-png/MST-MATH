@@ -1,0 +1,20 @@
+import assert from "node:assert/strict";
+import { normalizeDocument } from "../src/modules/exam-normalization/index.js";
+import { runMathQA, verifyMathQAIdempotence, type MathQAInput } from "../src/modules/math-qa-v1/index.js";
+import type { DocumentIR } from "../src/modules/document-engine/document-ir.js";
+
+const make = (math: { sourceRaw: string; latex?: string; parseStatus: "PARSED" | "UNRESOLVED" | "UNSUPPORTED" }, text = "Câu 1: Tính."): DocumentIR => ({ sourceDocument: "math-qa-fixture", sourceHash: "raw", warnings: [], figures: [], blocks: [{ id: "b1", kind: "PARAGRAPH", order: 0, sourceLocation: "fixture:p:0", content: [{ type: "text", value: text, sourceLocation: "fixture:p:0" }, { type: "math", math: { sourceType: "LATEX", sourceRaw: math.sourceRaw, latex: math.latex, parseStatus: math.parseStatus, warnings: [], sourceLocation: "fixture:p:0:math" }, sourceLocation: "fixture:p:0" }] }] });
+const base = make({ sourceRaw: "x", latex: "  x  ", parseStatus: "PARSED" }); const normalized = normalizeDocument(base); const good: MathQAInput = { raw: base, normalized, questions: [{ id: "q1", expressions: [{ raw: "x", normalized: "x", parseStatus: "PARSED", sourceLocation: "fixture:p:0:math" }], expectedAnswer: "2", providedAnswer: "2", provenance: [{ originalValue: "x", normalizedValue: "x", rule: "TRIM", sourceLocation: "fixture:p:0:math" }] }] };
+assert.equal(runMathQA(good).status, "PASS");
+assert.equal(runMathQA(good).gates.length, 8);
+const unresolvedRaw = make({ sourceRaw: "x", latex: "x", parseStatus: "UNRESOLVED" });
+const unresolvedResult = runMathQA({ ...good, raw: unresolvedRaw, normalized: normalizeDocument(unresolvedRaw) });
+assert.equal(unresolvedResult.status, "NEEDS_HUMAN_REVIEW");
+assert.equal(runMathQA({ ...good, questions: [{ ...good.questions[0], expressions: [{ raw: "x", normalized: "x+1", parseStatus: "PARSED" }] }] }).status, "BLOCKED");
+assert.equal(runMathQA({ ...good, questions: [{ ...good.questions[0], expectedAnswer: "2", providedAnswer: "3" }] }).status, "NEEDS_HUMAN_REVIEW");
+assert.equal(runMathQA({ ...good, questions: [{ ...good.questions[0], expressions: [{ raw: "x", normalized: "x", parseStatus: "PARSED" }], provenance: [] }] }).status, "BLOCKED");
+assert.equal(runMathQA({ ...good, raw: make({ sourceRaw: "x", latex: "\\frac{1}{", parseStatus: "PARSED" }) }).status, "BLOCKED");
+assert.equal(runMathQA({ ...good, raw: make({ sourceRaw: "x", latex: "x", parseStatus: "UNSUPPORTED" }) }).status, "UNSUPPORTED_REQUIRES_REVIEW");
+assert.equal(verifyMathQAIdempotence(good, normalizeDocument), true);
+assert.equal(good.raw.blocks[0].content[0].type, "text");
+console.log("math-qa-v1 PASS: MQ1-MQ8, fail-closed, provenance, idempotence");
