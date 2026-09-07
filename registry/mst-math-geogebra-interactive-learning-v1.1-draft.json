@@ -1,0 +1,172 @@
+{
+  "id": "MST_MATH_GEOGEBRA_INTERACTIVE_LEARNING_V1.1_DRAFT",
+  "status": "DRAFT_NON_CANONICAL",
+  "canonical": false,
+  "approved": false,
+  "humanApproved": false,
+  "supersedesDesignCandidate": "MST_MATH_GEOGEBRA_INTERACTIVE_LEARNING_V1.0_DRAFT",
+  "productProfile": "P08_GEOGEBRA",
+  "profileSubmodes": ["FIGURE", "ACTIVITY", "LESSON", "BOOK"],
+  "authority": {
+    "mathematics": "OUTSIDE_GEOGEBRA_ADAPTER",
+    "geometry": "MST_MATH_DYNAMIC_GEOMETRY_AUTHORITIES",
+    "learnerState": "MST_MATH_HOST_RUNTIME",
+    "assessment": "MST_MATH_ASSESSMENT_CONTRACT",
+    "visualSemantics": "MST_MATH_MATH_VISUAL_SEMANTICS_V0_1_DRAFT",
+    "renderer": "GEOGEBRA_NON_AUTHORITATIVE_ADAPTER"
+  },
+  "kernel": [
+    "MATHEMATICAL_AUTHORITY",
+    "ACTIVITY_SPEC",
+    "INTERACTION_CAPABILITIES",
+    "ASSESSMENT_CONTRACT",
+    "LEARNER_STATE_MACHINE",
+    "VISUAL_SEMANTICS",
+    "RENDERER_CAPABILITY_ADAPTER"
+  ],
+  "interactionCapabilities": [
+    "DRAG_POINT",
+    "DRAG_OBJECT",
+    "ADJUST_SLIDER",
+    "ENTER_VALUE",
+    "SELECT_OPTION",
+    "TOGGLE_REVEAL",
+    "CONSTRUCT_WITH_TOOL",
+    "MATCH_OR_OVERLAY",
+    "BUILD_STATE",
+    "ROTATE_3D_VIEW",
+    "SUBMIT_CHECK"
+  ],
+  "learnerStateMachine": {
+    "defaultSequence": [
+      "READY",
+      "PREDICT",
+      "EXPLORE",
+      "COMMIT",
+      "CHECK",
+      "EXPLAIN",
+      "GENERALIZE",
+      "COMPLETE"
+    ],
+    "branchStates": ["CORRECT", "RETRY", "HINTED"],
+    "policy": "NO_PREMATURE_REVEAL_WHEN_PEDAGOGICALLY_REQUIRED"
+  },
+  "assessmentAnswerKinds": [
+    "NUMERIC",
+    "SYMBOLIC",
+    "CHOICE",
+    "POINT_LOCATION",
+    "GEOMETRIC_RELATION",
+    "GRAPH_STATE",
+    "CONSTRUCTION_STATE",
+    "DISTRIBUTION_STATE",
+    "OPEN_MIDDLE_STATE",
+    "MULTI_STEP_STATE"
+  ],
+  "diagnosticResultCodes": [
+    "CORRECT",
+    "INCOMPLETE",
+    "WRONG_VALUE",
+    "WRONG_SIGN",
+    "WRONG_DIRECTION",
+    "BOUNDARY_INCLUSION_WRONG",
+    "RELATION_NOT_SATISFIED",
+    "DUPLICATE_DIGIT",
+    "CONSTRAINT_VIOLATION",
+    "ORIENTATION_MISMATCH",
+    "CONSTRUCTION_ORDER_INVALID",
+    "MULTIPLE_ANSWERS_REQUIRED",
+    "TARGET_UNREACHABLE"
+  ],
+  "patternRecipes": [
+    "DISCOVERY_SEQUENCE",
+    "STAGED_TRANSFORMATION_PROOF",
+    "CONSTRUCTION_TASK",
+    "RANDOMIZED_SELF_CHECK",
+    "OPEN_MIDDLE",
+    "EQUATION_ANATOMY",
+    "DIRECT_MANIPULATION_RESPONSE",
+    "REPRESENTATION_TRANSLATION",
+    "MULTIPLE_SOLUTION_WORKSPACE",
+    "STATISTICS_MANIPULATION",
+    "CROSS_SECTION_3D",
+    "SURFACE_OF_REVOLUTION",
+    "MULTI_STRATEGY_CONSTRUCTION",
+    "COGNITIVE_CONFLICT"
+  ],
+  "randomization": {
+    "solvabilityRequired": true,
+    "deterministicReplayRequired": true,
+    "requiredProvenance": [
+      "GENERATOR_ID",
+      "GENERATOR_VERSION",
+      "SEED",
+      "WITNESS_OR_FEASIBILITY_EVIDENCE",
+      "TARGET",
+      "VERIFIER_VERSION"
+    ]
+  },
+  "visualSemantics": {
+    "roleFirst": true,
+    "subjectThemeMayOverrideSemanticMeaning": false,
+    "objectAnchoredLabels": true,
+    "collisionAvoidance": true,
+    "criticalMeaningByColorAlone": false,
+    "validationColorsReserved": true
+  },
+  "eventModel": {
+    "defaultPersistentHighFrequencyPointerEvents": false,
+    "minimalEvents": [
+      "ACTIVITY_STARTED",
+      "ANSWER_COMMITTED",
+      "CHECK_RESULT",
+      "HINT_REQUESTED",
+      "RESET_OR_NEW_PROBLEM",
+      "ACTIVITY_COMPLETED"
+    ],
+    "persistentDetailedAnalyticsRequiresSeparateApproval": true
+  },
+  "qaGates": [
+    "GEO_MATH_QA_PASS",
+    "GEO_INVARIANT_QA_PASS",
+    "GEO_SOLVABILITY_QA_PASS",
+    "GEO_CONSTRUCTION_QA_PASS",
+    "GEO_STATE_MACHINE_QA_PASS",
+    "GEO_DETERMINISM_QA_PASS",
+    "GEO_RENDERER_CAPABILITY_QA_PASS",
+    "GEO_ASSESSMENT_QA_PASS",
+    "GEO_DIAGNOSTIC_FEEDBACK_QA_PASS",
+    "GEO_NO_PREMATURE_REVEAL_QA_PASS",
+    "GEO_PEDAGOGY_QA_PASS",
+    "GEO_VISUAL_SEMANTICS_QA_PASS",
+    "GEO_OVERLAY_COLLISION_QA_PASS",
+    "GEO_ACCESSIBILITY_QA_PASS",
+    "GEO_RESPONSIVE_QA_PASS",
+    "GEO_LESSON_DEPENDENCY_QA_PASS",
+    "GEO_BOOK_QA_PASS"
+  ],
+  "goldenCases": [
+    "UNIT_CIRCLE_MULTI_REPRESENTATION_LESSON",
+    "LINE_RELATION_OPEN_MIDDLE",
+    "HISTOGRAM_PROGRESSION",
+    "DETERMINISTIC_3D_GENERATED_TASK",
+    "TRANSFORMATION_PROOF_WITH_INVARIANTS",
+    "DIFFERENTIATED_FULL_LESSON_BOOK",
+    "ACCESSIBILITY_MULTI_DEVICE_GOLDEN"
+  ],
+  "governance": {
+    "additive": true,
+    "nonDestructive": true,
+    "doNotRegisterInCanonicalStandardsYet": true,
+    "promotionRequiresGoldenCases": true,
+    "promotionRequiresHumanPedagogicalApproval": true,
+    "promotionRequiresHumanVisualApproval": true,
+    "doNotCopyCorpusVisualIdentity": true,
+    "dedupeHierarchy": [
+      "OUTER_ZIP_SHA",
+      "EMBEDDED_GGB_SHA",
+      "NORMALIZED_GEOGEBRA_XML_SHA",
+      "PEDAGOGICAL_FAMILY"
+    ]
+  }
+}
