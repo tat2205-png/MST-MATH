@@ -24,6 +24,7 @@ import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
 import { registerStudioRoutes } from "./server/studio/api.js";
 import { TeacherWorkflowService } from "./server/services/teacherWorkflowService.js";
 import { buildDemoRc1P01 } from "./server/services/demoRc1P01Service.js";
+import { analyzeExamQuestion, acceptCorrectionProposal, rejectCorrectionProposal } from "./server/services/examAnalysisService.js";
 
 async function startServer() {
   const app = express();
@@ -151,6 +152,23 @@ async function startServer() {
     } catch (error) {
       res.status(409).json({ success: false, code: "APPROVAL_BLOCKED", error: error instanceof Error ? error.message : String(error) });
     }
+  });
+
+  app.post("/api/teacher-workflow/exam-analysis", (req, res) => {
+    try {
+      const question = teacherWorkflowService.query({ ids: [String(req.body?.questionId || "")], limit: 1 }).items[0];
+      if (!question) return res.status(404).json({ success: false, code: "QUESTION_NOT_FOUND" });
+      res.json({ success: true, result: analyzeExamQuestion(question) });
+    } catch (error) { res.status(422).json({ success: false, code: "EXAM_ANALYSIS_FAILED", error: error instanceof Error ? error.message : String(error) }); }
+  });
+
+  app.post("/api/teacher-workflow/exam-analysis/proposal", (req, res) => {
+    try {
+      const result = req.body?.analysis;
+      if (!result || typeof result.questionId !== "string") return res.status(400).json({ success: false, code: "INVALID_ANALYSIS" });
+      const updated = req.body?.decision === "REJECT" ? rejectCorrectionProposal(result, String(req.body?.proposalId || "")) : acceptCorrectionProposal(result, String(req.body?.proposalId || ""), req.body?.after);
+      res.json({ success: true, result: updated });
+    } catch (error) { res.status(409).json({ success: false, code: "CORRECTION_DECISION_REJECTED", error: error instanceof Error ? error.message : String(error) }); }
   });
 
   app.post("/api/teacher-workflow/questions/query", (req, res) => {

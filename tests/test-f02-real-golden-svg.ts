@@ -1,0 +1,20 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { TeacherWorkflowService } from "../server/services/teacherWorkflowService.js";
+import { MemoryQuestionBankRepository } from "../src/modules/question-bank/repository.js";
+
+const sourcePath = "tests/golden/docx/GOLDEN_03_GEOMETRY_SVG.docx";
+const bytes = new Uint8Array(readFileSync(sourcePath));
+const sourceSha256 = createHash("sha256").update(bytes).digest("hex");
+assert.equal(sourceSha256, "46cd07e36cf1482702ee6f6faf4dca1878501dedd08cef887d8a5028817dbc04");
+const result = await new TeacherWorkflowService(new MemoryQuestionBankRepository()).importDocxForRuntime(Buffer.from(bytes).toString("base64"), "GOLDEN_03_GEOMETRY_SVG.docx");
+assert.equal(result.p01?.status, "PASS");
+assert.equal(result.p01?.sourceHash, sourceSha256);
+assert.equal(result.p01?.mathQAStatus, "PASS");
+assert.deepEqual(result.p01?.artifactFormats, ["HTML", "DOCX", "PDF"]);
+assert.equal(result.imported.length, 0, "This P01 visual golden has no question numbering; it must not be fabricated into QuestionBank content.");
+console.log("REAL_P01_GOLDEN_SOURCE_HASH_QA=PASS");
+console.log("REAL_P01_P01_HTML_DOCX_PDF_QA=PASS");
+console.log("REAL_P01_CANONICAL_MATH_QA=PASS");
+console.log("REAL_P01_NO_SILENT_QUESTION_FABRICATION_QA=PASS");
