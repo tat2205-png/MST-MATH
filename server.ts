@@ -23,6 +23,7 @@ import { studioEngineRegistry } from "./server/studio/engineRegistry.js";
 import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
 import { registerStudioRoutes } from "./server/studio/api.js";
 import { TeacherWorkflowService } from "./server/services/teacherWorkflowService.js";
+import { buildDemoRc1P01 } from "./server/services/demoRc1P01Service.js";
 
 async function startServer() {
   const app = express();
@@ -128,6 +129,18 @@ async function startServer() {
                   ? "PARSE_FAILURE"
                   : "IMPORT_RUNTIME_FAILURE";
       res.status(code === "UNSUPPORTED_FILE" || code === "INVALID_DOCUMENT" ? 400 : 422).json({ success: false, code, error: message.replace(`${code}:`, "").trim() });
+    }
+  });
+
+  app.post("/api/demo-rc1/p01", async (req, res) => {
+    try {
+      const { base64, fileName } = req.body || {};
+      if (typeof base64 !== "string" || typeof fileName !== "string") return res.status(400).json({ success: false, code: "INVALID_DOCUMENT", error: "Thiếu dữ liệu nguồn." });
+      const result = await buildDemoRc1P01(fileName, new Uint8Array(Buffer.from(base64, "base64")), path.join(process.cwd(), "render_output", "demo-rc1", "p01"));
+      if (result.status === "FAIL") return res.status(422).json({ success: false, result });
+      res.status(result.status === "REVIEW_REQUIRED" ? 409 : 200).json({ success: result.status === "PASS", result });
+    } catch (error) {
+      res.status(422).json({ success: false, code: "DEMO_RC1_P01_FAILED", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
