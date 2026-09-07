@@ -1,0 +1,33 @@
+{
+  "scope": "F02 SVG cross-output real-golden evidence",
+  "sourcePath": "tests/golden/docx/GOLDEN_03_GEOMETRY_SVG.docx",
+  "sourceSha256": "46CD07E36CF1482702EE6F6FAF4DCA1878501DEDD08CEF887D8A5028817DBC04",
+  "sourceSize": 4134,
+  "figure": {
+    "id": "asset-b1219a63f1b9",
+    "mimeType": "image/svg+xml",
+    "originalSha256": "ACD21EE9E9245A16A366D838627854AD644BB43180BE65C27E0A346AB45F30EC",
+    "derivedPdfPngSha256": "4F6CE26998E21C14D3E4F06EF6E9356CE2102296329DBF3DFC6A84CF04528A49",
+    "warning": "P01_PDF_FIGURE_TRANSCODED:asset-b1219a63f1b9:SVG_TO_PNG:4f6ce26998e21c14d3e4f06ef6e9356ce2102296329dbf3dfc6a84cf04528a49"
+  },
+  "route": ["TeacherImport", "UnifiedInput", "DocumentIR", "Normalization", "CanonicalMathQA", "P01LessonIR", "TeacherReviewState", "HTML", "DOCX", "PDF"],
+  "outputs": {
+    "html": "PASS",
+    "docx": "PASS",
+    "pdf": "PASS",
+    "semanticSignature": "2096270e324d5cf05ebb6793c9dba4c91a98c78b1df43b3a2ca67b46e780ba11"
+  },
+  "qa": {
+    "sourceBinding": "PASS",
+    "canonicalMathQA": "PASS",
+    "originalSvgPreservedForHtmlDocx": true,
+    "pdfUsesDerivedPng": true,
+    "externalResourcesRejected": true,
+    "invalidSvgFailsClosed": true,
+    "questionBankImported": 0,
+    "questionLevelReview": "NOT_APPLICABLE_NO_QUESTION_NUMBERING",
+    "noSilentQuestionFabrication": true
+  },
+  "dependency": { "name": "@resvg/resvg-js", "version": "2.6.2", "pinned": true },
+  "validation": { "regressionSuites": "71/71", "lint": "PASS", "build": "PASS", "archCheck": "PASS_0_ERRORS_5_WARNINGS", "auditHighGate": "PASS" }
+}
