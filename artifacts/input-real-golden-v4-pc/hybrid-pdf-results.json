@@ -1,0 +1,8 @@
+{
+  "file": "08-pdf-hybrid.pdf",
+  "pages": 118,
+  "native_text": "PASS",
+  "raster_regions": "DETECTED_BY_PDF_STRUCTURE_BUT_NOT_SEMANTICALLY_RECONCILED",
+  "ocr_fallback": "NOT_WIRED",
+  "status": "BLOCKED"
+}

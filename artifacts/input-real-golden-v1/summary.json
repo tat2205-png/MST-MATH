@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-09-06T07:56:15.381Z",
+  "golden_root": "D:\\MST-MATH-INPUT-GOLDENS",
+  "runner": "npm run qa:input-v1",
+  "manifest": {
+    "manifest_validation": "PASS",
+    "rows": 7,
+    "missing_referenced_assets": 0,
+    "unregistered_golden_assets": 0,
+    "notes": "Existing manifest has legacy four-column schema; semantic expectations are inferred from canonical filenames and production output."
+  },
+  "results": [
+    {
+      "golden_id": "01-word-text",
+      "filename": "01-word-text.docx",
+      "type": "WORD",
+      "parser_path": "ingestUnifiedSource(DOCX)",
+      "text_status": "PASS",
+      "math_status": "PASS",
+      "figure_status": "PASS",
+      "structure_status": "PASS",
+      "warnings": [],
+      "errors": [],
+      "overall_status": "PASS",
+      "timing_ms": 18
+    },
+    {
+      "golden_id": "02-word-omml",
+      "filename": "02-word-omml.docx",
+      "type": "WORD",
+      "parser_path": "ingestUnifiedSource(DOCX)",
+      "text_status": "BLOCKED",
+      "math_status": "FAIL",
+      "figure_status": "PASS",
+      "structure_status": "FAIL",
+      "warnings": [
+        "INVALID_OMML"
+      ],
+      "errors": [
+        "INVALID_OMML"
+      ],
+      "overall_status": "FAIL",
+      "timing_ms": 23
+    },
+    {
+      "golden_id": "03-word-mathtype",
+      "filename": "03-word-mathtype.docx",
+      "type": "WORD",
+      "parser_path": "ingestUnifiedSource(DOCX)",
+      "text_status": "PASS",
+      "math_status": "BLOCKED",
+      "figure_status": "PASS",
+      "structure_status": "PASS",
+      "warnings": [
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED"
+      ],
+      "errors": [
+        "MATHTYPE_MATH_NOT_RECOVERED"
+      ],
+      "overall_status": "BLOCKED",
+      "timing_ms": 385
+    },
+    {
+      "golden_id": "05-word-real-figure",
+      "filename": "05-word-real-figure.docx",
+      "type": "WORD",
+      "parser_path": "ingestUnifiedSource(DOCX)",
+      "text_status": "PASS",
+      "math_status": "PASS",
+      "figure_status": "PASS",
+      "structure_status": "PASS",
+      "warnings": [
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "MATHTYPE_MTEF_DECODE_FAILED",
+        "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED",
+        "LEGACY_MATHTYPE_UNRESOLVED"
+      ],
+      "errors": [],
+      "overall_status": "PASS",
+      "timing_ms": 347
+    },
+    {
+      "golden_id": "06-pdf-digital",
+      "filename": "06-pdf-digital.pdf",
+      "type": "PDF",
+      "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+      "text_status": "PASS",
+      "math_status": "PASS",
+      "figure_status": "PASS",
+      "structure_status": "PASS",
+      "warnings": [],
+      "errors": [],
+      "overall_status": "PASS",
+      "timing_ms": 823
+    },
+    {
+      "golden_id": "07-pdf-scanned",
+      "filename": "07-pdf-scanned.pdf",
+      "type": "PDF",
+      "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+      "text_status": "BLOCKED",
+      "math_status": "BLOCKED",
+      "figure_status": "BLOCKED",
+      "structure_status": "PASS",
+      "warnings": [
+        "LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"
+      ],
+      "errors": [],
+      "overall_status": "BLOCKED",
+      "timing_ms": 553
+    },
+    {
+      "golden_id": "08-pdf-hybrid",
+      "filename": "08-pdf-hybrid.pdf",
+      "type": "PDF",
+      "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+      "text_status": "PASS",
+      "math_status": "BLOCKED",
+      "figure_status": "BLOCKED",
+      "structure_status": "PASS",
+      "warnings": [
+        "LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"
+      ],
+      "errors": [],
+      "overall_status": "BLOCKED",
+      "timing_ms": 1070
+    }
+  ],
+  "image_real_golden_blocked": true
+}

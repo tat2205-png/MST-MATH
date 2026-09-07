@@ -1,0 +1,9 @@
+{
+  "base_sha": "4fea633a7ae981f213b1fa49a5bb3785598180b9",
+  "work_branch": "fix/mst-math-input-capabilities-v1",
+  "canonical_repo": "D:\\math-ai-video-studio\\mst-input-baseline-pr62",
+  "golden_root": "D:\\MST-MATH-INPUT-GOLDENS",
+  "qa_runner": "scripts/qa-input-real-golden-v1.ts",
+  "local_ocr_environment": "D:\\math-ai-video-studio\\mst-input-local-paddle-clean-v1\\tools\\mst-local-ocr\\.venv",
+  "local_ocr_packages": { "paddleocr": "3.7.0", "ppstructurev3": true }
+}

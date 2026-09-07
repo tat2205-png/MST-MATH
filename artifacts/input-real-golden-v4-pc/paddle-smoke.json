@@ -1,0 +1,9 @@
+{
+  "import": "PASS",
+  "tensor_creation": "PASS",
+  "ppstructure_initialization": "PASS",
+  "real_image_inference": "PASS",
+  "provider": "PaddleOCR-PPStructureV3/Paddle-3.2.2",
+  "images_tested": 2,
+  "runtime_flags": "none required"
+}

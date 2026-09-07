@@ -1,0 +1,5 @@
+{
+  "status": "NOT_TESTED",
+  "required_strategy": ["bbox overlap", "normalized text equality", "native source preference", "math-over-ocr precedence"],
+  "reason": "hybrid semantic adapter is not yet implemented"
+}

@@ -1,0 +1,8 @@
+{
+  "text_ocr": "PP-OCRv3",
+  "math_recognizer": "PP-FormulaNet_plus-L",
+  "layout_engine": "PP-DocLayout_plus-L",
+  "orchestrator": "PPStructureV3",
+  "runtime": "Paddle 3.2.2 isolated overlay",
+  "runtime_status": "PASS"
+}

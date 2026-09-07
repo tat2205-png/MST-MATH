@@ -1,0 +1,7 @@
+{
+  "count": 2,
+  "assets": [
+    { "filename": "09-image-text-math.jpg", "sha256": "c68be38621b09cba0e8702017c675d9803606786a118356cbc9ae2a2a97502fd", "source": "D:\\math-ai-video-studio\\NA_MATH_LOCAL_REVIEW_ARCHIVE\\NLS-SOURCE-02H-2026-08-29\\source-02h\\KNTT-MATH-11-T2\\pdf-page-0076.jpg", "classification": "educational page with Vietnamese text and probability expressions", "status": "BLOCKED_PENDING_LOCAL_RUNTIME" },
+    { "filename": "10-image-math-figure.jpg", "sha256": "3369f4c498388fa5b3cdf08dd3ffeb14dd44467b65c5a995f4176e34bdb69d13", "source": "D:\\math-ai-video-studio\\NA_MATH_LOCAL_REVIEW_ARCHIVE\\NLS-SOURCE-02H-2026-08-29\\source-02h\\KNTT-MATH-11-T2\\pdf-page-0077.jpg", "classification": "educational page with probability math and photographic figures", "status": "BLOCKED_PENDING_LOCAL_RUNTIME" }
+  ]
+}

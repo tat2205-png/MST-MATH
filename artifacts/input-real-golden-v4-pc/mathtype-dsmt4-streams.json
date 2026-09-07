@@ -1,0 +1,9 @@
+{
+  "object_count": 148,
+  "cfb_valid_count": 148,
+  "prog_id": "Equation.DSMT4",
+  "stream_names": ["\u0001CompObj", "\u0001Ole", "\u0003ObjInfo", "Equation Native"],
+  "equation_native_prefix": "1c0000000200...",
+  "equation_native_payload": "binary Equation Native stream present; no ASCII MTEF marker",
+  "preview_formats": {"WMF": 147, "PNG": 4, "JPG": 2, "EMF": 1}
+}
