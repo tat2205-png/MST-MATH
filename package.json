@@ -27,6 +27,7 @@
     "qa:docx:1f": "node --import tsx tests/test-docx-1f.ts",
     "qa:docx": "npm run qa:docx:1a && npm run qa:docx:1b && npm run qa:docx:1c && npm run qa:docx:1d && npm run qa:docx:1e && npm run qa:docx:1f && npm run qa:na-math-v2.6",
     "qa:ingest": "node --import tsx tests/test-document-ingest-v1.ts",
+    "qa:exam-normalization": "node --import tsx tests/test-exam-normalization-v1.ts",
     "qa:input-v1": "node --import tsx scripts/qa-input-real-golden-v1.ts",
     "qa:wmf": "node --import tsx tests/test-wmf-production.ts",
     "qa:q37-vml": "node --import tsx tests/test-q37-vml-real-source.ts",
