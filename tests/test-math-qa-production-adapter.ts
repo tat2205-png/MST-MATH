@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { normalizeDocument } from "../src/modules/exam-normalization/index.js";
 import { runProductionMathQA } from "../server/services/mathQaProductionAdapter.js";
+import { StudioMathExecutionAdapter } from "../server/studio/mathExecutionAdapter.js";
 import type { DocumentIR } from "../src/modules/document-engine/document-ir.js";
 
 const make = (sourceRaw: string): DocumentIR => ({ sourceDocument: "production-adapter-fixture", sourceHash: "source-1", warnings: [], figures: [], blocks: [{ id: "b1", kind: "PARAGRAPH", order: 0, sourceLocation: "p1", content: [{ type: "math", math: { sourceType: "LATEX", sourceRaw, latex: sourceRaw, normalized: sourceRaw, parseStatus: "PARSED", warnings: [], sourceLocation: "p1:math" }, sourceLocation: "p1:math" }] }] });
@@ -10,6 +11,8 @@ const base = { id: "q1", expressions: [{ raw: "2x-4=0", normalized: "2x-4=0", pa
 const valid = runProductionMathQA({ raw, normalized, questions: [base] });
 assert.equal(valid.status, "PASS");
 assert.equal(valid.gates.find(item => item.gate === "MQ4_ANSWER_SOLUTION_CONSISTENCY")?.status, "PASS");
+const productionCaller = new StudioMathExecutionAdapter();
+assert.equal(productionCaller.runMathQA({ raw, normalized, questions: [base] }).status, "PASS");
 const wrong = runProductionMathQA({ raw, normalized, questions: [{ ...base, providedAnswer: "3" }] });
 assert.notEqual(wrong.status, "PASS");
 const unsupported = make("sin(x)=0");
