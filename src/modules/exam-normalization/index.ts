@@ -24,6 +24,7 @@ export interface NormalizationReview {
 export interface NormalizedQuestion {
   id: string;
   questionNumber?: string;
+  questionType: "MULTIPLE_CHOICE" | "TRUE_FALSE" | "SHORT_ANSWER" | "UNKNOWN";
   stem: ContentBlock[];
   choices: Array<{ label: string; content: ContentBlock[] }>;
   trueFalse: Array<{ label: string; content: ContentBlock[] }>;
@@ -31,6 +32,7 @@ export interface NormalizedQuestion {
   subquestions: Array<{ label: string; content: ContentBlock[] }>;
   sourceBlockIds: string[];
   figureIds: string[];
+  figureAssociations: Array<{ figureId: string; status: "CONFIRMED" | "NEEDS_HUMAN_REVIEW"; confidence: "HIGH" | "LOW"; sourceLocation?: string }>;
   provenance: NormalizationChange[];
   review: NormalizationReview[];
 }
@@ -90,13 +92,15 @@ function normalizeQuestions(blocks: DocumentBlock[], changes: NormalizationChang
     const stem: ContentBlock[] = []; const choices: Array<{ label: string; content: ContentBlock[] }> = []; const trueFalse: Array<{ label: string; content: ContentBlock[] }> = []; const subquestions: Array<{ label: string; content: ContentBlock[] }> = [];
     for (const block of normalizedBlocks) for (const content of block.content) {
       const label = optionLabel(content);
-      if (label) choices.push({ label, content: [content] });
-      else if (content.type === "text" && /^\s*(a|b|c|d)\s*[.)]\s*/i.test(content.value) && /đúng|sai/i.test(content.value)) trueFalse.push({ label: content.value.trim()[0].toUpperCase(), content: [content] });
+      if (content.type === "text" && /^\s*(a|b|c|d)\s*[.)]\s*/i.test(content.value) && /đúng|sai/i.test(content.value)) trueFalse.push({ label: content.value.trim()[0].toUpperCase(), content: [content] });
+      else if (label) choices.push({ label, content: [content] });
       else stem.push(content);
     }
     const figureIds = normalizedBlocks.flatMap(block => block.content.flatMap(content => content.type === "figure" ? [content.figureId] : [])).filter((id, position, all) => all.indexOf(id) === position);
     if (normalizedBlocks.length === 1 && stem.length === 0) review.push({ code: "AMBIGUOUS_QUESTION_BOUNDARY", layer: "N3", sourceLocation: first.sourceLocation, reason: "Question candidate has no deterministic textual stem." });
-    return { id: `question-${number ?? index + 1}`, questionNumber: number, stem, choices, trueFalse, shortAnswer: [], subquestions, sourceBlockIds: normalizedBlocks.map(block => block.id), figureIds, provenance: changes.filter(change => normalizedBlocks.some(block => block.sourceLocation === change.sourceLocation)), review: [] };
+    const questionType = trueFalse.length ? "TRUE_FALSE" : choices.length ? "MULTIPLE_CHOICE" : stem.length ? "SHORT_ANSWER" : "UNKNOWN";
+    const figureAssociations = figureIds.map(figureId => ({ figureId, status: "CONFIRMED" as const, confidence: "HIGH" as const, sourceLocation: normalizedBlocks.find(block => block.content.some(content => content.type === "figure" && content.figureId === figureId))?.sourceLocation }));
+    return { id: `question-${number ?? index + 1}`, questionNumber: number, questionType, stem, choices, trueFalse, shortAnswer: [], subquestions, sourceBlockIds: normalizedBlocks.map(block => block.id), figureIds, figureAssociations, provenance: changes.filter(change => normalizedBlocks.some(block => block.sourceLocation === change.sourceLocation)), review: [] };
   });
 }
 

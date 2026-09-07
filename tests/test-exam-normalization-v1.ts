@@ -17,7 +17,9 @@ assert.equal(JSON.stringify(raw), before, "RAW DocumentIR must remain unchanged"
 assert.equal(first.normalized.blocks[0].content[0].type, "text");
 assert.equal((first.normalized.blocks[0].content[0] as { value: string }).value, "Câu 1: Cho x.");
 assert.equal(first.questions.length, 1);
+assert.equal(first.questions[0].questionType, "TRUE_FALSE");
 assert.deepEqual(first.questions[0].figureIds, ["fig-1"]);
+assert.equal(first.questions[0].figureAssociations[0].status, "CONFIRMED");
 assert.ok(first.provenance.some(change => change.layer === "N1"));
 assert.ok(first.provenance.some(change => change.layer === "N2"));
 assert.equal(normalizationFingerprint(first), normalizationFingerprint(normalizeDocument(first.normalized)));
