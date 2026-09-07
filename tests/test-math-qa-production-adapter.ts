@@ -1,0 +1,23 @@
+import assert from "node:assert/strict";
+import { normalizeDocument } from "../src/modules/exam-normalization/index.js";
+import { runProductionMathQA } from "../server/services/mathQaProductionAdapter.js";
+import { StudioMathExecutionAdapter } from "../server/studio/mathExecutionAdapter.js";
+import type { DocumentIR } from "../src/modules/document-engine/document-ir.js";
+
+const make = (sourceRaw: string): DocumentIR => ({ sourceDocument: "production-adapter-fixture", sourceHash: "source-1", warnings: [], figures: [], blocks: [{ id: "b1", kind: "PARAGRAPH", order: 0, sourceLocation: "p1", content: [{ type: "math", math: { sourceType: "LATEX", sourceRaw, latex: sourceRaw, normalized: sourceRaw, parseStatus: "PARSED", warnings: [], sourceLocation: "p1:math" }, sourceLocation: "p1:math" }] }] });
+const raw = make("2x-4=0");
+const normalized = normalizeDocument(raw);
+const base = { id: "q1", expressions: [{ raw: "2x-4=0", normalized: "2x-4=0", parseStatus: "PARSED" as const, sourceLocation: "p1:math" }], rawDomainConditions: [], normalizedDomainConditions: [], expectedAnswer: "2", provenance: [{ originalValue: "2x-4=0", normalizedValue: "2x-4=0", rule: "IDENTITY", sourceLocation: "p1:math" }] };
+const valid = runProductionMathQA({ raw, normalized, questions: [base] });
+assert.equal(valid.status, "PASS");
+assert.equal(valid.gates.find(item => item.gate === "MQ4_ANSWER_SOLUTION_CONSISTENCY")?.status, "PASS");
+const productionCaller = new StudioMathExecutionAdapter();
+assert.equal(productionCaller.runMathQA({ raw, normalized, questions: [base] }).status, "PASS");
+const wrong = runProductionMathQA({ raw, normalized, questions: [{ ...base, providedAnswer: "3" }] });
+assert.notEqual(wrong.status, "PASS");
+const unsupported = make("sin(x)=0");
+const unsupportedResult = runProductionMathQA({ raw: unsupported, normalized: normalizeDocument(unsupported), questions: [{ ...base, expressions: [{ ...base.expressions[0], raw: "sin(x)=0", normalized: "sin(x)=0" }], expectedAnswer: "0" }] });
+assert.notEqual(unsupportedResult.status, "PASS");
+assert.equal(runProductionMathQA({ raw, normalized, questions: [] }).status, "BLOCKED");
+assert.equal(JSON.stringify(raw), JSON.stringify(make("2x-4=0")));
+console.log("math-qa-production-adapter PASS: deterministic verifier binding, fail-closed wrong/unsupported/coverage, raw immutable");
