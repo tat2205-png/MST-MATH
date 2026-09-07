@@ -39,6 +39,7 @@ export interface ImportWorkflowResult {
   imported: TeacherQuestion[];
   diagnostics: Array<{ code: string; questionId?: string; severity: "INFO" | "WARNING" | "ERROR"; details?: Record<string, unknown> }>;
   summary: WorkflowSummary;
+  p01?: { status: "PASS" | "REVIEW_REQUIRED" | "FAIL"; sourceHash: string; diagnostics: unknown[]; qaState?: "PASS" | "REVIEW" | "FAIL"; mathQAStatus?: string; artifactFormats?: string[] };
 }
 
 export interface QuestionQueryResponse {
