@@ -1,0 +1,170 @@
+{
+  "id": "MST_MATH_GEOGEBRA_INTERACTIVE_LEARNING_V1.0_DRAFT",
+  "status": "DRAFT_NON_CANONICAL",
+  "canonical": false,
+  "approved": false,
+  "productDisplayName": "MST-MATH",
+  "outputFamily": "P08_GEOGEBRA",
+  "dependsOn": [
+    "MST_MATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
+    "MST_MATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0"
+  ],
+  "governance": {
+    "additiveOnly": true,
+    "mutateLockedStandards": false,
+    "geogebraOwnsMathematics": false,
+    "rendererOwnsMathematics": false,
+    "preserveExistingP08Compatibility": true,
+    "humanApprovalRequiredBeforePromotion": true
+  },
+  "outputModes": [
+    "FIGURE",
+    "ACTIVITY",
+    "LESSON",
+    "BOOK"
+  ],
+  "runtimeModes": [
+    "AUTHORING_MODE",
+    "STUDENT_ACTIVITY_MODE",
+    "ASSESSMENT_MODE",
+    "PRESENTATION_MODE"
+  ],
+  "irLayers": [
+    "GeoGebraBookIR",
+    "GeoGebraLessonIR",
+    "GeoGebraActivityIR",
+    "GeoGebraAssessmentIR",
+    "GeoGebraInteractionIR",
+    "GeoGebraVisualOverlayIR",
+    "GeoGebraConstructionIR"
+  ],
+  "lessonPhases": [
+    "WARM_UP",
+    "PREDICT",
+    "DISCOVERY",
+    "GUIDED_QUESTION",
+    "QUICK_CHECK",
+    "REMEDIATION",
+    "CONCEPTUALIZE",
+    "PRACTICE",
+    "OPEN_MIDDLE",
+    "CHALLENGE",
+    "REFLECTION"
+  ],
+  "activityEngines": [
+    "EXPLORATION_SEQUENCE",
+    "STAGED_TRANSFORMATION_PROOF",
+    "CONSTRUCTION_TASK",
+    "RANDOMIZED_SELF_CHECK",
+    "OPEN_MIDDLE_CONSTRAINT",
+    "DYNAMIC_EQUATION_ANATOMY",
+    "DIRECT_MANIPULATION_RESPONSE",
+    "REPRESENTATION_TRANSLATOR",
+    "MULTIPLE_SOLUTION_WORKSPACE",
+    "STATISTICS_MANIPULATION",
+    "CROSS_SECTION_3D",
+    "SURFACE_OF_REVOLUTION",
+    "MULTI_STRATEGY_CONSTRUCTION",
+    "COGNITIVE_CONFLICT"
+  ],
+  "responseKinds": [
+    "NUMBER",
+    "EXACT_EXPRESSION",
+    "TEXT",
+    "MULTIPLE_CHOICE",
+    "BOOLEAN_SET",
+    "POINT_POSITION",
+    "OBJECT_RELATION",
+    "GRAPH_STATE",
+    "CONSTRUCTION_STATE",
+    "DISTRIBUTION_STATE",
+    "MULTI_SLOT_OPEN_MIDDLE"
+  ],
+  "randomizationPolicy": {
+    "solvabilityRequired": true,
+    "acceptedStrategies": [
+      "CONSTRUCT_FROM_SOLUTION",
+      "PRECOMPUTED_FEASIBLE_SET",
+      "AUTHORITATIVE_SOLVER_VERIFIED"
+    ],
+    "seedProvenance": true,
+    "staleStateAfterResetForbidden": true
+  },
+  "hintPolicy": {
+    "levels": [
+      "H1_ATTENTION",
+      "H2_RELATION",
+      "H3_CONSTRUCTION",
+      "H4_FORMULA",
+      "SOLUTION"
+    ],
+    "supportsDelayedReveal": true,
+    "assessmentLeakageForbidden": true
+  },
+  "visualOverlayPolicy": {
+    "objectAnchoredPreferred": true,
+    "fixedScreenCoordinatesLastResort": true,
+    "collisionAvoidanceRequired": true,
+    "viewportClampRequired": true,
+    "leaderLineFallback": true,
+    "mustNotObscureRequiredMathematics": true
+  },
+  "corpusIngestPolicy": {
+    "dedupeOrder": [
+      "OUTER_ARCHIVE_SHA256",
+      "EMBEDDED_GGB_SHA256",
+      "NORMALIZED_GEOGEBRA_XML_SHA256",
+      "PEDAGOGICAL_FAMILY_SIMILARITY"
+    ],
+    "packageKinds": [
+      "GEOGEBRA_BOOK",
+      "EMBEDDED_GGB",
+      "OFFLINE_WRAPPER",
+      "STATIC_AUTHORED_CONTENT",
+      "EXTERNAL_LINK_ONLY"
+    ],
+    "separateTemplateAndInstanceCounts": true,
+    "excludeOfflineRuntimeFromAuthoredMetrics": true
+  },
+  "templateFamilies": [
+    "UNIT_SQUARE_MANIPULATIVE",
+    "HISTOGRAM_DIRECT_MANIPULATION",
+    "LINE_RELATION_OPEN_MIDDLE",
+    "BASIC_INEQUALITY_GRAPH_RESPONSE",
+    "BEARING_REPRESENTATION_TRANSLATOR",
+    "PLANE_BISECTOR_3D",
+    "FORMULA_DISSECTION_STAGE_TIMELINE",
+    "CIRCLE_SECTOR_REARRANGEMENT",
+    "RIGID_MOTION_SUPERPOSITION_PROOF",
+    "CONIC_EQUATION_ANATOMY",
+    "RANDOM_SOLVABLE_GEOMETRY_TARGET",
+    "CROSS_SECTION_3D_EXPLORER",
+    "SURFACE_OF_REVOLUTION_BUILDER",
+    "MULTIPLE_SOLUTION_WORKSPACE"
+  ],
+  "qaGates": [
+    "GEO_MATH_QA_PASS",
+    "GEO_CONSTRUCTION_QA_PASS",
+    "GEO_RANDOM_QA_PASS",
+    "GEO_ACTIVITY_QA_PASS",
+    "GEO_VISUAL_QA_PASS",
+    "GEO_PEDAGOGY_QA_PASS",
+    "GEO_BOOK_QA_PASS"
+  ],
+  "goldenCases": [
+    "UNIT_CIRCLE_INTERACTIVE_LESSON",
+    "OPEN_MIDDLE_LINE_RELATION",
+    "HISTOGRAM_LESSON_SEQUENCE",
+    "THREE_D_SOLID_BUILD_CHECK",
+    "STRUCTURED_TRANSFORMATION_PROOF",
+    "FULL_DIFFERENTIATED_LESSON_BOOK"
+  ],
+  "promotionBlockers": [
+    "NO_GENERIC_LEARNING_IR_IMPLEMENTATION",
+    "NO_ACTIVITY_RUNTIME_LIFECYCLE",
+    "NO_RANDOM_SOLVABILITY_GATE",
+    "NO_OBJECT_ANCHORED_OVERLAY_QA",
+    "NO_FULL_LESSON_BOOK_GOLDEN",
+    "NO_HUMAN_PEDAGOGICAL_APPROVAL"
+  ]
+}
