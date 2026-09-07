@@ -1,0 +1,8 @@
+﻿"Type","Name","Version","Path","Status"
+"FILESYSTEM_DISTRIBUTION","paddlepaddle","3.3.1","D:\math-ai-video-studio\mst-input-local-paddle-clean-v1\tools\mst-local-ocr\.venv\Lib\site-packages\paddlepaddle-3.3.1.dist-info",""
+"FILESYSTEM_DISTRIBUTION","paddlepaddle","3.2.2","D:\math-ai-video-studio\mst-input-baseline-pr62\.paddle-v4-packages\paddlepaddle-3.2.2.dist-info",""
+"FILESYSTEM_DISTRIBUTION","paddlepaddle","3.3.1","D:\math-ai-video-studio\mst-input-local-paddle-v1\tools\mst-local-ocr\.venv\Lib\site-packages\paddlepaddle-3.3.1.dist-info",""
+"FILESYSTEM_DISTRIBUTION","paddlepaddle","3.2.2","D:\math-ai-video-studio\PiMathRuntime\local-document-intelligence\python-v1\Lib\site-packages\paddlepaddle-3.2.2.dist-info",""
+"BASE_PROBE","paddlepaddle","3.3.1","D:\math-ai-video-studio\mst-input-local-paddle-clean-v1\tools\mst-local-ocr\.venv\Lib\site-packages\paddle\__init__.py","PASS"
+"CANDIDATE_322_PROBE","paddlepaddle","3.2.2","D:\math-ai-video-studio\mst-input-baseline-pr62\.paddle-v4-packages\paddle\__init__.py","PASS"
+"CANDIDATE_322_PROBE","paddlepaddle","3.2.2","D:\math-ai-video-studio\PiMathRuntime\local-document-intelligence\python-v1\Lib\site-packages\paddle\__init__.py","FAIL"

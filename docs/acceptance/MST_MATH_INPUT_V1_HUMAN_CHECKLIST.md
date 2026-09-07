@@ -71,3 +71,12 @@ Inspect at least pages:
 HUMAN_INPUT_ACCEPTANCE=PENDING
 
 MST_MATH_DEMO_INPUT_GATE=CLOSED
+
+
+## G. Runtime and release integrity
+
+- [ ] I reviewed MST_MATH_INPUT_V1_PRETAG_INTEGRITY_AUDIT.md.
+- [ ] I verified the authoritative INPUT QA Paddle runtime provenance.
+- [ ] I did not change any Paddle/Python package during acceptance.
+- [ ] I reviewed the SHA-256 duplicate report for all 9 Golden assets.
+- [ ] I specifically inspected 03-word-mathtype and 05-word-real-figure.
