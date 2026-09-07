@@ -7,7 +7,7 @@ export type MathQAGate = "MQ1_PARSE_VALIDITY" | "MQ2_NORMALIZATION_SEMANTIC_PRES
 export interface MathQAIssue { code: string; message: string; sourceLocation?: string; details?: Record<string, unknown> }
 export interface MathQAGateResult { gate: MathQAGate; status: MathQAStatus; issues: MathQAIssue[] }
 export interface MathQAExpression { raw: string; normalized?: string; parseStatus?: "PARSED" | "UNRESOLVED" | "UNSUPPORTED"; sourceLocation?: string }
-export interface MathQAQuestion { id: string; expressions: MathQAExpression[]; domainConditions?: string[]; expectedAnswer?: string; providedAnswer?: string; solution?: string; provenance?: Array<{ originalValue: string; normalizedValue: string; rule: string; sourceLocation?: string }>; review?: NormalizationReview[] }
+export interface MathQAQuestion { id: string; expressions: MathQAExpression[]; domainConditions?: string[]; rawDomainConditions?: string[]; normalizedDomainConditions?: string[]; expectedAnswer?: string; providedAnswer?: string; solution?: string; provenance?: Array<{ originalValue: string; normalizedValue: string; rule: string; sourceLocation?: string }>; review?: NormalizationReview[] }
 export interface MathQAInput { raw: DocumentIR; normalized: NormalizedDocumentIR; questions?: MathQAQuestion[] }
 export interface MathQAResult { status: MathQAStatus; gates: MathQAGateResult[]; rawSourceUnchanged: boolean; provenanceIntact: boolean }
 
@@ -26,7 +26,12 @@ export function runMathQA(input: MathQAInput): MathQAResult {
   gates.push(gate("MQ1_PARSE_VALIDITY", parseIssues.length ? (parseIssues.some(item => item.code === "UNSUPPORTED_MATH") ? "UNSUPPORTED_REQUIRES_REVIEW" : "NEEDS_HUMAN_REVIEW") : "PASS", parseIssues));
   const semanticIssues: MathQAIssue[] = []; for (const question of questions) for (const expression of question.expressions) if (expression.normalized !== undefined && normalizedComparable(expression.raw) !== normalizedComparable(expression.normalized)) semanticIssues.push(issue("SEMANTIC_CHANGE_REQUIRES_REVIEW", "Normalized math differs beyond whitespace-safe representation.", expression.sourceLocation));
   gates.push(gate("MQ2_NORMALIZATION_SEMANTIC_PRESERVATION", semanticIssues.length ? "NEEDS_HUMAN_REVIEW" : "PASS", semanticIssues));
-  const conditionIssues: MathQAIssue[] = []; for (const question of questions) { const rawConditions = question.domainConditions ?? []; const normalizedConditions = question.domainConditions ?? []; if (stable(rawConditions) !== stable(normalizedConditions)) conditionIssues.push(issue("DOMAIN_CONDITION_LOSS", "Domain or condition metadata differs after normalization.", question.id)); }
+  const conditionIssues: MathQAIssue[] = []; for (const question of questions) {
+    const rawConditions = question.rawDomainConditions;
+    const normalizedConditions = question.normalizedDomainConditions;
+    if (!rawConditions || !normalizedConditions) conditionIssues.push(issue("DOMAIN_CONDITION_EVIDENCE_MISSING", "Independent raw and normalized domain/condition evidence is required; absence is not treated as an empty condition set.", question.id));
+    else if (stable(rawConditions) !== stable(normalizedConditions)) conditionIssues.push(issue("DOMAIN_CONDITION_LOSS", "Domain or condition metadata differs after normalization.", question.id, { rawConditions, normalizedConditions }));
+  }
   gates.push(gate("MQ3_DOMAIN_AND_CONDITION_PRESERVATION", conditionIssues.length ? "BLOCKED" : "PASS", conditionIssues));
   const answerIssues: MathQAIssue[] = []; for (const question of questions) { if (question.expectedAnswer === undefined && question.providedAnswer === undefined && question.solution === undefined) answerIssues.push(issue("ANSWER_NOT_VERIFIED", "No explicit answer/solution is available for deterministic consistency verification.", question.id)); else if (question.expectedAnswer !== undefined && question.providedAnswer !== undefined && normalizedComparable(question.expectedAnswer) !== normalizedComparable(question.providedAnswer)) answerIssues.push(issue("ANSWER_INCONSISTENT", "Provided answer differs from expected answer.", question.id)); }
   gates.push(gate("MQ4_ANSWER_SOLUTION_CONSISTENCY", answerIssues.length ? "NEEDS_HUMAN_REVIEW" : "PASS", answerIssues));

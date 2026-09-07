@@ -4,9 +4,15 @@ import { runMathQA, verifyMathQAIdempotence, type MathQAInput } from "../src/mod
 import type { DocumentIR } from "../src/modules/document-engine/document-ir.js";
 
 const make = (math: { sourceRaw: string; latex?: string; parseStatus: "PARSED" | "UNRESOLVED" | "UNSUPPORTED" }, text = "Câu 1: Tính."): DocumentIR => ({ sourceDocument: "math-qa-fixture", sourceHash: "raw", warnings: [], figures: [], blocks: [{ id: "b1", kind: "PARAGRAPH", order: 0, sourceLocation: "fixture:p:0", content: [{ type: "text", value: text, sourceLocation: "fixture:p:0" }, { type: "math", math: { sourceType: "LATEX", sourceRaw: math.sourceRaw, latex: math.latex, parseStatus: math.parseStatus, warnings: [], sourceLocation: "fixture:p:0:math" }, sourceLocation: "fixture:p:0" }] }] });
-const base = make({ sourceRaw: "x", latex: "  x  ", parseStatus: "PARSED" }); const normalized = normalizeDocument(base); const good: MathQAInput = { raw: base, normalized, questions: [{ id: "q1", expressions: [{ raw: "x", normalized: "x", parseStatus: "PARSED", sourceLocation: "fixture:p:0:math" }], expectedAnswer: "2", providedAnswer: "2", provenance: [{ originalValue: "x", normalizedValue: "x", rule: "TRIM", sourceLocation: "fixture:p:0:math" }] }] };
+const base = make({ sourceRaw: "x", latex: "  x  ", parseStatus: "PARSED" }); const normalized = normalizeDocument(base); const good: MathQAInput = { raw: base, normalized, questions: [{ id: "q1", expressions: [{ raw: "x", normalized: "x", parseStatus: "PARSED", sourceLocation: "fixture:p:0:math" }], rawDomainConditions: ["x > 0"], normalizedDomainConditions: ["x > 0"], expectedAnswer: "2", providedAnswer: "2", provenance: [{ originalValue: "x", normalizedValue: "x", rule: "TRIM", sourceLocation: "fixture:p:0:math" }] }] };
 assert.equal(runMathQA(good).status, "PASS");
 assert.equal(runMathQA(good).gates.length, 8);
+const conditionGate = (input: MathQAInput) => runMathQA(input).gates.find(item => item.gate === "MQ3_DOMAIN_AND_CONDITION_PRESERVATION")!;
+assert.equal(conditionGate({ ...good, questions: [{ ...good.questions![0], normalizedDomainConditions: [] }] }).status, "BLOCKED");
+assert.equal(conditionGate({ ...good, questions: [{ ...good.questions![0], normalizedDomainConditions: ["x >= 0"] }] }).status, "BLOCKED");
+assert.equal(conditionGate({ ...good, questions: [{ ...good.questions![0], rawDomainConditions: undefined, normalizedDomainConditions: ["x > 0"] }] }).status, "BLOCKED");
+assert.equal(runMathQA({ ...good, questions: [{ ...good.questions![0], rawDomainConditions: undefined, normalizedDomainConditions: ["x > 0"] }] }).status, "BLOCKED");
+const rawBeforeMQ3 = JSON.stringify(good.raw); runMathQA(good); assert.equal(JSON.stringify(good.raw), rawBeforeMQ3);
 const unresolvedRaw = make({ sourceRaw: "x", latex: "x", parseStatus: "UNRESOLVED" });
 const unresolvedResult = runMathQA({ ...good, raw: unresolvedRaw, normalized: normalizeDocument(unresolvedRaw) });
 assert.equal(unresolvedResult.status, "NEEDS_HUMAN_REVIEW");
