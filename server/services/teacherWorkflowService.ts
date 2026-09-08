@@ -1,4 +1,6 @@
 import path from "node:path";
+import { existsSync, readFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import type { Assessment, AssessmentAnswerManifest, AssessmentSpec } from "../../src/modules/question-bank/assessment.js";
 import { AssessmentService } from "../../src/modules/question-bank/assessment.js";
 import { ClassroomGameService, type GameSession, type GameSpec } from "../../src/modules/classroom-game/game.js";
@@ -21,6 +23,9 @@ import type {
 import { QuestionBankStudioService } from "../integrations/questionBankStudio.js";
 import { StudioEngineRegistry } from "../studio/engineRegistry.js";
 import { buildDemoRc1P01 } from "./demoRc1P01Service.js";
+import { analyzeExamQuestion, applyCorrectionRevision, acceptCorrectionProposal, rejectCorrectionProposal, type ExamAnalysisResult, type RevisionRecord } from "./examAnalysisService.js";
+
+type PersistedCorrection = { questionId: string; analysis: ExamAnalysisResult; revision?: RevisionRecord; question?: QuestionObject; updatedAtSequence: number };
 
 type StoredAssessment = { assessment: Assessment; answerManifest: AssessmentAnswerManifest };
 type StoredGame = { service: ClassroomGameService; session: GameSession };
@@ -46,12 +51,45 @@ export class TeacherWorkflowService {
   private readonly assessments = new Map<string, StoredAssessment>();
   private readonly games = new Map<string, StoredGame>();
   private readonly outputDirectory: string;
+  private readonly correctionPath: string;
 
-  constructor(private readonly repository: QuestionBankRepository = new JsonQuestionBankRepository(path.join(process.cwd(), "render_output", "teacher-workflow", "question-bank.json"))) {
+  constructor(private readonly repository: QuestionBankRepository = new JsonQuestionBankRepository(path.join(process.cwd(), "render_output", "teacher-workflow", "question-bank.json")), correctionPath = path.join(process.cwd(), "render_output", "teacher-workflow", "corrections.json")) {
     this.bank = new QuestionBankService(repository);
     this.search = new QuestionSearchService(repository);
     this.assessment = new AssessmentService(repository);
     this.outputDirectory = path.join(process.cwd(), "render_output", "teacher-workflow", "exports");
+    this.correctionPath = correctionPath;
+  }
+
+  private loadCorrections(): PersistedCorrection[] { return existsSync(this.correctionPath) ? JSON.parse(readFileSync(this.correctionPath, "utf8")) as PersistedCorrection[] : []; }
+  private saveCorrections(items: PersistedCorrection[]): void { mkdirSync(path.dirname(this.correctionPath), { recursive: true }); writeFileSync(this.correctionPath, JSON.stringify(items, null, 2), "utf8"); }
+  private findQuestion(questionId: string): QuestionObject { const question = this.repository.load().questions.find((item) => item.id === questionId); if (!question) throw new Error("QUESTION_NOT_FOUND"); return question; }
+
+  getCorrectionState(questionId: string): { question: TeacherQuestion; analysis: ExamAnalysisResult; revision?: RevisionRecord } {
+    const current = this.findQuestion(questionId);
+    const persisted = this.loadCorrections().find((item) => item.questionId === questionId);
+    return { question: questionForClient(current), analysis: persisted?.analysis ?? analyzeExamQuestion(current), revision: persisted?.revision };
+  }
+
+  decideCorrection(questionId: string, proposalId: string, decision: "ACCEPT" | "EDIT" | "REJECT", revisedQuestion?: QuestionObject): { question: TeacherQuestion; analysis: ExamAnalysisResult; revision?: RevisionRecord } {
+    const current = this.findQuestion(questionId);
+    const state = this.getCorrectionState(questionId);
+    let analysis = state.analysis;
+    let revision = state.revision;
+    let nextQuestion = current;
+    if (decision === "REJECT") analysis = rejectCorrectionProposal(analysis, proposalId);
+    else {
+      if (!revisedQuestion) throw new Error("REVISION_REQUIRED");
+      analysis = acceptCorrectionProposal(analysis, proposalId, decision === "EDIT" ? revisedQuestion : revisedQuestion);
+      const sourceHash = createHash("sha256").update(JSON.stringify(revisedQuestion)).digest("hex");
+      const candidate = structuredClone(revisedQuestion); candidate.source = { ...candidate.source, sourceHash };
+      const applied = applyCorrectionRevision(analysis, current, proposalId, candidate, decision === "ACCEPT" ? "ACCEPTED" : "EDITED");
+      nextQuestion = applied.question; analysis = applied.analysis; revision = applied.revision;
+      const snapshot = this.repository.load(); snapshot.questions = snapshot.questions.map((item) => item.id === questionId ? nextQuestion : item); this.repository.replace(snapshot);
+    }
+    const records = this.loadCorrections().filter((item) => item.questionId !== questionId);
+    records.push({ questionId, analysis, revision, question: nextQuestion, updatedAtSequence: records.length + 1 }); this.saveCorrections(records);
+    return { question: questionForClient(nextQuestion), analysis, revision };
   }
 
   summary(): WorkflowSummary {

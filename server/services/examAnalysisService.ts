@@ -23,6 +23,22 @@ export interface ExamAnalysisResult {
   publicationStatus: "REVIEW_REQUIRED" | "BLOCKED" | "READY";
 }
 
+export interface RevisionRecord {
+  revisionId: string;
+  proposalId: string;
+  teacherDecision: "ACCEPTED" | "EDITED";
+  sourceHashBefore: string;
+  sourceHashAfter: string;
+  revalidation: "VERIFIED" | "REVIEW_REQUIRED" | "BLOCKED";
+  provenance: { kind: "TEACHER_AUTHORED"; sourceProposalId: string };
+}
+
+export interface AppliedCorrection {
+  question: QuestionObject;
+  analysis: ExamAnalysisResult;
+  revision: RevisionRecord;
+}
+
 function textOf(blocks: ContentBlock[]): string {
   return blocks.map((block) => block.type === "text" ? block.value : block.type === "math" ? block.math.latex ?? block.math.sourceRaw : block.type === "figure" ? `[figure:${block.figureId}]` : block.cells.flatMap(textOf).join(" ")).join(" ");
 }
@@ -60,4 +76,32 @@ export function acceptCorrectionProposal(result: ExamAnalysisResult, proposalId:
 export function rejectCorrectionProposal(result: ExamAnalysisResult, proposalId: string): ExamAnalysisResult {
   if (!result.proposals.some((item) => item.issueId === proposalId)) throw new Error("CORRECTION_PROPOSAL_NOT_FOUND");
   return { ...result, proposals: result.proposals.map((item) => item.issueId === proposalId ? { ...item, teacherDecision: "REJECTED" as const } : item) };
+}
+
+/** Apply only a teacher-owned canonical revision, then run the same QA again. */
+export function applyCorrectionRevision(
+  result: ExamAnalysisResult,
+  question: QuestionObject,
+  proposalId: string,
+  revisedQuestion: QuestionObject,
+  teacherDecision: "ACCEPTED" | "EDITED" = "EDITED",
+): AppliedCorrection {
+  const proposal = result.proposals.find((item) => item.issueId === proposalId);
+  if (!proposal) throw new Error("CORRECTION_PROPOSAL_NOT_FOUND");
+  if (proposal.teacherDecision !== "ACCEPTED") throw new Error("TEACHER_DECISION_REQUIRED");
+  if (revisedQuestion.id !== question.id || revisedQuestion.id !== result.questionId) throw new Error("REVISION_QUESTION_MISMATCH");
+  if (revisedQuestion.source.sourceHash === question.source.sourceHash) throw new Error("REVISION_SOURCE_HASH_REQUIRED");
+
+  const analysis = analyzeExamQuestion(revisedQuestion);
+  const revalidation = analysis.publicationStatus === "READY" ? "VERIFIED" : analysis.publicationStatus;
+  const revision: RevisionRecord = {
+    revisionId: `revision-${proposalId}-${revisedQuestion.source.sourceHash}`,
+    proposalId,
+    teacherDecision,
+    sourceHashBefore: question.source.sourceHash,
+    sourceHashAfter: revisedQuestion.source.sourceHash,
+    revalidation,
+    provenance: { kind: "TEACHER_AUTHORED", sourceProposalId: proposalId },
+  };
+  return { question: structuredClone(revisedQuestion), analysis, revision };
 }

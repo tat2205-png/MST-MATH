@@ -171,6 +171,19 @@ async function startServer() {
     } catch (error) { res.status(409).json({ success: false, code: "CORRECTION_DECISION_REJECTED", error: error instanceof Error ? error.message : String(error) }); }
   });
 
+  app.get("/api/teacher-workflow/corrections/:questionId", (req, res) => {
+    try { res.json({ success: true, result: teacherWorkflowService.getCorrectionState(req.params.questionId) }); }
+    catch (error) { res.status(404).json({ success: false, code: "CORRECTION_STATE_NOT_FOUND", error: error instanceof Error ? error.message : String(error) }); }
+  });
+
+  app.post("/api/teacher-workflow/corrections/decision", (req, res) => {
+    try {
+      const { questionId, proposalId, decision, revisedQuestion } = req.body || {};
+      if (typeof questionId !== "string" || typeof proposalId !== "string" || !["ACCEPT", "EDIT", "REJECT"].includes(decision)) return res.status(400).json({ success: false, code: "INVALID_CORRECTION_DECISION" });
+      res.json({ success: true, result: teacherWorkflowService.decideCorrection(questionId, proposalId, decision, revisedQuestion) });
+    } catch (error) { res.status(409).json({ success: false, code: "CORRECTION_DECISION_REJECTED", error: error instanceof Error ? error.message : String(error) }); }
+  });
+
   app.post("/api/teacher-workflow/questions/query", (req, res) => {
     try {
       res.json({ success: true, result: teacherWorkflowService.query(req.body?.query || {}) });
