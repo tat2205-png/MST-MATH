@@ -15,7 +15,7 @@ const roles: Array<[WordStyleRole, string, string, "body" | "ui", number, boolea
   ["body", "NABody", "NA Body", "body", 22], ["label", "NALabel", "NA Label", "ui", 20, true], ["definition", "NADefinition", "NA Definition", "body", 22],
   ["example", "NAExample", "NA Example", "body", 22], ["remember", "NARemember", "NA Remember", "body", 22, true], ["exercise", "NAExercise", "NA Exercise", "body", 22],
   ["solution", "NASolution", "NA Solution", "body", 22], ["figureCaption", "NAFigureCaption", "NA Figure Caption", "body", 18, false, true],
-  ["table", "NATable", "NA Table", "body", 20], ["header", "NAHeader", "NA Header", "ui", 18], ["footer", "NAFooter", "NA Footer", "ui", 18],
+  ["table", "NATableText", "NA Table Text", "body", 20], ["header", "NAHeader", "NA Header", "ui", 18], ["footer", "NAFooter", "NA Footer", "ui", 18],
 ];
 
 export function createWordStyleMap(identity: NaMathOutputIdentity): Readonly<Record<WordStyleRole, WordStyleDefinition>> {

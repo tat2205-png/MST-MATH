@@ -14,7 +14,7 @@ for (const identity of identities) {
   assert.equal(map.body.font, "Aptos");
   assert.equal(map.heading1.font, "Aptos Display");
   assert.equal(map.body.color, "202124");
-  for (const role of ["NATitle", "NASubtitle", "NAHeading1", "NAHeading2", "NAHeading3", "NABody", "NALabel", "NADefinition", "NAExample", "NARemember", "NAExercise", "NASolution", "NAFigureCaption", "NATable", "NAHeader", "NAFooter"]) assert.match(styles, new RegExp(`w:styleId="${role}"`));
+  for (const role of ["NATitle", "NASubtitle", "NAHeading1", "NAHeading2", "NAHeading3", "NABody", "NALabel", "NADefinition", "NAExample", "NARemember", "NAExercise", "NASolution", "NAFigureCaption", "NATableText", "NATable", "NAHeader", "NAFooter"]) assert.match(styles, new RegExp(`w:styleId="${role}"`));
   assert.match(styles, /w:ascii="Aptos"/);
   assert.match(styles, /w:ascii="Aptos Display"/);
   assert.match(styles, /w:color w:val="202124"/);

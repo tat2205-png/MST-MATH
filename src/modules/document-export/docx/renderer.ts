@@ -15,20 +15,20 @@ const encode = (value: string) => new TextEncoder().encode(value);
 const W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
 const R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
 interface MediaEntry { figure: FigureRecord; relationshipId: string; target: string; extension: string; contentType: string; widthEmu: number; heightEmu: number; }
-interface RenderContext { warnings: string[]; media: Map<string, MediaEntry>; options: DocxRenderOptions; }
+interface RenderContext { warnings: string[]; media: Map<string, MediaEntry>; options: DocxRenderOptions; nextDocPrId: number; }
 
 function textRun(value: string, bold = false): string {
   const preserve = /^\s|\s$/.test(value) ? ' xml:space="preserve"' : "";
   return `<w:r>${bold ? "<w:rPr><w:b/></w:rPr>" : ""}<w:t${preserve}>${escapeXml(value)}</w:t></w:r>`;
 }
 
-function inlineFigure(entry: MediaEntry, options: DocxRenderOptions): string {
+function inlineFigure(entry: MediaEntry, options: DocxRenderOptions, docPrId: number): string {
   const metadata = options.figureMetadata?.[entry.figure.id] ?? {};
   const name = escapeXml(metadata.semanticFigureId ?? entry.figure.id);
   const title = escapeXml(metadata.title ?? entry.figure.caption ?? name);
   const description = escapeXml([metadata.altText, metadata.geometryProfileId ? `Profile: ${metadata.geometryProfileId}` : undefined].filter(Boolean).join(" | "));
   const blip = entry.extension === "svg" ? `<a:blip r:embed="${entry.relationshipId}"/><a:extLst><a:ext uri="{96DAC541-7B7A-43D3-8B79-37D633B846F1}"><asvg:svgBlip r:embed="${entry.relationshipId}"/></a:ext></a:extLst>` : `<a:blip r:embed="${entry.relationshipId}"/>`;
-  return `<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${entry.widthEmu}" cy="${entry.heightEmu}"/><wp:docPr id="${entry.relationshipId.replace(/\D/g, "") || 1}" name="${name}" title="${title}" descr="${description}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:blipFill>${blip}<a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${entry.widthEmu}" cy="${entry.heightEmu}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;
+  return `<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${entry.widthEmu}" cy="${entry.heightEmu}"/><wp:docPr id="${docPrId}" name="${name}" title="${title}" descr="${description}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:blipFill>${blip}<a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${entry.widthEmu}" cy="${entry.heightEmu}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;
 }
 
 function contentXml(content: ContentBlock[], context: RenderContext): string {
@@ -41,7 +41,7 @@ function contentXml(content: ContentBlock[], context: RenderContext): string {
       const entry = context.media.get(item.figureId);
       if (!entry) throw new DocxRenderError("DOCX_FIGURE_BYTES_MISSING", `Figure bytes are missing: ${item.figureId}`);
       if (entry.extension === "svg") context.warnings.push("WORD_SVG_RUNTIME_COMPATIBILITY_NOT_VERIFIED");
-      return inlineFigure(entry, context.options);
+      return inlineFigure(entry, context.options, context.nextDocPrId++);
     }
     return "";
   }).join("");
@@ -84,7 +84,7 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
     }
     media.set(figure.id, { figure, relationshipId: `rIdImage${index + 1}`, target: `media/figure-${index + 1}.${extension}`, extension, contentType: figure.mimeType!, widthEmu, heightEmu });
   }
-  const context: RenderContext = { warnings, media, options };
+  const context: RenderContext = { warnings, media, options, nextDocPrId: 1 };
   const pageBreakIds = new Set(options.pageBreakAfterBlockIds ?? []);
   const body = document.blocks.map((block) => block.kind === "TABLE" ? table(block, context) : paragraph(block, context, pageBreakIds.has(block.id))).join("");
   const title = escapeXml(options.title ?? document.sourceDocument);
