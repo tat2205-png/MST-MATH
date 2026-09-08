@@ -1,7 +1,7 @@
 {
   "spec": "MST-MATH GeoGebra Module Spec V1.0",
   "implementation_status": "READY_FOR_TEACHER_REVIEW",
-  "head_sha": "5a6f1f12da7c080d4c5119f343ae3e8d064584cd",
+  "head_sha": "39b3564",
   "branch": "feat/mst-math-core-rc1-v1",
   "goldens": { "GEO_GOLDEN_01_UNIT_CIRCLE": "PASS" },
   "ggb_export": "PASS_NATIVE_CLASSIC_5_EXPRESSION_ENCODING",
