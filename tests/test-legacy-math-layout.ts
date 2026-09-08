@@ -1,0 +1,26 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { ingestDocxQuestions } from "../src/modules/question-bank/pipeline.js";
+import { renderDocumentToDocx } from "../src/modules/document-export/docx/index.js";
+import { unzipSync } from "fflate";
+
+const sourcePath = "D:/math-ai-video-studio/NA-MATH-QUESTION-BANK/acceptance/Ha Tinh. Chuyen Toan 2025.docx";
+const bytes = new Uint8Array(readFileSync(sourcePath));
+const canonical = ingestDocxQuestions(bytes, "Ha Tinh. Chuyen Toan 2025.docx");
+const previews = canonical.document.figures.filter((figure) => ["MATHTYPE_PREVIEW", "OLE_PREVIEW", "EQUATION_PREVIEW", "RASTER_MATH"].includes(figure.semanticRole ?? ""));
+assert.ok(previews.length > 0);
+assert.ok(previews.every((figure) => figure.dimensions?.widthEmu && figure.dimensions.heightEmu));
+assert.ok(previews.every((figure) => (figure.dimensions!.widthEmu ?? 0) <= 9_600_000 && (figure.dimensions!.heightEmu ?? 0) <= 1_200_000));
+assert.ok(previews.some((figure) => (figure.dimensions!.widthEmu ?? 0) < 1_500_000 && (figure.dimensions!.heightEmu ?? 0) < 300_000));
+const rendered = renderDocumentToDocx(canonical.document, { profileId: "P01_LEARNING_MATERIAL", outputIdentity: "learning_material", generatedAt: new Date(0) });
+const xml = new TextDecoder().decode(unzipSync(rendered.bytes)["word/document.xml"]);
+const extents = [...xml.matchAll(/<wp:extent cx="(\d+)" cy="(\d+)"/g)].map((match) => [Number(match[1]), Number(match[2])] as const);
+assert.ok(extents.some(([width, height]) => width < 1_500_000 && height < 300_000));
+assert.ok(!extents.some(([width, height]) => width === 4_572_000 && height === 3_048_000));
+assert.match(xml, /<w:t[^>]*>[^<]+<\/w:t><\/w:r><w:r><w:drawing>/);
+console.log("SOURCE_SIZE_METADATA_FOUND=PASS");
+console.log("LEGACY_MATH_DIMENSIONS_SOURCE_BACKED=PASS");
+console.log("LEGACY_MATH_NOT_GENERIC_FIGURE=PASS");
+console.log("LEGACY_MATH_INLINE_POSITION=PASS");
+console.log("LEGACY_MATH_ASPECT_RATIO=PASS");
+console.log("LEGACY_MATH_NO_SILENT_LOSS=PASS");

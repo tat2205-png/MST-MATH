@@ -5,6 +5,25 @@ import type { ContentBlock, DocumentBlock, DocumentIR, FigureRecord } from "./ty
 const decode = (s: string) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const mime = (path?: string) => path?.endsWith(".png") ? "image/png" : path?.match(/\.jpe?g$/i) ? "image/jpeg" : path?.endsWith(".svg") ? "image/svg+xml" : path?.endsWith(".wmf") ? "image/wmf" : path?.endsWith(".emf") ? "image/emf" : "application/octet-stream";
 const numberStyle = (style: string, name: string) => Number.parseFloat(new RegExp(`(?:^|;)${name}:([^;]+)`, "i").exec(style)?.[1] ?? "0");
+const dimensionEmu = (style: string, name: string) => {
+  const match = new RegExp(`(?:^|;)${name}:([^;]+)`, "i").exec(style)?.[1]?.trim().toLowerCase();
+  if (!match) return undefined;
+  const value = Number.parseFloat(match);
+  if (!Number.isFinite(value) || value <= 0) return undefined;
+  if (match.endsWith("pt")) return Math.round(value * 12_700);
+  if (match.endsWith("in")) return Math.round(value * 914_400);
+  if (match.endsWith("cm")) return Math.round(value * 360_000);
+  return undefined;
+};
+function sourceFigureDimensions(xml: string, rid: string): { widthEmu: number; heightEmu: number } | undefined {
+  const object = [...xml.matchAll(/<w:object\b[\s\S]*?<\/w:object>/gi)].find((match) => match[0].includes(`r:id="${rid}"`) || match[0].includes(`r:embed="${rid}"`))?.[0];
+  const shapeStyle = object ? /<v:shape\b[^>]*\bstyle="([^"]+)"/i.exec(object)?.[1] : undefined;
+  const widthEmu = shapeStyle ? dimensionEmu(shapeStyle, "width") : undefined;
+  const heightEmu = shapeStyle ? dimensionEmu(shapeStyle, "height") : undefined;
+  if (widthEmu && heightEmu) return { widthEmu, heightEmu };
+  const original = object ? /<w:object\b[^>]*\bdxaOrig="(\d+)"[^>]*\bdyaOrig="(\d+)"/i.exec(object) : undefined;
+  return original ? { widthEmu: Number(original[1]) * 635, heightEmu: Number(original[2]) * 635 } : undefined;
+}
 const sourceFormat = (path?: string) => path?.split(".").at(-1)?.toUpperCase() ?? "UNKNOWN";
 export function classifyAssetRole(markup: string, mediaPath?: string, inVmlGroup = false) {
   if (/<w:object\b|<o:OLEObject\b/i.test(markup)) {
@@ -40,7 +59,7 @@ function paragraphContent(xml: string, location: string, rels: Map<string, strin
   const content: ContentBlock[] = []; const token = /<m:oMathPara\b[\s\S]*?<\/m:oMathPara>|<m:oMath\b[\s\S]*?<\/m:oMath>|<w:t\b[^>]*>[\s\S]*?<\/w:t>|<(?:a:blip|v:imagedata)\b[^>]*>/gi; let match;
   while ((match = token.exec(xml))) { const raw = match[0]; if (/^<w:t/i.test(raw)) { const value = decode(raw.replace(/^<w:t\b[^>]*>|<\/w:t>$/gi, "")); if (value) content.push({ type: "text", value, sourceLocation: location }); }
     else if (/^<m:oMath/i.test(raw)) content.push({ type: "math", math: parseOmml(raw, `${location}:math:${content.length}`), sourceLocation: location });
-    else { const rid = /r:(?:embed|id)="([^"]+)"/i.exec(raw)?.[1]; if (!rid || groupedIds.has(rid)) continue; const target = rels.get(rid); const path = target ? `word/${target.replace(/^\.\.\//, "")}` : undefined; const id = `figure-${rid}`; const extent = /<wp:extent\b[^>]*cx="(\d+)"[^>]*cy="(\d+)"/i.exec(xml); const semanticRole = classifyAssetRole(xml, path); if (!figures.some((x) => x.id === id)) figures.push({ id, relationshipId: rid, mediaPath: path, mimeType: mime(path), bytes: path ? files[path] : undefined, sourceLocation: location, paragraphIndex, tableCell, semanticRole, dimensions: extent ? { widthEmu: Number(extent[1]), heightEmu: Number(extent[2]) } : undefined, derivation: { sourceAssetId: id, sourceMediaPath: path, sourceFormat: sourceFormat(path), sourceMime: mime(path), sourceSha256: path && files[path] ? createHash("sha256").update(files[path]).digest("hex") : undefined, semanticRole, status: semanticRole === "UNKNOWN" ? "REVIEW_REQUIRED" : "SOURCE" } }); content.push({ type: "figure", figureId: id, sourceLocation: location }); }
+    else { const rid = /r:(?:embed|id)="([^"]+)"/i.exec(raw)?.[1]; if (!rid || groupedIds.has(rid)) continue; const target = rels.get(rid); const path = target ? `word/${target.replace(/^\.\.\//, "")}` : undefined; const id = `figure-${rid}`; const extent = /<wp:extent\b[^>]*cx="(\d+)"[^>]*cy="(\d+)"/i.exec(xml); const semanticRole = classifyAssetRole(xml, path); const sourceDimensions = sourceFigureDimensions(xml, rid); const dimensions = extent ? { widthEmu: Number(extent[1]), heightEmu: Number(extent[2]) } : sourceDimensions; const needsReview = ["MATHTYPE_PREVIEW", "OLE_PREVIEW", "EQUATION_PREVIEW", "RASTER_MATH"].includes(semanticRole) && !dimensions; if (!figures.some((x) => x.id === id)) figures.push({ id, relationshipId: rid, mediaPath: path, mimeType: mime(path), bytes: path ? files[path] : undefined, sourceLocation: location, paragraphIndex, tableCell, semanticRole, dimensions, derivation: { sourceAssetId: id, sourceMediaPath: path, sourceFormat: sourceFormat(path), sourceMime: mime(path), sourceSha256: path && files[path] ? createHash("sha256").update(files[path]).digest("hex") : undefined, semanticRole, status: needsReview ? "REVIEW_REQUIRED" : semanticRole === "UNKNOWN" ? "REVIEW_REQUIRED" : "SOURCE", ...(needsReview ? { error: "LEGACY_MATH_LAYOUT_DIMENSIONS_MISSING" } : {}) } }); content.push({ type: "figure", figureId: id, sourceLocation: location }); }
   }
   if (canonicalVml) for (const group of groups) { const groupId = /\bid="([^"]+)"/i.exec(group[1])?.[1]; if (groupId) content.push({ type: "figure", figureId: `figure-composite-${groupId}`, sourceLocation: location }); }
   return content.reduce<ContentBlock[]>((result, block) => {

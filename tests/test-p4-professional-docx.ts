@@ -8,7 +8,7 @@ import { renderDocumentToDocx } from "../src/modules/document-export/docx/index.
 import { auditDocxPackage } from "../src/modules/document-export/docx/qa.js";
 import { parseDocx } from "../src/modules/question-bank/document.js";
 
-const outputDir = join(process.cwd(), "render_output", "core-rc1", "p4-human-v2");
+const outputDir = join(process.cwd(), "render_output", "core-rc1", "p4b");
 mkdirSync(outputDir, { recursive: true });
 const sources = [
   ["GOLDEN_02_NATIVE_MATH.docx", "tests/golden/docx/GOLDEN_02_NATIVE_MATH.docx"],

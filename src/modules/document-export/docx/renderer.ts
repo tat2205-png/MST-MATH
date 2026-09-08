@@ -71,6 +71,8 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
     if (!figure.bytes) continue;
     const extension = figure.mimeType === "image/svg+xml" ? "svg" : figure.mimeType === "image/png" ? "png" : figure.mimeType === "image/jpeg" ? "jpg" : figure.mimeType === "image/wmf" ? "wmf" : undefined;
     if (!extension) throw new DocxRenderError("DOCX_MEDIA_TYPE_UNSUPPORTED", `Unsupported DOCX media type: ${figure.mimeType ?? "unknown"}`);
+    const legacyMath = ["MATHTYPE_PREVIEW", "OLE_PREVIEW", "EQUATION_PREVIEW", "RASTER_MATH"].includes(figure.semanticRole ?? "");
+    if (legacyMath && (!figure.dimensions?.widthEmu || !figure.dimensions?.heightEmu)) throw new DocxRenderError("LEGACY_MATH_LAYOUT_REVIEW_REQUIRED", `Legacy math preview dimensions are not source-backed: ${figure.id}`);
     let widthEmu = figure.dimensions?.widthEmu ?? 4_572_000;
     let heightEmu = figure.dimensions?.heightEmu ?? 3_048_000;
     if (widthEmu <= 0 || heightEmu <= 0) throw new DocxRenderError("DOCX_FIGURE_DIMENSION_INVALID", `Invalid figure dimensions: ${figure.id}`);
