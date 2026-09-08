@@ -15,7 +15,7 @@ const encode = (value: string) => new TextEncoder().encode(value);
 const W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
 const R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
 interface MediaEntry { figure: FigureRecord; relationshipId: string; target: string; extension: string; contentType: string; widthEmu: number; heightEmu: number; }
-interface RenderContext { warnings: string[]; media: Map<string, MediaEntry>; skippedFigures: Set<string>; options: DocxRenderOptions; }
+interface RenderContext { warnings: string[]; media: Map<string, MediaEntry>; options: DocxRenderOptions; }
 
 function textRun(value: string, bold = false): string {
   const preserve = /^\s|\s$/.test(value) ? ' xml:space="preserve"' : "";
@@ -39,7 +39,6 @@ function contentXml(content: ContentBlock[], context: RenderContext): string {
     }
     if (item.type === "figure") {
       const entry = context.media.get(item.figureId);
-      if (!entry && context.skippedFigures.has(item.figureId)) return "";
       if (!entry) throw new DocxRenderError("DOCX_FIGURE_BYTES_MISSING", `Figure bytes are missing: ${item.figureId}`);
       if (entry.extension === "svg") context.warnings.push("WORD_SVG_RUNTIME_COMPATIBILITY_NOT_VERIFIED");
       return inlineFigure(entry, context.options);
@@ -68,11 +67,9 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
   const outputIdentity = options.outputIdentity ?? "learning_material";
   const layout = createWordLayoutMap();
   const media = new Map<string, MediaEntry>();
-  const skippedFigures = new Set(document.figures.filter((figure) => figure.semanticRole === "EQUATION_PREVIEW" || figure.mimeType === "image/wmf").map((figure) => figure.id));
   for (const [index, figure] of document.figures.entries()) {
-    if (skippedFigures.has(figure.id)) continue;
     if (!figure.bytes) continue;
-    const extension = figure.mimeType === "image/svg+xml" ? "svg" : figure.mimeType === "image/png" ? "png" : figure.mimeType === "image/jpeg" ? "jpg" : undefined;
+    const extension = figure.mimeType === "image/svg+xml" ? "svg" : figure.mimeType === "image/png" ? "png" : figure.mimeType === "image/jpeg" ? "jpg" : figure.mimeType === "image/wmf" ? "wmf" : undefined;
     if (!extension) throw new DocxRenderError("DOCX_MEDIA_TYPE_UNSUPPORTED", `Unsupported DOCX media type: ${figure.mimeType ?? "unknown"}`);
     let widthEmu = figure.dimensions?.widthEmu ?? 4_572_000;
     let heightEmu = figure.dimensions?.heightEmu ?? 3_048_000;
@@ -85,7 +82,7 @@ function packageParts(document: DocumentIR, options: DocxRenderOptions, warnings
     }
     media.set(figure.id, { figure, relationshipId: `rIdImage${index + 1}`, target: `media/figure-${index + 1}.${extension}`, extension, contentType: figure.mimeType!, widthEmu, heightEmu });
   }
-  const context: RenderContext = { warnings, media, skippedFigures, options };
+  const context: RenderContext = { warnings, media, options };
   const pageBreakIds = new Set(options.pageBreakAfterBlockIds ?? []);
   const body = document.blocks.map((block) => block.kind === "TABLE" ? table(block, context) : paragraph(block, context, pageBreakIds.has(block.id))).join("");
   const title = escapeXml(options.title ?? document.sourceDocument);

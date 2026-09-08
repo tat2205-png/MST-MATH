@@ -42,6 +42,7 @@ for (const [name, sourcePath] of sources) {
   assert.match(documentXml, /w:widowControl/);
   if (canonical.document.blocks.some((block) => block.content.some((item) => item.type === "math"))) assert.match(documentXml, /<m:oMath/);
   if (canonical.document.figures.length) assert.ok(Object.keys(parts).some((part) => part.startsWith("word/media/")));
+  if (canonical.document.figures.some((figure) => figure.mimeType === "image/wmf")) assert.ok(Object.keys(parts).some((part) => part.endsWith(".wmf")));
   assert.doesNotMatch(relsXml, /TargetMode="External"|Target="(?:https?:|file:)/i);
   for (const match of relsXml.matchAll(/Target="([^"]+)"/g)) if (match[1]!.startsWith("media/")) assert.ok(parts[`word/${match[1]}`]);
   const reopened = parseDocx(rendered.bytes, outputPath);
