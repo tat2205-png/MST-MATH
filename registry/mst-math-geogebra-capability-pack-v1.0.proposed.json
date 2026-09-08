@@ -1,0 +1,163 @@
+{
+  "id": "MST_MATH_GEOGEBRA_CAPABILITY_PACK_V1.0_PROPOSED",
+  "status": "PROPOSED",
+  "canonical": false,
+  "approved": false,
+  "humanApproved": false,
+  "owner": "MST_MATH",
+  "domain": "DYNAMIC_MATHEMATICS_GEOGEBRA_CAPABILITY",
+  "inherits": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
+  "architectureMode": "NON_DESTRUCTIVE_SIDECAR",
+  "purpose": "Convert reverse-engineered GeoGebra corpus knowledge into reusable MST-MATH capability assets without changing canonical source authority, semantic IR, content retrieval, or existing output pipelines.",
+  "coreInvariants": {
+    "canonicalSemanticIRUnchanged": true,
+    "questionBankAuthorityUnchanged": true,
+    "contentRetrievalUnchanged": true,
+    "existingPdfDocxHtmlOutputsRemainIndependent": true,
+    "geogebraArtifactsAreDerivedNotSourceOfTruth": true,
+    "geogebraQAIsNamespaced": true,
+    "noRawThirdPartyScriptExecution": true
+  },
+  "logicalAssets": {
+    "patternLibrary": {
+      "role": "CAPABILITY_REGISTRY",
+      "retrievalNamespace": "GEOGEBRA_CAPABILITY",
+      "mustNotSharePrimaryContentIndex": true,
+      "examples": [
+        "CONSTRAINT_PRESERVING_CONSTRUCTION",
+        "ANGLE_SECTOR_TRANSPORT",
+        "PRESERVE_SOURCE_ANIMATE_DERIVED_COPY",
+        "REGULAR_N_GON_CROSS_SECTION_PARITY_KERNEL",
+        "FUNCTION_DEFINED_CROSS_SECTION_SURFACE",
+        "NET_UNFOLD_FOLD_SEQUENCE",
+        "PROJECTIVE_VANISHING_POINT_GRAPH"
+      ]
+    },
+    "visualStyleSystem": {
+      "role": "RENDERER_PROFILE",
+      "semanticRoleFirst": true,
+      "mustNotLeakHexColorsIntoCanonicalMathIR": true,
+      "visualDimensions": [
+        "BACKGROUND",
+        "SEMANTIC_COLOR",
+        "FILL",
+        "OPACITY",
+        "STROKE",
+        "LINE_TYPE",
+        "POINT_SIZE",
+        "LABEL_PLACEMENT",
+        "GRID_AXES_POLICY",
+        "VIEW_LAYOUT"
+      ]
+    },
+    "constructionAnimationGrammar": {
+      "role": "GEOGEBRA_SPECIFIC_COMPILER_GRAMMAR",
+      "separateFromCanonicalMathIR": true,
+      "primitives": [
+        "POINT",
+        "POINT_ON_OBJECT",
+        "POINT_IN_REGION",
+        "LINE",
+        "RAY",
+        "SEGMENT",
+        "CIRCLE",
+        "ARC",
+        "SECTOR",
+        "POLYGON",
+        "PLANE",
+        "SURFACE",
+        "INTERSECTION",
+        "ROTATE",
+        "TRANSLATE",
+        "DILATE",
+        "MIRROR",
+        "SEQUENCE",
+        "PIECEWISE_STATE",
+        "CONDITIONAL_VISIBILITY",
+        "PARAMETER_SLIDER",
+        "TIMELINE_SLIDER",
+        "REASONING_SLIDER"
+      ]
+    },
+    "pedagogyAssessmentPatterns": {
+      "role": "DERIVED_LESSON_AND_ACTIVITY_TEMPLATES",
+      "generatedInstancesAreCanonicalQuestions": false,
+      "promotionRequires": ["MATH_QA", "PEDAGOGY_QA", "HUMAN_APPROVAL"],
+      "lessonFlow": ["OBSERVE", "NOTICE", "WONDER", "PREDICT", "MANIPULATE", "TEST", "CONJECTURE", "FORMALIZE", "PROVE", "APPLY"],
+      "assessmentModes": ["CONSTRUCTION", "DRAG_TO_TARGET", "OPEN_MIDDLE", "SHORT_RESPONSE", "INVERSE_TASK", "PARAMETRIC_GENERATOR", "INSTANT_FEEDBACK"]
+    },
+    "qaRules": {
+      "role": "NAMESPACED_GEOGEBRA_QA",
+      "mustNotBlockUnrequestedOutputs": true,
+      "checks": [
+        "MATH_CORRECT",
+        "CONSTRAINT_PRESERVED",
+        "DEGENERATE_STATE_SAFE",
+        "ORIENTATION_SAFE",
+        "SEMANTIC_COLOR_VALID",
+        "VISUAL_HIERARCHY_VALID",
+        "ANIMATION_MATHEMATICALLY_EXACT",
+        "STATE_RESETTABLE",
+        "NO_DEAD_CONSTRUCTION_BRANCH",
+        "NO_UNREACHABLE_STATE",
+        "DISPLAY_LABEL_SAFE",
+        "ACCESSIBILITY_NOT_COLOR_ONLY"
+      ]
+    }
+  },
+  "retrievalBoundary": {
+    "contentRetrieval": "CANONICAL_MATH_AND_CURRICULUM_CONTENT",
+    "capabilityRetrieval": "GEOGEBRA_PATTERN_VISUAL_PEDAGOGY_QA_REGISTRY",
+    "order": ["CONTENT_RETRIEVAL", "INTENT_PLANNING", "CAPABILITY_RETRIEVAL"],
+    "retrievalPollutionForbidden": true
+  },
+  "runtimeBoundary": {
+    "semanticInput": "CANONICAL_MATH_OR_DOCUMENT_IR",
+    "plannerOutput": "GEOGEBRA_CONSTRUCTION_IR",
+    "compilerOutput": ["GGB", "INTERACTIVE_HTML", "OPTIONAL_SNAPSHOT_ASSET"],
+    "staticRenderersMustNotRequireGeoGebraRuntime": true,
+    "externalCorpusPolicy": "PARSE_NORMALIZE_LEARN_PATTERN_REGENERATE_USING_WHITELISTED_GRAMMAR"
+  },
+  "topicTaxonomy": {
+    "core": [
+      "GEOMETRY_2D",
+      "GEOMETRY_3D",
+      "TRIGONOMETRY",
+      "PROBABILITY_STATISTICS",
+      "OXY_COORDINATE_GEOMETRY",
+      "OXYZ_COORDINATE_GEOMETRY",
+      "CONIC_SECTIONS",
+      "TRANSFORMATIONS",
+      "FOLD_UNFOLD_NETS",
+      "FUNCTION_GRAPHING",
+      "INEQUALITIES",
+      "OPTIMIZATION",
+      "TECHNICAL_DRAWING_PERSPECTIVE"
+    ],
+    "knttSpecialized": {
+      "grade10": [
+        "THREE_VARIABLE_LINEAR_SYSTEMS",
+        "MATHEMATICAL_INDUCTION_AND_BINOMIAL_THEOREM",
+        "CONIC_SECTIONS_AND_APPLICATIONS"
+      ],
+      "grade11": [
+        "PLANE_TRANSFORMATIONS",
+        "GRAPH_THEORY",
+        "TECHNICAL_DRAWING_ELEMENTS"
+      ],
+      "grade12": [
+        "DISCRETE_RANDOM_VARIABLES_AND_CHARACTERISTICS",
+        "OPTIMIZATION_LINEAR_PROGRAMMING_AND_CALCULUS",
+        "FINANCIAL_MATHEMATICS"
+      ]
+    }
+  },
+  "demoRollout": {
+    "featureFlagRequired": true,
+    "databaseMigrationRequired": false,
+    "registryStorage": "VERSIONED_JSON_OR_YAML_IN_GIT",
+    "representativeGoldenTestsRequiredBeforePromotion": true,
+    "promotionTarget": "SUCCESSOR_VERSION_ONLY",
+    "doNotModifyLockedCanonicalRegistries": true
+  }
+}
