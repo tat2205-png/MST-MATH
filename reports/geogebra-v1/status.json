@@ -1,0 +1,34 @@
+{
+  "spec": "MST-MATH GeoGebra Module Spec V1.0",
+  "implementation_status": "READY_FOR_TEACHER_REVIEW",
+  "head_sha": "5a6f1f12da7c080d4c5119f343ae3e8d064584cd",
+  "branch": "feat/mst-math-core-rc1-v1",
+  "goldens": { "GEO_GOLDEN_01_UNIT_CIRCLE": "PASS" },
+  "ggb_export": "PASS_NATIVE_CLASSIC_5_EXPRESSION_ENCODING",
+  "internal_package_reopen": "PASS",
+  "native_geogebra_classic_5_compatibility": "PASS",
+  "human_review_artifact": "render_output/geogebra-v1/GEO_GOLDEN_01_UNIT_CIRCLE.ggb",
+  "persistent_ggb_artifact": "PASS",
+  "dependency_validation": "PASS",
+  "interaction_validation": "PASS_CARDINAL_ANGLES_AND_NATIVE_SLIDER",
+  "word_pdf_regression": "NOT_RUN_SCOPE_UNCHANGED",
+  "human_visual_acceptance": "PENDING",
+  "capabilities": {
+    "unit_circle_2d": "SUPPORTED",
+    "unit_circle_angle_range": "0_DEG_TO_360_DEG",
+    "negative_or_multiple_turn_angles": "EXPERIMENTAL_DEFERRED",
+    "fold_v3": "SUPPORTED",
+    "other_v1_goldens": "EXPERIMENTAL"
+  },
+  "tests": [
+    "test-geogebra-unit-circle-rc1.ts",
+    "test-geogebra-fast-closeout.ts",
+    "test-geogebra-foundation.ts",
+    "test-geogebra-construction-ir.ts",
+    "test-geogebra-v3-adapter.ts",
+    "test-geometry-engine-v1.ts",
+    "npm run lint",
+    "npm run build"
+  ],
+  "blockers": ["Teacher must perform final visual and interaction review in GeoGebra Classic 5"]
+}
