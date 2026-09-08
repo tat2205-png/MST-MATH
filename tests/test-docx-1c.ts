@@ -17,7 +17,6 @@ assert.equal((xml.match(/<m:oMath>/g) ?? []).length, corpus.length);
 for (const structure of ["m:f", "m:rad", "m:sSup", "m:sSub", "m:acc"]) assert.match(xml, new RegExp(`<${structure}>`));
 for (const raw of ["⊥", "∥", "∈", "∉", "√", "∠", "⇒", "⇔", "≠", "≤", "≥", "∞"]) assert.doesNotMatch(xml, new RegExp(raw));
 for (const entity of ["&#x22A5;", "&#x2225;", "&#x2208;", "&#x2282;", "&#x2229;", "&#x222A;", "&#x21D2;", "&#x21D4;"]) assert.match(xml, new RegExp(entity.replace(/[&;#]/g, (x) => `\\${x}`)));
-assert.match(settings, /<m:mathFont m:val="Libertinus Math"\/>/);
-assert.doesNotMatch(settings, /Cambria Math/);
+assert.match(settings, /<m:mathFont m:val="Cambria Math"\/>/);
 assert.throws(() => renderDocumentToDocx({ ...document, blocks: [{ ...document.blocks[0], content: [{ type: "math", math: math("AB ⊥ CD", 99) }] }] }), /RAW_UNICODE_MATH/);
 console.log("OMML_PRESENT_QA=PASS\nOMML_STRUCTURE_QA=PASS\nEDITABLE_MATH_STRUCTURE_QA=PASS\nOMML_QA=PASS\nMATH_FONT_QA=PASS\nMATH_FONT_CONFIG_QA=PASS\nMATH_SYMBOL_QA=PASS\nRAW_UNICODE_MATH_QA=PASS\nWORD_RUNTIME_QA=NOT_AVAILABLE\nWORD_MATH_FONT_RUNTIME_WARNING");

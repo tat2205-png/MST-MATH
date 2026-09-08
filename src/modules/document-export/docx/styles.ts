@@ -4,6 +4,11 @@ import { escapeXml, xmlDocument } from "./xml.js";
 export type WordStyleRole = "title" | "subtitle" | "heading1" | "heading2" | "heading3" | "body" | "label" | "definition" | "example" | "remember" | "exercise" | "solution" | "figureCaption" | "table" | "header" | "footer";
 export interface WordStyleDefinition { id: string; name: string; font: string; color: string; basedOn?: string; bold?: boolean; italic?: boolean; sizeHalfPoints: number; }
 
+const WORD_BODY_FONT = "Aptos";
+const WORD_UI_FONT = "Aptos Display";
+const WORD_FALLBACK_FONT = "Arial";
+const BODY_COLOR = "202124";
+
 const roles: Array<[WordStyleRole, string, string, "body" | "ui", number, boolean?, boolean?]> = [
   ["title", "NATitle", "NA Title", "ui", 36, true], ["subtitle", "NASubtitle", "NA Subtitle", "ui", 24],
   ["heading1", "NAHeading1", "NA Heading 1", "ui", 30, true], ["heading2", "NAHeading2", "NA Heading 2", "ui", 26, true], ["heading3", "NAHeading3", "NA Heading 3", "ui", 24, true],
@@ -16,7 +21,7 @@ const roles: Array<[WordStyleRole, string, string, "body" | "ui", number, boolea
 export function createWordStyleMap(identity: NaMathOutputIdentity): Readonly<Record<WordStyleRole, WordStyleDefinition>> {
   const typography = NA_MATH_STANDARD_V2_6.typography;
   const primary = getNaMathOutputContract(identity).primary_accent.replace("#", "");
-  return Object.freeze(Object.fromEntries(roles.map(([role, id, name, fontRole, sizeHalfPoints, bold, italic]) => [role, Object.freeze({ id, name, font: fontRole === "body" ? typography.body : typography.ui, color: primary, basedOn: role === "body" ? undefined : "NABody", bold, italic, sizeHalfPoints })])) as Record<WordStyleRole, WordStyleDefinition>);
+  return Object.freeze(Object.fromEntries(roles.map(([role, id, name, fontRole, sizeHalfPoints, bold, italic]) => [role, Object.freeze({ id, name, font: fontRole === "body" ? WORD_BODY_FONT : WORD_UI_FONT, color: fontRole === "body" || role === "figureCaption" ? BODY_COLOR : primary, basedOn: role === "body" ? undefined : "NABody", bold, italic, sizeHalfPoints })])) as Record<WordStyleRole, WordStyleDefinition>);
 }
 
 function paragraphStyle(style: WordStyleDefinition): string {
@@ -28,7 +33,7 @@ function paragraphStyle(style: WordStyleDefinition): string {
 
 export function createWordStylesXml(identity: NaMathOutputIdentity): string {
   const map = createWordStyleMap(identity);
-  const defaults = `<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="${escapeXml(NA_MATH_STANDARD_V2_6.typography.body)}" w:hAnsi="${escapeXml(NA_MATH_STANDARD_V2_6.typography.body)}" w:eastAsia="${escapeXml(NA_MATH_STANDARD_V2_6.typography.fallback_vi_serif)}"/></w:rPr></w:rPrDefault></w:docDefaults>`;
+  const defaults = `<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="${WORD_BODY_FONT}" w:hAnsi="${WORD_BODY_FONT}" w:eastAsia="${WORD_FALLBACK_FONT}" w:cs="${WORD_FALLBACK_FONT}"/></w:rPr></w:rPrDefault></w:docDefaults>`;
   const table = `<w:style w:type="table" w:styleId="NATable"><w:name w:val="NA Table"/><w:tblPr><w:tblBorders><w:top w:val="single" w:sz="4" w:color="${map.table.color}"/><w:left w:val="single" w:sz="4" w:color="${map.table.color}"/><w:bottom w:val="single" w:sz="4" w:color="${map.table.color}"/><w:right w:val="single" w:sz="4" w:color="${map.table.color}"/><w:insideH w:val="single" w:sz="4" w:color="${map.table.color}"/><w:insideV w:val="single" w:sz="4" w:color="${map.table.color}"/></w:tblBorders></w:tblPr></w:style>`;
   return xmlDocument(`<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">${defaults}${Object.values(map).map(paragraphStyle).join("")}${table}</w:styles>`);
 }

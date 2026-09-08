@@ -98,5 +98,5 @@ export function serializeMathNodeToOmml(node: MathNode): string {
   if (!source) throw new DocxRenderError("MATH_SOURCE_UNRESOLVED", `Math source is unresolved at ${node.sourceLocation}.`);
   const validation = NA_MATH_STANDARD_V2_6.validateMathSource(source);
   if (validation.status !== "PASS") throw new DocxRenderError(validation.status, validation.reasons.join("; "));
-  return `<m:oMath><m:oMathPr><m:ctrlPr><w:rPr><w:rFonts w:ascii="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}" w:hAnsi="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></w:rPr></m:ctrlPr></m:oMathPr>${new OmmlParser(tokenize(source)).parse()}</m:oMath>`;
+  return `<m:oMath><m:oMathPr><m:mathFont m:val="Cambria Math"/><m:ctrlPr><w:rPr><w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/></w:rPr></m:ctrlPr></m:oMathPr>${new OmmlParser(tokenize(source)).parse()}</m:oMath>`;
 }

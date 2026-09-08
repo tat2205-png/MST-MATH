@@ -11,13 +11,13 @@ for (const identity of identities) {
   const map = createWordStyleMap(identity);
   const parts = unzipSync(renderDocumentToDocx(document, { outputIdentity: identity }).bytes);
   const styles = new TextDecoder().decode(parts["word/styles.xml"]);
-  assert.equal(map.body.font, NA_MATH_STANDARD_V2_6.typography.body);
-  assert.equal(map.heading1.font, NA_MATH_STANDARD_V2_6.typography.ui);
-  assert.equal(map.body.color, expected[identity]);
+  assert.equal(map.body.font, "Aptos");
+  assert.equal(map.heading1.font, "Aptos Display");
+  assert.equal(map.body.color, "202124");
   for (const role of ["NATitle", "NASubtitle", "NAHeading1", "NAHeading2", "NAHeading3", "NABody", "NALabel", "NADefinition", "NAExample", "NARemember", "NAExercise", "NASolution", "NAFigureCaption", "NATable", "NAHeader", "NAFooter"]) assert.match(styles, new RegExp(`w:styleId="${role}"`));
-  assert.match(styles, new RegExp(`w:ascii="${NA_MATH_STANDARD_V2_6.typography.body}"`));
-  assert.match(styles, new RegExp(`w:ascii="${NA_MATH_STANDARD_V2_6.typography.ui}"`));
-  assert.match(styles, new RegExp(`w:color w:val="${expected[identity]}"`));
-  assert.doesNotMatch(styles, /Cambria|Times New Roman|Calibri/);
+  assert.match(styles, /w:ascii="Aptos"/);
+  assert.match(styles, /w:ascii="Aptos Display"/);
+  assert.match(styles, /w:color w:val="202124"/);
+  assert.doesNotMatch(styles, /Libertinus|Times New Roman/);
 }
 console.log("DOCX_STYLE_QA=PASS\nBODY_FONT_QA=PASS\nUI_FONT_QA=PASS\nFONT_MAPPING_QA=PASS\nCOLOR_TOKEN_QA=PASS\nCOLOR_MAPPING_QA=PASS\nSTYLE_REFERENCE_QA=PASS\nNO_DUPLICATE_CANONICAL_TOKEN_QA=PASS");

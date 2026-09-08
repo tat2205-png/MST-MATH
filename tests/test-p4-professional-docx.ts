@@ -8,12 +8,13 @@ import { renderDocumentToDocx } from "../src/modules/document-export/docx/index.
 import { auditDocxPackage } from "../src/modules/document-export/docx/qa.js";
 import { parseDocx } from "../src/modules/question-bank/document.js";
 
-const outputDir = join(process.cwd(), "render_output", "core-rc1", "p4");
+const outputDir = join(process.cwd(), "render_output", "core-rc1", "p4-human-v2");
 mkdirSync(outputDir, { recursive: true });
 const sources = [
   ["GOLDEN_02_NATIVE_MATH.docx", "tests/golden/docx/GOLDEN_02_NATIVE_MATH.docx"],
   ["GOLDEN_03_GEOMETRY_SVG.docx", "tests/golden/docx/GOLDEN_03_GEOMETRY_SVG.docx"],
   ["GOLDEN_04_LAYOUT_PAGINATION.docx", "tests/golden/docx/GOLDEN_04_LAYOUT_PAGINATION.docx"],
+  ["REAL_MULTI_PAGE.docx", "D:/math-ai-video-studio/NA-MATH-QUESTION-BANK/acceptance/Ha Tinh. Chuyen Toan 2025.docx"],
 ] as const;
 let mathSeen = false;
 let figureSeen = false;
@@ -37,6 +38,7 @@ for (const [name, sourcePath] of sources) {
   assert.match(documentXml, /w:pgSz w:w="11906" w:h="16838"/);
   assert.match(documentXml, /w:pgMar/);
   if (canonical.document.blocks.some((block) => block.kind === "SECTION" || block.content.some((item) => item.type === "figure"))) assert.match(documentXml, /w:keepNext/);
+  if (canonical.document.blocks.some((block) => block.style === "NAFigureCaption")) assert.match(documentXml, /w:spacing w:before="0" w:after="40"/);
   assert.match(documentXml, /w:widowControl/);
   if (canonical.document.blocks.some((block) => block.content.some((item) => item.type === "math"))) assert.match(documentXml, /<m:oMath/);
   if (canonical.document.figures.length) assert.ok(Object.keys(parts).some((part) => part.startsWith("word/media/")));
@@ -51,6 +53,11 @@ for (const [name, sourcePath] of sources) {
   assert.equal(createHash("sha256").update(readFileSync(sourcePath)).digest("hex"), sourceHash);
   const repeat = renderDocumentToDocx(canonical.document, { profileId: "P01_LEARNING_MATERIAL", outputIdentity: "learning_material", title: name, creator: "MST-MATH", generatedAt: new Date(0) });
   assert.equal(auditDocxPackage(repeat.bytes).semanticFingerprint, audit.semanticFingerprint);
+  if (name === "REAL_MULTI_PAGE.docx") {
+    assert.ok(canonical.document.blocks.length >= 100);
+    assert.ok(documentXml.match(/<w:p[ >]/g)?.length! >= 100);
+    console.log("REAL_MULTI_PAGE_COUNT=2_PLUS_WORD_LAYOUT_REQUIRED");
+  }
   console.log(`P4_OUTPUT=${outputPath}`);
 }
 assert.equal(mathSeen, true);
