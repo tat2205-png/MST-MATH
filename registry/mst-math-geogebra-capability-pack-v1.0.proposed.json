@@ -8,7 +8,7 @@
   "domain": "DYNAMIC_MATHEMATICS_GEOGEBRA_CAPABILITY",
   "inherits": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
   "architectureMode": "NON_DESTRUCTIVE_SIDECAR",
-  "purpose": "Convert reverse-engineered GeoGebra corpus knowledge into reusable MST-MATH capability assets without changing canonical source authority, semantic IR, content retrieval, or existing output pipelines.",
+  "purpose": "Convert reverse-engineered GeoGebra corpus knowledge into reusable dynamic 2D/3D GeoGebra capability assets without changing canonical source authority, semantic IR, content retrieval, or Word/PDF/static-renderer output pipelines.",
   "coreInvariants": {
     "canonicalSemanticIRUnchanged": true,
     "questionBankAuthorityUnchanged": true,
@@ -16,7 +16,10 @@
     "existingPdfDocxHtmlOutputsRemainIndependent": true,
     "geogebraArtifactsAreDerivedNotSourceOfTruth": true,
     "geogebraQAIsNamespaced": true,
-    "noRawThirdPartyScriptExecution": true
+    "noRawThirdPartyScriptExecution": true,
+    "geogebraOnlyForDynamicInteractive2D3D": true,
+    "geogebraNotAWordPdfStaticRendererPipeline": true,
+    "noGeogebraSnapshotAsStaticOutput": true
   },
   "logicalAssets": {
     "patternLibrary": {
@@ -112,12 +115,36 @@
     "retrievalPollutionForbidden": true
   },
   "runtimeBoundary": {
-    "semanticInput": "CANONICAL_MATH_OR_DOCUMENT_IR",
+    "initialStandaloneInput": "TEACHER_REQUEST_WITH_VERIFIED_CORPUS_EVIDENCE",
+    "corpusEvidenceRequiredForGoldenCase": true,
+    "semanticInput": "CANONICAL_MATH_OR_DOCUMENT_IR_ONLY_AFTER_ADAPTER_INTEGRATION",
     "plannerOutput": "GEOGEBRA_CONSTRUCTION_IR",
-    "compilerOutput": ["GGB", "INTERACTIVE_HTML", "OPTIONAL_SNAPSHOT_ASSET"],
+    "compilerOutput": ["GGB", "INTERACTIVE_HTML"],
+    "deploymentOrder": [
+      "TEACHER_REQUEST_WITH_VERIFIED_CORPUS_EVIDENCE",
+      "CORPUS_BACKED_CAPABILITY",
+      "GEOGEBRA_CONSTRUCTION_IR",
+      "GEOGEBRA_RUNTIME_COMPILER",
+      "REAL_GGB_EXPORT_REOPEN",
+      "GEOGEBRA_SPECIFIC_QA",
+      "HUMAN_ACCEPTANCE",
+      "STANDALONE_USABLE",
+      "MST_MATH_ADAPTER_CONTRACT_INTEGRATION"
+    ],
+    "staticRendererImageOutputForbidden": true,
     "staticRenderersMustNotRequireGeoGebraRuntime": true,
     "externalCorpusPolicy": "PARSE_NORMALIZE_LEARN_PATTERN_REGENERATE_USING_WHITELISTED_GRAMMAR"
   },
+  "corpusFidelityRules": {
+    "GEO-PATTERN-AUTHORITY-001": "A suitable corpus pattern is authoritative for construction and recorded semantics.",
+    "GEO-NO-IMPROVISATION-001": "When a suitable corpus pattern exists, do not replace it with a different construction unless there is explicit justification and human approval. When a golden case lacks its corpus artifact, status is BLOCKED \u2014 NEEDS CORPUS EVIDENCE.",
+    "GEO-CORPUS-FIDELITY-001": "Reproduce construction, dependency, interaction, helper visibility, visual semantics, viewport, and pedagogy.",
+    "GEO-VISUAL-AUTHORITY-001": "Corpus-backed visual semantics and viewport govern; mathematical equivalence alone does not permit substitution."
+  },
+  "promotionGates": [
+    "GEO-P1 Reference Match", "GEO-P2 Construction", "GEO-P3 Dependency", "GEO-P4 Helper Visibility", "GEO-P5 Interaction", "GEO-P6 Color/Fill", "GEO-P7 Line/Point Style", "GEO-P8 Labels", "GEO-P9 Viewport/Background", "GEO-P10 Pedagogy", "GEO-P11 Native GeoGebra Compatibility"
+  ],
+  "missingCorpusArtifactStatus": "BLOCKED \u2014 NEEDS CORPUS EVIDENCE",
   "topicTaxonomy": {
     "core": [
       "GEOMETRY_2D",

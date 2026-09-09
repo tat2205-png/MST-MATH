@@ -6,22 +6,25 @@ This proposal converts the reverse-engineered GeoGebra corpus into reusable MST-
 
 ## 1. Architectural decision
 
-GeoGebra remains a renderer / interaction capability beneath canonical semantic authority. It does **not** become a new source of truth, a new primary retrieval store, or a gateway required by PDF/DOCX/HTML outputs.
+GeoGebra is limited to dynamic and interactive 2D/3D mathematics: sliders, dragging, animation, exploration, applets, `.ggb` files, and interactive HTML where appropriate. It does **not** become a new source of truth, a new primary retrieval store, or a gateway for Word/PDF/static-renderer output.
 
 ```text
-INPUT
-  -> Extraction / Normalization
-  -> Canonical Math / Question / Document IR
-  -> Intent Planner
-       |-> Existing static outputs: PDF / DOCX / HTML / Slides
-       `-> Dynamic-math intent
-            -> GeoGebra capability retrieval
-            -> GeoGebra planner
-            -> GeoGebra Construction IR
-            -> GeoGebra compiler/runtime
-            -> GeoGebra-specific QA
-            -> .ggb / interactive HTML / optional snapshots
+STANDALONE GEOGEBRA
+  Teacher request + verified corpus evidence
+  -> corpus-backed capability
+  -> GeoGebra Construction IR
+  -> GeoGebra runtime/compiler
+  -> real .ggb export/reopen
+  -> GeoGebra-specific QA
+  -> human acceptance
+
+LATER MST-MATH INTEGRATION
+  Canonical semantic request
+  -> GeoGebra adapter/contract
+  -> accepted standalone GeoGebra capability
 ```
+
+The initial standalone module does not require Canonical Math IR or Document IR. Integration adapters are a later phase.
 
 ## 2. Relationship with current canonical GeoGebra authority
 
@@ -166,9 +169,8 @@ Do not put GeoGebra pattern documents in the same primary retrieval namespace as
 - GeoGebra compiler/runtime;
 - `.ggb` output;
 - interactive HTML output;
-- optional GeoGebra-rendered SVG/PNG snapshots for static renderers.
 
-Static renderers must not require GeoGebra runtime availability.
+GeoGebra is not a Word/PDF/static-renderer image-generation pipeline. GeoGebra snapshots must not be used as outputs for Word, PDF, or static renderers.
 
 ## 6. Corpus ingestion policy
 
@@ -255,7 +257,10 @@ For every unique construction, record:
 - synchronized multiple views;
 - before/after or proof-timeline layout.
 
-The goal is to learn a visual grammar, not copy each applet's palette verbatim.
+When a corpus pattern is confirmed, its complete visual semantics are authoritative. Preserve its
+color, background, fill/opacity, line weight/type, point size/style, labels, axes/grid,
+viewport/camera, control placement, helper visibility, and pedagogical layout. Do not substitute an
+equivalent or generalized style unless there is explicit justification and human approval.
 
 ## 9. Folding / flattening / technical construction focus
 
@@ -271,7 +276,34 @@ Maintain a dedicated pattern family for:
 - visible/hidden line hierarchy;
 - orthographic and technical drawing layouts.
 
-## 10. Pre-demo rollout
+## 10. Corpus fidelity rules
+
+- **GEO-PATTERN-AUTHORITY-001:** When a suitable corpus pattern exists, that pattern is authoritative for the construction and its recorded semantics.
+- **GEO-NO-IMPROVISATION-001:** When a suitable corpus pattern exists, do not replace it with a
+different construction unless there is explicit justification and human approval. When a golden
+case lacks its corpus artifact, the case is **BLOCKED — NEEDS CORPUS EVIDENCE**.
+- **GEO-CORPUS-FIDELITY-001:** Reproduce construction, dependency, interaction, helper visibility, visual semantics, viewport, and pedagogy—not merely an equivalent mathematical result.
+- **GEO-VISUAL-AUTHORITY-001:** Corpus-backed visual semantics, viewport, and presentation behavior govern; mathematical correctness alone does not authorize a visual substitution.
+
+If a golden case lacks the required corpus artifact, its status is **BLOCKED — NEEDS CORPUS EVIDENCE**.
+
+## 11. GeoGebra promotion gates
+
+Every corpus-backed golden case must pass:
+
+- GEO-P1 Reference Match
+- GEO-P2 Construction
+- GEO-P3 Dependency
+- GEO-P4 Helper Visibility
+- GEO-P5 Interaction
+- GEO-P6 Color/Fill
+- GEO-P7 Line/Point Style
+- GEO-P8 Labels
+- GEO-P9 Viewport/Background
+- GEO-P10 Pedagogy
+- GEO-P11 Native GeoGebra Compatibility
+
+## 12. Pre-demo rollout
 
 For the demo, use a feature flag and Git-versioned registry. Do not require a database migration solely for the corpus registry.
 
@@ -290,7 +322,7 @@ Recommended demo representative golden set:
 
 Promotion requires representative Math QA, interaction QA, visual QA, deterministic reopen/export evidence, and human acceptance.
 
-## 11. Non-goals for V1
+## 13. Non-goals for V1
 
 - no rewrite of canonical Math IR;
 - no replacement of existing GeoGebra runtime boundaries;
@@ -299,7 +331,7 @@ Promotion requires representative Math QA, interaction QA, visual QA, determinis
 - no direct execution of raw third-party scripts;
 - no modification of currently locked canonical registries.
 
-## 12. Decision
+## 14. Decision
 
 Proceed as a **sidecar capability successor proposal**. Keep the five logical assets but implement them primarily as two architectural components:
 
