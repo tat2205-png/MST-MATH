@@ -333,3 +333,13 @@ MST-07 canonical project rules override all third-party agent skills. Matt Pococ
 Third-party skills MUST NOT redefine MST-07 architecture; replace an approved corpus construction with another technically valid construction; alter dependency behavior, helper visibility, interaction behavior, visual semantics, viewport/background, or pedagogy; weaken acceptance gates; modify golden assets merely to make tests pass; or refactor unrelated code.
 
 A technically valid GeoGebra construction is NOT sufficient if it violates the approved MST-07 corpus/golden pattern.
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked as local markdown under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+This is a single-context repository. See `docs/agents/domain.md`.
