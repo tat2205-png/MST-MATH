@@ -1,9 +1,9 @@
 # MST-07 — G0.5 Corrective Full Learned Corpus Audit
 
-REPOSITORY=`D:\MST-MATH-MODULES\MST-07-GEOGEBRA-FOLD-AUDIT`  
-BRANCH=`audit/mst07-fold-corpus-authority-v1`  
-BASELINE_SHA=`afbf7256a3f89e7320a1fab6251ef85d42dfcba0`  
-CORPUS_ROOT=`D:\GEOGEBRA CHO AI HỌC`  
+REPOSITORY=`D:\MST-MATH-MODULES\MST-07-GEOGEBRA-FOLD-AUDIT`
+BRANCH=`audit/mst07-fold-corpus-authority-v1`
+BASELINE_SHA=`afbf7256a3f89e7320a1fab6251ef85d42dfcba0`
+CORPUS_ROOT=`D:\GEOGEBRA CHO AI HỌC`
 GOLDEN_USED=`NONE`
 
 ## Corpus coverage
@@ -12,10 +12,10 @@ GOLDEN_USED=`NONE`
 
 Deduplication used container SHA-256, decoded/native `.ggb` SHA-256, and whitespace-normalized `geogebra.xml` SHA-256:
 
-`UNIQUE_CONTAINER_HASHES=221`  
-`UNIQUE_CONSTRUCTION_XML_HASHES=191`  
-`GGBBASE64_DISCOVERED=193`  
-`ARCHIVES_OPENED=235`  
+`UNIQUE_CONTAINER_HASHES=221`
+`UNIQUE_CONSTRUCTION_XML_HASHES=191`
+`GGBBASE64_DISCOVERED=193`
+`ARCHIVES_OPENED=235`
 `NESTED_ARCHIVES=none observed`
 
 This is `FULL_CORPUS_COVERAGE=PASS` for static extraction. It is not native-runtime validation.
@@ -28,8 +28,8 @@ This is `FULL_CORPUS_COVERAGE=PASS` for static extraction. It is not native-runt
 
 Static classification counts: `RECTANGULAR_PRISM_CANDIDATES=8 partial candidates; 0 strict six-rectangle authorities`, `CUBE=2`, `PRISM=8`, `FOLD_UNFOLD=30`, `NET=12`, `HINGE_ROTATION=30`, `OTHER_FOLDING=22`. A `Rotate` or slider alone was never treated as proof of a rectangular-prism fold.
 
-`BEST_CANDIDATE=135.ggb`  
-`BEST_CANDIDATE_SHA256=12b8ae406b74b7cc56c8ff0d567bfae8a6b5ede446df736065c26626c209dfbd`  
+`BEST_CANDIDATE=135.ggb`
+`BEST_CANDIDATE_SHA256=12b8ae406b74b7cc56c8ff0d567bfae8a6b5ede446df736065c26626c209dfbd`
 `CLASSIFICATION=ADOPT_PARTIALLY`
 
 Its XML has `Prism[E,A,D,B,C]` with six named face outputs and `Net[d,openclose]`. This is the strongest direct prism/net evidence, but static XML does not fully prove that all six faces are rectangles with valid adjacency, a hinge axis, or dynamic fold states.
@@ -65,20 +65,20 @@ Its XML has `Prism[E,A,D,B,C]` with six named face outputs and `Net[d,openclose]
 
 ## Final report
 
-`PHYSICAL_SOURCE_FILES=235`  
-`ARCHIVES_OPENED=235`  
-`APPLET_INSTANCES_DISCOVERED=223`  
-`GGBBASE64_DISCOVERED=193`  
-`NATIVE_GGB_DISCOVERED=222`  
-`UNIQUE_CONTAINER_HASHES=221`  
-`UNIQUE_CONSTRUCTION_XML_HASHES=191`  
-`RECTANGULAR_PRISM_CANDIDATES=8 partial; 0 strict authority`  
-`TOP_10_CANDIDATES=10`  
-`89_GGB_CORRECTION_STATUS=curved-panel folding; rectangular-prism authority REJECT`  
+`PHYSICAL_SOURCE_FILES=235`
+`ARCHIVES_OPENED=235`
+`APPLET_INSTANCES_DISCOVERED=223`
+`GGBBASE64_DISCOVERED=193`
+`NATIVE_GGB_DISCOVERED=222`
+`UNIQUE_CONTAINER_HASHES=221`
+`UNIQUE_CONSTRUCTION_XML_HASHES=191`
+`RECTANGULAR_PRISM_CANDIDATES=8 partial; 0 strict authority`
+`TOP_10_CANDIDATES=10`
+`89_GGB_CORRECTION_STATUS=curved-panel folding; rectangular-prism authority REJECT`
 `FULL_CORPUS_COVERAGE=PASS`
 
-`JSON_PARSE_STATUS=PASS` · `DIFF_CHECK=PASS` · `FORBIDDEN_CHANGE_CHECK=PASS`  
-`NATIVE_REOPEN_STATUS=NOT_RUN — NEEDS_NATIVE_RUNTIME` · `PASS_FAIL_BLOCKED=BLOCKED`  
+`JSON_PARSE_STATUS=PASS` · `DIFF_CHECK=PASS` · `FORBIDDEN_CHANGE_CHECK=PASS`
+`NATIVE_REOPEN_STATUS=NOT_RUN — NEEDS_NATIVE_RUNTIME` · `PASS_FAIL_BLOCKED=BLOCKED`
 `COMMIT_STATUS=NOT_COMMITTED` · `PUSH_STATUS=NOT_PUSHED`
 
 No `.ggb` was created, no G1 specification was written, and no implementation was performed. Only the two existing reports were updated.

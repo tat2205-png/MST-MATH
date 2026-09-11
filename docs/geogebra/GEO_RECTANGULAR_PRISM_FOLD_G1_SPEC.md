@@ -1,7 +1,7 @@
 # MST-07 — Rectangular Prism Fold G1 Specification
 
-Status: `G1_DESIGN_ONLY`  
-Decision: `APPROVE_HYBRID_G1_PATTERN`  
+Status: `G1_DESIGN_ONLY`
+Decision: `APPROVE_HYBRID_G1_PATTERN`
 Implementation: `NOT_STARTED`
 
 This document is a design specification only. It creates no `.ggb`, does not change the corpus, and does not replace Canonical Document/Question/Math/Figure IR. Mathematical truth belongs to the canonical Math IR and Geometry Engine; GeoGebra is a non-authoritative interactive output adapter.
