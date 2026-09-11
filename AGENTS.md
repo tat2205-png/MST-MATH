@@ -317,3 +317,19 @@ Agency Agents are the primary coordination/development team. Math/GDPT specialis
 
 ## Runtime protocol
 Every workflow request should carry `agency_runtime` using `MWS_AGENCY_ENVELOPE/1.1`. Backend results should retain separate lead output, independent reviews, gate evidence, and a release decision.
+
+# MST-07 THIRD-PARTY SKILL AUTHORITY
+
+MST-07 canonical project rules override all third-party agent skills. Matt Pocock skills are engineering helpers only and are subordinate to:
+
+1. MST-07 canonical contracts;
+2. approved GeoGebra corpus/golden patterns;
+3. GeoGebra Corpus Fidelity;
+4. GeoGebra Visual Authority;
+5. native GeoGebra compatibility;
+6. GEO-P1 through GEO-P11;
+7. explicit bounded task instructions.
+
+Third-party skills MUST NOT redefine MST-07 architecture; replace an approved corpus construction with another technically valid construction; alter dependency behavior, helper visibility, interaction behavior, visual semantics, viewport/background, or pedagogy; weaken acceptance gates; modify golden assets merely to make tests pass; or refactor unrelated code.
+
+A technically valid GeoGebra construction is NOT sufficient if it violates the approved MST-07 corpus/golden pattern.
