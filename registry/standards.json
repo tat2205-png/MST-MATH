@@ -9,21 +9,31 @@
     },
     {
       "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.0",
-      "status": "LOCKED",
-      "canonical": true,
+      "status": "LOCKED_HISTORY",
+      "canonical": false,
       "approved": true,
       "path": "registry/pimath-dna-global-baseline-v1.0.json",
       "root": "PIMATH-DNA-V1.0"
     },
     {
       "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.1",
-      "status": "LOCKED",
-      "canonical": true,
+      "status": "LOCKED_HISTORY",
+      "canonical": false,
       "approved": true,
       "humanApproved": true,
       "path": "registry/pimath-dna-global-baseline-v1.1.json",
       "root": "PIMATH-DNA-V1.0",
       "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.0"
+    },
+    {
+      "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.2",
+      "status": "LOCKED_CANONICAL_GLOBAL",
+      "canonical": true,
+      "approved": true,
+      "humanApproved": true,
+      "path": "registry/pimath-dna-global-baseline-v1.2.json",
+      "root": "PIMATH-DNA-V1.0",
+      "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.1"
     },
     {
       "id": "PIMATH-DNA-SEMANTIC-ICONS-V2.0",
