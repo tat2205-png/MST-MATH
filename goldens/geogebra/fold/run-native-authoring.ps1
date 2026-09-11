@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([switch]$Launch)
+param([switch]$Launch, [string]$Block)
 $ErrorActionPreference='Stop'
 $repo = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
 $expected='D:\MST-MATH-MODULES\MST-07-GEOGEBRA-FOLD-GOLDEN-V1'
@@ -13,11 +13,16 @@ $target=Join-Path $repo 'goldens\geogebra\fold\rectangular-prism-fold-golden-v1.
 if(Test-Path $target){ throw "Refusing to overwrite existing .ggb: $target" }
 $commandText=Get-Content -Raw (Join-Path $PSScriptRoot 'rectangular-prism-fold-golden-v1.commands.txt')
 $blocks=[regex]::Matches($commandText,'(?ms)^\[(\d{2}_[^\]]+)\]\r?\n(.*?)(?=^\[\d{2}_[^\]]+\]|\z)')
-foreach($block in $blocks){
-  $body=$block.Groups[2].Value.Trim()
-  if($body -match '(?m)^\s*#|Configure in Properties'){ throw "Rejected instructional content in executable block [$($block.Groups[1].Value)]" }
+$selectedBlocks = $blocks
+if($Block){
+  $selectedBlocks = @($blocks | Where-Object { $_.Groups[1].Value -eq $Block })
+  if($selectedBlocks.Count -ne 1){ throw "Unknown block: $Block" }
+}
+foreach($blockMatch in $selectedBlocks){
+  $body=$blockMatch.Groups[2].Value.Trim()
+  if($body -match '(?m)^\s*#|Configure in Properties'){ throw "Rejected instructional content in executable block [$($blockMatch.Groups[1].Value)]" }
   Set-Clipboard -Value $body
-  Write-Host "READY BLOCK [$($block.Groups[1].Value)]: copied to clipboard; execute before continuing."
+  Write-Host "READY BLOCK [$($blockMatch.Groups[1].Value)]: copied to clipboard; execute before continuing."
   if($Host.Name -notmatch 'ConsoleHost'){ break }
 }
 Write-Host 'MANUAL GATE (exactly one native property action): btnReset -> Properties -> Scripting -> On Click:'
