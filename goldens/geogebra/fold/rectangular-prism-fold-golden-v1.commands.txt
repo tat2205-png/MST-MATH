@@ -1,0 +1,114 @@
+# MST-07 GOLDEN_RECTANGULAR_PRISM_FOLD — GeoGebra Classic 5.4 command blocks
+# Execute each block in order in the GeoGebra input bar. One line = one command.
+# Save as: rectangular-prism-fold-golden-v1.ggb
+
+[01_PARAMETERS]
+L=6
+W=4
+H=3
+t=0
+S(x)=x^2*(3-2*x)
+theta1=If(t<=0.35,0,If(t<=0.85,pi/2*S((t-0.35)/0.50),pi/2))
+theta2=If(t<=0.35,0,If(t<=0.85,pi/2*S((t-0.35)/0.50),pi/2))
+theta3=If(t<=0.35,0,If(t<=0.85,pi/2*S((t-0.35)/0.50),pi/2))
+theta4=If(t<=0.35,0,If(t<=0.85,pi/2*S((t-0.35)/0.50),pi/2))
+theta5=If(t<=0.85,0,pi/2*S((t-0.85)/0.15))
+
+[02_ROOT_AND_NET]
+A=(0,0,0)
+B=(L,0,0)
+C=(L,W,0)
+D=(0,W,0)
+A1=(0,-H,0)
+B1=(L,-H,0)
+C1=(L,W+H,0)
+D1=(0,W+H,0)
+A2=(0,-H-L,0)
+B2=(L,-H-L,0)
+F0=Polygon(A,B,C,D)
+F1net=Polygon(A,B,B1,A1)
+F2net=Polygon(B,C,C1,B1)
+F3net=Polygon(C,D,D1,C1)
+F4net=Polygon(D,A,A1,D1)
+F5net=Polygon(A1,B1,B2,A2)
+
+[03_TRANSFORMS]
+H01=Line(A,B)
+H02=Line(B,C)
+H03=Line(C,D)
+H04=Line(D,A)
+F1=Rotate(F1net,theta1,H01)
+F2=Rotate(F2net,theta2,H02)
+F3=Rotate(F3net,theta3,H03)
+F4=Rotate(F4net,theta4,H04)
+A1t=Rotate(A1,theta1,H01)
+B1t=Rotate(B1,theta1,H01)
+H15=Line(A1t,B1t)
+A2t=A1t+(A2-A1)
+B2t=B1t+(B2-B1)
+F5local=Polygon(A1t,B1t,B2t,A2t)
+F5=Rotate(F5local,theta5,H15)
+
+[04_HINGE_GUIDES]
+H01guide=Segment(A,B)
+H02guide=Segment(B,C)
+H03guide=Segment(C,D)
+H04guide=Segment(D,A)
+H15guide=Segment(A1t,B1t)
+
+[05_LABELS]
+LabelF0=Text("F0",(L/2,W/2,0))
+LabelF1=Text("F1",(L/2,-H/2,0))
+LabelF2=Text("F2",(L,W/2,0))
+LabelF3=Text("F3",(L/2,W+H/2,0))
+LabelF4=Text("F4",(-0.5,W/2,0))
+LabelF5=Text("F5",(L/2,-H-L/2,0))
+LabelTitle=Text("MST-07 | Gấp/trải phẳng hình hộp chữ nhật",(-2,W+H+2,0))
+LabelT=Text("t = "+Round(t,2),(-2,W+H+1,0))
+
+[06_METADATA]
+MetaModule=Text("module=MST-07",(-2,W+H+0.5,0))
+MetaGolden=Text("goldenId=GOLDEN_RECTANGULAR_PRISM_FOLD",(-2,W+H,0))
+MetaAuthority=Text("authority=135.ggb partial; NEW_TEACHER_APPROVED_PATTERN",(-2,W+H-0.5,0))
+MetaStatus=Text("prototype=G1.0.0; teacherApproval=pending",(-2,W+H-1,0))
+
+[07_STAGE_AND_RESET]
+stage=If(t<=0.20,0,If(t<=0.35,1,If(t<1,2,3)))
+showHelpers=Checkbox("Show helpers")
+showHinges=stage>=1
+btnReset=Button("Reset")
+
+[08_STYLES]
+SetColor(F0,"#4F81BD")
+SetColor(F1,"#70AD47")
+SetColor(F2,"#ED7D31")
+SetColor(F3,"#A5A5A5")
+SetColor(F4,"#FFC000")
+SetColor(F5,"#4472C4")
+SetFilling(F0,0.55)
+SetFilling(F1,0.55)
+SetFilling(F2,0.55)
+SetFilling(F3,0.55)
+SetFilling(F4,0.55)
+SetFilling(F5,0.55)
+SetColor(H01guide,"#C00000")
+SetColor(H02guide,"#C00000")
+SetColor(H03guide,"#C00000")
+SetColor(H04guide,"#C00000")
+SetColor(H15guide,"#C00000")
+SetLineThickness(H01guide,3)
+SetLineThickness(H02guide,3)
+SetLineThickness(H03guide,3)
+SetLineThickness(H04guide,3)
+SetLineThickness(H15guide,3)
+
+[09_VISIBILITY]
+SetConditionToShowObject(H01guide,showHelpers && showHinges)
+SetConditionToShowObject(H02guide,showHelpers && showHinges)
+SetConditionToShowObject(H03guide,showHelpers && showHinges)
+SetConditionToShowObject(H04guide,showHelpers && showHinges)
+SetConditionToShowObject(H15guide,showHelpers && showHinges)
+SetConditionToShowObject(MetaModule,showHelpers)
+SetConditionToShowObject(MetaGolden,showHelpers)
+SetConditionToShowObject(MetaAuthority,showHelpers)
+SetConditionToShowObject(MetaStatus,showHelpers)

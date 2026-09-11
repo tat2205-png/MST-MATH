@@ -1,0 +1,29 @@
+{
+  "module": "MST-07",
+  "goldenId": "GOLDEN_RECTANGULAR_PRISM_FOLD",
+  "constructionVersion": "G1.0.0",
+  "sourceReference": {"path": "135.ggb", "status": "ADOPT_PARTIALLY"},
+  "authoritySources": ["135.ggb partial", "NEW_TEACHER_APPROVED_PATTERN"],
+  "objects": [
+    {"id":"L","type":"numeric","command":"L=6","dependencies":[],"stage":"parameters","authority":"G1"},
+    {"id":"W","type":"numeric","command":"W=4","dependencies":[],"stage":"parameters","authority":"G1"},
+    {"id":"H","type":"numeric","command":"H=3","dependencies":[],"stage":"parameters","authority":"G1"},
+    {"id":"t","type":"slider","command":"t=0","dependencies":[],"visibility":true,"stage":"timeline","authority":"G1"},
+    {"id":"F0","type":"polygon","command":"Polygon(A,B,C,D)","dependencies":["A","B","C","D"],"face":true,"style":"#4F81BD fill=.55","authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"F1","type":"polygon","command":"Rotate(F1net,theta1,H01)","dependencies":["F1net","theta1","H01","t"],"face":true,"style":"#70AD47 fill=.55","authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"F2","type":"polygon","command":"Rotate(F2net,theta2,H02)","dependencies":["F2net","theta2","H02","t"],"face":true,"style":"#ED7D31 fill=.55","authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"F3","type":"polygon","command":"Rotate(F3net,theta3,H03)","dependencies":["F3net","theta3","H03","t"],"face":true,"style":"#A5A5A5 fill=.55","authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"F4","type":"polygon","command":"Rotate(F4net,theta4,H04)","dependencies":["F4net","theta4","H04","t"],"face":true,"style":"#FFC000 fill=.55","authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"F5","type":"polygon","command":"Rotate(F5local,theta5,H15)","dependencies":["F5local","theta5","H15","F1","t"],"face":true,"style":"#4472C4 fill=.55","authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"H01","type":"line","command":"Line(A,B)","dependencies":["A","B"],"hinge":true,"authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"H02","type":"line","command":"Line(B,C)","dependencies":["B","C"],"hinge":true,"authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"H03","type":"line","command":"Line(C,D)","dependencies":["C","D"],"hinge":true,"authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"H04","type":"line","command":"Line(D,A)","dependencies":["D","A"],"hinge":true,"authority":"NEW_TEACHER_APPROVED_PATTERN"},
+    {"id":"H15","type":"line","command":"Line(A1t,B1t)","dependencies":["A1t","B1t","F1"],"hinge":true,"movingFrame":"F1","authority":"NEW_TEACHER_APPROVED_PATTERN"}
+  ],
+  "thetaFunctions": {"domain":"[0,1]","smoothstep":"S(x)=x^2*(3-2*x)","theta1":"If(t<=0.35,0,If(t<=0.85,pi/2*S((t-0.35)/0.50),pi/2))","theta5":"If(t<=0.85,0,pi/2*S((t-0.85)/0.15))"},
+  "stages": {"0.00-0.20":"net visible","0.20-0.35":"hinges revealed","0.35-0.85":"F1-F4 fold","0.85-1.00":"F5 folds through F1"},
+  "controls": {"resetId":"btnReset","resetCaption":"Reset","resetOnClick":["SetValue(t,0)","SetValue(showHelpers,0)"],"stateObjects":["stage","showHelpers"],"visibilityConditions":{"H01guide":"showHelpers && showHinges","H02guide":"showHelpers && showHinges","H03guide":"showHelpers && showHinges","H04guide":"showHelpers && showHinges","H15guide":"showHelpers && showHinges","MetaModule":"showHelpers","MetaGolden":"showHelpers","MetaAuthority":"showHelpers","MetaStatus":"showHelpers"}},
+  "scriptPolicy": {"status":"PASS_STATIC_SYNTAX_POLICY","nativeCompatibility":"unverified","geogebraClassic54Allowlist":["Button","Checkbox","If","Line","Polygon","Rotate","Segment","SetColor","SetConditionToShowObject","SetFilling","SetLineThickness","SetValue","Text"]},
+  "metadata": {"subject":"Mathematics","topic":"FOLD_UNFOLD_NETS","learningObjective":"connect rectangular-prism net adjacency to rigid folding","teacherApprovalStatus":"pending"}
+}
