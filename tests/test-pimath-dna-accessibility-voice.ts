@@ -6,6 +6,7 @@ assert.equal(PIMATH_DNA.references.accessibility, "PIMATH_ACCESSIBILITY_CANONICA
 assert.equal(PIMATH_DNA.references.voice, "PIMATH_VOICE_NARRATION_CANONICAL_V1.0");
 assert.equal(PIMATH_DNA.references.icons, "PIMATH-DNA-SEMANTIC-ICONS-V2.0");
 assert.equal(accessibility.authority.role, "ACCESSIBILITY_AUTHORITY");
+if (!("icons" in accessibility.authority.consumes)) throw new Error("ACCESSIBILITY_AUTHORITY_ICON_CONSUMER_MISSING");
 assert.equal(accessibility.authority.consumes.icons, "PIMATH-DNA-SEMANTIC-ICONS-V2.0");
 assert.equal(voice.authority.role, "VOICE_NARRATION_AUTHORITY");
 assert.equal(accessibility.authority.overrideCoreDna, false);
