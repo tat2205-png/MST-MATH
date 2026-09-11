@@ -26,20 +26,15 @@
       "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.0"
     },
     {
-      "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
-      "status": "LOCKED_COMPATIBILITY_CANONICAL_HISTORY",
-      "path": "registry/pimath-dna-icons.json",
-      "implementation": "src/config/naMathBrandRoot.ts"
-    },
-    {
-      "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+      "id": "PIMATH-DNA-SEMANTIC-ICONS-V2.0",
       "status": "LOCKED_CANONICAL_GLOBAL",
       "canonical": true,
       "approved": true,
       "humanApproved": true,
-      "path": "registry/pimath-dna-icons-v1.1.json",
+      "path": "registry/pimath-dna-icons-v2.json",
       "implementation": "src/config/naMathBrandRoot.ts",
-      "supersedes": "PIMATH-DNA-SEMANTIC-ICONS-V1.0"
+      "standardDocument": "docs/standards/MST-MATH_SEMANTIC_ICON_SYSTEM_V2_0.md",
+      "supersedes": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0", "PIMATH-DNA-SEMANTIC-ICONS-V1.1"]
     },
     {
       "id": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
