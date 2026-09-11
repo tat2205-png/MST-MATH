@@ -1,0 +1,30 @@
+{
+  "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.2",
+  "status": "LOCKED",
+  "canonical": true,
+  "approved": true,
+  "humanApproved": true,
+  "root": "PIMATH-DNA-V1.0",
+  "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.1",
+  "authorityReferences": {
+    "icons": "PIMATH-DNA-SEMANTIC-ICONS-V2.0"
+  },
+  "runtimeBindings": {
+    "icons": "PiMath DNA → MST-MATH Semantic Icon System V2.0 → canonical SVG master"
+  },
+  "closureCertification": {
+    "semanticIconAuthority": "PIMATH-DNA-SEMANTIC-ICONS-V2.0",
+    "canonicalIconRoleCount": 18,
+    "parallelSemanticIconAuthorities": "NONE",
+    "legacySemanticIconRuntimeBindings": "NONE",
+    "iconCompatibilityAliases": "NONE",
+    "iconFailClosed": "PASS"
+  },
+  "immutabilityPolicy": [
+    "PIMATH_DNA_GLOBAL_BASELINE_V1.0 and V1.1 remain historical and unchanged.",
+    "V1.2 overrides semantic icon authority with PIMATH-DNA-SEMANTIC-ICONS-V2.0.",
+    "No runtime may resolve semantic icons from V1.0 or V1.1 icon registries.",
+    "Child authorities evolve only through explicit new versions except dependency-pointer migration that does not alter their semantic contract.",
+    "Fail closed for unresolved authority conflicts."
+  ]
+}
