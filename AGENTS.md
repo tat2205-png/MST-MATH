@@ -296,6 +296,16 @@ Use PASS / FAIL / BLOCKED / NOT_TESTED honestly.
 # Existing repository-specific rules above remain authoritative.
 # ============================================================
 
+## Agent skills
+
+### Issue tracker
+
+Issues and specs are tracked as local Markdown files under `.scratch/`. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+This is a single-context repository with stable domain context in `CONTEXT.md` and decisions in `docs/adr/`. See `docs/agents/domain.md`.
+
 # AGENTS.md — Mandatory Project Rules (V3.1)
 
 ## Primary operating model

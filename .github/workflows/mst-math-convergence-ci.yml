@@ -1,0 +1,86 @@
+name: MST-MATH Convergence CI
+
+on:
+  pull_request:
+    branches:
+      - integration/mst-math-convergence-v1
+      - main
+  push:
+    branches:
+      - integration/mst-math-convergence-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mst-math-convergence-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core-quality:
+    name: core-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install authoritative PDF runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-latex-recommended texlive-fonts-recommended
+          xelatex --version
+
+      - name: Architecture check
+        run: npm run arch:check
+
+      - name: Typecheck
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Regression
+        run: npm run qa:regression
+
+      - name: Canonical brand and semantic-icon contract
+        run: node --import tsx tests/test-na-math-brand-01.ts
+
+  pc-question-authority:
+    name: pc-question-authority
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TECH01 identity
+        run: node --import tsx tests/test-mst-math-tech01-identity.ts
+
+      - name: TECH02 semantics
+        run: node --import tsx tests/test-mst-math-tech02-semantics.ts
+
+      - name: TECH03 assets and provenance
+        run: node --import tsx tests/test-mst-math-tech03-assets.ts
+
+      - name: Unified Input certification
+        run: node --import tsx tests/test-pimath-unified-input-certification-v1.ts

@@ -27,9 +27,19 @@
     },
     {
       "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
-      "status": "LOCKED_CANONICAL_GLOBAL",
+      "status": "LOCKED_COMPATIBILITY_CANONICAL_HISTORY",
       "path": "registry/pimath-dna-icons.json",
       "implementation": "src/config/naMathBrandRoot.ts"
+    },
+    {
+      "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+      "status": "LOCKED_CANONICAL_GLOBAL",
+      "canonical": true,
+      "approved": true,
+      "humanApproved": true,
+      "path": "registry/pimath-dna-icons-v1.1.json",
+      "implementation": "src/config/naMathBrandRoot.ts",
+      "supersedes": "PIMATH-DNA-SEMANTIC-ICONS-V1.0"
     },
     {
       "id": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",

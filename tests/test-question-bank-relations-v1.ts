@@ -33,9 +33,14 @@ assert.notEqual(relationFingerprint(base), relationFingerprint(changed("sign", "
 
 const repository = new MemoryQuestionBankRepository(); const service = new QuestionBankService(repository);
 service.importDocx(createQuestionDocx(), "nguồn.docx"); service.importDocx(createQuestionDocx(), "bản-sao.pdf");
-const snapshot = repository.load(); assert.equal(snapshot.questions.length, 4); assert.equal(snapshot.relations?.duplicateAudit.length, 4);
-assert.deepEqual(snapshot.questions.map(q => q.index), [1, 2, 3, 4]);
-assert.equal(snapshot.relations?.relations.filter(r => r.relations.includes("EXACT_DUPLICATE")).length, 4);
+const snapshot = repository.load(); assert.equal(snapshot.questions.length, 8); assert.equal(snapshot.relations?.duplicateAudit.length, 4);
+assert.deepEqual(snapshot.questions.map(q => q.index), [1, 2, 3, 4, 1, 2, 3, 4]);
+const exactRelations = snapshot.relations?.relations.filter(r => r.relations.includes("EXACT_DUPLICATE")) ?? [];
+assert.equal(exactRelations.length, 4);
+assert.equal(new Set(snapshot.questions.map(q => q.id)).size, 8);
+assert.ok(exactRelations.every(r => r.sourceQuestionId !== r.targetQuestionId));
+assert.ok(exactRelations.every(r => snapshot.questions.some(q => q.id === r.sourceQuestionId) && snapshot.questions.some(q => q.id === r.targetQuestionId)));
+assert.ok(snapshot.questions.slice(4).every(q => q.source.document === "bản-sao.pdf" && q.duplicateState === "DUPLICATE"));
 const familiesRepository = new MemoryQuestionBankRepository(); const familiesService = new QuestionBankService(familiesRepository);
 familiesService.importDocx(variantDocx("x+1"), "x-a.docx"); familiesService.importDocx(variantDocx("x+2"), "x-b.docx"); familiesService.importDocx(variantDocx("y+1"), "y-a.docx"); familiesService.importDocx(variantDocx("y+2"), "y-b.docx");
 const familySnapshot = familiesRepository.load(); const q1s = familySnapshot.questions.filter(q => q.index === 1); assert.equal(q1s.length, 4); const variantRelations = familySnapshot.relations?.relations.filter(r => r.relations.includes("PARAMETRIC_VARIANT")) ?? []; assert.equal(variantRelations.length, 2);

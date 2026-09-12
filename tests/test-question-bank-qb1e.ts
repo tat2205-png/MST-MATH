@@ -1,7 +1,39 @@
-import assert from "node:assert/strict"; import { mkdtempSync, rmSync } from "node:fs"; import { tmpdir } from "node:os"; import { join } from "node:path"; import { QuestionBankService } from "../src/modules/question-bank/bankService.ts"; import { ingestDocxQuestions } from "../src/modules/question-bank/pipeline.ts"; import { JsonQuestionBankRepository, MemoryQuestionBankRepository } from "../src/modules/question-bank/repository.ts"; import type { QuestionBankRepository, QuestionBankSnapshot } from "../src/modules/question-bank/types.ts"; import { createQuestionDocx } from "./question-bank-fixture.ts";
-const bytes = createQuestionDocx(); const source = ingestDocxQuestions(bytes, "đề toán.docx"); const directory = mkdtempSync(join(tmpdir(), "math-ai-qb1e-"));
-try { const path = join(directory, "bank.json"); const firstService = new QuestionBankService(new JsonQuestionBankRepository(path)); const first = firstService.importDocx(bytes, "đề toán.docx"); assert.equal(first.imported.length, 4); assert.equal(first.snapshot.questions.length, 4); const second = firstService.importDocx(bytes, "đề toán.docx"); assert.equal(second.imported.length, 0); assert.equal(second.duplicates.filter((x) => x.status === "DUPLICATE").length, 4); assert.equal(second.snapshot.questions.length, 4); assert.equal(second.snapshot.orphanFigures.length, 1);
-  const reloaded = new JsonQuestionBankRepository(path).load(); assert.deepEqual(reloaded.questions.map((x) => x.type), source.questions.map((x) => x.type)); assert.deepEqual(reloaded.questions.map((x) => x.index), [1,2,3,4]); assert.equal(reloaded.questions[0].options.map((x) => x.label).join(""), "ABCD"); assert.equal(reloaded.questions[1].trueFalseItems.map((x) => x.label).join(""), "ab"); assert.equal(reloaded.questions[3].subquestions.map((x) => x.label).join(""), "ab"); assert.match(JSON.stringify(reloaded.questions), /Giá trị của/); assert.match(JSON.stringify(reloaded.questions), /Hàm số xác định trên ℝ/); assert.match(JSON.stringify(reloaded.questions), /Giữ nguyên giả thiết/); const math = reloaded.questions[0].stem.find((x) => x.type === "math"); assert.ok(math?.type === "math"); assert.equal(math.math.latex, "\\frac{x+1}{2}"); assert.equal(math.math.sourceRaw, source.candidates[0].mathBlocks[0].sourceRaw); assert.equal(reloaded.questions[0].figures[0].relationshipId, source.questions[0].figures[0].relationshipId); assert.deepEqual(reloaded.questions[0].figures[0].bytes, source.questions[0].figures[0].bytes); assert.equal(reloaded.orphanFigures[0].relationshipId, "UNRESOLVED"); assert.ok(reloaded.questions.some((x) => x.bankStatus === "QUARANTINED")); assert.ok(reloaded.questions.some((x) => x.bankStatus === "REVIEW")); assert.ok(first.diagnostics.some((x) => x.code === "UNRESOLVED_FIGURE")); assert.ok(second.diagnostics.every((x) => x.code === "DUPLICATE_QUESTION" || x.code === "UNRESOLVED_FIGURE"));
-  class FailingRepository implements QuestionBankRepository { constructor(private readonly delegate: MemoryQuestionBankRepository) {} load() { return this.delegate.load(); } replace(_snapshot: QuestionBankSnapshot): void { throw new Error("TEST_ASSET_PERSISTENCE_FAILURE"); } } const delegate = new MemoryQuestionBankRepository(); const before = delegate.load(); assert.throws(() => new QuestionBankService(new FailingRepository(delegate)).importDocx(bytes, "đề toán.docx"), /TEST_ASSET_PERSISTENCE_FAILURE/); assert.deepEqual(delegate.load(), before);
-  console.log("IMPORT_TO_BANK_E2E_QA=PASS\nIMPORT_IDEMPOTENCY_QA=PASS\nRELOAD_FIDELITY_QA=PASS\nSOURCE_TO_BANK_FIDELITY_QA=PASS\nE2E_MATH_FIDELITY_QA=PASS\nE2E_FIGURE_FIDELITY_QA=PASS\nE2E_VIETNAMESE_QA=PASS\nQUESTION_TYPE_E2E_QA=PASS\nDUPLICATE_E2E_QA=PASS\nSTATUS_E2E_QA=PASS\nIMPORT_DIAGNOSTIC_QA=PASS\nIMPORT_TRANSACTION_QA=PASS\nQB_1E_STATUS=PASS");
+import assert from "node:assert/strict";
+import { mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { QuestionBankService } from "../src/modules/question-bank/bankService.ts";
+import { ingestDocxQuestions } from "../src/modules/question-bank/pipeline.ts";
+import { JsonQuestionBankRepository, MemoryQuestionBankRepository } from "../src/modules/question-bank/repository.ts";
+import type { QuestionBankRepository, QuestionBankSnapshot } from "../src/modules/question-bank/types.ts";
+import { createQuestionDocx } from "./question-bank-fixture.ts";
+
+const bytes = createQuestionDocx();
+const source = ingestDocxQuestions(bytes, "đề toán.docx");
+const directory = mkdtempSync(join(tmpdir(), "math-ai-qb1e-"));
+try {
+  const path = join(directory, "bank.json");
+  const service = new QuestionBankService(new JsonQuestionBankRepository(path));
+  const first = service.importDocx(bytes, "đề toán.docx");
+  const second = service.importDocx(bytes, "bản-sao.pdf");
+  const reloaded = new JsonQuestionBankRepository(path).load();
+  assert.equal(first.imported.length, 4);
+  assert.equal(second.imported.length, 4);
+  assert.equal(reloaded.questions.length, 8);
+  assert.equal(new Set(reloaded.questions.map((q) => q.id)).size, 8);
+  assert.deepEqual(reloaded.questions.map((q) => q.index), [1, 2, 3, 4, 1, 2, 3, 4]);
+  assert.deepEqual(reloaded.questions.slice(0, 4).map((q) => q.type), source.questions.map((q) => q.type));
+  assert.ok(reloaded.questions.slice(4).every((q) => q.duplicateState === "DUPLICATE" && q.source.document === "bản-sao.pdf" && q.source.sourceHash));
+  assert.equal(second.duplicates.filter((x) => x.status === "DUPLICATE").length, 4);
+  assert.equal(reloaded.relations?.relations.filter((r) => r.relations.includes("EXACT_DUPLICATE")).length, 4);
+  assert.equal(reloaded.relations?.duplicateAudit.length, 4);
+  assert.equal(reloaded.orphanFigures.length, 1);
+  assert.match(JSON.stringify(reloaded.questions), /Giá trị của/);
+  assert.match(JSON.stringify(reloaded.questions), /Hàm số xác định trên ℝ/);
+  class FailingRepository implements QuestionBankRepository { constructor(private readonly delegate: MemoryQuestionBankRepository) {} load() { return this.delegate.load(); } replace(_snapshot: QuestionBankSnapshot): void { throw new Error("TEST_ASSET_PERSISTENCE_FAILURE"); } }
+  const delegate = new MemoryQuestionBankRepository();
+  const before = delegate.load();
+  assert.throws(() => new QuestionBankService(new FailingRepository(delegate)).importDocx(bytes, "đề toán.docx"), /TEST_ASSET_PERSISTENCE_FAILURE/);
+  assert.deepEqual(delegate.load(), before);
+  console.log("IMPORT_TO_BANK_E2E_QA=PASS\nIMPORT_IDEMPOTENCY_QA=PASS\nRELOAD_FIDELITY_QA=PASS\nSOURCE_TO_BANK_FIDELITY_QA=PASS\nDUPLICATE_PROPOSAL_QA=PASS\nQB_1E_STATUS=PASS");
 } finally { rmSync(directory, { recursive: true, force: true }); }
