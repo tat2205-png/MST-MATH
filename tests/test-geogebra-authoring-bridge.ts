@@ -1,19 +1,14 @@
 import assert from "node:assert/strict";
-import { createOfficialGeoGebraApi, executeCanonicalBlocks, exportCandidateGgb, parseCanonicalBlocks, verifyRequiredObjects } from "../src/modules/geogebra/authoring-bridge.ts";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
-const source = readFileSync(resolve("goldens/geogebra/fold/rectangular-prism-fold-golden-v1.commands.txt"), "utf8");
-const blocks = parseCanonicalBlocks(source);
-assert.equal(blocks[0].id, "01_PARAMETERS"); assert.equal(blocks[0].commands.length, 10);
-assert.equal(blocks[1].id, "02_ROOT_AND_NET"); assert.equal(blocks[1].commands.length, 16);
-assert.equal(blocks[0].commands[0], "L=6"); assert.equal(blocks[0].commands[1], "W=4");
-assert.equal(blocks[0].commands.at(-1), "theta5=If(t<=0.85,0,pi/2*S((t-0.85)/0.15))");
-const calls: string[] = []; const objects = new Set<string>();
-const api = { evalCommand(command: string) { calls.push(command); const label = /^(\w+)=/.exec(command)?.[1]; if (label) objects.add(label); return command !== "FAIL"; }, exists(label: string) { return objects.has(label); }, getCommandString: () => "", getVersion: () => "mock-api", getBase64: () => "" };
-const official = createOfficialGeoGebraApi(api); assert.equal(official.evalCommand("L=6"), true); assert.equal(official.exists("L"), true); assert.equal(official.getVersion(), "mock-api");
-const ran = executeCanonicalBlocks(api, [{ id: "X", commands: ["A=1", "FAIL", "B=2"] }]);
-assert.equal(ran.records.length, 2); assert.equal(ran.firstFailure?.command_index, 2); assert.equal(calls.includes("B=2"), false);
-assert.deepEqual(verifyRequiredObjects(api, ["A", "B"]).missing, ["B"]);
-const exported = exportCandidateGgb({ ...api, getBase64: () => "AQI=" }, "artifacts/mst07/geogebra/candidate.ggb", (_path, data) => assert.deepEqual([...data], [1, 2]));
-assert.equal(exported.status, "PASS"); assert.throws(() => exportCandidateGgb({ ...api, getBase64: () => "AQI=" }, "goldens/geogebra/fold/rectangular-prism-fold-golden-v1.ggb", () => {}), /REFUSING_CANONICAL_GGB_OVERWRITE/);
-console.log("GEOGEBRA_AUTHORING_BRIDGE_TESTS=PASS");
+import { test } from "node:test";
+import * as bridge from "../src/modules/geogebra/authoring-bridge.ts";
+
+test("PATH-01/02 bridge exports pure capabilities only", () => {
+  assert.equal("executeCanonicalBlocks" in bridge, false);
+  assert.equal("runAuthoringBridge" in bridge, false);
+  assert.equal("exportCandidateGgb" in bridge, false);
+});
+
+test("PATH-09 pure parsing and accounting map remain available", () => {
+  const blocks = bridge.parseCanonicalBlocks("[A]\nSetLineThickness(H01guide,3)\n");
+  assert.deepEqual(bridge.createCanonicalCommandMap(blocks), [{ global_index: 1, block_id: "A", block_index: 1, command_family: "SetLineThickness", exact_text: "SetLineThickness(H01guide,3)" }]);
+});
