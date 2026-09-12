@@ -4,8 +4,9 @@ import { dirname } from "node:path";
 import type { GeoGebraRuntimeAdapter, SessionState } from "./runtime-adapter.ts";
 
 export class GeoGebraSessionTransaction {
-  constructor(private readonly adapter: Pick<GeoGebraRuntimeAdapter, "readSessionState" | "getBase64" | "setBase64" | "validateRecovery" | "newConstruction" | "executeCommand">, private readonly recoveryPath: string) {}
+  constructor(private readonly adapter: Pick<GeoGebraRuntimeAdapter, "readSessionState" | "getBase64" | "setBase64" | "validateRecovery" | "newConstruction" | "executeCommand">, private readonly recoveryPath: string, private readonly rendererGuard: () => Promise<void>) {}
   async run<T>(callback: (disposable: { executeCommand: (command: string) => Promise<boolean> }) => Promise<T> | T): Promise<T> {
+    await this.rendererGuard?.();
     const originalState = await this.adapter.readSessionState();
     const originalBase64 = await this.adapter.getBase64();
     mkdirSync(dirname(this.recoveryPath), { recursive: true });
@@ -15,10 +16,10 @@ export class GeoGebraSessionTransaction {
     const empty = await this.adapter.readSessionState();
     if (empty.objectCount !== 0 || empty.objectNames.length !== 0) throw new Error("EMPTY_CONSTRUCTION_NOT_STABLE");
     let callbackError: unknown;
-    try { return await callback({ executeCommand: command => this.adapter.executeCommand(command) }); }
+    try { await this.rendererGuard?.(); return await callback({ executeCommand: async command => { await this.rendererGuard?.(); return this.adapter.executeCommand(command); } }); }
     catch (error) { callbackError = error; throw error; }
     finally {
-      try { await this.adapter.setBase64(originalBase64); const restored = await this.adapter.readSessionState(); if (restored.fingerprint !== originalState.fingerprint || restored.objectCount !== originalState.objectCount) throw new Error("SESSION_RESTORE_VERIFICATION_FAILED"); }
+      try { await this.adapter.setBase64(originalBase64); await this.rendererGuard?.(); const restored = await this.adapter.readSessionState(); if (restored.fingerprint !== originalState.fingerprint || restored.objectCount !== originalState.objectCount) throw new Error("SESSION_RESTORE_VERIFICATION_FAILED"); }
       catch (restoreError) { throw new Error(`CRITICAL_RESTORE_FAILURE:${String(restoreError)}${callbackError ? `; original=${String(callbackError)}` : ""}`); }
     }
   }

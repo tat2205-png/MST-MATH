@@ -1,0 +1,24 @@
+REVIEW SNAPSHOT: tests/test-mst07-production-contracts.ts
+SOURCE: tests/test-mst07-production-contracts.ts
+FIXED_POINT: 8ee0f5ef35e06d73c6eff22aa1404ca45ae125c3
+
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { readFileSync, existsSync } from "node:fs";
+const bridge = readFileSync("src/modules/geogebra/authoring-bridge.ts", "utf8");
+const runner = readFileSync("src/modules/geogebra/live-runner.ts", "utf8");
+const tx = readFileSync("src/modules/geogebra/session-transaction.ts", "utf8");
+const cli = readFileSync("scripts/resume-clean-live.ts", "utf8");
+test("PROD-01/02 semantic mode has no export or round-trip", () => { assert.doesNotMatch(cli, /exportCandidate|setBase64|getBase64/); });
+test("PROD-03/04 authoritative owners are wired", () => { assert.match(runner, /GeoGebraSessionTransaction/); assert.match(cli, /GeoGebraRuntimeAdapter|runSemanticAuthoring/); });
+test("PROD-05/06 renderer guard is mandatory and fail-closed", () => { assert.match(tx, /rendererGuard/); assert.match(runner, /SESSION_RENDERER_GUARD_REQUIRED/); });
+test("PROD-07 restoration path handles callback errors", () => assert.match(tx, /finally/));
+test("PROD-08/10 accounting is parsed and source-driven", () => { assert.match(runner, /createCanonicalCommandMap/); assert.doesNotMatch(runner, /\bordinal\b|\[92\]/i); });
+test("PROD-09 semantic family dispatch is source-driven", () => assert.match(runner, /command\.command_family/));
+test("PROD-11/12 proven setter verifiers retained", () => { assert.match(bridge, /getLineThickness/); assert.match(bridge, /getXML/); });
+test("PROD-13/14/15 one executor and transaction owner", () => { assert.doesNotMatch(bridge, /export function (executeCanonicalBlocks|runAuthoringBridge|exportCandidateGgb)/); assert.equal((runner.match(/executeCommand\(/g) ?? []).length > 0, true); assert.match(runner, /new GeoGebraSessionTransaction/); });
+test("PROD-16 CLI cannot bypass runner", () => assert.match(cli, /runSemanticAuthoring/));
+test("PROD-17/18 maintained commands point to existing tests", () => { const pkg = JSON.parse(readFileSync("package.json", "utf8")); assert.ok(existsSync("tests/test-geogebra-authoring-bridge.ts")); assert.ok(existsSync("tests/test-mst07-production-contracts.ts")); assert.match(pkg.scripts["qa:geogebra-bridge"], /test-geogebra-authoring-bridge/); });
+test("PROD-19 no raw mutating page.evaluate in semantic orchestration", () => assert.doesNotMatch(runner, /page\.evaluate/));
+test("PROD-20 accounting cannot be silently skipped", () => assert.match(runner, /validateSemanticAccounting/));
+

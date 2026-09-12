@@ -1,0 +1,10 @@
+REVIEW SNAPSHOT: .agents\skills\improve-codebase-architecture\agents\openai.yaml
+SOURCE: .agents\skills\improve-codebase-architecture\agents\openai.yaml
+FIXED_POINT: 8ee0f5ef35e06d73c6eff22aa1404ca45ae125c3
+
+interface:
+  display_name: "Improve Codebase Architecture"
+  short_description: "Find and grill architecture improvements"
+policy:
+  allow_implicit_invocation: false
+

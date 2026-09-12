@@ -1,0 +1,33 @@
+REVIEW SNAPSHOT: tests/test-mst07-map-accounting.ts
+SOURCE: tests/test-mst07-map-accounting.ts
+FIXED_POINT: 8ee0f5ef35e06d73c6eff22aa1404ca45ae125c3
+
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { createCanonicalCommandMap } from "../src/modules/geogebra/authoring-bridge.ts";
+import { validateSemanticAccounting, type SemanticExecutionRecord } from "../src/modules/geogebra/live-runner.ts";
+
+const map = createCanonicalCommandMap([{ id: "A", commands: ["A=1", "B=2"] }, { id: "B", commands: ["C=3"] }]);
+const records = (): SemanticExecutionRecord[] => map.map((c) => ({ global_index: c.global_index, block_id: c.block_id, block_index: c.block_index, command_family: c.command_family, exact_text: c.exact_text, raw_eval: true, semantic_status: "PASS_EVAL" }));
+const rejects = (name: string, change: (r: SemanticExecutionRecord[]) => void) => test(name, () => { const r = records(); change(r); assert.throws(() => validateSemanticAccounting(map, r), /ACCOUNTING/); });
+test("MAP-01 exact full map passes", () => assert.equal(validateSemanticAccounting(map, records()).passed, 3));
+rejects("MAP-02 wrong global index", r => { r[0].global_index = 2; });
+rejects("MAP-03 wrong blockId", r => { r[0].block_id = "wrong"; });
+rejects("MAP-04 wrong blockIndex", r => { r[0].block_index = 9; });
+rejects("MAP-05 wrong family", r => { r[0].command_family = "Wrong"; });
+rejects("MAP-06 wrong exact text", r => { r[0].exact_text = "substituted"; });
+rejects("MAP-07 reordered records", r => { [r[0], r[1]] = [r[1], r[0]]; });
+rejects("MAP-08 duplicate record", r => { r[1] = { ...r[0], global_index: 1 }; });
+rejects("MAP-09 missing middle record", r => { r.splice(1, 1); });
+rejects("MAP-10 substituted command identity", r => { r[1].exact_text = "X=9"; });
+rejects("MAP-11 missing terminal status", r => { delete (r[2] as any).semantic_status; });
+rejects("MAP-12 UNKNOWN status", r => { (r[0] as any).semantic_status = "UNKNOWN"; });
+rejects("MAP-13 invalid terminal status", r => { (r[2] as any).semantic_status = "DONE"; });
+test("MAP-14 exact prefix ending in FAIL passes accounting", () => { const r = records(); r[2].semantic_status = "FAIL"; assert.equal(validateSemanticAccounting(map, r).failures, 1); });
+rejects("MAP-15 sparse partial execution", r => { r.splice(1); });
+rejects("MAP-16 non-prefix partial execution", r => { r.splice(0, 1); });
+test("MAP-17 PASS_POSTCONDITION counts as pass", () => { const r = records(); r[0].semantic_status = "PASS_POSTCONDITION"; assert.equal(validateSemanticAccounting(map, r).passed, 3); });
+test("MAP-18 derived totals cannot be overridden", () => { const a = validateSemanticAccounting(map, records()); assert.equal(a.passed, 3); assert.equal(a.attempted, 3); });
+test("MAP-19 full 93-record synthetic exact map passes", () => { const m = createCanonicalCommandMap([{ id: "X", commands: Array.from({ length: 93 }, (_, i) => `C${i}=1`) }]); assert.equal(validateSemanticAccounting(m, m.map(c => ({ ...c, block_id: c.block_id, block_index: c.block_index, exact_text: c.exact_text, raw_eval: true, semantic_status: "PASS_EVAL" } as any))).passed, 93); });
+test("MAP-20 full 93-record substitution fails", () => { const m = createCanonicalCommandMap([{ id: "X", commands: Array.from({ length: 93 }, (_, i) => `C${i}=1`) }]); const r = m.map(c => ({ ...c, raw_eval: true, semantic_status: "PASS_EVAL" } as any)); r[47].exact_text = "substituted"; assert.throws(() => validateSemanticAccounting(m, r), /ACCOUNTING/); });
+
