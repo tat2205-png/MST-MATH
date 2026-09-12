@@ -317,3 +317,141 @@ Agency Agents are the primary coordination/development team. Math/GDPT specialis
 
 ## Runtime protocol
 Every workflow request should carry `agency_runtime` using `MWS_AGENCY_ENVELOPE/1.1`. Backend results should retain separate lead output, independent reviews, gate evidence, and a release decision.
+
+
+# ============================================================
+# ANTI-SPECULATION & LOOP-PREVENTION PROTOCOL
+# Bổ sung cho AGENTS.md — dán thêm vào cuối file hiện có.
+# Áp dụng cho MỌI agent (Codex, ChatGPT, Claude, hoặc bất kỳ ai)
+# làm việc trên repo này.
+# ============================================================
+
+## 0. Nguyên tắc nền tảng
+
+Không được tuyên bố một việc là "đã xong", "PASS", hay "đã sửa" nếu
+không có bằng chứng thô (raw output) đi kèm. Suy đoán có vẻ hợp lý
+nhưng sai còn tệ hơn việc thừa nhận "tôi không chắc, cần thêm dữ liệu".
+
+Nếu agent thấy mình đang diễn giải yêu cầu để nó "nghe có vẻ đúng hơn",
+đó là dấu hiệu dừng lại và hỏi lại, không phải lý do để tiếp tục.
+
+---
+
+## 1. Quy trình bắt buộc trước khi sửa bất kỳ lỗi nào
+
+Không được sửa code khi chưa hoàn thành đủ 4 bước sau, theo đúng thứ tự:
+
+1. **TÁI HIỆN** — Chạy đúng lệnh/thao tác gây lỗi, lấy nguyên văn
+   error/stack trace/log. Không được suy diễn nguyên nhân từ mô tả
+   bằng lời của người dùng.
+2. **CÔ LẬP** — Xác định chính xác file + dòng + hàm gây lỗi bằng
+   log, không phải bằng "có khả năng là do...". Nếu cần, thêm log
+   tạm thời (`console.log`/`print`) để xác nhận giá trị thực tế
+   tại điểm nghi ngờ.
+3. **GIẢ THUYẾT CÓ KIỂM CHỨNG** — Viết ra 1-3 giả thuyết nguyên nhân,
+   mỗi giả thuyết kèm theo cách kiểm chứng bằng dữ liệu (log, test,
+   giá trị in ra). Loại bỏ giả thuyết sai bằng bằng chứng trước khi
+   chọn giả thuyết để sửa.
+4. **SỬA TỐI THIỂU** — Chỉ sửa đúng phần code đã được giả thuyết xác
+   nhận là nguyên nhân. Không sửa "luôn thể" các phần khác trông có
+   vẻ liên quan.
+
+Nếu agent không thể hoàn thành bước 1-2 (không tái hiện được lỗi),
+PHẢI dừng lại và yêu cầu người dùng cung cấp thêm thông tin — không
+được đoán và sửa "thử xem".
+
+---
+
+## 2. Giới hạn số lần thử — Circuit Breaker
+
+Để chặn vòng lặp sửa lỗi vô hạn:
+
+- **Tối đa 3 lần thử sửa** cho cùng một lỗi trong cùng một phiên làm việc.
+- Sau mỗi lần thử mà lỗi vẫn còn, agent PHẢI ghi lại:
+  - Đã sửa gì (diff cụ thể)
+  - Kết quả chạy lại (PASS/FAIL kèm log)
+  - Vì sao giả thuyết đó sai (nếu fail)
+- Nếu đến lần thử thứ 3 vẫn thất bại, **BẮT BUỘC DỪNG** và báo cáo:
+  ```
+  STUCK_AFTER_3_ATTEMPTS
+  - Lỗi gốc: [copy nguyên văn]
+  - Giả thuyết đã thử: [liệt kê 3 giả thuyết + kết quả]
+  - Đề xuất: cần con người quyết định / cần thêm log / cần rollback
+  ```
+  Không được tự động thử giả thuyết thứ 4, 5, 6... Đây là điểm dừng
+  cứng, không phải gợi ý.
+- Việc này khớp với `Gate 6 — Transactional auto-repair` đã có sẵn
+  trong `AUDIT_FIX_ROADMAP.md` (giới hạn 3 lần repair) — áp dụng luật
+  này cho MỌI hoạt động sửa lỗi, không chỉ auto-repair pipeline.
+
+---
+
+## 3. Cấm mở rộng phạm vi giữa chừng ("scope creep khi đang sửa lỗi")
+
+Khi đang sửa lỗi A, nếu phát hiện lỗi B không liên quan:
+
+- KHÔNG được tiện tay sửa luôn lỗi B.
+- Ghi lỗi B vào một mục riêng (`docs/known-issues.md` hoặc tương tự)
+  để xử lý ở phiên/task khác.
+- Lý do: sửa nhiều thứ cùng lúc khiến không thể xác định thay đổi
+  nào thực sự khắc phục vấn đề, và dễ tạo lỗi mới chồng lỗi cũ —
+  chính là cơ chế sinh ra vòng lặp vô hạn.
+
+---
+
+## 4. Không tự chấm điểm — báo cáo phải kèm bằng chứng thô
+
+- Khi báo "PASS", phải dán kèm **output gốc đầy đủ** của lệnh test/build,
+  không được tóm tắt thành "đã PASS" hay "hoạt động tốt".
+- Cấm suy ra kết quả PASS từ việc "logic có vẻ đúng" khi chưa thực sự
+  chạy lệnh kiểm tra.
+- Đối chiếu với mục "Final Reporting" đã có trong AGENTS.md: mỗi mục
+  PASS/FAIL/BLOCKED/NOT_TESTED phải có output thật đứng sau, agent
+  khác (hoặc con người) phải có thể tự chạy lại lệnh đó và thấy cùng
+  kết quả.
+
+---
+
+## 5. Một workspace duy nhất — cấm tạo bản sao "để thử"
+
+- Chỉ làm việc trong một thư mục project duy nhất
+  (hiện tại: thư mục chứa `package.json` gốc của repo).
+- Muốn thử nghiệm / làm task mới → dùng `git checkout -b <ten-nhanh>`,
+  KHÔNG tạo thư mục clone mới, KHÔNG copy toàn bộ project sang chỗ khác.
+- Trước khi bắt đầu bất kỳ task nào, chạy `git status` và `git branch`
+  để xác nhận đang ở đúng branch, đúng thư mục — không giả định.
+- Nếu agent thấy mình sắp gợi ý "tạo một workspace/folder riêng để an
+  toàn hơn", đó là dấu hiệu cần dừng và hỏi người dùng thay vì tự làm.
+
+---
+
+## 6. Khi bế tắc — leo thang đúng cách, không lặp lại cùng một cách thử
+
+Nếu circuit breaker ở mục 2 kích hoạt (3 lần thử thất bại):
+
+1. Viết một bản tóm tắt "bug report" đầy đủ:
+   - Lỗi gốc (nguyên văn)
+   - Môi trường (OS, Node version, branch, commit hash)
+   - Các bước tái hiện
+   - 3 giả thuyết đã thử và vì sao mỗi cái thất bại
+2. Đưa bản tóm tắt này cho một phiên làm việc MỚI (context sạch) hoặc
+   một AI khác — không tiếp tục thử trong cùng context đã "nhiễm" các
+   giả định sai trước đó.
+3. Con người quyết định bước tiếp theo: chấp nhận rollback, đổi cách
+   tiếp cận, hoặc yêu cầu thêm thông tin từ người dùng thật.
+
+---
+
+## 7. Checklist nhanh trước khi báo "hoàn thành nhiệm vụ"
+
+Agent phải tự trả lời đủ 5 câu sau bằng bằng chứng cụ thể, không
+được trả lời chung chung:
+
+- [ ] Tôi đã chạy lệnh gì để xác nhận, và output thật là gì?
+- [ ] Tôi đã sửa đúng file/dòng nào, dựa trên bằng chứng nào?
+- [ ] Tôi có mở rộng phạm vi ra ngoài lỗi được giao không? (Nếu có → sai)
+- [ ] Nếu thất bại — tôi đã thử bao nhiêu lần? (Nếu ≥3 → phải dừng và báo cáo)
+- [ ] Tôi có đang ở đúng branch/thư mục project duy nhất không?
+
+Nếu bất kỳ câu nào không trả lời được bằng bằng chứng cụ thể,
+KHÔNG được báo cáo "hoàn thành".
