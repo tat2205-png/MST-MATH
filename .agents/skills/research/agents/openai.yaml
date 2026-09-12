@@ -1,0 +1,8 @@
+REVIEW SNAPSHOT: .agents\skills\research\agents\openai.yaml
+SOURCE: .agents\skills\research\agents\openai.yaml
+FIXED_POINT: 8ee0f5ef35e06d73c6eff22aa1404ca45ae125c3
+
+interface:
+  display_name: "Research"
+  short_description: "Research from high-trust sources"
+

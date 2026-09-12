@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 
 export interface SessionState { version: string; objectCount: number; objectNames: string[]; fingerprint: string }
 export interface ApiError { name: string; message: string }
-export interface PinnedRenderer { targetId?: string; title: string; url: string; version: string }
+export interface PinnedRenderer { targetId?: string; title: string; url: string; version: string; pageIdentity?: object }
 type PageLike = { evaluate: <T, A>(fn: (arg: A) => T, arg?: A) => Promise<T>; title(): Promise<string>; url(): string };
 
 export function normalizeSessionState(raw: { version: unknown; objectCount: unknown; objectNames: unknown }): SessionState {
@@ -30,9 +30,12 @@ export class GeoGebraRuntimeAdapter {
   async readObjectXml(label: string): Promise<string> { return this.page.evaluate((l) => String((window as any).ggbApplet.getXML(l) ?? ""), label); }
   async readColor(label: string): Promise<string> { return this.page.evaluate((l) => String((window as any).ggbApplet.getColor(l) ?? ""), label); }
   async readFilling(label: string): Promise<number> { return this.page.evaluate((l) => Number((window as any).ggbApplet.getFilling(l)), label); }
+  async readLineThickness(label: string): Promise<number> { return this.page.evaluate((l) => Number((window as any).ggbApplet.getLineThickness(l)), label); }
   async getBase64(): Promise<string> { return this.page.evaluate(() => String((window as any).ggbApplet.getBase64() ?? "")); }
   async setBase64(base64: string): Promise<void> { await this.page.evaluate((b) => { (window as any).ggbApplet.setBase64(b); }, base64); }
   async newConstruction(): Promise<void> { await this.page.evaluate(() => { (window as any).ggbApplet.newConstruction(); }); }
   async validateRecovery(): Promise<boolean> { const b = await this.getBase64(); return Boolean(b && b.length > 20); }
-  async pin(): Promise<PinnedRenderer> { return { title: await this.page.title(), url: this.page.url(), version: (await this.readSessionState()).version }; }
+  async pin(): Promise<PinnedRenderer> { return { title: await this.page.title(), url: this.page.url(), version: (await this.readSessionState()).version, pageIdentity: this.page }; }
+  async waitUntilReady(): Promise<void> { await this.page.evaluate(async () => { await new Promise((resolve) => setTimeout(resolve, 1000)); }); }
+  async assertPinnedRenderer(renderer: PinnedRenderer): Promise<void> { try { if (renderer.pageIdentity && renderer.pageIdentity !== this.page || this.page.url() !== renderer.url || await this.page.title() !== renderer.title || (await this.readSessionState()).version !== renderer.version) throw new Error("SESSION_RENDERER_CHANGED"); } catch (error) { if (error instanceof Error && error.message === "SESSION_RENDERER_CHANGED") throw error; throw new Error("SESSION_RENDERER_CHANGED"); } }
 }

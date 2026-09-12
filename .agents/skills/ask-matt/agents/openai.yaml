@@ -1,0 +1,10 @@
+REVIEW SNAPSHOT: .agents\skills\ask-matt\agents\openai.yaml
+SOURCE: .agents\skills\ask-matt\agents\openai.yaml
+FIXED_POINT: 8ee0f5ef35e06d73c6eff22aa1404ca45ae125c3
+
+interface:
+  display_name: "Ask Matt"
+  short_description: "Find the right skill or workflow"
+policy:
+  allow_implicit_invocation: false
+
