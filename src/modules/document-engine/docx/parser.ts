@@ -7,10 +7,14 @@ import type {
 import { childElements, descendants, getAttribute, localName, parseXml, textContent, type XmlNode } from "../xml.js";
 import { ommlToLatex } from "../omml/omml.js";
 import { readSafeZip } from "./zip.js";
+import { readCfb } from "./cfb.js";
+import { equationNativeStream } from "./equation-native.js";
+import { bridgeMtefV3ToMathExpression, bridgeMtefV5ToMathExpression } from "./mtef-mathml.js";
 
 interface Relationship { id: string; type: string; target: string; external: boolean; }
 interface ParseContext {
   files: Map<string, Uint8Array>;
+  sourceName?: string;
   relationships: Map<string, Relationship>;
   contentTypes: Map<string, string>;
   styleHeadings: Map<string, number>;
@@ -174,6 +178,35 @@ function parseInline(node: XmlNode, context: ParseContext, sourcePath: string): 
   if (name === "drawing" || name === "pict") return [extractImage(node, context, sourcePath)];
   if (name === "object") {
     const relationshipId = getAttribute(descendants(node, "OLEObject")[0] ?? node, "id");
+    const relationship = relationshipId ? context.relationships.get(relationshipId) : undefined;
+    const packagePath = relationship && !relationship.external ? relationshipPath(relationship.target) : undefined;
+    const oleBytes = packagePath ? context.files.get(packagePath) : undefined;
+    if (oleBytes) {
+      try {
+        const stream = equationNativeStream(oleBytes);
+        const rawPayload = stream && stream.bytes.length > 28 ? stream.bytes.subarray(28) : undefined;
+        const payload = rawPayload?.[0] === 0 && rawPayload[4] === 2 ? stream!.bytes.subarray(32) : rawPayload;
+        if (payload?.[0] === 5 || payload?.[0] === 3 || payload?.[0] === 2) {
+          const bridged = (payload[0] === 5 ? bridgeMtefV5ToMathExpression : bridgeMtefV3ToMathExpression)(payload, {
+            sourceDocumentId: context.sourceName ?? "DOCX",
+            sourceObjectId: packagePath,
+            oleObjectId: packagePath,
+            relationshipId,
+            equationNativeStreamName: stream.name,
+          });
+          return [{ type: "math", display: false, sourcePath, expression: bridged.expression }];
+        }
+        // Opening the CFB here is intentional: it distinguishes a valid OLE
+        // container without a V5 Equation Native payload from a bad archive.
+        const streams = readCfb(oleBytes);
+        if (streams.some((candidate) => candidate.name.toLowerCase() === "\x01ole10native")) {
+          context.issues.push({ code: "LEGACY_MATHTYPE_NON_SEMANTIC_NATIVE", severity: "warning", path: sourcePath, message: "OLE container contains only Ole10Native data and no Equation Native semantic stream; preserved preview/native data is not emitted as math." });
+          return [];
+        }
+      } catch (error) {
+        context.issues.push({ code: "LEGACY_MATHTYPE_DECODE_FAILED", severity: "warning", path: sourcePath, message: error instanceof Error ? error.message : String(error) });
+      }
+    }
     context.issues.push({ code: "LEGACY_MATHTYPE_NEEDS_FALLBACK", severity: "warning", path: sourcePath, message: "Legacy MathType/OLE object was preserved but not decoded." });
     return [{ type: "legacy_object", relationshipId, reason: "LEGACY_MATHTYPE_UNSUPPORTED", sourcePath }];
   }
@@ -227,7 +260,7 @@ export function parseDocx(input: Uint8Array, options: { sourceName?: string } = 
   const styleHeadings = parseStyles(xmlFromPackage(zip.entries, "word/styles.xml", false, issues));
   const numbering = parseNumbering(xmlFromPackage(zip.entries, "word/numbering.xml", false, issues));
   if (!documentRoot || issues.some((issue) => issue.severity === "error")) return { status: "FAIL", report: makeReport("FAIL", issues, []) };
-  const context: ParseContext = { files: zip.entries, relationships, contentTypes, styleHeadings, numbering, assets: [], issues, equationCounter: 0, paragraphCounter: 0, tableCounter: 0 };
+  const context: ParseContext = { files: zip.entries, sourceName: options.sourceName, relationships, contentTypes, styleHeadings, numbering, assets: [], issues, equationCounter: 0, paragraphCounter: 0, tableCounter: 0 };
   const body = descendants(documentRoot, "body")[0];
   if (!body) {
     issues.push({ code: "MALFORMED_XML", severity: "error", path: "word/document.xml", message: "Word document body is missing." });

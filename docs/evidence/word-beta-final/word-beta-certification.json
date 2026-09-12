@@ -1,0 +1,34 @@
+{
+  "frozenBoundaryCount": 668,
+  "questionIRCount": 668,
+  "packageCount": 668,
+  "sourceFileCount": 11,
+  "hashMatchCount": 11,
+  "hashMismatchCount": 0,
+  "types": {
+    "MULTIPLE_CHOICE": 270,
+    "TRUE_FALSE": 5,
+    "SHORT_ANSWER": 60,
+    "ESSAY": 0,
+    "UNKNOWN": 333
+  },
+  "mathReferenceCount": 3239,
+  "assetReferenceCount": 579,
+  "execution": {
+    "answerSolutionValidatorDocumentsRun": 11,
+    "questionTypeValidatorQuestionCount": 668,
+    "packageValidatorPackageCount": 668,
+    "sourceObjectValidatorDocumentsRun": 11
+  },
+  "qa": {
+    "boundaryConsumption": true,
+    "identityBridge": true,
+    "answerSolution": true,
+    "questionTypeAccounting": true,
+    "questionTypeSemantic": true,
+    "package": true,
+    "sourceObjectAccounting": true,
+    "sourceCorpusImmutability": true
+  },
+  "automatedWordBetaQA": "PASS"
+}

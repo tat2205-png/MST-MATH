@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-20",
+  "questionId": "bec93b42b430-qcandidate-50",
+  "questionIrId": "bec93b42b430-qcandidate-50",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-bec93b42b430a8d7",
+    "documentPath": "BÀI 2. GTLN-GTNN.docx",
+    "documentHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+    "sourceObjectIds": [
+      "paragraph-310",
+      "paragraph-311",
+      "paragraph-312",
+      "paragraph-313",
+      "paragraph-314",
+      "paragraph-315",
+      "paragraph-316",
+      "paragraph-317",
+      "paragraph-318",
+      "paragraph-319"
+    ],
+    "provenance": {
+      "sourceFile": "BÀI 2. GTLN-GTNN.docx",
+      "sourceSha256": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "SHORT_ANSWER",
+  "sourceRepresentation": {
+    "text": "Chokhốicầu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mo>(</mo><mo>)</mo></mrow></math>$có tâm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>I</mi></mrow></math>$, bánkính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$không đổi. Một khối trụ thay đổi có chiều cao$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$, bán kính đáy$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>r</mi></mrow></math>$nội tiếp khối cầu. Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$theo$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$sao cho thể tích khối trụ lớn nhất.",
+    "mathObjectIds": [
+      "mtef-v3-4526bef07cd7fa4a",
+      "mtef-v3-7e21668fc37ddaef",
+      "mtef-v3-af2fd1ee9a8f9cea",
+      "mtef-v3-c3fb431d2c132468",
+      "mtef-v3-f225055707e5b3e4"
+    ],
+    "assetIds": [
+      "asset-53383e4f0099"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-v3-4526bef07cd7fa4a",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-7e21668fc37ddaef",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-af2fd1ee9a8f9cea",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-f225055707e5b3e4",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 14,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-c3fb431d2c132468",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 16,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-f225055707e5b3e4",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-v3-af2fd1ee9a8f9cea",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 20,
+          "paragraphIndex": 310
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-53383e4f0099",
+        "kind": "IMAGE",
+        "relationshipId": "rId751",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-bec93b42b430a8d7",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 310,
+          "relationshipId": "rId751"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "bec93b42b430-qcandidate-50",
+    "questionIrId": "bec93b42b430-qcandidate-50",
+    "packageId": "question-bec93b42b430-qcandidate-50",
+    "text": "Chokhốicầu$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi><mo>(</mo><mo>)</mo></mrow></math>$có tâm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>I</mi></mrow></math>$, bánkính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$không đổi. Một khối trụ thay đổi có chiều cao$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$, bán kính đáy$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>r</mi></mrow></math>$nội tiếp khối cầu. Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>h</mi></mrow></math>$theo$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>R</mi></mrow></math>$sao cho thể tích khối trụ lớn nhất.",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-v3-4526bef07cd7fa4a",
+      "mtef-v3-7e21668fc37ddaef",
+      "mtef-v3-af2fd1ee9a8f9cea",
+      "mtef-v3-c3fb431d2c132468",
+      "mtef-v3-f225055707e5b3e4"
+    ],
+    "assetIds": [
+      "asset-53383e4f0099"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V3"
+  ],
+  "mathFormats": [
+    "MTEF_V3"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

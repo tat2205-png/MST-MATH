@@ -1,0 +1,15 @@
+{
+  "sourceFileCount": 11,
+  "hashMatchCount": 11,
+  "hashMismatchCount": 0,
+  "mtefV5ObjectCount": 2911,
+  "recoveredThroughProductionParser": 2911,
+  "decodeFailures": 0,
+  "remainingLegacyFallbacks": 24,
+  "questionBoundaryCount": 668,
+  "questionIrCount": 668,
+  "questionPackageCount": 668,
+  "boundaryIdSetChanged": false,
+  "qa": "BLOCKED_NON_MTEF_V5_REMAINDER",
+  "nextRequiredWork": "Classify and recover the 24 non-V5/unclassified OLE objects before removing all user-facing legacy placeholders."
+}

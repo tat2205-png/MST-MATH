@@ -1,0 +1,297 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-13",
+  "questionId": "1ffa795691ed-qcandidate-13",
+  "questionIrId": "1ffa795691ed-qcandidate-13",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-131",
+      "paragraph-132",
+      "paragraph-133",
+      "paragraph-134"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Vào lúc 12 giờ 7 phút anhHùngchạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và đi đến điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn></mrow></math>$(km/h). Biết rằng 7 phút trước đó anh Quang chạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>0</mn></mrow></math>$(km/h) sao cho hai quãng đường của hai xe hợp nhau một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn><mo></mo><mo>∘</mo></mrow></math>$như hình vẽ dưới đây. Cho biết$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>4</mn><mn>2</mn></mrow></math>$(km) và vào lúc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$giờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>b</mi></mrow></math>$phút thì anh Quang và anh Hùng ở vị trí có cự li gần nhất để vẫy tay chào nhau ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mo>ℕ</mo><mo>*</mo></mrow></math>$). Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></math>$? Xem như hai xe đều chuyển động đều và không có tác dụng ngoại lực hay yếu tố nào khác.",
+    "mathObjectIds": [
+      "mtef-144388621acc6a1e",
+      "mtef-60cf4524756db6cb",
+      "mtef-742d379f8979ca20",
+      "mtef-8163351aec78b047",
+      "mtef-a1578620f0565baf",
+      "mtef-aa24bc02e9fee351",
+      "mtef-b42b08c38559730f",
+      "mtef-d7a040bad2df907b",
+      "mtef-e239f0c4185e9f1d",
+      "mtef-e4b800abd1586e14",
+      "mtef-e7653f9fa2b4bbe5"
+    ],
+    "assetIds": [
+      "asset-8534c17625c9"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 17,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 4,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-aa24bc02e9fee351",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 6,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-a1578620f0565baf",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 10,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e7653f9fa2b4bbe5",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 12,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-d7a040bad2df907b",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 14,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-742d379f8979ca20",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 16,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-8163351aec78b047",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-b42b08c38559730f",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 20,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e4b800abd1586e14",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 22,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-60cf4524756db6cb",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 24,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 227
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 235
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-8534c17625c9",
+        "kind": "IMAGE",
+        "relationshipId": "rId182",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 131,
+          "relationshipId": "rId182"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-13",
+    "questionIrId": "1ffa795691ed-qcandidate-13",
+    "packageId": "question-1ffa795691ed-qcandidate-13",
+    "text": "Vào lúc 12 giờ 7 phút anhHùngchạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và đi đến điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>C</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn></mrow></math>$(km/h). Biết rằng 7 phút trước đó anh Quang chạy xe xuất phát từ điểm$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$với vận tốc là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>0</mn></mrow></math>$(km/h) sao cho hai quãng đường của hai xe hợp nhau một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>0</mn><mo></mo><mo>∘</mo></mrow></math>$như hình vẽ dưới đây. Cho biết$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>4</mn><mn>2</mn></mrow></math>$(km) và vào lúc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi></mrow></math>$giờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>b</mi></mrow></math>$phút thì anh Quang và anh Hùng ở vị trí có cự li gần nhất để vẫy tay chào nhau ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mo>ℕ</mo><mo>*</mo></mrow></math>$). Tính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow></math>$? Xem như hai xe đều chuyển động đều và không có tác dụng ngoại lực hay yếu tố nào khác.",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-144388621acc6a1e",
+      "mtef-60cf4524756db6cb",
+      "mtef-742d379f8979ca20",
+      "mtef-8163351aec78b047",
+      "mtef-a1578620f0565baf",
+      "mtef-aa24bc02e9fee351",
+      "mtef-b42b08c38559730f",
+      "mtef-d7a040bad2df907b",
+      "mtef-e239f0c4185e9f1d",
+      "mtef-e4b800abd1586e14",
+      "mtef-e7653f9fa2b4bbe5"
+    ],
+    "assetIds": [
+      "asset-8534c17625c9"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

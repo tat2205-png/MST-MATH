@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_TECHNICAL_CERTIFICATION_V1",
+  "generatedAt": "2026-09-02T19:21:39.548Z",
+  "generatorVersion": "current-state-certifier-v1",
+  "gitCommit": "711438c6dbcbdab89adb8203d8ab4c66ab9e6b2b",
+  "canonicalBoundaryCount": 668,
+  "canonicalBoundarySetHash": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+  "sourceCorpusManifestHash": "7e1934a559da6ce424899a295ad7b2b44529569a9502769ba29367e75f51997c",
+  "idSetHashes": {
+    "boundary": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+    "questionIr": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+    "questionPackage": "cb5e17b600669fe0a25d6b85f212e2517c6e156791a8999eaccb7679af9372e6",
+    "algorithm": "SHA256",
+    "normalization": "unique lexical UTF-8 joined by newline without trailing newline"
+  },
+  "sourceCorpus": {
+    "sourceFileCount": 11,
+    "hashMatchCount": 11,
+    "hashMismatchCount": 0
+  },
+  "oleAccounting": {
+    "sourceOleObjectCount": 2935,
+    "mtefV5Count": 2911,
+    "mtefV3Count": 22,
+    "nonSemanticCount": 2,
+    "missingClassification": 0,
+    "unclassified": 0,
+    "duplicateIdentity": 0,
+    "qa": "PASS"
+  },
+  "mathLedger": {
+    "expectedSource": "RAW_DOCX_SOURCE_IDENTITIES",
+    "actualSource": "CURRENT_DOCUMENT_IR",
+    "selfReferentialQA": "PASS",
+    "uniqueSourceMathObjectCount": 5473,
+    "unresolved": 0,
+    "unaccounted": 0,
+    "multiPrimary": 0,
+    "qa": "PASS"
+  },
+  "provenance": {
+    "recoveredMathCount": 6193,
+    "missing": 0,
+    "brokenAnchors": 0,
+    "invalidOwners": 0,
+    "crossObjectContamination": 0,
+    "qa": "PASS"
+  },
+  "productDiagnostics": {
+    "documentIrPlaceholderCount": 0,
+    "visibleOmmlDiagnosticCount": 0,
+    "qa": "PASS"
+  },
+  "questionPipeline": {
+    "boundaryCount": 668,
+    "questionIrCount": 668,
+    "packageCount": 668,
+    "boundaryQirEqual": true,
+    "qirPackageEqual": true,
+    "lockedSnapshotConfirmedCount": 668
+  },
+  "mathAssociation": {
+    "questionIrReferences": 5949,
+    "packageReferences": 5949,
+    "missing": 0,
+    "broken": 0,
+    "invalid": 0,
+    "unexplainedExtra": 0,
+    "qa": "PASS",
+    "scope": "SUPPORTED_SCOPE"
+  },
+  "packageSerialization": {
+    "packageCount": 668,
+    "invalidJson": 0,
+    "missingFiles": 0,
+    "brokenMath": 0,
+    "brokenAssets": 0,
+    "visibleDiagnostics": 0,
+    "qa": "PASS"
+  },
+  "humanAcceptancePack": {
+    "generated": true,
+    "caseCount": 40,
+    "path": "docs/evidence/word-beta-final/human-acceptance-round-2-manifest.json"
+  },
+  "historical5053": {
+    "rawPlaceholderEmissionCount": 5053,
+    "rowLedgerAvailable": false,
+    "reconstructionQA": "NOT_CERTIFIABLE_FROM_AVAILABLE_EVIDENCE",
+    "archivalGapDocumented": true
+  },
+  "documents": [
+    {
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceMathCount": 186,
+      "questionCount": 29,
+      "packageCount": 29,
+      "sourceAssetCount": 52
+    },
+    {
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceMathCount": 881,
+      "questionCount": 103,
+      "packageCount": 103,
+      "sourceAssetCount": 153
+    },
+    {
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519",
+      "sourceMathCount": 217,
+      "questionCount": 33,
+      "packageCount": 33,
+      "sourceAssetCount": 49
+    },
+    {
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceMathCount": 587,
+      "questionCount": 89,
+      "packageCount": 89,
+      "sourceAssetCount": 101
+    },
+    {
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06",
+      "sourceMathCount": 321,
+      "questionCount": 60,
+      "packageCount": 60,
+      "sourceAssetCount": 9
+    },
+    {
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "sourceMathCount": 202,
+      "questionCount": 27,
+      "packageCount": 27,
+      "sourceAssetCount": 17
+    },
+    {
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "sourceHash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c",
+      "sourceMathCount": 93,
+      "questionCount": 15,
+      "packageCount": 15,
+      "sourceAssetCount": 15
+    },
+    {
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+      "sourceMathCount": 649,
+      "questionCount": 85,
+      "packageCount": 85,
+      "sourceAssetCount": 34
+    },
+    {
+      "file": "Full-Toán thực tế 10.docx",
+      "sourceHash": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+      "sourceMathCount": 2844,
+      "questionCount": 158,
+      "packageCount": 158,
+      "sourceAssetCount": 107
+    },
+    {
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "sourceMathCount": 183,
+      "questionCount": 24,
+      "packageCount": 24,
+      "sourceAssetCount": 12
+    },
+    {
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7",
+      "sourceMathCount": 30,
+      "questionCount": 45,
+      "packageCount": 45,
+      "sourceAssetCount": 50
+    }
+  ],
+  "technicalProjectStatus": "DONE"
+}

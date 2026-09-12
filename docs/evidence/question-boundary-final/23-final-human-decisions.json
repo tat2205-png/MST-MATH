@@ -1,0 +1,535 @@
+{
+  "schemaVersion": "FINAL_BOUNDARY_EXCEPTIONS_V1",
+  "totalCases": 23,
+  "decisions": [
+    {
+      "case": "01",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 71,
+        "paragraphIndex": 71
+      },
+      "previous": "Một xưởng cơ khí sản xuất hai loại sản phẩm là A và B. Để sản suất một sản phẩm ",
+      "start": "Nhà mảy [LEGACY_MATHTYPE_UNSUPPORTED] chuyên sản xuất một loại sản phầm cung cấp cho nhà máy [LEGACY_MATHTYPE_UNSUPPORTE",
+      "end": "E_UNSUPPORTED] bao nhiêu tẩn sản phẩm mỗi thảng để lợi nhuận thu được lớn nhất? (kết quả iàm tròn đến hàng phä̀n chucc).",
+      "next": "Công ty X cần vận chuyển một lượng lớn hàng hóa từ nhà kho [LEGACY_MATHTYPE_UNSU",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "02",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 77,
+        "paragraphIndex": 77
+      },
+      "previous": "Một doanh nghiệp kinh doanh một loại sản phẩm dược liệu T được sản xuất trong nư",
+      "start": "Nhà máy A chuyên sản xuất một loại sản phẩm cho nhà máy B. Hai nhà máy thỏa thuận rằng: hằng tháng nhà máy A cung cấp ch",
+      "end": "SUPPORTED] bao nhiêu tấn sản phẩm mỗi tháng thì thu được lợi nhuận lớn nhất? (kết quả làm tròn đến một chư số thập phân)",
+      "next": "Khi nuôi tôm thẻ trong ao, một kĩ sư thủy sản đã thống kê được nếu mỗi mét vuông",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "03",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 120,
+        "paragraphIndex": 120
+      },
+      "previous": "Một doanh nghiệp dự định sản xuất không quá 20 sản phẩm mỗi ngày. Nếu doanh nghi",
+      "start": "Nhà xe khoán cho hai tài xế An và Bình mỗi người lần lượt nhận 32 lít và 72 lít xăng trong một tháng. Biết rằng trong mộ",
+      "end": "t nhất để hai tài xế sử dụng hết số xăng được khoán là bao nhiêu (biết số lít xăng tiêu thụ trong các ngày là như nhau).",
+      "next": "Ông A dự định sử dụng hết [LEGACY_MATHTYPE_UNSUPPORTED] kính để làm một bể cá bằ",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "04",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 121,
+        "paragraphIndex": 121
+      },
+      "previous": "Nhà xe khoán cho hai tài xế An và Bình mỗi người lần lượt nhận 32 lít và 72 lít ",
+      "start": "Ông A dự định sử dụng hết [LEGACY_MATHTYPE_UNSUPPORTED] kính để làm một bể cá bằng kính có dạng hình hộp chữ nhật không ",
+      "end": "ều rộng. Bể cá có dung tích lớn nhất bẳng bao nhiêu [LEGACY_MATHTYPE_UNSUPPORTED]? (Kết quả làm tròn đến hàng phần trăm)",
+      "next": "Một công ty sản xuất dụng cụ thể thao nhận được một đơn đặt hàng sản xuất [LEGAC",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "05",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 123,
+        "paragraphIndex": 123
+      },
+      "previous": "Một công ty sản xuất dụng cụ thể thao nhận được một đơn đặt hàng sản xuất [LEGAC",
+      "start": "Nhà máy [LEGACY_MATHTYPE_UNSUPPORTED] chuyên sản xuất một loại sản phẩm cung cấp cho nhà máy [LEGACY_MATHTYPE_UNSUPPORTE",
+      "end": "ược mỗi tháng là [LEGACY_MATHTYPE_UNSUPPORTED] triệu đồng. Tìm [LEGACY_MATHTYPE_UNSUPPORTED]. (Làm tròn đến hàng đơn vị)",
+      "next": "Hằng tháng nhà máy[LEGACY_MATHTYPE_UNSUPPORTED] cung cấp cho nhà máy [LEGACY_MAT",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "06",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 124,
+        "paragraphIndex": 124
+      },
+      "previous": "Nhà máy [LEGACY_MATHTYPE_UNSUPPORTED] chuyên sản xuất một loại sản phẩm cung cấp",
+      "start": "Hằng tháng nhà máy[LEGACY_MATHTYPE_UNSUPPORTED] cung cấp cho nhà máy [LEGACY_MATHTYPE_UNSUPPORTED] số lượng sản phẩm the",
+      "end": "tháng khi bán hàng cho nhà máy [LEGACY_MATHTYPE_UNSUPPORTED] là bao nhiêu triệu đồng (kết quả làm tròn đến hàng đơn vị).",
+      "next": "Một doanh nghiệp dự định sản xuất không quá 1000 sản phẩm. Nếu doanh nghiệp sản ",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "07",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 132,
+        "paragraphIndex": 132
+      },
+      "previous": "Một công ty du lịch tổ chức tour du lịch với giá mỗi tour là 5 triệu đồng một kh",
+      "start": "Giám đốc một nhà hát A đang phân vân trong việc xác định mức giá vé xem các chương trình được trình chiếu trong nhà hát.",
+      "end": "dịch vụ đi kèm. Hãy giúp giám đốc nhà hát này xác định xem cần tính giá vé vào cửa là bao nhiêu để thu nhập là lớn nhất.",
+      "next": "Nhà xe khoán cho hai tài xế An và Bình mỗi người lần lượt nhận 32 lít và 72 lít ",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "08",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-59",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-6e9f91cd7c0a0083",
+        "partName": "word/document.xml",
+        "objectIndex": 133,
+        "paragraphIndex": 133
+      },
+      "previous": "Giám đốc một nhà hát A đang phân vân trong việc xác định mức giá vé xem các chươ",
+      "start": "Nhà xe khoán cho hai tài xế An và Bình mỗi người lần lượt nhận 32 lít và 72 lít xăng trong một tháng. Biết rằng trong mộ",
+      "end": "t nhất để hai tài xế sử dụng hết số xăng được khoán là bao nhiêu (biết số lít xăng tiêu thụ trong các ngày là như nhau).",
+      "next": "Một doanh nghiệp chuyên kinh doanh các loại xe máy điện. Hiện tại doanh nghiệp đ",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "ACCEPT_AS_QUESTION",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "09",
+      "candidateId": "NK TEST APP.docx::candidate-15",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 24,
+        "paragraphIndex": 64
+      },
+      "previous": "Công thức xác định tốc độ tăng trưởng doanh thu của công ty là [MATH].",
+      "start": "Doanh thu của công ty đạt tốc độ tăng trưởng cực đại tại thời điểm [MATH] năm.",
+      "end": "Doanh thu của công ty đạt tốc độ tăng trưởng cực đại tại thời điểm [MATH] năm.",
+      "next": "Trong năm đầu tiên [MATH], tốc độ tăng trưởng doanh thu của công ty luôn có xu h",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "10",
+      "candidateId": "NK TEST APP.docx::candidate-16",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 25,
+        "paragraphIndex": 65
+      },
+      "previous": "Doanh thu của công ty đạt tốc độ tăng trưởng cực đại tại thời điểm [MATH] năm.",
+      "start": "Trong năm đầu tiên [MATH], tốc độ tăng trưởng doanh thu của công ty luôn có xu hướng tăng.",
+      "end": "Trong năm đầu tiên [MATH], tốc độ tăng trưởng doanh thu của công ty luôn có xu hướng tăng.",
+      "next": "Tại thời điểm [MATH] năm, tốc độ tăng trưởng doanh thu của công ty đạt giá trị b",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "11",
+      "candidateId": "NK TEST APP.docx::candidate-19",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 30,
+        "paragraphIndex": 70
+      },
+      "previous": "Câu 2. Trong một ca trực tại Trạm kiểm soát không lưu sân bay Tân Sơn Nhất, các ",
+      "start": "Tại thời điểm 8 giờ sáng, khoảng cách từ máy bay đến tháp điều hành không lưu xấp xỉ 130 km (sai số không quá 1 km).",
+      "end": "Tại thời điểm 8 giờ sáng, khoảng cách từ máy bay đến tháp điều hành không lưu xấp xỉ 130 km (sai số không quá 1 km).",
+      "next": "Tại thời điểm 9 giờ sáng, độ cao của máy bay so với mặt đất là 8 km.",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "12",
+      "candidateId": "NK TEST APP.docx::candidate-20",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 31,
+        "paragraphIndex": 71
+      },
+      "previous": "Tại thời điểm 8 giờ sáng, khoảng cách từ máy bay đến tháp điều hành không lưu xấ",
+      "start": "Tại thời điểm 9 giờ sáng, độ cao của máy bay so với mặt đất là 8 km.",
+      "end": "Tại thời điểm 9 giờ sáng, độ cao của máy bay so với mặt đất là 8 km.",
+      "next": "Tại thời điểm 10 giờ sáng, khoảng cách từ máy bay đến tháp truyền hình [MATH] xấ",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "13",
+      "candidateId": "NK TEST APP.docx::candidate-22",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 34,
+        "paragraphIndex": 74
+      },
+      "previous": "Tại thời điểm 10 giờ sáng, khoảng cách từ máy bay đến tháp truyền hình [MATH] xấ",
+      "start": "Khi đạt độ cao 10 km, máy bay nhận lệnh hạ cánh và đổi sang vận tốc mới là [MATH] để hướng về đường băng [MATH]. Tọa độ ",
+      "end": "là [MATH] để hướng về đường băng [MATH]. Tọa độ của máy bay ngay khi chạm đất tại đường băng [MATH] là (1 450; 1520; 0).",
+      "next": "Câu 3. Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "14",
+      "candidateId": "NK TEST APP.docx::candidate-24",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 36,
+        "paragraphIndex": 76
+      },
+      "previous": "Câu 3. Một công ty công nghệ phân tích hiệu quả của chiến dịch tiếp thị ứng dụng",
+      "start": "[MATH].",
+      "end": "[MATH].",
+      "next": "Tốc độ tương tác tại thời điểm ban đầu [MATH] là 2 triệu giờ/tuần.",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "15",
+      "candidateId": "NK TEST APP.docx::candidate-25",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 37,
+        "paragraphIndex": 77
+      },
+      "previous": "[MATH].",
+      "start": "Tốc độ tương tác tại thời điểm ban đầu [MATH] là 2 triệu giờ/tuần.",
+      "end": "Tốc độ tương tác tại thời điểm ban đầu [MATH] là 2 triệu giờ/tuần.",
+      "next": "Tốc độ tương tác tại thời điểm [MATH] tuần bằng 1 triệu giờ/tuần.",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "16",
+      "candidateId": "NK TEST APP.docx::candidate-26",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 38,
+        "paragraphIndex": 78
+      },
+      "previous": "Tốc độ tương tác tại thời điểm ban đầu [MATH] là 2 triệu giờ/tuần.",
+      "start": "Tốc độ tương tác tại thời điểm [MATH] tuần bằng 1 triệu giờ/tuần.",
+      "end": "Tốc độ tương tác tại thời điểm [MATH] tuần bằng 1 triệu giờ/tuần.",
+      "next": "Gia tốc tương tác của người dùng tại thời điểm [MATH] tuần bằng 0,5 triệu giờ/tu",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "17",
+      "candidateId": "NK TEST APP.docx::candidate-27",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 39,
+        "paragraphIndex": 79
+      },
+      "previous": "Tốc độ tương tác tại thời điểm [MATH] tuần bằng 1 triệu giờ/tuần.",
+      "start": "Gia tốc tương tác của người dùng tại thời điểm [MATH] tuần bằng 0,5 triệu giờ/tuần [MATH].",
+      "end": "Gia tốc tương tác của người dùng tại thời điểm [MATH] tuần bằng 0,5 triệu giờ/tuần [MATH].",
+      "next": "Câu 4. Xét phép thử chọn ngẫu nhiên một số tự nhiên có hai chữ số. Xét biến cố [",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "18",
+      "candidateId": "NK TEST APP.docx::candidate-29",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 41,
+        "paragraphIndex": 81
+      },
+      "previous": "Câu 4. Xét phép thử chọn ngẫu nhiên một số tự nhiên có hai chữ số. Xét biến cố [",
+      "start": "Số phần tử của không gian mẫu là [MATH].",
+      "end": "Số phần tử của không gian mẫu là [MATH].",
+      "next": "Xác suất của biến cố [MATH] là [MATH].",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "19",
+      "candidateId": "NK TEST APP.docx::candidate-30",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 42,
+        "paragraphIndex": 82
+      },
+      "previous": "Số phần tử của không gian mẫu là [MATH].",
+      "start": "Xác suất của biến cố [MATH] là [MATH].",
+      "end": "Xác suất của biến cố [MATH] là [MATH].",
+      "next": "Xác suất của biến cố [MATH] là [MATH].",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "20",
+      "candidateId": "NK TEST APP.docx::candidate-31",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 43,
+        "paragraphIndex": 83
+      },
+      "previous": "Xác suất của biến cố [MATH] là [MATH].",
+      "start": "Xác suất của biến cố [MATH] là [MATH].",
+      "end": "Xác suất của biến cố [MATH] là [MATH].",
+      "next": "Xác suất của biến cố hợp [MATH] là [MATH].",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "21",
+      "candidateId": "NK TEST APP.docx::candidate-32",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 44,
+        "paragraphIndex": 84
+      },
+      "previous": "Xác suất của biến cố [MATH] là [MATH].",
+      "start": "Xác suất của biến cố hợp [MATH] là [MATH].",
+      "end": "Xác suất của biến cố hợp [MATH] là [MATH].",
+      "next": "Câu 1. Trong một dự án giám sát sinh thái hồ, các chuyên gia môi trường mô hình ",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "22",
+      "candidateId": "NK TEST APP.docx::candidate-35",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 49,
+        "paragraphIndex": 89
+      },
+      "previous": "Câu 2. Một doanh nghiệp công nghệ khởi nghiệp (Startup) chuẩn bị mở rộng quy mô ",
+      "start": "Phương án 1 (Thanh toán theo quý): Tiền thuê quý đầu tiên là 10 triệu đồng; từ quý thứ hai trở đi, tiền thuê mỗi quý tăn",
+      "end": " thuê quý đầu tiên là 10 triệu đồng; từ quý thứ hai trở đi, tiền thuê mỗi quý tăng thêm 500000 đồng so với quý trước đó.",
+      "next": "Phương án 2 (Thanh toán theo năm): Tiền thuê năm đầu tiên là 70 triệu đồng; từ n",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    },
+    {
+      "case": "23",
+      "candidateId": "NK TEST APP.docx::candidate-39",
+      "file": "NK TEST APP.docx",
+      "sourceAnchor": {
+        "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+        "partName": "word/document.xml",
+        "objectIndex": 61,
+        "paragraphIndex": 101
+      },
+      "previous": "Câu 5. Trong một dự án nghiên cứu công nghệ vật liệu mới, các kỹ sư thiết kế một",
+      "start": "Ba số ở ba vòng tròn nhỏ có thể sắp xếp thành một cấp số cộng tăng.",
+      "end": "Ba số ở ba vòng tròn nhỏ có thể sắp xếp thành một cấp số cộng tăng.",
+      "next": "Số ở vòng tròn lớn chính giữa bằng tổng của cả ba số ở ba vòng tròn nhỏ.",
+      "currentBoundary": "REVIEW",
+      "whyUnresolved": "Insufficient independent evidence for automatic recommendation; inspect neighboring blocks.",
+      "evidence": [
+        "WORD_NUMBERING"
+      ],
+      "contradictions": [],
+      "decision": "MERGE_WITH_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL"
+    }
+  ]
+}

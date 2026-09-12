@@ -1,0 +1,1017 @@
+{
+  "schemaVersion": "MICRO_GOLD_V2",
+  "totalUnresolved": 47,
+  "cases": [
+    {
+      "microGoldId": "micro-gold-01",
+      "candidateId": "1.1.docx::candidate-15",
+      "file": "1.1.docx",
+      "representedCandidateIds": [
+        "1.1.docx::candidate-15",
+        "1.1.docx::candidate-64",
+        "1.1.docx::candidate-65",
+        "1.1.docx::candidate-74"
+      ],
+      "representedCount": 4,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-02",
+      "candidateId": "2.1.docx::candidate-5",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-03",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-04",
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-25",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-25"
+      ],
+      "representedCount": 1,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-05",
+      "candidateId": "NK TEST APP.docx::candidate-14",
+      "file": "NK TEST APP.docx",
+      "representedCandidateIds": [
+        "NK TEST APP.docx::candidate-14",
+        "NK TEST APP.docx::candidate-15",
+        "NK TEST APP.docx::candidate-16",
+        "NK TEST APP.docx::candidate-19",
+        "NK TEST APP.docx::candidate-20",
+        "NK TEST APP.docx::candidate-22",
+        "NK TEST APP.docx::candidate-24",
+        "NK TEST APP.docx::candidate-25",
+        "NK TEST APP.docx::candidate-26",
+        "NK TEST APP.docx::candidate-27",
+        "NK TEST APP.docx::candidate-29",
+        "NK TEST APP.docx::candidate-30",
+        "NK TEST APP.docx::candidate-31",
+        "NK TEST APP.docx::candidate-32",
+        "NK TEST APP.docx::candidate-35",
+        "NK TEST APP.docx::candidate-39"
+      ],
+      "representedCount": 16,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-06",
+      "candidateId": "1.1.docx::candidate-64",
+      "file": "1.1.docx",
+      "representedCandidateIds": [
+        "1.1.docx::candidate-15",
+        "1.1.docx::candidate-64",
+        "1.1.docx::candidate-65",
+        "1.1.docx::candidate-74"
+      ],
+      "representedCount": 4,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-07",
+      "candidateId": "1.1.docx::candidate-65",
+      "file": "1.1.docx",
+      "representedCandidateIds": [
+        "1.1.docx::candidate-15",
+        "1.1.docx::candidate-64",
+        "1.1.docx::candidate-65",
+        "1.1.docx::candidate-74"
+      ],
+      "representedCount": 4,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-08",
+      "candidateId": "1.1.docx::candidate-74",
+      "file": "1.1.docx",
+      "representedCandidateIds": [
+        "1.1.docx::candidate-15",
+        "1.1.docx::candidate-64",
+        "1.1.docx::candidate-65",
+        "1.1.docx::candidate-74"
+      ],
+      "representedCount": 4,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-09",
+      "candidateId": "2.1.docx::candidate-6",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-10",
+      "candidateId": "2.1.docx::candidate-17",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-11",
+      "candidateId": "2.1.docx::candidate-18",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-12",
+      "candidateId": "2.1.docx::candidate-28",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-13",
+      "candidateId": "2.1.docx::candidate-40",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-14",
+      "candidateId": "2.1.docx::candidate-46",
+      "file": "2.1.docx",
+      "representedCandidateIds": [
+        "2.1.docx::candidate-5",
+        "2.1.docx::candidate-6",
+        "2.1.docx::candidate-17",
+        "2.1.docx::candidate-18",
+        "2.1.docx::candidate-28",
+        "2.1.docx::candidate-40",
+        "2.1.docx::candidate-46"
+      ],
+      "representedCount": 7,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-15",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-16",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-17",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-18",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-19",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-20",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-21",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-22",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-23",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    },
+    {
+      "microGoldId": "micro-gold-24",
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "representedCandidateIds": [
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+        "3. MIN MAX TÀI CHÍNH.docx::candidate-59"
+      ],
+      "representedCount": 19,
+      "shortPreviousContext": "[bounded context]",
+      "shortStartPreview": "[source preview]",
+      "shortEndPreview": "[source preview]",
+      "shortNextContext": "[bounded context]",
+      "structuralEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "semanticEvidence": [
+        "NEW_QUESTION"
+      ],
+      "contradictions": [],
+      "decisionOptions": [
+        "ACCEPT_AS_QUESTION",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_NEXT",
+        "REJECT_NOT_QUESTION",
+        "BOUNDARY_START_WRONG",
+        "BOUNDARY_END_WRONG",
+        "UNSURE"
+      ],
+      "applyToRepresentedPattern": null,
+      "humanDecision": null
+    }
+  ]
+}

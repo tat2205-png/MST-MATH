@@ -1,0 +1,182 @@
+{
+  "recordTypes": {
+    "ENCODING_DEF": 3038,
+    "FONT_DEF": 11780,
+    "EQN_PREFS": 2911,
+    "FULL": 3358,
+    "LINE": 5692,
+    "COLOR_DEF": 1098,
+    "COLOR": 2309,
+    "CHAR": 13315,
+    "END": 9630,
+    "EMBELL": 72,
+    "TMPL": 1663,
+    "MT_COMMENT": 88,
+    "SUB": 708,
+    "FONT_STYLE_DEF": 12,
+    "SIZE": 1,
+    "PILE": 2
+  },
+  "fixtures": [
+    {
+      "fixtureId": "G01",
+      "sourceDocumentId": "2.1.docx",
+      "sourceObjectId": "word/embeddings/oleObject32.bin",
+      "semanticPayloadHash": "7e03425b8c5520fd21968d8f091086fdfa4054c483d3025b003c8e01cce85c82",
+      "semanticPayloadLength": 187,
+      "mtefVersion": 5,
+      "recordCount": 10,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "bdc62e7cf2cde37daa47f5c7945e731794acf0954677004261643984f06cf36b",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G02",
+      "sourceDocumentId": "1.1.docx",
+      "sourceObjectId": "word/embeddings/oleObject379.bin",
+      "semanticPayloadHash": "5674a34638fd4844f4a7feea396a2b45c2de03bab773a441b9b328c6c82f7ff2",
+      "semanticPayloadLength": 199,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "bc973d3f14d94af9451ca2b9198cadf47c5b8a46aefda350820a29967ea4a9ab",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G03",
+      "sourceDocumentId": "1.1.docx",
+      "sourceObjectId": "word/embeddings/oleObject390.bin",
+      "semanticPayloadHash": "56107a63f4063a747505b682a436ef8bc7292ed1f3862ed5079aa6bcf85933f0",
+      "semanticPayloadLength": 199,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "57369a13b4fa7905f63c6e78b9272f2413f9102f25853ff6c579840a73c380f7",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G04",
+      "sourceDocumentId": "1.1.docx",
+      "sourceObjectId": "word/embeddings/oleObject600.bin",
+      "semanticPayloadHash": "123457c6efa4870127fef043fc345b2b5991c147d6b6c69643ad9f312836f9d3",
+      "semanticPayloadLength": 199,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "96a768973e5c45f631f07295a92bf17cc8ecff7d6463be00208bb7fbd94cf354",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G05",
+      "sourceDocumentId": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceObjectId": "word/embeddings/oleObject7.bin",
+      "semanticPayloadHash": "4371e6f814c481803f7551f9eae367f66d3c1f52f9a373cfb0a9ae69cc0c3e25",
+      "semanticPayloadLength": 200,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "70f2a126bccb81da5dd44cbe3d7569f1986468bbae723309765d660d9222969a",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G06",
+      "sourceDocumentId": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceObjectId": "word/embeddings/oleObject8.bin",
+      "semanticPayloadHash": "35b818f7bf6b946813fc0b10e6916f27bbe69e2650da5644e6fb25048eb2d20c",
+      "semanticPayloadLength": 200,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "2b63d7b9c569c4a7d977b5d1a437b4f7bc3b5ddc3df37ee6450548de3c5fb4f2",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G07",
+      "sourceDocumentId": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceObjectId": "word/embeddings/oleObject9.bin",
+      "semanticPayloadHash": "5f8cd9c7c15fbcdab954ba26c89c778967f217fcb7eda3e4ebf62068b8bf68e8",
+      "semanticPayloadLength": 200,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "0d971b9d8e066495dd0ff8c7c453d75d576625b10f6ba7e80a98f51929ab3fdf",
+      "astType": "Sequence"
+    },
+    {
+      "fixtureId": "G08",
+      "sourceDocumentId": "1.1.docx",
+      "sourceObjectId": "word/embeddings/oleObject132.bin",
+      "semanticPayloadHash": "438cc7c7a4555062d98b1a2bce1c70c97079ca697bdeaf6a6f1245c5fff585ab",
+      "semanticPayloadLength": 200,
+      "mtefVersion": 5,
+      "recordCount": 11,
+      "structuralFeatures": [
+        "ENCODING_DEF",
+        "FONT_DEF",
+        "EQN_PREFS",
+        "FULL",
+        "LINE",
+        "CHAR",
+        "END"
+      ],
+      "recordTreeHash": "bc02cba145ead210d6cb27c1c1d028ef35ee7619d6e548751ca3cf7bb17b8a07",
+      "astType": "Sequence"
+    }
+  ]
+}

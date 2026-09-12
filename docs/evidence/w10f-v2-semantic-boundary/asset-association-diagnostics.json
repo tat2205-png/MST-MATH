@@ -1,0 +1,3404 @@
+{
+  "schemaVersion": "PIMATH_QUESTION_ASSET_ASSOCIATION_V1.0",
+  "documents": [
+    {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "associations": [
+        {
+          "questionId": "1ffa795691ed-qcandidate-1",
+          "assetCount": 6,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-4",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-6",
+          "assetCount": 9,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-8",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-9",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-11",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-12",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-13",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-14",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-15",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-16",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-17",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-18",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-19",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-20",
+          "assetCount": 5,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-21",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-22",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-24",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-25",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-28",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "1ffa795691ed-qcandidate-29",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "1.1.docx",
+      "associations": [
+        {
+          "questionId": "633e6a37a7bf-qcandidate-1",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-3",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-4",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-6",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-8",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-9",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-11",
+          "assetCount": 4,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-12",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-13",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-14",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-16",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-17",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-18",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-19",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-20",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-21",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-24",
+          "assetCount": 20,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-25",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-28",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-29",
+          "assetCount": 3,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-30",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-31",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-32",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-33",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-34",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-35",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-36",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-37",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-38",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-39",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-40",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-42",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-43",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-44",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-45",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-46",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-47",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-48",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-49",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-50",
+          "assetCount": 8,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-51",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-52",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-53",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-54",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-55",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-56",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-58",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-59",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-62",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-63",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-64",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-66",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-67",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-68",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-69",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-70",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-72",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-73",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-74",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-75",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-77",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-79",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-80",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-82",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-83",
+          "assetCount": 5,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-84",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-85",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-86",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-87",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-88",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-89",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-90",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-91",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-92",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-93",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-94",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-95",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-96",
+          "assetCount": 7,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-97",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-98",
+          "assetCount": 6,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-99",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-100",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-101",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-102",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-103",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "633e6a37a7bf-qcandidate-104",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "2. MIN MAX HHKG.docx",
+      "associations": [
+        {
+          "questionId": "6cff0e6db838-qcandidate-2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-4",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-6",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-7",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-8",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-9",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-11",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-12",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-13",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-14",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-18",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-20",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-21",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-22",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-24",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-25",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-28",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-29",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-30",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-31",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-32",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6cff0e6db838-qcandidate-33",
+          "assetCount": 15,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "2.1.docx",
+      "associations": [
+        {
+          "questionId": "717b39e5b6a1-qcandidate-2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-9",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-11",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-13",
+          "assetCount": 5,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-14",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-20",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-22",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-24",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-25",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-28",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-30",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-31",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-32",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-33",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-35",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-36",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-37",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-38",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-39",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-42",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-43",
+          "assetCount": 4,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-44",
+          "assetCount": 4,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-45",
+          "assetCount": 4,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-46",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-47",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-48",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-50",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-51",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-52",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-53",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-54",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-55",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-56",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-57",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-58",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-59",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-60",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-61",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-62",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-63",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-64",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-65",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-66",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-67",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-68",
+          "assetCount": 6,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-69",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-70",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-71",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-72",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-73",
+          "assetCount": 4,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-74",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-77",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-78",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-79",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-81",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-82",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-85",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-86",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-87",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-88",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "717b39e5b6a1-qcandidate-89",
+          "assetCount": 3,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "3. MIN MAX TÀI CHÍNH.docx",
+      "associations": [
+        {
+          "questionId": "6e9f91cd7c0a-qcandidate-19",
+          "assetCount": 5,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "6e9f91cd7c0a-qcandidate-32",
+          "assetCount": 4,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "associations": [
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-8",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-13",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-14",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-15",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-16",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-17",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-19",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-20",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-22",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-24",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-25",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "ac5a02cd6fdf-qcandidate-27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "associations": [
+        {
+          "questionId": "e6e77b89b85c-qcandidate-1",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-2",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-6",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-8",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-9",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-11",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-13",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-14",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "e6e77b89b85c-qcandidate-15",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "BÀI 2. GTLN-GTNN.docx",
+      "associations": [
+        {
+          "questionId": "bec93b42b430-q2",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-4",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-6",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-8",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-18",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-36",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-42",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-43",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-44",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-45",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-46",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-47",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-48",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-49",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-50",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-51",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-52",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-53",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-54",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-55",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-56",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-57",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-58",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-59",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-82",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-83",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-84",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "bec93b42b430-qcandidate-85",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "Full-Toán thực tế 10.docx",
+      "associations": [
+        {
+          "questionId": "7f26811b8588-q1",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q6",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q11",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q12",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q17",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q18",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q21",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q22",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q29",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q30",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q31",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q32",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q34",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q36",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q41",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q42",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q43",
+          "assetCount": 3,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q44",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q47",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q48",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q50",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q51",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q54",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q56",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q57",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q59",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q60",
+          "assetCount": 3,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q61",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q65",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q66",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q67",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q68",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q86",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q103",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q109",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q110",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q111",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q112",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q113",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q114",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q115",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q116",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q117",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q118",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q119",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q120",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q121",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q122",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q123",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q124",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q127",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q128",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q129",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q130",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q131",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q132",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q133",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q134",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q135",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q137",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q138",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q139",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q142",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q143",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q144",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q145",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q146",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q147",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q148",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q149",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q150",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q151",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q152",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q153",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q154",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q155",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q156",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q157",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "7f26811b8588-q158",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "NK TEST APP.docx",
+      "associations": [
+        {
+          "questionId": "f4d4446aeaf5-q8",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "f4d4446aeaf5-qcandidate-17",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "f4d4446aeaf5-qcandidate-21",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "f4d4446aeaf5-q1",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "f4d4446aeaf5-q4",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "f4d4446aeaf5-q5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "f4d4446aeaf5-qcandidate-40",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    },
+    {
+      "sourceFile": "gấp hình (1)-TUAN-ANH.docx",
+      "associations": [
+        {
+          "questionId": "95e5f5bd2748-qcandidate-1",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-2",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-3",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-4",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-5",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-6",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-7",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-8",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-9",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-10",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-11",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-12",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-13",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-14",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-15",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-17",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-18",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-19",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-20",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-21",
+          "assetCount": 2,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-22",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-23",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-24",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-25",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-26",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-27",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-28",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-29",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-30",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-31",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-32",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-33",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-34",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-35",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-36",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-37",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-38",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-39",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-40",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-41",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-42",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-43",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-44",
+          "assetCount": 5,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        },
+        {
+          "questionId": "95e5f5bd2748-qcandidate-45",
+          "assetCount": 1,
+          "evidence": [
+            "QUESTION_BLOCK_CONTAINMENT"
+          ],
+          "qaStatus": "REVIEW"
+        }
+      ]
+    }
+  ]
+}

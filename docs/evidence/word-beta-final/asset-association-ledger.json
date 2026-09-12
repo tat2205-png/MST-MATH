@@ -1,0 +1,4650 @@
+[
+  {
+    "assetId": "asset-bea79a8a9f17",
+    "questionId": "1ffa795691ed-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-38b4ac91d495",
+    "questionId": "1ffa795691ed-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2ad1e1cda4cd",
+    "questionId": "1ffa795691ed-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5a6daefa1f87",
+    "questionId": "1ffa795691ed-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-872964d6d452",
+    "questionId": "1ffa795691ed-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-09883a3d9738",
+    "questionId": "1ffa795691ed-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-83bebbd80ea1",
+    "questionId": "1ffa795691ed-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e1626b6e76b4",
+    "questionId": "1ffa795691ed-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-aacab4c33076",
+    "questionId": "1ffa795691ed-qcandidate-4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4106d0ff0cfd",
+    "questionId": "1ffa795691ed-qcandidate-5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6ba07c02f5c0",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4abcdf15ddd9",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-67f3f0799575",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e5c7d88fb2a6",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd7701315346",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-eb2e2faf05c7",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d95d61d32220",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3eea3c164ca0",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-629cf62d0286",
+    "questionId": "1ffa795691ed-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6a8231ee3fd1",
+    "questionId": "1ffa795691ed-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5ca6a6aabb51",
+    "questionId": "1ffa795691ed-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4f38aa0a1c38",
+    "questionId": "1ffa795691ed-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8ab7111a993f",
+    "questionId": "1ffa795691ed-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fa789b9d6943",
+    "questionId": "1ffa795691ed-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e4914d4a92ce",
+    "questionId": "1ffa795691ed-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-98259a6d1077",
+    "questionId": "1ffa795691ed-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7691bfe2513b",
+    "questionId": "1ffa795691ed-qcandidate-12",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8534c17625c9",
+    "questionId": "1ffa795691ed-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9f7a506dbcdd",
+    "questionId": "1ffa795691ed-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-867fadeab56b",
+    "questionId": "1ffa795691ed-qcandidate-15",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c9cab160d1e4",
+    "questionId": "1ffa795691ed-qcandidate-16",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-057aa8dfa102",
+    "questionId": "1ffa795691ed-qcandidate-17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e27f1786d164",
+    "questionId": "1ffa795691ed-qcandidate-18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-940ce71a63f5",
+    "questionId": "1ffa795691ed-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-152be7cb68e1",
+    "questionId": "1ffa795691ed-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f47f74d4643b",
+    "questionId": "1ffa795691ed-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9119916603c4",
+    "questionId": "1ffa795691ed-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-215c731fd5b8",
+    "questionId": "1ffa795691ed-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3663ca8589b9",
+    "questionId": "1ffa795691ed-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a4f78b1b0de8",
+    "questionId": "1ffa795691ed-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c73c59d38614",
+    "questionId": "1ffa795691ed-qcandidate-22",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c07833ef0831",
+    "questionId": "1ffa795691ed-qcandidate-23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d89f3f5f2749",
+    "questionId": "1ffa795691ed-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-34d719bbb28b",
+    "questionId": "1ffa795691ed-qcandidate-25",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a8305f4469d5",
+    "questionId": "1ffa795691ed-qcandidate-26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f1d23eb8d636",
+    "questionId": "1ffa795691ed-qcandidate-27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd07ad120c0b",
+    "questionId": "1ffa795691ed-qcandidate-28",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-90171cb256dd",
+    "questionId": "1ffa795691ed-qcandidate-28",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a050598fe574",
+    "questionId": "1ffa795691ed-qcandidate-29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-88f7d2750a8a",
+    "questionId": "633e6a37a7bf-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a94d48f1b6a2",
+    "questionId": "633e6a37a7bf-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-dd3109afdcb9",
+    "questionId": "633e6a37a7bf-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f928e6ba5132",
+    "questionId": "633e6a37a7bf-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-67f3f0799575",
+    "questionId": "633e6a37a7bf-qcandidate-4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e5c7d88fb2a6",
+    "questionId": "633e6a37a7bf-qcandidate-5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7ec19b59109e",
+    "questionId": "633e6a37a7bf-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4f38aa0a1c38",
+    "questionId": "633e6a37a7bf-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f47664c18cee",
+    "questionId": "633e6a37a7bf-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8974161dcd1d",
+    "questionId": "633e6a37a7bf-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-52d3523cd1f0",
+    "questionId": "633e6a37a7bf-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b9ac53dd7813",
+    "questionId": "633e6a37a7bf-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1e5393ea5c27",
+    "questionId": "633e6a37a7bf-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-192b1088da5c",
+    "questionId": "633e6a37a7bf-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2c6d5b7559da",
+    "questionId": "633e6a37a7bf-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-81d77c551ecb",
+    "questionId": "633e6a37a7bf-qcandidate-12",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cd055da60bd7",
+    "questionId": "633e6a37a7bf-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8b909da42613",
+    "questionId": "633e6a37a7bf-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d4106a6a70c8",
+    "questionId": "633e6a37a7bf-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-676a7e994994",
+    "questionId": "633e6a37a7bf-qcandidate-16",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9002423cf535",
+    "questionId": "633e6a37a7bf-qcandidate-17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3c5df62a1ae2",
+    "questionId": "633e6a37a7bf-qcandidate-18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6fb82b402e83",
+    "questionId": "633e6a37a7bf-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-81d77c551ecb",
+    "questionId": "633e6a37a7bf-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-31bdff6640da",
+    "questionId": "633e6a37a7bf-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cfb3cc7d66d6",
+    "questionId": "633e6a37a7bf-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5181022fae71",
+    "questionId": "633e6a37a7bf-qcandidate-23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-20b94de28543",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-907887b26a33",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-565828ecb1da",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bd49737d093a",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ada4f4c33a49",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-953dfc1b9d92",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-546b7d7aeb75",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c8e8dc70b6ca",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f927af502b38",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-51d1445f2920",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9ae6c2bba010",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-60528e31968f",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a5ba55671e2d",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-edd03210e73c",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9d3a1738ba82",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9664ae39decc",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-becb8d17b75a",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-33cb1be110da",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd21e3c79247",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b8fa903accae",
+    "questionId": "633e6a37a7bf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f5c644292964",
+    "questionId": "633e6a37a7bf-qcandidate-25",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-616f475583bc",
+    "questionId": "633e6a37a7bf-qcandidate-26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-646e83473f5e",
+    "questionId": "633e6a37a7bf-qcandidate-27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-97c441893df8",
+    "questionId": "633e6a37a7bf-qcandidate-28",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1351c6c9aa25",
+    "questionId": "633e6a37a7bf-qcandidate-29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0b113ead43a9",
+    "questionId": "633e6a37a7bf-qcandidate-29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b4bc74071276",
+    "questionId": "633e6a37a7bf-qcandidate-29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-616f475583bc",
+    "questionId": "633e6a37a7bf-qcandidate-30",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3970fed7d298",
+    "questionId": "633e6a37a7bf-qcandidate-31",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a9a57ac9b8fd",
+    "questionId": "633e6a37a7bf-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-218cfd638b4f",
+    "questionId": "633e6a37a7bf-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a9493a9404bb",
+    "questionId": "633e6a37a7bf-qcandidate-34",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6bb4938c3fb4",
+    "questionId": "633e6a37a7bf-qcandidate-35",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d6844242243b",
+    "questionId": "633e6a37a7bf-qcandidate-36",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8e4bf8154196",
+    "questionId": "633e6a37a7bf-qcandidate-37",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-218cfd638b4f",
+    "questionId": "633e6a37a7bf-qcandidate-38",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-488297952cfa",
+    "questionId": "633e6a37a7bf-qcandidate-39",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c671a02801df",
+    "questionId": "633e6a37a7bf-qcandidate-40",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4c483f193644",
+    "questionId": "633e6a37a7bf-qcandidate-42",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-970f3bbc49a5",
+    "questionId": "633e6a37a7bf-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c865b15154c2",
+    "questionId": "633e6a37a7bf-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-967b28b32dc3",
+    "questionId": "633e6a37a7bf-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c46a8da298c5",
+    "questionId": "633e6a37a7bf-qcandidate-46",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bcc9d684fbdc",
+    "questionId": "633e6a37a7bf-qcandidate-47",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e4512f044d78",
+    "questionId": "633e6a37a7bf-qcandidate-48",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-07a651cde5a6",
+    "questionId": "633e6a37a7bf-qcandidate-49",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-26349dbaf68c",
+    "questionId": "633e6a37a7bf-qcandidate-49",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a4daae6eaec4",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4210841277aa",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a543d9655c05",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-30aa1d05c9f9",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a29f0dc751eb",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f1213e7c927e",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-df2e767d4e22",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b3f17bf3fa62",
+    "questionId": "633e6a37a7bf-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9cf093ccf008",
+    "questionId": "633e6a37a7bf-qcandidate-51",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8cde36f512dd",
+    "questionId": "633e6a37a7bf-qcandidate-52",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2f2fe60fd5ad",
+    "questionId": "633e6a37a7bf-qcandidate-53",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-50d7d543c3e3",
+    "questionId": "633e6a37a7bf-qcandidate-54",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3964632ebb4b",
+    "questionId": "633e6a37a7bf-qcandidate-55",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a240cd404d29",
+    "questionId": "633e6a37a7bf-qcandidate-56",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd14f8daa9d7",
+    "questionId": "633e6a37a7bf-qcandidate-58",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-28331b98709e",
+    "questionId": "633e6a37a7bf-qcandidate-59",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0a871abd2546",
+    "questionId": "633e6a37a7bf-qcandidate-62",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c260388d9e7d",
+    "questionId": "633e6a37a7bf-qcandidate-62",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5097863db472",
+    "questionId": "633e6a37a7bf-qcandidate-63",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-98172933339e",
+    "questionId": "633e6a37a7bf-qcandidate-63",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c94c02daab35",
+    "questionId": "633e6a37a7bf-qcandidate-64",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3f00dd153592",
+    "questionId": "633e6a37a7bf-qcandidate-66",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f4b2c3f5d2b3",
+    "questionId": "633e6a37a7bf-qcandidate-67",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-729558d75fd7",
+    "questionId": "633e6a37a7bf-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b83148b5be92",
+    "questionId": "633e6a37a7bf-qcandidate-69",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-395bed56875f",
+    "questionId": "633e6a37a7bf-qcandidate-70",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7d1895164274",
+    "questionId": "633e6a37a7bf-qcandidate-72",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c81d648e19f8",
+    "questionId": "633e6a37a7bf-qcandidate-73",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-289787fb21a9",
+    "questionId": "633e6a37a7bf-qcandidate-73",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8c2fea27ea96",
+    "questionId": "633e6a37a7bf-qcandidate-74",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-192f5346fa37",
+    "questionId": "633e6a37a7bf-qcandidate-75",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d3ea6537141e",
+    "questionId": "633e6a37a7bf-qcandidate-75",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3d6855dbe8db",
+    "questionId": "633e6a37a7bf-qcandidate-77",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0ebbcc3b3b9e",
+    "questionId": "633e6a37a7bf-qcandidate-79",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7c1a9816d12c",
+    "questionId": "633e6a37a7bf-qcandidate-79",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e63df80034d3",
+    "questionId": "633e6a37a7bf-qcandidate-80",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-dfaaaa5995f9",
+    "questionId": "633e6a37a7bf-qcandidate-82",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0d778e9e643b",
+    "questionId": "633e6a37a7bf-qcandidate-83",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7bcf83192a98",
+    "questionId": "633e6a37a7bf-qcandidate-83",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a4cfb0b49151",
+    "questionId": "633e6a37a7bf-qcandidate-83",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3a35f5f50398",
+    "questionId": "633e6a37a7bf-qcandidate-83",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-32752b78083f",
+    "questionId": "633e6a37a7bf-qcandidate-83",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-dbdde064fa53",
+    "questionId": "633e6a37a7bf-qcandidate-84",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0aaf331a4fb3",
+    "questionId": "633e6a37a7bf-qcandidate-85",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-25e56ab5b635",
+    "questionId": "633e6a37a7bf-qcandidate-86",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5041bee3f9cd",
+    "questionId": "633e6a37a7bf-qcandidate-87",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5df8c5ab68ec",
+    "questionId": "633e6a37a7bf-qcandidate-88",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-972b1a184c11",
+    "questionId": "633e6a37a7bf-qcandidate-89",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7e14a53ff091",
+    "questionId": "633e6a37a7bf-qcandidate-89",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7423ab129dae",
+    "questionId": "633e6a37a7bf-qcandidate-90",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-81fad738aaf3",
+    "questionId": "633e6a37a7bf-qcandidate-91",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-799544e77bd0",
+    "questionId": "633e6a37a7bf-qcandidate-92",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-064963428f54",
+    "questionId": "633e6a37a7bf-qcandidate-93",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d0597390180f",
+    "questionId": "633e6a37a7bf-qcandidate-94",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6d0d66c5dc1f",
+    "questionId": "633e6a37a7bf-qcandidate-95",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a7e483564f26",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-14ea43e6ded2",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d842913cb03d",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1b4911ad6596",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fdf070863278",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-100fc523bb55",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1dcfc8ca2e53",
+    "questionId": "633e6a37a7bf-qcandidate-96",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-34f6441d69b6",
+    "questionId": "633e6a37a7bf-qcandidate-97",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-34f6441d69b6",
+    "questionId": "633e6a37a7bf-qcandidate-98",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5f6da21b12b7",
+    "questionId": "633e6a37a7bf-qcandidate-98",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9c080a801f47",
+    "questionId": "633e6a37a7bf-qcandidate-98",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f84b262f8b5b",
+    "questionId": "633e6a37a7bf-qcandidate-98",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ac2478bfefc2",
+    "questionId": "633e6a37a7bf-qcandidate-98",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-63c22c398bb5",
+    "questionId": "633e6a37a7bf-qcandidate-98",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-eda20a50dbb8",
+    "questionId": "633e6a37a7bf-qcandidate-99",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e14b57e13f16",
+    "questionId": "633e6a37a7bf-qcandidate-100",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1fbbb1f9701c",
+    "questionId": "633e6a37a7bf-qcandidate-100",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-744eaec5ca22",
+    "questionId": "633e6a37a7bf-qcandidate-101",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3a9205824a47",
+    "questionId": "633e6a37a7bf-qcandidate-102",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d0ac1f2e99f4",
+    "questionId": "633e6a37a7bf-qcandidate-103",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ffb20877f255",
+    "questionId": "633e6a37a7bf-qcandidate-104",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6f85578893b2",
+    "questionId": "6cff0e6db838-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8ec07969a9ef",
+    "questionId": "6cff0e6db838-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b21e5bac3697",
+    "questionId": "6cff0e6db838-qcandidate-4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bf007e0a9304",
+    "questionId": "6cff0e6db838-qcandidate-5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-edb7f70a9839",
+    "questionId": "6cff0e6db838-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-42665fac2752",
+    "questionId": "6cff0e6db838-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-163c0c79abae",
+    "questionId": "6cff0e6db838-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f1abe6d93b6f",
+    "questionId": "6cff0e6db838-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7f81b267347d",
+    "questionId": "6cff0e6db838-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-da5b358f02ce",
+    "questionId": "6cff0e6db838-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8ab7111a993f",
+    "questionId": "6cff0e6db838-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e4914d4a92ce",
+    "questionId": "6cff0e6db838-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4aae494e54c5",
+    "questionId": "6cff0e6db838-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ddc9c386b7f5",
+    "questionId": "6cff0e6db838-qcandidate-12",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-764a8987594d",
+    "questionId": "6cff0e6db838-qcandidate-12",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-16c628a8594d",
+    "questionId": "6cff0e6db838-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3f5fd74751f4",
+    "questionId": "6cff0e6db838-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3937a16d5463",
+    "questionId": "6cff0e6db838-qcandidate-18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b60920d16f18",
+    "questionId": "6cff0e6db838-qcandidate-18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c3bb02d80f12",
+    "questionId": "6cff0e6db838-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-19e6862c8b4b",
+    "questionId": "6cff0e6db838-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-057aa8dfa102",
+    "questionId": "6cff0e6db838-qcandidate-22",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0eeb354c11f7",
+    "questionId": "6cff0e6db838-qcandidate-23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-dd3824fd5029",
+    "questionId": "6cff0e6db838-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c73c59d38614",
+    "questionId": "6cff0e6db838-qcandidate-25",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-93f3f46f6f1a",
+    "questionId": "6cff0e6db838-qcandidate-26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-89fe1a7d9260",
+    "questionId": "6cff0e6db838-qcandidate-27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9f43f06cf31a",
+    "questionId": "6cff0e6db838-qcandidate-28",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6697080d4510",
+    "questionId": "6cff0e6db838-qcandidate-29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ff79bd518fcf",
+    "questionId": "6cff0e6db838-qcandidate-30",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e7df0a5514df",
+    "questionId": "6cff0e6db838-qcandidate-31",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-86f6f19a705b",
+    "questionId": "6cff0e6db838-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-79404985e206",
+    "questionId": "6cff0e6db838-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2e16fae23f3e",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-aad7a360f0e3",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6fc6f864f30e",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-790e51638be3",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5c8891bff12c",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9ce279437f10",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e1a5a73c4be0",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-766dd16ca1d7",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd0bdb78a050",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0973529388f4",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8d061818b962",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4ca26f61a4eb",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-dccb84fc0bd1",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a4fb4295e61f",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-34a7df42d7e6",
+    "questionId": "6cff0e6db838-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5a6daefa1f87",
+    "questionId": "717b39e5b6a1-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-872964d6d452",
+    "questionId": "717b39e5b6a1-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-aacab4c33076",
+    "questionId": "717b39e5b6a1-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3eea3c164ca0",
+    "questionId": "717b39e5b6a1-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-54b6c9d36972",
+    "questionId": "717b39e5b6a1-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2259d6654f22",
+    "questionId": "717b39e5b6a1-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e4914d4a92ce",
+    "questionId": "717b39e5b6a1-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6ae4cb7164ce",
+    "questionId": "717b39e5b6a1-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9a64df35d789",
+    "questionId": "717b39e5b6a1-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-22ebd98915de",
+    "questionId": "717b39e5b6a1-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4e2bde75b87e",
+    "questionId": "717b39e5b6a1-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-847bab0a04d7",
+    "questionId": "717b39e5b6a1-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c46771032796",
+    "questionId": "717b39e5b6a1-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b2158eb85dbe",
+    "questionId": "717b39e5b6a1-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5d4d5d08e402",
+    "questionId": "717b39e5b6a1-qcandidate-22",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-451b7e2220ba",
+    "questionId": "717b39e5b6a1-qcandidate-23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-19e6862c8b4b",
+    "questionId": "717b39e5b6a1-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cb6fc88dad49",
+    "questionId": "717b39e5b6a1-qcandidate-25",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c9cab160d1e4",
+    "questionId": "717b39e5b6a1-qcandidate-26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-385011474464",
+    "questionId": "717b39e5b6a1-qcandidate-27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2b64a0eb328e",
+    "questionId": "717b39e5b6a1-qcandidate-28",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6c6c155a7f17",
+    "questionId": "717b39e5b6a1-qcandidate-30",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-12eab07ae32b",
+    "questionId": "717b39e5b6a1-qcandidate-30",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4df2148ae6b3",
+    "questionId": "717b39e5b6a1-qcandidate-31",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c73c59d38614",
+    "questionId": "717b39e5b6a1-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fe6da1d627ec",
+    "questionId": "717b39e5b6a1-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f33e604fea93",
+    "questionId": "717b39e5b6a1-qcandidate-35",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8b31a1a007a1",
+    "questionId": "717b39e5b6a1-qcandidate-36",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a02021fcf4c7",
+    "questionId": "717b39e5b6a1-qcandidate-37",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b84a4b79402f",
+    "questionId": "717b39e5b6a1-qcandidate-38",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6fb82b402e83",
+    "questionId": "717b39e5b6a1-qcandidate-38",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6a8ff6470d19",
+    "questionId": "717b39e5b6a1-qcandidate-39",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fc988eae0f6d",
+    "questionId": "717b39e5b6a1-qcandidate-42",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd07ad120c0b",
+    "questionId": "717b39e5b6a1-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c329de22a2cf",
+    "questionId": "717b39e5b6a1-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ff990950de15",
+    "questionId": "717b39e5b6a1-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cef0554ccbd5",
+    "questionId": "717b39e5b6a1-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ca93eff94358",
+    "questionId": "717b39e5b6a1-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8d061818b962",
+    "questionId": "717b39e5b6a1-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-25485a46fcc6",
+    "questionId": "717b39e5b6a1-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0aae8580c17d",
+    "questionId": "717b39e5b6a1-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2741e6549b56",
+    "questionId": "717b39e5b6a1-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-80985ecdfb87",
+    "questionId": "717b39e5b6a1-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-546b7d7aeb75",
+    "questionId": "717b39e5b6a1-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-33cb1be110da",
+    "questionId": "717b39e5b6a1-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b8fa903accae",
+    "questionId": "717b39e5b6a1-qcandidate-46",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-42441d30de1a",
+    "questionId": "717b39e5b6a1-qcandidate-47",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cc4253c52287",
+    "questionId": "717b39e5b6a1-qcandidate-48",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b32e697b2703",
+    "questionId": "717b39e5b6a1-qcandidate-48",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3fa742885a5a",
+    "questionId": "717b39e5b6a1-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-99ecc8a1d905",
+    "questionId": "717b39e5b6a1-qcandidate-51",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-af92d7097483",
+    "questionId": "717b39e5b6a1-qcandidate-52",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5b367cb2dc3a",
+    "questionId": "717b39e5b6a1-qcandidate-53",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-091213f547da",
+    "questionId": "717b39e5b6a1-qcandidate-54",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b9b808a44efa",
+    "questionId": "717b39e5b6a1-qcandidate-54",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c916dbd1265d",
+    "questionId": "717b39e5b6a1-qcandidate-55",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d31f0c0e9a1f",
+    "questionId": "717b39e5b6a1-qcandidate-56",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d533c3944585",
+    "questionId": "717b39e5b6a1-qcandidate-57",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f906d21dbfa1",
+    "questionId": "717b39e5b6a1-qcandidate-58",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9eedd0b3db75",
+    "questionId": "717b39e5b6a1-qcandidate-59",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e3d1db9e252d",
+    "questionId": "717b39e5b6a1-qcandidate-60",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8129ee86eb61",
+    "questionId": "717b39e5b6a1-qcandidate-61",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0628d2056091",
+    "questionId": "717b39e5b6a1-qcandidate-62",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0cd7cb3c1790",
+    "questionId": "717b39e5b6a1-qcandidate-63",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a03bdf5329b4",
+    "questionId": "717b39e5b6a1-qcandidate-64",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7ecc026a59d2",
+    "questionId": "717b39e5b6a1-qcandidate-65",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-860c0314dbeb",
+    "questionId": "717b39e5b6a1-qcandidate-66",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5774072cfe44",
+    "questionId": "717b39e5b6a1-qcandidate-67",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-61003059637e",
+    "questionId": "717b39e5b6a1-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b5ab02b6cf59",
+    "questionId": "717b39e5b6a1-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c46a8da298c5",
+    "questionId": "717b39e5b6a1-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a708e8da872a",
+    "questionId": "717b39e5b6a1-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bd366c057a23",
+    "questionId": "717b39e5b6a1-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fc07407fe177",
+    "questionId": "717b39e5b6a1-qcandidate-68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-864cd11d8eb5",
+    "questionId": "717b39e5b6a1-qcandidate-69",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-47a5bf893bd3",
+    "questionId": "717b39e5b6a1-qcandidate-70",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0516609c1943",
+    "questionId": "717b39e5b6a1-qcandidate-71",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e4512f044d78",
+    "questionId": "717b39e5b6a1-qcandidate-72",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5ef1c7c67be7",
+    "questionId": "717b39e5b6a1-qcandidate-72",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1ec9f91b9362",
+    "questionId": "717b39e5b6a1-qcandidate-73",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a543d9655c05",
+    "questionId": "717b39e5b6a1-qcandidate-73",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8cde36f512dd",
+    "questionId": "717b39e5b6a1-qcandidate-73",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9a0b60f112f9",
+    "questionId": "717b39e5b6a1-qcandidate-73",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e5ef716a9c89",
+    "questionId": "717b39e5b6a1-qcandidate-74",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4e2b0986af09",
+    "questionId": "717b39e5b6a1-qcandidate-77",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9266a83c65e5",
+    "questionId": "717b39e5b6a1-qcandidate-78",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ffa77abd19ec",
+    "questionId": "717b39e5b6a1-qcandidate-78",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-854777432b51",
+    "questionId": "717b39e5b6a1-qcandidate-79",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1ab8d7cf0ca2",
+    "questionId": "717b39e5b6a1-qcandidate-81",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9c385c352618",
+    "questionId": "717b39e5b6a1-qcandidate-82",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cb6fc88dad49",
+    "questionId": "717b39e5b6a1-qcandidate-85",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5b1cc29620b2",
+    "questionId": "717b39e5b6a1-qcandidate-86",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d6581051be9d",
+    "questionId": "717b39e5b6a1-qcandidate-87",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-599af9df5fef",
+    "questionId": "717b39e5b6a1-qcandidate-88",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd7f75be6eca",
+    "questionId": "717b39e5b6a1-qcandidate-89",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b667ef961df1",
+    "questionId": "717b39e5b6a1-qcandidate-89",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-27f44d5b0ac2",
+    "questionId": "717b39e5b6a1-qcandidate-89",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b19ec7d5e9ae",
+    "questionId": "6e9f91cd7c0a-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0694dd88ae41",
+    "questionId": "6e9f91cd7c0a-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3a95e3a7ce9e",
+    "questionId": "6e9f91cd7c0a-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-422435885ecc",
+    "questionId": "6e9f91cd7c0a-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2fac83540b12",
+    "questionId": "6e9f91cd7c0a-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-53cc09d5c48b",
+    "questionId": "6e9f91cd7c0a-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-67b415190b17",
+    "questionId": "6e9f91cd7c0a-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-29b1576e91b0",
+    "questionId": "6e9f91cd7c0a-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e1e6856d5093",
+    "questionId": "6e9f91cd7c0a-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7ec19b59109e",
+    "questionId": "ac5a02cd6fdf-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-22e3d6bf2372",
+    "questionId": "ac5a02cd6fdf-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9f7a506dbcdd",
+    "questionId": "ac5a02cd6fdf-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ca10d6fb1e70",
+    "questionId": "ac5a02cd6fdf-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-029afaf69c4b",
+    "questionId": "ac5a02cd6fdf-qcandidate-15",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-451b7e2220ba",
+    "questionId": "ac5a02cd6fdf-qcandidate-16",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-dfc9ddb79d80",
+    "questionId": "ac5a02cd6fdf-qcandidate-17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0e82df752684",
+    "questionId": "ac5a02cd6fdf-qcandidate-17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3663ca8589b9",
+    "questionId": "ac5a02cd6fdf-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e7cb35fdc961",
+    "questionId": "ac5a02cd6fdf-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c73c59d38614",
+    "questionId": "ac5a02cd6fdf-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bce3a41770e6",
+    "questionId": "ac5a02cd6fdf-qcandidate-22",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7b1252a51640",
+    "questionId": "ac5a02cd6fdf-qcandidate-23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-77151d115809",
+    "questionId": "ac5a02cd6fdf-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-39f22670f8f0",
+    "questionId": "ac5a02cd6fdf-qcandidate-25",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b2f3737e212d",
+    "questionId": "ac5a02cd6fdf-qcandidate-26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-90171cb256dd",
+    "questionId": "ac5a02cd6fdf-qcandidate-27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-50c56bd21837",
+    "questionId": "e6e77b89b85c-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-52890f14e776",
+    "questionId": "e6e77b89b85c-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0582e5d1b5ac",
+    "questionId": "e6e77b89b85c-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-04fd954f7595",
+    "questionId": "e6e77b89b85c-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-41717461a2f1",
+    "questionId": "e6e77b89b85c-qcandidate-5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-62dbb6fc7753",
+    "questionId": "e6e77b89b85c-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b1599ec33277",
+    "questionId": "e6e77b89b85c-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-24288d3bcd04",
+    "questionId": "e6e77b89b85c-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2259d6654f22",
+    "questionId": "e6e77b89b85c-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-163c0c79abae",
+    "questionId": "e6e77b89b85c-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f1abe6d93b6f",
+    "questionId": "e6e77b89b85c-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5251ba8673d2",
+    "questionId": "e6e77b89b85c-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-907ea22f7d99",
+    "questionId": "e6e77b89b85c-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-79921d431e4e",
+    "questionId": "e6e77b89b85c-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3937a16d5463",
+    "questionId": "e6e77b89b85c-qcandidate-15",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-345a99c7e900",
+    "questionId": "bec93b42b430-q2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a3d1f4c48f1c",
+    "questionId": "bec93b42b430-q2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2ad1e1cda4cd",
+    "questionId": "bec93b42b430-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d6ebf735c5d2",
+    "questionId": "bec93b42b430-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ae8965c296a3",
+    "questionId": "bec93b42b430-qcandidate-4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bf007e0a9304",
+    "questionId": "bec93b42b430-qcandidate-5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-67f3f0799575",
+    "questionId": "bec93b42b430-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4f38aa0a1c38",
+    "questionId": "bec93b42b430-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-30540fafd0e3",
+    "questionId": "bec93b42b430-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-feb481ce3374",
+    "questionId": "bec93b42b430-qcandidate-18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-06af98190290",
+    "questionId": "bec93b42b430-qcandidate-36",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-011badb8de8e",
+    "questionId": "bec93b42b430-qcandidate-42",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ef507663c73b",
+    "questionId": "bec93b42b430-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8972a7cd5531",
+    "questionId": "bec93b42b430-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6e7ad5003687",
+    "questionId": "bec93b42b430-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0089cc8478eb",
+    "questionId": "bec93b42b430-qcandidate-46",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e7c913957e26",
+    "questionId": "bec93b42b430-qcandidate-47",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b4a6869b7712",
+    "questionId": "bec93b42b430-qcandidate-47",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8129ee86eb61",
+    "questionId": "bec93b42b430-qcandidate-48",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8856a9ee01b0",
+    "questionId": "bec93b42b430-qcandidate-49",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-53383e4f0099",
+    "questionId": "bec93b42b430-qcandidate-50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e0daa3b829c4",
+    "questionId": "bec93b42b430-qcandidate-51",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-759e8cae39cb",
+    "questionId": "bec93b42b430-qcandidate-52",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8bacd937437e",
+    "questionId": "bec93b42b430-qcandidate-53",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b5ab02b6cf59",
+    "questionId": "bec93b42b430-qcandidate-54",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1d9fa3425f0e",
+    "questionId": "bec93b42b430-qcandidate-55",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0516609c1943",
+    "questionId": "bec93b42b430-qcandidate-56",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9bcc2bcb0c37",
+    "questionId": "bec93b42b430-qcandidate-57",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-12ce72ed07e6",
+    "questionId": "bec93b42b430-qcandidate-58",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cc0ebe46b4b5",
+    "questionId": "bec93b42b430-qcandidate-59",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1ba9e0b14196",
+    "questionId": "bec93b42b430-qcandidate-82",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f34ebd31eda7",
+    "questionId": "bec93b42b430-qcandidate-83",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e3484b8d4930",
+    "questionId": "bec93b42b430-qcandidate-84",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-feb481ce3374",
+    "questionId": "bec93b42b430-qcandidate-85",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-76ea6f9d386d",
+    "questionId": "7f26811b8588-q1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c3a776f0521a",
+    "questionId": "7f26811b8588-q2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-50c56bd21837",
+    "questionId": "7f26811b8588-q3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bea79a8a9f17",
+    "questionId": "7f26811b8588-q5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2bc17b52b1c5",
+    "questionId": "7f26811b8588-q6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-345a99c7e900",
+    "questionId": "7f26811b8588-q7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-468e7c735e4a",
+    "questionId": "7f26811b8588-q10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-52890f14e776",
+    "questionId": "7f26811b8588-q11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a3d1f4c48f1c",
+    "questionId": "7f26811b8588-q12",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-db72e9df1e7f",
+    "questionId": "7f26811b8588-q17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-22b6c62d64e2",
+    "questionId": "7f26811b8588-q18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e6a1d8b5bfe1",
+    "questionId": "7f26811b8588-q21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-45e46939641d",
+    "questionId": "7f26811b8588-q22",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c2f6543662ac",
+    "questionId": "7f26811b8588-q23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c9bc91d02e0d",
+    "questionId": "7f26811b8588-q26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cade0c78d7ef",
+    "questionId": "7f26811b8588-q27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c9bc91d02e0d",
+    "questionId": "7f26811b8588-q29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-38b4ac91d495",
+    "questionId": "7f26811b8588-q30",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c3a776f0521a",
+    "questionId": "7f26811b8588-q31",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-468e7c735e4a",
+    "questionId": "7f26811b8588-q32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2ad1e1cda4cd",
+    "questionId": "7f26811b8588-q34",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5a6daefa1f87",
+    "questionId": "7f26811b8588-q36",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a94d48f1b6a2",
+    "questionId": "7f26811b8588-q41",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-87b5e48fc4e3",
+    "questionId": "7f26811b8588-q42",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f7034bb18268",
+    "questionId": "7f26811b8588-q43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8ee64d2889d1",
+    "questionId": "7f26811b8588-q43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0f9dff1f474f",
+    "questionId": "7f26811b8588-q43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-aacab4c33076",
+    "questionId": "7f26811b8588-q44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-95cc690641ff",
+    "questionId": "7f26811b8588-q47",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-986d025ad5b4",
+    "questionId": "7f26811b8588-q48",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f60c0a3482a2",
+    "questionId": "7f26811b8588-q48",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f0a6ef49ba86",
+    "questionId": "7f26811b8588-q50",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-52d658a0f4c6",
+    "questionId": "7f26811b8588-q51",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b21e5bac3697",
+    "questionId": "7f26811b8588-q54",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cac02f2ca4e2",
+    "questionId": "7f26811b8588-q56",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ae8965c296a3",
+    "questionId": "7f26811b8588-q57",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c2c27997aa09",
+    "questionId": "7f26811b8588-q57",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7384870c9867",
+    "questionId": "7f26811b8588-q59",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-aa70f2fc0492",
+    "questionId": "7f26811b8588-q60",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8cb11e78eb6f",
+    "questionId": "7f26811b8588-q60",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-41717461a2f1",
+    "questionId": "7f26811b8588-q60",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a00a71577a4e",
+    "questionId": "7f26811b8588-q61",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e73cd835297b",
+    "questionId": "7f26811b8588-q61",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5f3329dccf45",
+    "questionId": "7f26811b8588-q65",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bf007e0a9304",
+    "questionId": "7f26811b8588-q65",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6b57e9693b4e",
+    "questionId": "7f26811b8588-q66",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-36981f87e889",
+    "questionId": "7f26811b8588-q67",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-160b6f48e616",
+    "questionId": "7f26811b8588-q67",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f928e6ba5132",
+    "questionId": "7f26811b8588-q68",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3dd8c0975d16",
+    "questionId": "7f26811b8588-q86",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8b06c880b7b4",
+    "questionId": "7f26811b8588-q86",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3dd8c0975d16",
+    "questionId": "7f26811b8588-q103",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8b06c880b7b4",
+    "questionId": "7f26811b8588-q103",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-62dbb6fc7753",
+    "questionId": "7f26811b8588-q109",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b1599ec33277",
+    "questionId": "7f26811b8588-q110",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6ba07c02f5c0",
+    "questionId": "7f26811b8588-q111",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4abcdf15ddd9",
+    "questionId": "7f26811b8588-q112",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-67f3f0799575",
+    "questionId": "7f26811b8588-q113",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e5c7d88fb2a6",
+    "questionId": "7f26811b8588-q114",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fd7701315346",
+    "questionId": "7f26811b8588-q115",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-eb2e2faf05c7",
+    "questionId": "7f26811b8588-q116",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d95d61d32220",
+    "questionId": "7f26811b8588-q116",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3eea3c164ca0",
+    "questionId": "7f26811b8588-q117",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-629cf62d0286",
+    "questionId": "7f26811b8588-q118",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6a8231ee3fd1",
+    "questionId": "7f26811b8588-q119",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6aa6503a2901",
+    "questionId": "7f26811b8588-q120",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f5e93ba84d61",
+    "questionId": "7f26811b8588-q121",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-54b6c9d36972",
+    "questionId": "7f26811b8588-q122",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b432315a05db",
+    "questionId": "7f26811b8588-q123",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f492b8fb717e",
+    "questionId": "7f26811b8588-q124",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3f5dd0c701d7",
+    "questionId": "7f26811b8588-q127",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1838289313af",
+    "questionId": "7f26811b8588-q127",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-edb7f70a9839",
+    "questionId": "7f26811b8588-q128",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-42665fac2752",
+    "questionId": "7f26811b8588-q129",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-24288d3bcd04",
+    "questionId": "7f26811b8588-q130",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2259d6654f22",
+    "questionId": "7f26811b8588-q131",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-163c0c79abae",
+    "questionId": "7f26811b8588-q132",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-f1abe6d93b6f",
+    "questionId": "7f26811b8588-q133",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7f81b267347d",
+    "questionId": "7f26811b8588-q133",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-da5b358f02ce",
+    "questionId": "7f26811b8588-q134",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-b1dedf8db202",
+    "questionId": "7f26811b8588-q134",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-21af210047bc",
+    "questionId": "7f26811b8588-q135",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8ab7111a993f",
+    "questionId": "7f26811b8588-q137",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-fa789b9d6943",
+    "questionId": "7f26811b8588-q137",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e4914d4a92ce",
+    "questionId": "7f26811b8588-q138",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6ae4cb7164ce",
+    "questionId": "7f26811b8588-q138",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9a64df35d789",
+    "questionId": "7f26811b8588-q139",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-22ebd98915de",
+    "questionId": "7f26811b8588-q142",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4e2bde75b87e",
+    "questionId": "7f26811b8588-q143",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-847bab0a04d7",
+    "questionId": "7f26811b8588-q144",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c46771032796",
+    "questionId": "7f26811b8588-q145",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9a69ba8d1309",
+    "questionId": "7f26811b8588-q146",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-30540fafd0e3",
+    "questionId": "7f26811b8588-q147",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4d5faa3dedbc",
+    "questionId": "7f26811b8588-q148",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d470550b8454",
+    "questionId": "7f26811b8588-q149",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-764f8a5b2f66",
+    "questionId": "7f26811b8588-q149",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-acdd2d4c4370",
+    "questionId": "7f26811b8588-q150",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-22e3d6bf2372",
+    "questionId": "7f26811b8588-q151",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-52d3523cd1f0",
+    "questionId": "7f26811b8588-q152",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7b74ad03ef18",
+    "questionId": "7f26811b8588-q153",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9cafd2414f56",
+    "questionId": "7f26811b8588-q154",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-98259a6d1077",
+    "questionId": "7f26811b8588-q155",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-ea4be8539141",
+    "questionId": "7f26811b8588-q156",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0e876302324c",
+    "questionId": "7f26811b8588-q157",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-9b67d5c521cc",
+    "questionId": "7f26811b8588-q158",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1d3eefbc7c56",
+    "questionId": "f4d4446aeaf5-q8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-76ea6f9d386d",
+    "questionId": "f4d4446aeaf5-qcandidate-17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c3a776f0521a",
+    "questionId": "f4d4446aeaf5-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-50c56bd21837",
+    "questionId": "f4d4446aeaf5-q1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bea79a8a9f17",
+    "questionId": "f4d4446aeaf5-q4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2bc17b52b1c5",
+    "questionId": "f4d4446aeaf5-q5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-345a99c7e900",
+    "questionId": "f4d4446aeaf5-qcandidate-40",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1d3eefbc7c56",
+    "questionId": "95e5f5bd2748-qcandidate-1",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-76ea6f9d386d",
+    "questionId": "95e5f5bd2748-qcandidate-2",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c3a776f0521a",
+    "questionId": "95e5f5bd2748-qcandidate-3",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-50c56bd21837",
+    "questionId": "95e5f5bd2748-qcandidate-4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-bea79a8a9f17",
+    "questionId": "95e5f5bd2748-qcandidate-4",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2bc17b52b1c5",
+    "questionId": "95e5f5bd2748-qcandidate-5",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-345a99c7e900",
+    "questionId": "95e5f5bd2748-qcandidate-6",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-468e7c735e4a",
+    "questionId": "95e5f5bd2748-qcandidate-7",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-52890f14e776",
+    "questionId": "95e5f5bd2748-qcandidate-8",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a3d1f4c48f1c",
+    "questionId": "95e5f5bd2748-qcandidate-9",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-db72e9df1e7f",
+    "questionId": "95e5f5bd2748-qcandidate-10",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-22b6c62d64e2",
+    "questionId": "95e5f5bd2748-qcandidate-11",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e6a1d8b5bfe1",
+    "questionId": "95e5f5bd2748-qcandidate-12",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-45e46939641d",
+    "questionId": "95e5f5bd2748-qcandidate-13",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c2f6543662ac",
+    "questionId": "95e5f5bd2748-qcandidate-14",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c9bc91d02e0d",
+    "questionId": "95e5f5bd2748-qcandidate-15",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-cade0c78d7ef",
+    "questionId": "95e5f5bd2748-qcandidate-17",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-38b4ac91d495",
+    "questionId": "95e5f5bd2748-qcandidate-18",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2ad1e1cda4cd",
+    "questionId": "95e5f5bd2748-qcandidate-19",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-5a6daefa1f87",
+    "questionId": "95e5f5bd2748-qcandidate-20",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-872964d6d452",
+    "questionId": "95e5f5bd2748-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-09883a3d9738",
+    "questionId": "95e5f5bd2748-qcandidate-21",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-88f7d2750a8a",
+    "questionId": "95e5f5bd2748-qcandidate-22",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8e450382d520",
+    "questionId": "95e5f5bd2748-qcandidate-23",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-6f85578893b2",
+    "questionId": "95e5f5bd2748-qcandidate-24",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-0582e5d1b5ac",
+    "questionId": "95e5f5bd2748-qcandidate-25",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-24496d2fbc8d",
+    "questionId": "95e5f5bd2748-qcandidate-26",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4c0dafa90f2f",
+    "questionId": "95e5f5bd2748-qcandidate-27",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-83bebbd80ea1",
+    "questionId": "95e5f5bd2748-qcandidate-28",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-60fb7bb6850f",
+    "questionId": "95e5f5bd2748-qcandidate-29",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-c88005bae4f2",
+    "questionId": "95e5f5bd2748-qcandidate-30",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1a8b4580d43a",
+    "questionId": "95e5f5bd2748-qcandidate-31",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-4acf830c21d0",
+    "questionId": "95e5f5bd2748-qcandidate-32",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-200d277ce656",
+    "questionId": "95e5f5bd2748-qcandidate-33",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-3c1bdbb77c6a",
+    "questionId": "95e5f5bd2748-qcandidate-34",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d6ebf735c5d2",
+    "questionId": "95e5f5bd2748-qcandidate-35",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7c554c10bbb3",
+    "questionId": "95e5f5bd2748-qcandidate-36",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8cf9ca6b1935",
+    "questionId": "95e5f5bd2748-qcandidate-37",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-589014cd877c",
+    "questionId": "95e5f5bd2748-qcandidate-38",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-1ac6a84ad609",
+    "questionId": "95e5f5bd2748-qcandidate-39",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7312ce6e082e",
+    "questionId": "95e5f5bd2748-qcandidate-40",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-24fdd2959701",
+    "questionId": "95e5f5bd2748-qcandidate-41",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-d8728a8f5fc0",
+    "questionId": "95e5f5bd2748-qcandidate-42",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-7000267c42cc",
+    "questionId": "95e5f5bd2748-qcandidate-43",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-04fd954f7595",
+    "questionId": "95e5f5bd2748-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-e1626b6e76b4",
+    "questionId": "95e5f5bd2748-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-2da25531675f",
+    "questionId": "95e5f5bd2748-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-8ec07969a9ef",
+    "questionId": "95e5f5bd2748-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-16f710fe2aef",
+    "questionId": "95e5f5bd2748-qcandidate-44",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  },
+  {
+    "assetId": "asset-a94d48f1b6a2",
+    "questionId": "95e5f5bd2748-qcandidate-45",
+    "ownerType": "QUESTION",
+    "evidence": [
+      "QUESTIONIR_ASSET_REF"
+    ]
+  }
+]

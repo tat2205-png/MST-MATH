@@ -1,0 +1,11 @@
+{
+  "sourceFileCount": 11,
+  "hashMatchCount": 11,
+  "hashMismatchCount": 0,
+  "decodedEquationCount": 3260,
+  "legacyFallbackCount": 0,
+  "documentIrPlaceholderCount": 0,
+  "productPlaceholderCount": 0,
+  "essentialUnresolvedCount": 0,
+  "qa": "PASS"
+}

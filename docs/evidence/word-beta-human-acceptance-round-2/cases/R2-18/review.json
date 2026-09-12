@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-18",
+  "questionId": "1ffa795691ed-qcandidate-18",
+  "questionIrId": "1ffa795691ed-qcandidate-18",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-163",
+      "paragraph-164",
+      "paragraph-165",
+      "paragraph-166",
+      "paragraph-167",
+      "paragraph-168"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Một miếng nhôm có bề ngang 30 cm được uốn cong tạo thành máng dẫn nước bằng cách chia tấmnhôm thành 3 phần bằng nhau rồi gấp 2 bên lại theo một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi><mo></mo><mo></mo><mn>0</mn><mo>&lt;</mo><mi>θ</mi><mo>≤</mo><mi>π</mi><mn>2</mn><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới. Hỏi$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$bằng bao nhiêu để tạo ra máng có diện tích mặt ngang$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi></mrow></math>$lớn nhất để có thể cho nước đi qua nhiều nhất? ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$tính theo radian và làm tròn đến hàng phần trăm)",
+    "mathObjectIds": [
+      "mtef-919f81132e4de2e1",
+      "mtef-f1697478fbddcd51",
+      "mtef-fb84cde9647ca192"
+    ],
+    "assetIds": [
+      "asset-e27f1786d164"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-fb84cde9647ca192",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 163
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-919f81132e4de2e1",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 163
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-f1697478fbddcd51",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 163
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-919f81132e4de2e1",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 163
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-e27f1786d164",
+        "kind": "IMAGE",
+        "relationshipId": "rId273",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 164,
+          "relationshipId": "rId273"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-18",
+    "questionIrId": "1ffa795691ed-qcandidate-18",
+    "packageId": "question-1ffa795691ed-qcandidate-18",
+    "text": "Một miếng nhôm có bề ngang 30 cm được uốn cong tạo thành máng dẫn nước bằng cách chia tấmnhôm thành 3 phần bằng nhau rồi gấp 2 bên lại theo một góc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi><mo></mo><mo></mo><mn>0</mn><mo>&lt;</mo><mi>θ</mi><mo>≤</mo><mi>π</mi><mn>2</mn><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới. Hỏi$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$bằng bao nhiêu để tạo ra máng có diện tích mặt ngang$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>S</mi></mrow></math>$lớn nhất để có thể cho nước đi qua nhiều nhất? ($<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>θ</mi></mrow></math>$tính theo radian và làm tròn đến hàng phần trăm)",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-919f81132e4de2e1",
+      "mtef-f1697478fbddcd51",
+      "mtef-fb84cde9647ca192"
+    ],
+    "assetIds": [
+      "asset-e27f1786d164"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

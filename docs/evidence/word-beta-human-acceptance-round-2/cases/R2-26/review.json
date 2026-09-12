@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-26",
+  "questionId": "1ffa795691ed-qcandidate-26",
+  "questionIrId": "1ffa795691ed-qcandidate-26",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-218",
+      "paragraph-219",
+      "paragraph-220",
+      "paragraph-221"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Từ một tấmbìahình quạt tròn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo></mrow></math>$có bán kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>A</mi><mo>=</mo><mi>O</mi><mi>B</mi><mo>=</mo><mi>r</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo><mo>=</mo><mn>4</mn><mn>5</mn><mn>0</mn></mrow></math>$.Cẳt ra một hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$như hình vẽ.Tính diện tích hình chữ nhật?",
+    "mathObjectIds": [
+      "mtef-8796a12580d4b560",
+      "mtef-8f5834e5aa5e3937",
+      "mtef-b40addcd680d072f",
+      "mtef-c3aab6ae10953c2a"
+    ],
+    "assetIds": [
+      "asset-a8305f4469d5"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-8796a12580d4b560",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 218
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-c3aab6ae10953c2a",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 218
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-b40addcd680d072f",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 218
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-8f5834e5aa5e3937",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 218
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-a8305f4469d5",
+        "kind": "IMAGE",
+        "relationshipId": "rId383",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 218,
+          "relationshipId": "rId383"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-26",
+    "questionIrId": "1ffa795691ed-qcandidate-26",
+    "packageId": "question-1ffa795691ed-qcandidate-26",
+    "text": "Từ một tấmbìahình quạt tròn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo></mrow></math>$có bán kính$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>O</mi><mi>A</mi><mo>=</mo><mi>O</mi><mi>B</mi><mo>=</mo><mi>r</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>O</mi><mi>B</mi><mo>̂</mo><mo>=</mo><mn>4</mn><mn>5</mn><mn>0</mn></mrow></math>$.Cẳt ra một hình chữ nhật$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi><mi>N</mi><mi>P</mi><mi>Q</mi></mrow></math>$như hình vẽ.Tính diện tích hình chữ nhật?",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-8796a12580d4b560",
+      "mtef-8f5834e5aa5e3937",
+      "mtef-b40addcd680d072f",
+      "mtef-c3aab6ae10953c2a"
+    ],
+    "assetIds": [
+      "asset-a8305f4469d5"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

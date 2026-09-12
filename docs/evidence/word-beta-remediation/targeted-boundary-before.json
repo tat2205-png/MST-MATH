@@ -1,0 +1,26 @@
+{
+  "capturedAt": "2026-09-02T16:45:15.737Z",
+  "records": [
+    {
+      "humanCase": "CASE15",
+      "oldQuestionId": "BÀI 2. GTLN-GTNN.docx::candidate-2",
+      "oldCandidateId": "BÀI 2. GTLN-GTNN.docx::candidate-2",
+      "oldRole": "QUESTION",
+      "newRole": "DOCUMENT_STRUCTURE"
+    },
+    {
+      "humanCase": "CASE24",
+      "oldQuestionId": "NK TEST APP.docx::candidate-21",
+      "oldCandidateId": "NK TEST APP.docx::candidate-21",
+      "oldRole": "QUESTION",
+      "newRole": "SOLUTION_CONTENT"
+    },
+    {
+      "humanCase": "CASE40",
+      "oldQuestionId": "NK TEST APP.docx::candidate-36",
+      "oldCandidateId": "NK TEST APP.docx::candidate-36",
+      "oldRole": "QUESTION",
+      "newRole": "QUESTION_SPLIT_LEFT"
+    }
+  ]
+}

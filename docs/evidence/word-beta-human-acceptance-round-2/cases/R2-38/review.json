@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-38",
+  "questionId": "633e6a37a7bf-qcandidate-9",
+  "questionIrId": "633e6a37a7bf-qcandidate-9",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-633e6a37a7bfd1d9",
+    "documentPath": "1.1.docx",
+    "documentHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+    "sourceObjectIds": [
+      "paragraph-23",
+      "paragraph-24",
+      "paragraph-25",
+      "paragraph-26",
+      "paragraph-27"
+    ],
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "MULTIPLE_CHOICE",
+  "sourceRepresentation": {
+    "text": "Một đường dây điện được nối từ một nhà máy điện ở A đến một hòn đảo ở\nC. Khoảng cách từ C đến B là 1 km. Khoảng cách từ B đến A là 4 km. Mỗi km dây điện đặt dưới nước mất 5000 USD, còn đặt dưới đất mất 3000 US\nD. Người ta đã tìm được vị trí điểm S trên bờ AB để khi mắc dây điện từ A qua S rồi đến C là ít tốn kém nhất, khi đó:a) Khoảng cách từ S đến B là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>3</mn><mn>4</mn></mrow></math>$km.b) Tổng chi phí lắp đặt là 16000 US\nD. c) Khoảng cách từ S đến A là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>4</mn></mrow></math>$km.d) Chi phí cho đoạn từ S đến C là 6250 US",
+    "mathObjectIds": [
+      "mtef-5d3e67cb884e4cd7",
+      "mtef-da9562981503ff47"
+    ],
+    "assetIds": [
+      "asset-8974161dcd1d"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-5d3e67cb884e4cd7",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 24
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-da9562981503ff47",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 26
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-8974161dcd1d",
+        "kind": "IMAGE",
+        "relationshipId": "rId120",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 23,
+          "relationshipId": "rId120"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "633e6a37a7bf-qcandidate-9",
+    "questionIrId": "633e6a37a7bf-qcandidate-9",
+    "packageId": "question-633e6a37a7bf-qcandidate-9",
+    "text": "Một đường dây điện được nối từ một nhà máy điện ở A đến một hòn đảo ở\nC. Khoảng cách từ C đến B là 1 km. Khoảng cách từ B đến A là 4 km. Mỗi km dây điện đặt dưới nước mất 5000 USD, còn đặt dưới đất mất 3000 US\nD. Người ta đã tìm được vị trí điểm S trên bờ AB để khi mắc dây điện từ A qua S rồi đến C là ít tốn kém nhất, khi đó:a) Khoảng cách từ S đến B là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>3</mn><mn>4</mn></mrow></math>$km.b) Tổng chi phí lắp đặt là 16000 US\nD. c) Khoảng cách từ S đến A là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>3</mn><mn>4</mn></mrow></math>$km.d) Chi phí cho đoạn từ S đến C là 6250 US",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-5d3e67cb884e4cd7",
+      "mtef-da9562981503ff47"
+    ],
+    "assetIds": [
+      "asset-8974161dcd1d"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_OPTIONS",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_OPTIONS"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

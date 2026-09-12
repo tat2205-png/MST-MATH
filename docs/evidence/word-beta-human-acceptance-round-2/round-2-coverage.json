@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V1",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalBoundaryCount": 668,
+  "caseCount": 40,
+  "coverage": {
+    "math": 36,
+    "assetBearing": 40
+  },
+  "uncoveredHistoricalCategories": [],
+  "qa": "MEASURED_FROM_CURRENT_CASE_SELECTION"
+}

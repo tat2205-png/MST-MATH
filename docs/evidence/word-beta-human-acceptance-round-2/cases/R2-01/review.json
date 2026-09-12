@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-01",
+  "questionId": "1ffa795691ed-qcandidate-1",
+  "questionIrId": "1ffa795691ed-qcandidate-1",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-6",
+      "paragraph-7",
+      "paragraph-8",
+      "paragraph-9",
+      "paragraph-10",
+      "paragraph-11",
+      "paragraph-12",
+      "paragraph-13",
+      "paragraph-14",
+      "paragraph-15",
+      "paragraph-16",
+      "paragraph-17",
+      "paragraph-18",
+      "paragraph-19",
+      "paragraph-20",
+      "paragraph-21",
+      "paragraph-22",
+      "paragraph-23",
+      "paragraph-24",
+      "paragraph-25",
+      "paragraph-26",
+      "paragraph-27",
+      "paragraph-28",
+      "paragraph-29",
+      "paragraph-30",
+      "paragraph-31",
+      "paragraph-32",
+      "paragraph-33",
+      "paragraph-34",
+      "paragraph-35",
+      "paragraph-36",
+      "paragraph-37",
+      "paragraph-38",
+      "paragraph-39",
+      "paragraph-40",
+      "paragraph-41",
+      "paragraph-42",
+      "paragraph-43",
+      "paragraph-44",
+      "paragraph-45",
+      "paragraph-46",
+      "paragraph-47",
+      "paragraph-48"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Cóhaixã$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cùng ở một bên bờ sông. Khoảng cách từ hai xã đó đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>A</mi><mo>=</mo><mn>5</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo><mo>,</mo><mi>B</mi><mi>B</mi><mo>=</mo><mn>6</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$. Người ta đo được$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>2</mn><mn>2</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới đây. Các kỹ sư muốn xây dựng một trạm cung cấp nước sạch nằm bên bờ sông cho người dân của hai xã sử dụng. Để tiết kiệm chi phí, các kỹ sư phải chọn một vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$của trạm cung cấp nước sạch đó trên đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$sao cho tổng khoảng cách từ hai xã đến vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$là nhỏ nhất. Giá trị nhỏ nhất của tổng khoảng cách đó bằng bao nhiêu mét? (làm tròn kết quả đến hàng đơn vị).",
+    "mathObjectIds": [
+      "mtef-53b0ac1fe7c98bb3",
+      "mtef-7c3ff72cedfb601e",
+      "mtef-a4e956634dbff660",
+      "mtef-c75b96f040035d66",
+      "mtef-d19fb74644ac0c7f"
+    ],
+    "assetIds": [
+      "asset-09883a3d9738",
+      "asset-2ad1e1cda4cd",
+      "asset-38b4ac91d495",
+      "asset-5a6daefa1f87",
+      "asset-872964d6d452",
+      "asset-bea79a8a9f17"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-d19fb74644ac0c7f",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 4,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-a4e956634dbff660",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 6,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-53b0ac1fe7c98bb3",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-c75b96f040035d66",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 10,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-7c3ff72cedfb601e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 12,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-c75b96f040035d66",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 14,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-d19fb74644ac0c7f",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-bea79a8a9f17",
+        "kind": "IMAGE",
+        "relationshipId": "rId9",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 6,
+          "relationshipId": "rId9"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-38b4ac91d495",
+        "kind": "IMAGE",
+        "relationshipId": "rId22",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 9,
+          "relationshipId": "rId22"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-2ad1e1cda4cd",
+        "kind": "IMAGE",
+        "relationshipId": "rId23",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 9,
+          "relationshipId": "rId23"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-5a6daefa1f87",
+        "kind": "IMAGE",
+        "relationshipId": "rId24",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 21,
+          "relationshipId": "rId24"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-872964d6d452",
+        "kind": "IMAGE",
+        "relationshipId": "rId25",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 24,
+          "relationshipId": "rId25"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-09883a3d9738",
+        "kind": "IMAGE",
+        "relationshipId": "rId26",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 35,
+          "relationshipId": "rId26"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-1",
+    "questionIrId": "1ffa795691ed-qcandidate-1",
+    "packageId": "question-1ffa795691ed-qcandidate-1",
+    "text": "Cóhaixã$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cùng ở một bên bờ sông. Khoảng cách từ hai xã đó đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>A</mi><mo>=</mo><mn>5</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo><mo>,</mo><mi>B</mi><mi>B</mi><mo>=</mo><mn>6</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$. Người ta đo được$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mn>2</mn><mn>2</mn><mn>0</mn><mn>0</mn><mo> </mo><mi>m</mi><mo>(</mo><mo>)</mo></mrow></math>$như hình vẽ dưới đây. Các kỹ sư muốn xây dựng một trạm cung cấp nước sạch nằm bên bờ sông cho người dân của hai xã sử dụng. Để tiết kiệm chi phí, các kỹ sư phải chọn một vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$của trạm cung cấp nước sạch đó trên đoạn$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$sao cho tổng khoảng cách từ hai xã đến vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>M</mi></mrow></math>$là nhỏ nhất. Giá trị nhỏ nhất của tổng khoảng cách đó bằng bao nhiêu mét? (làm tròn kết quả đến hàng đơn vị).",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-53b0ac1fe7c98bb3",
+      "mtef-7c3ff72cedfb601e",
+      "mtef-a4e956634dbff660",
+      "mtef-c75b96f040035d66",
+      "mtef-d19fb74644ac0c7f"
+    ],
+    "assetIds": [
+      "asset-09883a3d9738",
+      "asset-2ad1e1cda4cd",
+      "asset-38b4ac91d495",
+      "asset-5a6daefa1f87",
+      "asset-872964d6d452",
+      "asset-bea79a8a9f17"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5",
+    "MULTI_ASSET"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

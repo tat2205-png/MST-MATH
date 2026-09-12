@@ -1,0 +1,351 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-11",
+  "questionId": "7f26811b8588-qcandidate-43",
+  "questionIrId": "7f26811b8588-q43",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-7f26811b8588672c",
+    "documentPath": "Full-Toán thực tế 10.docx",
+    "documentHash": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+    "sourceObjectIds": [
+      "paragraph-368",
+      "paragraph-369",
+      "paragraph-370",
+      "paragraph-371",
+      "paragraph-372",
+      "paragraph-373",
+      "paragraph-374",
+      "paragraph-375",
+      "paragraph-376",
+      "paragraph-377",
+      "paragraph-378"
+    ],
+    "provenance": {
+      "sourceFile": "Full-Toán thực tế 10.docx",
+      "sourceSha256": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "MULTIPLE_CHOICE",
+  "sourceRepresentation": {
+    "text": "CổngArchtại thành phốSt Louiscủa Mỹcó hình dạng là một parabol (hình vẽ). Biết khoảng cách giữa hai chân cổng bằng$162 m$.Trên thành cổng, tại vịtrí có độcao$43 m$so với mặt đất(điểm)$M$,người ta thảmột sợi dây chạm đất (dây căng thẳng theo phương vuông góc với mặt đất). Vịtrí chạm đất của đầu sợi dây này cách chân cổng$A$một đoạn$10 m$.Giảsửcác sốliệu trên chính xác. Hãy tính độcao của cổngArch(tính từmặt đất đến điểmcao nhất của cổng).\nA. $197,5 m$.\nB. $210 m$.\nC. $185,6 m$.\nD. $175,6 m$.",
+    "mathObjectIds": [
+      "expression-docx-599",
+      "expression-docx-600",
+      "expression-docx-601",
+      "expression-docx-602",
+      "expression-docx-603",
+      "expression-docx-604",
+      "expression-docx-605",
+      "expression-docx-606",
+      "expression-docx-607",
+      "expression-docx-608",
+      "expression-docx-609",
+      "expression-docx-610",
+      "expression-docx-611",
+      "expression-docx-612",
+      "expression-docx-613",
+      "expression-docx-614",
+      "expression-docx-615"
+    ],
+    "assetIds": [
+      "asset-0f9dff1f474f",
+      "asset-8ee64d2889d1",
+      "asset-f7034bb18268"
+    ],
+    "math": [
+      {
+        "mathObjectId": "expression-docx-599",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 34,
+          "paragraphIndex": 368
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-600",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 46,
+          "paragraphIndex": 368
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-601",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 59,
+          "paragraphIndex": 368
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-602",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 97,
+          "paragraphIndex": 368
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-603",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 105,
+          "paragraphIndex": 368
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-604",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 370
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-605",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 370
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-606",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 13,
+          "paragraphIndex": 370
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-607",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 18,
+          "paragraphIndex": 370
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-608",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 374
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-609",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 16,
+          "paragraphIndex": 374
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-610",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 375
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-611",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 12,
+          "paragraphIndex": 375
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-612",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 2,
+          "paragraphIndex": 376
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-613",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 376
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-614",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 377
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "expression-docx-615",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 10,
+          "paragraphIndex": 378
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-f7034bb18268",
+        "kind": "IMAGE",
+        "relationshipId": "rId56",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 369,
+          "relationshipId": "rId56"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-8ee64d2889d1",
+        "kind": "IMAGE",
+        "relationshipId": "rId57",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 369,
+          "relationshipId": "rId57"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-0f9dff1f474f",
+        "kind": "IMAGE",
+        "relationshipId": "rId58",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-7f26811b8588672c",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 373,
+          "relationshipId": "rId58"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "7f26811b8588-qcandidate-43",
+    "questionIrId": "7f26811b8588-q43",
+    "packageId": "question-7f26811b8588-qcandidate-43",
+    "text": "CổngArchtại thành phốSt Louiscủa Mỹcó hình dạng là một parabol (hình vẽ). Biết khoảng cách giữa hai chân cổng bằng$162 m$.Trên thành cổng, tại vịtrí có độcao$43 m$so với mặt đất(điểm)$M$,người ta thảmột sợi dây chạm đất (dây căng thẳng theo phương vuông góc với mặt đất). Vịtrí chạm đất của đầu sợi dây này cách chân cổng$A$một đoạn$10 m$.Giảsửcác sốliệu trên chính xác. Hãy tính độcao của cổngArch(tính từmặt đất đến điểmcao nhất của cổng).\nA. $197,5 m$.\nB. $210 m$.\nC. $185,6 m$.\nD. $175,6 m$.",
+    "answer": "C",
+    "solution": "Chọn C[FIGURE:asset-0f9dff1f474f]Chọn hệtrục tọa độ$Oxy$như hình vẽ$⇒A\\left(0;0\\right);B\\left(162;0\\right);M\\left(10;43\\right)$.Giảsửphương trình của parabol$\\left(P\\right)$là$y=a{x}^{2}+bx+c$.Do$A,B,M\\in\\left(P\\right)$nên toạđộcủa chúng thỏa mãnphương trình$\\left(P\\right)$:$\\left\\{\\begin{matrix}c=0 \\\\ a.16{2}^{2}+b.162+c=0 \\\\ a.1{0}^{2}+b.10+c=43\\end{matrix}\\right⇔\\left\\{\\begin{matrix}a=-\\frac{43}{1520} \\\\ b=\\frac{3483}{760} \\\\ c=0\\end{matrix}\\right$.Chiều cao của cổngArchlà:$h=-\\frac{\\Delta}{4a}≈185,6 m$.",
+    "mathObjectIds": [
+      "expression-docx-599",
+      "expression-docx-600",
+      "expression-docx-601",
+      "expression-docx-602",
+      "expression-docx-603",
+      "expression-docx-604",
+      "expression-docx-605",
+      "expression-docx-606",
+      "expression-docx-607",
+      "expression-docx-608",
+      "expression-docx-609",
+      "expression-docx-610",
+      "expression-docx-611",
+      "expression-docx-612",
+      "expression-docx-613",
+      "expression-docx-614",
+      "expression-docx-615"
+    ],
+    "assetIds": [
+      "asset-0f9dff1f474f",
+      "asset-8ee64d2889d1",
+      "asset-f7034bb18268"
+    ]
+  },
+  "automatedQa": "PASS",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_OPTIONS",
+    "MATH_IN_SOLUTION",
+    "MATH_IN_STEM",
+    "MODERN_MATH",
+    "MULTI_ASSET"
+  ],
+  "mathFormats": [
+    "MODERN_MATH"
+  ],
+  "mathRoles": [
+    "MATH_IN_OPTIONS",
+    "MATH_IN_SOLUTION",
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

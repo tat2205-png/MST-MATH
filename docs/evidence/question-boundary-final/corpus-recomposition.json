@@ -1,0 +1,3597 @@
+{
+  "schemaVersion": "BOUNDARY_COMPOSITION_V2",
+  "candidates": [
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-35",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-39",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-42",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-43",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-44",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-45",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-46",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-47",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-48",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-49",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-50",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-51",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-52",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-53",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-54",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-55",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-56",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-57",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-58",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-59",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-60",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-61",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-62",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-63",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-64",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-65",
+      "state": "MERGE_NEXT",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-66",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-67",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-68",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-69",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-70",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-71",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-72",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-73",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-74",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-75",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-76",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-77",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-78",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-79",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-80",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-81",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-82",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-83",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-84",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-85",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-86",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-87",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-88",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-89",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-90",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-91",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-92",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-93",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-94",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-95",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-96",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-97",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-98",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-99",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-100",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-101",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-102",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-103",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-104",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-5",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-6",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-35",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-39",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-42",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-43",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-44",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-45",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-46",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-47",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-48",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-49",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-50",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-51",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-52",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-53",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-54",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-55",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-56",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-57",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-58",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-59",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-60",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-61",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-62",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-63",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-64",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-65",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-66",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-67",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-68",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-69",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-70",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-71",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-72",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-73",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-74",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-75",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-76",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-77",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-78",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-79",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-80",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-81",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-82",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-83",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-84",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-85",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-86",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-87",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-88",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-89",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-90",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-91",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-92",
+      "state": "REJECTED_FALSE",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-35",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-39",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-42",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-43",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-44",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-45",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-46",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-47",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-48",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-49",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-52",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-55",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-56",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-57",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-59",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "ACCEPT_AS_QUESTION"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-60",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-2",
+      "state": "DOCUMENT_STRUCTURE",
+      "decisionSource": "HUMAN_TARGETED_BOUNDARY_APPROVAL"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-35",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-39",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-42",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-43",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-44",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-45",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-46",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-47",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-48",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-49",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-50",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-51",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-52",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-53",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-54",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-55",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-56",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-57",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-58",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-59",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-60",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-61",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-62",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-63",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-64",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-65",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-66",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-67",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-68",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-69",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-70",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-71",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-72",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-73",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-74",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-75",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-76",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-77",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-78",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-79",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-80",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-81",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-82",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-83",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-84",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-85",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-86",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-35",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-39",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-42",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-43",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-44",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-45",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-46",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-47",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-48",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-49",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-50",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-51",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-52",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-53",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-54",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-55",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-56",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-57",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-58",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-59",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-60",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-61",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-62",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-63",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-64",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-65",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-66",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-67",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-68",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-69",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-70",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-71",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-72",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-73",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-74",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-75",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-76",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-77",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-78",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-79",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-80",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-81",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-82",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-83",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-84",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-85",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-86",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-87",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-88",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-89",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-90",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-91",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-92",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-93",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-94",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-95",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-96",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-97",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-98",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-99",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-100",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-101",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-102",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-103",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-104",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-105",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-106",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-107",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-108",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-109",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-110",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-111",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-112",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-113",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-114",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-115",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-116",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-117",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-118",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-119",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-120",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-121",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-122",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-123",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-124",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-125",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-126",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-127",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-128",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-129",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-130",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-131",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-132",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-133",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-134",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-135",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-136",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-137",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-138",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-139",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-140",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-141",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-142",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-143",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-144",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-145",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-146",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-147",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-148",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-149",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-150",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-151",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-152",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-153",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-154",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-155",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-156",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-157",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "Full-Toán thực tế 10.docx::candidate-158",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-14",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_APPROVED_MICRO_GOLD"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-15",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-16",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-19",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-20",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-21",
+      "state": "SOLUTION_CONTENT",
+      "decisionSource": "HUMAN_TARGETED_BOUNDARY_APPROVAL"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-22",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-24",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-25",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-26",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-27",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-29",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-30",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-31",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-32",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-35",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "HUMAN_TARGETED_BOUNDARY_APPROVAL"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-39",
+      "state": "MERGE_PREVIOUS",
+      "decisionSource": "HUMAN_FINAL_BOUNDARY_APPROVAL",
+      "humanDecision": "MERGE_WITH_PREVIOUS"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-1",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-2",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-3",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-4",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-5",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-6",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-7",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-8",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-9",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-10",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-11",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-12",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-13",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-14",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-15",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-16",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-17",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-18",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-19",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-20",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-21",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-22",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-23",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-24",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-25",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-26",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-27",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-28",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-29",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-30",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-31",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-32",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-33",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-34",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-35",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-36",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-37",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-38",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-39",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-40",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-41",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-42",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-43",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-44",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-45",
+      "state": "CONFIRMED",
+      "decisionSource": "CERTIFIED_SNAPSHOT"
+    }
+  ],
+  "documents": [
+    {
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "hash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "candidateCount": 29,
+      "confirmed": 29,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "1.1.docx",
+      "hash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "candidateCount": 104,
+      "confirmed": 103,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 1
+    },
+    {
+      "file": "2. MIN MAX HHKG.docx",
+      "hash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519",
+      "candidateCount": 33,
+      "confirmed": 33,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "2.1.docx",
+      "hash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "candidateCount": 92,
+      "confirmed": 89,
+      "review": 0,
+      "rejected_false": 1,
+      "merge_previous": 2,
+      "merge_next": 0
+    },
+    {
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "hash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06",
+      "candidateCount": 60,
+      "confirmed": 52,
+      "review": 8,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "hash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "candidateCount": 27,
+      "confirmed": 27,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "hash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c",
+      "candidateCount": 15,
+      "confirmed": 15,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "hash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d",
+      "candidateCount": 86,
+      "confirmed": 86,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "Full-Toán thực tế 10.docx",
+      "hash": "7f26811b8588672cbb9029af3d43b7752ba36c149ec2e9e4caf9c01153c0c23d",
+      "candidateCount": 158,
+      "confirmed": 158,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    },
+    {
+      "file": "NK TEST APP.docx",
+      "hash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "candidateCount": 41,
+      "confirmed": 25,
+      "review": 15,
+      "rejected_false": 0,
+      "merge_previous": 1,
+      "merge_next": 0
+    },
+    {
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "hash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7",
+      "candidateCount": 45,
+      "confirmed": 45,
+      "review": 0,
+      "rejected_false": 0,
+      "merge_previous": 0,
+      "merge_next": 0
+    }
+  ],
+  "counts": {
+    "CONFIRMED": 670,
+    "REVIEW": 0,
+    "REJECTED_FALSE": 1,
+    "MERGE_PREVIOUS": 18,
+    "MERGE_NEXT": 1
+  }
+}

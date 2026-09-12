@@ -1,0 +1,9 @@
+{
+  "sourceOleObjectCount": 2935,
+  "mtefV5OleObjectCount": 2911,
+  "nonMtefV5OleObjectCount": 22,
+  "classifiedCurrentCount": 2933,
+  "missingClassificationCount": 2,
+  "qa": "PENDING_2_OBJECT_RECONCILIATION",
+  "reason": "Historical source-object inventory exceeds the two currently disjoint classified sets by two identities."
+}

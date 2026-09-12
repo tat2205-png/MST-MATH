@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-07",
+  "questionId": "1ffa795691ed-qcandidate-7",
+  "questionIrId": "1ffa795691ed-qcandidate-7",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-90",
+      "paragraph-91",
+      "paragraph-92",
+      "paragraph-93",
+      "paragraph-94",
+      "paragraph-95",
+      "paragraph-96"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Anh Bađangtrên chiếc thuyềntạivị trí A cách bờ sông$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>k</mi><mi>m</mi></mrow></math>$, anh dự định chèo thuyền vào bờ và tiếp tục chạy bộ theo một đường thẳng để đến một địa điểm B tọa lạc ven bờ sông, B cách vị trí O trên bờ gần với thuyền nhất là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mi>k</mi><mi>m</mi></mrow></math>$(hình vẽ). Biết rằng anh Ba chèo thuyền với vận tốc6km/hvà chạy bộ trên bờ với vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>0</mn><mi>k</mi><mi>m</mi><mo>/</mo><mi>h</mi></mrow></math>$. Khoảng thời gian ngắn nhất để anh Ba từ vị trí xuất phát đến được điểm B là bao nhiêu phút?",
+    "mathObjectIds": [
+      "mtef-61f820d84346d3e0",
+      "mtef-7766020055263463",
+      "mtef-fe453ca07604bc19"
+    ],
+    "assetIds": [
+      "asset-6a8231ee3fd1"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-7766020055263463",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 6,
+          "paragraphIndex": 90
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-fe453ca07604bc19",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 90
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-61f820d84346d3e0",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 12,
+          "paragraphIndex": 90
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-6a8231ee3fd1",
+        "kind": "IMAGE",
+        "relationshipId": "rId104",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 90,
+          "relationshipId": "rId104"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-7",
+    "questionIrId": "1ffa795691ed-qcandidate-7",
+    "packageId": "question-1ffa795691ed-qcandidate-7",
+    "text": "Anh Bađangtrên chiếc thuyềntạivị trí A cách bờ sông$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>k</mi><mi>m</mi></mrow></math>$, anh dự định chèo thuyền vào bờ và tiếp tục chạy bộ theo một đường thẳng để đến một địa điểm B tọa lạc ven bờ sông, B cách vị trí O trên bờ gần với thuyền nhất là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mi>k</mi><mi>m</mi></mrow></math>$(hình vẽ). Biết rằng anh Ba chèo thuyền với vận tốc6km/hvà chạy bộ trên bờ với vận tốc$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>0</mn><mi>k</mi><mi>m</mi><mo>/</mo><mi>h</mi></mrow></math>$. Khoảng thời gian ngắn nhất để anh Ba từ vị trí xuất phát đến được điểm B là bao nhiêu phút?",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-61f820d84346d3e0",
+      "mtef-7766020055263463",
+      "mtef-fe453ca07604bc19"
+    ],
+    "assetIds": [
+      "asset-6a8231ee3fd1"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

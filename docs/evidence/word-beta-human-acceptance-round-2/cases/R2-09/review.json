@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-09",
+  "questionId": "1ffa795691ed-qcandidate-9",
+  "questionIrId": "1ffa795691ed-qcandidate-9",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-102",
+      "paragraph-103",
+      "paragraph-104",
+      "paragraph-105",
+      "paragraph-106",
+      "paragraph-107",
+      "paragraph-108",
+      "paragraph-109"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Một cái hồ rộng có hình chữ nhật. Tại một góc hồ người ta đóng một cái cọc ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>K</mi></mrow></math>$cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>m</mi></mrow></math>$và cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn><mi>m</mi></mrow></math>$, rồi dùng một cây sào thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>Q</mi></mrow></math>$ngănmộtgóc của hồ để thả bèo (như hình vẽ). Tính chiều dài ngắn nhất của cây sào để cây sào có thể chạm vào hai bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></math>$và cây cọc (kết quả làm tròn đến hàng đơn vị của mét).",
+    "mathObjectIds": [
+      "mtef-0b9b412ccaa49c46",
+      "mtef-207ae618315d5882",
+      "mtef-3de1207067df91e8",
+      "mtef-87f349670fd15740",
+      "mtef-99978399b4be5526",
+      "mtef-b06077c23bb5efc6",
+      "mtef-fdbc879862231805"
+    ],
+    "assetIds": [
+      "asset-8ab7111a993f",
+      "asset-fa789b9d6943"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-99978399b4be5526",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-3de1207067df91e8",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-fdbc879862231805",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-0b9b412ccaa49c46",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-207ae618315d5882",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-b06077c23bb5efc6",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-87f349670fd15740",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 102
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-8ab7111a993f",
+        "kind": "IMAGE",
+        "relationshipId": "rId133",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 103,
+          "relationshipId": "rId133"
+        },
+        "status": "PASS"
+      },
+      {
+        "assetId": "asset-fa789b9d6943",
+        "kind": "IMAGE",
+        "relationshipId": "rId134",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 103,
+          "relationshipId": "rId134"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-9",
+    "questionIrId": "1ffa795691ed-qcandidate-9",
+    "packageId": "question-1ffa795691ed-qcandidate-9",
+    "text": "Một cái hồ rộng có hình chữ nhật. Tại một góc hồ người ta đóng một cái cọc ở vị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>K</mi></mrow></math>$cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>2</mn><mi>m</mi></mrow></math>$và cách bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>C</mi></mrow></math>$là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>8</mn><mi>m</mi></mrow></math>$, rồi dùng một cây sào thẳng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>P</mi><mi>Q</mi></mrow></math>$ngănmộtgóc của hồ để thả bèo (như hình vẽ). Tính chiều dài ngắn nhất của cây sào để cây sào có thể chạm vào hai bờ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mi>B</mi><mo>,</mo><mi>A</mi><mi>C</mi></mrow></math>$và cây cọc (kết quả làm tròn đến hàng đơn vị của mét).",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-0b9b412ccaa49c46",
+      "mtef-207ae618315d5882",
+      "mtef-3de1207067df91e8",
+      "mtef-87f349670fd15740",
+      "mtef-99978399b4be5526",
+      "mtef-b06077c23bb5efc6",
+      "mtef-fdbc879862231805"
+    ],
+    "assetIds": [
+      "asset-8ab7111a993f",
+      "asset-fa789b9d6943"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5",
+    "MULTI_ASSET",
+    "SHARED_CONTEXT_MATH"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM",
+    "SHARED_CONTEXT_MATH"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

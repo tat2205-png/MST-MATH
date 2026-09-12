@@ -1,0 +1,625 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_PACK_V2",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "canonicalBoundaryCount": 668,
+  "caseCount": 40,
+  "selectionSource": "final-review-selection.json",
+  "coverageSource": "risk-coverage-certification.json",
+  "cases": [
+    {
+      "reviewCaseId": "R2-01",
+      "questionId": "1ffa795691ed-qcandidate-1",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
+      ],
+      "relativeReviewPath": "cases/R2-01",
+      "reviewArtifactHash": "f4c24e01d0b6fc60123c52e82333d26655cc1e39bbf2d0a0e3a6ac9b67dc2315",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-02",
+      "questionId": "1ffa795691ed-qcandidate-2",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-02",
+      "reviewArtifactHash": "037c1d6515d72f01495ffb36518dda37ed4539f3babfba52eedfceaa91c01af1",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-03",
+      "questionId": "1ffa795691ed-qcandidate-3",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-03",
+      "reviewArtifactHash": "c401e2e1951ab123efed13de810aa43829831f0429a19fb44e661d1bae94225d",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-04",
+      "questionId": "1ffa795691ed-qcandidate-4",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-04",
+      "reviewArtifactHash": "406ddf87e222c22ef4a4d729865737376b63c68f1df7677f81562f6bacd453b9",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-05",
+      "questionId": "1ffa795691ed-qcandidate-5",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-05",
+      "reviewArtifactHash": "398607d8c044927380ac36f2348843a7b25d534da0fd6dd19497910c24ebf068",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-06",
+      "questionId": "6cff0e6db838-qcandidate-29",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "2. MIN MAX HHKG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V3"
+      ],
+      "relativeReviewPath": "cases/R2-06",
+      "reviewArtifactHash": "d9d01dca8316ec81613860774312d795e34b9dd1131b01e7db35298a59c4fe02",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-07",
+      "questionId": "1ffa795691ed-qcandidate-7",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-07",
+      "reviewArtifactHash": "48725f3cbd3987c8acd425e259dda7affbdd136e5f2917e558bfc09f8c7ddd25",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-08",
+      "questionId": "1ffa795691ed-qcandidate-8",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
+      ],
+      "relativeReviewPath": "cases/R2-08",
+      "reviewArtifactHash": "99fb56062d758f13fd35594366c4789e369956c23dcbcb302d797e215c819c42",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-09",
+      "questionId": "1ffa795691ed-qcandidate-9",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET",
+        "SHARED_CONTEXT_MATH"
+      ],
+      "relativeReviewPath": "cases/R2-09",
+      "reviewArtifactHash": "df020813b8c64bb7b8a43bbc5b14a95865f7d392efadee41c43131bfc672b10d",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-10",
+      "questionId": "1ffa795691ed-qcandidate-10",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-10",
+      "reviewArtifactHash": "e5197272931ac0c03ddcc828be5ce3076a601b2b5e8440aa8b527d292bd08010",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-11",
+      "questionId": "7f26811b8588-qcandidate-43",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "Full-Toán thực tế 10.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_SOLUTION",
+        "MATH_IN_STEM",
+        "MODERN_MATH",
+        "MULTI_ASSET"
+      ],
+      "relativeReviewPath": "cases/R2-11",
+      "reviewArtifactHash": "8cde68c2061644a18db52dae71020ad75a847f8111448782f462cd738668749e",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-12",
+      "questionId": "1ffa795691ed-qcandidate-12",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-12",
+      "reviewArtifactHash": "23831eb61aa76bc6422d48db46c6d8dea10d847a27f59b41fc7580cb5b0e3c4c",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-13",
+      "questionId": "1ffa795691ed-qcandidate-13",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-13",
+      "reviewArtifactHash": "671f2b26d9a751294733e40e4ec7d3199a958577316a5750edf56d57a5e78394",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-14",
+      "questionId": "1ffa795691ed-qcandidate-14",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-14",
+      "reviewArtifactHash": "bcbec414cd8e52810b93fb8d3d8d1e03939f153f2f83a855ecd8286ed7e37ca0",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-15",
+      "questionId": "1ffa795691ed-qcandidate-15",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "SHARED_CONTEXT_MATH"
+      ],
+      "relativeReviewPath": "cases/R2-15",
+      "reviewArtifactHash": "63f73d7964e3469a962319bb36d39cf630f86371aafe4f06a6973db04ecaa46a",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-16",
+      "questionId": "1ffa795691ed-qcandidate-16",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-16",
+      "reviewArtifactHash": "80dcaeb029bc9956eff3d9b50eae1ab4a4e9639f03c7766e1b7517e78a3bc726",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-17",
+      "questionId": "1ffa795691ed-qcandidate-17",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-17",
+      "reviewArtifactHash": "94440429a4ff03ea25e92a40b076a183d2c0de1e3529b303926f412f07d3eec3",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-18",
+      "questionId": "1ffa795691ed-qcandidate-18",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-18",
+      "reviewArtifactHash": "f4cedfa5a308c900863411a187ab28417e1970bf18916d4f286d0753c61e1f2c",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-19",
+      "questionId": "1ffa795691ed-qcandidate-19",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-19",
+      "reviewArtifactHash": "fd4458e536496a7a04f969107506878036e71927e556c0b0b5b6a1b75e00a049",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-20",
+      "questionId": "bec93b42b430-qcandidate-50",
+      "questionType": "SHORT_ANSWER",
+      "sourceDocument": "BÀI 2. GTLN-GTNN.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V3"
+      ],
+      "relativeReviewPath": "cases/R2-20",
+      "reviewArtifactHash": "091e7ad7a8bcedc5c421252489f1fce71657eff9c150a824d3cec4fc299e45d1",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-21",
+      "questionId": "1ffa795691ed-qcandidate-21",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-21",
+      "reviewArtifactHash": "26fe5d1e47d281f5deed62daf62e56cff35943f54bd764ede265d39e11e10e1d",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-22",
+      "questionId": "1ffa795691ed-qcandidate-22",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-22",
+      "reviewArtifactHash": "8742494bd1679436cd034bfdb2a94af1772a3815c494b0e90bb119ec6d45def4",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-23",
+      "questionId": "1ffa795691ed-qcandidate-23",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-23",
+      "reviewArtifactHash": "cb0ef95b60deffb9e002de8cb1f06e4f14d2318de3887ca04275001b19b9caf4",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-24",
+      "questionId": "1ffa795691ed-qcandidate-24",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-24",
+      "reviewArtifactHash": "4ad7933b34daeff17d6e8de40d1d95a2858152786c3e04c321960351e12ddb7a",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-25",
+      "questionId": "1ffa795691ed-qcandidate-25",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-25",
+      "reviewArtifactHash": "463b2bb98254b15b9752abe4b4f26c68b83d133e6d7f4a28042205395163e610",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-26",
+      "questionId": "1ffa795691ed-qcandidate-26",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-26",
+      "reviewArtifactHash": "b5d9b146cb306c115b9f8ffd3c3142cf2c42339d4df3014bd9652ec96e7dfab6",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-27",
+      "questionId": "1ffa795691ed-qcandidate-27",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-27",
+      "reviewArtifactHash": "add1e0cf1e517cea091fb035104e387ede5437f96879e28b270fa6689e3e34d2",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-28",
+      "questionId": "1ffa795691ed-qcandidate-28",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
+      ],
+      "relativeReviewPath": "cases/R2-28",
+      "reviewArtifactHash": "a9b7f99f34e4d4f4342fc47b9f7a706913cb2a463f2dac4353665ba68f8a4bc3",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-29",
+      "questionId": "1ffa795691ed-qcandidate-29",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1. MIN MAX -HH PHẲNG.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-29",
+      "reviewArtifactHash": "6448d0d589c6e964566e5af2539ae71b2452934819b08376ea7219f9b4b53b2a",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-30",
+      "questionId": "633e6a37a7bf-qcandidate-1",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-30",
+      "reviewArtifactHash": "145e617046f3f73c7ad0ae4b00f227da2a560fb625349e8fdb4f3ef997ea543f",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-31",
+      "questionId": "633e6a37a7bf-qcandidate-2",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-31",
+      "reviewArtifactHash": "21aa3cb933526227907f84db787cabec3eacecf31931ec33d6b2c781dec0d967",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-32",
+      "questionId": "633e6a37a7bf-qcandidate-3",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
+      ],
+      "relativeReviewPath": "cases/R2-32",
+      "reviewArtifactHash": "ca0f17d2a3133ace98ce21786bfca4c2ab6d4fcb94e8036a62cc465dcf9f1b68",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-33",
+      "questionId": "633e6a37a7bf-qcandidate-4",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-33",
+      "reviewArtifactHash": "943e587aa528627cbb4fbc7a706f0b3a086922d98067823fcaf6a0a886be2514",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-34",
+      "questionId": "633e6a37a7bf-qcandidate-5",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MODERN_MATH"
+      ],
+      "relativeReviewPath": "cases/R2-34",
+      "reviewArtifactHash": "7e47f5a9db6c56c41b667f26949e07420945c5f38587b3c905aae9a144da5901",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-35",
+      "questionId": "f4d4446aeaf5-qcandidate-23",
+      "questionType": "TRUE_FALSE",
+      "sourceDocument": "NK TEST APP.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "MATH_IN_STEM",
+        "MODERN_MATH",
+        "SHARED_CONTEXT_MATH"
+      ],
+      "relativeReviewPath": "cases/R2-35",
+      "reviewArtifactHash": "95c6431e55b9a9499bcb83dbbadf59399938e20f470fd8375e8e1813793cb0a6",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-36",
+      "questionId": "f4d4446aeaf5-qcandidate-41",
+      "questionType": "SHORT_ANSWER",
+      "sourceDocument": "NK TEST APP.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "MATH_IN_STEM",
+        "MODERN_MATH",
+        "SHARED_CONTEXT_MATH"
+      ],
+      "relativeReviewPath": "cases/R2-36",
+      "reviewArtifactHash": "47fdae015b06a9324c1112f22db060c4aa83efe823188b401ca0c2166f64c66e",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-37",
+      "questionId": "633e6a37a7bf-qcandidate-8",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MODERN_MATH"
+      ],
+      "relativeReviewPath": "cases/R2-37",
+      "reviewArtifactHash": "cebda7fab7785c2a12035c2762e300edf596aabb60ca7ea7895d65c13d2dd300",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-38",
+      "questionId": "633e6a37a7bf-qcandidate-9",
+      "questionType": "MULTIPLE_CHOICE",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_OPTIONS",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-38",
+      "reviewArtifactHash": "ccd44e7a81ddb9b6ba1977439e27e5406869b5e2a8bc511bb0a67cbd16a224a2",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-39",
+      "questionId": "633e6a37a7bf-qcandidate-10",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5"
+      ],
+      "relativeReviewPath": "cases/R2-39",
+      "reviewArtifactHash": "bca82aa79e4406736f98db8fecd2466271e3038d7a700f8f6ab9b336b1ba40f7",
+      "humanDecisionStatus": "PENDING"
+    },
+    {
+      "reviewCaseId": "R2-40",
+      "questionId": "633e6a37a7bf-qcandidate-11",
+      "questionType": "UNKNOWN",
+      "sourceDocument": "1.1.docx",
+      "previousDefectCategory": null,
+      "coverageTags": [
+        "ASSET_BEARING",
+        "MATH_IN_STEM",
+        "MTEF_V5",
+        "MULTI_ASSET"
+      ],
+      "relativeReviewPath": "cases/R2-40",
+      "reviewArtifactHash": "3c3b54cbe2c6be33efd1e90bee0c2512f51d30041f438ba3499288ccb8bd7193",
+      "humanDecisionStatus": "PENDING"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+import assert from "node:assert/strict";
+import { composeBoundaryState } from "../src/modules/question-bank/boundary-state-composition.ts";
+const base=[...Array.from({length:642},(_,i)=>({candidateId:`c${i}`,state:"CONFIRMED" as const,decisionSource:"snapshot"})),...Array.from({length:47},(_,i)=>({candidateId:`r${i}`,state:"REVIEW" as const,decisionSource:"snapshot"})),{candidateId:"f",state:"REJECTED_FALSE" as const,decisionSource:"snapshot"}];
+const ids=new Set(base.filter(x=>x.state==="REVIEW").map(x=>x.candidateId)); const decisions=new Map([["r0",{candidateId:"r0",state:"CONFIRMED" as const,decisionSource:"human"}]]);
+const x=composeBoundaryState(base,ids,decisions); assert.equal(x.candidates.length,690); assert.equal(x.counts.REVIEW,46); assert.equal(x.candidates.filter(c=>c.state==="CONFIRMED").length,643); assert.equal(x.candidates.find(c=>c.candidateId==="f")?.state,"REJECTED_FALSE"); assert.ok(Object.values(x.invariants).every(Boolean)); console.log("CORPUS_BOUNDARY_COMPOSITION_QA=PASS");

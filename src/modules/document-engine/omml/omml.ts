@@ -78,8 +78,10 @@ function convertNode(node: XmlNode, issues: DocumentEngineIssue[], path: string)
       const rows = childElements(node, "mr").map((row) => childElements(row, "e").map((cell) => convertChildren(cell, issues, `${path}/cell`)).join(" & "));
       return `\\begin{matrix}${rows.join(" \\\\ ")}\\end{matrix}`;
     }
-    case "ctrlPr": case "rPr": case "fPr": case "radPr": case "sSupPr": case "sSubPr": case "sSubSupPr": case "dPr": case "naryPr": case "limLowPr": case "mPr":
+    case "ctrlPr": case "rPr": case "fPr": case "radPr": case "sSupPr": case "sSubPr": case "sSubSupPr": case "dPr": case "oMathParaPr": case "oMathPr": case "naryPr": case "limLowPr": case "mPr":
       return "";
+    case "bookmarkStart": case "bookmarkEnd": case "eqArr": case "eqArrPr":
+      return convertChildren(node, issues, path);
     default:
       issues.push({ code: "UNSUPPORTED_OMML_CONSTRUCT", severity: "warning", path, message: `Unsupported OMML element: ${name}` });
       return `\\text{[unsupported OMML: ${name}]}`;

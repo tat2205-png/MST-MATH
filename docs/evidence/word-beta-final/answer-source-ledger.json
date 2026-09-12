@@ -1,0 +1,530 @@
+[
+  {
+    "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-99",
+    "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+    "sourceObjectIds": [
+      "paragraph-99"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+      "partName": "word/document.xml",
+      "objectIndex": 99,
+      "paragraphIndex": 99
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-153",
+    "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+    "sourceObjectIds": [
+      "paragraph-153"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+      "partName": "word/document.xml",
+      "objectIndex": 153,
+      "paragraphIndex": 153
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-229",
+    "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+    "sourceObjectIds": [
+      "paragraph-229"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+      "partName": "word/document.xml",
+      "objectIndex": 229,
+      "paragraphIndex": 229
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-299",
+    "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+    "sourceObjectIds": [
+      "paragraph-299"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+      "partName": "word/document.xml",
+      "objectIndex": 299,
+      "paragraphIndex": 299
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-301",
+    "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+    "sourceObjectIds": [
+      "paragraph-301"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+      "partName": "word/document.xml",
+      "objectIndex": 301,
+      "paragraphIndex": 301
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50::answer::paragraph-304",
+    "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+    "sourceObjectIds": [
+      "paragraph-304"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-633e6a37a7bfd1d9",
+      "partName": "word/document.xml",
+      "objectIndex": 304,
+      "paragraphIndex": 304
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "1.1.docx",
+      "sourceSha256": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-121",
+    "sourceDocumentId": "docx-717b39e5b6a1bad3",
+    "sourceObjectIds": [
+      "paragraph-121"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-717b39e5b6a1bad3",
+      "partName": "word/document.xml",
+      "objectIndex": 121,
+      "paragraphIndex": 121
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "2.1.docx",
+      "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-155",
+    "sourceDocumentId": "docx-717b39e5b6a1bad3",
+    "sourceObjectIds": [
+      "paragraph-155"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-717b39e5b6a1bad3",
+      "partName": "word/document.xml",
+      "objectIndex": 155,
+      "paragraphIndex": 155
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "2.1.docx",
+      "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-161",
+    "sourceDocumentId": "docx-717b39e5b6a1bad3",
+    "sourceObjectIds": [
+      "paragraph-161"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-717b39e5b6a1bad3",
+      "partName": "word/document.xml",
+      "objectIndex": 161,
+      "paragraphIndex": 161
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "2.1.docx",
+      "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-165",
+    "sourceDocumentId": "docx-717b39e5b6a1bad3",
+    "sourceObjectIds": [
+      "paragraph-165"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-717b39e5b6a1bad3",
+      "partName": "word/document.xml",
+      "objectIndex": 165,
+      "paragraphIndex": 165
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "2.1.docx",
+      "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-168",
+    "sourceDocumentId": "docx-717b39e5b6a1bad3",
+    "sourceObjectIds": [
+      "paragraph-168"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-717b39e5b6a1bad3",
+      "partName": "word/document.xml",
+      "objectIndex": 168,
+      "paragraphIndex": 168
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "2.1.docx",
+      "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d::answer::paragraph-171",
+    "sourceDocumentId": "docx-717b39e5b6a1bad3",
+    "sourceObjectIds": [
+      "paragraph-171"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-717b39e5b6a1bad3",
+      "partName": "word/document.xml",
+      "objectIndex": 171,
+      "paragraphIndex": 171
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "2.1.docx",
+      "sourceSha256": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be::answer::paragraph-48",
+    "sourceDocumentId": "docx-ac5a02cd6fdff821",
+    "sourceObjectIds": [
+      "paragraph-48"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-ac5a02cd6fdff821",
+      "partName": "word/document.xml",
+      "objectIndex": 48,
+      "paragraphIndex": 48
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceSha256": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be::answer::paragraph-110",
+    "sourceDocumentId": "docx-ac5a02cd6fdff821",
+    "sourceObjectIds": [
+      "paragraph-110"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-ac5a02cd6fdff821",
+      "partName": "word/document.xml",
+      "objectIndex": 110,
+      "paragraphIndex": 110
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceSha256": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be::answer::paragraph-154",
+    "sourceDocumentId": "docx-ac5a02cd6fdff821",
+    "sourceObjectIds": [
+      "paragraph-154"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-ac5a02cd6fdff821",
+      "partName": "word/document.xml",
+      "objectIndex": 154,
+      "paragraphIndex": 154
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceSha256": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  },
+  {
+    "sourceBlockId": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9::answer::paragraph-105",
+    "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+    "sourceObjectIds": [
+      "paragraph-105"
+    ],
+    "sourceAnchor": {
+      "sourceDocumentId": "docx-f4d4446aeaf5ba44",
+      "partName": "word/document.xml",
+      "objectIndex": 65,
+      "paragraphIndex": 105
+    },
+    "structureType": "ANSWER",
+    "detectionEvidence": [
+      "EXPLICIT_HEADING"
+    ],
+    "disposition": "UNRESOLVED",
+    "provenance": {
+      "sourceFile": "NK TEST APP.docx",
+      "sourceSha256": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    },
+    "qaStatus": "REVIEW",
+    "issues": []
+  }
+]

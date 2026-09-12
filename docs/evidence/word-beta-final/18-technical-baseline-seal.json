@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "PIMATH_WORD_MATHTYPE_TECHNICAL_BASELINE_V1",
+  "status": "LOCKED",
+  "canonical": true,
+  "certifiedCodeCommit": "711438c6dbcbdab89adb8203d8ab4c66ab9e6b2b",
+  "certificationEvidenceCommit": "66a5e197ed60d8c71de37d41055ebf1c76483f9a",
+  "canonicalBoundaryCount": 668,
+  "technicalProjectStatus": "DONE",
+  "currentEngineeringBlockers": 0,
+  "regressionCodeQa": "PASS",
+  "environmentLimitations": {
+    "blocking": false,
+    "count": 4,
+    "type": "LISTEN_EPERM"
+  },
+  "historicalArchivalLimitation": {
+    "blocking": false,
+    "rawObservedPlaceholderCount": 5053,
+    "rowLedgerAvailable": false
+  },
+  "humanWordBetaAcceptance": "PENDING",
+  "nextHumanGate": "PIMATH_WORD_BETA_HUMAN_ACCEPTANCE_ROUND_2",
+  "nextEngineeringWorkstream": "PIMATH_INPUT_COMPLETION"
+}

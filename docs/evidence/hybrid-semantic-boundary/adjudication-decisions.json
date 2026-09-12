@@ -1,0 +1,4631 @@
+{
+  "summary": {
+    "semanticProvider": "DETERMINISTIC_LOCAL_ADAPTER",
+    "startReviewCount": 306,
+    "autoConfirmed": 260,
+    "autoMergePrevious": 0,
+    "autoMergeNext": 0,
+    "autoRejectFalse": 0,
+    "stillHumanReview": 47,
+    "finalConfirmedQuestionCount": 642,
+    "finalReviewCount": 47,
+    "finalRejectedFalseCount": 1,
+    "finalProposedRealQuestionCount": 689,
+    "sharedContextCount": 17,
+    "range": {
+      "overlap": 0,
+      "gap": 0,
+      "invalid": 0,
+      "duplicate": 0
+    },
+    "unaccountedBlocks": 0,
+    "sourceCorpusImmutable": false
+  },
+  "decisions": [
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-1",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-2",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-4",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-5",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-7",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-8",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-10",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-12",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-16",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-24",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-26",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1. MIN MAX -HH PHẲNG.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-1",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-2",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-3",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-4",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-6",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-7",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-8",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-11",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-12",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-16",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-17",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-18",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-19",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-20",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-22",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-23",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-24",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-27",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-28",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-31",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-33",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-34",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-36",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-37",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-41",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-43",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-46",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-48",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-49",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-52",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-53",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-54",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-55",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-59",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-60",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-61",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-64",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-65",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-68",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-69",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-70",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-73",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-74",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-78",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-79",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-82",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-83",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-84",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-86",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-87",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-88",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-90",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-91",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-92",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-93",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-97",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-98",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-99",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-100",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "1.1.docx::candidate-102",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "1.1.docx",
+      "sourceHash": "633e6a37a7bfd1d905ebe4a7d3ed67aae84d82f5d6f3010a00027f6d7fcbef50"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-1",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-4",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-9",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-12",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-17",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-19",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-20",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-22",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-23",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-25",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-28",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2. MIN MAX HHKG.docx::candidate-32",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2. MIN MAX HHKG.docx",
+      "sourceHash": "6cff0e6db838df3ef5e8d9c3aa51bac9fc7c63215755c834bd72f7f1fb28f519"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-3",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-5",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-6",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-8",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-9",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-10",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-11",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-17",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-18",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-20",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-21",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-23",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-28",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-30",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-31",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-33",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-34",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-35",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-36",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-37",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-38",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-40",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-43",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-44",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-45",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-46",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-53",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-56",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-59",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-60",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-61",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-62",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-65",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-71",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-73",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-74",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-76",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-77",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-80",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-81",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-82",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-84",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-85",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-86",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-87",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-88",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-89",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "2.1.docx::candidate-91",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "2.1.docx",
+      "sourceHash": "717b39e5b6a1bad3106b45e3eeed845843250702fd0b1deb76b5942169f96a1d"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-3",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-7",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-8",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-9",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-16",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-18",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-19",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-21",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-25",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-26",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-27",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-30",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-31",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-34",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-35",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-37",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-38",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-40",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-41",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-42",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-43",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-44",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-45",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-46",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-47",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-48",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-50",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-51",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-53",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-54",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-56",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-58",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TÀI CHÍNH.docx::candidate-59",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TÀI CHÍNH.docx",
+      "sourceHash": "6e9f91cd7c0a008321726a3f546fa1c432c0e6e0ac559bceea189fdd0246ab06"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-1",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-2",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-3",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-9",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-11",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-12",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-16",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-22",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-23",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-25",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3. MIN MAX TOA DO DIEM TREN DO THI.docx::candidate-26",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3. MIN MAX TOA DO DIEM TREN DO THI.docx",
+      "sourceHash": "ac5a02cd6fdff8211eec103c4e710a7616809248becc7708dbf76b6041a559be"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-8",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "sourceHash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-11",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "sourceHash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-12",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "sourceHash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c"
+    },
+    {
+      "candidateId": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "3.CHUYÊN ĐỀ TRẢI PHẲNG- GẤP HÌNH.docx",
+      "sourceHash": "e6e77b89b85ce195b857bb17786fbe1fdaf12a3adb91f3ce6ff495dfb763974c"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-4",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-6",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-7",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-9",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-10",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-11",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-12",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-16",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-17",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-18",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-21",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-22",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-23",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-24",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-25",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-26",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-27",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-28",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-30",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-31",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-32",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-34",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-38",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-39",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-42",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-47",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-49",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-51",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-53",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-54",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-55",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-58",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-59",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-60",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-62",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-63",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-64",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-65",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-66",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-67",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-68",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-69",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-70",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-76",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-77",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-78",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-79",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-80",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-81",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-82",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-83",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-84",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-85",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "BÀI 2. GTLN-GTNN.docx::candidate-86",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "BÀI 2. GTLN-GTNN.docx",
+      "sourceHash": "bec93b42b430a8d77ea4def40d17528edb26efdc448aa12f7cd523c547615f1d"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-15",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-16",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-17",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-19",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-20",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-21",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-22",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-24",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-25",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-26",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-27",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-30",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-31",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-32",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-35",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-36",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-39",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "SEQUENCE_REQUIRES_REVIEW",
+      "finalSemanticRecommendation": "STILL_HUMAN_REVIEW",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "STILL_HUMAN_REVIEW",
+      "reason": "SEMANTIC_JUDGES_DISAGREE",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "NK TEST APP.docx::candidate-40",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "NK TEST APP.docx",
+      "sourceHash": "f4d4446aeaf5ba446ff941c91cac75b86cbcdc656606d16dc0f4d52d0bf09fe9"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-1",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-2",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-3",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-4",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-5",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-6",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-11",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-13",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-14",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-18",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-19",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-21",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-22",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-23",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-25",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-26",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-27",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-28",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-29",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-30",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-31",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-32",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-37",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-38",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-39",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-40",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-41",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-42",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-43",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-44",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    },
+    {
+      "candidateId": "gấp hình (1)-TUAN-ANH.docx::candidate-45",
+      "passA": "NEW_QUESTION",
+      "passB": "NOT_FALSE_START",
+      "passC": "COHERENT_RANGE",
+      "finalSemanticRecommendation": "AUTO_CONFIRMED",
+      "sourceEvidence": [
+        "WORD_NUMBERING"
+      ],
+      "validatorResult": "PASS",
+      "finalDecision": "AUTO_CONFIRMED",
+      "reason": "Three independent passes agree on a source-backed independent boundary.",
+      "file": "gấp hình (1)-TUAN-ANH.docx",
+      "sourceHash": "95e5f5bd2748ba733e7ad8646f352a288c37995fc2f8c148768832c7858d8ba7"
+    }
+  ]
+}

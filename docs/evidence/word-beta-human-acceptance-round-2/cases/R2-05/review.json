@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-05",
+  "questionId": "1ffa795691ed-qcandidate-5",
+  "questionIrId": "1ffa795691ed-qcandidate-5",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-73",
+      "paragraph-74",
+      "paragraph-75",
+      "paragraph-76",
+      "paragraph-77",
+      "paragraph-78",
+      "paragraph-79",
+      "paragraph-80",
+      "paragraph-81",
+      "paragraph-82",
+      "paragraph-83",
+      "paragraph-84"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "UNKNOWN",
+  "sourceRepresentation": {
+    "text": "Nhà thầy Hùng cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>.</mo></mrow></math>$Mỗi buổi sáng thầy chạy bộ từ nhà ra bờ biển sau đó chạy dọc bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi><mo>,</mo></mrow></math>$rồi thầychạyquachợ hải sản để lấy thức ăn trong ngày, cuối cùng thầy chạy về nhà. Biết chợ hải sản cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi></mrow></math>$và cách nhà thầy Hùng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>,</mo></mrow></math>$tính quãng đường ngắn nhất mà thầy Hùng đã chạy trong mỗi buổi sáng (đơn vị$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi></mrow></math>$và làm tròn đến hàng đơn vị).",
+    "mathObjectIds": [
+      "mtef-363c81406bbd1b51",
+      "mtef-4901ed4c5bf48e0a",
+      "mtef-4fbe8e9651d57882",
+      "mtef-cde79b5ecbfcda92",
+      "mtef-e879c698833031ce"
+    ],
+    "assetIds": [
+      "asset-4106d0ff0cfd"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-4901ed4c5bf48e0a",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 2,
+          "paragraphIndex": 73
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-cde79b5ecbfcda92",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 4,
+          "paragraphIndex": 73
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e879c698833031ce",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 10,
+          "paragraphIndex": 73
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-4fbe8e9651d57882",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 13,
+          "paragraphIndex": 73
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-363c81406bbd1b51",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 73
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-4106d0ff0cfd",
+        "kind": "IMAGE",
+        "relationshipId": "rId84",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 73,
+          "relationshipId": "rId84"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-5",
+    "questionIrId": "1ffa795691ed-qcandidate-5",
+    "packageId": "question-1ffa795691ed-qcandidate-5",
+    "text": "Nhà thầy Hùng cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>.</mo></mrow></math>$Mỗi buổi sáng thầy chạy bộ từ nhà ra bờ biển sau đó chạy dọc bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi><mo>,</mo></mrow></math>$rồi thầychạyquachợ hải sản để lấy thức ăn trong ngày, cuối cùng thầy chạy về nhà. Biết chợ hải sản cách bờ biển$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>0</mn><mn>0</mn><mo></mo><mi>m</mi></mrow></math>$và cách nhà thầy Hùng$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mo></mo><mi>k</mi><mi>m</mi><mo>,</mo></mrow></math>$tính quãng đường ngắn nhất mà thầy Hùng đã chạy trong mỗi buổi sáng (đơn vị$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>m</mi></mrow></math>$và làm tròn đến hàng đơn vị).",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-363c81406bbd1b51",
+      "mtef-4901ed4c5bf48e0a",
+      "mtef-4fbe8e9651d57882",
+      "mtef-cde79b5ecbfcda92",
+      "mtef-e879c698833031ce"
+    ],
+    "assetIds": [
+      "asset-4106d0ff0cfd"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

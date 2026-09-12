@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "PIMATH_WORD_BETA_HUMAN_REVIEW_CASE_V2",
+  "reviewCaseId": "R2-03",
+  "questionId": "1ffa795691ed-qcandidate-3",
+  "questionIrId": "1ffa795691ed-qcandidate-3",
+  "technicalBaselineCommit": "b60e672944c966710c7bedb235fb4b822c602da5",
+  "source": {
+    "documentId": "docx-1ffa795691edd5c5",
+    "documentPath": "1. MIN MAX -HH PHẲNG.docx",
+    "documentHash": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+    "sourceObjectIds": [
+      "paragraph-58",
+      "paragraph-59",
+      "paragraph-60",
+      "paragraph-61",
+      "paragraph-62",
+      "paragraph-63",
+      "paragraph-64",
+      "paragraph-65",
+      "paragraph-66"
+    ],
+    "provenance": {
+      "sourceFile": "1. MIN MAX -HH PHẲNG.docx",
+      "sourceSha256": "1ffa795691edd5c5e9b49920ee83a2d5773314bc44905043a4aba12670f156aa",
+      "sourceKind": "DOCX",
+      "parser": "document-engine/docx/parser",
+      "parserVersion": "1",
+      "transformationHistory": [
+        "SOURCE_FINGERPRINT",
+        "DOCX_PACKAGE_READ",
+        "EXISTING_DOCX_PARSER",
+        "DOCUMENT_IR_ADAPTER"
+      ]
+    }
+  },
+  "questionType": "MULTIPLE_CHOICE",
+  "sourceRepresentation": {
+    "text": "Chohaivị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cách nhau$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>1</mn><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$, cùng nằm về một phía bờ sông như hình vẽ. Khoàng cách từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mn>7</mn><mo> </mo><mi>m</mi></mrow></math>$. Một người đi từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến bờ sông để lấy nước và mang về$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$. Tính độ dài đoạn đường ngắn nhất mà người đó phải đi.\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>6</mn><mn>9</mn><mo>,</mo><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>7</mn><mn>1</mn><mo>,</mo><mn>4</mn><mo> </mo><mi>m</mi></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>7</mn><mn>9</mn><mo>,</mo><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>4</mn><mn>1</mn><mo>,</mo><mn>2</mn><mo> </mo><mi>m</mi></mrow></math>$.",
+    "mathObjectIds": [
+      "mtef-144388621acc6a1e",
+      "mtef-1f18050409bc556a",
+      "mtef-3853ad93ce79604d",
+      "mtef-50db9d177ad4ab90",
+      "mtef-7a6c8d00e5825994",
+      "mtef-95c9d4140bee9328",
+      "mtef-a098b3c38cf35490",
+      "mtef-b52e80a80f9b7568",
+      "mtef-d19fb74644ac0c7f",
+      "mtef-e239f0c4185e9f1d"
+    ],
+    "assetIds": [
+      "asset-e1626b6e76b4"
+    ],
+    "math": [
+      {
+        "mathObjectId": "mtef-d19fb74644ac0c7f",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 4,
+          "paragraphIndex": 6
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-d19fb74644ac0c7f",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 3,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-3853ad93ce79604d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 5,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 7,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 9,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-95c9d4140bee9328",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 11,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-1f18050409bc556a",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 13,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 15,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 17,
+          "paragraphIndex": 58
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-b52e80a80f9b7568",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 2,
+          "paragraphIndex": 59
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-7a6c8d00e5825994",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 60
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-50db9d177ad4ab90",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 61
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-a098b3c38cf35490",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 1,
+          "paragraphIndex": 62
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 4,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 10,
+          "paragraphIndex": 131
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-144388621acc6a1e",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 227
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      },
+      {
+        "mathObjectId": "mtef-e239f0c4185e9f1d",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 8,
+          "paragraphIndex": 235
+        },
+        "sourceType": "OMML",
+        "status": "PASS"
+      }
+    ],
+    "assets": [
+      {
+        "assetId": "asset-e1626b6e76b4",
+        "kind": "IMAGE",
+        "relationshipId": "rId50",
+        "sourceAnchor": {
+          "sourceDocumentId": "docx-1ffa795691edd5c5",
+          "partName": "word/document.xml",
+          "objectIndex": 0,
+          "paragraphIndex": 59,
+          "relationshipId": "rId50"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "finalRepresentation": {
+    "acceptanceQuestionId": "1ffa795691ed-qcandidate-3",
+    "questionIrId": "1ffa795691ed-qcandidate-3",
+    "packageId": "question-1ffa795691ed-qcandidate-3",
+    "text": "Chohaivị trí$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow></math>$cách nhau$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>1</mn><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$, cùng nằm về một phía bờ sông như hình vẽ. Khoàng cách từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$và từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$đến bờ sông lần lượt là$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>1</mn><mn>1</mn><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$và$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>4</mn><mn>8</mn><mn>7</mn><mo> </mo><mi>m</mi></mrow></math>$. Một người đi từ$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>A</mi></mrow></math>$đến bờ sông để lấy nước và mang về$<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mi>B</mi></mrow></math>$. Tính độ dài đoạn đường ngắn nhất mà người đó phải đi.\nA. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>5</mn><mn>6</mn><mn>9</mn><mo>,</mo><mn>5</mn><mo> </mo><mi>m</mi></mrow></math>$\nB. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>6</mn><mn>7</mn><mn>1</mn><mo>,</mo><mn>4</mn><mo> </mo><mi>m</mi></mrow></math>$.\nC. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>7</mn><mn>9</mn><mo>,</mo><mn>8</mn><mo> </mo><mi>m</mi></mrow></math>$.\nD. $<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mrow><mn>7</mn><mn>4</mn><mn>1</mn><mo>,</mo><mn>2</mn><mo> </mo><mi>m</mi></mrow></math>$.",
+    "answer": "",
+    "solution": "",
+    "mathObjectIds": [
+      "mtef-144388621acc6a1e",
+      "mtef-1f18050409bc556a",
+      "mtef-3853ad93ce79604d",
+      "mtef-50db9d177ad4ab90",
+      "mtef-7a6c8d00e5825994",
+      "mtef-95c9d4140bee9328",
+      "mtef-a098b3c38cf35490",
+      "mtef-b52e80a80f9b7568",
+      "mtef-d19fb74644ac0c7f",
+      "mtef-e239f0c4185e9f1d"
+    ],
+    "assetIds": [
+      "asset-e1626b6e76b4"
+    ]
+  },
+  "automatedQa": "REVIEW",
+  "provenanceStatus": "PASS",
+  "coverageTags": [
+    "ASSET_BEARING",
+    "MATH_IN_OPTIONS",
+    "MATH_IN_STEM",
+    "MTEF_V5"
+  ],
+  "mathFormats": [
+    "MTEF_V5"
+  ],
+  "mathRoles": [
+    "MATH_IN_OPTIONS",
+    "MATH_IN_STEM"
+  ],
+  "humanReview": {
+    "decision": null,
+    "comment": null,
+    "blockingDefectCategory": null
+  }
+}

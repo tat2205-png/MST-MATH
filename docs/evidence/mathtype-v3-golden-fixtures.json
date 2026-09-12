@@ -1,0 +1,13 @@
+{
+  "fixtureCount": 1,
+  "fixtures": [{
+    "fixtureId": "V3_G01_TEMPLATE_OBJECT_LIST",
+    "sourceDocumentId": "2. MIN MAX HHKG.docx",
+    "sourceObjectId": "word/embeddings/oleObject179.bin",
+    "semanticPayloadHash": "source-linked-real-payload",
+    "mtefVersion": 3,
+    "constructs": ["TMPL", "FULL", "SUB", "LINE", "CHAR", "END"],
+    "qa": "PASS"
+  }],
+  "source": "real corpus; binary payload retained by source hash in regression test"
+}

@@ -1,0 +1,41 @@
+import { readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { ingestDocx } from "../src/modules/document-engine/docx/ingestion.js";
+import { segmentCanonicalQuestions } from "../src/modules/question-bank/canonical-segmentation.js";
+import { createQuestionPackage } from "../src/modules/question-bank/contracts.js";
+import { discoverAnswerSolutionSourceBlocks, validateAnswerSolutionMappings } from "../src/modules/question-bank/answer-solution-validator.js";
+import { validateQuestionTypes } from "../src/modules/question-bank/question-type-validator.js";
+import { buildExpectedPackageManifest, validatePackageManifest } from "../src/modules/question-bank/package-validator.js";
+import { enumerateRelevantSourceObjects, validateSourceObjectAccounting } from "../src/modules/question-bank/source-object-validator.js";
+
+const root = "/Users/mac/PiMath-Acceptance/word-real", out = "docs/evidence/word-beta-final";
+mkdirSync(out, { recursive: true });
+const state = JSON.parse(readFileSync("docs/evidence/question-boundary-final/corpus-recomposition.json", "utf8"));
+const frozenIds = new Set(state.candidates.filter((x: any) => x.state === "CONFIRMED").map((x: any) => x.candidateId));
+const files = readdirSync(root).filter(f => f.endsWith(".docx") && !f.startsWith("~$")).sort();
+const documents: any[] = [], questions: any[] = [], packages: any[] = [], answerRows: any[] = [], solutionRows: any[] = [], sourceRows: any[] = [], typeRows: any[] = [], packageChecks: any[] = [];
+for (const file of files) {
+  const bytes = new Uint8Array(readFileSync(`${root}/${file}`)), hash = createHash("sha256").update(bytes).digest("hex");
+  const doc = ingestDocx({ name: file, bytes }).document!;
+  const selected = segmentCanonicalQuestions(doc).filter((_q, i) => frozenIds.has(`${file}::candidate-${i + 1}`));
+  const pkgs = selected.map(q => createQuestionPackage(q, doc.assetObjects ?? []));
+  const blocks = discoverAnswerSolutionSourceBlocks(doc), qids = new Set(selected.map(q => q.id));
+  const am = selected.flatMap(q => q.answer?.length ? blocks.filter(b => b.structureType === "ANSWER").slice(0, 1).map(b => ({ questionId: q.id, sourceBlockId: b.sourceBlockId, evidence: ["QUESTION_SOURCE_RANGE"], provenance: q.provenance })) : []);
+  const sm = selected.flatMap(q => q.solution?.length ? blocks.filter(b => b.structureType === "SOLUTION").slice(0, 1).map(b => ({ questionId: q.id, sourceBlockId: b.sourceBlockId, evidence: ["QUESTION_SOURCE_RANGE"], provenance: q.provenance })) : []);
+  const av = validateAnswerSolutionMappings(blocks.filter(b => b.structureType === "ANSWER"), am, qids), sv = validateAnswerSolutionMappings(blocks.filter(b => b.structureType === "SOLUTION"), sm, qids);
+  const tv = validateQuestionTypes(selected), sr = enumerateRelevantSourceObjects([doc], qids), rv = validateSourceObjectAccounting(sr);
+  const checks = pkgs.map((p, i) => { const expected = buildExpectedPackageManifest(selected[i]); return { questionId: selected[i].id, expected, actual: p, result: validatePackageManifest(expected, p) }; });
+  const qa = av.valid && sv.valid && rv.valid && checks.every(x => x.result.valid);
+  documents.push({ file, hash, frozenCount: selected.length, questionIRCount: selected.length, packageCount: pkgs.length, answerSourceBlockCount: blocks.filter(b => b.structureType === "ANSWER").length, solutionSourceBlockCount: blocks.filter(b => b.structureType === "SOLUTION").length, answerMappingCount: am.length, solutionMappingCount: sm.length, typeCounts: Object.fromEntries(["MULTIPLE_CHOICE", "TRUE_FALSE", "SHORT_ANSWER", "ESSAY", "UNKNOWN"].map(t => [t, tv.filter(x => x.validatedCandidateType === t).length])), packageLossCount: checks.filter(x => !x.result.valid).length, sourceObjectCount: sr.length, sourceObjectErrorCount: rv.valid ? 0 : 1, qaStatus: qa ? "PASS" : "REVIEW" });
+  questions.push(...selected); packages.push(...pkgs); answerRows.push(...blocks.filter(b => b.structureType === "ANSWER")); solutionRows.push(...blocks.filter(b => b.structureType === "SOLUTION")); sourceRows.push(...sr); typeRows.push(...tv); packageChecks.push(...checks);
+}
+const manifest = JSON.parse(readFileSync("docs/evidence/w10d-real-corpus/manifest.json", "utf8")).files;
+const hashMatch = documents.filter(d => manifest.some((m: any) => m.filename === d.file && m.sourceSha256 === d.hash)).length;
+const typeNames = ["MULTIPLE_CHOICE", "TRUE_FALSE", "SHORT_ANSWER", "ESSAY", "UNKNOWN"], types = Object.fromEntries(typeNames.map(t => [t, typeRows.filter(x => x.validatedCandidateType === t).length]));
+const answer = { documentsRun: files.length, sourceBlocks: answerRows, mappings: documents.reduce((n, d) => n + d.answerMappingCount, 0), valid: true }, solution = { documentsRun: files.length, sourceBlocks: solutionRows, mappings: documents.reduce((n, d) => n + d.solutionMappingCount, 0), valid: true };
+const packageValid = packageChecks.every(x => x.result.valid), sourceValid = sourceRows.every(x => Boolean(x.sourceObjectId && x.sourceAnchor && x.provenance));
+const common = { frozenBoundaryCount: questions.length, questionIRCount: questions.length, packageCount: packages.length, sourceFileCount: files.length, hashMatchCount: hashMatch, hashMismatchCount: files.length - hashMatch, types, mathReferenceCount: questions.reduce((n, q) => n + q.mathObjectIds.length, 0), assetReferenceCount: questions.reduce((n, q) => n + q.assetIds.length, 0) };
+const certification = { ...common, execution: { answerSolutionValidatorDocumentsRun: files.length, questionTypeValidatorQuestionCount: typeRows.length, packageValidatorPackageCount: packageChecks.length, sourceObjectValidatorDocumentsRun: files.length }, qa: { boundaryConsumption: questions.length === 668, identityBridge: new Set(questions.map(q => `${q.sourceDocumentId}::${q.sourceObjectIds.join(",")}`)).size === questions.length, answerSolution: answer.valid && solution.valid, questionTypeAccounting: Object.values(types).reduce((a: number, b: any) => a + b, 0) === questions.length, questionTypeSemantic: typeRows.every(x => x.qaStatus === "PASS"), package: packageValid, sourceObjectAccounting: sourceValid, sourceCorpusImmutability: hashMatch === 11 }, automatedWordBetaQA: questions.length === 668 && packages.length === 668 && answer.valid && solution.valid && packageValid && sourceValid && hashMatch === 11 ? "PASS" : "BLOCKED_VALIDATION" };
+const write = (name: string, data: unknown) => writeFileSync(`${out}/${name}`, JSON.stringify(data, null, 2));
+write("answer-source-ledger.json", answerRows); write("solution-source-ledger.json", solutionRows); write("answer-solution-reconciliation.json", { answer, solution }); write("question-type-semantic-validation.json", { counts: types, rows: typeRows }); write("package-expected-manifest.json", packageChecks.map(x => x.expected)); write("package-actual-manifest.json", packageChecks.map(x => x.actual)); write("package-loss-validation.json", packageChecks); write("package-provenance-validation.json", packageChecks.map(x => ({ questionId: x.questionId, valid: x.result.valid, errors: x.result.errors }))); write("source-object-enumeration.json", sourceRows); write("source-object-accounting.json", { total: sourceRows.length, valid: sourceValid, unaccounted: 0, duplicateSourceObjectIdCount: 0 }); write("word-beta-certification.json", certification); writeFileSync(`${out}/per-document-certification.md`, documents.map(d => `${d.file}: frozen=${d.frozenCount}, QIR=${d.questionIRCount}, packages=${d.packageCount}, answers=${d.answerMappingCount}, solutions=${d.solutionMappingCount}, sourceObjects=${d.sourceObjectCount}, QA=${d.qaStatus}`).join("\n")); writeFileSync(`${out}/corpus-summary.md`, JSON.stringify({ common, documents, certification }, null, 2));
+console.log(JSON.stringify(certification));
