@@ -8,7 +8,7 @@ import { rasterBoxToPage, reconcileCandidates, type SemanticCandidate } from "./
 
 export type PdfSemanticRegion = { type: "TEXT" | "MATH" | "FIGURE" | "OTHER"; bbox: number[]; text?: string; order: number; confidence?: number; source: string; page: number };
 export type PdfSemanticPage = { page: number; width: number; height: number; dpi: number; regions: PdfSemanticRegion[] };
-export type PdfSemanticOutput = { file: string; pages: PdfSemanticPage[]; provider: string; model_reuse: boolean };
+export type PdfSemanticOutput = { file: string; pages: PdfSemanticPage[]; provider: string; model_reuse: boolean; range?: [number, number] };
 
 const sha256 = (bytes: Uint8Array) => createHash("sha256").update(bytes).digest("hex");
 const mstRoot = process.env.MST_MATH_ROOT || "D:\\MST-MATH";
@@ -23,8 +23,20 @@ function runSemanticPdf(file: string): PdfSemanticOutput {
   const checkpointDir = process.env.MST_MATH_INPUT_PDF_CHECKPOINT_DIR || join(process.cwd(), "artifacts", "input-real-golden-v7-pc", "checkpoints");
   const suffix = process.env.MST_MATH_INPUT_PDF_CHECKPOINT_SUFFIX || "full";
   const checkpoint = join(checkpointDir, `${createHash("sha256").update(readFileSync(file)).digest("hex")}-${suffix}.json`);
-  const env = { ...process.env, PYTHONPATH: process.env.MST_MATH_INPUT_PADDLE_PACKAGES || join(process.cwd(), ".paddle-v4-packages"), MST_MATH_INPUT_PDF_CHECKPOINT: checkpoint };
-  return JSON.parse(execFileSync(python, [join(process.cwd(), "scripts", "local-semantic-pdf.py"), file], { encoding: "utf8", windowsHide: true, timeout: Number(process.env.MST_MATH_INPUT_OCR_TIMEOUT_MS || 900000), killSignal: "SIGTERM", env, maxBuffer: 64 * 1024 * 1024 })) as PdfSemanticOutput;
+  const baseEnv = { ...process.env, PYTHONPATH: process.env.MST_MATH_INPUT_PADDLE_PACKAGES || join(process.cwd(), ".paddle-v4-packages"), MST_MATH_INPUT_PDF_CHECKPOINT: checkpoint };
+  const chunkPages = Number(process.env.MST_MATH_INPUT_PDF_CHUNK_PAGES || 0);
+  const start = Number(process.env.MST_MATH_INPUT_PDF_START || 1);
+  const end = Number(process.env.MST_MATH_INPUT_PDF_END || 0);
+  const run = (env: NodeJS.ProcessEnv) => JSON.parse(execFileSync(python, [join(process.cwd(), "scripts", "local-semantic-pdf.py"), file], { encoding: "utf8", windowsHide: true, timeout: Number(process.env.MST_MATH_INPUT_OCR_TIMEOUT_MS || 900000), killSignal: "SIGTERM", env, maxBuffer: 64 * 1024 * 1024 })) as PdfSemanticOutput;
+  if (!chunkPages || chunkPages <= 0) return run(baseEnv);
+  const first = run({ ...baseEnv, MST_MATH_INPUT_PDF_START: String(start), MST_MATH_INPUT_PDF_END: String(Math.min(end || start + chunkPages - 1, start + chunkPages - 1)) });
+  const pages = [...first.pages];
+  const total = end || Number(execFileSync("pdfinfo", [file], { encoding: "utf8", windowsHide: true }).match(/Pages:\s+(\d+)/)?.[1] || start);
+  for (let page = (first.range?.[1] || start) + 1; page <= total; page += chunkPages) {
+    const chunk = run({ ...baseEnv, MST_MATH_INPUT_PDF_START: String(page), MST_MATH_INPUT_PDF_END: String(Math.min(total, page + chunkPages - 1)) });
+    pages.push(...chunk.pages);
+  }
+  return { ...first, pages: pages.sort((a, b) => a.page - b.page), range: [start, total] };
 }
 
 function content(region: PdfSemanticRegion, source: string, figureId?: string): ContentBlock[] {
