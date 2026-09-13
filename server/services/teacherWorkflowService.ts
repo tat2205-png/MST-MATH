@@ -19,22 +19,8 @@ export class TeacherWorkflowService extends CoreTeacherWorkflowService {
       path.join(process.cwd(), "render_output", "teacher-workflow", "p01"),
     );
 
-    const diagnostics = [...result.diagnostics];
-    if (p01.status !== "PASS") {
-      diagnostics.push({
-        code: "P01_REVIEW_REQUIRED",
-        severity: "WARNING",
-        details: {
-          status: p01.status,
-          sourceHash: p01.sourceHash,
-          diagnostics: p01.diagnostics,
-        },
-      });
-    }
-
     return {
       ...result,
-      diagnostics,
       p01: {
         status: p01.status,
         sourceHash: p01.sourceHash,
