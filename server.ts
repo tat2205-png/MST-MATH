@@ -23,8 +23,6 @@ import { studioEngineRegistry } from "./server/studio/engineRegistry.js";
 import { studioOrchestrator } from "./server/studio/studioOrchestrator.js";
 import { registerStudioRoutes } from "./server/studio/api.js";
 import { TeacherWorkflowService } from "./server/services/teacherWorkflowService.js";
-import { buildDemoRc1P01 } from "./server/services/demoRc1P01Service.js";
-import { analyzeExamQuestion, acceptCorrectionProposal, rejectCorrectionProposal } from "./server/services/examAnalysisService.js";
 
 async function startServer() {
   const app = express();
@@ -108,6 +106,27 @@ async function startServer() {
     res.json({ success: true, summary: teacherWorkflowService.summary() });
   });
 
+  app.get("/api/teacher-workflow/readiness", (req, res) => {
+    const assessmentId =
+      typeof req.query.assessmentId === "string"
+        ? req.query.assessmentId
+        : undefined;
+
+    const artifactId =
+      typeof req.query.artifactId === "string"
+        ? req.query.artifactId
+        : undefined;
+
+    res.json({
+      success: true,
+      readiness:
+        teacherWorkflowService.readiness(
+          assessmentId,
+          artifactId,
+        ),
+    });
+  });
+
   app.post("/api/teacher-workflow/import", async (req, res) => {
     try {
       const { base64, fileName } = req.body || {};
@@ -133,18 +152,6 @@ async function startServer() {
     }
   });
 
-  app.post("/api/demo-rc1/p01", async (req, res) => {
-    try {
-      const { base64, fileName } = req.body || {};
-      if (typeof base64 !== "string" || typeof fileName !== "string") return res.status(400).json({ success: false, code: "INVALID_DOCUMENT", error: "Thiếu dữ liệu nguồn." });
-      const result = await buildDemoRc1P01(fileName, new Uint8Array(Buffer.from(base64, "base64")), path.join(process.cwd(), "render_output", "demo-rc1", "p01"));
-      if (result.status === "FAIL") return res.status(422).json({ success: false, result });
-      res.status(result.status === "REVIEW_REQUIRED" ? 409 : 200).json({ success: result.status === "PASS", result });
-    } catch (error) {
-      res.status(422).json({ success: false, code: "DEMO_RC1_P01_FAILED", error: error instanceof Error ? error.message : String(error) });
-    }
-  });
-
   app.post("/api/teacher-workflow/approve", (req, res) => {
     try {
       const ids = Array.isArray(req.body?.ids) ? req.body.ids.filter((id: unknown): id is string => typeof id === "string") : [];
@@ -152,23 +159,6 @@ async function startServer() {
     } catch (error) {
       res.status(409).json({ success: false, code: "APPROVAL_BLOCKED", error: error instanceof Error ? error.message : String(error) });
     }
-  });
-
-  app.post("/api/teacher-workflow/exam-analysis", (req, res) => {
-    try {
-      const question = teacherWorkflowService.query({ ids: [String(req.body?.questionId || "")], limit: 1 }).items[0];
-      if (!question) return res.status(404).json({ success: false, code: "QUESTION_NOT_FOUND" });
-      res.json({ success: true, result: analyzeExamQuestion(question) });
-    } catch (error) { res.status(422).json({ success: false, code: "EXAM_ANALYSIS_FAILED", error: error instanceof Error ? error.message : String(error) }); }
-  });
-
-  app.post("/api/teacher-workflow/exam-analysis/proposal", (req, res) => {
-    try {
-      const result = req.body?.analysis;
-      if (!result || typeof result.questionId !== "string") return res.status(400).json({ success: false, code: "INVALID_ANALYSIS" });
-      const updated = req.body?.decision === "REJECT" ? rejectCorrectionProposal(result, String(req.body?.proposalId || "")) : acceptCorrectionProposal(result, String(req.body?.proposalId || ""), req.body?.after);
-      res.json({ success: true, result: updated });
-    } catch (error) { res.status(409).json({ success: false, code: "CORRECTION_DECISION_REJECTED", error: error instanceof Error ? error.message : String(error) }); }
   });
 
   app.post("/api/teacher-workflow/questions/query", (req, res) => {
@@ -215,9 +205,29 @@ async function startServer() {
 
   app.post("/api/teacher-workflow/exports", (req, res) => {
     try {
-      res.json({ success: true, result: teacherWorkflowService.exportAssessment(req.body) });
+      res.json({
+        success: true,
+        result:
+          teacherWorkflowService.exportAssessment(
+            req.body,
+          ),
+      });
     } catch (error) {
-      res.status(409).json({ success: false, code: "EXPORT_FAILED", error: error instanceof Error ? error.message : String(error) });
+      const message =
+        error instanceof Error
+          ? error.message
+          : String(error);
+
+      res.status(409).json({
+        success: false,
+        code:
+          message.startsWith(
+            "EXPORT_DENIED:",
+          )
+            ? "EXPORT_DENIED"
+            : "EXPORT_FAILED",
+        error: message,
+      });
     }
   });
 

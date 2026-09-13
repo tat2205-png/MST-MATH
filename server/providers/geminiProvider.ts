@@ -1,13 +1,15 @@
 import { GoogleGenAI } from "@google/genai";
 import { ModelCompletionOptions, ModelProvider } from "./providerInterface.js";
 
+type GeminiConnectionStatus = "NOT_CHECKED" | "CONNECTED" | "GEMINI_CONNECTION_ERROR";
+
 export class GeminiProvider implements ModelProvider {
   id = "gemini" as const;
   name = "Google Gemini (AI Studio)";
   private client: GoogleGenAI | null = null;
   private candidateModels = ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash"];
   private lastSuccessfulModel: string = "gemini-3.7-flash";
-  private lastConnectionStatus: "CONNECTED" | "GEMINI_CONNECTION_ERROR" = "CONNECTED";
+  private lastConnectionStatus: GeminiConnectionStatus = "NOT_CHECKED";
   private lastErrorMessage: string | null = null;
 
   private getClient(): GoogleGenAI {
@@ -33,8 +35,18 @@ export class GeminiProvider implements ModelProvider {
   }
 
   async testConnection(): Promise<{ connected: boolean; model: string; error?: string }> {
+    if (!this.isConfigured()) {
+      this.lastConnectionStatus = "NOT_CHECKED";
+      this.lastErrorMessage = "GEMINI_API_KEY is not configured.";
+      return {
+        connected: false,
+        model: this.lastSuccessfulModel,
+        error: "NOT_CONFIGURED: GEMINI_API_KEY is not configured.",
+      };
+    }
+
     try {
-      const result = await this.generateText("ping", { temperature: 0.1 });
+      await this.generateText("ping", { temperature: 0.1 });
       this.lastConnectionStatus = "CONNECTED";
       this.lastErrorMessage = null;
       return { connected: true, model: this.lastSuccessfulModel };
@@ -50,6 +62,14 @@ export class GeminiProvider implements ModelProvider {
   }
 
   getConnectionStatus() {
+    if (!this.isConfigured()) {
+      return {
+        status: "NOT_CONFIGURED" as const,
+        model: this.lastSuccessfulModel,
+        error: this.lastErrorMessage,
+      };
+    }
+
     return {
       status: this.lastConnectionStatus,
       model: this.lastSuccessfulModel,
@@ -147,8 +167,7 @@ export class GeminiProvider implements ModelProvider {
 
         try {
           return JSON.parse(rawText) as T;
-        } catch (parseErr) {
-          // Clean potential markdown code blocks or trailing commas
+        } catch {
           const cleaned = rawText
             .replace(/```json\s*/gi, "")
             .replace(/```\s*/g, "")
@@ -162,7 +181,6 @@ export class GeminiProvider implements ModelProvider {
       } catch (err: any) {
         lastErr = err;
         console.warn(`[GeminiProvider] generateStructuredJSON on ${model} failed: ${err.message}`);
-        // If it was already a PARSE_ERROR, try next model or throw
       }
     }
 
@@ -171,4 +189,3 @@ export class GeminiProvider implements ModelProvider {
     throw new Error(lastErr?.message?.startsWith("PARSE_ERROR") ? lastErr.message : `GEMINI_RESPONSE_ERROR: ${this.lastErrorMessage}`);
   }
 }
-

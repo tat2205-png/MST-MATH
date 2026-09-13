@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import { classifyFigure, proposeFigureReconstruction, validateFigureContract, validateBoundingBoxes, validateSemanticEvidence } from "../src/modules/figure-reconstruction/index.js";
+const input = { figureId: "F002_FUNCTION_GRAPH", sourceAssetId: "asset-2", sourceAnchor: { sourceDocumentId: "doc" }, sourceDocument: "fixture.docx", sourceHash: "hash", provenance: { sourceFile: "fixture.docx", sourceKind: "DOCX", parser: "test", transformationHistory: [] }, transformationHistory: [], source: { caption: "function graph" } };
+assert.equal(classifyFigure(input).semanticKind, "FUNCTION_GRAPH_2D");
+const proposal = proposeFigureReconstruction(input); assert.equal(proposal.contract.semanticKind, "FUNCTION_GRAPH_2D");
+assert.equal(validateFigureContract(proposal.contract).checks.SOURCE_IDENTITY_QA, "PASS");
+const evidence = { labels: ["A", "B", "M", "O", "x", "y", "z", "A'", "B'", "x_1", "x^2"], axes: { names: ["x-axis", "y-axis", "z-axis"], origin: "O", direction: { x: "POSITIVE" as const, y: "POSITIVE" as const, z: "POSITIVE" as const }, ticks: ["0", "1"] }, strokes: [{ id: "projection", style: "DASHED" as const, meaning: "PROJECTION" as const }], vectorRepresentation: { kind: "SVG" as const, reference: "scene-1" }, rasterSourceAssetId: "asset-2" };
+assert.equal(validateSemanticEvidence(evidence).status, "PASS");
+assert.equal(validateBoundingBoxes({ ...proposal.contract, boundingBox: { x: 0, y: 0, width: 10, height: 10, unit: "px" }, safeBoundingBox: { x: 0, y: 0, width: 12, height: 12, unit: "px" } }).status, "PASS");
+assert.equal(validateSemanticEvidence({ ...evidence, strokes: [{ id: "unknown", style: "DASHED" }] }).status, "REVIEW");
+const unknown = proposeFigureReconstruction({ ...input, figureId: "unknown", source: { caption: "unreadable" } }); assert.equal(unknown.contract.qa.status, "REVIEW");
+console.log("FIGURE_RECONSTRUCTION_V1_QA=PASS");

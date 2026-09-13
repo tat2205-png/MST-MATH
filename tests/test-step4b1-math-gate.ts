@@ -26,6 +26,19 @@ assert.equal(evaluateMathGate(problemIR, solution, { ...validVerification, statu
 assert.equal(evaluateMathGate(problemIR, solution, null).allowed, false);
 assert.equal(evaluateMathGate({ status: "NEED_MORE_INFORMATION" } as any, solution, validVerification).allowed, false);
 
+const unverifiedRealWorld = evaluateMathGate(
+  {
+    status: "PASS",
+    domain: "Bài toán tối ưu & Ứng dụng thực tế",
+    problem: "Một bể chứa có chi phí phụ thuộc kích thước thực tế.",
+  } as any,
+  solution,
+  validVerification
+);
+assert.equal(unverifiedRealWorld.allowed, false);
+assert.equal(unverifiedRealWorld.status, "HUMAN_REVIEW_REQUIRED");
+assert.equal(unverifiedRealWorld.reasons.some((reason) => reason.includes("REAL_WORLD_UNVERIFIED")), true);
+
 async function runGatedPlanning(verification: any, onVisual: () => void, onVideo: () => void) {
   const gate = evaluateMathGate(problemIR, solution, verification);
   if (!gate.allowed) return gate;

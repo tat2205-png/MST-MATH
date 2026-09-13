@@ -1,0 +1,38 @@
+name: MST-MATH RC1 CI
+
+on:
+  push:
+    branches:
+      - 'integration/mst-math-demo-rc1'
+      - 'rc/mst-math-demo-rc1-**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  rc1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install TeX/PDF runtime
+        run: sudo apt-get update && sudo apt-get install -y texlive-xetex texlive-latex-recommended texlive-fonts-recommended poppler-utils
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm run arch:check
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run qa:regression
+      - run: node --import tsx tests/test-mst-math-standard-authority-unification-v1.ts
+      - run: node --import tsx tests/test-na-math-brand-01.ts
+      - run: node --import tsx tests/test-pimath-dna-accessibility-voice.ts
+      - run: node --import tsx tests/test-f01-p01-production-wiring.ts
+      - run: node --import tsx tests/test-demo-rc1-p01-integration.ts
+      - run: node --import tsx tests/test-p01-svg-pdf-transcode.ts
+      - run: node --import tsx tests/test-f02-real-golden-svg.ts
+      - run: node --import tsx tests/test-math-qa-v1.ts
+      - run: node --import tsx tests/test-math-qa-production-adapter.ts
+      - run: node --import tsx tests/test-unified-input-v1.ts

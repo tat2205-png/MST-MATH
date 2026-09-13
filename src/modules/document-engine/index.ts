@@ -12,6 +12,7 @@ export * from "./latex/serializer.js";
 export * from "./student-workspace.js";
 export * from "./document-components.js";
 export * from "./workspace-planner.js";
+export * from "./docx/ingestion.js";
 
 export function docxToMathIR(input: Uint8Array, options: { sourceName?: string } = {}): DocxToMathIRResult {
   const parsed = parseDocx(input, options);

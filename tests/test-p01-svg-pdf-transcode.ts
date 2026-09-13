@@ -1,0 +1,24 @@
+import assert from "node:assert/strict";
+import { unzipSync } from "fflate";
+import { buildP01LessonIR, renderP01Docx, renderP01Html, renderP01Pdf, transcodeSvgFigureToPng } from "../src/modules/learning-material/index.js";
+import type { DocumentIR } from "../src/modules/document-engine/document-ir.js";
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><circle cx="25" cy="25" r="20" fill="none" stroke="red"/><text x="50" y="25">A</text></svg>`;
+const raw: DocumentIR = { sourceDocument: "svg-golden.docx", sourceHash: "svg-source", warnings: [], blocks: [{ id: "block-1", kind: "PARAGRAPH", order: 0, sourceLocation: "word/document.xml#p1", content: [{ type: "text", value: "Hình" }, { type: "figure", figureId: "figure-1", sourceLocation: "word/document.xml#p1" }] }], figures: [{ id: "figure-1", relationshipId: "rId1", mimeType: "image/svg+xml", bytes: new TextEncoder().encode(svg), sourceLocation: "word/document.xml#p1" }] };
+const lesson = buildP01LessonIR(raw);
+const direct = transcodeSvgFigureToPng(raw.figures[0]!);
+assert.ok(direct.bytes[0] === 0x89 && direct.bytes[1] === 0x50);
+assert.equal(direct.evidence.figureId, "figure-1");
+assert.equal(direct.evidence.originalSha256?.length, 64);
+assert.equal(direct.evidence.derivedSha256?.length, 64);
+const html = renderP01Html(lesson); assert.match(new TextDecoder().decode(html.bytes), /data:image\/svg\+xml;base64,/); assert.match(new TextDecoder().decode(html.bytes), /figure-1/);
+const docx = renderP01Docx(lesson); const docxParts = unzipSync(docx.bytes); assert.ok(Object.keys(docxParts).some((name) => name.endsWith(".svg")));
+const pdf = renderP01Pdf(lesson); assert.equal(new TextDecoder().decode(pdf.bytes.subarray(0, 4)), "%PDF"); assert.ok(pdf.warnings.some((warning) => warning.includes("P01_PDF_FIGURE_TRANSCODED:figure-1:SVG_TO_PNG"))); assert.equal(new Set([html.semanticSignature, docx.semanticSignature, pdf.semanticSignature]).size, 1);
+const hostile = { ...raw, figures: [{ ...raw.figures[0]!, bytes: new TextEncoder().encode(`<svg><image href="https://example.com/a.png"/></svg>`) }] };
+assert.throws(() => transcodeSvgFigureToPng(hostile.figures[0]!), /P01_PDF_SVG_TRANSCODE_FAILED/);
+console.log("P01_SVG_PNG_TRANSCODE_QA=PASS");
+console.log("P01_SVG_EXTERNAL_RESOURCE_BLOCK_QA=PASS");
+console.log("P01_HTML_ORIGINAL_SVG_QA=PASS");
+console.log("P01_DOCX_ORIGINAL_SVG_QA=PASS");
+console.log("P01_PDF_DERIVED_PNG_QA=PASS");
+console.log("P01_CROSS_OUTPUT_SIGNATURE_QA=PASS");

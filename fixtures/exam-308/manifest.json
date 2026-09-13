@@ -1,0 +1,10 @@
+{
+  "fixtureId": "EXAM_308",
+  "kind": "GOLDEN_EXAM_MANIFEST",
+  "schemaVersion": 1,
+  "source": null,
+  "sourceMissing": true,
+  "expectedProfile": "P06_EXAM_THPTQG",
+  "expectedSections": ["PART_I", "PART_II", "PART_III"],
+  "evidencePolicy": "Manifest-only until a real local/repository source is available; synthetic fixtures are not golden evidence."
+}

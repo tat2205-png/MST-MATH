@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { Resvg } from "@resvg/resvg-js";
 import { spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -98,10 +99,28 @@ function latexBlocks(lesson: P01LessonIR, blocks: ContentBlock[], assets: Map<st
   }).join("");
 }
 
-function figureExtension(figure: FigureRecord): string {
+export interface PdfFigureEvidence { figureId: string; originalSha256: string; derivedSha256?: string; warning?: string }
+
+export function transcodeSvgFigureToPng(figure: FigureRecord): { bytes: Uint8Array; evidence: PdfFigureEvidence } {
+  if (figure.mimeType !== "image/svg+xml" || !figure.bytes?.length) throw new Error(`P01_PDF_SVG_TRANSCODE_FAILED:${figure.id}`);
+  const svg = new TextDecoder().decode(figure.bytes);
+  if (/<(?:script|iframe|object|embed)\b/i.test(svg) || /(?:href|xlink:href)\s*=\s*["']\s*(?:https?:|file:|\/\/)/i.test(svg) || /url\(\s*(?:https?:|file:|\/\/)/i.test(svg)) throw new Error(`P01_PDF_SVG_TRANSCODE_FAILED:${figure.id}`);
+  try {
+    const bytes = new Uint8Array(new Resvg(svg, { fitTo: { mode: "width", value: 1600 } }).render().asPng());
+    if (!bytes.length) throw new Error("EMPTY_PNG");
+    const originalSha256 = digest(figure.bytes);
+    const derivedSha256 = digest(bytes);
+    return { bytes, evidence: { figureId: figure.id, originalSha256, derivedSha256, warning: `P01_PDF_FIGURE_TRANSCODED:${figure.id}:SVG_TO_PNG:${derivedSha256}` } };
+  } catch (error) {
+    throw new Error(`P01_PDF_SVG_TRANSCODE_FAILED:${figure.id}:${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+function figureExtension(figure: FigureRecord): "png" | "jpg" | "pdf" {
   if (figure.mimeType === "image/png") return "png";
   if (figure.mimeType === "image/jpeg") return "jpg";
   if (figure.mimeType === "image/pdf") return "pdf";
+  if (figure.mimeType === "image/svg+xml") return "png";
   throw new Error(`P01_PDF_FIGURE_FORMAT_UNSUPPORTED:${figure.id}:${figure.mimeType ?? "unknown"}`);
 }
 
@@ -110,11 +129,15 @@ export function renderP01Pdf(lesson: P01LessonIR): P01RenderedArtifact {
   const directory = mkdtempSync(join(tmpdir(), "mst-math-p01-pdf-"));
   try {
     const assets = new Map<string, string>();
+    const warnings: string[] = [];
     for (const figure of document.figures) {
       if (!figure.bytes?.length) continue;
       const extension = figureExtension(figure);
-      const filename = `figure-${digest(figure.bytes).slice(0, 16)}.${extension}`;
-      writeFileSync(join(directory, filename), figure.bytes);
+      const transcoded = figure.mimeType === "image/svg+xml" ? transcodeSvgFigureToPng(figure) : undefined;
+      const bytes = transcoded?.bytes ?? figure.bytes;
+      if (transcoded?.evidence.warning) warnings.push(transcoded.evidence.warning);
+      const filename = `figure-${digest(bytes).slice(0, 16)}.${extension}`;
+      writeFileSync(join(directory, filename), bytes);
       assets.set(figure.id, filename);
     }
     const body = lesson.contentModel.units.map((unit) => {
@@ -129,7 +152,7 @@ export function renderP01Pdf(lesson: P01LessonIR): P01RenderedArtifact {
     const pdfPath = join(directory, "p01.pdf");
     const bytes = new Uint8Array(readFileSync(pdfPath));
     if (!Buffer.from(bytes.subarray(0, 4)).equals(Buffer.from("%PDF"))) throw new Error("P01_PDF_SIGNATURE_INVALID");
-    return { format: "PDF", bytes, semanticSignature: lesson.semanticSignature, warnings: [] };
+    return { format: "PDF", bytes, semanticSignature: lesson.semanticSignature, warnings };
   } finally {
     rmSync(directory, { recursive: true, force: true });
   }

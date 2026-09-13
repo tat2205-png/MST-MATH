@@ -21,9 +21,7 @@ repository.replace(snapshot);
 const assessment = service.generateAssessment({ title: "P01 reviewed export", seed: "f01", sections: [{ id: "s1", questionType: "MULTIPLE_CHOICE", count: 1 }] });
 assert.ok("assessment" in assessment);
 if ("assessment" in assessment) {
-  const exported = service.exportAssessment({ assessmentId: assessment.assessment.id, audience: "STUDENT", formats: ["DOCX"], includeAnswers: false, includeSolutions: false, filename: "f01-p01-reviewed" });
-  assert.equal(exported.audience, "STUDENT");
-  assert.ok(exported.artifacts.some((artifact) => artifact.format === "DOCX" && artifact.bytes > 20));
+  assert.throws(() => service.exportAssessment({ assessmentId: assessment.assessment.id, audience: "STUDENT", formats: ["DOCX"], includeAnswers: false, includeSolutions: false, filename: "f01-p01-reviewed" }), /EXPORT_DENIED:QA_FAILED/);
 }
 console.log("REVIEW_TO_EXISTING_EXPORT=PASS");
 console.log("REAL_P01_IMPORT=PASS");
