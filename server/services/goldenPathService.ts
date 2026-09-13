@@ -134,7 +134,7 @@ export function buildGoldenPath(
   verification: MathVerification | null | undefined,
 ): GoldenPathResult {
   resolveConsumerProfile("VIDEO");
-  for (const role of ["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const) resolveIcon(role);
+  for (const role of ["QUESTION", "SOLUTION", "GEOMETRY", "ANSWER"] as const) resolveIcon(role);
   const problemText = problemIR?.latex || problemIR?.problem || "";
   const mathGate = evaluateMathGate(problemIR, solution, verification);
   const base = {
@@ -262,7 +262,7 @@ function buildNarrationPlan(x: string, y: string): GoldenNarrationPlan {
 function buildRenderTask(source: string, scenePlan: GoldenScenePlan, narrationPlan: GoldenNarrationPlan, x: string, y: string): GoldenRenderTask {
   const profile = JSON.stringify(NA_MATH_VIDEO_PROFILE);
   const equationSystem = JSON.stringify(scenePlan.equationSystem);
-  const iconRoles = Object.fromEntries((["QUESTION_SOURCE", "SOLUTION_REASONING", "GEOMETRY_FIGURE", "RESULT_SUCCESS"] as const).map((role) => [role, resolveIcon(role).resource]));
+  const iconRoles = Object.fromEntries((["QUESTION", "SOLUTION", "GEOMETRY", "ANSWER"] as const).map((role) => [role, resolveIcon(role).resource]));
   const iconSvg = Object.fromEntries(Object.entries(iconRoles).map(([role, resource]) => [role, readFileSync(resolvePath(process.cwd(), resource), "utf8")]));
   const code = `from manim import *
 import json
@@ -305,20 +305,20 @@ class GoldenLinearSystem(Scene):
         question_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["topPanel"]["width"], height=PROFILE["regions"]["topPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.82).move_to([*PROFILE["regions"]["topPanel"]["center"], 0])
         solution_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["leftPanel"]["width"], height=PROFILE["regions"]["leftPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["leftPanel"]["center"], 0])
         geometry_panel = RoundedRectangle(corner_radius=0.16, width=PROFILE["regions"]["rightPanel"]["width"], height=PROFILE["regions"]["rightPanel"]["height"], stroke_color=PROFILE["colors"]["panelStroke"], stroke_width=2, fill_color=PROFILE["colors"]["panelFill"], fill_opacity=0.72).move_to([*PROFILE["regions"]["rightPanel"]["center"], 0])
-        question_header = anchor_section_tab(section_tab("ĐỀ BÀI", "QUESTION_SOURCE"), question_panel)
+        question_header = anchor_section_tab(section_tab("ĐỀ BÀI", "QUESTION"), question_panel)
         question_math = MathTex(r"\\begin{cases}" + EQUATION_SYSTEM["equations"][0] + r"\\\\" + EQUATION_SYSTEM["equations"][1] + r"\\end{cases}", font_size=PROFILE["sizes"]["math"]["max"], color=INK)
         question_math.next_to(question_header, DOWN, buff=PROFILE["spacing"]["questionBlockGap"]).align_to(question_header, LEFT)
         question = VGroup(question_header, question_math)
-        solution_header = anchor_section_tab(section_tab("LỜI GIẢI", "SOLUTION_REASONING"), solution_panel)
+        solution_header = anchor_section_tab(section_tab("LỜI GIẢI", "SOLUTION"), solution_panel)
         solution_content = VGroup(
             MathTex(r"(x+y)+(x-y)=5+1", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
             MathTex(r"2x=6 \\Rightarrow x=${x}", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
             MathTex(r"y=${y}", font_size=PROFILE["sizes"]["math"]["max"], color=INK),
-            VGroup(semantic_icon("RESULT_SUCCESS", VIDEO_ACCENT), MathTex(r"\\boxed{x=${x},\\quad y=${y}}", font_size=PROFILE["sizes"]["result"], color=VIDEO_ACCENT)).arrange(RIGHT, buff=0.12)
+            VGroup(semantic_icon("ANSWER", VIDEO_ACCENT), MathTex(r"\\boxed{x=${x},\\quad y=${y}}", font_size=PROFILE["sizes"]["result"], color=VIDEO_ACCENT)).arrange(RIGHT, buff=0.12)
         ).arrange(DOWN, aligned_edge=LEFT, buff=PROFILE["spacing"]["solutionBlockGap"]["min"])
         solution_content.next_to(solution_header, DOWN, buff=PROFILE["spacing"]["solutionBlockGap"]["min"]).align_to(solution_header, LEFT)
         solution = VGroup(solution_header, solution_content)
-        geometry_header = anchor_section_tab(section_tab("HÌNH VẼ", "GEOMETRY_FIGURE"), geometry_panel)
+        geometry_header = anchor_section_tab(section_tab("HÌNH VẼ", "GEOMETRY"), geometry_panel)
         axes = Axes(x_range=[-1, 6, 1], y_range=[-1, 6, 1], x_length=5.1, y_length=3.5, axis_config={"color": MUTED, "include_numbers": True, "font_size": 16}).move_to([3.42, -1.35, 0])
         point = Dot(axes.c2p(${x}, ${y}), color=VIDEO_ACCENT)
         geometry_content = VGroup(axes, point)
@@ -341,7 +341,7 @@ class GoldenLinearSystem(Scene):
     quality: "preview",
     action: "render",
     files: [{ path: "main.py", content: code }],
-    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], iconAuthority: "PIMATH-DNA-SEMANTIC-ICONS-V1.0", iconRoles, resolution: "1080p", fps: 30 } },
+    manifest: { projectId: "golden-path-v1", projectName: "Golden Path Linear System", entryFile: "main.py", sceneName: "GoldenLinearSystem", quality: "preview", action: "render", files: [{ path: "main.py", content: code }], metadata: { source, sceneCount: scenePlan.scenes.length, narrationCueCount: narrationPlan.cues.length, verifiedSolution: { x, y }, canonicalLayoutProfile: NA_MATH_VIDEO_PROFILE.id, canonicalLayoutId: "NA-MATH-LAYOUT-V1.3-CANONICAL", semanticOrder: ["QUESTION_TOP", "SOLUTION_LEFT", "GEOMETRY_RIGHT"], iconAuthority: "PIMATH-DNA-SEMANTIC-ICONS-V2.0", iconRoles, resolution: "1080p", fps: 30 } },
     videoSpec: { video_title: "Golden Path: Hệ phương trình", total_duration_seconds: 28, target_aspect_ratio: "16:9", resolution: "1080p", scenes: scenePlan.scenes.map((scene) => ({ scene_id: scene.id, scene_index: scene.index, title: scene.title, learning_goal: scene.title, math_content: { latex: scene.math, explanation: scene.visualAction }, visual_objects: [scene.visualAction], animations: [{ type: "Write" as const, target: scene.visualAction, duration: 2 }], narration: { text_vi: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.text || "", voice_tone: "step_by_step" as const, duration_hint_seconds: narrationPlan.cues.find((cue) => cue.id === scene.narrationCueId)?.durationSeconds || 2 } })), manim_python_code: code },
     outputFormat: "mp4",
     resolution: "1080p",

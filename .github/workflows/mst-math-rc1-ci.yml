@@ -26,6 +26,9 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run qa:regression
+      - run: node --import tsx tests/test-mst-math-standard-authority-unification-v1.ts
+      - run: node --import tsx tests/test-na-math-brand-01.ts
+      - run: node --import tsx tests/test-pimath-dna-accessibility-voice.ts
       - run: node --import tsx tests/test-f01-p01-production-wiring.ts
       - run: node --import tsx tests/test-demo-rc1-p01-integration.ts
       - run: node --import tsx tests/test-p01-svg-pdf-transcode.ts

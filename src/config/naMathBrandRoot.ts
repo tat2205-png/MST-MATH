@@ -1,6 +1,6 @@
 import brandRoot from "../../registry/brand-root.json";
 import outputProfiles from "../../registry/output-profiles.json";
-import iconAuthority from "../../registry/pimath-dna-icons-v1.1.json";
+import iconAuthority from "../../registry/pimath-dna-icons-v2.json";
 import geometryManifest from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/geometry.manifest.json";
 import mathNotation from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/gdpt2018-kntt-math-notation-policy-v2_3.json";
 import approvedGeometryProfiles from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/geometry-engine/NA_MATH_GEOMETRY_RULES_V1_8_GEO8/profiles/view-profile-registry.json";
@@ -121,11 +121,10 @@ export type PiMathIconRole = keyof typeof iconAuthority.roles;
 export type PiMathIconOutput = keyof typeof iconAuthority.outputContract.targets;
 export function resolveIcon(name: string) {
   if (resolveBrand().references.icons !== iconAuthority.standardId || !iconAuthority.canonical || !iconAuthority.approved || !iconAuthority.singleSourceOfTruth) fail("icon:authority");
-  if (!(name in iconAuthority.roles)) return fail(`icon:${name}`);
+  if (!(name in iconAuthority.roles)) throw new Error(`NON_CANONICAL_ICON_ROLE:${name}`);
   const role = name as PiMathIconRole;
   const spec = iconAuthority.roles[role];
-  const semanticRole = "semanticRole" in spec ? spec.semanticRole : role;
-  return { authority: iconAuthority.standardId, role, semanticRole, resource: spec.resource, style: iconAuthority.style } as const;
+  return { authority: iconAuthority.standardId, role, semanticRole: role, resource: spec.resource, style: iconAuthority.style } as const;
 }
 export function resolveIconForOutput(name: string, target: PiMathIconOutput) {
   if (!(target in iconAuthority.outputContract.targets)) return fail(`icon-output:${target}`);

@@ -25,14 +25,27 @@
     {
       "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.1",
       "family": "GLOBAL_BASELINE",
+      "status": "LOCKED_COMPATIBILITY_CANONICAL_HISTORY",
+      "canonical": false,
+      "active": false,
+      "approved": true,
+      "humanApproved": true,
+      "supersededBy": "PIMATH_DNA_GLOBAL_BASELINE_V1.2",
+      "path": "registry/pimath-dna-global-baseline-v1.1.json",
+      "root": "PIMATH-DNA-V1.0",
+      "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.0"
+    },
+    {
+      "id": "PIMATH_DNA_GLOBAL_BASELINE_V1.2",
+      "family": "GLOBAL_BASELINE",
       "status": "LOCKED_CANONICAL_GLOBAL",
       "canonical": true,
       "active": true,
       "approved": true,
       "humanApproved": true,
-      "path": "registry/pimath-dna-global-baseline-v1.1.json",
+      "path": "registry/pimath-dna-global-baseline-v1.2.json",
       "root": "PIMATH-DNA-V1.0",
-      "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.0"
+      "inherits": "PIMATH_DNA_GLOBAL_BASELINE_V1.1"
     },
     {
       "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
@@ -41,21 +54,34 @@
       "canonical": false,
       "active": false,
       "approved": true,
-      "supersededBy": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+      "supersededBy": "PIMATH-DNA-SEMANTIC-ICONS-V2.0",
       "path": "registry/pimath-dna-icons.json",
       "implementation": "src/config/naMathBrandRoot.ts"
     },
     {
       "id": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
       "family": "SEMANTIC_ICONS",
+      "status": "LOCKED_COMPATIBILITY_CANONICAL_HISTORY",
+      "canonical": false,
+      "active": false,
+      "approved": true,
+      "humanApproved": true,
+      "path": "registry/pimath-dna-icons-v1.1.json",
+      "implementation": "src/config/naMathBrandRoot.ts",
+      "supersededBy": "PIMATH-DNA-SEMANTIC-ICONS-V2.0"
+    },
+    {
+      "id": "PIMATH-DNA-SEMANTIC-ICONS-V2.0",
+      "family": "SEMANTIC_ICONS",
       "status": "LOCKED_CANONICAL_GLOBAL",
       "canonical": true,
       "active": true,
       "approved": true,
       "humanApproved": true,
-      "path": "registry/pimath-dna-icons-v1.1.json",
+      "path": "registry/pimath-dna-icons-v2.json",
       "implementation": "src/config/naMathBrandRoot.ts",
-      "supersedes": "PIMATH-DNA-SEMANTIC-ICONS-V1.0"
+      "standardDocument": "docs/standards/MST-MATH_SEMANTIC_ICON_SYSTEM_V2_0.md",
+      "supersedes": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0", "PIMATH-DNA-SEMANTIC-ICONS-V1.1"]
     },
     {
       "id": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
