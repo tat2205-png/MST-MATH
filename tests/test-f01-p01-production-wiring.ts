@@ -8,6 +8,7 @@ const service = new TeacherWorkflowService(repository);
 const imported = await service.importDocxForRuntime(Buffer.from(createQuestionDocx()).toString("base64"), "accepted-p01.docx");
 assert.ok(imported.imported.length > 0);
 assert.ok(imported.p01?.sourceHash);
+assert.equal(imported.p01?.sourceHash, imported.imported[0]?.source.sourceHash, "P01 must consume the source identity produced by the import boundary");
 assert.ok(imported.p01?.status === "PASS" || imported.p01?.status === "REVIEW_REQUIRED");
 assert.ok(imported.imported.every((question) => question.source.sourceHash));
 assert.ok(imported.imported.every((question) => question.examQa));
