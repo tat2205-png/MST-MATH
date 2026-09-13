@@ -1,12 +1,13 @@
 import json
 import sys
+import os
 from pathlib import Path
 from paddleocr import PPStructureV3
 
 inputs = [Path(item) for item in sys.argv[1:]]
 if not inputs:
     raise SystemExit("INPUT_REQUIRED")
-pipeline = PPStructureV3(lang="vi", ocr_version="PP-OCRv3", device="cpu", use_doc_orientation_classify=False, use_doc_unwarping=False, use_textline_orientation=False, use_table_recognition=False, use_formula_recognition=True, use_chart_recognition=False)
+pipeline = PPStructureV3(lang="vi", ocr_version="PP-OCRv3", device=os.environ.get("MST_MATH_OCR_DEVICE", "cpu"), use_doc_orientation_classify=False, use_doc_unwarping=False, use_textline_orientation=False, use_table_recognition=False, use_formula_recognition=True, use_chart_recognition=False)
 output = []
 for source in inputs:
     page = list(pipeline.predict(input=str(source)))[0].json["res"]
