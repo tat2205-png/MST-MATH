@@ -3,8 +3,6 @@ import { evaluateMathGate, type MathGateResult } from "../services/mathVerificat
 import { ProblemParserService } from "../services/problemParser.js";
 import { SolutionGeneratorService } from "../services/solutionGenerator.js";
 import { SolutionVerifierService } from "../services/solutionVerifier.js";
-import { runProductionMathQA } from "../services/mathQaProductionAdapter.js";
-import type { MathQAInput, MathQAResult } from "../../src/modules/math-qa-v1/index.js";
 
 export interface StudioMathServices {
   parse(text: string): Promise<MathProblemIR>;
@@ -46,10 +44,6 @@ export class StudioMathExecutionAdapter {
 
   verify(problem: MathProblemIR, solution: MathSolution) {
     return this.services.verify(problem, solution);
-  }
-
-  runMathQA(input: MathQAInput): MathQAResult {
-    return runProductionMathQA(input);
   }
 
   result(text: string, problem: MathProblemIR, solution: MathSolution, verification: MathVerification): StudioMathExecution | null {

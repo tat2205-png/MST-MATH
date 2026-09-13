@@ -20,7 +20,8 @@ import type {
 } from "../../src/services/teacherWorkflowTypes.js";
 import { QuestionBankStudioService } from "../integrations/questionBankStudio.js";
 import { StudioEngineRegistry } from "../studio/engineRegistry.js";
-import { buildDemoRc1P01 } from "./demoRc1P01Service.js";
+import { buildDemoRc1P01FromCanonical } from "./demoRc1P01Service.js";
+import { ingestUnifiedSource } from "../../src/modules/document-ingest/unified.js";
 
 type StoredAssessment = { assessment: Assessment; answerManifest: AssessmentAnswerManifest };
 type StoredGame = { service: ClassroomGameService; session: GameSession };
@@ -88,7 +89,10 @@ export class TeacherWorkflowService {
     if (!fileName.toLocaleLowerCase().endsWith(".docx")) throw new Error("UNSUPPORTED_FILE: Chỉ hỗ trợ tệp DOCX đã được kiểm định.");
     const bytes = new Uint8Array(Buffer.from(base64, "base64")); if (!bytes.length) throw new Error("INVALID_DOCUMENT: Tệp DOCX rỗng hoặc không hợp lệ.");
     const result = await this.bank.importDocxForRuntime(bytes, path.basename(fileName));
-    const p01 = await buildDemoRc1P01(path.basename(fileName), bytes, path.join(process.cwd(), "render_output", "teacher-workflow", "p01"));
+    const canonical = await ingestUnifiedSource({ name: path.basename(fileName), bytes });
+    const p01 = canonical.ok && canonical.document
+      ? buildDemoRc1P01FromCanonical(canonical.document, path.join(process.cwd(), "render_output", "teacher-workflow", "p01"), canonical.diagnostics)
+      : { status: "FAIL" as const, sourceHash: "", diagnostics: canonical.diagnostics };
     const diagnostics = [...result.diagnostics];
     if (p01.status !== "PASS") diagnostics.push({ code: "P01_REVIEW_REQUIRED", severity: "WARNING", details: { status: p01.status, sourceHash: p01.sourceHash, diagnostics: p01.diagnostics } });
     return { imported: result.imported.map(questionForClient), diagnostics, summary: this.summary(), p01: { status: p01.status, sourceHash: p01.sourceHash, diagnostics: p01.diagnostics, qaState: p01.qa?.state, mathQAStatus: p01.mathQA?.status, artifactFormats: p01.artifacts?.map((artifact) => artifact.format) } };
