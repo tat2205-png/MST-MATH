@@ -5,6 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Use the config directory as the project root so builds remain stable when
+    // the repository is reached through the D:\\MST-MATH junction.
+    root: __dirname,
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
