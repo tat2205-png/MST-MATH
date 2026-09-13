@@ -6,7 +6,8 @@ import { ingestUnifiedSource } from "../src/modules/document-ingest/unified.js";
 import { ingestHybridPdf, ingestSemanticPdf } from "../src/modules/document-ingest/pdf-semantic-adapter.js";
 
 type Row = Record<string, string>;
-const root = process.env.MST_MATH_INPUT_GOLDEN_ROOT || "D:\\MST-MATH-INPUT-GOLDENS";
+const mstRoot = process.env.MST_MATH_ROOT || "D:\\MST-MATH";
+const root = process.env.MST_MATH_INPUT_GOLDEN_ROOT || join(mstRoot, "03_INPUT_GOLDENS", "MST-MATH-INPUT-GOLDENS");
 const evidenceDir = process.env.MST_MATH_INPUT_EVIDENCE_DIR || join(process.cwd(), "artifacts", "input-real-golden-v1");
 mkdirSync(join(evidenceDir, "logs"), { recursive: true });
 const csv = readFileSync(join(root, "GOLDEN-MANIFEST.csv"), "utf8").trim().split(/\r?\n/);
@@ -18,7 +19,7 @@ const rows: Row[] = csv.filter(Boolean).map(line => {
 const result: any[] = [];
 const sha = (b: Buffer) => createHash("sha256").update(b).digest("hex");
 const run = (cmd: string, args: string[], input?: Buffer) => { try { return execFileSync(cmd, args, { input, encoding: "utf8", windowsHide: true, maxBuffer: 8 * 1024 * 1024 }); } catch { return ""; } };
-const visionPython = process.env.MST_MATH_INPUT_VISION_PYTHON || ["D:\\math-ai-video-studio\\mst-input-local-paddle-clean-v1\\tools\\mst-local-ocr\\.venv\\Scripts\\python.exe", join(process.cwd(), ".venv", "Scripts", "python.exe")].find((candidate) => existsSync(candidate)) || "python";
+const visionPython = process.env.MST_MATH_INPUT_VISION_PYTHON || [join(mstRoot, "06_RUNTIME", "MST-MATH-LOCAL-RUNTIME", "uv-python", "python.exe"), join(process.cwd(), ".venv", "Scripts", "python.exe")].find((candidate) => existsSync(candidate)) || "python";
 const visionScript = join(process.cwd(), "scripts", "local-semantic-vision.py");
 const runVision = (file: string) => { try { return JSON.parse(execFileSync(visionPython, [visionScript, file], { encoding: "utf8", windowsHide: true, env: { ...process.env, PYTHONPATH: process.env.MST_MATH_INPUT_PADDLE_PACKAGES || join(process.cwd(), ".paddle-v4-packages") }, maxBuffer: 32 * 1024 * 1024 })); } catch (error) { return { error: error instanceof Error ? error.message : String(error) }; } };
 const status = (r: any) => Object.values(r).some(v => v === "FAIL") ? "FAIL" : Object.values(r).some(v => v === "BLOCKED") ? "BLOCKED" : "PASS";

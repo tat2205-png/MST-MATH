@@ -11,8 +11,9 @@ export type PdfSemanticPage = { page: number; width: number; height: number; dpi
 export type PdfSemanticOutput = { file: string; pages: PdfSemanticPage[]; provider: string; model_reuse: boolean };
 
 const sha256 = (bytes: Uint8Array) => createHash("sha256").update(bytes).digest("hex");
+const mstRoot = process.env.MST_MATH_ROOT || "D:\\MST-MATH";
 const python = process.env.MST_MATH_INPUT_VISION_PYTHON || [
-  "D:\\math-ai-video-studio\\mst-input-local-paddle-clean-v1\\tools\\mst-local-ocr\\.venv\\Scripts\\python.exe",
+  join(mstRoot, "06_RUNTIME", "MST-MATH-LOCAL-RUNTIME", "uv-python", "python.exe"),
   join(process.cwd(), ".venv", "Scripts", "python.exe"),
 ].find(existsSync) || "python";
 
