@@ -3,7 +3,11 @@ name: MST-MATH RC1 CI
 on:
   push:
     branches:
+      - 'integration/mst-math-demo-rc1'
       - 'rc/mst-math-demo-rc1-**'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   rc1:
@@ -26,3 +30,6 @@ jobs:
       - run: node --import tsx tests/test-demo-rc1-p01-integration.ts
       - run: node --import tsx tests/test-p01-svg-pdf-transcode.ts
       - run: node --import tsx tests/test-f02-real-golden-svg.ts
+      - run: node --import tsx tests/test-math-qa-v1.ts
+      - run: node --import tsx tests/test-math-qa-production-adapter.ts
+      - run: node --import tsx tests/test-unified-input-v1.ts

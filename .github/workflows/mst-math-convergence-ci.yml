@@ -1,0 +1,131 @@
+name: MST-MATH Convergence CI
+
+on:
+  pull_request:
+    branches:
+      - integration/mst-math-convergence-v1
+      - main
+  push:
+    branches:
+      - integration/mst-math-convergence-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mst-math-convergence-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core-quality:
+    name: core-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Dependency security gate (high/critical)
+        run: npm audit --audit-level=high
+
+      - name: Install authoritative PDF runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-latex-recommended texlive-fonts-recommended poppler-utils
+          xelatex --version
+          pdftotext -v
+
+      - name: Architecture check
+        run: npm run arch:check
+
+      - name: Typecheck
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Regression
+        run: npm run qa:regression
+
+      - name: Canonical brand, semantic-icon, and standard-family authority contracts
+        run: |
+          node --import tsx tests/test-na-math-brand-01.ts
+          node --import tsx tests/test-mst-math-standard-authority-unification-v1.ts
+
+      - name: P0 runtime truth contract
+        run: node --import tsx tests/test-mst-math-p0-runtime-truth-v1.ts
+
+  pc-question-authority:
+    name: pc-question-authority
+    needs: core-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout full authority ancestry
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install test dependencies
+        run: npm ci
+
+      - name: TECH01 identity
+        run: node --import tsx tests/test-mst-math-tech01-identity.ts
+
+      - name: TECH02 semantics
+        run: node --import tsx tests/test-mst-math-tech02-semantics.ts
+
+      - name: TECH03 assets and provenance
+        run: node --import tsx tests/test-mst-math-tech03-assets.ts
+
+      - name: A3 public readiness contract
+        run: node --import tsx tests/test-mst-math-pc-a3-public-readiness-contract-v1.ts
+
+      - name: A3 backend authority and export guard
+        run: node --import tsx tests/test-mst-math-pc-a3-backend-readiness-v1.ts
+
+      - name: Unified Input certification contract
+        run: node --import tsx tests/test-pimath-unified-input-certification-readonly-v1.ts
+
+      - name: Unified Input immutable baseline ancestry
+        run: |
+          git merge-base --is-ancestor 552fe9001d095aed4abc8057934767b9a04d7269 HEAD
+          echo "UNIFIED_INPUT_BASELINE_ANCESTRY=PASS"
+
+      - name: Unified Input certified evidence integrity
+        shell: bash
+        run: |
+          BASELINE=552fe9001d095aed4abc8057934767b9a04d7269
+          RESULT=docs/acceptance/PIMATH_UNIFIED_INPUT_V1_CERTIFICATION_RESULTS.json
+          BASELINE_BLOB="$(git rev-parse "$BASELINE:$RESULT")"
+          CURRENT_BLOB="$(git hash-object "$RESULT")"
+          test "$BASELINE_BLOB" = "$CURRENT_BLOB"
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = 'docs/acceptance/PIMATH_UNIFIED_INPUT_V1_CERTIFICATION_RESULTS.json';
+          const result = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const expectedIds = Array.from({ length: 64 }, (_, i) => `R${i}`);
+          if (result.version !== 'PIMATH_UNIFIED_INPUT_V1') throw new Error('UNIFIED_INPUT_CERT_VERSION_MISMATCH');
+          if (result.metricDenominatorLockedBeforeRun !== true) throw new Error('UNIFIED_INPUT_DENOMINATOR_NOT_LOCKED');
+          if (!Array.isArray(result.results) || result.results.length !== 64) throw new Error('UNIFIED_INPUT_CERT_RESULT_COUNT_MISMATCH');
+          if (JSON.stringify(result.results.map((row) => row.requirementId)) !== JSON.stringify(expectedIds)) throw new Error('UNIFIED_INPUT_CERT_REQUIREMENT_ORDER_MISMATCH');
+          if (result.results.some((row) => row.status !== 'PASS')) throw new Error('UNIFIED_INPUT_CERT_NOT_ALL_PASS');
+          if (result.results.some((row) => !Array.isArray(row.evidence) || row.evidence.length === 0 || row.evidence.some((item) => item.passed !== true))) throw new Error('UNIFIED_INPUT_CERT_EVIDENCE_INVALID');
+          console.log('UNIFIED_INPUT_CERTIFIED_EVIDENCE=PASS');
+          console.log('FULL_REAL_CORPUS_RECERTIFICATION=EXTERNAL_CORPUS_REQUIRED');
+          NODE

@@ -21,9 +21,9 @@ export const StudioEngineStatusPanel: React.FC = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/api/studio/status", { signal: controller.signal })
+    fetch("/api/studio/runtime-status", { signal: controller.signal })
       .then((response) => {
-        if (!response.ok) throw new Error("Studio status unavailable");
+        if (!response.ok) throw new Error("Studio runtime status unavailable");
         return response.json() as Promise<StatusResponse>;
       })
       .then(setStatus)
@@ -33,7 +33,7 @@ export const StudioEngineStatusPanel: React.FC = () => {
     return () => controller.abort();
   }, []);
 
-  if (error) return <p className="text-xs text-rose-700">Studio status is unavailable.</p>;
+  if (error) return <p className="text-xs text-rose-700">Studio runtime status is unavailable.</p>;
   if (!status) return <p className="text-xs text-slate-500">Loading Studio engine status…</p>;
 
   return (

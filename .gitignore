@@ -10,8 +10,6 @@ coverage/
 __pycache__/
 *.py[cod]
 .venv/
-.paddle-v4-packages/
-.venv-input-v4/
 repair-smoke-result.json
 local_bridge/runs/
 local_bridge/tmp/

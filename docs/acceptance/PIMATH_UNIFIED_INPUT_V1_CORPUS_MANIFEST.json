@@ -1,0 +1,9 @@
+{
+  "version": "PIMATH_UNIFIED_INPUT_V1",
+  "cases": [
+    {"caseId":"REAL_STANDALONE_IMAGE_01","path":"D:/NA-MATH-NLS-AI-SOURCES/IMAGE-CERT-V1/math-photo-01.jpg","sha256":"92aa0f8caeacf69f8ff876c7b1ab445675c491a9f5c4762204983b57473e9ec7","modality":"JPEG","originalOrDerived":"original","realOrFixture":"REAL_SOURCE","expectedCapabilities":["figure_extraction","source_identity"],"humanReferenceAvailable":false},
+    {"caseId":"REAL_PDF_TOAN10_TAP1","path":"D:/NA-MATH-NLS-AI-SOURCES/Toan10-Tap1-KNTT.pdf","sha256":"a7548e2a7d9c1c61755395a03f53b2371d36826a2ef6f90ea78ab58cd34a7d50","modality":"PDF","originalOrDerived":"original","realOrFixture":"REAL_SOURCE","expectedCapabilities":["native_text","page_identity","question_extraction"],"humanReferenceAvailable":false},
+    {"caseId":"REAL_PDF_TOAN11_CHUYENDE","path":"D:/NA-MATH-NLS-AI-SOURCES/Toan11-ChuyenDe-KNTT.pdf","sha256":"a7b48523d80e956baaff3aa0a75f7d438468c3940f3d4ce7fe2d04d8b6e3e89e","modality":"PDF","originalOrDerived":"original","realOrFixture":"REAL_SOURCE","expectedCapabilities":["native_text","page_identity","question_extraction"],"humanReferenceAvailable":false},
+    {"caseId":"REAL_PDF_TOAN12_TAP2","path":"D:/NA-MATH-NLS-AI-SOURCES/Toan12-Tap2-KNTT.pdf","sha256":"ff7a284838228e2d74ee745e3c6e2dd38cc5ce0e86da7266afdd11895ad726e1","modality":"PDF","originalOrDerived":"original","realOrFixture":"REAL_SOURCE","expectedCapabilities":["native_text","page_identity","question_extraction"],"humanReferenceAvailable":false}
+  ]
+}

@@ -1,4 +1,6 @@
 import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { StudioFeatureFlags } from "./featureFlags.js";
 
 export type StudioRuntimeState =
@@ -19,6 +21,12 @@ export interface StudioRuntimeStatus {
   readonly executionEnabled: boolean;
 }
 
+export function resolveCanonicalPythonExecutable(cwd = process.cwd(), platform = process.platform): string {
+  return platform === "win32"
+    ? join(cwd, ".venv", "Scripts", "python.exe")
+    : join(cwd, ".venv", "bin", "python");
+}
+
 export const systemRuntimeProbe: StudioRuntimeProbe = {
   luaDrawReady() {
     return ["lualatex", "dvisvgm"].every((command) => {
@@ -27,7 +35,11 @@ export const systemRuntimeProbe: StudioRuntimeProbe = {
     });
   },
   manimReady() {
-    const python = spawnSync("python", ["-c", "import manim"], { shell: false, windowsHide: true });
+    // README/setup contract: `uv sync --group test` owns the repo-local .venv.
+    // Runtime status must not accidentally probe an unrelated system Python.
+    const pythonExecutable = resolveCanonicalPythonExecutable();
+    if (!existsSync(pythonExecutable)) return false;
+    const python = spawnSync(pythonExecutable, ["-c", "import manim"], { shell: false, windowsHide: true });
     const ffmpeg = spawnSync("ffmpeg", ["-version"], { shell: false, windowsHide: true });
     return python.status === 0 && python.error === undefined && ffmpeg.status === 0 && ffmpeg.error === undefined;
   },
