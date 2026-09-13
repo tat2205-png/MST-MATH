@@ -4,7 +4,7 @@ import qaContracts from "../../standards/NA_MATH_SYSTEM_BASELINE_V2_6_CORE_LOCK/
 import canonicalVideoLayout from "../../standards/NA_MATH_CANONICAL_LAYOUT_SPEC_V1_0/na-math-canonical-layout.v1.1.json";
 import videoVisualLanguage from "../../standards/NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0/na-math-video-visual-language.v1.0.json";
 import goldenVideoReference from "../../standards/NA_MATH_VIDEO_GOLDEN_START_MID_END_V1/na-math-video-golden-start-mid-end.v1.json";
-import iconAuthority from "../../registry/pimath-dna-icons-v1.1.json";
+import iconAuthority from "../../registry/pimath-dna-icons-v2.json";
 import canonicalVideoV2 from "../../standards/PIMATH_VIDEO_VISUAL_CANONICAL_V2_0/pimath-video-visual-canonical-v2.0.json";
 import { resolveMathNotationAuthority, resolveSemanticGeometryAuthority } from "./naMathBrandRoot.js";
 import { resolveRendererColor, resolveRendererTypography } from "./pimathRendererProvenance.js";
@@ -27,7 +27,7 @@ export const NA_MATH_VIDEO_PROFILE = {
   visualLanguage: videoVisualLanguage,
   goldenReference: goldenVideoReference,
   iconAuthority,
-  iconRoles: { question: "QUESTION_SOURCE", solution: "SOLUTION_REASONING", figure: "GEOMETRY_FIGURE", result: "RESULT_SUCCESS" } as const,
+  iconRoles: { question: "QUESTION", solution: "SOLUTION", figure: "GEOMETRY", result: "ANSWER" } as const,
   colors: {
     background: resolveRendererColor("paper").value,
     video: resolveRendererColor("amber").value,

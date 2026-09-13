@@ -2,6 +2,8 @@ import { spawnSync } from "node:child_process";
 import process from "node:process";
 
 const suites = [
+  "tests/test-na-math-brand-01.ts",
+  "tests/test-pimath-dna-accessibility-voice.ts",
   "tests/test-mv2-constraint-orchestration.ts",
   "tests/test-mv2-dev-inspector.ts",
   "tests/test-math-ir-dynamic-semantics-v1.ts",
