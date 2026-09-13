@@ -1,5 +1,9 @@
 import type { ContentBlock, DocumentBlock, DocumentIR, MathNode } from "../document-engine/document-ir.js";
 import { normalizeLatex, normalizeVietnameseText } from "../question-bank/normalization.js";
+import { toExamQuestion } from "../question-bank/examAdapter.js";
+import type { QuestionObject } from "../question-bank/types.js";
+import type { ExamNormalizationOptions, NormalizedExamDocument, NormalizedAnswerRegion, NormalizedQuestionPlacement } from "./types.js";
+export * from "./types.js";
 
 export type NormalizationLayer = "N0" | "N1" | "N2" | "N3" | "N4" | "N5";
 export type ReviewCode = "NEEDS_HUMAN_REVIEW" | "AMBIGUOUS_QUESTION_BOUNDARY" | "AMBIGUOUS_MATH_NORMALIZATION" | "AMBIGUOUS_FIGURE_ASSOCIATION";
@@ -115,3 +119,31 @@ export function normalizeDocument(raw: DocumentIR): NormalizedDocumentIR {
 }
 
 export function normalizationFingerprint(value: NormalizedDocumentIR): string { return JSON.stringify(value.normalized); }
+
+const profileFor = (exam: ExamNormalizationOptions["exam"]) => exam === "THPTQG" ? "P06_EXAM_THPTQG" : exam === "DGNL" ? "P06_EXAM_DGNL" : exam === "SAT" ? "P06_EXAM_SAT" : exam === "VSAT" ? "P06_EXAM_VSAT" : "P06_EXAM_SCHOOL";
+const examText = (value: string): ContentBlock => ({ type: "text", value });
+
+export function normalizeExamDocument(questions: readonly QuestionObject[], options: ExamNormalizationOptions): NormalizedExamDocument {
+  const profileId = profileFor(options.exam); const blocks: DocumentBlock[] = []; const answers: NormalizedAnswerRegion[] = []; const placements: NormalizedQuestionPlacement[] = [];
+  for (const question of questions) {
+    const first = blocks.length; const add = (content: ContentBlock[], suffix: string) => blocks.push({ id: `${question.id}:${suffix}`, kind: "PARAGRAPH", order: blocks.length, paragraphIndex: blocks.length, style: "NABody", content, sourceLocation: question.source.sourceLocations[0] ?? question.source.document });
+    add([examText(question.index === undefined ? "" : `Câu ${question.index}. `), ...question.stem], "stem");
+    if (question.type === "MULTIPLE_CHOICE") question.options.forEach(option => add([examText(`${option.label}. `), ...option.content], `option:${option.label}`));
+    else if (question.type === "TRUE_FALSE") question.trueFalseItems.forEach(item => add([examText(`${item.label}. `), ...item.content], `statement:${item.label}`));
+    else if (question.shortAnswer?.length) add(question.shortAnswer, "short-answer");
+    const type = question.type === "MULTIPLE_CHOICE" ? "CHOICE" : question.type === "TRUE_FALSE" ? "TRUE_FALSE" : "SHORT_ANSWER";
+    answers.push({ questionId: question.id, type, labels: question.type === "MULTIPLE_CHOICE" ? question.options.map(option => option.label) : question.type === "TRUE_FALSE" ? question.trueFalseItems.map(item => item.label) : [], rows: 1 });
+    placements.push({ questionId: question.id, questionNumber: question.index, blockIds: blocks.slice(first).map(block => block.id), keepWithQuestion: true, figureIds: question.figures.map(figure => figure.id), safeFigureBounds: Object.fromEntries(question.figures.map(figure => [figure.id, options.figures?.get(figure.id)?.safeBoundingBox])) });
+  }
+  const document: DocumentIR = { sourceDocument: options.sourceDocument ?? "exam-normalized", sourceHash: questions.map(question => question.source.sourceHash).join(":"), blocks, figures: questions.flatMap(question => question.figures), warnings: [] };
+  return { document, answerRegions: answers, profileId, warnings: [], pagination: { page: "A4 portrait", profileId, keepQuestionTogether: true, pageBreakBeforeQuestionIds: [], placements } };
+}
+
+export function validateNormalizedExamDocument(result: NormalizedExamDocument): string[] {
+  const issues: string[] = []; const ids = new Set<string>();
+  for (const placement of result.pagination.placements) { if (placement.blockIds.some(id => ids.has(id))) issues.push(`DUPLICATE_BLOCK_ID:${placement.questionId}`); placement.blockIds.forEach(id => ids.add(id)); if (!placement.keepWithQuestion) issues.push(`KEEP_WITH_QUESTION_REQUIRED:${placement.questionId}`); }
+  if (result.document.blocks.some(block => block.content.some(content => content.type === "text" && /answer|solution/i.test(content.value)))) issues.push("NO_ANSWER_LEAKAGE");
+  return issues;
+}
+
+export function toNormalizedExamQuestion(question: QuestionObject) { return toExamQuestion(question); }

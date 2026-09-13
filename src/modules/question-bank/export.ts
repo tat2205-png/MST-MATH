@@ -4,6 +4,11 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, w
 import { basename, extname, isAbsolute, join, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { zipSync } from "fflate";
+import {
+  MCQ_FOUR_INLINE_TAB_TWIPS,
+  MCQ_TWO_BY_TWO_TAB_TWIPS,
+  planFourOptionLayout,
+} from "../document-export/docx/mcq-four-option-layout.js";
 import { serializeMathNodeToOmml } from "../document-export/docx/omml.js";
 import type { Assessment, AssessmentAnswerManifest } from "./assessment.js";
 import type { ContentBlock, FigureRecord, QuestionBankRepository, QuestionObject, QuestionType, SourceProvenance } from "./types.js";
@@ -76,6 +81,48 @@ function wordMath(block: Extract<ContentBlock,{ type: "math" }>): string { const
 function wordRuns(blocks?: ContentBlock[]): string { return (blocks ?? []).map((block) => block.type === "text" ? `<w:r><w:t xml:space="preserve">${xml(block.value)}</w:t></w:r>` : block.type === "math" ? wordMath(block) : block.type === "table" ? `<w:r><w:t>${xml(block.cells.map((cell) => plain(cell)).join(" | "))}</w:t></w:r>` : "").join(""); }
 const paragraph = (blocks?: ContentBlock[], prefix = "") => `<w:p><w:r><w:t xml:space="preserve">${xml(prefix)}</w:t></w:r>${wordRuns(blocks)}</w:p>`;
 
+function canonicalOptionLabel(label: string): string {
+  return label.trim().replace(/[.:：)]+$/g, "").toUpperCase();
+}
+
+function hasBlockObject(blocks: ContentBlock[]): boolean {
+  return blocks.some((block) => block.type === "figure" || block.type === "table");
+}
+
+function wordTabStops(positions: readonly number[]): string {
+  if (!positions.length) return "";
+  return `<w:tabs>${positions.map((position) => `<w:tab w:val="left" w:pos="${position}"/>`).join("")}</w:tabs>`;
+}
+
+function optionChunk(option: QuestionObject["options"][number], prependTab: boolean): string {
+  const label = canonicalOptionLabel(option.label);
+  return `${prependTab ? "<w:r><w:tab/></w:r>" : ""}<w:r><w:t xml:space="preserve">${xml(`${label}. `)}</w:t></w:r>${wordRuns(option.content)}`;
+}
+
+function optionRow(options: QuestionObject["options"], positions: readonly number[], keepNext = false): string {
+  return `<w:p><w:pPr>${wordTabStops(positions)}${keepNext ? "<w:keepNext/>" : ""}<w:keepLines/><w:spacing w:after="0" w:line="276" w:lineRule="auto"/></w:pPr>${options.map((option,index) => optionChunk(option,index > 0)).join("")}</w:p>`;
+}
+
+function renderAdaptiveMcqOptions(options: QuestionObject["options"]): string[] {
+  if (options.length !== 4) return options.map((option) => paragraph(option.content,`${canonicalOptionLabel(option.label)}. `));
+  const plan = planFourOptionLayout(options.map((option) => ({
+    label: option.label,
+    plainText: plain(option.content),
+    hasBlockObject: hasBlockObject(option.content),
+  })));
+
+  if (plan.layout === "FOUR_INLINE") {
+    return [optionRow(options,MCQ_FOUR_INLINE_TAB_TWIPS)];
+  }
+  if (plan.layout === "TWO_BY_TWO") {
+    return [
+      optionRow(options.slice(0,2),MCQ_TWO_BY_TWO_TAB_TWIPS,true),
+      optionRow(options.slice(2,4),MCQ_TWO_BY_TWO_TAB_TWIPS),
+    ];
+  }
+  return options.map((option) => optionRow([option],[]));
+}
+
 export function serializeJsonPackage(pkg: CanonicalExportPackage, assetMode: ExportAssetMode = "REFERENCE"): string { const value = { ...pkg, assets: pkg.assets.map((asset) => { const { bytes,...reference } = asset; return assetMode === "EMBED" ? { ...reference, bytesBase64: Buffer.from(bytes).toString("base64") } : reference; }) }; return stableStringify(value); }
 export function deserializeJsonPackage(value: string): CanonicalExportPackage { const parsed = JSON.parse(value) as Omit<CanonicalExportPackage,"assets"> & { assets: Array<Omit<ExportAsset,"bytes"> & { bytesBase64?: string }> }; if (parsed.schemaVersion !== 1 || parsed.kind !== "ASSESSMENT_EXPORT" || !Array.isArray(parsed.sections) || !Array.isArray(parsed.questionRefs) || !Array.isArray(parsed.assets)) throw new Error("EXPORT_JSON_SCHEMA_UNSUPPORTED"); return { ...parsed, assets: parsed.assets.map((asset) => { const { bytesBase64,...rest } = asset; return { ...rest, bytes: bytesBase64 ? new Uint8Array(Buffer.from(bytesBase64,"base64")) : new Uint8Array() }; }) }; }
 
@@ -89,7 +136,7 @@ function drawing(rid: string, asset: ExportAsset, index: number): string { const
 export function renderDocx(pkg: CanonicalExportPackage): Uint8Array {
   const relationships: string[] = [], media: Record<string,Uint8Array> = {}; const ridByAsset = new Map<string,string>(); pkg.assets.forEach((asset,index) => { const rid = `rId${index+1}`; ridByAsset.set(asset.id,rid); relationships.push(`<Relationship Id="${rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/${xml(asset.filename)}"/>`); media[`word/media/${asset.filename}`] = asset.bytes; }); const body: string[] = [];
   body.push(`<w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr><w:r><w:t>${xml(pkg.assessment.title ?? "Math AI Studio Assessment")}</w:t></w:r></w:p>`);
-  let drawingIndex = 1; for (const section of pkg.sections) { body.push(`<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>${xml(section.title ?? section.id)}</w:t></w:r></w:p>`); for (const question of section.questions) { body.push(paragraph(question.stem,`Câu ${question.position}. `)); question.options.forEach((option) => body.push(paragraph(option.content,`${option.label}. `))); question.trueFalseItems.forEach((item) => body.push(paragraph(item.content,`${item.label}. `))); question.subquestions.forEach((sub) => body.push(paragraph(sub.content,`${sub.label}. `))); for (const figure of question.figures) { const rid = ridByAsset.get(figure.assetId), asset = pkg.assets.find((candidate) => candidate.id === figure.assetId); if (rid && asset) body.push(drawing(rid,asset,drawingIndex++)); } if (pkg.audience === "TEACHER" && question.answer) body.push(paragraph(question.answer,"Đáp án: ")); if (pkg.audience === "TEACHER" && question.solution) body.push(paragraph(question.solution,"Lời giải: ")); } }
+  let drawingIndex = 1; for (const section of pkg.sections) { body.push(`<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>${xml(section.title ?? section.id)}</w:t></w:r></w:p>`); for (const question of section.questions) { body.push(paragraph(question.stem,`Câu ${question.position}. `)); body.push(...renderAdaptiveMcqOptions(question.options)); question.trueFalseItems.forEach((item) => body.push(paragraph(item.content,`${item.label}. `))); question.subquestions.forEach((sub) => body.push(paragraph(sub.content,`${sub.label}. `))); for (const figure of question.figures) { const rid = ridByAsset.get(figure.assetId), asset = pkg.assets.find((candidate) => candidate.id === figure.assetId); if (rid && asset) body.push(drawing(rid,asset,drawingIndex++)); } if (pkg.audience === "TEACHER" && question.answer) body.push(paragraph(question.answer,"Đáp án: ")); if (pkg.audience === "TEACHER" && question.solution) body.push(paragraph(question.solution,"Lời giải: ")); } }
   const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><w:body>${body.join("")}<w:sectPr/></w:body></w:document>`;
   const rels = `<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relationships.join("")}</Relationships>`; const rootRels = `<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`; const types = `<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Default Extension="jpg" ContentType="image/jpeg"/><Default Extension="svg" ContentType="image/svg+xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`; const enc = new TextEncoder(); return zipSync({ "[Content_Types].xml": enc.encode(types), "_rels/.rels": enc.encode(rootRels), "word/document.xml": enc.encode(documentXml), "word/_rels/document.xml.rels": enc.encode(rels), ...media });
 }

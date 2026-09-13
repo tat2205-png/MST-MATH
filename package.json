@@ -1,5 +1,5 @@
 {
-  "name": "react-example",
+  "name": "mst-math",
   "private": true,
   "version": "1.6.0",
   "type": "module",
@@ -29,6 +29,11 @@
     "qa:ingest": "node --import tsx tests/test-document-ingest-v1.ts",
     "qa:exam-normalization": "node --import tsx tests/test-exam-normalization-v1.ts",
     "qa:input-v1": "node --import tsx scripts/qa-input-real-golden-v1.ts",
+    "qa:input-v1:batch": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\qa-input-real-golden-batch-v1.ps1",
+    "qa:input-golden-math-contract": "node --import tsx tests/test-input-golden-math-contract-v1.ts",
+    "qa:input-golden-manifest-loader": "node --import tsx tests/test-input-golden-manifest-loader-v1.ts",
+    "qa:unified-input:certify": "node --import tsx tests/test-pimath-unified-input-certification-v1.ts",
+    "qa:unified-input:certify:readonly": "node --import tsx scripts/run-pimath-unified-input-certification-readonly.mjs",
     "qa:wmf": "node --import tsx tests/test-wmf-production.ts",
     "qa:q37-vml": "node --import tsx tests/test-q37-vml-real-source.ts",
     "qa:question-pagination": "node --import tsx tests/test-question-bank-pagination.ts",
@@ -73,6 +78,7 @@
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
+    "@resvg/resvg-js": "2.6.2",
     "@tailwindcss/vite": "^4.1.14",
     "@types/katex": "^0.16.8",
     "@vitejs/plugin-react": "^5.0.4",

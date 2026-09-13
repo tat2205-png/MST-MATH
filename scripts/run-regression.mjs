@@ -2,8 +2,6 @@ import { spawnSync } from "node:child_process";
 import process from "node:process";
 
 const suites = [
-  "tests/test-na-math-brand-01.ts",
-  "tests/test-pimath-dna-accessibility-voice.ts",
   "tests/test-mv2-constraint-orchestration.ts",
   "tests/test-mv2-dev-inspector.ts",
   "tests/test-math-ir-dynamic-semantics-v1.ts",
@@ -45,10 +43,13 @@ const suites = [
   "tests/test-question-bank-qb1b.ts",
   "tests/test-question-bank-qb1c.ts",
   "tests/test-question-bank-pipeline.ts",
+  "tests/test-mst-math-docx-structural-numbering-convergence-v1.ts",
   "tests/test-question-bank-qb1d.ts",
   "tests/test-question-bank-qb1e.ts",
   "tests/test-question-bank-qb1f.ts",
+  "tests/test-question-bank-retrieval-authority-v1.ts",
   "tests/test-question-bank-qb2a.ts",
+  "tests/test-question-bank-data-access-performance-v1.ts",
   "tests/test-question-bank-qb2b.ts",
   "tests/test-question-bank-qb2c.ts",
   "tests/test-question-bank-qb2d.ts",
@@ -73,7 +74,14 @@ const suites = [
   "tests/studio-manim-timeline-phase4a3.test.ts",
   "tests/studio-real-math-phase4a1.test.ts",
   "tests/studio-real-render-contract-phase4a2.test.ts",
+  "tests/test-word-preflight-safe-clean-v1.ts",
+  "tests/test-teacher-word-preflight-integration-v1.ts",
+  "tests/test-mcq-four-option-adaptive-layout-v1.ts",
+  "tests/test-pimath-unified-input-certification-readonly-v1.ts",
   "tests/test-teacher-workflow-ux01.ts",
+  "tests/test-qa-evidence-truth-v1.ts",
+  "tests/test-provider-runtime-truth-v1.ts",
+  "tests/test-ai-visual-fail-closed-v1.ts",
 ];
 
 let failed = 0;

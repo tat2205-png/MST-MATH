@@ -3,6 +3,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 from paddleocr import PPStructureV3
 
@@ -31,7 +32,6 @@ pipeline = PPStructureV3(lang="vi", ocr_version="PP-OCRv3", device="cpu",
     use_formula_recognition=True, use_chart_recognition=False)
 result = []
 with tempfile.TemporaryDirectory(prefix="mst-pdf-raster-") as temp:
-    pending = []
     for page_number in range(start_page, end_page + 1):
         cached = checkpoint.get(str(page_number))
         valid_cached = isinstance(cached, dict) and cached.get("page") == page_number and all(region.get("page") == page_number for region in cached.get("regions", []))
@@ -39,11 +39,10 @@ with tempfile.TemporaryDirectory(prefix="mst-pdf-raster-") as temp:
             result.append(cached)
             print(f"CACHE_HIT page={page_number}", file=sys.stderr, flush=True)
             continue
+        started = time.perf_counter()
         prefix = str(Path(temp) / f"page-{page_number:04d}")
         subprocess.check_call(["pdftoppm", "-f", str(page_number), "-l", str(page_number), "-singlefile", "-png", "-r", "160", str(source), prefix], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         raster = Path(prefix + ".png")
-        pending.append((page_number, raster))
-    for page_number, raster in pending:
         prediction = list(pipeline.predict(input=str(raster)))[0]
         page = prediction.json["res"]
         regions = []
@@ -59,8 +58,11 @@ with tempfile.TemporaryDirectory(prefix="mst-pdf-raster-") as temp:
         checkpoint[str(page_number)] = page_result
         if checkpoint_path:
             checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
-            checkpoint_path.write_text(json.dumps(checkpoint, ensure_ascii=False), encoding="utf-8")
-        print(f"SCANNED_PAGE={page_number}/{pages}", file=sys.stderr, flush=True)
+            temporary = checkpoint_path.with_suffix(checkpoint_path.suffix + ".tmp")
+            temporary.write_text(json.dumps(checkpoint, ensure_ascii=False), encoding="utf-8")
+            temporary.replace(checkpoint_path)
+        raster.unlink(missing_ok=True)
+        print(f"SCANNED_PAGE={page_number}/{pages} elapsed_ms={round((time.perf_counter() - started) * 1000)} regions={len(regions)}", file=sys.stderr, flush=True)
 result.sort(key=lambda item: item["page"])
 # MST_MATH_UTF8_STDIO_GUARD_V1
 try:

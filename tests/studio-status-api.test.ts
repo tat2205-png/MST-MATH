@@ -36,12 +36,16 @@ const server = app.listen(0, "127.0.0.1");
 try {
   await new Promise<void>((resolve) => server.once("listening", resolve));
   const address = server.address() as AddressInfo;
-  const response = await fetch(`http://127.0.0.1:${address.port}/api/studio/status`);
+  const response = await fetch(`http://127.0.0.1:${address.port}/api/studio/runtime-status`);
   assert.equal(response.status, 200);
   const body = await response.json() as { success: boolean; engines: unknown[] };
   assert.equal(body.success, true);
   assert.equal(body.engines.length, 9);
+
+  // registerStudioRoutes must not claim the capability-registry status endpoint.
+  const capabilityResponse = await fetch(`http://127.0.0.1:${address.port}/api/studio/status`);
+  assert.equal(capabilityResponse.status, 404);
 } finally {
   await new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
 }
-console.log("STUDIO_STATUS_API_QA=PASS");
+console.log("STUDIO_RUNTIME_STATUS_API_QA=PASS");

@@ -1,0 +1,41 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { loadGoldenManifest } from "../scripts/input-golden-manifest-loader.js";
+
+const dir = mkdtempSync(join(tmpdir(), "mst-golden-loader-"));
+const source = join(dir, "source.pdf");
+const expectations = join(dir, "expectations.csv");
+writeFileSync(source, "source");
+writeFileSync(expectations, "golden_id,page_number,expected_math,expected_min_math_regions,expectation_source,expectation_status\ng,1,NONE,0,HUMAN_VISUAL_CONTACT_SHEET,CONFIRMED\n");
+const hash = (value: string | Buffer) => createHash("sha256").update(value).digest("hex");
+
+writeFileSync(join(dir, "legacy.csv"), "GoldenFile,FullPath,SizeBytes,SHA256\nlegacy.docx,x,1,abc\n");
+assert.equal(loadGoldenManifest(join(dir, "legacy.csv"), 1).status, "PASS");
+writeFileSync(join(dir, "bound.csv"), `GoldenFile,FullPath,SizeBytes,SHA256,ExpectationData,ExpectationSHA256,TotalExpectedPages\nsource.pdf,${source},6,deadbeef,${expectations},deadbeef,1\n`);
+assert.equal(loadGoldenManifest(join(dir, "bound.csv"), 1).status, "BLOCKED");
+const makeCase = (id: string, total: number) => {
+  const src = join(dir, `${id}.pdf`); const exp = join(dir, `${id}-expectations.csv`); const sourceText = `${id}-source`;
+  writeFileSync(src, sourceText);
+  const rows = Array.from({ length: total }, (_, i) => `${id},${i + 1},${i === 0 ? "NONE" : "PRESENT"},${i === 0 ? 0 : 1},HUMAN_VISUAL_CONTACT_SHEET,CONFIRMED`).join("\n");
+  writeFileSync(exp, `golden_id,page_number,expected_math,expected_min_math_regions,expectation_source,expectation_status\n${rows}\n`);
+  const manifest = join(dir, `${id}-manifest.csv`);
+  writeFileSync(manifest, `GoldenFile,FullPath,SizeBytes,SHA256,ExpectationData,ExpectationSHA256,TotalExpectedPages\n${id}.pdf,${src},${sourceText.length},${hash(sourceText)},${exp},${hash(readFileSync(exp))},${total}\n`);
+  return manifest;
+};
+assert.equal(loadGoldenManifest(makeCase("scanned", 125)).status, "PASS");
+assert.equal(loadGoldenManifest(makeCase("hybrid", 118)).status, "PASS");
+const duplicate = join(dir, "duplicate.csv");
+writeFileSync(duplicate, "GoldenFile,FullPath,SizeBytes,SHA256\na.pdf,x,1,a\na.pdf,x,1,a\n");
+const duplicateResult = loadGoldenManifest(duplicate);
+assert.equal(duplicateResult.status, "BLOCKED");
+if (duplicateResult.status === "BLOCKED") assert.equal(duplicateResult.code, "DUPLICATE_ASSET_ROW");
+const malformed = join(dir, "malformed.csv");
+writeFileSync(malformed, 'GoldenFile,FullPath\n"unterminated,path\n');
+const malformedResult = loadGoldenManifest(malformed);
+assert.equal(malformedResult.status, "BLOCKED");
+if (malformedResult.status === "BLOCKED") assert.equal(malformedResult.code, "MALFORMED_CSV_UNCLOSED_QUOTE");
+console.log("INPUT_GOLDEN_MANIFEST_LOADER_QA=PASS");

@@ -1,13 +1,15 @@
 {
-  "generated_at": "2026-09-06T07:56:15.381Z",
+  "generated_at": "2026-09-13T09:02:47.505Z",
   "golden_root": "D:\\MST-MATH-INPUT-GOLDENS",
   "runner": "npm run qa:input-v1",
   "manifest": {
     "manifest_validation": "PASS",
-    "rows": 7,
+    "loader_binding": "PASS",
+    "rows": 9,
+    "bound_assets": 9,
     "missing_referenced_assets": 0,
     "unregistered_golden_assets": 0,
-    "notes": "Existing manifest has legacy four-column schema; semantic expectations are inferred from canonical filenames and production output."
+    "notes": "GOLDEN-MANIFEST.csv is authoritative; source and expectation hashes are verified by the loader before semantic evaluation."
   },
   "results": [
     {
@@ -22,25 +24,7 @@
       "warnings": [],
       "errors": [],
       "overall_status": "PASS",
-      "timing_ms": 18
-    },
-    {
-      "golden_id": "02-word-omml",
-      "filename": "02-word-omml.docx",
-      "type": "WORD",
-      "parser_path": "ingestUnifiedSource(DOCX)",
-      "text_status": "BLOCKED",
-      "math_status": "FAIL",
-      "figure_status": "PASS",
-      "structure_status": "FAIL",
-      "warnings": [
-        "INVALID_OMML"
-      ],
-      "errors": [
-        "INVALID_OMML"
-      ],
-      "overall_status": "FAIL",
-      "timing_ms": 23
+      "timing_ms": 19
     },
     {
       "golden_id": "03-word-mathtype",
@@ -48,27 +32,15 @@
       "type": "WORD",
       "parser_path": "ingestUnifiedSource(DOCX)",
       "text_status": "PASS",
-      "math_status": "BLOCKED",
+      "math_status": "PASS",
       "figure_status": "PASS",
       "structure_status": "PASS",
       "warnings": [
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED"
+        "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED"
       ],
-      "errors": [
-        "MATHTYPE_MATH_NOT_RECOVERED"
-      ],
-      "overall_status": "BLOCKED",
-      "timing_ms": 385
+      "errors": [],
+      "overall_status": "PASS",
+      "timing_ms": 2725
     },
     {
       "golden_id": "05-word-real-figure",
@@ -80,27 +52,17 @@
       "figure_status": "PASS",
       "structure_status": "PASS",
       "warnings": [
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "MATHTYPE_MTEF_DECODE_FAILED",
-        "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED",
-        "LEGACY_MATHTYPE_UNRESOLVED"
+        "WORD_RASTER_ASSET_CLASSIFICATION_SKIPPED"
       ],
       "errors": [],
       "overall_status": "PASS",
-      "timing_ms": 347
+      "timing_ms": 333
     },
     {
       "golden_id": "06-pdf-digital",
       "filename": "06-pdf-digital.pdf",
       "type": "PDF",
-      "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+      "parser_path": "pdftotext/pdfinfo native PDF adapter",
       "text_status": "PASS",
       "math_status": "PASS",
       "figure_status": "PASS",
@@ -108,40 +70,121 @@
       "warnings": [],
       "errors": [],
       "overall_status": "PASS",
-      "timing_ms": 823
+      "timing_ms": 718
     },
     {
       "golden_id": "07-pdf-scanned",
       "filename": "07-pdf-scanned.pdf",
       "type": "PDF",
-      "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
+      "parser_path": "ingestSemanticPdf -> PPStructureV3 batch page adapter",
       "text_status": "BLOCKED",
       "math_status": "BLOCKED",
       "figure_status": "BLOCKED",
-      "structure_status": "PASS",
-      "warnings": [
-        "LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"
+      "structure_status": "BLOCKED",
+      "warnings": [],
+      "errors": [
+        "PDF_SEMANTIC_ADAPTER_FAILED:Command failed: D:\\math-ai-video-studio\\math-ai-video-studio-github\\.venv\\Scripts\\python.exe D:\\math-ai-video-studio\\math-ai-video-studio-github\\scripts\\local-semantic-pdf.py C:\\Users\\tat22\\AppData\\Local\\Temp\\mst-semantic-1520-1789290166806.pdf\nTraceback (most recent call last):\r\n  File \"D:\\math-ai-video-studio\\math-ai-video-studio-github\\scripts\\local-semantic-pdf.py\", line 7, in <module>\r\n    from paddleocr import PPStructureV3\r\nModuleNotFoundError: No module named 'paddleocr'\r\n"
       ],
-      "errors": [],
       "overall_status": "BLOCKED",
-      "timing_ms": 553
+      "timing_ms": 313
     },
     {
       "golden_id": "08-pdf-hybrid",
       "filename": "08-pdf-hybrid.pdf",
       "type": "PDF",
-      "parser_path": "pdftotext/pdfinfo + local semantic-recognition policy",
-      "text_status": "PASS",
+      "parser_path": "ingestSemanticPdf + pdftotext native reconciliation",
+      "text_status": "BLOCKED",
       "math_status": "BLOCKED",
       "figure_status": "BLOCKED",
+      "structure_status": "BLOCKED",
+      "warnings": [],
+      "errors": [
+        "PDF_SEMANTIC_ADAPTER_FAILED:Command failed: D:\\math-ai-video-studio\\math-ai-video-studio-github\\.venv\\Scripts\\python.exe D:\\math-ai-video-studio\\math-ai-video-studio-github\\scripts\\local-semantic-pdf.py C:\\Users\\tat22\\AppData\\Local\\Temp\\mst-hybrid-1520-1789290167121.pdf\nTraceback (most recent call last):\r\n  File \"D:\\math-ai-video-studio\\math-ai-video-studio-github\\scripts\\local-semantic-pdf.py\", line 7, in <module>\r\n    from paddleocr import PPStructureV3\r\nModuleNotFoundError: No module named 'paddleocr'\r\n"
+      ],
+      "overall_status": "BLOCKED",
+      "timing_ms": 202
+    },
+    {
+      "golden_id": "02-word-omml-successor",
+      "filename": "02-word-omml-successor.docx",
+      "type": "WORD",
+      "parser_path": "ingestUnifiedSource(DOCX)",
+      "text_status": "PASS",
+      "math_status": "PASS",
+      "figure_status": "PASS",
       "structure_status": "PASS",
       "warnings": [
-        "LOCAL_SEMANTIC_OCR_NOT_CONFIGURED; ordinary text extraction is insufficient for mandatory scan math/figure QA"
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT",
+        "UNSUPPORTED_OMML_CONSTRUCT"
       ],
-      "errors": [],
+      "errors": [
+        "MANIFEST_HASH_OR_SIZE_MISMATCH"
+      ],
+      "overall_status": "FAIL",
+      "timing_ms": 5
+    },
+    {
+      "golden_id": "09-image-text-math",
+      "filename": "09-image-text-math.jpg",
+      "type": "IMAGE",
+      "parser_path": "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)",
+      "text_status": "BLOCKED",
+      "math_status": "BLOCKED",
+      "figure_status": "BLOCKED",
+      "structure_status": "BLOCKED",
+      "warnings": [
+        "LOCAL_PADDLE_RUNTIME_BLOCKED"
+      ],
+      "errors": [
+        "SEMANTIC_IMAGE_PIPELINE_BLOCKED"
+      ],
+      "performance": {
+        "region_count": 0,
+        "text_blocks": 0,
+        "math_blocks": 0,
+        "figure_blocks": 0
+      },
       "overall_status": "BLOCKED",
-      "timing_ms": 1070
+      "timing_ms": 112
+    },
+    {
+      "golden_id": "10-image-math-figure",
+      "filename": "10-image-math-figure.jpg",
+      "type": "IMAGE",
+      "parser_path": "local PaddleOCR PPStructureV3 (layout + OCR + formula recognition)",
+      "text_status": "BLOCKED",
+      "math_status": "BLOCKED",
+      "figure_status": "BLOCKED",
+      "structure_status": "BLOCKED",
+      "warnings": [
+        "LOCAL_PADDLE_RUNTIME_BLOCKED"
+      ],
+      "errors": [
+        "SEMANTIC_IMAGE_PIPELINE_BLOCKED"
+      ],
+      "performance": {
+        "region_count": 0,
+        "text_blocks": 0,
+        "math_blocks": 0,
+        "figure_blocks": 0
+      },
+      "overall_status": "BLOCKED",
+      "timing_ms": 113
     }
   ],
-  "image_real_golden_blocked": true
+  "image_real_golden_blocked": false
 }

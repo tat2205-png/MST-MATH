@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "PIMATH_AUTHORITY_REGISTRY_V1",
   "status": "CANONICAL",
   "authorityOrder": [
@@ -12,10 +12,21 @@
     "docs/project/PROJECT_MASTER_MAP.md",
     "project-state/PIMATH-PROJECT-STATE.json"
   ],
+  "operationalControlSource": "PROJECT_CONTROL.md",
+  "standardAuthority": {
+    "registry": "registry/standards.json",
+    "familyIndex": "registry/standard-families.json",
+    "resolutionRule": "ONE_ACTIVE_CANONICAL_PER_SEMANTIC_FAMILY",
+    "historicalPayloadPolicy": "IMMUTABLE_HISTORY_RESOLVED_BY_CURRENT_REGISTRY_CLASSIFICATION"
+  },
   "rules": [
     "A lower authority may not override a higher authority.",
     "LOCKED, CANONICAL, APPROVED, MASTER and DONE artifacts are immutable unless explicitly reopened by the human product owner.",
     "Historical roadmaps and release documents are reference material unless explicitly named current authority.",
-    "Renderers and adapters never become mathematical source of truth."
+    "Renderers and adapters never become mathematical source of truth.",
+    "Only one active canonical authority may exist for the same semantic family.",
+    "A superseded locked artifact remains historical evidence and compatibility material; it is not an active authority.",
+    "Standards that share files or concepts but govern different semantic scopes remain specialized facets rather than being destructively merged.",
+    "Current registry classification resolves active authority without rewriting immutable historical payloads."
   ]
 }

@@ -21,10 +21,22 @@ export interface TeacherQuestion extends Omit<QuestionObject, "figures"> {
   figures: Array<Omit<QuestionObject["figures"][number], "bytes"> & { dataUrl?: string }>;
 }
 
+export interface WorkflowActionReadiness {
+  ready: boolean;
+  reason: string;
+}
+
 export interface WorkflowReadiness {
   source: "MAS_INT_01_RUNTIME_READINESS";
   requiredRuntimeBlockers: "NONE";
-  actions: Record<"assessment" | "game" | "video" | "export", { ready: boolean; reason: string }>;
+  actions: Record<
+    "assessment" | "game" | "video" | "export",
+    WorkflowActionReadiness
+  >;
+}
+
+export function readinessActionValues(actions: WorkflowReadiness["actions"]): WorkflowActionReadiness[] {
+  return Object.values(actions);
 }
 
 export interface WorkflowSummary {
@@ -39,6 +51,7 @@ export interface ImportWorkflowResult {
   imported: TeacherQuestion[];
   diagnostics: Array<{ code: string; questionId?: string; severity: "INFO" | "WARNING" | "ERROR"; details?: Record<string, unknown> }>;
   summary: WorkflowSummary;
+  p01?: { status: "PASS" | "REVIEW_REQUIRED" | "FAIL"; sourceHash: string; diagnostics: unknown[]; qaState?: "PASS" | "REVIEW" | "FAIL"; mathQAStatus?: string; artifactFormats?: string[] };
 }
 
 export interface QuestionQueryResponse {

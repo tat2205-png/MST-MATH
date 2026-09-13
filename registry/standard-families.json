@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "MST_MATH_STANDARD_FAMILY_INDEX_V1",
+  "purpose": "Resolve overlapping or versioned standards to one active authority per semantic family without rewriting historical locked artifacts.",
+  "resolutionPolicy": {
+    "oneActiveCanonicalPerSemanticFamily": true,
+    "historicalArtifactsRemainImmutable": true,
+    "compatibilityAliasesAreNotAuthorities": true,
+    "specializedFacetsMayRemainSeparate": true,
+    "crossLayerStandardsMustNotBeMerged": true,
+    "registryClassificationOverridesHistoricalSelfDeclarationForCurrentAuthorityResolution": true
+  },
+  "families": {
+    "PRODUCT_IDENTITY_ROOT": {
+      "activeCanonical": "PIMATH-DNA-V1.0",
+      "compatibilityAliases": ["NA-MATH-EDUCATIONAL-BRAND-SYSTEM-V1.0"],
+      "futureMigrationTarget": "MST-MATH-DNA-V1.0",
+      "futureMigrationTargetStatus": "NOT_YET_CANONICAL",
+      "mergePolicy": "ALIAS_COMPATIBILITY_ONLY"
+    },
+    "GLOBAL_BASELINE": {
+      "activeCanonical": "PIMATH_DNA_GLOBAL_BASELINE_V1.2",
+      "historical": ["PIMATH_DNA_GLOBAL_BASELINE_V1.0", "PIMATH_DNA_GLOBAL_BASELINE_V1.1"],
+      "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE"
+    },
+    "SEMANTIC_ICONS": {
+      "activeCanonical": "PIMATH-DNA-SEMANTIC-ICONS-V2.0",
+      "historical": ["PIMATH-DNA-SEMANTIC-ICONS-V1.0", "PIMATH-DNA-SEMANTIC-ICONS-V1.1"],
+      "mergePolicy": "LATEST_APPROVED_VERSION_ACTIVE_HISTORY_IMMUTABLE",
+      "runtimeEvidence": "src/config/naMathBrandRoot.ts imports registry/pimath-dna-icons-v2.json",
+      "consumerBindings": {
+        "accessibility": "PIMATH-DNA-SEMANTIC-ICONS-V2.0"
+      },
+      "knownNonAuthorityLegacyReferences": []
+    },
+    "DYNAMIC_GEOMETRY": {
+      "activeCanonical": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
+      "specializedFacets": [
+        "PIMATH_DNA_GEOGEBRA_FOLD_LAYOUT_V1.0",
+        "PIMATH_DNA_GEOGEBRA_2D_DYNAMIC_VISUALIZATION_V1.0",
+        "PIMATH_DNA_GEOGEBRA_2D_MIN_MAX_VISUALIZATION_V1.0",
+        "PIMATH_DEVELOPABLE_GEOMETRY_KERNEL_V1.0"
+      ],
+      "mergePolicy": "KEEP_SPECIALIZED_FACETS_UNDER_ONE_FAMILY_ROOT"
+    },
+    "PRESENTATION_SYSTEM": {
+      "activeCanonical": "NA_MATH_LAYOUT_V1_3",
+      "specializedFacets": ["NA_MATH_TYPOGRAPHY_STANDARD_V1_0"],
+      "mergePolicy": "KEEP_DISTINCT_FACETS_SHARED_PACKAGE",
+      "reason": "Layout and typography share a package but govern different semantic scopes."
+    },
+    "VIDEO_PRESENTATION": {
+      "activeCanonical": "NA_MATH_VIDEO_VISUAL_LANGUAGE_V1_0",
+      "specializedFacets": ["NA_MATH_VIDEO_GOLDEN_START_MID_END_V1"],
+      "mergePolicy": "KEEP_AUTHORITY_AND_GOLDEN_EVIDENCE_DISTINCT",
+      "reason": "Visual-language rules and golden reference evidence are related but not interchangeable authorities."
+    },
+    "FOLD_PRESENTATION": {
+      "activeCanonical": "NA_MATH_GEOMETRY_FOLD_VISUAL_STANDARD_V1",
+      "mergePolicy": "KEEP_PRESENTATION_LAYER_SEPARATE_FROM_GEOMETRY_SEMANTICS",
+      "reason": "Fold visual standard is an adapter/presentation boundary and must not replace shared geometry semantics."
+    },
+    "NA_MATH_SYSTEM_BASELINE": {
+      "activeCanonical": "NA_MATH_SYSTEM_BASELINE_V2_6",
+      "mergePolicy": "KEEP_SYSTEM_BASELINE_ROOT"
+    },
+    "CLASSROOM_GAME_REFERENCE": {
+      "activeCanonical": "GAME_01_OLYMPIA_REFERENCE_V1",
+      "mergePolicy": "REFERENCE_ONLY_NOT_CORE_AUTHORITY"
+    }
+  }
+}

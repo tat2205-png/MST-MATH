@@ -1,0 +1,145 @@
+{
+  "standardId": "PIMATH-DNA-SEMANTIC-ICONS-V1.1",
+  "version": "1.1.0",
+  "productDisplayName": "MST-MATH",
+  "codeRoot": "PIMATH_DNA_ICONS",
+  "status": "LOCKED",
+  "canonical": true,
+  "approved": true,
+  "humanApproved": true,
+  "global": true,
+  "singleSourceOfTruth": true,
+  "parentBrandId": "PIMATH-DNA-V1.0",
+  "scope": "ENTIRE_PIMATH",
+  "supersedes": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
+  "inherits": "PIMATH-DNA-SEMANTIC-ICONS-V1.0",
+  "machineIdPolicy": "PRESERVE_PIMATH_CANONICAL_IDS_DURING_MST_MATH_BRAND_MIGRATION",
+  "principle": "AUTHOR_ONCE_RENDER_MANY_SAME_ICON_SEMANTICS",
+  "style": {
+    "family": "MINIMAL_ACADEMIC_LINE",
+    "masterFormat": "SVG",
+    "viewBox": "0 0 24 24",
+    "strokeWidth": 1.55,
+    "strokeLinecap": "round",
+    "strokeLinejoin": "round",
+    "decorative": false,
+    "filledDefault": false,
+    "monochromeSafe": true,
+    "noOwnColorPalette": true,
+    "noGradient": true,
+    "noEmoji": true,
+    "no3d": true
+  },
+  "colorPolicy": "INHERIT_SEMANTIC_CONTEXT",
+  "fallbackPolicy": "FAIL_CLOSED",
+  "outputContract": {
+    "identityRule": "SAME_SEMANTIC_ROLE_SAME_MASTER_ASSET",
+    "targets": {
+      "PDF": {
+        "adapter": "SVG_TO_VECTOR_PDF",
+        "preserveIdentity": true,
+        "fallback": "PNG_DERIVED_FROM_CANONICAL_SVG_ONLY"
+      },
+      "DOCX": {
+        "adapter": "EMBED_SVG",
+        "preserveIdentity": true,
+        "fallback": "PNG_DERIVED_FROM_CANONICAL_SVG_ONLY"
+      },
+      "HTML": {
+        "adapter": "INLINE_OR_IMG_SVG",
+        "preserveIdentity": true,
+        "fallback": "NONE"
+      },
+      "SLIDES": {
+        "adapter": "SVG_VECTOR",
+        "preserveIdentity": true,
+        "fallback": "PNG_DERIVED_FROM_CANONICAL_SVG_ONLY"
+      },
+      "VIDEO": {
+        "adapter": "SVG_VECTOR_MOTION_WRAPPER",
+        "preserveIdentity": true,
+        "fallback": "RASTER_DERIVED_FROM_CANONICAL_SVG_ONLY",
+        "motion": {
+          "identityMayChange": false,
+          "allowed": ["fade", "scale_0_96_to_1", "short_slide"],
+          "forbidden": ["spin", "bounce", "morph_to_other_icon", "decorative_loop"],
+          "maxIntroMs": 320
+        }
+      }
+    }
+  },
+  "roles": {
+    "LEARNING_OBJECTIVE": {"concept":"target/learning-outcome","viLabel":"Mục tiêu học tập","enLabel":"Learning objective","category":"pedagogy","resource":"assets/pimath-icons/learning-objective.svg"},
+    "CONCEPT": {"concept":"key-idea/concept","viLabel":"Kiến thức trọng tâm","enLabel":"Concept","category":"knowledge","resource":"assets/pimath-icons/concept.svg"},
+    "DEFINITION": {"concept":"definition/reference","viLabel":"Định nghĩa","enLabel":"Definition","category":"knowledge","resource":"assets/pimath-icons/definition.svg"},
+    "FORMULA": {"concept":"formula/math","viLabel":"Công thức","enLabel":"Formula","category":"knowledge","resource":"assets/pimath-icons/formula.svg"},
+    "EXAMPLE": {"concept":"worked-example","viLabel":"Ví dụ","enLabel":"Example","category":"pedagogy","resource":"assets/pimath-icons/example.svg"},
+    "NOTE": {"concept":"note/document","viLabel":"Ghi chú","enLabel":"Note","category":"annotation","resource":"assets/pimath-icons/note.svg"},
+    "IMPORTANT": {"concept":"important/emphasis","viLabel":"Quan trọng","enLabel":"Important","category":"annotation","resource":"assets/pimath-icons/important.svg"},
+    "WARNING": {"concept":"warning/common-mistake","viLabel":"Cảnh báo","enLabel":"Warning","category":"annotation","resource":"assets/pimath-icons/warning.svg"},
+    "TIP": {"concept":"hint/tip","viLabel":"Gợi ý","enLabel":"Tip","category":"pedagogy","resource":"assets/pimath-icons/tip.svg"},
+    "QUESTION": {"concept":"question/checkpoint","viLabel":"Câu hỏi","enLabel":"Question","category":"assessment","resource":"assets/pimath-icons/question.svg"},
+    "EXERCISE": {"concept":"exercise/practice","viLabel":"Bài tập","enLabel":"Exercise","category":"assessment","resource":"assets/pimath-icons/exercise.svg"},
+    "SOLUTION": {"concept":"solution/steps","viLabel":"Lời giải","enLabel":"Solution","category":"solution","resource":"assets/pimath-icons/solution.svg"},
+    "ANSWER": {"concept":"answer/result","viLabel":"Đáp án","enLabel":"Answer","category":"solution","resource":"assets/pimath-icons/result-success.svg"},
+    "GEOMETRY": {"concept":"geometry/figure","viLabel":"Hình học","enLabel":"Geometry","category":"visual","resource":"assets/pimath-icons/geometry-figure.svg"},
+    "GRAPH": {"concept":"graph/function","viLabel":"Đồ thị","enLabel":"Graph","category":"visual","resource":"assets/pimath-icons/graph.svg"},
+    "TABLE": {"concept":"table/data","viLabel":"Bảng","enLabel":"Table","category":"visual","resource":"assets/pimath-icons/table.svg"},
+    "ACTIVITY": {"concept":"activity/investigation","viLabel":"Hoạt động","enLabel":"Activity","category":"pedagogy","resource":"assets/pimath-icons/activity.svg"},
+    "QUESTION_SOURCE": {"concept":"document/source","resource":"assets/pimath-icons/question-source.svg","compatibilityRole":true,"semanticRole":"QUESTION"},
+    "SOLUTION_REASONING": {"concept":"lightbulb/reasoning","resource":"assets/pimath-icons/solution-reasoning.svg","compatibilityRole":true,"semanticRole":"SOLUTION"},
+    "GEOMETRY_FIGURE": {"concept":"geometry/drawing","resource":"assets/pimath-icons/geometry-figure.svg","compatibilityRole":true,"semanticRole":"GEOMETRY"},
+    "RESULT_SUCCESS": {"concept":"check/result","resource":"assets/pimath-icons/result-success.svg","compatibilityRole":true,"semanticRole":"ANSWER"}
+  },
+  "componentBindings": {
+    "learning-objective": "LEARNING_OBJECTIVE",
+    "key-idea": "CONCEPT",
+    "worked-example": "EXAMPLE",
+    "try-it": "EXERCISE",
+    "common-mistake": "WARNING",
+    "hint": "TIP",
+    "checkpoint": "QUESTION",
+    "summary": "IMPORTANT",
+    "math-formula-card": "FORMULA",
+    "geometry-figure-card": "GEOMETRY",
+    "solution-steps": "SOLUTION",
+    "final-answer": "ANSWER",
+    "prerequisite": "CONCEPT",
+    "concept-map": "CONCEPT",
+    "compare": "CONCEPT",
+    "strategy": "SOLUTION",
+    "proof": "SOLUTION",
+    "real-world-connection": "ACTIVITY",
+    "focus": "IMPORTANT"
+  },
+  "legacyIconAliases": {
+    "target": "LEARNING_OBJECTIVE",
+    "sparkles": "CONCEPT",
+    "book-open-check": "EXAMPLE",
+    "pencil-line": "EXERCISE",
+    "triangle-alert": "WARNING",
+    "lightbulb": "TIP",
+    "circle-check-big": "QUESTION",
+    "list-checks": "IMPORTANT",
+    "sigma": "FORMULA",
+    "triangle": "GEOMETRY",
+    "list-ordered": "SOLUTION",
+    "badge-check": "ANSWER",
+    "history": "CONCEPT",
+    "network": "CONCEPT",
+    "columns-2": "CONCEPT",
+    "route": "SOLUTION",
+    "file-check-2": "SOLUTION",
+    "globe-2": "ACTIVITY",
+    "scan-search": "IMPORTANT"
+  },
+  "governance": {
+    "parallelIconSystem": false,
+    "moduleLocalAuthority": false,
+    "componentIconNamesAreAliasesOnly": true,
+    "silentFallback": false,
+    "unregisteredIcon": false,
+    "rendererMaySubstituteIcon": false,
+    "videoMayAnimateButNotChangeIdentity": true
+  }
+}

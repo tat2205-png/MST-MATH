@@ -1,0 +1,7 @@
+{
+  "benchmarkId": "PIMATH_LOCAL_DOCUMENT_INTELLIGENCE_BENCHMARK_V1",
+  "providerCoupling": "ABSTRACT_ONLY",
+  "entries": [],
+  "policy": "Entries must reference external/local paths and hashes; synthetic fixtures are never real evidence.",
+  "generalAcceptanceCandidates": []
+}
