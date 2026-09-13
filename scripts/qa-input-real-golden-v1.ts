@@ -4,6 +4,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, basename, extname } from "node:path";
 import { ingestUnifiedSource } from "../src/modules/document-ingest/unified.js";
 import { ingestHybridPdf, ingestSemanticPdf } from "../src/modules/document-ingest/pdf-semantic-adapter.js";
+import { evaluateMathExpectation, evaluatePageCoverage } from "./input-golden-math-contract.js";
+import { loadGoldenManifest } from "./input-golden-manifest-loader.js";
 
 type Row = Record<string, string>;
 const root = process.env.MST_MATH_INPUT_GOLDEN_ROOT || "D:\\MST-MATH-INPUT-GOLDENS";
@@ -15,6 +17,9 @@ const rows: Row[] = csv.filter(Boolean).map(line => {
   const values = [...line.matchAll(/"((?:[^"]|"")*)"/g)].map(m => m[1].replaceAll('""', '"'));
   return Object.fromEntries(fields.map((f, i) => [f, values[i] ?? ""]));
 });
+const loadedManifest = loadGoldenManifest(join(root, "GOLDEN-MANIFEST.csv"));
+if (loadedManifest.status === "BLOCKED") throw new Error(`GOLDEN_MANIFEST_BLOCKED:${loadedManifest.code}`);
+const loadedAssets = new Map(loadedManifest.assets.map(asset => [asset.golden_id, asset]));
 const result: any[] = [];
 const sha = (b: Buffer) => createHash("sha256").update(b).digest("hex");
 const run = (cmd: string, args: string[], input?: Buffer) => { try { return execFileSync(cmd, args, { input, encoding: "utf8", windowsHide: true, maxBuffer: 8 * 1024 * 1024 }); } catch { return ""; } };
@@ -47,7 +52,14 @@ for (const row of rows) {
         const hybrid = name.includes("hybrid"); const semantic = hybrid ? ingestHybridPdf(bytes, name) : ingestSemanticPdf(bytes, name); const all = semantic.output.pages.flatMap(page => page.regions); const text = all.filter(x => x.type === "TEXT" && x.text?.trim()); const math = all.filter(x => x.type === "MATH" && x.text?.trim()); const figure = all.filter(x => x.type === "FIGURE");
         const nativeText = run("pdftotext", ["-enc", "UTF-8", "-layout", file, "-"]);
         const requestedStart = Number(process.env.MST_MATH_INPUT_PDF_START || 1); const requestedEnd = Number(process.env.MST_MATH_INPUT_PDF_END || pages); const expectedProcessedPages = Math.max(0, Math.min(pages, requestedEnd) - Math.max(1, requestedStart) + 1);
-        r.text_status = text.length || nativeText.trim() ? "PASS" : "FAIL"; r.math_status = math.length ? "PASS" : "FAIL"; r.figure_status = figure.length || row.ExpectFigure !== "TRUE" ? "PASS" : "FAIL"; r.structure_status = semantic.output.pages.length === expectedProcessedPages && semantic.document.blocks.length > 0 ? "PASS" : "FAIL";
+        r.text_status = text.length || nativeText.trim() ? "PASS" : "FAIL";
+        const asset = loadedAssets.get(name.replace(ext, ""));
+        const expectations = asset?.page_expectations;
+        const mathChecks = expectations ? semantic.output.pages.map(page => evaluateMathExpectation(expectations[page.page - 1], { page_number: page.page, detected_math_regions: page.regions.filter(x => x.type === "MATH" && x.text?.trim()).length })) : [];
+        r.math_status = mathChecks.length && mathChecks.every(check => check.status === "PASS") ? "PASS" : mathChecks.some(check => check.status === "FAIL") ? "FAIL" : "BLOCKED";
+        const finalRun = !process.env.MST_MATH_INPUT_PDF_START && !process.env.MST_MATH_INPUT_PDF_END;
+        r.coverage_status = evaluatePageCoverage(expectations ?? [], asset?.total_expected_pages ?? expectedProcessedPages, semantic.output.pages.map(page => page.page), finalRun).status;
+        r.figure_status = figure.length || row.ExpectFigure !== "TRUE" ? "PASS" : "FAIL"; r.structure_status = semantic.output.pages.length === expectedProcessedPages && semantic.document.blocks.length > 0 ? "PASS" : "FAIL";
         r.performance = { pages, page_times: [], text_blocks: text.length, math_blocks: math.length, figure_blocks: figure.length, document_blocks: semantic.document.blocks.length, native_text_present: Boolean(nativeText.trim()), model_reuse: semantic.output.model_reuse, provider: semantic.output.provider, coordinate_space: hybrid ? "canonical-pdf-page-space" : "raster-page-space -> DocumentIR page provenance", ...(hybrid ? { reconciliation: (semantic as any).reconciliation } : {}) };
         r.warnings.push(scanned ? "PDF_PAGE_RASTERIZED_AND_MAPPED_TO_DOCUMENTIR" : "HYBRID_NATIVE_RASTER_RECONCILED_DEDUPED_AND_MAPPED");
       } catch (error) { r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED"; r.errors.push(`PDF_SEMANTIC_ADAPTER_FAILED:${error instanceof Error ? error.message : String(error)}`); }
@@ -58,11 +70,12 @@ for (const row of rows) {
     r.text_status = text.length ? "PASS" : "FAIL"; r.math_status = math.length ? "PASS" : "FAIL"; r.figure_status = figure.length ? "PASS" : "PASS"; r.structure_status = regions.length && regions.every((x: any) => x.bbox) ? "PASS" : "FAIL"; r.performance = { region_count: regions.length, text_blocks: text.length, math_blocks: math.length, figure_blocks: figure.length, provider: vision?.[0]?.provider };
     if (vision?.error) { r.text_status = "BLOCKED"; r.math_status = "BLOCKED"; r.figure_status = "BLOCKED"; r.structure_status = "BLOCKED"; r.warnings.push("LOCAL_PADDLE_RUNTIME_BLOCKED"); r.errors.push("SEMANTIC_IMAGE_PIPELINE_BLOCKED"); }
   } else { r.parser_path = "unsupported registered extension"; r.errors.push("UNSUPPORTED_GOLDEN_EXTENSION"); }
-  if (r.errors.some((e: string) => e.includes("HASH") || e.includes("MISSING") || e.includes("UNREADABLE"))) r.overall_status = "FAIL"; else r.overall_status = status({ text: r.text_status, math: r.math_status, figure: r.figure_status, structure: r.structure_status }); r.timing_ms = Date.now() - started; result.push(r);
+  if (r.errors.some((e: string) => e.includes("HASH") || e.includes("MISSING") || e.includes("UNREADABLE"))) r.overall_status = "FAIL"; else r.overall_status = status({ text: r.text_status, math: r.math_status, figure: r.figure_status, structure: r.structure_status, coverage: r.coverage_status ?? "PASS" }); r.timing_ms = Date.now() - started; result.push(r);
 }
 const assets = readFileSync(join(root, "GOLDEN-MANIFEST.csv"), "utf8");
-const manifestAudit = { manifest_validation: rows.length && result.every(r => !r.errors.includes("MISSING_REFERENCED_ASSET")) ? "PASS" : "FAIL", rows: rows.length, missing_referenced_assets: result.filter(r => r.errors.includes("MISSING_REFERENCED_ASSET")).length, unregistered_golden_assets: 0, notes: "Existing manifest has legacy four-column schema; semantic expectations are inferred from canonical filenames and production output." };
-const summary = { generated_at: new Date().toISOString(), golden_root: root, runner: "npm run qa:input-v1", manifest: manifestAudit, results: result, image_real_golden_blocked: !result.some(r => r.type === "IMAGE") };
+const unboundPageAssets = result.filter(r => (r.filename.endsWith(".pdf") && (r.filename.includes("scanned") || r.filename.includes("hybrid"))) && !loadedAssets.get(r.golden_id)?.page_expectations).map(r => r.golden_id);
+const manifestAudit = { manifest_validation: rows.length && loadedManifest.status === "PASS" && unboundPageAssets.length === 0 && result.every(r => !r.errors.includes("MISSING_REFERENCED_ASSET")) ? "PASS" : "BLOCKED", loader_binding: loadedManifest.status, rows: rows.length, bound_assets: loadedAssets.size, unbound_page_assets: unboundPageAssets, missing_referenced_assets: result.filter(r => r.errors.includes("MISSING_REFERENCED_ASSET")).length, unregistered_golden_assets: 0, notes: "GOLDEN-MANIFEST.csv is authoritative; source and expectation hashes are verified by the loader before semantic evaluation." };
+const summary = { generated_at: new Date().toISOString(), golden_root: root, runner: "npm run qa:input-v1", manifest: manifestAudit, results: result, image_real_golden_blocked: result.some(r => r.type === "IMAGE" && r.overall_status !== "PASS") || !result.some(r => r.type === "IMAGE") };
 writeFileSync(join(evidenceDir, "results.json"), JSON.stringify(result, null, 2)); writeFileSync(join(evidenceDir, "manifest-audit.json"), JSON.stringify(manifestAudit, null, 2)); writeFileSync(join(evidenceDir, "summary.json"), JSON.stringify(summary, null, 2)); writeFileSync(join(evidenceDir, "environment.json"), JSON.stringify({ timestamp: new Date().toISOString(), os: process.platform, node: process.version, golden_root: root, runner: "npm run qa:input-v1", mathpix_required: false }, null, 2));
-const report = [`# MST-MATH Input Real Golden V1`, ``, `Manifest: ${manifestAudit.manifest_validation} (${rows.length} rows).`, ``, ...result.map(r => `- ${r.filename}: **${r.overall_status}** (text=${r.text_status}, math=${r.math_status}, figure=${r.figure_status}, structure=${r.structure_status})${r.warnings.length ? ` — ${r.warnings.join("; ")}` : ""}`), ``, `Image real Golden blocked: ${summary.image_real_golden_blocked}`, ``, `Reproduction: \`npm run qa:input-v1\``].join("\n");
+const report = [`# MST-MATH Input Real Golden V1`, ``, `Manifest: ${manifestAudit.manifest_validation} (${rows.length} asset rows; page expectations are hash-bound where required).`, ``, ...result.map(r => `- ${r.filename}: **${r.overall_status}** (text=${r.text_status}, math=${r.math_status}, figure=${r.figure_status}, structure=${r.structure_status})${r.warnings.length ? ` — ${r.warnings.join("; ")}` : ""}`), ``, `Image real Golden blocked: ${summary.image_real_golden_blocked}`, ``, `Reproduction: \`npm run qa:input-v1\``].join("\n");
 writeFileSync(join(evidenceDir, "report.md"), report); console.log(JSON.stringify(summary, null, 2)); process.exitCode = result.some(r => r.overall_status !== "PASS") || manifestAudit.manifest_validation !== "PASS" ? 1 : 0;

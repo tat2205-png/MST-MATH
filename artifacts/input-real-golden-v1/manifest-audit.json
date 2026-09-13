@@ -1,7 +1,9 @@
 {
   "manifest_validation": "PASS",
-  "rows": 7,
+  "loader_binding": "PASS",
+  "rows": 9,
+  "bound_assets": 9,
   "missing_referenced_assets": 0,
   "unregistered_golden_assets": 0,
-  "notes": "Existing manifest has legacy four-column schema; semantic expectations are inferred from canonical filenames and production output."
+  "notes": "GOLDEN-MANIFEST.csv is authoritative; source and expectation hashes are verified by the loader before semantic evaluation."
 }
