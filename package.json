@@ -29,6 +29,8 @@
     "qa:ingest": "node --import tsx tests/test-document-ingest-v1.ts",
     "qa:exam-normalization": "node --import tsx tests/test-exam-normalization-v1.ts",
     "qa:input-v1": "node --import tsx scripts/qa-input-real-golden-v1.ts",
+    "qa:unified-input:certify": "node --import tsx tests/test-pimath-unified-input-certification-v1.ts",
+    "qa:unified-input:certify:readonly": "node --import tsx scripts/run-pimath-unified-input-certification-readonly.mjs",
     "qa:wmf": "node --import tsx tests/test-wmf-production.ts",
     "qa:q37-vml": "node --import tsx tests/test-q37-vml-real-source.ts",
     "qa:question-pagination": "node --import tsx tests/test-question-bank-pagination.ts",

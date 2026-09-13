@@ -72,15 +72,16 @@ check(JSON.stringify(repository.load().questions) === sourceBefore, "UX_SOURCE_I
 
 const uiSource = fs.readFileSync(path.join(process.cwd(), "src", "components", "teacher", "TeacherWorkspace.tsx"), "utf8");
 const serverSource = fs.readFileSync(path.join(process.cwd(), "server", "services", "teacherWorkflowService.ts"), "utf8");
+const coreServerSource = fs.readFileSync(path.join(process.cwd(), "server", "services", "teacherWorkflowCoreService.ts"), "utf8");
 const appSource = fs.readFileSync(path.join(process.cwd(), "server.ts"), "utf8");
 check(uiSource.includes("Quy trình dành cho giáo viên") && uiSource.includes("Ngân hàng câu hỏi") && uiSource.includes("Tạo đề kiểm tra"), "HOME_WORKSPACE_QA");
-check(uiSource.includes("LocalBridgeClient") && serverSource.includes("QuestionBankStudioService"), "UI_RUNTIME_ISOLATION_QA");
+check(uiSource.includes("LocalBridgeClient") && coreServerSource.includes("QuestionBankStudioService"), "UI_RUNTIME_ISOLATION_QA");
 check(!uiSource.includes("JsonQuestionBankRepository") && !uiSource.includes("node:fs"), "UI_STORAGE_ISOLATION_QA");
-check(serverSource.includes("QuestionBankService") && serverSource.includes("AssessmentService") && serverSource.includes("ClassroomGameService") && serverSource.includes("QuestionBankExportService"), "TEACHER_WORKFLOW_SERVICE_QA");
+check(coreServerSource.includes("QuestionBankService") && coreServerSource.includes("AssessmentService") && coreServerSource.includes("ClassroomGameService") && coreServerSource.includes("QuestionBankExportService"), "TEACHER_WORKFLOW_SERVICE_QA");
 check(uiSource.includes("aria-label") && uiSource.includes("focus:ring"), "ACCESSIBILITY_QA");
 check(uiSource.includes("sm:grid-cols") && uiSource.includes("overflow-x-auto"), "RESPONSIVE_LAYOUT_QA");
 check(uiSource.includes("Đang xử lý") && uiSource.includes("disabled={busy !== null}"), "DOUBLE_SUBMIT_PREVENTION_QA");
-check(uiSource.includes("MAS_INT_01_RUNTIME_READINESS") || serverSource.includes("MAS_INT_01_RUNTIME_READINESS"), "RUNTIME_READINESS_UI_QA");
+check(uiSource.includes("MAS_INT_01_RUNTIME_READINESS") || coreServerSource.includes("MAS_INT_01_RUNTIME_READINESS"), "RUNTIME_READINESS_UI_QA");
 check(appSource.includes('/api/teacher-workflow/readiness'), "UI_READINESS_PUBLIC_ENDPOINT_QA");
 check(uiSource.includes("/api/teacher-workflow/readiness"), "UI_AUTHORITATIVE_READINESS_ENDPOINT_QA");
 check(uiSource.includes("data.result ?? data.summary ?? data.readiness"), "UI_READINESS_RESPONSE_CONTRACT_QA");
