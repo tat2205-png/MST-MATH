@@ -1,4 +1,4 @@
-# Math AI Video Studio v1.4.0
+# MST-MATH — Math AI Video Studio v1.6.0
 
 Local production workflow for verified high-school mathematics explanations and real Manim MP4 rendering. Deterministic Math verification remains authoritative; optional visual AI is not required.
 
