@@ -29,6 +29,7 @@
     "qa:ingest": "node --import tsx tests/test-document-ingest-v1.ts",
     "qa:exam-normalization": "node --import tsx tests/test-exam-normalization-v1.ts",
     "qa:input-v1": "node --import tsx scripts/qa-input-real-golden-v1.ts",
+    "qa:input-v1:batch": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\qa-input-real-golden-batch-v1.ps1",
     "qa:input-golden-math-contract": "node --import tsx tests/test-input-golden-math-contract-v1.ts",
     "qa:input-golden-manifest-loader": "node --import tsx tests/test-input-golden-manifest-loader-v1.ts",
     "qa:unified-input:certify": "node --import tsx tests/test-pimath-unified-input-certification-v1.ts",
