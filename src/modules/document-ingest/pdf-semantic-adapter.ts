@@ -13,6 +13,8 @@ export type PdfSemanticOutput = { file: string; pages: PdfSemanticPage[]; provid
 const sha256 = (bytes: Uint8Array) => createHash("sha256").update(bytes).digest("hex");
 const mstRoot = process.env.MST_MATH_ROOT || "D:\\MST-MATH";
 const python = process.env.MST_MATH_INPUT_VISION_PYTHON || [
+  join(mstRoot, "06_RUNTIME", "MST-MATH-OCR-311", "Scripts", "python.exe"),
+  join(mstRoot, "06_RUNTIME", "MST-MATH-LOCAL-RUNTIME", "successor-paddle-322", ".venv", "Scripts", "python.exe"),
   join(mstRoot, "06_RUNTIME", "MST-MATH-LOCAL-RUNTIME", "uv-python", "python.exe"),
   join(process.cwd(), ".venv", "Scripts", "python.exe"),
 ].find(existsSync) || "python";
