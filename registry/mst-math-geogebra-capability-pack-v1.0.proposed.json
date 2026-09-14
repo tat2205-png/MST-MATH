@@ -1,0 +1,190 @@
+{
+  "id": "MST_MATH_GEOGEBRA_CAPABILITY_PACK_V1.0_PROPOSED",
+  "status": "PROPOSED",
+  "canonical": false,
+  "approved": false,
+  "humanApproved": false,
+  "owner": "MST_MATH",
+  "domain": "DYNAMIC_MATHEMATICS_GEOGEBRA_CAPABILITY",
+  "inherits": "PIMATH_DNA_DYNAMIC_GEOMETRY_VISUALIZATION_V1.0",
+  "architectureMode": "NON_DESTRUCTIVE_SIDECAR",
+  "purpose": "Convert reverse-engineered GeoGebra corpus knowledge into reusable dynamic 2D/3D GeoGebra capability assets without changing canonical source authority, semantic IR, content retrieval, or Word/PDF/static-renderer output pipelines.",
+  "coreInvariants": {
+    "canonicalSemanticIRUnchanged": true,
+    "questionBankAuthorityUnchanged": true,
+    "contentRetrievalUnchanged": true,
+    "existingPdfDocxHtmlOutputsRemainIndependent": true,
+    "geogebraArtifactsAreDerivedNotSourceOfTruth": true,
+    "geogebraQAIsNamespaced": true,
+    "noRawThirdPartyScriptExecution": true,
+    "geogebraOnlyForDynamicInteractive2D3D": true,
+    "geogebraNotAWordPdfStaticRendererPipeline": true,
+    "noGeogebraSnapshotAsStaticOutput": true
+  },
+  "logicalAssets": {
+    "patternLibrary": {
+      "role": "CAPABILITY_REGISTRY",
+      "retrievalNamespace": "GEOGEBRA_CAPABILITY",
+      "mustNotSharePrimaryContentIndex": true,
+      "examples": [
+        "CONSTRAINT_PRESERVING_CONSTRUCTION",
+        "ANGLE_SECTOR_TRANSPORT",
+        "PRESERVE_SOURCE_ANIMATE_DERIVED_COPY",
+        "REGULAR_N_GON_CROSS_SECTION_PARITY_KERNEL",
+        "FUNCTION_DEFINED_CROSS_SECTION_SURFACE",
+        "NET_UNFOLD_FOLD_SEQUENCE",
+        "PROJECTIVE_VANISHING_POINT_GRAPH"
+      ]
+    },
+    "visualStyleSystem": {
+      "role": "RENDERER_PROFILE",
+      "semanticRoleFirst": true,
+      "mustNotLeakHexColorsIntoCanonicalMathIR": true,
+      "visualDimensions": [
+        "BACKGROUND",
+        "SEMANTIC_COLOR",
+        "FILL",
+        "OPACITY",
+        "STROKE",
+        "LINE_TYPE",
+        "POINT_SIZE",
+        "LABEL_PLACEMENT",
+        "GRID_AXES_POLICY",
+        "VIEW_LAYOUT"
+      ]
+    },
+    "constructionAnimationGrammar": {
+      "role": "GEOGEBRA_SPECIFIC_COMPILER_GRAMMAR",
+      "separateFromCanonicalMathIR": true,
+      "primitives": [
+        "POINT",
+        "POINT_ON_OBJECT",
+        "POINT_IN_REGION",
+        "LINE",
+        "RAY",
+        "SEGMENT",
+        "CIRCLE",
+        "ARC",
+        "SECTOR",
+        "POLYGON",
+        "PLANE",
+        "SURFACE",
+        "INTERSECTION",
+        "ROTATE",
+        "TRANSLATE",
+        "DILATE",
+        "MIRROR",
+        "SEQUENCE",
+        "PIECEWISE_STATE",
+        "CONDITIONAL_VISIBILITY",
+        "PARAMETER_SLIDER",
+        "TIMELINE_SLIDER",
+        "REASONING_SLIDER"
+      ]
+    },
+    "pedagogyAssessmentPatterns": {
+      "role": "DERIVED_LESSON_AND_ACTIVITY_TEMPLATES",
+      "generatedInstancesAreCanonicalQuestions": false,
+      "promotionRequires": ["MATH_QA", "PEDAGOGY_QA", "HUMAN_APPROVAL"],
+      "lessonFlow": ["OBSERVE", "NOTICE", "WONDER", "PREDICT", "MANIPULATE", "TEST", "CONJECTURE", "FORMALIZE", "PROVE", "APPLY"],
+      "assessmentModes": ["CONSTRUCTION", "DRAG_TO_TARGET", "OPEN_MIDDLE", "SHORT_RESPONSE", "INVERSE_TASK", "PARAMETRIC_GENERATOR", "INSTANT_FEEDBACK"]
+    },
+    "qaRules": {
+      "role": "NAMESPACED_GEOGEBRA_QA",
+      "mustNotBlockUnrequestedOutputs": true,
+      "checks": [
+        "MATH_CORRECT",
+        "CONSTRAINT_PRESERVED",
+        "DEGENERATE_STATE_SAFE",
+        "ORIENTATION_SAFE",
+        "SEMANTIC_COLOR_VALID",
+        "VISUAL_HIERARCHY_VALID",
+        "ANIMATION_MATHEMATICALLY_EXACT",
+        "STATE_RESETTABLE",
+        "NO_DEAD_CONSTRUCTION_BRANCH",
+        "NO_UNREACHABLE_STATE",
+        "DISPLAY_LABEL_SAFE",
+        "ACCESSIBILITY_NOT_COLOR_ONLY"
+      ]
+    }
+  },
+  "retrievalBoundary": {
+    "contentRetrieval": "CANONICAL_MATH_AND_CURRICULUM_CONTENT",
+    "capabilityRetrieval": "GEOGEBRA_PATTERN_VISUAL_PEDAGOGY_QA_REGISTRY",
+    "order": ["CONTENT_RETRIEVAL", "INTENT_PLANNING", "CAPABILITY_RETRIEVAL"],
+    "retrievalPollutionForbidden": true
+  },
+  "runtimeBoundary": {
+    "initialStandaloneInput": "TEACHER_REQUEST_WITH_VERIFIED_CORPUS_EVIDENCE",
+    "corpusEvidenceRequiredForGoldenCase": true,
+    "semanticInput": "CANONICAL_MATH_OR_DOCUMENT_IR_ONLY_AFTER_ADAPTER_INTEGRATION",
+    "plannerOutput": "GEOGEBRA_CONSTRUCTION_IR",
+    "compilerOutput": ["GGB", "INTERACTIVE_HTML"],
+    "deploymentOrder": [
+      "TEACHER_REQUEST_WITH_VERIFIED_CORPUS_EVIDENCE",
+      "CORPUS_BACKED_CAPABILITY",
+      "GEOGEBRA_CONSTRUCTION_IR",
+      "GEOGEBRA_RUNTIME_COMPILER",
+      "REAL_GGB_EXPORT_REOPEN",
+      "GEOGEBRA_SPECIFIC_QA",
+      "HUMAN_ACCEPTANCE",
+      "STANDALONE_USABLE",
+      "MST_MATH_ADAPTER_CONTRACT_INTEGRATION"
+    ],
+    "staticRendererImageOutputForbidden": true,
+    "staticRenderersMustNotRequireGeoGebraRuntime": true,
+    "externalCorpusPolicy": "PARSE_NORMALIZE_LEARN_PATTERN_REGENERATE_USING_WHITELISTED_GRAMMAR"
+  },
+  "corpusFidelityRules": {
+    "GEO-PATTERN-AUTHORITY-001": "A suitable corpus pattern is authoritative for construction and recorded semantics.",
+    "GEO-NO-IMPROVISATION-001": "When a suitable corpus pattern exists, do not replace it with a different construction unless there is explicit justification and human approval. When a golden case lacks its corpus artifact, status is BLOCKED \u2014 NEEDS CORPUS EVIDENCE.",
+    "GEO-CORPUS-FIDELITY-001": "Reproduce construction, dependency, interaction, helper visibility, visual semantics, viewport, and pedagogy.",
+    "GEO-VISUAL-AUTHORITY-001": "Corpus-backed visual semantics and viewport govern; mathematical equivalence alone does not permit substitution."
+  },
+  "promotionGates": [
+    "GEO-P1 Reference Match", "GEO-P2 Construction", "GEO-P3 Dependency", "GEO-P4 Helper Visibility", "GEO-P5 Interaction", "GEO-P6 Color/Fill", "GEO-P7 Line/Point Style", "GEO-P8 Labels", "GEO-P9 Viewport/Background", "GEO-P10 Pedagogy", "GEO-P11 Native GeoGebra Compatibility"
+  ],
+  "missingCorpusArtifactStatus": "BLOCKED \u2014 NEEDS CORPUS EVIDENCE",
+  "topicTaxonomy": {
+    "core": [
+      "GEOMETRY_2D",
+      "GEOMETRY_3D",
+      "TRIGONOMETRY",
+      "PROBABILITY_STATISTICS",
+      "OXY_COORDINATE_GEOMETRY",
+      "OXYZ_COORDINATE_GEOMETRY",
+      "CONIC_SECTIONS",
+      "TRANSFORMATIONS",
+      "FOLD_UNFOLD_NETS",
+      "FUNCTION_GRAPHING",
+      "INEQUALITIES",
+      "OPTIMIZATION",
+      "TECHNICAL_DRAWING_PERSPECTIVE"
+    ],
+    "knttSpecialized": {
+      "grade10": [
+        "THREE_VARIABLE_LINEAR_SYSTEMS",
+        "MATHEMATICAL_INDUCTION_AND_BINOMIAL_THEOREM",
+        "CONIC_SECTIONS_AND_APPLICATIONS"
+      ],
+      "grade11": [
+        "PLANE_TRANSFORMATIONS",
+        "GRAPH_THEORY",
+        "TECHNICAL_DRAWING_ELEMENTS"
+      ],
+      "grade12": [
+        "DISCRETE_RANDOM_VARIABLES_AND_CHARACTERISTICS",
+        "OPTIMIZATION_LINEAR_PROGRAMMING_AND_CALCULUS",
+        "FINANCIAL_MATHEMATICS"
+      ]
+    }
+  },
+  "demoRollout": {
+    "featureFlagRequired": true,
+    "databaseMigrationRequired": false,
+    "registryStorage": "VERSIONED_JSON_OR_YAML_IN_GIT",
+    "representativeGoldenTestsRequiredBeforePromotion": true,
+    "promotionTarget": "SUCCESSOR_VERSION_ONLY",
+    "doNotModifyLockedCanonicalRegistries": true
+  }
+}
