@@ -24,7 +24,7 @@ function runSemanticPdf(file: string): PdfSemanticOutput {
   const suffix = process.env.MST_MATH_INPUT_PDF_CHECKPOINT_SUFFIX || "full";
   const checkpoint = join(checkpointDir, `${createHash("sha256").update(readFileSync(file)).digest("hex")}-${suffix}.json`);
   const baseEnv = { ...process.env, PYTHONPATH: process.env.MST_MATH_INPUT_PADDLE_PACKAGES || join(process.cwd(), ".paddle-v4-packages"), MST_MATH_INPUT_PDF_CHECKPOINT: checkpoint };
-  const chunkPages = Number(process.env.MST_MATH_INPUT_PDF_CHUNK_PAGES || 0);
+  const chunkPages = Number(process.env.MST_MATH_INPUT_PDF_CHUNK_PAGES || 1);
   const start = Number(process.env.MST_MATH_INPUT_PDF_START || 1);
   const end = Number(process.env.MST_MATH_INPUT_PDF_END || 0);
   const run = (env: NodeJS.ProcessEnv) => JSON.parse(execFileSync(python, [join(process.cwd(), "scripts", "local-semantic-pdf.py"), file], { encoding: "utf8", windowsHide: true, timeout: Number(process.env.MST_MATH_INPUT_OCR_TIMEOUT_MS || 900000), killSignal: "SIGTERM", env, maxBuffer: 64 * 1024 * 1024 })) as PdfSemanticOutput;
