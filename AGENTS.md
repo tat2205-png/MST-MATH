@@ -1,3 +1,74 @@
+# ============================================================
+# MST-MATH CURRENT OPERATING OVERRIDE
+# AUTHORITY: HIGHEST FOR CURRENT DEVELOPMENT
+# ============================================================
+
+## PRIMARY OBJECTIVE
+
+MAKE CURRENT MST-MATH WORK — NO IMPROVEMENT YET.
+
+The current goal is to make the existing MST-MATH application operate correctly and reliably on the user's Windows PC. Do not expand product scope until a working baseline has been certified.
+
+## CURRENT EXECUTION MODEL
+
+ChatGPT Desktop is the PRIMARY EXECUTOR for the current MST-MATH working copy. It may inspect, diagnose, repair, run tests, build, run certification, and generate evidence. Codex or another model may be used only as a bounded independent reviewer or specialist when needed.
+
+Do not allow two agents to modify the same active branch concurrently.
+
+ONE ACTIVE EXECUTOR. ONE TASK. ONE BRANCH. ONE ACCEPTANCE GATE. ONE EVIDENCE SET.
+
+## NO-IMPROVEMENT FREEZE
+
+Until `WORKING_BASELINE=PASS`, do not add features, redesign architecture, rewrite DocumentIR/QuestionIR, replace canonical authorities, migrate storage, redesign UI, expand GeoGebra or MathType scope, replace OCR/input architecture, weaken fail-closed behavior, perform unrelated refactors, upgrade dependencies without a demonstrated blocker, or add a new AI provider to production.
+
+## REPAIR RULE
+
+For every defect: reproduce the failure; identify root cause and smallest affected surface; make the minimum safe repair; add or preserve regression coverage; run targeted, integration/static/build/regression and real-golden validation when applicable; record evidence honestly.
+
+Never convert FAIL into PASS by weakening assertions, QA, math verification, provenance, or fail-closed policy.
+
+## AUTHORITY ORDER
+
+When instructions conflict: (1) explicit current user instruction; (2) locked/canonical MST-MATH architecture and contracts; (3) deterministic verification and QA authorities; (4) Human Authority for mathematical, pedagogical, and visual acceptance; (5) project rules; (6) agent suggestions; (7) generic guidance.
+
+AI output is proposal/review evidence, not mathematical truth. A generated DOCX/PDF is not the canonical semantic source. Input format is not the content model, and output profile is not the output format.
+
+## INPUT POLICY
+
+The existing input architecture is locked:
+
+`SOURCE → SOURCE ADAPTER → DOCUMENT IR → SEMANTIC / DOMAIN IR → APPLICATION PIPELINE → CANONICAL DOMAIN IR → OUTPUT PROFILE → QA → RENDERER → FINAL ARTIFACT`
+
+Do not create an Input→Output semantic bypass. Unsupported, ambiguous, or conflicting evidence must fail closed as `REVIEW_REQUIRED`, `UNSUPPORTED`, or `ERROR` as appropriate. Do not infer mathematical relations from visual appearance alone.
+
+## MATH QA AND HUMAN REVIEW
+
+Math QA is an authority, not a cosmetic test. Do not bypass it, weaken it, fabricate verification evidence, or automatically approve AI-generated mathematical conclusions. Fix production wiring defects at the wiring/contract boundary.
+
+Do not interrupt the user for TypeScript, build, CI, runtime configuration, OCR, branch-reconciliation, or ordinary production-wiring defects; resolve them technically first. Request Human Review only when machine gates are ready and judgment is genuinely required for mathematical meaning, pedagogy, visual/document acceptance, ambiguous source interpretation, unsupported mathematical evidence, or product-owner decisions.
+
+## MATT POCOCK SKILLS
+
+Matt Pocock Skills are the standard debugging/review toolkit when relevant, including `diagnosing-bugs`, `tdd`, `code-review`, `resolving-merge-conflicts`, `handoff`, `to-spec`, and `implement`. These are tools, not architecture authority; they must not redesign MST-MATH or expand scope during the no-improvement freeze.
+
+## WINDOWS AUTHORITY
+
+The active production/development platform is Windows PC. Use native PowerShell/pwsh. Do not reintroduce Mac as a required certification surface for the current baseline.
+
+## GIT SAFETY
+
+Do not force-push, reset the working tree, clean untracked files, discard user work, delete branches as part of repair, or blindly merge divergent histories. Before substantial repair record branch, HEAD, and git status. Do not commit or push unless the user explicitly authorizes it.
+
+## RELEASE / CERTIFICATION RULE
+
+Required progression is: targeted test → contract/integration test → static/type checks → build → regression → real golden/artifact validation → evidence review → independent review for production-critical changes → Human Review only where required → exact-SHA baseline.
+
+Use only `PASS`, `FAIL`, `BLOCKED`, `NOT_TESTED`, and `REVIEW_REQUIRED`. Never claim PASS without evidence.
+
+# ============================================================
+# END MST-MATH CURRENT OPERATING OVERRIDE
+# ============================================================
+
 # AGENTS.md - Your Workspace
 
 This folder is home. Treat it that way.
