@@ -1,0 +1,80 @@
+name: Math Notation Assurance
+
+on:
+  pull_request:
+    paths:
+      - "registry/pimath-dna-math-notation-v1.0.json"
+      - "src/modules/math-notation/**"
+      - "src/modules/document-engine/latex/serializer.ts"
+      - "src/modules/document-export/docx/omml.ts"
+      - "src/components/MathView.tsx"
+      - "src/utils/pronunciation.ts"
+      - "manim_toolkit/math_notation.py"
+      - "manim_toolkit/latex_utils.py"
+      - "tests/test-math-notation-*.ts"
+      - "tests/test_math_notation_python*.py"
+      - "package.json"
+      - ".github/workflows/math-notation-assurance.yml"
+  push:
+    branches: [main]
+    paths:
+      - "registry/pimath-dna-math-notation-v1.0.json"
+      - "src/modules/math-notation/**"
+      - "src/modules/document-engine/latex/serializer.ts"
+      - "src/modules/document-export/docx/omml.ts"
+      - "src/components/MathView.tsx"
+      - "src/utils/pronunciation.ts"
+      - "manim_toolkit/math_notation.py"
+      - "tests/test-math-notation-*.ts"
+      - "tests/test_math_notation_python*.py"
+      - "package.json"
+
+permissions:
+  contents: read
+
+jobs:
+  typescript-notation-assurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript contract check
+        run: npm run lint
+
+      - name: Architecture boundary check
+        run: npm run arch:check
+
+      - name: Production build
+        run: npm run build
+
+      - name: Math Notation token + Document/TTS QA
+        run: npm run qa:math-notation
+
+      - name: HTML + DOCX cross-output QA
+        run: node --import tsx tests/test-math-notation-cross-output-v1.ts
+
+  python-registry-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python shared-registry parity
+        run: python tests/test_math_notation_python_standalone.py

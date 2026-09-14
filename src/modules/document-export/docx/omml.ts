@@ -1,13 +1,16 @@
 import { NA_MATH_STANDARD_V2_6 } from "../../../config/naMathStandardV26.js";
 import type { MathNode } from "../../document-engine/document-ir.js";
+import { prepareMstMathNotation } from "../../math-notation/authority.js";
 import { DocxRenderError } from "./types.js";
 import { escapeXml } from "./xml.js";
 
 type Token = { kind: "command" | "char" | "open" | "close" | "openBracket" | "closeBracket" | "sup" | "sub"; value: string };
 const entities: Record<string, string> = {
-  perp: "&#x22A5;", parallel: "&#x2225;", in: "&#x2208;", notin: "&#x2209;", subset: "&#x2282;", subseteq: "&#x2286;",
-  cap: "&#x2229;", cup: "&#x222A;", Rightarrow: "&#x21D2;", Leftrightarrow: "&#x21D4;", ne: "&#x2260;", le: "&#x2264;", ge: "&#x2265;",
-  infty: "&#x221E;", Omega: "&#x03A9;", sum: "&#x2211;", int: "&#x222B;", to: "&#x2192;", circ: "&#x00B0;", cdot: "&#x22C5;", mid: "&#x2223;",
+  perp: "&#x27C2;", parallel: "&#x2225;", in: "&#x2208;", notin: "&#x2209;", subset: "&#x2282;", subseteq: "&#x2286;", subsetneq: "&#x228A;",
+  cap: "&#x2229;", cup: "&#x222A;", Rightarrow: "&#x21D2;", Leftrightarrow: "&#x21D4;", forall: "&#x2200;", exists: "&#x2203;",
+  ne: "&#x2260;", neq: "&#x2260;", le: "&#x2264;", leq: "&#x2264;", ge: "&#x2265;", geq: "&#x2265;", approx: "&#x2248;", equiv: "&#x2261;",
+  pm: "&#x00B1;", angle: "&#x2220;", infty: "&#x221E;", Omega: "&#x03A9;", sum: "&#x2211;", prod: "&#x220F;", int: "&#x222B;",
+  to: "&#x2192;", circ: "&#x00B0;", cdot: "&#x22C5;", mid: "&#x2223;",
 };
 
 function tokenize(source: string): Token[] {
@@ -58,7 +61,7 @@ class OmmlParser {
       const value = this.group();
       if (kind === "sub") sub = value; else sup = value;
     }
-    if (sub && sup) return `<m:sSubSup><m:e>${base}</m:e><m:sub>${sub}</m:sub><m:sup>${sup}</m:sup></m:sSubSup>`;
+    if (sub && sup) return `<m:sSubSup><m:e>${base}</m:e><m:sub>${sub}</m:sub><m:sup>${sup}</m:sSubSup>`;
     if (sub) return `<m:sSub><m:e>${base}</m:e><m:sub>${sub}</m:sub></m:sSub>`;
     if (sup) return `<m:sSup><m:e>${base}</m:e><m:sup>${sup}</m:sup></m:sSup>`;
     return base;
@@ -72,7 +75,7 @@ class OmmlParser {
     if (token.kind === "close" || token.kind === "closeBracket") throw new DocxRenderError("OMML_GROUP_UNEXPECTED_CLOSE", "Unexpected canonical math group close.");
     if (token.kind === "char") return run(token.value);
     if (token.kind !== "command") return "";
-    if (token.value === "," || token.value === ";" || token.value === " " || token.value === "!") return run(" ");
+    if ([",", ";", " ", "!", "quad", "qquad"].includes(token.value)) return run(" ");
     if (token.value === "{" || token.value === "}") return run(token.value);
     if (token.value === "frac") return `<m:f><m:num>${this.group()}</m:num><m:den>${this.group()}</m:den></m:f>`;
     if (token.value === "sqrt") {
@@ -93,10 +96,27 @@ class OmmlParser {
   }
 }
 
-export function serializeMathNodeToOmml(node: MathNode): string {
+export function serializeMathNodeToOmml(node: MathNode, options: { notationProfileId?: string } = {}): string {
   const source = node.normalized ?? node.latex ?? (node.sourceType === "LATEX" ? node.sourceRaw : undefined);
   if (!source) throw new DocxRenderError("MATH_SOURCE_UNRESOLVED", `Math source is unresolved at ${node.sourceLocation}.`);
-  const validation = NA_MATH_STANDARD_V2_6.validateMathSource(source);
-  if (validation.status !== "PASS") throw new DocxRenderError(validation.status, validation.reasons.join("; "));
-  return `<m:oMath><m:oMathPr><m:ctrlPr><w:rPr><w:rFonts w:ascii="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}" w:hAnsi="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></w:rPr></m:ctrlPr></m:oMathPr>${new OmmlParser(tokenize(source)).parse()}</m:oMath>`;
+
+  const prepared = prepareMstMathNotation(source, {
+    profileId: options.notationProfileId,
+    output: "DOCX",
+  });
+  if (prepared.status === "FAIL" || !prepared.canonicalLatex) {
+    const issue = prepared.issues[0];
+    throw new DocxRenderError(issue?.code ?? "MATH_NOTATION_RENDER_FAILURE", issue?.message ?? "DOCX notation preparation failed.");
+  }
+
+  // The locked V2.6 validator owns the predecessor whitelist. A successor may introduce
+  // additional registry-authorized control words without mutating that locked whitelist.
+  // Preserve all legacy blocking reasons except UNKNOWN_CANONICAL_SYMBOL; the OMML parser
+  // below remains fail-closed and rejects every command it cannot serialize explicitly.
+  const legacyValidation = NA_MATH_STANDARD_V2_6.validateMathSource(prepared.canonicalLatex);
+  const legacyBlockingReasons = legacyValidation.reasons.filter((reason) => !reason.startsWith("UNKNOWN_CANONICAL_SYMBOL:"));
+  if (legacyBlockingReasons.length) throw new DocxRenderError("BLOCK_RENDER", legacyBlockingReasons.join("; "));
+
+  const ommlBody = new OmmlParser(tokenize(prepared.canonicalLatex)).parse();
+  return `<m:oMath><m:oMathPr><m:ctrlPr><w:rPr><w:rFonts w:ascii="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}" w:hAnsi="${escapeXml(NA_MATH_STANDARD_V2_6.typography.math)}"/></w:rPr></m:ctrlPr></m:oMathPr>${ommlBody}</m:oMath>`;
 }

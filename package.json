@@ -14,10 +14,11 @@
     "qa:full": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode Full",
     "qa:repair": "pwsh -ExecutionPolicy Bypass -File .\\scripts\\dev-loop.ps1 -Mode RepairSmoke",
     "qa:math": "npx tsx tests/math-regression.ts",
+    "qa:math-notation": "node --import tsx tests/test-math-notation-v1.ts && node --import tsx tests/test-math-notation-integration-v1.ts",
     "python:sync": "uv sync --group test",
     "qa:python-runtime": "uv run --group test python scripts/doctor_python_runtime.py",
     "qa:python-math": "uv run --group test python -m pytest tests/test_python_math_stack.py -q",
-    "qa:manim": "uv run --group test python -m pytest tests/test_manim_toolkit.py tests/test_manim_toolkit_golden_scene.py tests/test_manim_toolkit_hardening.py tests/test_manim_toolkit_phase2b_baseline.py -q",
+    "qa:manim": "uv run --group test python -m pytest tests/test_math_notation_python.py tests/test_manim_toolkit.py tests/test_manim_toolkit_golden_scene.py tests/test_manim_toolkit_hardening.py tests/test_manim_toolkit_phase2b_baseline.py -q",
     "qa:na-math-v2.6": "node --import tsx tests/test-na-math-v2.6.ts",
     "qa:docx:1a": "node --import tsx tests/test-docx-1a.ts",
     "qa:docx:1b": "node --import tsx tests/test-docx-1b.ts",
@@ -69,7 +70,7 @@
     "ia:self-build": "tsx image-animation/automation/scripts/self-build.ts",
     "ia:auto": "tsx image-animation/automation/scripts/auto.ts",
     "ia:test-repair": "tsx image-animation/tests/repair-loop.test.ts",
-    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:regression",
+    "qa:ci": "npm run arch:check && npm run lint && npm run build && npm run qa:math-notation && npm run qa:regression",
     "qa:visual-pedagogy": "node --import tsx tests/test-visual-pedagogy-convergence.ts"
   },
   "dependencies": {
