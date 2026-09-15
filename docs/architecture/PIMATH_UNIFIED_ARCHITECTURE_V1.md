@@ -5,6 +5,7 @@
 - Umbrella: PiMath / MATH AI
 - Application: Math AI Studio
 - Standards layer: NA-MATH
+- Mathematical visual governance: `docs/architecture/MST_MATH_UNIFIED_MATHEMATICAL_VISUAL_STANDARD_V1.md`
 
 ## Canonical pipeline
 
@@ -38,6 +39,8 @@ IMAGE / WORD / PDF
 - Mathematical semantics precede rendering.
 - Geometry Engine precedes GeoGebra / Three.js / Manim render adapters.
 - Visual Pedagogy validates and plans; it does not create a competing design system.
+- Unified mathematical visual governance is additive and must preserve MATH_IR / GEOMETRY_ENGINE authority boundaries.
+- MathType-compatible notation and the MST GeoGebra Publication Profile are presentation grammars, not mathematical-semantic authorities.
 - Locked NA-MATH standards remain immutable.
 - Existing version axes must not be collapsed.
 
