@@ -53,7 +53,13 @@
           "statement": { "type": "string", "minLength": 1 },
           "status": { "enum": ["KNOWN", "HYPOTHESIZED"] },
           "evidenceRefs": { "$ref": "#/$defs/strings" }
-        }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "status": { "const": "KNOWN" } }, "required": ["status"] },
+            "then": { "properties": { "evidenceRefs": { "minItems": 1 } } }
+          }
+        ]
       }
     },
     "evidenceOfLearning": { "$ref": "#/$defs/nonEmptyStrings" },

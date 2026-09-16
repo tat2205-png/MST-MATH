@@ -36,6 +36,7 @@ export function routeParse({ nativeGate, evidenceConflict = false, recoverable =
 /**
  * Reconciliation is intentionally conservative. Recovery evidence is
  * candidate-only; disagreement can never be resolved by majority vote.
+ * CONFLICT/AMBIGUOUS has precedence over any native PASS assertion.
  */
 export function reconcileParse({ nativeGate, recoveryStatus, sameSemanticValue }) {
   if (!GATE_STATES.includes(nativeGate)) throw new Error(`Unknown gate state: ${nativeGate}`);
@@ -43,9 +44,9 @@ export function reconcileParse({ nativeGate, recoveryStatus, sameSemanticValue }
     throw new Error(`Unknown recovery status: ${recoveryStatus}`);
   }
 
-  if (nativeGate === 'PASS' && sameSemanticValue === true) return 'KEEP_NATIVE';
   if (recoveryStatus === 'CONFLICT' || recoveryStatus === 'AMBIGUOUS') return 'REVIEW_REQUIRED';
   if (sameSemanticValue === false) return 'REVIEW_REQUIRED';
+  if (nativeGate === 'PASS' && sameSemanticValue === true) return 'KEEP_NATIVE';
   if (['EXACT', 'VALIDATED', 'RECOVERED'].includes(recoveryStatus) && nativeGate !== 'PASS') {
     return 'VALIDATE_BEFORE_CANONICALIZATION';
   }

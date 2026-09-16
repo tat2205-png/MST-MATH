@@ -38,8 +38,19 @@ assert.equal(
   'parser disagreement must never be majority-voted into canonical truth',
 );
 
+assert.equal(
+  reconcileParse({ nativeGate: 'PASS', recoveryStatus: 'CONFLICT', sameSemanticValue: true }),
+  'REVIEW_REQUIRED',
+  'CONFLICT evidence state must take precedence over an inconsistent same-value assertion',
+);
+
 const forbiddenConfidence = { ...conflict, confidence: 0.99 };
 assert.equal(validateParseCandidate(forbiddenConfidence).ok, false, 'uncalibrated confidence must be rejected in V1');
+
+const knownWithoutEvidence = structuredClone(pedagogy);
+knownWithoutEvidence.misconceptions[0].status = 'KNOWN';
+knownWithoutEvidence.misconceptions[0].evidenceRefs = [];
+assert.equal(validatePedagogySpec(knownWithoutEvidence).ok, false, 'KNOWN misconception must carry evidence');
 
 const generation = {
   schemaVersion: 'generation-record.v1-exp',
@@ -52,5 +63,10 @@ const generation = {
   teacherDecision: 'REVIEW_REQUIRED',
 };
 assert.equal(validateGenerationRecord(generation).ok, true, 'generation genealogy must be representable before any generator exists');
+assert.equal(
+  validateGenerationRecord({ ...generation, transformation: 'UNCONTROLLED_FREEFORM' }).ok,
+  false,
+  'unknown transformation must fail closed',
+);
 
 console.log('MST Pedagogy Lab contract smoke: PASS');
