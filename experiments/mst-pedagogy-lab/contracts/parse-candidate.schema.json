@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mst-math.local/contracts/parse-candidate.schema.json",
+  "title": "MST ParseCandidate V1 Experimental",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "authority", "engine", "source", "status", "candidate", "evidenceRefs", "warnings"],
+  "properties": {
+    "schemaVersion": { "const": "parse-candidate.v1-exp" },
+    "authority": { "const": "CANDIDATE_ONLY" },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "adapterVersion"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "adapterVersion": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifactId"],
+      "properties": {
+        "artifactId": { "type": "string", "minLength": 1 },
+        "page": { "type": "integer", "minimum": 1 },
+        "bbox": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "type": "number" }
+        }
+      }
+    },
+    "status": { "enum": ["EXACT", "VALIDATED", "RECOVERED", "AMBIGUOUS", "CONFLICT"] },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "data"],
+      "properties": {
+        "type": { "enum": ["TEXT", "MATH", "FIGURE", "TABLE"] },
+        "data": {}
+      }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

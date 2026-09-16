@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mst-math.local/contracts/pedagogy-spec.schema.json",
+  "title": "MST PedagogySpec V1 Experimental",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "questionId",
+    "curriculum",
+    "learningObjectives",
+    "mathematicalConcepts",
+    "prerequisites",
+    "studentActions",
+    "reasoningDemands",
+    "representations",
+    "misconceptions",
+    "evidenceOfLearning",
+    "difficultyFactors",
+    "scaffoldingPolicy",
+    "answerExposurePolicy",
+    "provenance"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "pedagogy-spec.v1-exp" },
+    "questionId": { "type": "string", "minLength": 1 },
+    "curriculum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["program", "grade", "unit", "alignmentState"],
+      "properties": {
+        "program": { "const": "GDPT2018" },
+        "book": { "type": "string" },
+        "grade": { "type": "integer", "minimum": 10, "maximum": 12 },
+        "unit": { "type": "string", "minLength": 1 },
+        "alignmentState": { "enum": ["PASS", "FAIL", "BLOCKED", "NOT_TESTED", "REVIEW_REQUIRED"] }
+      }
+    },
+    "learningObjectives": { "$ref": "#/$defs/nonEmptyStrings" },
+    "mathematicalConcepts": { "$ref": "#/$defs/nonEmptyStrings" },
+    "prerequisites": { "$ref": "#/$defs/strings" },
+    "studentActions": { "$ref": "#/$defs/nonEmptyStrings" },
+    "reasoningDemands": { "$ref": "#/$defs/nonEmptyStrings" },
+    "representations": { "$ref": "#/$defs/strings" },
+    "misconceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "status", "evidenceRefs"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "statement": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["KNOWN", "HYPOTHESIZED"] },
+          "evidenceRefs": { "$ref": "#/$defs/strings" }
+        }
+      }
+    },
+    "evidenceOfLearning": { "$ref": "#/$defs/nonEmptyStrings" },
+    "difficultyFactors": { "$ref": "#/$defs/strings" },
+    "scaffoldingPolicy": { "enum": ["NONE", "LIGHT", "STEPWISE", "ADAPTIVE"] },
+    "answerExposurePolicy": { "enum": ["NO_ANSWER_LEAK", "SCAFFOLDED", "EXPLANATORY", "FULL_SOLUTION"] },
+    "bloom": { "enum": ["REMEMBER", "UNDERSTAND", "APPLY", "ANALYZE", "EVALUATE", "CREATE"] },
+    "dok": { "type": "integer", "minimum": 1, "maximum": 4 },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceQuestionId", "analyzerId", "analyzerVersion", "evidenceRefs"],
+      "properties": {
+        "sourceQuestionId": { "type": "string", "minLength": 1 },
+        "analyzerId": { "type": "string", "minLength": 1 },
+        "analyzerVersion": { "type": "string", "minLength": 1 },
+        "evidenceRefs": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    }
+  },
+  "$defs": {
+    "strings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "pedagogy-spec.v1-exp",
+  "questionId": "Q-DEMO-001",
+  "curriculum": {
+    "program": "GDPT2018",
+    "book": "KNTT",
+    "grade": 11,
+    "unit": "demo-unit",
+    "alignmentState": "REVIEW_REQUIRED"
+  },
+  "learningObjectives": ["justify a mathematical constraint"],
+  "mathematicalConcepts": ["function optimization"],
+  "prerequisites": ["domain of a function"],
+  "studentActions": ["construct_model", "justify_constraint"],
+  "reasoningDemands": ["multi_step", "constraint_reasoning"],
+  "representations": ["symbolic"],
+  "misconceptions": [
+    {
+      "id": "M-DEMO-001",
+      "statement": "A plausible but unverified misconception used only as a lab example.",
+      "status": "HYPOTHESIZED",
+      "evidenceRefs": []
+    }
+  ],
+  "evidenceOfLearning": ["student explains why the domain restriction is necessary"],
+  "difficultyFactors": ["implicit_constraint"],
+  "scaffoldingPolicy": "LIGHT",
+  "answerExposurePolicy": "NO_ANSWER_LEAK",
+  "bloom": "ANALYZE",
+  "dok": 3,
+  "provenance": {
+    "sourceQuestionId": "Q-DEMO-001",
+    "analyzerId": "mst-pedagogy-lab",
+    "analyzerVersion": "0.1.0-exp",
+    "evidenceRefs": ["fixture://Q-DEMO-001"]
+  }
+}

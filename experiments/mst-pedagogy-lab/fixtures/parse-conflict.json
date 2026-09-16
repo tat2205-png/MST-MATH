@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "parse-candidate.v1-exp",
+  "authority": "CANDIDATE_ONLY",
+  "engine": {
+    "name": "demo-recovery-adapter",
+    "version": "0.0.0",
+    "adapterVersion": "0.1.0-exp"
+  },
+  "source": {
+    "artifactId": "fixture://math-page",
+    "page": 1,
+    "bbox": [10, 20, 100, 50]
+  },
+  "status": "CONFLICT",
+  "candidate": {
+    "type": "MATH",
+    "data": "sqrt(x^2)+1"
+  },
+  "evidenceRefs": ["fixture://math-page#region-1"],
+  "warnings": ["Conflicts with native semantic value sqrt(x^2+1)."]
+}
