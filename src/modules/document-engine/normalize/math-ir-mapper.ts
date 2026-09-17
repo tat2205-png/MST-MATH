@@ -21,6 +21,23 @@ function tableData(table: Extract<DocxBlockNode, { type: "table" }>): unknown {
   return table.rows.map((row) => row.cells.map((cell) => cell.blocks.map((block) => block.type === "paragraph" ? { text: paragraphText(block), fragments: inlineFragments(block.children) } : { unsupported: block.type })));
 }
 
+function legacyObjectIssues(ast: DocxAst): DocumentEngineIssue[] {
+  const result: DocumentEngineIssue[] = [];
+  const visit = (blocks: DocxBlockNode[]) => blocks.forEach((block) => {
+    if (block.type === "paragraph") block.children.forEach((child) => {
+      if (child.type !== "legacy_object") return;
+      if (child.reason === "EMBEDDED_OBJECT_UNSUPPORTED") {
+        result.push({ code: "UNSUPPORTED_EMBEDDED_OBJECT", severity: "warning", path: child.sourcePath, message: "Embedded OLE object is not supported by the MathIR mapper." });
+        return;
+      }
+      result.push({ code: "LEGACY_MATHTYPE_NEEDS_FALLBACK", severity: "warning", path: child.sourcePath, message: "Legacy MathType/OLE object requires semantic decoding before MathIR conversion." });
+    });
+    else if (block.type === "table") block.rows.forEach((row) => row.cells.forEach((cell) => visit(cell.blocks)));
+  });
+  visit(ast.blocks);
+  return result;
+}
+
 function reportFor(ast: DocxAst, status: "PASS" | "PARTIAL" | "FAIL", issues: DocumentEngineIssue[]): DocumentConversionReport {
   return {
     status,
@@ -80,7 +97,7 @@ function paragraphBlocks(paragraph: DocxParagraphNode, blockCounter: { value: nu
 }
 
 export function docxAstToMathIR(ast: DocxAst): DocxToMathIRResult {
-  const issues = [...ast.issues];
+  const issues = [...ast.issues, ...legacyObjectIssues(ast)];
   const expressions = collectExpressions(ast);
   const sections: MathDocument["sections"] = [{ id: "section-1", blocks: [], metadata: metadata("word/document.xml:section:0", { sectionIndex: 0 }) }];
   const assets: NonNullable<MathDocument["assets"]> = ast.assets.map((asset) => ({ id: asset.id, kind: "image", uri: asset.packagePath, mimeType: asset.mediaType, metadata: metadata(`relationship:${asset.relationshipId}`, { relationshipId: asset.relationshipId, filename: asset.filename, widthEmu: asset.widthEmu, heightEmu: asset.heightEmu }) }));
