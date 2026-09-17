@@ -58,10 +58,20 @@ const broken = parseDocx(DOCX_FIXTURES.broken);
 assert.equal(broken.status, "FAIL");
 assert.ok(broken.report.errors.some((issue) => issue.code === "INVALID_DOCX_ARCHIVE"));
 
+const parsedLegacy = parseDocx(DOCX_FIXTURES.legacyMathType);
+assert.equal(parsedLegacy.status, "PASS");
+const parsedLegacyParagraph = parsedLegacy.ast?.blocks.find((block) => block.type === "paragraph");
+assert.ok(parsedLegacyParagraph?.type === "paragraph");
+const parsedLegacyObject = parsedLegacyParagraph.children.find((child) => child.type === "legacy_object");
+assert.ok(parsedLegacyObject?.type === "legacy_object");
+assert.equal(parsedLegacyObject.relationshipId, "rIdOle1");
+assert.equal(parsedLegacyObject.reason, "LEGACY_MATHTYPE_REQUIRES_SEMANTIC_DECODE");
+assert.equal(parsedLegacy.report.unsupported.length, 0);
+
 const legacy = convertDocxToLatex(DOCX_FIXTURES.legacyMathType, documentProfile);
 assert.equal(legacy.status, "PARTIAL");
 assert.ok(legacy.report.unsupported.some((issue) => issue.code === "LEGACY_MATHTYPE_NEEDS_FALLBACK"));
-assert.match(legacy.latex!, /LEGACY\\_MATHTYPE\\_UNSUPPORTED/);
+assert.match(legacy.latex!, /LEGACY\\_MATHTYPE\\_REQUIRES\\_SEMANTIC\\_DECODE/);
 
 const structured = convertDocxToLatex(DOCX_FIXTURES.structured, documentProfile);
 assert.equal(structured.status, "PASS");

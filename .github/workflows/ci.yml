@@ -22,8 +22,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
+
+      - name: Install authoritative PDF runtime
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-xetex poppler-utils
 
       - run: npm ci
       - run: npm run release:static

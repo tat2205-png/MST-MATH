@@ -174,8 +174,7 @@ function parseInline(node: XmlNode, context: ParseContext, sourcePath: string): 
   if (name === "drawing" || name === "pict") return [extractImage(node, context, sourcePath)];
   if (name === "object") {
     const relationshipId = getAttribute(descendants(node, "OLEObject")[0] ?? node, "id");
-    context.issues.push({ code: "LEGACY_MATHTYPE_NEEDS_FALLBACK", severity: "warning", path: sourcePath, message: "Legacy MathType/OLE object was preserved but not decoded." });
-    return [{ type: "legacy_object", relationshipId, reason: "LEGACY_MATHTYPE_UNSUPPORTED", sourcePath }];
+    return [{ type: "legacy_object", relationshipId, reason: "LEGACY_MATHTYPE_REQUIRES_SEMANTIC_DECODE", sourcePath }];
   }
   if (name === "t" || name === "instrText") return [{ type: "text", text: textContent(node) }];
   if (name === "tab") return [{ type: "text", text: "\t" }];

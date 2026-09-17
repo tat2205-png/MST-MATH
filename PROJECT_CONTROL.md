@@ -1,8 +1,8 @@
-﻿# MATH AI STUDIO — PROJECT CONTROL
+# MST-MATH — PROJECT CONTROL
 
-> Single Source of Truth for Math AI Studio development.
+> Operational status file for the current repository. Development rules and authority are defined by the current operating override in `AGENTS.md`. Historical Math AI Studio release records below are retained as evidence only and must not be used to certify the current MST-MATH working baseline.
 
-Last updated: MANUAL
+Last updated: 2026-09-17
 
 ---
 
@@ -10,24 +10,43 @@ Last updated: MANUAL
 
 ## ▶ NOW
 
-MAS-INT-02 — Post-UX-01 final convergence complete
+MST-MATH — repair and certify the existing working baseline on Windows PC. No improvement or feature expansion.
 
 ## ⏭ NEXT
 
-E2E-TEACHER-01 — deferred
+Windows native certification: release gate, Local Render Bridge, current real input goldens, and artifact review on the exact repair SHA.
 
 ---
 
-# PROJECT STATUS
+# CURRENT MST-MATH STATUS
 
-| # | Module | Status | Progress | Current Task | Next |
+CURRENT_MODULE=MST_MATH_CORE
+CURRENT_TASK=WORKING_BASELINE_REPAIR
+TASK_STATUS=NOT_TESTED
+BRANCH=repair/mst-math-working-baseline-2026-09-17
+HEAD=SEE_NPM_RUN_PROJECT_STATUS
+QA=STATIC_RELEASE_CHECKS_PASS_ON_REPAIR_BRANCH_WINDOWS_CERTIFICATION_NOT_TESTED
+BLOCKERS=WINDOWS_NATIVE_RELEASE_GATE_AND_CURRENT_REAL_GOLDENS_NOT_TESTED
+WORKTREE=SEE_NPM_RUN_PROJECT_STATUS
+NEXT_TASK=WINDOWS_NATIVE_CERTIFICATION
+WORKING_BASELINE=NOT_TESTED
+
+Current certification authority is Windows PC. GitHub Actions static checks are necessary evidence but are not sufficient to set `WORKING_BASELINE=PASS`.
+
+---
+
+# HISTORICAL MATH AI STUDIO STATUS SNAPSHOT
+
+The section below is retained to preserve the published v1.3.1 history. Its `STABLE`, `COMPLETE`, and `BLOCKERS=NONE` statements describe that historical release/program state only; they are not current MST-MATH certification claims.
+
+| # | Module | Historical Status | Progress | Historical Task | Historical Next |
 |---|---|---|---:|---|---|
 | 01 | Math AI Studio Core | 🟢 STABLE | 100% | REL-02 complete | Release-candidate review |
 | 02 | Image Animation Engine | 🟢 STABLE | 90% | IA-7 Runtime | Segmentation Runtime |
 | 03 | NA Math Visual Engine | 🟡 ACTIVE | 60% | MV-0 | Dynamic Dependencies |
 | 04 | Fold / Unfold Engine | 🟡 ACTIVE | 72% | Pattern Authoring | Cut / Crease / Fold |
 | 05 | Question Bank | 🟢 STABLE | 100% | QB-3A acceptance | Program baseline frozen |
-| 06 | Document Engine | 🟡 ACTIVE | 60% | QB DOCX pipeline complete | PDF/image ingestion remains separately scoped |
+| 06 | Document Engine | 🟡 ACTIVE | 60% | QB DOCX pipeline complete | PDF/image ingestion separately scoped at that time |
 | 07 | NA Math Textbook Style | 🟡 ACTIVE | 65% | Renderer QA | Layout Stability |
 | 08 | Exam Generator | ⚪ PLANNED | 20% | Architecture | After Question Bank |
 | 09 | Classroom Game Engine | ⚪ PLANNED | 15% | Architecture | After Question Bank |
@@ -37,26 +56,28 @@ E2E-TEACHER-01 — deferred
 
 # STATUS LEGEND
 
-- 🟢 STABLE — completed and QA verified
-- 🟡 ACTIVE — currently being developed
-- 🔵 NEXT — next scheduled work
-- 🟠 BLOCKED — blocked by dependency/runtime
-- 🔴 FAIL — QA/runtime failure
-- ⚪ PLANNED — not started
+For current MST-MATH certification use only: `PASS`, `FAIL`, `BLOCKED`, `NOT_TESTED`, `REVIEW_REQUIRED`.
+
+Historical emoji states below are retained only for the old Math AI Studio snapshot:
+
+- 🟢 STABLE — completed and QA verified in the historical program
+- 🟡 ACTIVE — being developed in the historical program
+- 🔵 NEXT — next scheduled historical work
+- 🟠 BLOCKED — historical dependency/runtime blocker
+- 🔴 FAIL — historical QA/runtime failure
+- ⚪ PLANNED — historical not-started state
 
 ---
 
-# CURRENT RELEASE
+# HISTORICAL RELEASE v1.3.1
 
-CURRENT_MODULE=QUESTION_BANK
-CURRENT_TASK=MAS-INT-02
-TASK_STATUS=PROGRAM_COMPLETE
-BRANCH=integration/mas-post-ux01-final-convergence
-HEAD=SEE_NPM_RUN_PROJECT_STATUS
-QA=MAS_INT_02_ALL_MANDATORY_GATES_PASS
-BLOCKERS=NONE
-WORKTREE=SEE_NPM_RUN_PROJECT_STATUS
-NEXT_TASK=E2E-TEACHER-01_DEFERRED
+HISTORICAL_CURRENT_MODULE=QUESTION_BANK
+HISTORICAL_CURRENT_TASK=MAS-INT-02
+HISTORICAL_TASK_STATUS=PROGRAM_COMPLETE
+HISTORICAL_BRANCH=integration/mas-post-ux01-final-convergence
+HISTORICAL_QA=MAS_INT_02_ALL_MANDATORY_GATES_PASS
+HISTORICAL_BLOCKERS=NONE
+HISTORICAL_NEXT_TASK=E2E-TEACHER-01_DEFERRED
 
 QUESTION_BANK_PROGRAM=COMPLETE
 QUESTION_BANK_BASELINE=943186335bcc380994111cac6535aefd3ac9e2a9
@@ -83,12 +104,9 @@ MAINTENANCE_LINE=1.3.x
 MAIN_POLICY=RELEASE_STABLE
 MAINTENANCE_POLICY=HOTFIX_ONLY
 
-Release versions are authoritative through annotated Git tags. The npm package
-metadata is synchronized to the published final release version (`1.3.1`).
-The annotated `v1.3.1` tag and GitHub Release are immutable publication
-records. No new product features should be committed directly to `main`.
+Release versions are authoritative through annotated Git tags. The historical npm package metadata was synchronized to the published final release version (`1.3.1`). The annotated `v1.3.1` tag and GitHub Release remain immutable publication records.
 
-## REL-01 VERIFIED RELEASE EVIDENCE
+## HISTORICAL REL-01 VERIFIED RELEASE EVIDENCE
 
 - Architecture QA: PASS
 - TypeScript QA: PASS
@@ -103,15 +121,11 @@ records. No new product features should be committed directly to `main`.
 - Release Gate: PASS
 - Golden Path: PASS
 
-The Local Render Bridge is a mandatory release-QA prerequisite. Start it with
-`npm run bridge:start` and verify `http://127.0.0.1:8765/health` reports
-`READY` before running `npm run release:gate`.
+These are historical v1.3.1 results, not evidence for the current MST-MATH repair SHA.
 
-## QUESTION BANK PROGRAM
+## HISTORICAL QUESTION BANK PROGRAM
 
-QB-1A through QB-2D are complete. QB-3A final acceptance verifies the complete
-DOCX → Question Bank → Assessment → Game / Solution-Video / Export program.
-The executable acceptance map is recorded in `QB_3A_ACCEPTANCE.md`.
+QB-1A through QB-2D were complete. QB-3A final acceptance verified the historical DOCX → Question Bank → Assessment → Game / Solution-Video / Export program. The executable acceptance map is recorded in `QB_3A_ACCEPTANCE.md`.
 
 QUESTION_BANK_TASK=QB-3A
 QUESTION_BANK_STATUS=PROGRAM_COMPLETE
@@ -134,3 +148,4 @@ QUESTION_BANK_NEXT_TASK=NONE_QUESTION_BANK_PROGRAM_COMPLETE
 6. Branch and HEAD must be recorded after meaningful milestones.
 7. FAIL or BLOCKED states must never be hidden.
 8. Do not change roadmap priority without explicit approval.
+9. Current MST-MATH certification claims must follow `AGENTS.md`, use the restricted status vocabulary, and use Windows PC as the production authority.

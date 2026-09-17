@@ -40,7 +40,12 @@ export interface DocumentConversionReport {
 export interface DocxTextRunNode { type: "text"; text: string; }
 export interface DocxMathNode { type: "math"; expression: MathExpression; display: boolean; sourcePath: string; }
 export interface DocxImageNode { type: "image"; relationshipId: string; assetId?: string; widthEmu?: number; heightEmu?: number; sourcePath: string; }
-export interface DocxLegacyObjectNode { type: "legacy_object"; relationshipId?: string; reason: "LEGACY_MATHTYPE_UNSUPPORTED" | "EMBEDDED_OBJECT_UNSUPPORTED"; sourcePath: string; }
+export interface DocxLegacyObjectNode {
+  type: "legacy_object";
+  relationshipId?: string;
+  reason: "LEGACY_MATHTYPE_REQUIRES_SEMANTIC_DECODE" | "LEGACY_MATHTYPE_UNSUPPORTED" | "EMBEDDED_OBJECT_UNSUPPORTED";
+  sourcePath: string;
+}
 export interface DocxPageBreakNode { type: "page_break"; }
 export type DocxInlineNode = DocxTextRunNode | DocxMathNode | DocxImageNode | DocxLegacyObjectNode | DocxPageBreakNode;
 
